@@ -231,6 +231,7 @@ You now have:
 | Need | Go To |
 |------|-------|
 | Understand the pattern | [Core Framework](core/README.md) |
+| See available tools | [Current Solutions](extensions/technical/current-solutions.md) |
 | See examples | [Worked Examples](extensions/examples/) |
 | Deep-dive technical | [Technical Controls](extensions/technical/) |
 | Map to regulations | [Regulatory Extensions](extensions/regulatory/) |

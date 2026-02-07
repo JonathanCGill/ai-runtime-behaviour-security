@@ -93,6 +93,7 @@ Reference material for specific needs.
 |--------|----------|
 | [extensions/regulatory/](extensions/regulatory/) | ISO 42001, EU AI Act mapping |
 | [extensions/technical/](extensions/technical/) | Bypass prevention, infrastructure, metrics |
+| [extensions/technical/current-solutions.md](extensions/technical/current-solutions.md) | **Industry solutions reference** — guardrails, evaluators, safety models |
 | [extensions/templates/](extensions/templates/) | Incident playbooks, threat models |
 | [extensions/examples/](extensions/examples/) | Worked examples by use case |
 

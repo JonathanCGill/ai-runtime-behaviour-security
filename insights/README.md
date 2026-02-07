@@ -58,7 +58,7 @@ Reasoning models create a new problem: do you trust the thinking you can't see?
 
 **[When Agents Talk to Agents](when-agents-talk-to-agents.md)** (950 words)
 
-Multi-agent systems create accountability gaps your framework doesn't cover.
+Multi-agent systems create accountability gaps that require careful governance.
 
 **[The Memory Problem](the-memory-problem.md)** (1,000 words)
 

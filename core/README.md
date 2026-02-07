@@ -44,6 +44,8 @@ This isn't theoretical. Production implementations include:
 | AWS Bedrock Guardrails | Managed filtering |
 | Azure AI Content Safety | Content moderation |
 
+**→ For detailed solution comparison, see [Current Solutions](../extensions/technical/current-solutions.md)**
+
 What's been missing: clear guidance on *why* this pattern is necessary and *how* to implement it proportionate to risk.
 
 ---

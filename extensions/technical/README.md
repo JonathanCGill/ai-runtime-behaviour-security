@@ -2,6 +2,14 @@
 
 Deep dives on controls, infrastructure, and metrics.
 
+## Reference
+
+| Document | Description |
+|----------|-------------|
+| [current-solutions.md](current-solutions.md) | **Industry solutions implementing this pattern** — guardrails, evaluation frameworks, safety models |
+
+## Implementation Guidance
+
 | Document | Description |
 |----------|-------------|
 | [judge-model-selection.md](judge-model-selection.md) | Judge model selection principles |
@@ -12,6 +20,6 @@ Deep dives on controls, infrastructure, and metrics.
 | [03-llm-as-a-judge.md](03-llm-as-a-judge.md) | Detailed Judge implementation |
 | [operational-metrics.md](operational-metrics.md) | Comprehensive metrics catalogue |
 | [control-selection-guide.md](control-selection-guide.md) | Control selection methodology |
-| [novel-ai-risks.md](novel-ai-risks.md) | Emerging AI risk categories |
+| [ai-specific-risks.md](novel-ai-risks.md) | AI-specific risk categories |
 | [support-systems-risk.md](support-systems-risk.md) | Feeder system risk analysis |
 | [emerging-trends-impact.md](emerging-trends-impact.md) | Technology trend impact assessment |

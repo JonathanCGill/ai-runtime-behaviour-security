@@ -1,6 +1,6 @@
 # When Agents Talk to Agents
 
-*Multi-agent systems create accountability gaps your framework doesn't cover*
+*Multi-agent systems create accountability gaps that require careful governance*
 
 ---
 
