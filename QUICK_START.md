@@ -16,6 +16,8 @@ Traditional testing is necessary but insufficient. AI systems are non-determinis
 
 The industry is converging on three layers of control:
 
+![Quick Start Overview](images/quick-start-overview.svg)
+
 | Layer | What It Does | When | Tools |
 |-------|--------------|------|-------|
 | **Guardrails** | Block known-bad | Real-time | NeMo Guardrails, Guardrails AI, AWS Bedrock |

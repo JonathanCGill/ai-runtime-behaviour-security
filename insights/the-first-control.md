@@ -238,5 +238,5 @@ The controls, patterns, and examples that follow are for systems where AI genuin
 ## Related
 
 - [Why Guardrails Aren't Enough](./why-guardrails-arent-enough.md) — The limits of inline controls
-- [The Human in the Loop Isn't a Checkbox](./human-in-the-loop.md) — Review workflow realities
-- [Risk Classification](../core/risk-classification.md) — Determining appropriate control intensity
+- [Humans Remain Accountable](./humans-remain-accountable.md) — Review workflow realities
+- [Risk Tiers](../core/risk-tiers.md) — Determining appropriate control intensity

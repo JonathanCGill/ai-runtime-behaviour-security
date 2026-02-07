@@ -116,17 +116,23 @@ Articles explaining the thinking behind the pattern.
 ### Why This Pattern?
 | Article | Summary |
 |---------|---------|
+| [The First Control: Choosing the Right Tool](insights/the-first-control.md) | Design thinking before technology selection |
 | [Why Your AI Guardrails Aren't Enough](insights/why-guardrails-arent-enough.md) | Guardrails block known-bad; you need detection for unknown-bad |
 | [The Judge Detects. It Doesn't Decide.](insights/judge-detects-not-decides.md) | Async evaluation beats real-time blocking for nuance |
 | [Infrastructure Beats Instructions](insights/infrastructure-beats-instructions.md) | You can't secure systems with prompts alone |
+| [Risk Tier Is Use Case, Not Technology](insights/risk-tier-is-use-case.md) | Classification is about deployment, not capability |
 | [Humans Remain Accountable](insights/humans-remain-accountable.md) | AI assists decisions; humans own outcomes |
 
 ### Emerging Challenges
 | Article | Summary |
 |---------|---------|
+| [The Verification Gap](insights/the-verification-gap.md) | Why current safety approaches can't confirm ground truth |
+| [Behavioral Anomaly Detection](insights/behavioral-anomaly-detection.md) | Aggregating signals to detect drift from normal |
 | [Multimodal AI Breaks Your Text-Based Guardrails](insights/multimodal-breaks-guardrails.md) | Images, audio, video create new attack surfaces |
 | [When AI Thinks Before It Answers](insights/when-ai-thinks.md) | Reasoning models need reasoning-aware controls |
 | [When Agents Talk to Agents](insights/when-agents-talk-to-agents.md) | Multi-agent systems have accountability gaps |
+| [The Memory Problem](insights/the-memory-problem.md) | Long context and persistent memory risks |
+| [You Can't Validate What Hasn't Finished](insights/you-cant-validate-unfinished.md) | Real-time streaming AI challenges |
 
 ---
 
