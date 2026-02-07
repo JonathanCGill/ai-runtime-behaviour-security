@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 850" width="1200" height="850">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900">
   <style>
     .station-name { font: 9px Arial, sans-serif; fill: #1e293b; }
     .station-name-bold { font: bold 9px Arial, sans-serif; fill: #1e293b; }
@@ -11,7 +11,7 @@
   </style>
   
   <!-- Background -->
-  <rect width="1200" height="850" fill="#f5f5f0"/>
+  <rect width="1200" height="900" fill="#f5f5f0"/>
   
   <!-- Title -->
   <text x="600" y="40" text-anchor="middle" class="title">AI SECURITY REFERENCE ARCHITECTURE</text>
@@ -84,7 +84,7 @@
   <!-- ============================================ -->
   <!-- DEVELOPMENT LINE (Blue) - Lower section -->
   <!-- ============================================ -->
-  <path d="M 80 350 H 350 L 400 400 H 600 L 650 450 V 550" stroke="#3b82f6" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 80 350 H 350 L 400 400 H 600 L 650 450 V 500" stroke="#3b82f6" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
   
   <!-- Development stations -->
   <circle cx="80" cy="350" r="6" fill="#3b82f6"/>
@@ -171,48 +171,118 @@
   <text x="1120" y="505" class="station-name">Action</text>
   
   <!-- ============================================ -->
+  <!-- VERIFICATION LINE (Cyan) - NEW -->
+  <!-- ============================================ -->
+  <path d="M 650 550 L 650 620 H 400 L 350 670 H 150" stroke="#06b6d4" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Verification stations -->
+  <circle cx="650" cy="620" r="6" fill="#06b6d4"/>
+  <circle cx="650" cy="620" r="3" fill="#f5f5f0"/>
+  <text x="670" y="625" class="station-name">Token</text>
+  <text x="670" y="640" class="station-name">Detection</text>
+  
+  <circle cx="550" cy="620" r="6" fill="#06b6d4"/>
+  <circle cx="550" cy="620" r="3" fill="#f5f5f0"/>
+  <text x="550" y="605" text-anchor="middle" class="station-name">Self-</text>
+  <text x="550" y="640" text-anchor="middle" class="station-name">Consistency</text>
+  
+  <circle cx="450" cy="620" r="6" fill="#06b6d4"/>
+  <circle cx="450" cy="620" r="3" fill="#f5f5f0"/>
+  <text x="450" y="605" text-anchor="middle" class="station-name">Knowledge</text>
+  <text x="450" y="640" text-anchor="middle" class="station-name">Graph</text>
+  
+  <!-- Verification Gap - INTERCHANGE -->
+  <circle cx="350" cy="670" r="12" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
+  <circle cx="350" cy="670" r="6" fill="#1e293b"/>
+  <text x="350" y="655" text-anchor="middle" class="interchange-name">VERIFICATION</text>
+  
+  <circle cx="250" cy="670" r="6" fill="#06b6d4"/>
+  <circle cx="250" cy="670" r="3" fill="#f5f5f0"/>
+  <text x="250" y="655" text-anchor="middle" class="station-name">Formal</text>
+  <text x="250" y="690" text-anchor="middle" class="station-name">Verification</text>
+  
+  <circle cx="150" cy="670" r="6" fill="#06b6d4"/>
+  <circle cx="150" cy="670" r="3" fill="#f5f5f0"/>
+  <text x="150" y="655" text-anchor="middle" class="station-name">Ground Truth</text>
+  <text x="150" y="690" text-anchor="middle" class="station-name">Check</text>
+  
+  <!-- ============================================ -->
   <!-- AGENTIC LINE (Purple) - Branch from Runtime -->
   <!-- ============================================ -->
-  <path d="M 300 500 V 620 H 550 L 600 670 H 850 L 900 620 V 550" stroke="#8b5cf6" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 300 500 V 570 H 550 L 600 620 H 850 L 900 570 V 500" stroke="#8b5cf6" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
   
   <!-- Agentic stations -->
+  <circle cx="300" cy="540" r="6" fill="#8b5cf6"/>
+  <circle cx="300" cy="540" r="3" fill="#f5f5f0"/>
+  <text x="260" y="545" text-anchor="end" class="station-name">Plan Disclosure</text>
+  
   <circle cx="300" cy="570" r="6" fill="#8b5cf6"/>
   <circle cx="300" cy="570" r="3" fill="#f5f5f0"/>
-  <text x="260" y="575" text-anchor="end" class="station-name">Plan Disclosure</text>
-  
-  <circle cx="300" cy="620" r="6" fill="#8b5cf6"/>
-  <circle cx="300" cy="620" r="3" fill="#f5f5f0"/>
-  <text x="260" y="625" text-anchor="end" class="station-name">Plan Guardrails</text>
+  <text x="260" y="575" text-anchor="end" class="station-name">Plan Guardrails</text>
   
   <!-- Plan Approval - INTERCHANGE -->
-  <circle cx="400" cy="620" r="12" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
-  <circle cx="400" cy="620" r="6" fill="#1e293b"/>
-  <text x="400" y="650" text-anchor="middle" class="interchange-name">PLAN APPROVAL</text>
+  <circle cx="400" cy="570" r="12" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
+  <circle cx="400" cy="570" r="6" fill="#1e293b"/>
+  <text x="400" y="595" text-anchor="middle" class="interchange-name">PLAN APPROVAL</text>
   
-  <circle cx="500" cy="620" r="6" fill="#8b5cf6"/>
-  <circle cx="500" cy="620" r="3" fill="#f5f5f0"/>
-  <text x="500" y="605" text-anchor="middle" class="station-name">Action</text>
-  <text x="500" y="640" text-anchor="middle" class="station-name">Guardrails</text>
+  <circle cx="500" cy="570" r="6" fill="#8b5cf6"/>
+  <circle cx="500" cy="570" r="3" fill="#f5f5f0"/>
+  <text x="500" y="555" text-anchor="middle" class="station-name">Action</text>
+  <text x="500" y="588" text-anchor="middle" class="station-name">Guardrails</text>
   
   <!-- Circuit Breakers - INTERCHANGE -->
-  <circle cx="600" cy="670" r="12" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
-  <circle cx="600" cy="670" r="6" fill="#1e293b"/>
-  <text x="600" y="700" text-anchor="middle" class="interchange-name">CIRCUIT BREAKERS</text>
+  <circle cx="700" cy="620" r="12" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
+  <circle cx="700" cy="620" r="6" fill="#1e293b"/>
+  <text x="700" y="645" text-anchor="middle" class="interchange-name">CIRCUIT BREAKERS</text>
   
-  <circle cx="700" cy="670" r="6" fill="#8b5cf6"/>
-  <circle cx="700" cy="670" r="3" fill="#f5f5f0"/>
-  <text x="700" y="655" text-anchor="middle" class="station-name">Scope</text>
-  <text x="700" y="690" text-anchor="middle" class="station-name">Enforcement</text>
+  <circle cx="800" cy="620" r="6" fill="#8b5cf6"/>
+  <circle cx="800" cy="620" r="3" fill="#f5f5f0"/>
+  <text x="800" y="605" text-anchor="middle" class="station-name">Scope</text>
+  <text x="800" y="640" text-anchor="middle" class="station-name">Enforcement</text>
   
-  <circle cx="800" cy="670" r="6" fill="#8b5cf6"/>
-  <circle cx="800" cy="670" r="3" fill="#f5f5f0"/>
-  <text x="800" y="655" text-anchor="middle" class="station-name">Tool</text>
-  <text x="800" y="690" text-anchor="middle" class="station-name">Controls</text>
+  <circle cx="900" cy="570" r="6" fill="#8b5cf6"/>
+  <circle cx="900" cy="570" r="3" fill="#f5f5f0"/>
+  <text x="940" y="575" class="station-name">Tool Controls</text>
   
-  <circle cx="900" cy="620" r="6" fill="#8b5cf6"/>
-  <circle cx="900" cy="620" r="3" fill="#f5f5f0"/>
-  <text x="940" y="625" class="station-name">Trajectory</text>
-  <text x="940" y="640" class="station-name">Logging</text>
+  <circle cx="900" cy="540" r="6" fill="#8b5cf6"/>
+  <circle cx="900" cy="540" r="3" fill="#f5f5f0"/>
+  <text x="940" y="545" class="station-name">Trajectory Logging</text>
+  
+  <!-- ============================================ -->
+  <!-- MONITORING LINE (Teal/Dark Cyan) - NEW -->
+  <!-- ============================================ -->
+  <path d="M 500 500 V 750 H 900 L 950 700" stroke="#0d9488" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Monitoring stations -->
+  <circle cx="500" cy="600" r="6" fill="#0d9488"/>
+  <circle cx="500" cy="600" r="3" fill="#f5f5f0"/>
+  <text x="480" y="605" text-anchor="end" class="station-name">Event Stream</text>
+  
+  <circle cx="500" cy="700" r="6" fill="#0d9488"/>
+  <circle cx="500" cy="700" r="3" fill="#f5f5f0"/>
+  <text x="480" y="705" text-anchor="end" class="station-name">Alert Store</text>
+  
+  <!-- Alert Aggregation - INTERCHANGE -->
+  <circle cx="500" cy="750" r="12" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
+  <circle cx="500" cy="750" r="6" fill="#1e293b"/>
+  <text x="500" y="775" text-anchor="middle" class="interchange-name">AGGREGATION</text>
+  
+  <circle cx="650" cy="750" r="6" fill="#0d9488"/>
+  <circle cx="650" cy="750" r="3" fill="#f5f5f0"/>
+  <text x="650" y="768" text-anchor="middle" class="station-name">Correlation</text>
+  
+  <!-- ML Anomaly - INTERCHANGE -->
+  <circle cx="800" cy="750" r="12" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
+  <circle cx="800" cy="750" r="6" fill="#1e293b"/>
+  <text x="800" y="775" text-anchor="middle" class="interchange-name">ML ANOMALY</text>
+  
+  <circle cx="900" cy="750" r="6" fill="#0d9488"/>
+  <circle cx="900" cy="750" r="3" fill="#f5f5f0"/>
+  <text x="900" y="768" text-anchor="middle" class="station-name">Drift Detection</text>
+  
+  <circle cx="950" cy="700" r="6" fill="#0d9488"/>
+  <circle cx="950" cy="700" r="3" fill="#f5f5f0"/>
+  <text x="990" y="705" class="station-name">Pattern Discovery</text>
   
   <!-- ============================================ -->
   <!-- COMPLIANCE LINE (Yellow/Circle) -->
@@ -259,7 +329,7 @@
   <!-- ============================================ -->
   <!-- INCIDENT LINE (Pink/Magenta) - connects back -->
   <!-- ============================================ -->
-  <path d="M 1050 500 L 1050 750 H 150 V 200" stroke="#ec4899" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 1050 500 L 1050 800 H 150 V 200" stroke="#ec4899" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
   
   <!-- Incident stations -->
   <circle cx="1050" cy="600" r="6" fill="#ec4899"/>
@@ -271,26 +341,26 @@
   <text x="1070" y="705" class="station-name">Response</text>
   
   <!-- Incident Response - INTERCHANGE -->
-  <circle cx="1050" cy="750" r="12" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
-  <circle cx="1050" cy="750" r="6" fill="#1e293b"/>
-  <text x="1050" y="775" text-anchor="middle" class="interchange-name">INCIDENT RESPONSE</text>
+  <circle cx="1050" cy="800" r="12" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
+  <circle cx="1050" cy="800" r="6" fill="#1e293b"/>
+  <text x="1050" y="825" text-anchor="middle" class="interchange-name">INCIDENT RESPONSE</text>
   
-  <circle cx="800" cy="750" r="6" fill="#ec4899"/>
-  <circle cx="800" cy="750" r="3" fill="#f5f5f0"/>
-  <text x="800" y="768" text-anchor="middle" class="station-name">Investigation</text>
+  <circle cx="850" cy="800" r="6" fill="#ec4899"/>
+  <circle cx="850" cy="800" r="3" fill="#f5f5f0"/>
+  <text x="850" y="818" text-anchor="middle" class="station-name">Investigation</text>
   
-  <circle cx="550" cy="750" r="6" fill="#ec4899"/>
-  <circle cx="550" cy="750" r="3" fill="#f5f5f0"/>
-  <text x="550" y="768" text-anchor="middle" class="station-name">Remediation</text>
+  <circle cx="650" cy="800" r="6" fill="#ec4899"/>
+  <circle cx="650" cy="800" r="3" fill="#f5f5f0"/>
+  <text x="650" y="818" text-anchor="middle" class="station-name">Remediation</text>
   
   <!-- Feedback Loop - INTERCHANGE -->
-  <circle cx="300" cy="750" r="12" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
-  <circle cx="300" cy="750" r="6" fill="#1e293b"/>
-  <text x="300" y="775" text-anchor="middle" class="interchange-name">FEEDBACK LOOP</text>
+  <circle cx="350" cy="800" r="12" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
+  <circle cx="350" cy="800" r="6" fill="#1e293b"/>
+  <text x="350" y="825" text-anchor="middle" class="interchange-name">FEEDBACK LOOP</text>
   
-  <circle cx="150" cy="750" r="6" fill="#ec4899"/>
-  <circle cx="150" cy="750" r="3" fill="#f5f5f0"/>
-  <text x="150" y="768" text-anchor="middle" class="station-name">Guardrail Update</text>
+  <circle cx="150" cy="800" r="6" fill="#ec4899"/>
+  <circle cx="150" cy="800" r="3" fill="#f5f5f0"/>
+  <text x="150" y="818" text-anchor="middle" class="station-name">Guardrail Update</text>
   
   <circle cx="150" cy="500" r="6" fill="#ec4899"/>
   <circle cx="150" cy="500" r="3" fill="#f5f5f0"/>
@@ -303,49 +373,53 @@
   <!-- ============================================ -->
   <!-- LEGEND -->
   <!-- ============================================ -->
-  <rect x="30" y="720" width="220" height="115" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="30" y="770" width="250" height="120" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
   
-  <text x="140" y="740" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e293b">LINES</text>
+  <text x="155" y="790" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e293b">LINES</text>
   
-  <line x1="45" y1="755" x2="75" y2="755" stroke="#dc2626" stroke-width="4"/>
-  <text x="85" y="759" class="legend-text">Governance</text>
+  <line x1="45" y1="805" x2="75" y2="805" stroke="#dc2626" stroke-width="4"/>
+  <text x="85" y="809" class="legend-text">Governance</text>
   
-  <line x1="45" y1="773" x2="75" y2="773" stroke="#f59e0b" stroke-width="4"/>
-  <text x="85" y="777" class="legend-text">Risk</text>
+  <line x1="45" y1="823" x2="75" y2="823" stroke="#f59e0b" stroke-width="4"/>
+  <text x="85" y="827" class="legend-text">Risk</text>
   
-  <line x1="45" y1="791" x2="75" y2="791" stroke="#3b82f6" stroke-width="4"/>
-  <text x="85" y="795" class="legend-text">Development</text>
+  <line x1="45" y1="841" x2="75" y2="841" stroke="#3b82f6" stroke-width="4"/>
+  <text x="85" y="845" class="legend-text">Development</text>
   
-  <line x1="45" y1="809" x2="75" y2="809" stroke="#22c55e" stroke-width="4"/>
-  <text x="85" y="813" class="legend-text">Runtime</text>
+  <line x1="45" y1="859" x2="75" y2="859" stroke="#22c55e" stroke-width="4"/>
+  <text x="85" y="863" class="legend-text">Runtime</text>
   
-  <line x1="145" y1="755" x2="175" y2="755" stroke="#8b5cf6" stroke-width="4"/>
-  <text x="185" y="759" class="legend-text">Agentic</text>
+  <line x1="45" y1="877" x2="75" y2="877" stroke="#8b5cf6" stroke-width="4"/>
+  <text x="85" y="881" class="legend-text">Agentic</text>
   
-  <line x1="145" y1="773" x2="175" y2="773" stroke="#eab308" stroke-width="4"/>
-  <text x="185" y="777" class="legend-text">Compliance</text>
+  <line x1="155" y1="805" x2="185" y2="805" stroke="#06b6d4" stroke-width="4"/>
+  <text x="195" y="809" class="legend-text">Verification</text>
   
-  <line x1="145" y1="791" x2="175" y2="791" stroke="#ec4899" stroke-width="4"/>
-  <text x="185" y="795" class="legend-text">Incident</text>
+  <line x1="155" y1="823" x2="185" y2="823" stroke="#0d9488" stroke-width="4"/>
+  <text x="195" y="827" class="legend-text">Monitoring</text>
   
-  <circle cx="160" cy="809" r="8" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
-  <circle cx="160" cy="809" r="4" fill="#1e293b"/>
-  <text x="185" y="813" class="legend-text">Interchange</text>
+  <line x1="155" y1="841" x2="185" y2="841" stroke="#eab308" stroke-width="4"/>
+  <text x="195" y="845" class="legend-text">Compliance</text>
+  
+  <line x1="155" y1="859" x2="185" y2="859" stroke="#ec4899" stroke-width="4"/>
+  <text x="195" y="863" class="legend-text">Incident</text>
+  
+  <circle cx="170" cy="877" r="8" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
+  <circle cx="170" cy="877" r="4" fill="#1e293b"/>
+  <text x="195" y="881" class="legend-text">Interchange</text>
   
   <!-- ============================================ -->
   <!-- KEY INTERCHANGES BOX -->
   <!-- ============================================ -->
-  <rect x="950" y="720" width="220" height="115" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="920" y="830" width="250" height="60" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
   
-  <text x="1060" y="740" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e293b">KEY INTERCHANGES</text>
+  <text x="1045" y="848" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e293b">KEY INTERCHANGES</text>
   
-  <text x="965" y="760" class="legend-text">• RISK TIERS — Control calibration</text>
-  <text x="965" y="778" class="legend-text">• JUDGE — Async evaluation hub</text>
-  <text x="965" y="796" class="legend-text">• HITL — Human decision point</text>
-  <text x="965" y="814" class="legend-text">• CIRCUIT BREAKERS — Safety limits</text>
+  <text x="935" y="865" class="legend-text">JUDGE • HITL • VERIFICATION • ML ANOMALY</text>
+  <text x="935" y="880" class="legend-text">CIRCUIT BREAKERS • AGGREGATION • FEEDBACK</text>
   
   <!-- Roundel logo style -->
-  <circle cx="600" y="800" r="25" fill="none" stroke="#1e40af" stroke-width="6"/>
-  <rect x="560" y="792" width="80" height="16" fill="#1e40af"/>
-  <text x="600" y="804" text-anchor="middle" font-size="9" font-weight="bold" fill="#ffffff">AI SECURITY</text>
+  <circle cx="600" cy="850" r="25" fill="none" stroke="#1e40af" stroke-width="6"/>
+  <rect x="560" y="842" width="80" height="16" fill="#1e40af"/>
+  <text x="600" y="854" text-anchor="middle" font-size="9" font-weight="bold" fill="#ffffff">AI SECURITY</text>
 </svg>
