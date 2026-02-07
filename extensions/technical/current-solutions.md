@@ -4,6 +4,62 @@ A reference guide to production-ready guardrail, evaluation, and safety solution
 
 ---
 
+## Solutions At a Glance
+
+| Solution | Type | What It Does | Layer | Open Source | Key Limitation |
+|----------|------|--------------|-------|-------------|----------------|
+| **AWS Bedrock Guardrails** | Managed | Content filtering, PII detection, hallucination checks, denied topics | Guardrails | No | 30 denied topic limit; cross-region IAM issues |
+| **Azure AI Content Safety** | Managed | Harm classification (0-7 severity), prompt shields, groundedness | Guardrails | No | English-optimized; 10K char limit per request |
+| **NVIDIA NeMo Guardrails** | Framework | Programmable rails (input/output/dialog/retrieval/execution) | Guardrails | Yes | Dialog rails don't work with reasoning models |
+| **Guardrails AI** | Framework | Output validation, structured output enforcement, retry logic | Guardrails | Yes | Output-focused; less input validation |
+| **Llama Guard 3/4** | Model | LLM-based content classification (safe/unsafe + category) | Guardrails/Judge | Yes | ~33% attack bypass rate; English-optimized |
+| **OpenAI Moderation API** | API | Harm classification across categories | Guardrails | No | OpenAI models only; limited customization |
+| **DeepEval** | Framework | LLM-as-judge evaluation, 50+ metrics, CI/CD integration | Judge | Yes | LLM calls add cost/latency at scale |
+| **Galileo** | Platform | Eval-to-guardrail lifecycle, Luna models for monitoring | Judge | No | Platform dependency |
+| **Prompt Guard (Meta)** | Model | Prompt injection and jailbreak detection | Guardrails | Yes | Needs fine-tuning for best results |
+| **LlamaFirewall (Meta)** | Tool | Security guardrail for AI systems | Guardrails | Yes | Early stage |
+
+---
+
+## Solutions by Use Case
+
+| If You Need... | Primary Choice | Alternative |
+|----------------|----------------|-------------|
+| Turnkey AWS guardrails | AWS Bedrock Guardrails | — |
+| Turnkey Azure guardrails | Azure AI Content Safety | — |
+| Self-hosted, customizable | NVIDIA NeMo Guardrails | Guardrails AI |
+| Open-source safety model | Llama Guard 3/4 | Prompt Guard |
+| LLM evaluation/testing | DeepEval | Galileo |
+| Production monitoring | Confident AI (DeepEval) | Galileo |
+| Structured output validation | Guardrails AI | NeMo Guardrails |
+| Multimodal content safety | Azure AI Content Safety | Llama Guard 4 |
+| Hallucination detection | AWS Bedrock (Automated Reasoning) | DeepEval metrics |
+
+---
+
+## Solutions by Layer
+
+### Guardrails Layer (Real-time, ~10-100ms)
+
+| Solution | Input | Output | Multimodal | Customizable | Self-Hosted |
+|----------|-------|--------|------------|--------------|-------------|
+| AWS Bedrock Guardrails | ✓ | ✓ | Images (preview) | Limited | No |
+| Azure AI Content Safety | ✓ | ✓ | ✓ | Custom categories | No |
+| NVIDIA NeMo Guardrails | ✓ | ✓ | Limited | Highly | Yes |
+| Guardrails AI | Limited | ✓ | No | Highly | Yes |
+| Llama Guard | ✓ | ✓ | Llama Guard 4 | Via prompting | Yes |
+| OpenAI Moderation | ✓ | ✓ | No | No | No |
+
+### Judge Layer (Async, ~500ms-5s)
+
+| Solution | Metrics | Custom Criteria | Production Monitoring | CI/CD |
+|----------|---------|-----------------|----------------------|-------|
+| DeepEval | 50+ | G-Eval, DAG | Via Confident AI | ✓ |
+| Galileo | Multiple | ✓ | Built-in | ✓ |
+| Custom LLM prompts | Unlimited | ✓ | DIY | DIY |
+
+---
+
 ## Industry Context
 
 The AI security industry has converged on a common pattern: **layered runtime controls** combining fast filtering (guardrails), deeper evaluation (LLM-as-judge), and human oversight. This guide catalogs the major solutions implementing this pattern, with honest assessments of capabilities, limitations, and appropriate use cases.
