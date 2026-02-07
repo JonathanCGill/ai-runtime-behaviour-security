@@ -6,6 +6,26 @@ Operational controls for enterprise AI systems.
 
 ---
 
+## New Here?
+
+**[→ Quick Start](QUICK_START.md)** — Get from zero to first controls in 30 minutes.
+
+---
+
+## The Core Idea
+
+| Layer | Function | Timing |
+|-------|----------|--------|
+| **Guardrails** | Block known-bad inputs/outputs | Real-time |
+| **LLM-as-Judge** | Detect issues, surface findings | Async |
+| **Human Oversight** | Decide, act, remain accountable | As needed |
+
+**Guardrails prevent. The Judge detects. Humans decide.**
+
+These three principles are the framework. Everything else is implementation detail that you'll adapt to your environment.
+
+---
+
 ## Start Here
 
 **[→ Core Framework](core/README.md)** — Everything you need to implement AI governance.
@@ -75,15 +95,15 @@ This framework is **operationally focused** — deployment through incident resp
 
 ---
 
-## The Core Idea
+## Critical Context
 
-| Layer | Function | Timing |
-|-------|----------|--------|
-| **Guardrails** | Block known-bad inputs/outputs | Real-time |
-| **LLM-as-Judge** | Detect issues, surface findings | Async |
-| **Human Oversight** | Decide, act, remain accountable | As needed |
+**AI does not exist in isolation.** Every AI system is part of a data flow supply chain:
 
-**Guardrails prevent. The Judge detects. Humans decide.**
+- **Upstream:** User inputs, databases, APIs, documents, context
+- **AI Core:** Model, guardrails, prompts, tools, memory
+- **Downstream:** Databases, workflows, APIs, human processes
+
+Your controls must address the full chain. See the [Threat Model Template](extensions/templates/threat-model-template.md) for how to analyse this.
 
 ---
 
@@ -92,8 +112,9 @@ This framework is **operationally focused** — deployment through incident resp
 This is a **discussion draft**, not a finished standard.
 
 - Some pieces are proven, some are proposals
-- Feedback welcome
+- Feedback welcome — see [CONTRIBUTING.md](CONTRIBUTING.md)
 - Will evolve as we learn
+- See who's using it: [ADOPTERS.md](ADOPTERS.md)
 
 ---
 
@@ -101,10 +122,13 @@ This is a **discussion draft**, not a finished standard.
 
 | Need | Go To |
 |------|-------|
+| Get started fast | [Quick Start](QUICK_START.md) |
 | Classify a system | [Risk Tiers](core/risk-tiers.md) |
 | Implement controls | [Controls](core/controls.md) |
 | Deploy an agent | [Agentic](core/agentic.md) |
 | Track implementation | [Checklist](core/checklist.md) |
+| Test your controls | [Testing Guidance](extensions/templates/testing-guidance.md) |
+| Threat model your system | [Threat Model Template](extensions/templates/threat-model-template.md) |
 | ISO 42001 alignment | [extensions/regulatory/](extensions/regulatory/) |
 | Infrastructure controls | [extensions/technical/](extensions/technical/) |
 | Incident playbooks | [extensions/templates/](extensions/templates/) |
