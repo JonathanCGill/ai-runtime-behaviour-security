@@ -8,6 +8,8 @@ It reviews AI system outputs after the fact to identify red flags, quality issue
 
 Think of it as an auditor, not a gatekeeper.
 
+→ For model selection guidance, see [Judge Model Selection](judge-model-selection.md)
+
 ![Assurance Model](../../images/assurance-model-diagram.svg)
 
 ---

@@ -4,6 +4,7 @@ Deep dives on controls, infrastructure, and metrics.
 
 | Document | Description |
 |----------|-------------|
+| [judge-model-selection.md](judge-model-selection.md) | Judge model selection principles |
 | [bypass-prevention.md](bypass-prevention.md) | Bypass taxonomy and defence strategies |
 | [technical-controls.md](technical-controls.md) | Network, WAF, DLP, gateway controls |
 | [03-control-families.md](03-control-families.md) | Detailed control family definitions |

@@ -47,6 +47,8 @@ This is why the Judge provides the second layer.
 
 Async evaluation of interactions for quality and policy compliance.
 
+→ For model selection guidance, see [Judge Model Selection](../extensions/technical/judge-model-selection.md)
+
 ### What the Judge Does
 
 | Function | Description |
