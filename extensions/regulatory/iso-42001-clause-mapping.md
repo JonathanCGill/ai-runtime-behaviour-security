@@ -394,13 +394,13 @@ ISO 42001 Annex A provides reference control objectives. Here's how the framewor
 
 | Document | Framework Source | Ready? |
 |----------|------------------|--------|
-| AI policy | governance/ai-governance-operating-model.md | ☐ |
-| Risk classification methodology | control-framework/risk-classification-matrix.md | ☐ |
+| AI policy | ai-governance-operating-model.md | ☐ |
+| Risk classification methodology | ../../core/risk-tiers.md | ☐ |
 | Risk assessment records | Per-system risk assessments | ☐ |
-| Control standards | control-framework/03-control-families.md | ☐ |
+| Control standards | 03-control-families.md | ☐ |
 | Guardrail configuration | Platform configuration records | ☐ |
 | Judge criteria | Judge prompt documentation | ☐ |
-| HITL procedures | operating-model/04-hitl-model.md | ☐ |
+| HITL procedures | ../../core/controls.md | ☐ |
 | Monitoring records | Dashboard exports, metric reports | ☐ |
 | Management review minutes | Committee meeting records | ☐ |
 | Internal audit reports | Audit documentation | ☐ |
