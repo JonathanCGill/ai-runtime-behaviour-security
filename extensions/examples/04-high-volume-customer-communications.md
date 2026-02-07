@@ -66,13 +66,7 @@ Rationale: High autonomy (auto-send) + irreversibility (can't unsend) + scale (m
 
 ### Traditional Thinking (Broken)
 
-```
-Generate → Send → Log → Evaluate (hours later) → Discover problem
-                                                        ↓
-                                              50,000 bad messages sent
-```
-
-**This doesn't work.** By the time nearline evaluation catches a problem, thousands of messages are already delivered.
+The typical pattern — generate, send, log, then evaluate hours later — doesn't work. By the time nearline evaluation catches a problem, thousands of messages are already delivered.
 
 ### Time-Band Thinking (Required)
 
@@ -98,22 +92,7 @@ Controls must match the **reversibility window**. For communications:
 
 **Implementation:**
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                      INLINE CONTROLS                        │
-│                                                             │
-│  Request → Rate Limit → Schema → Guardrails → Generate     │
-│                                       ↓                     │
-│                              Output Guardrails → DLP        │
-│                                       ↓                     │
-│                              PASS/BLOCK decision            │
-│                                       │                     │
-│                         ┌─────────────┴─────────────┐       │
-│                         ↓                           ↓       │
-│                      BLOCKED                    PASSED      │
-│                    (immediate)              (to next band)  │
-└─────────────────────────────────────────────────────────────┘
-```
+See the inline flow in the architecture diagram below — requests pass through rate limiting, schema validation, guardrails, generation, output checks, and DLP before the auto-send decision.
 
 **Latency budget:** 100ms total for inline checks.
 
@@ -146,41 +125,22 @@ Controls must match the **reversibility window**. For communications:
 
 **Implementation:**
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    NEAR-REAL-TIME CONTROLS                  │
-│                                                             │
-│  Events → EventBridge → Kinesis → Aggregator → Alert Rules │
-│                                        ↓                    │
-│                               ┌────────┴────────┐           │
-│                               ↓                 ↓           │
-│                          Threshold          Anomaly         │
-│                           Alerts           Detection        │
-│                               │                 │           │
-│                               └────────┬────────┘           │
-│                                        ↓                    │
-│                              Automated Response             │
-│                              - Pause auto-send              │
-│                              - Tighten policy               │
-│                              - Force human review           │
-│                              - Rollback prompt version      │
-└─────────────────────────────────────────────────────────────┘
-```
+Events flow through EventBridge to Kinesis, then to an aggregator that feeds alert rules. Threshold alerts and anomaly detection trigger automated responses: pause auto-send, tighten policy, force human review, or rollback prompt versions.
 
 **Latency budget:** 5-30 seconds from event to action.
 
 **Example: Detecting Drift After Prompt Rollout**
 
-```
-10:00:00 - New prompt version deployed
-10:00:15 - First messages generated
-10:00:30 - Aggregator sees 12% guardrail soft-hit rate (baseline: 2%)
-10:00:35 - Alert fires: "Guardrail anomaly on intent:payment_reminder"
-10:00:40 - Circuit breaker triggers: intent moves to draft-only
-10:00:45 - Ops notified, investigation begins
+| Time | Event | Action |
+|------|-------|--------|
+| 10:00:00 | New prompt version deployed | — |
+| 10:00:15 | First messages generated | — |
+| 10:00:30 | Aggregator sees 12% soft-hit rate (baseline: 2%) | Threshold breached |
+| 10:00:35 | Alert fires: "Guardrail anomaly on intent:payment_reminder" | — |
+| 10:00:40 | Circuit breaker triggers | Intent moves to draft-only |
+| 10:00:45 | Ops notified | Investigation begins |
 
-Messages affected: ~50 (vs 5,000 if detected hourly)
-```
+**Messages affected: ~50** (vs 5,000 if detected hourly)
 
 ---
 
@@ -197,24 +157,7 @@ Messages affected: ~50 (vs 5,000 if detected hourly)
 
 **Implementation:**
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                     NEARLINE CONTROLS                       │
-│                                                             │
-│  Message Log → Sample → Judge Evaluation → Findings Store  │
-│                              ↓                              │
-│                    ┌─────────┴─────────┐                    │
-│                    ↓                   ↓                    │
-│              QA Dashboard         Anomaly Jobs              │
-│                    │                   │                    │
-│                    └─────────┬─────────┘                    │
-│                              ↓                              │
-│                      Policy Updates                         │
-│                      - Guardrail rules                      │
-│                      - Prompt improvements                  │
-│                      - Training data                        │
-└─────────────────────────────────────────────────────────────┘
-```
+Message logs are sampled, evaluated by LLM-as-Judge, and stored in a findings database. QA dashboards and anomaly jobs drive policy updates — guardrail rules, prompt improvements, and training data refinements.
 
 **Why delays don't break safety:** These controls don't stop individual messages. They improve the system over time.
 
@@ -406,24 +349,22 @@ rules:
 
 ### Message Latency Budget (Tier 4)
 
-```
-Customer request received           0ms
-├─ Rate limiting                   +1ms
-├─ Input schema validation         +5ms
-├─ Input guardrails               +50ms
-├─ Retrieval                     +200ms
-├─ Generation                    +800ms
-├─ Output guardrails              +50ms
-├─ DLP/PII check                  +10ms
-├─ Auto-send decision              +5ms
-└─ Total                       ~1,120ms
+![Message Latency Budget](../../images/example-comms-latency-budget.svg)
 
-If draft-only:
-├─ Queue for review                +5ms
-└─ Total (to queue)            ~1,125ms
+| Stage | Latency | Cumulative |
+|-------|---------|------------|
+| Rate limiting | +1ms | 1ms |
+| Input schema validation | +5ms | 6ms |
+| Input guardrails | +50ms | 56ms |
+| Retrieval | +200ms | 256ms |
+| Generation | +800ms | 1,056ms |
+| Output guardrails | +50ms | 1,106ms |
+| DLP/PII check | +10ms | 1,116ms |
+| Auto-send decision | +5ms | ~1,120ms |
+
+If draft-only: +5ms to queue (~1,125ms total)
 
 Human review SLA: 15 minutes for standard, 5 minutes for urgent
-```
 
 ---
 
@@ -460,49 +401,19 @@ This is what your alerting pipeline drives.
 
 ## Step 9: AWS Implementation
 
+![AWS Implementation Architecture](../../images/example-comms-aws-implementation.svg)
+
 ### Inline (Milliseconds)
 
-```
-API Gateway
-    ↓
-Lambda (router + validation)
-    ↓
-Bedrock (guardrails + generation)
-    ↓
-Lambda (output validation + DLP)
-    ↓
-Decision: Send / Queue / Block
-```
+API Gateway receives requests, Lambda handles routing and validation, Bedrock provides guardrails and generation, then Lambda performs output validation and DLP. The decision routes to send, queue, or block.
 
 ### Near-Real-Time (Seconds)
 
-```
-All Lambdas → EventBridge
-                  ↓
-              Kinesis
-                  ↓
-          Lambda (aggregator)
-                  ↓
-    ┌─────────────┼─────────────┐
-    ↓             ↓             ↓
-OpenSearch    DynamoDB      SNS/PagerDuty
-(alerting)   (circuit      (notifications)
-             breakers)
-```
+All Lambdas emit events to EventBridge, which feeds Kinesis. A Lambda aggregator processes streams and fans out to OpenSearch (alerting), DynamoDB (circuit breaker state), and SNS/PagerDuty (notifications).
 
 ### Nearline (Minutes+)
 
-```
-S3 (message logs)
-    ↓
-Step Functions (sample selector)
-    ↓
-Bedrock (judge evaluation)
-    ↓
-OpenSearch (findings store)
-    ↓
-QuickSight (dashboards)
-```
+S3 stores message logs. Step Functions selects samples for Bedrock judge evaluation. Results flow to OpenSearch for findings storage, then QuickSight for dashboards.
 
 ---
 
