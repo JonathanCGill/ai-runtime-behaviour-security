@@ -1,32 +1,38 @@
-# Quick Start Guide
+# Quick Start: Implementing Behavioral Controls for AI
 
-Get from zero to first controls in 30 minutes.
+Get from zero to working controls in 30 minutes.
 
 ---
 
-## Before You Start
+## Why You're Here
 
-This framework provides **principles**, not products. You'll need to adapt it to your environment, tooling, and risk appetite.
+You're building AI systems and need to answer: **"How do we know it's working correctly?"**
 
-**The core idea is simple:**
+Traditional testing is necessary but insufficient. AI systems are non-deterministic, exhibit emergent behavior, and face adversarial inputs you can't predict. You need runtime behavioral monitoring.
 
-| Layer | What It Does | When |
-|-------|--------------|------|
-| Guardrails | Block known-bad | Real-time |
-| Judge | Detect issues | Async |
-| Humans | Decide and act | As needed |
+---
 
-Everything else is implementation detail.
+## The Pattern
 
-**Critical context:** Your AI system doesn't exist in isolation. It's part of a data flow supply chain connecting users, databases, APIs, workflows, and human processes. Your controls need to address this full chain — see the [Threat Model Template](extensions/templates/threat-model-template.md) once you're past the basics.
+The industry is converging on three layers of control:
+
+| Layer | What It Does | When | Tools |
+|-------|--------------|------|-------|
+| **Guardrails** | Block known-bad | Real-time | NeMo Guardrails, Guardrails AI, AWS Bedrock |
+| **Judge** | Detect unknown-bad | Async | DeepEval, Galileo, custom LLM evaluation |
+| **Humans** | Decide edge cases | As needed | Review queues, escalation workflows |
+
+**Guardrails prevent. Judge detects. Humans decide.**
+
+This guide shows you how to implement this pattern proportionate to your risk level.
 
 ---
 
 ## Step 1: Classify Your System (5 minutes)
 
-Answer these questions about the AI system you're deploying:
+Answer these questions:
 
-| Question | If Yes → Higher Tier |
+| Question | If Yes → Higher Risk |
 |----------|---------------------|
 | Can it make decisions affecting people's rights, finances, or health? | ↑ |
 | Does it access sensitive data (PII, financial, confidential)? | ↑ |
@@ -35,10 +41,10 @@ Answer these questions about the AI system you're deploying:
 | Is it in a regulated domain? | ↑ |
 
 **Scoring:**
-- 0-1 "yes" → LOW
-- 2 "yes" → MEDIUM  
-- 3-4 "yes" → HIGH
-- 5 "yes" or regulatory requirement → CRITICAL
+- 0-1 "yes" → **LOW** — Basic guardrails sufficient
+- 2 "yes" → **MEDIUM** — Add sampling Judge
+- 3-4 "yes" → **HIGH** — Full Judge coverage
+- 5 "yes" or regulatory requirement → **CRITICAL** — All layers, human review on significant outputs
 
 Write down your tier. This determines your control requirements.
 
@@ -46,39 +52,41 @@ Write down your tier. This determines your control requirements.
 
 ---
 
-## Step 2: Implement Minimum Guardrails (10 minutes)
+## Step 2: Implement Guardrails (10 minutes)
 
-Every system needs input and output guardrails. Start simple.
-
-![Quick Start Overview](images/quick-start-overview.svg)
+Guardrails block known-bad inputs and outputs in real-time. Start simple.
 
 ### Input Guardrails
 
-Block obviously malicious inputs before they reach the model.
+Block malicious inputs before they reach the model.
 
-**Minimum implementation:**
-- Prompt injection patterns (block known signatures)
+**Minimum:**
+- Prompt injection patterns
 - Input length limits
-- Rate limiting per user/session
+- Rate limiting
 
-Most platforms provide this. AWS Bedrock Guardrails, Azure Content Safety, or open-source tools like Guardrails AI.
+**Available tools:**
+- [NVIDIA NeMo Guardrails](https://github.com/NVIDIA/NeMo-Guardrails) — Open-source, programmable
+- [Guardrails AI](https://www.guardrailsai.com/) — Validator framework
+- AWS Bedrock Guardrails — Managed service
+- Azure AI Content Safety — Managed service
 
 ### Output Guardrails
 
 Filter outputs before they reach users.
 
-**Minimum implementation:**
+**Minimum:**
 - PII detection (redact or block)
-- Content policy (toxicity, off-topic)
-- Format validation (if structured output expected)
+- Toxicity filtering
+- Format validation
 
-### For Higher Tiers
+### Tier-Specific Additions
 
 | Tier | Additional Guardrails |
 |------|----------------------|
 | MEDIUM | Topic boundaries, confidence thresholds |
-| HIGH | Domain-specific rules, stricter content policy |
-| CRITICAL | Allow-lists (not deny-lists), human pre-approval for certain topics |
+| HIGH | Domain-specific rules, stricter filtering |
+| CRITICAL | Allow-lists (not deny-lists), pre-approval for sensitive topics |
 
 ---
 
@@ -87,12 +95,12 @@ Filter outputs before they reach users.
 You can't evaluate what you don't capture.
 
 **Log everything:**
-- Full input (user message + any context)
+- Full input (user message + context)
 - Full output (model response)
 - Metadata (timestamp, user ID, session ID, model version)
-- Guardrail decisions (what was blocked and why)
+- Guardrail decisions (what was blocked, why)
 
-**Storage requirements by tier:**
+**Retention by tier:**
 
 | Tier | Retention | Access |
 |------|-----------|--------|
@@ -101,23 +109,29 @@ You can't evaluate what you don't capture.
 | HIGH | 1 year | Restricted + audit |
 | CRITICAL | 7 years | Restricted + legal hold |
 
-Send logs to your SIEM or log aggregator. You'll need them for the Judge.
-
 ---
 
-## Step 4: Set Up Basic Judge (10 minutes)
+## Step 4: Set Up Judge (10 minutes)
 
-The Judge reviews interactions after they happen.
+The Judge reviews interactions after they happen, catching what guardrails miss.
 
-### Minimum Implementation
+### How It Works
 
-A scheduled job that:
-1. Pulls recent interactions from logs
-2. Evaluates them against criteria
-3. Flags concerning interactions
-4. Routes flags to a human queue
+1. Pull recent interactions from logs
+2. Evaluate against criteria using an LLM
+3. Flag concerning interactions
+4. Route flags to human review queue
 
-**Sample Judge prompt structure:**
+### Tools
+
+| Tool | Type | Best For |
+|------|------|----------|
+| [DeepEval](https://github.com/confident-ai/deepeval) | Open-source | Custom evaluation metrics |
+| [Galileo](https://www.rungalileo.io/) | Platform | Eval-to-guardrail lifecycle |
+| [Langsmith](https://www.langchain.com/langsmith) | Platform | LangChain integration |
+| Custom prompts | DIY | Simple implementations |
+
+### Sample Judge Prompt
 
 ```
 You are evaluating an AI interaction for policy compliance.
@@ -132,12 +146,12 @@ EVALUATE:
 3. Was any sensitive information disclosed?
 4. Were there signs of manipulation or misuse?
 
-RESPOND with:
+RESPOND:
 - PASS: No concerns
-- FLAG: Describe concern and severity (LOW/MEDIUM/HIGH)
+- FLAG: [Concern description] — Severity: LOW/MEDIUM/HIGH
 ```
 
-### Sampling Strategy by Tier
+### Sampling by Tier
 
 | Tier | Evaluation Rate |
 |------|-----------------|
@@ -146,24 +160,24 @@ RESPOND with:
 | HIGH | 100% evaluation |
 | CRITICAL | 100% + real-time alerting |
 
-→ For detailed Judge implementation, see [Controls](core/controls.md)
+→ For Judge model selection guidance, see [Judge Model Selection](extensions/technical/judge-model-selection.md)
 
 ---
 
-## Step 5: Define Human Review Process (5 minutes)
+## Step 5: Define Human Review (5 minutes)
 
 Who looks at flagged interactions? What do they do?
 
 **Minimum process:**
-1. Designate a reviewer (can be the system owner initially)
-2. Set a review SLA (e.g., HIGH flags within 24 hours)
+1. Designate a reviewer (can be system owner initially)
+2. Set review SLA (e.g., HIGH flags within 24 hours)
 3. Define actions: dismiss, escalate, remediate, or stop system
 4. Document decisions
 
 **For higher tiers:**
 - Dedicated review queue with tooling
 - Escalation paths to legal/compliance
-- Defined approval workflows for system changes
+- Approval workflows for system changes
 
 ---
 
@@ -177,7 +191,7 @@ You now have:
 - ✅ Basic Judge
 - ✅ Human review process
 
-**This is the minimum viable governance.** It's not complete, but it's defensible.
+**This is minimum viable governance.** It's not complete, but it's defensible.
 
 ---
 
@@ -186,73 +200,51 @@ You now have:
 ### Week 1-2
 - Tune guardrails based on false positives
 - Calibrate Judge criteria
-- Establish baseline metrics
-- **Verify alerts reach your SIEM/log analyser** — see [Testing Guidance](extensions/templates/testing-guidance.md)
+- Verify alerts reach your monitoring systems
 
 ### Month 1
 - Review flagged interactions for patterns
-- Refine sampling strategy
+- Test incident response — see [Testing Guidance](extensions/templates/testing-guidance.md)
 - Document operational procedures
-- **Test your incident response playbook** — don't wait for a real incident
-- **Review human feedback channels** — complaints and support tickets reveal what monitoring misses
 
 ### This Quarter
+- Conduct threat modelling — see [Threat Model Template](extensions/templates/threat-model-template.md)
 - Implement tier-appropriate controls from [Controls](core/controls.md)
 - If agentic: add controls from [Agentic](core/agentic.md)
-- **Conduct threat modelling** — see [Threat Model Template](extensions/templates/threat-model-template.md)
-- **Map upstream and downstream systems** — your AI is part of a supply chain
-
-### Ongoing
-- Regular control effectiveness reviews
-- Update guardrails for new attack patterns
-- Evolve Judge criteria based on findings
-- **Adversarial testing** — attack your own system before others do
-
-→ For full implementation tracking, see [Checklist](core/checklist.md)
 
 ---
 
 ## Common Mistakes
 
-| Mistake | Why It's a Problem | Fix |
-|---------|-------------------|-----|
+| Mistake | Problem | Fix |
+|---------|---------|-----|
 | Skip classification | Controls don't match risk | Always classify first |
-| Guardrails only | Misses novel attacks, context | Add Judge layer |
-| No logging | Can't investigate incidents | Log everything |
-| No human review | No accountability | Define process before launch |
+| Guardrails only | Misses novel attacks | Add Judge layer |
+| No logging | Can't investigate | Log everything |
+| No human process | No accountability | Define before launch |
 | Over-engineer | Never ships | Start simple, iterate |
 
 ---
 
-## Getting Help
+## Resources
 
-- Read the [Core Framework](core/README.md) for principles
-- See [Worked Examples](extensions/examples/) for your use case
-- Check [Technical Controls](extensions/technical/) for deep dives
-- Review [Regulatory Mapping](extensions/regulatory/) for compliance
-- Use [Testing Guidance](extensions/templates/testing-guidance.md) to validate controls work
-- Use [Threat Model Template](extensions/templates/threat-model-template.md) to identify risks
+| Need | Go To |
+|------|-------|
+| Understand the pattern | [Core Framework](core/README.md) |
+| See examples | [Worked Examples](extensions/examples/) |
+| Deep-dive technical | [Technical Controls](extensions/technical/) |
+| Map to regulations | [Regulatory Extensions](extensions/regulatory/) |
+| Test your controls | [Testing Guidance](extensions/templates/testing-guidance.md) |
 
 ---
 
-## Adapting This Framework
+## The Key Insight
 
-This framework requires adaptation. The principles are stable:
+You can't fully test AI at design time. You must monitor behavior in production.
 
-- **Guardrails prevent** — block known-bad at the boundary
-- **Judge detects** — find issues guardrails miss
-- **Humans decide** — remain accountable for outcomes
+> **Design reviews prove intent. Behavioral monitoring proves reality.**
 
-How you implement these will depend on:
-- Your technology stack
-- Your risk appetite  
-- Your regulatory environment
-- Your operational context
-- Your upstream and downstream systems
-
-**Don't try to implement everything.** Start with basics for your risk tier, validate they work, then expand.
-
-**The framework provides principles. You provide the specifics.**
+The pattern — Guardrails, Judge, Human Oversight — gives you predictable, proportionate controls that work.
 
 ---
 

@@ -154,4 +154,20 @@ The organisations getting AI security right aren't the ones with the most sophis
 
 ---
 
-*This article introduces concepts from the [AI Security Blueprint](https://github.com/jonathancgill/ai-security-blueprint), an open-source operational framework for enterprise AI systems.*
+## This Pattern Exists
+
+The three-layer model isn't theoretical. It's already being implemented:
+
+| Platform | How They Do It |
+|----------|----------------|
+| [NVIDIA NeMo Guardrails](https://github.com/NVIDIA/NeMo-Guardrails) | Input/output rails + dialog control |
+| [LangChain](https://docs.langchain.com/) | Middleware + human-in-the-loop |
+| [Guardrails AI](https://www.guardrailsai.com/) | Validator framework |
+| [Galileo](https://www.rungalileo.io/) | Eval-to-guardrail lifecycle |
+| [DeepEval](https://github.com/confident-ai/deepeval) | LLM-as-judge evaluation |
+
+What's been missing: a clear explanation of *why* this pattern is necessary and *how* to implement it proportionate to risk.
+
+That's what the [AI Security Blueprint](../README.md) provides — a practical synthesis of the pattern with implementation guidance.
+
+> **Design reviews prove intent. Behavioral monitoring proves reality.**

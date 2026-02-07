@@ -1,6 +1,16 @@
 # Insights
 
-Standalone articles on AI security governance. Each can be read independently.
+Articles explaining why AI requires behavioral monitoring and how to implement it.
+
+---
+
+## The Core Insight
+
+Traditional software assurance relies on design-time testing. AI breaks this model — non-deterministic outputs, emergent behavior, and adversarial inputs mean you can't fully test before deployment.
+
+**The industry is converging on runtime behavioral monitoring:** Guardrails prevent known-bad. Judge detects unknown-bad. Humans decide edge cases.
+
+> Design reviews prove intent. Behavioral monitoring proves reality.
 
 ---
 
@@ -8,9 +18,9 @@ Standalone articles on AI security governance. Each can be read independently.
 
 **[Why Your AI Guardrails Aren't Enough](why-guardrails-arent-enough.md)** (1,250 words)
 
-The comprehensive introduction. Explains why guardrails alone fail and introduces the three-layer model: guardrails, Judge, and human oversight.
+Why guardrails alone fail and how the three-layer pattern addresses the gap. Includes references to platforms already implementing this approach.
 
-*Best for: First exposure, LinkedIn articles, conference submissions*
+*Best for: LinkedIn articles, conference talks, executive briefings*
 
 ---
 
@@ -34,9 +44,9 @@ AI assists. Humans own outcomes. Why accountability can't be delegated to algori
 
 ---
 
-## Emerging AI Challenges
+## Emerging Challenges
 
-How the framework applies — or doesn't — to emerging AI capabilities.
+How the pattern applies — or doesn't — to emerging AI capabilities.
 
 **[Multimodal AI Breaks Your Text-Based Guardrails](multimodal-breaks-guardrails.md)** (950 words)
 
@@ -62,8 +72,8 @@ Real-time AI breaks the inspect-then-deliver model.
 
 ## Using These Articles
 
-**Attribution:** These articles are from the [AI Security Blueprint](https://github.com/jonathancgill/ai-security-blueprint), licensed Apache 2.0. Attribution appreciated but not required.
+**Share freely:** These articles are from the [AI Security Blueprint](../README.md), licensed Apache 2.0. They synthesize an emerging industry pattern — share, adapt, and build on them.
 
-**Adaptation:** Feel free to adapt for your context. Change examples to your industry. Add your experience.
+**Adaptation:** Change examples to your industry. Add your experience. The pattern is stable; implementation details vary.
 
-**Feedback:** If you publish or present these ideas, let us know how they land. We're learning too.
+**Feedback:** If you publish or present these ideas, let us know what lands. The field is still learning.
