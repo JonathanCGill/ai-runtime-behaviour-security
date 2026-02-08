@@ -272,3 +272,7 @@ The question isn't just "did we catch the bad request?" It's "is the agent behav
 - [The Verification Gap](./the-verification-gap.md) — Why independent verification matters
 - [Judge Detects, Not Decides](./judge-detects-not-decides.md) — Async evaluation for pattern analysis
 - [Current Solutions Reference](../extensions/technical/current-solutions.md) — Platforms implementing this
+
+---
+
+*From the [Enterprise AI Security Framework](https://github.com/JonathanCGill/enterprise-ai-security-framework) — operational controls for enterprise AI systems.*

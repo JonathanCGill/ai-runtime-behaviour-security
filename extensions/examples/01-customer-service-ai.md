@@ -188,7 +188,7 @@ def validate_input(message: str, customer_id: str) -> Tuple[bool, str]:
         if re.search(pattern, message, re.IGNORECASE):
             log_blocked("threat_pattern", customer_id, message)
             log_security_alert("threat_detected", customer_id, message)
-            return False, "I'm not able to help with that. If you have concerns, please contact us at 1-800-XXX-XXXX."
+            return False, "I'm not able to help with that. If you have concerns, please contact us at 1-800-555-0123."  # Replace with your actual support number
     
     return True, ""
 ```
