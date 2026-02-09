@@ -138,45 +138,7 @@ For completeness and honesty:
 
 The patterns that scale point toward a recognisable architecture. It's not the guardrail → judge → human pattern. It's closer to **how we already secure distributed systems at scale**:
 
-```
-┌─────────────────────────────────────────────────┐
-│                SYSTEM INVARIANTS                 │
-│    Budget caps · Data classification rules       │
-│    Action scope limits · Compliance constraints  │
-│              [O(1) — constant cost]              │
-├─────────────────────────────────────────────────┤
-│              POLICY DECISION POINT               │
-│     Centralised, real-time action evaluation     │
-│    Every tool call · Every zone crossing         │
-│    Every credential request · Every escalation   │
-│           [O(1) per decision]                    │
-├─────────────────────────────────────────────────┤
-│              TRUST ZONES                         │
-│  ┌──────────┐  ┌──────────┐  ┌──────────┐      │
-│  │  Zone A   │  │  Zone B   │  │  Zone C   │      │
-│  │ Agent 1-5 │  │ Agent 6-9 │  │Agent 10-15│      │
-│  │ (low risk)│  │(med risk) │  │(high risk)│      │
-│  └──────────┘  └──────────┘  └──────────┘      │
-│     Free flow     Controlled     Restricted      │
-│     within        boundaries     + human gates   │
-│           [O(Z²) where Z << N]                   │
-├─────────────────────────────────────────────────┤
-│          CRYPTOGRAPHIC IDENTITY                  │
-│  Per-agent DIDs · Signed messages · Delegation   │
-│  chains · Short-lived scoped credentials         │
-│              [O(N) — linear]                     │
-├─────────────────────────────────────────────────┤
-│     CIRCUIT BREAKERS & KILL SWITCHES             │
-│  Per-zone halt · Budget enforcement · Anomaly    │
-│  threshold triggers · Physically isolated        │
-│           [O(1) per zone]                        │
-├─────────────────────────────────────────────────┤
-│           APPEND-ONLY AUDIT LOG                  │
-│  Every action · Every message · Every credential │
-│  use · Immutable · Tamper-evident · Queryable    │
-│        [O(N) volume, cheap per-unit]             │
-└─────────────────────────────────────────────────┘
-```
+[![The Emerging Scalable Architecture](/images/scalable-architecture-stack.svg)](/images/scalable-architecture-stack.svg)
 
 This is not radically new. It's **zero-trust network architecture applied to AI agents**. The CSA, OWASP, and AWS are converging on this independently. Enterprise security teams already have the conceptual vocabulary: trust zones are VLANs, the PDP is a next-gen firewall, cryptographic identity is PKI, circuit breakers are IDS/IPS, audit logs are SIEM.
 
