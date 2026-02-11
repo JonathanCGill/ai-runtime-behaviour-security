@@ -1,550 +1,445 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 0 1610 1150" width="1610" height="1150">
-  <style>
-    .sn { font: 9px 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif; fill: #1e293b; }
-    .tn { font: bold 9.5px 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif; fill: #1e293b; }
-    .ix { font: bold 10.5px 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif; fill: #1e293b; }
-    .ic { font: italic 7.5px 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif; fill: #64748b; }
-    .title { font: bold 28px 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif; fill: #1e293b; letter-spacing: 2px; }
-    .subtitle { font: 13px 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif; fill: #64748b; }
-    .lt { font: 10px 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif; fill: #1e293b; }
-    .lh { font: bold 11px 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif; fill: #1e293b; }
-    .bus-label { font: bold 6.5px Arial, sans-serif; fill: #ffffff; }
-    .bus-dest { font: 7.5px 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif; fill: #b91c1c; }
-    .walk-label { font: italic 7px 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif; fill: #94a3b8; }
-  </style>
-  
-  <rect x="-60" width="1610" height="1150" fill="#f5f5f0"/>
-  
-  <text x="775" y="42" text-anchor="middle" class="title">AI SECURITY REFERENCE ARCHITECTURE</text>
-  <text x="775" y="62" text-anchor="middle" class="subtitle">Enterprise AI Governance Map — Runtime Behavioral Controls</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1020" font-family="'Gill Sans', 'Gill Sans MT', Helvetica, Arial, sans-serif">
+  <title>Enterprise AI Security Framework — Tube Map</title>
+  <defs>
+    <!-- Line colors -->
+    <!-- Runtime (Red/Central): #E32017 -->
+    <!-- Insights (Blue/Piccadilly): #003688 -->
+    <!-- Emerging (Green/District): #00782A -->
+    <!-- Agentic (Orange/Overground): #EE7C0E -->
+    <!-- Pipeline (Purple/Metropolitan): #9B0056 -->
+    <!-- Ops (Yellow/Circle): #FFD300, stroke #B36305 -->
+    <!-- Regulatory (Silver/Jubilee): #A0A5A9 -->
+    <!-- Getting Started (Teal/DLR): #00A4A7 -->
 
-  <!-- ================================================================ -->
-  <!-- GOVERNANCE (Red #dc2626)                                         -->
-  <!-- y=130 across, then diagonal to (500,190), down to (500,320)      -->
-  <!-- ================================================================ -->
-  <path d="M 120,130 H 460 L 500,170 V 320" stroke="#dc2626" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  
-  <!-- T: AI Policy -->
-  <rect x="103" y="121" width="7" height="18" rx="1" fill="#1e293b"/>
-  <circle cx="120" cy="130" r="5" fill="#dc2626"/><circle cx="120" cy="130" r="2.5" fill="#f5f5f0"/>
-  <text x="120" y="118" text-anchor="middle" class="tn">AI Policy</text>
-  <rect x="102" y="140" width="20" height="10" rx="3" fill="#d32f2f"/>
-  <text x="112" y="148" text-anchor="middle" class="bus-label">BUS</text>
-  <text x="126" y="148" class="bus-dest">Strategy, business case</text>
-  
-  <circle cx="210" cy="130" r="5" fill="#dc2626"/><circle cx="210" cy="130" r="2.5" fill="#f5f5f0"/>
-  <text x="210" y="118" text-anchor="middle" class="sn">Governance Structure</text>
-  
-  <circle cx="300" cy="130" r="5" fill="#dc2626"/><circle cx="300" cy="130" r="2.5" fill="#f5f5f0"/>
-  <text x="300" y="118" text-anchor="middle" class="sn">Accountability</text>
-  
-  <circle cx="380" cy="130" r="5" fill="#dc2626"/><circle cx="380" cy="130" r="2.5" fill="#f5f5f0"/>
-  <text x="380" y="118" text-anchor="middle" class="sn">Committee</text>
-  
-  <circle cx="460" cy="130" r="5" fill="#dc2626"/><circle cx="460" cy="130" r="2.5" fill="#f5f5f0"/>
-  <text x="460" y="118" text-anchor="middle" class="sn">Approval Workflow</text>
-  
-  <!-- T: Risk Acceptance -->
-  <rect x="491" y="314" width="18" height="7" rx="1" fill="#1e293b"/>
-  <circle cx="500" cy="320" r="5" fill="#dc2626"/><circle cx="500" cy="320" r="2.5" fill="#f5f5f0"/>
-  <text x="520" y="318" class="tn">Risk Acceptance</text>
-  <rect x="520" y="322" width="20" height="10" rx="3" fill="#d32f2f"/>
-  <text x="530" y="330" text-anchor="middle" class="bus-label">BUS</text>
-  <text x="544" y="330" class="bus-dest">GRC tooling, board packs</text>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="1" dy="1" stdDeviation="1.5" flood-opacity="0.08"/>
+    </filter>
 
-  <!-- ================================================================ -->
-  <!-- RISK (Orange #f59e0b)                                            -->
-  <!-- y=250 across, diagonal to y=300                                  -->
-  <!-- ================================================================ -->
-  <path d="M 120,250 H 330 L 370,290 H 980" stroke="#f59e0b" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  
-  <!-- T: Risk Classification -->
-  <rect x="103" y="241" width="7" height="18" rx="1" fill="#1e293b"/>
-  <circle cx="120" cy="250" r="5" fill="#f59e0b"/><circle cx="120" cy="250" r="2.5" fill="#f5f5f0"/>
-  <text x="120" y="238" text-anchor="middle" class="tn">Risk Classification</text>
-  <rect x="102" y="260" width="20" height="10" rx="3" fill="#d32f2f"/>
-  <text x="112" y="268" text-anchor="middle" class="bus-label">BUS</text>
-  <text x="126" y="268" class="bus-dest">Data classification, CMDB</text>
-  
-  <circle cx="210" cy="250" r="5" fill="#f59e0b"/><circle cx="210" cy="250" r="2.5" fill="#f5f5f0"/>
-  <text x="210" y="238" text-anchor="middle" class="sn">Risk Assessment</text>
-  
-  <circle cx="290" cy="250" r="5" fill="#f59e0b"/><circle cx="290" cy="250" r="2.5" fill="#f5f5f0"/>
-  <text x="290" y="238" text-anchor="middle" class="sn">Risk Treatment</text>
-  
-  <!-- ★ RISK TIERS -->
-  <circle cx="370" cy="290" r="13" fill="#ffffff" stroke="#1e293b" stroke-width="3"/>
-  <circle cx="370" cy="290" r="7" fill="#ffffff" stroke="#f59e0b" stroke-width="2"/>
-  <circle cx="370" cy="290" r="3.5" fill="#1e293b"/>
-  <text x="370" y="275" text-anchor="middle" class="ix">RISK TIERS</text>
-  
-  <circle cx="510" cy="290" r="5" fill="#f59e0b"/><circle cx="510" cy="290" r="2.5" fill="#f5f5f0"/>
-  <text x="510" y="278" text-anchor="middle" class="sn">Control Selection</text>
-  
-  <circle cx="640" cy="290" r="5" fill="#f59e0b"/><circle cx="640" cy="290" r="2.5" fill="#f5f5f0"/>
-  <text x="640" y="278" text-anchor="middle" class="sn">Sampling Strategy</text>
-  
-  <circle cx="810" cy="290" r="5" fill="#f59e0b"/><circle cx="810" cy="290" r="2.5" fill="#f5f5f0"/>
-  <text x="810" y="278" text-anchor="middle" class="sn">Proportionality</text>
-  
-  <!-- T: Residual Risk -->
-  <circle cx="980" cy="290" r="5" fill="#f59e0b"/><circle cx="980" cy="290" r="2.5" fill="#f5f5f0"/>
-  <rect x="990" y="281" width="7" height="18" rx="1" fill="#1e293b"/>
-  <text x="1003" y="294" class="tn">Residual Risk</text>
-  <rect x="1003" y="296" width="20" height="10" rx="3" fill="#d32f2f"/>
-  <text x="1013" y="304" text-anchor="middle" class="bus-label">BUS</text>
-  <text x="1027" y="304" class="bus-dest">Risk transfer, insurance</text>
-  
-  <!-- Walk: Risk Tiers ↔ Testing -->
-  <line x1="370" y1="303" x2="370" y2="387" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4,4"/>
-  <text x="378" y="350" class="walk-label">walk</text>
-  
-  <!-- Walk: Risk Tiers ↔ Input Guardrails (tier determines guardrail config) -->
-  <path d="M 357,290 Q 280,450 200,596" stroke="#94a3b8" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
-  <text x="260" y="470" class="walk-label" transform="rotate(-55,260,470)">walk — tier sets guardrails</text>
+    <!-- Station marker -->
+    <circle id="stn" r="5.5" fill="white" stroke-width="2.5"/>
+    <!-- Interchange marker -->
+    <circle id="ix" r="8" fill="white" stroke="#000" stroke-width="2.5"/>
+    <!-- NEW badge -->
+    <g id="new-badge">
+      <rect x="-14" y="-8" width="28" height="14" rx="3" fill="#E32017"/>
+      <text x="0" y="3" text-anchor="middle" font-size="8" font-weight="bold" fill="white" font-family="'Gill Sans', Helvetica, sans-serif">NEW</text>
+    </g>
+  </defs>
 
-  <!-- ================================================================ -->
-  <!-- DEVELOPMENT (Blue #3b82f6) + TESTING LOOP                       -->
-  <!-- y=400 across, diagonal steps, LOOPS BACK from Prod to Validation -->
-  <!-- ================================================================ -->
-  <!-- Main path -->
-  <path d="M 120,400 H 370 L 410,440 H 650 L 690,480 H 760" stroke="#3b82f6" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- Testing loop: Production Release curves back to Validation -->
-  <path d="M 760,480 Q 780,520 750,540 Q 680,580 580,560 Q 480,540 430,500 Q 405,480 410,440" stroke="#3b82f6" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  
-  <!-- Loop direction arrow and label -->
-  <text x="620" y="568" text-anchor="middle" class="sn" fill="#3b82f6" font-style="italic">Continuous Testing</text>
-  <text x="555" y="548" font-size="14" fill="#3b82f6" font-family="Arial">↺</text>
-  
-  <!-- T: Requirements -->
-  <rect x="103" y="391" width="7" height="18" rx="1" fill="#1e293b"/>
-  <circle cx="120" cy="400" r="5" fill="#3b82f6"/><circle cx="120" cy="400" r="2.5" fill="#f5f5f0"/>
-  <text x="120" y="388" text-anchor="middle" class="tn">Requirements</text>
-  <rect x="102" y="410" width="20" height="10" rx="3" fill="#d32f2f"/>
-  <text x="112" y="418" text-anchor="middle" class="bus-label">BUS</text>
-  <text x="126" y="418" class="bus-dest">Product mgmt, use cases</text>
-  
-  <circle cx="210" cy="400" r="5" fill="#3b82f6"/><circle cx="210" cy="400" r="2.5" fill="#f5f5f0"/>
-  <text x="210" y="388" text-anchor="middle" class="sn">Design</text>
-  
-  <circle cx="290" cy="400" r="5" fill="#3b82f6"/><circle cx="290" cy="400" r="2.5" fill="#f5f5f0"/>
-  <text x="290" y="388" text-anchor="middle" class="sn">Development</text>
-  
-  <circle cx="370" cy="400" r="5" fill="#3b82f6"/><circle cx="370" cy="400" r="2.5" fill="#f5f5f0"/>
-  <text x="370" y="388" text-anchor="middle" class="sn">Testing</text>
-  
-  <!-- ★ VALIDATION -->
-  <circle cx="410" cy="440" r="13" fill="#ffffff" stroke="#1e293b" stroke-width="3"/>
-  <circle cx="410" cy="440" r="7" fill="#ffffff" stroke="#3b82f6" stroke-width="2"/>
-  <circle cx="410" cy="440" r="3.5" fill="#1e293b"/>
-  <text x="410" y="425" text-anchor="middle" class="ix">VALIDATION</text>
-  <text x="410" y="465" text-anchor="middle" class="ic">↺ loop returns here</text>
-  
-  <circle cx="530" cy="440" r="5" fill="#3b82f6"/><circle cx="530" cy="440" r="2.5" fill="#f5f5f0"/>
-  <text x="530" y="428" text-anchor="middle" class="sn">Security Review</text>
-  
-  <circle cx="650" cy="440" r="5" fill="#3b82f6"/><circle cx="650" cy="440" r="2.5" fill="#f5f5f0"/>
-  <text x="650" y="428" text-anchor="middle" class="sn">Deployment Approval</text>
-  
-  <!-- T: Production Release -->
-  <circle cx="760" cy="480" r="5" fill="#3b82f6"/><circle cx="760" cy="480" r="2.5" fill="#f5f5f0"/>
-  <rect x="770" y="471" width="7" height="18" rx="1" fill="#1e293b"/>
-  <text x="783" y="480" class="tn">Production Release</text>
-  <rect x="783" y="484" width="20" height="10" rx="3" fill="#d32f2f"/>
-  <text x="793" y="492" text-anchor="middle" class="bus-label">BUS</text>
-  <text x="807" y="492" class="bus-dest">CI/CD, DevOps</text>
-  
-  <!-- Walk: Validation ↔ Compliance Audit -->
-  <line x1="423" y1="440" x2="742" y2="400" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4,4"/>
-  <text x="580" y="414" class="walk-label">walk to Compliance</text>
+  <!-- Background -->
+  <rect width="1500" height="1020" fill="#F4F1EA"/>
 
-  <!-- ================================================================ -->
-  <!-- COMPLIANCE (Yellow #eab308) — CIRCLE LINE                       -->
-  <!-- Right side rectangle, y=130 to y=400                             -->
-  <!-- ================================================================ -->
-  <path d="M 760,130 H 1300 V 400 H 760 V 130" stroke="#eab308" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  
-  <text x="1020" y="133" font-size="11" fill="#a38506" text-anchor="middle" font-family="Arial">→ → →</text>
-  <text x="1020" y="415" font-size="11" fill="#a38506" text-anchor="middle" font-family="Arial">← ← ←</text>
-  <text x="1030" y="270" text-anchor="middle" font-size="8" font-weight="bold" fill="#a38506" font-family="'Gill Sans', 'Gill Sans MT', Calibri, sans-serif">CIRCLE LINE</text>
-  
-  <circle cx="760" cy="130" r="5" fill="#eab308"/><circle cx="760" cy="130" r="2.5" fill="#f5f5f0"/>
-  <text x="760" y="118" text-anchor="middle" class="sn">ISO 27001</text>
-  
-  <circle cx="930" cy="130" r="5" fill="#eab308"/><circle cx="930" cy="130" r="2.5" fill="#f5f5f0"/>
-  <text x="930" y="118" text-anchor="middle" class="sn">ISO 42001</text>
-  
-  <circle cx="1120" cy="130" r="5" fill="#eab308"/><circle cx="1120" cy="130" r="2.5" fill="#f5f5f0"/>
-  <text x="1120" y="118" text-anchor="middle" class="sn">EU AI Act</text>
-  
-  <circle cx="1300" cy="130" r="5" fill="#eab308"/><circle cx="1300" cy="130" r="2.5" fill="#f5f5f0"/>
-  <text x="1300" y="118" text-anchor="middle" class="sn">SR 11-7</text>
-  
-  <circle cx="1300" cy="265" r="5" fill="#eab308"/><circle cx="1300" cy="265" r="2.5" fill="#f5f5f0"/>
-  <text x="1282" y="269" text-anchor="end" class="sn">NIST AI RMF</text>
-  
-  <circle cx="1300" cy="400" r="5" fill="#eab308"/><circle cx="1300" cy="400" r="2.5" fill="#f5f5f0"/>
-  <text x="1282" y="404" text-anchor="end" class="sn">OWASP</text>
-  
-  <circle cx="1040" cy="400" r="5" fill="#eab308"/><circle cx="1040" cy="400" r="2.5" fill="#f5f5f0"/>
-  <text x="1040" y="418" text-anchor="middle" class="sn">MITRE ATLAS</text>
-  
-  <circle cx="760" cy="400" r="5" fill="#eab308"/><circle cx="760" cy="400" r="2.5" fill="#f5f5f0"/>
-  <text x="760" y="418" text-anchor="middle" class="sn">Audit</text>
-  
-  <circle cx="760" cy="265" r="5" fill="#eab308"/><circle cx="760" cy="265" r="2.5" fill="#f5f5f0"/>
-  <text x="778" y="269" class="sn">Documentation</text>
-  
-  <rect x="1115" y="283" width="20" height="10" rx="3" fill="#d32f2f"/>
-  <text x="1125" y="291" text-anchor="middle" class="bus-label">BUS</text>
-  <text x="1139" y="291" class="bus-dest">Auditors, regulators, legal</text>
+  <!-- ============================================================ -->
+  <!-- TITLE -->
+  <!-- ============================================================ -->
+  <g transform="translate(60,52)">
+    <!-- TfL-style roundel -->
+    <circle cx="0" cy="0" r="22" fill="none" stroke="#E32017" stroke-width="6"/>
+    <rect x="-24" y="-7" width="48" height="14" fill="#003688" rx="1"/>
+    <text x="0" y="4" text-anchor="middle" font-size="10" fill="white" font-weight="bold">AI</text>
+    <!-- Title text -->
+    <text x="36" y="-4" font-size="22" font-weight="bold" fill="#003688">Enterprise AI Security Framework</text>
+    <text x="36" y="14" font-size="11" fill="#555">Guardrails prevent. Judge detects. Humans decide.</text>
+  </g>
 
-  <!-- ================================================================ -->
-  <!-- RUNTIME (Green #22c55e) — MAIN LINE (thicker)                   -->
-  <!-- y=610 across, dip to y=660, back to y=610                       -->
-  <!-- ================================================================ -->
-  <path d="M 200,610 H 560 L 600,660 H 910 L 950,610 H 1300" stroke="#22c55e" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  
-  <!-- T: Input Guardrails -->
-  <rect x="182" y="599" width="7" height="22" rx="1" fill="#1e293b"/>
-  <circle cx="200" cy="610" r="6" fill="#22c55e"/><circle cx="200" cy="610" r="3" fill="#f5f5f0"/>
-  <text x="200" y="596" text-anchor="middle" class="tn">Input Guardrails</text>
-  <rect x="182" y="624" width="20" height="10" rx="3" fill="#d32f2f"/>
-  <text x="192" y="632" text-anchor="middle" class="bus-label">BUS</text>
-  <text x="206" y="632" class="bus-dest">API gateway, WAF, IAM</text>
-  
-  <circle cx="330" cy="610" r="6" fill="#22c55e"/><circle cx="330" cy="610" r="3" fill="#f5f5f0"/>
-  <text x="330" y="596" text-anchor="middle" class="sn">AI Processing</text>
-  
-  <circle cx="450" cy="610" r="6" fill="#22c55e"/><circle cx="450" cy="610" r="3" fill="#f5f5f0"/>
-  <text x="450" y="596" text-anchor="middle" class="sn">Output Guardrails</text>
-  
-  <circle cx="560" cy="610" r="6" fill="#22c55e"/><circle cx="560" cy="610" r="3" fill="#f5f5f0"/>
-  <text x="560" y="596" text-anchor="middle" class="sn">Logging</text>
-  
-  <!-- ★ JUDGE — MAJOR INTERCHANGE -->
-  <circle cx="700" cy="660" r="17" fill="#ffffff" stroke="#1e293b" stroke-width="3.5"/>
-  <circle cx="700" cy="660" r="11" fill="#ffffff" stroke="#22c55e" stroke-width="2.5"/>
-  <circle cx="700" cy="660" r="6" fill="#ffffff" stroke="#06b6d4" stroke-width="2"/>
-  <circle cx="700" cy="660" r="3" fill="#1e293b"/>
-  <text x="700" y="640" text-anchor="middle" class="ix">JUDGE</text>
-  <text x="700" y="688" text-anchor="middle" class="ic">change: Verification</text>
-  
-  <circle cx="800" cy="660" r="6" fill="#22c55e"/><circle cx="800" cy="660" r="3" fill="#f5f5f0"/>
-  <text x="800" y="646" text-anchor="middle" class="sn">Evaluation</text>
-  
-  <circle cx="910" cy="660" r="6" fill="#22c55e"/><circle cx="910" cy="660" r="3" fill="#f5f5f0"/>
-  <text x="910" y="646" text-anchor="middle" class="sn">Findings</text>
-  
-  <!-- ★ HITL — INTERCHANGE -->
-  <circle cx="1010" cy="610" r="14" fill="#ffffff" stroke="#1e293b" stroke-width="3"/>
-  <circle cx="1010" cy="610" r="8" fill="#ffffff" stroke="#22c55e" stroke-width="2.5"/>
-  <circle cx="1010" cy="610" r="4" fill="#1e293b"/>
-  <text x="1010" y="596" text-anchor="middle" class="ix">HITL</text>
-  <text x="1010" y="636" text-anchor="middle" class="ic">change: Incident</text>
-  
-  <!-- Corridor: HITL to Incident -->
-  <line x1="1024" y1="610" x2="1150" y2="610" stroke="#94a3b8" stroke-width="3" stroke-dasharray="5,3"/>
-  
-  <circle cx="1140" cy="610" r="6" fill="#22c55e"/><circle cx="1140" cy="610" r="3" fill="#f5f5f0"/>
-  <text x="1140" y="596" text-anchor="middle" class="sn">Human Decision</text>
-  
-  <!-- T: Action -->
-  <circle cx="1300" cy="610" r="6" fill="#22c55e"/><circle cx="1300" cy="610" r="3" fill="#f5f5f0"/>
-  <rect x="1310" y="599" width="7" height="22" rx="1" fill="#1e293b"/>
-  <text x="1324" y="614" class="tn">Action</text>
-  <rect x="1324" y="618" width="20" height="10" rx="3" fill="#d32f2f"/>
-  <text x="1334" y="626" text-anchor="middle" class="bus-label">BUS</text>
-  <text x="1348" y="626" class="bus-dest">Business outcome</text>
+  <!-- ============================================================ -->
+  <!-- DATA FLOW "RIVER" (like the Thames) -->
+  <!-- ============================================================ -->
+  <path d="M0,545 Q120,530 240,540 Q360,550 500,535 Q640,520 780,535 Q920,550 1060,535 Q1200,520 1340,540 Q1420,548 1500,545 L1500,570 Q1420,573 1340,565 Q1200,545 1060,560 Q920,575 780,560 Q640,545 500,560 Q360,575 240,565 Q120,555 0,570 Z" fill="#DAEAF6" opacity="0.5"/>
+  <text x="70" y="562" font-size="9" fill="#6BA7D2" font-style="italic" letter-spacing="3">DATA   FLOW</text>
 
-  <!-- ================================================================ -->
-  <!-- AGENTIC (Purple #8b5cf6) — LOOP from Runtime                    -->
-  <!-- Branches at AI Processing (330,610), loops through y=740/780,   -->
-  <!-- rejoins at (950,610)                                             -->
-  <!-- ================================================================ -->
-  <path d="M 330,610 V 740 H 580 L 620,780 H 880 L 940,720 V 610" stroke="#8b5cf6" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  
-  <text x="312" y="640" font-size="8" fill="#8b5cf6" font-family="Arial">↓ agent loop</text>
-  <text x="948" y="640" font-size="8" fill="#8b5cf6" font-family="Arial">↑</text>
-  
-  <circle cx="330" cy="675" r="5" fill="#8b5cf6"/><circle cx="330" cy="675" r="2.5" fill="#f5f5f0"/>
-  <text x="290" y="679" text-anchor="end" class="sn">Plan Disclosure</text>
-  
-  <circle cx="330" cy="740" r="5" fill="#8b5cf6"/><circle cx="330" cy="740" r="2.5" fill="#f5f5f0"/>
-  <text x="290" y="744" text-anchor="end" class="sn">Plan Guardrails</text>
-  
-  <!-- ★ PLAN APPROVAL -->
-  <circle cx="450" cy="740" r="13" fill="#ffffff" stroke="#1e293b" stroke-width="3"/>
-  <circle cx="450" cy="740" r="7" fill="#ffffff" stroke="#8b5cf6" stroke-width="2"/>
-  <circle cx="450" cy="740" r="3.5" fill="#1e293b"/>
-  <text x="450" y="724" text-anchor="middle" class="ix">PLAN APPROVAL</text>
-  <text x="450" y="765" text-anchor="middle" class="ic">change: Verification</text>
-  
-  <!-- Corridor: Plan Approval ↔ Verification -->
-  <line x1="450" y1="727" x2="450" y2="710" stroke="#94a3b8" stroke-width="3" stroke-dasharray="4,3"/>
-  
-  <circle cx="560" cy="740" r="5" fill="#8b5cf6"/><circle cx="560" cy="740" r="2.5" fill="#f5f5f0"/>
-  <text x="560" y="728" text-anchor="middle" class="sn">Action Guardrails</text>
-  
-  <!-- ★ CIRCUIT BREAKERS -->
-  <circle cx="750" cy="780" r="13" fill="#ffffff" stroke="#1e293b" stroke-width="3"/>
-  <circle cx="750" cy="780" r="7" fill="#ffffff" stroke="#8b5cf6" stroke-width="2"/>
-  <circle cx="750" cy="780" r="3.5" fill="#1e293b"/>
-  <text x="750" y="805" text-anchor="middle" class="ix">CIRCUIT BREAKERS</text>
-  <text x="750" y="817" text-anchor="middle" class="ic">change: Monitoring</text>
-  
-  <!-- Corridor: Circuit Breakers ↔ Monitoring -->
-  <line x1="763" y1="780" x2="980" y2="830" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4,3"/>
-  <text x="880" y="800" class="walk-label">walk</text>
-  
-  <circle cx="850" cy="780" r="5" fill="#8b5cf6"/><circle cx="850" cy="780" r="2.5" fill="#f5f5f0"/>
-  <text x="850" y="768" text-anchor="middle" class="sn">Scope Enforcement</text>
-  
-  <circle cx="940" cy="720" r="5" fill="#8b5cf6"/><circle cx="940" cy="720" r="2.5" fill="#f5f5f0"/>
-  <text x="958" y="724" class="sn">Tool Controls</text>
-  
-  <circle cx="940" cy="670" r="5" fill="#8b5cf6"/><circle cx="940" cy="670" r="2.5" fill="#f5f5f0"/>
-  <text x="958" y="674" class="sn">Trajectory Logging</text>
+  <!-- ============================================================ -->
+  <!-- LINE 8: GETTING STARTED (Teal #00A4A7) -->
+  <!-- ============================================================ -->
+  <g id="line-getting-started">
+    <!-- Quick Start → Impl Guide horizontal, then branch down to Risk Tiers on Red -->
+    <polyline points="170,130 370,130" fill="none" stroke="#00A4A7" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Branch 1: down to Risk Tiers (280,440) via 45° -->
+    <polyline points="280,130 280,350 280,440" fill="none" stroke="#00A4A7" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Branch 2: right to Impl Guide, then down to Guardrails (490,440) -->
+    <polyline points="370,130 490,130 490,350 490,440" fill="none" stroke="#00A4A7" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Stations -->
+    <use href="#stn" x="170" y="130" stroke="#00A4A7"/>
+    <text x="170" y="118" text-anchor="middle" font-size="10" fill="#333">Quick Start</text>
+    
+    <use href="#stn" x="370" y="130" stroke="#00A4A7"/>
+    <text x="370" y="118" text-anchor="middle" font-size="10" fill="#333">Implementation</text>
+    <text x="370" y="107" text-anchor="middle" font-size="10" fill="#333">Guide</text>
+  </g>
 
-  <!-- ================================================================ -->
-  <!-- VERIFICATION (Cyan #06b6d4)                                     -->
-  <!-- From JUDGE (700,660), down to y=700, LEFT to x=260,             -->
-  <!-- down to y=840, left to terminus                                  -->
-  <!-- Routed LEFT of Agentic left edge (x=330) to avoid crossings     -->
-  <!-- ================================================================ -->
-  <path d="M 700,660 V 700 H 260 V 840 H 150" stroke="#06b6d4" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  
-  <circle cx="700" cy="700" r="5" fill="#06b6d4"/><circle cx="700" cy="700" r="2.5" fill="#f5f5f0"/>
-  <text x="720" y="704" class="sn">Token Detection</text>
-  
-  <circle cx="570" cy="700" r="5" fill="#06b6d4"/><circle cx="570" cy="700" r="2.5" fill="#f5f5f0"/>
-  <text x="570" y="690" text-anchor="middle" class="sn">Self-Consistency</text>
-  
-  <circle cx="450" cy="700" r="5" fill="#06b6d4"/><circle cx="450" cy="700" r="2.5" fill="#f5f5f0"/>
-  <text x="450" y="690" text-anchor="middle" class="sn">Knowledge Graph</text>
-  
-  <!-- ★ VERIFICATION GAP -->
-  <circle cx="260" cy="790" r="13" fill="#ffffff" stroke="#1e293b" stroke-width="3"/>
-  <circle cx="260" cy="790" r="7" fill="#ffffff" stroke="#06b6d4" stroke-width="2"/>
-  <circle cx="260" cy="790" r="3.5" fill="#1e293b"/>
-  <text x="230" y="784" text-anchor="end" class="ix">VERIFICATION</text>
-  <text x="230" y="800" text-anchor="end" class="ix">GAP</text>
-  
-  <circle cx="260" cy="840" r="5" fill="#06b6d4"/><circle cx="260" cy="840" r="2.5" fill="#f5f5f0"/>
-  <text x="260" y="858" text-anchor="middle" class="sn">Formal Verification</text>
-  
-  <!-- T: Ground Truth Check -->
-  <rect x="133" y="831" width="7" height="18" rx="1" fill="#1e293b"/>
-  <circle cx="150" cy="840" r="5" fill="#06b6d4"/><circle cx="150" cy="840" r="2.5" fill="#f5f5f0"/>
-  <text x="150" y="824" text-anchor="middle" class="tn">Ground Truth Check</text>
-  <rect x="132" y="852" width="20" height="10" rx="3" fill="#d32f2f"/>
-  <text x="142" y="860" text-anchor="middle" class="bus-label">BUS</text>
-  <text x="156" y="860" class="bus-dest">Domain experts, QA</text>
+  <!-- ============================================================ -->
+  <!-- LINE 1: INSIGHTS (Blue #003688) — "Why This Pattern" -->
+  <!-- ============================================================ -->
+  <g id="line-insights">
+    <polyline points="130,210 330,210 530,210 730,210 930,210 1130,210" 
+              fill="none" stroke="#003688" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Stations -->
+    <use href="#stn" x="130" y="210" stroke="#003688"/>
+    <text x="130" y="195" text-anchor="middle" font-size="10" font-weight="bold" fill="#003688">The First Control</text>
 
-  <!-- ================================================================ -->
-  <!-- MONITORING (Teal #0d9488)                                       -->
-  <!-- From Runtime right side (980,610), DOWN to y=930, LEFT,         -->
-  <!-- angle to terminus                                                -->
-  <!-- ================================================================ -->
-  <path d="M 980,610 V 930 H 290 L 250,970" stroke="#0d9488" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  
-  <circle cx="980" cy="730" r="5" fill="#0d9488"/><circle cx="980" cy="730" r="2.5" fill="#f5f5f0"/>
-  <text x="998" y="734" class="sn">Event Stream</text>
-  
-  <circle cx="980" cy="830" r="5" fill="#0d9488"/><circle cx="980" cy="830" r="2.5" fill="#f5f5f0"/>
-  <text x="998" y="834" class="sn">Alert Store</text>
-  
-  <!-- ★ AGGREGATION -->
-  <circle cx="980" cy="930" r="13" fill="#ffffff" stroke="#1e293b" stroke-width="3"/>
-  <circle cx="980" cy="930" r="7" fill="#ffffff" stroke="#0d9488" stroke-width="2"/>
-  <circle cx="980" cy="930" r="3.5" fill="#1e293b"/>
-  <text x="980" y="955" text-anchor="middle" class="ix">AGGREGATION</text>
-  <text x="980" y="967" text-anchor="middle" class="ic">change: Incident</text>
-  
-  <!-- Corridor: Aggregation ↔ Incident -->
-  <line x1="980" y1="943" x2="980" y2="985" stroke="#94a3b8" stroke-width="3" stroke-dasharray="4,3"/>
-  
-  <circle cx="770" cy="930" r="5" fill="#0d9488"/><circle cx="770" cy="930" r="2.5" fill="#f5f5f0"/>
-  <text x="770" y="948" text-anchor="middle" class="sn">Correlation</text>
-  
-  <!-- ★ ML ANOMALY -->
-  <circle cx="570" cy="930" r="13" fill="#ffffff" stroke="#1e293b" stroke-width="3"/>
-  <circle cx="570" cy="930" r="7" fill="#ffffff" stroke="#0d9488" stroke-width="2"/>
-  <circle cx="570" cy="930" r="3.5" fill="#1e293b"/>
-  <text x="570" y="955" text-anchor="middle" class="ix">ML ANOMALY</text>
-  <text x="570" y="967" text-anchor="middle" class="ic">change: Incident</text>
-  
-  <!-- Corridor: ML Anomaly ↔ Incident -->
-  <line x1="570" y1="943" x2="570" y2="985" stroke="#94a3b8" stroke-width="3" stroke-dasharray="4,3"/>
-  
-  <circle cx="410" cy="930" r="5" fill="#0d9488"/><circle cx="410" cy="930" r="2.5" fill="#f5f5f0"/>
-  <text x="410" y="948" text-anchor="middle" class="sn">Drift Detection</text>
-  
-  <!-- T: Pattern Discovery -->
-  <rect x="241" y="964" width="18" height="7" rx="1" fill="#1e293b"/>
-  <circle cx="250" cy="970" r="5" fill="#0d9488"/><circle cx="250" cy="970" r="2.5" fill="#f5f5f0"/>
-  <text x="232" y="968" text-anchor="end" class="tn">Pattern Discovery</text>
-  <rect x="194" y="975" width="20" height="10" rx="3" fill="#d32f2f"/>
-  <text x="204" y="983" text-anchor="middle" class="bus-label">BUS</text>
-  <text x="218" y="983" class="bus-dest">Threat intel, red team</text>
+    <use href="#stn" x="330" y="210" stroke="#003688"/>
+    <text x="330" y="195" text-anchor="middle" font-size="10" fill="#333">Why Guardrails</text>
+    <text x="330" y="184" text-anchor="middle" font-size="10" fill="#333">Aren't Enough</text>
+    
+    <use href="#stn" x="530" y="210" stroke="#003688"/>
+    <text x="530" y="195" text-anchor="middle" font-size="10" fill="#333">Judge Detects.</text>
+    <text x="530" y="184" text-anchor="middle" font-size="10" fill="#333">It Doesn't Decide.</text>
 
-  <!-- ================================================================ -->
-  <!-- INCIDENT (Pink #ec4899)                                         -->
-  <!-- From corridor near HITL (1160,610), DOWN right side,            -->
-  <!-- LEFT along bottom (y=1000), UP left side (x=70),                -->
-  <!-- crossing Development and Risk to feed back to Governance         -->
-  <!-- x=70 keeps labels CLEAR of terminus labels at x=120             -->
-  <!-- ================================================================ -->
-  <path d="M 1160,610 V 1000 H 70 V 130" stroke="#ec4899" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  
-  <circle cx="1160" cy="610" r="5" fill="#ec4899"/><circle cx="1160" cy="610" r="2.5" fill="#f5f5f0"/>
-  
-  <circle cx="1160" cy="730" r="5" fill="#ec4899"/><circle cx="1160" cy="730" r="2.5" fill="#f5f5f0"/>
-  <text x="1180" y="734" class="sn">Detection</text>
-  
-  <circle cx="1160" cy="840" r="5" fill="#ec4899"/><circle cx="1160" cy="840" r="2.5" fill="#f5f5f0"/>
-  <text x="1180" y="844" class="sn">Response</text>
-  
-  <!-- ★ INCIDENT RESPONSE -->
-  <circle cx="1160" cy="1000" r="13" fill="#ffffff" stroke="#1e293b" stroke-width="3"/>
-  <circle cx="1160" cy="1000" r="7" fill="#ffffff" stroke="#ec4899" stroke-width="2"/>
-  <circle cx="1160" cy="1000" r="3.5" fill="#1e293b"/>
-  <text x="1160" y="1024" text-anchor="middle" class="ix">INCIDENT RESPONSE</text>
-  
-  <circle cx="930" cy="1000" r="5" fill="#ec4899"/><circle cx="930" cy="1000" r="2.5" fill="#f5f5f0"/>
-  <text x="930" y="1018" text-anchor="middle" class="sn">Investigation</text>
-  
-  <circle cx="720" cy="1000" r="5" fill="#ec4899"/><circle cx="720" cy="1000" r="2.5" fill="#f5f5f0"/>
-  <text x="720" y="1018" text-anchor="middle" class="sn">Remediation</text>
-  
-  <!-- ★ FEEDBACK LOOP — MAJOR INTERCHANGE -->
-  <circle cx="420" cy="1000" r="17" fill="#ffffff" stroke="#1e293b" stroke-width="3.5"/>
-  <circle cx="420" cy="1000" r="11" fill="#ffffff" stroke="#ec4899" stroke-width="2.5"/>
-  <circle cx="420" cy="1000" r="6" fill="#ffffff" stroke="#22c55e" stroke-width="2"/>
-  <circle cx="420" cy="1000" r="3" fill="#1e293b"/>
-  <text x="420" y="1028" text-anchor="middle" class="ix">FEEDBACK LOOP</text>
-  <text x="420" y="1040" text-anchor="middle" class="ic">change: Runtime</text>
-  
-  <circle cx="230" cy="1000" r="5" fill="#ec4899"/><circle cx="230" cy="1000" r="2.5" fill="#f5f5f0"/>
-  <text x="230" y="1018" text-anchor="middle" class="sn">Guardrail Update</text>
-  
-  <circle cx="70" cy="840" r="5" fill="#ec4899"/><circle cx="70" cy="840" r="2.5" fill="#f5f5f0"/>
-  <text x="55" y="844" text-anchor="end" class="sn">Judge</text>
-  <text x="55" y="854" text-anchor="end" class="sn">Calibration</text>
-  
-  <circle cx="70" cy="610" r="5" fill="#ec4899"/><circle cx="70" cy="610" r="2.5" fill="#f5f5f0"/>
-  <text x="55" y="614" text-anchor="end" class="sn">Model</text>
-  <text x="55" y="624" text-anchor="end" class="sn">Retraining</text>
-  
-  <!-- ★ POLICY UPDATE — INTERCHANGE (Incident × Development at x=70, y=400) -->
-  <circle cx="70" cy="400" r="13" fill="#ffffff" stroke="#1e293b" stroke-width="3"/>
-  <circle cx="70" cy="400" r="7" fill="#ffffff" stroke="#ec4899" stroke-width="2"/>
-  <circle cx="70" cy="400" r="3.5" fill="#1e293b"/>
-  <text x="55" y="394" text-anchor="end" class="ix">POLICY</text>
-  <text x="55" y="408" text-anchor="end" class="ix">UPDATE</text>
-  <text x="55" y="422" text-anchor="end" class="ic">cross: Dev</text>
-  
-  <!-- ★ RISK UPDATE — INTERCHANGE (Incident × Risk at x=70, y=250) -->
-  <circle cx="70" cy="250" r="13" fill="#ffffff" stroke="#1e293b" stroke-width="3"/>
-  <circle cx="70" cy="250" r="7" fill="#ffffff" stroke="#ec4899" stroke-width="2"/>
-  <circle cx="70" cy="250" r="3.5" fill="#1e293b"/>
-  <text x="55" y="244" text-anchor="end" class="ix">RISK</text>
-  <text x="55" y="258" text-anchor="end" class="ix">UPDATE</text>
-  <text x="55" y="272" text-anchor="end" class="ic">cross: Risk</text>
-  
-  <!-- Incident meets Governance (Feeds Back) at (70,130) -->
-  <circle cx="70" cy="130" r="14" fill="#ffffff" stroke="#1e293b" stroke-width="3"/>
-  <circle cx="70" cy="130" r="8" fill="#ffffff" stroke="#ec4899" stroke-width="2"/>
-  <circle cx="70" cy="130" r="4" fill="#1e293b"/>
-  <text x="55" y="118" text-anchor="end" class="ix">FEEDS</text>
-  <text x="55" y="132" text-anchor="end" class="ix">BACK</text>
-  <text x="55" y="152" text-anchor="end" class="ic">cross: Gov</text>
-  <rect x="30" y="156" width="20" height="10" rx="3" fill="#d32f2f"/>
-  <text x="40" y="164" text-anchor="middle" class="bus-label">BUS</text>
-  <text x="54" y="164" class="bus-dest">Post-incident review</text>
+    <use href="#stn" x="730" y="210" stroke="#003688"/>
+    <text x="730" y="195" text-anchor="middle" font-size="10" fill="#333">Infrastructure</text>
+    <text x="730" y="184" text-anchor="middle" font-size="10" fill="#333">Beats Instructions</text>
 
-  <!-- ================================================================ -->
-  <!-- Extend Dev and Risk lines to meet Incident at x=70              -->
-  <!-- Short stubs connecting to the interchange circles                -->
-  <!-- ================================================================ -->
-  <!-- Dev stub: (120,400) extends left to (83,400) -->
-  <line x1="83" y1="400" x2="120" y2="400" stroke="#3b82f6" stroke-width="8" stroke-linecap="round"/>
-  <!-- Risk stub: (120,250) extends left to (83,250) -->
-  <line x1="83" y1="250" x2="120" y2="250" stroke="#f59e0b" stroke-width="8" stroke-linecap="round"/>
-  <!-- Gov stub: (120,130) extends left to (84,130) -->
-  <line x1="84" y1="130" x2="120" y2="130" stroke="#dc2626" stroke-width="8" stroke-linecap="round"/>
+    <use href="#stn" x="930" y="210" stroke="#003688"/>
+    <text x="930" y="195" text-anchor="middle" font-size="10" fill="#333">Risk Tier Is</text>
+    <text x="930" y="184" text-anchor="middle" font-size="10" fill="#333">Use Case</text>
 
-  <!-- ================================================================ -->
-  <!-- LEGEND                                                           -->
-  <!-- ================================================================ -->
-  <rect x="-30" y="1050" width="1550" height="90" rx="8" fill="#ffffff" stroke="#d4d4d4" stroke-width="1.5"/>
-  
-  <text x="50" y="1070" class="lh">LINES</text>
-  
-  <line x1="50" y1="1084" x2="78" y2="1084" stroke="#dc2626" stroke-width="4"/>
-  <text x="84" y="1088" class="lt">Governance</text>
-  
-  <line x1="50" y1="1100" x2="78" y2="1100" stroke="#f59e0b" stroke-width="4"/>
-  <text x="84" y="1104" class="lt">Risk</text>
-  
-  <line x1="50" y1="1116" x2="78" y2="1116" stroke="#3b82f6" stroke-width="4"/>
-  <text x="84" y="1120" class="lt">Development</text>
-  
-  <line x1="170" y1="1084" x2="198" y2="1084" stroke="#22c55e" stroke-width="5"/>
-  <text x="204" y="1088" class="lt">Runtime (main)</text>
-  
-  <line x1="170" y1="1100" x2="198" y2="1100" stroke="#8b5cf6" stroke-width="4"/>
-  <text x="204" y="1104" class="lt">Agentic (loop)</text>
-  
-  <line x1="170" y1="1116" x2="198" y2="1116" stroke="#06b6d4" stroke-width="4"/>
-  <text x="204" y="1120" class="lt">Verification</text>
-  
-  <line x1="310" y1="1084" x2="338" y2="1084" stroke="#0d9488" stroke-width="4"/>
-  <text x="344" y="1088" class="lt">Monitoring</text>
-  
-  <line x1="310" y1="1100" x2="338" y2="1100" stroke="#eab308" stroke-width="4"/>
-  <text x="344" y="1104" class="lt">Compliance (circle)</text>
-  
-  <line x1="310" y1="1116" x2="338" y2="1116" stroke="#ec4899" stroke-width="4"/>
-  <text x="344" y="1120" class="lt">Incident (feedback)</text>
-  
-  <!-- Symbols -->
-  <line x1="470" y1="1060" x2="470" y2="1130" stroke="#d4d4d4" stroke-width="1"/>
-  <text x="490" y="1070" class="lh">SYMBOLS</text>
-  
-  <circle cx="500" cy="1087" r="5" fill="#64748b"/><circle cx="500" cy="1087" r="2.5" fill="#f5f5f0"/>
-  <text x="512" y="1091" class="lt">Station</text>
-  
-  <circle cx="500" cy="1105" r="8" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
-  <circle cx="500" cy="1105" r="4" fill="#ffffff" stroke="#64748b" stroke-width="1.5"/>
-  <circle cx="500" cy="1105" r="2" fill="#1e293b"/>
-  <text x="512" y="1109" class="lt">Interchange — change lines</text>
-  
-  <rect x="494" y="1117" width="5" height="12" rx="1" fill="#1e293b"/>
-  <circle cx="507" cy="1123" r="5" fill="#64748b"/><circle cx="507" cy="1123" r="2.5" fill="#f5f5f0"/>
-  <text x="519" y="1127" class="lt">Terminus — end of line</text>
-  
-  <rect x="660" y="1079" width="18" height="10" rx="3" fill="#d32f2f"/>
-  <text x="669" y="1087" text-anchor="middle" class="bus-label">BUS</text>
-  <text x="684" y="1087" class="lt">Exit framework — another service or discipline</text>
-  
-  <line x1="660" y1="1100" x2="682" y2="1100" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4,3"/>
-  <text x="688" y="1104" class="lt">Walking route — short walk between nearby stations</text>
-  
-  <path d="M 660,1114 Q 670,1106 680,1114 Q 690,1122 700,1114" stroke="#3b82f6" stroke-width="4" fill="none"/>
-  <text x="708" y="1122" class="lt">Continuous testing loop — security testing never stops</text>
-  
-  <!-- How to read -->
-  <line x1="920" y1="1060" x2="920" y2="1130" stroke="#d4d4d4" stroke-width="1"/>
-  <text x="940" y="1070" class="lh">HOW TO READ</text>
-  
-  <text x="940" y="1088" class="lt">Start at any terminus (▮). Follow the coloured line through stations.</text>
-  <text x="940" y="1104" class="lt">At interchanges (⊕), switch lines. At bus stops, exit the framework.</text>
-  <text x="940" y="1120" class="lt">Pink Incident line feeds lessons back up the left side — the system learns.</text>
-  
-  <!-- Roundel -->
-  <circle cx="1460" cy="1095" r="30" fill="none" stroke="#1e40af" stroke-width="6"/>
-  <rect x="1415" y="1085" width="90" height="20" rx="2" fill="#1e40af"/>
-  <text x="1460" y="1099" text-anchor="middle" font-size="10" font-weight="bold" fill="#ffffff" font-family="'Gill Sans', 'Gill Sans MT', Calibri, sans-serif">AI SECURITY</text>
+    <use href="#stn" x="1130" y="210" stroke="#003688"/>
+    <text x="1130" y="195" text-anchor="middle" font-size="10" fill="#333">Humans Remain</text>
+    <text x="1130" y="184" text-anchor="middle" font-size="10" fill="#333">Accountable</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- LINE 2: EMERGING CHALLENGES (Green #00782A) -->
+  <!-- ============================================================ -->
+  <g id="line-emerging">
+    <polyline points="330,310 470,310 620,310 770,310 920,310 1070,310 1220,310" 
+              fill="none" stroke="#00782A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Stations -->
+    <use href="#stn" x="330" y="310" stroke="#00782A"/>
+    <text x="295" y="300" font-size="10" fill="#333">Verification</text>
+    <text x="295" y="289" font-size="10" fill="#333">Gap</text>
+
+    <use href="#stn" x="470" y="310" stroke="#00782A"/>
+    <text x="470" y="335" text-anchor="middle" font-size="10" fill="#333">Behavioral</text>
+    <text x="470" y="346" text-anchor="middle" font-size="10" fill="#333">Anomaly Detection</text>
+
+    <use href="#stn" x="620" y="310" stroke="#00782A"/>
+    <text x="620" y="300" text-anchor="middle" font-size="10" fill="#333">Multimodal Breaks</text>
+    <text x="620" y="289" text-anchor="middle" font-size="10" fill="#333">Guardrails</text>
+
+    <use href="#stn" x="770" y="310" stroke="#00782A"/>
+    <text x="770" y="335" text-anchor="middle" font-size="10" fill="#333">When AI Thinks</text>
+    <text x="770" y="346" text-anchor="middle" font-size="10" fill="#333">Before It Answers</text>
+
+    <use href="#stn" x="920" y="310" stroke="#00782A"/>
+    <text x="920" y="300" text-anchor="middle" font-size="10" fill="#333">When Agents</text>
+    <text x="920" y="289" text-anchor="middle" font-size="10" fill="#333">Talk to Agents</text>
+
+    <use href="#stn" x="1070" y="310" stroke="#00782A"/>
+    <text x="1070" y="335" text-anchor="middle" font-size="10" fill="#333">The Memory</text>
+    <text x="1070" y="346" text-anchor="middle" font-size="10" fill="#333">Problem</text>
+
+    <use href="#stn" x="1220" y="310" stroke="#00782A"/>
+    <text x="1220" y="300" text-anchor="middle" font-size="10" fill="#333">Can't Validate</text>
+    <text x="1220" y="289" text-anchor="middle" font-size="10" fill="#333">What Hasn't Finished</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- LINE 3: RUNTIME CONTROLS (Red #E32017) — THE CENTRAL LINE -->
+  <!-- ============================================================ -->
+  <g id="line-runtime">
+    <!-- Main thick horizontal -->
+    <polyline points="120,440 280,440 490,440 700,440 910,440 1120,440 1330,440" 
+              fill="none" stroke="#E32017" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Interchange stations (larger) -->
+    <use href="#ix" x="280" y="440"/>
+    <text x="280" y="468" text-anchor="middle" font-size="12" font-weight="bold" fill="#E32017">Risk Tiers</text>
+    
+    <use href="#ix" x="490" y="440"/>
+    <text x="490" y="468" text-anchor="middle" font-size="12" font-weight="bold" fill="#E32017">Guardrails</text>
+    
+    <use href="#ix" x="700" y="440"/>
+    <text x="700" y="468" text-anchor="middle" font-size="12" font-weight="bold" fill="#E32017">Judge</text>
+    
+    <use href="#ix" x="910" y="440"/>
+    <text x="910" y="468" text-anchor="middle" font-size="12" font-weight="bold" fill="#E32017">Judge Assurance</text>
+    <use href="#new-badge" x="910" y="488"/>
+
+    <use href="#ix" x="1120" y="440"/>
+    <text x="1120" y="468" text-anchor="middle" font-size="12" font-weight="bold" fill="#E32017">Human Oversight</text>
+
+    <use href="#ix" x="1330" y="440"/>
+    <text x="1330" y="468" text-anchor="middle" font-size="12" font-weight="bold" fill="#E32017">Checklist</text>
+
+    <!-- Entry arrow -->
+    <line x1="80" y1="440" x2="120" y2="440" stroke="#E32017" stroke-width="10" stroke-linecap="round"/>
+    <polygon points="115,430 130,440 115,450" fill="#E32017"/>
+    <text x="60" y="444" text-anchor="end" font-size="9" fill="#E32017" font-weight="bold">INPUT</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- VERTICAL CONNECTORS: Insights ↔ Runtime (dashed, showing relationships) -->
+  <!-- ============================================================ -->
+  <g id="connectors" stroke-dasharray="4,4" stroke-width="1.5" opacity="0.35">
+    <!-- First Control → entry -->
+    <line x1="130" y1="218" x2="130" y2="432" stroke="#003688"/>
+    <!-- Why Guardrails → Guardrails -->
+    <line x1="330" y1="218" x2="490" y2="432" stroke="#003688"/>
+    <!-- Judge Detects → Judge -->
+    <line x1="530" y1="218" x2="700" y2="432" stroke="#003688"/>
+    <!-- Risk Tier Is Use Case → Risk Tiers -->
+    <line x1="930" y1="218" x2="910" y2="432" stroke="#003688"/>
+    <!-- Humans Accountable → Human Oversight -->
+    <line x1="1130" y1="218" x2="1120" y2="432" stroke="#003688"/>
+    <!-- Verification Gap → Judge Assurance -->
+    <line x1="330" y1="318" x2="910" y2="432" stroke="#00782A"/>
+    <!-- Multimodal → links below -->
+    <!-- When Agents Talk → Multi-Agent Controls -->
+    <line x1="920" y1="318" x2="920" y2="592" stroke="#00782A"/>
+    <!-- Memory Problem → Memory & Context -->
+    <line x1="1070" y1="318" x2="870" y2="685" stroke="#00782A"/>
+    <!-- Streaming → Streaming Controls -->
+    <line x1="1220" y1="318" x2="1120" y2="592" stroke="#00782A"/>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- LINE 4: AGENTIC (Orange #EE7C0E) -->
+  <!-- Branches down from Judge on Red line -->
+  <!-- ============================================================ -->
+  <g id="line-agentic">
+    <!-- Down from Judge, then right -->
+    <polyline points="700,448 700,600 920,600 1120,600" 
+              fill="none" stroke="#EE7C0E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <use href="#stn" x="700" y="600" stroke="#EE7C0E"/>
+    <text x="700" y="622" text-anchor="middle" font-size="10" font-weight="bold" fill="#EE7C0E">Agentic Controls</text>
+
+    <use href="#stn" x="920" y="600" stroke="#EE7C0E"/>
+    <text x="920" y="622" text-anchor="middle" font-size="10" font-weight="bold" fill="#EE7C0E">Multi-Agent Controls</text>
+    <use href="#new-badge" x="920" y="638"/>
+
+    <use href="#stn" x="1120" y="600" stroke="#EE7C0E"/>
+    <text x="1120" y="622" text-anchor="middle" font-size="10" font-weight="bold" fill="#EE7C0E">NHI Lifecycle</text>
+    <use href="#new-badge" x="1120" y="638"/>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- LINE 5: PIPELINE (Purple #9B0056) -->
+  <!-- Branches down from Guardrails area -->
+  <!-- ============================================================ -->
+  <g id="line-pipeline">
+    <!-- Down from Guardrails, then right and down -->
+    <polyline points="490,448 490,600 490,700 660,700 870,700" 
+              fill="none" stroke="#9B0056" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <use href="#stn" x="490" y="600" stroke="#9B0056"/>
+    <text x="490" y="590" text-anchor="middle" font-size="10" font-weight="bold" fill="#9B0056">RAG Security</text>
+    <use href="#new-badge" x="550" y="600"/>
+
+    <use href="#stn" x="660" y="700" stroke="#9B0056"/>
+    <text x="660" y="722" text-anchor="middle" font-size="10" font-weight="bold" fill="#9B0056">Supply Chain</text>
+    <use href="#new-badge" x="660" y="738"/>
+
+    <use href="#stn" x="870" y="700" stroke="#9B0056"/>
+    <text x="870" y="722" text-anchor="middle" font-size="10" font-weight="bold" fill="#9B0056">Memory &amp; Context</text>
+    <use href="#new-badge" x="870" y="738"/>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- LINE 5b: PIPELINE INSIGHTS (Purple, dashed — insight articles) -->
+  <!-- ============================================================ -->
+  <g id="line-pipeline-insights">
+    <polyline points="310,600 490,600" 
+              fill="none" stroke="#9B0056" stroke-width="4" stroke-dasharray="12,6" stroke-linecap="round"/>
+    <polyline points="310,700 490,700" 
+              fill="none" stroke="#9B0056" stroke-width="4" stroke-dasharray="12,6" stroke-linecap="round"/>
+
+    <use href="#stn" x="310" y="600" stroke="#9B0056"/>
+    <text x="310" y="590" text-anchor="middle" font-size="9" fill="#9B0056">RAG Is Your Biggest</text>
+    <text x="310" y="579" text-anchor="middle" font-size="9" fill="#9B0056">Attack Surface</text>
+    <use href="#new-badge" x="310" y="617"/>
+
+    <use href="#stn" x="310" y="700" stroke="#9B0056"/>
+    <text x="310" y="690" text-anchor="middle" font-size="9" fill="#9B0056">The Supply Chain</text>
+    <text x="310" y="679" text-anchor="middle" font-size="9" fill="#9B0056">Problem</text>
+    <use href="#new-badge" x="310" y="717"/>
+
+    <!-- Connect vertically -->
+    <line x1="310" y1="608" x2="310" y2="692" stroke="#9B0056" stroke-width="4" stroke-dasharray="12,6" stroke-linecap="round"/>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- LINE 6: OPS (Yellow #FFD300, outlined in #B36305) -->
+  <!-- ============================================================ -->
+  <g id="line-ops">
+    <polyline points="490,810 700,810 920,810 1120,810" 
+              fill="none" stroke="#FFD300" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <polyline points="490,810 700,810 920,810 1120,810" 
+              fill="none" stroke="#B36305" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.25"/>
+
+    <use href="#stn" x="490" y="810" stroke="#B36305"/>
+    <text x="490" y="835" text-anchor="middle" font-size="10" font-weight="bold" fill="#B36305">Metrics</text>
+
+    <use href="#stn" x="700" y="810" stroke="#B36305"/>
+    <text x="700" y="835" text-anchor="middle" font-size="10" font-weight="bold" fill="#B36305">SOC Integration</text>
+    <use href="#new-badge" x="700" y="851"/>
+
+    <use href="#stn" x="920" y="810" stroke="#B36305"/>
+    <text x="920" y="835" text-anchor="middle" font-size="10" font-weight="bold" fill="#B36305">Anomaly Detection Ops</text>
+    <use href="#new-badge" x="920" y="851"/>
+
+    <use href="#stn" x="1120" y="810" stroke="#B36305"/>
+    <text x="1120" y="835" text-anchor="middle" font-size="10" font-weight="bold" fill="#B36305">Cost &amp; Latency</text>
+    <use href="#new-badge" x="1120" y="851"/>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- LINE 7: REGULATORY (Silver #A0A5A9) -->
+  <!-- ============================================================ -->
+  <g id="line-regulatory">
+    <polyline points="920,900 1120,900 1330,900 1330,448" 
+              fill="none" stroke="#A0A5A9" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <use href="#stn" x="920" y="900" stroke="#A0A5A9"/>
+    <text x="920" y="925" text-anchor="middle" font-size="10" fill="#555">ISO 42001 Mapping</text>
+
+    <use href="#stn" x="1120" y="900" stroke="#A0A5A9"/>
+    <text x="1120" y="925" text-anchor="middle" font-size="10" fill="#555">EU AI Act</text>
+
+    <!-- Connects up to Checklist (already an interchange on Red) -->
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- LINE CONNECTORS: Ops ↔ Runtime -->
+  <!-- ============================================================ -->
+  <g id="ops-connectors">
+    <!-- Metrics up to Guardrails area -->
+    <line x1="490" y1="802" x2="490" y2="710" stroke="#B36305" stroke-width="3" stroke-dasharray="6,4" opacity="0.3"/>
+    <!-- SOC up to Judge area -->
+    <line x1="700" y1="802" x2="700" y2="710" stroke="#B36305" stroke-width="3" stroke-dasharray="6,4" opacity="0.3"/>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- ADDITIONAL EXTENSIONS (small branches) -->
+  <!-- ============================================================ -->
+  <g id="extensions-misc">
+    <!-- Bypass Prevention, Infrastructure — shown as small branches off Guardrails -->
+    <line x1="490" y1="440" x2="400" y2="500" stroke="#888" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="400" cy="500" r="4" fill="white" stroke="#888" stroke-width="2"/>
+    <text x="390" y="518" text-anchor="middle" font-size="8.5" fill="#666">Bypass Prevention</text>
+
+    <line x1="490" y1="440" x2="580" y2="500" stroke="#888" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="580" cy="500" r="4" fill="white" stroke="#888" stroke-width="2"/>
+    <text x="580" y="518" text-anchor="middle" font-size="8.5" fill="#666">Infrastructure</text>
+
+    <!-- Current Solutions — branch off right side -->
+    <line x1="1330" y1="440" x2="1420" y2="500" stroke="#888" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="1420" cy="500" r="4" fill="white" stroke="#888" stroke-width="2"/>
+    <text x="1420" y="518" text-anchor="middle" font-size="8.5" fill="#666">Current Solutions</text>
+
+    <!-- Templates/Examples — branch off Checklist -->
+    <line x1="1330" y1="440" x2="1420" y2="380" stroke="#888" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="1420" cy="380" r="4" fill="white" stroke="#888" stroke-width="2"/>
+    <text x="1420" y="368" text-anchor="middle" font-size="8.5" fill="#666">Playbooks &amp;</text>
+    <text x="1420" y="357" text-anchor="middle" font-size="8.5" fill="#666">Templates</text>
+
+    <!-- Threat Model — branch -->
+    <line x1="1420" y1="380" x2="1420" y2="330" stroke="#888" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="1420" cy="330" r="4" fill="white" stroke="#888" stroke-width="2"/>
+    <text x="1420" y="318" text-anchor="middle" font-size="8.5" fill="#666">Threat Model</text>
+
+    <!-- Emerging Controls — branch off Human Oversight -->
+    <line x1="1120" y1="440" x2="1220" y2="500" stroke="#888" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="1220" cy="500" r="4" fill="white" stroke="#888" stroke-width="2"/>
+    <text x="1220" y="518" text-anchor="middle" font-size="8.5" fill="#666">Emerging Controls</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- CORE PATTERN HIGHLIGHT BOX -->
+  <!-- ============================================================ -->
+  <rect x="440" y="415" width="730" height="50" rx="6" fill="none" stroke="#E32017" stroke-width="1.5" stroke-dasharray="8,4" opacity="0.3"/>
+  <text x="805" y="410" text-anchor="middle" font-size="8" fill="#E32017" font-weight="bold" letter-spacing="2" opacity="0.5">THE THREE-LAYER PATTERN</text>
+
+  <!-- ============================================================ -->
+  <!-- ZONE LABELS -->
+  <!-- ============================================================ -->
+  <text x="130" y="160" font-size="11" fill="#003688" font-weight="bold" opacity="0.4" letter-spacing="1">UNDERSTAND</text>
+  <text x="700" y="160" font-size="11" fill="#E32017" font-weight="bold" opacity="0.4" letter-spacing="1" text-anchor="middle">IMPLEMENT</text>
+  <text x="1300" y="160" font-size="11" fill="#B36305" font-weight="bold" opacity="0.4" letter-spacing="1" text-anchor="end">OPERATE</text>
+
+  <!-- ============================================================ -->
+  <!-- LEGEND -->
+  <!-- ============================================================ -->
+  <g transform="translate(60, 940)" filter="url(#shadow)">
+    <rect x="-20" y="-20" width="1440" height="80" rx="6" fill="white" stroke="#ddd" stroke-width="0.5"/>
+    
+    <!-- Row 1 -->
+    <line x1="0" y1="0" x2="50" y2="0" stroke="#E32017" stroke-width="6" stroke-linecap="round"/>
+    <text x="58" y="4" font-size="10" fill="#333">Runtime Controls</text>
+
+    <line x1="200" y1="0" x2="250" y2="0" stroke="#003688" stroke-width="6" stroke-linecap="round"/>
+    <text x="258" y="4" font-size="10" fill="#333">Insights</text>
+
+    <line x1="370" y1="0" x2="420" y2="0" stroke="#00782A" stroke-width="6" stroke-linecap="round"/>
+    <text x="428" y="4" font-size="10" fill="#333">Emerging Challenges</text>
+
+    <line x1="600" y1="0" x2="650" y2="0" stroke="#EE7C0E" stroke-width="6" stroke-linecap="round"/>
+    <text x="658" y="4" font-size="10" fill="#333">Agentic Security</text>
+
+    <line x1="810" y1="0" x2="860" y2="0" stroke="#9B0056" stroke-width="6" stroke-linecap="round"/>
+    <text x="868" y="4" font-size="10" fill="#333">Pipeline &amp; Data</text>
+
+    <line x1="1010" y1="0" x2="1060" y2="0" stroke="#FFD300" stroke-width="8" stroke-linecap="round"/>
+    <text x="1068" y="4" font-size="10" fill="#333">Operations</text>
+
+    <line x1="1180" y1="0" x2="1230" y2="0" stroke="#A0A5A9" stroke-width="6" stroke-linecap="round"/>
+    <text x="1238" y="4" font-size="10" fill="#333">Regulatory</text>
+
+    <!-- Row 2 -->
+    <line x1="0" y1="30" x2="50" y2="30" stroke="#00A4A7" stroke-width="6" stroke-linecap="round"/>
+    <text x="58" y="34" font-size="10" fill="#333">Getting Started</text>
+
+    <line x1="200" y1="30" x2="250" y2="30" stroke="#888" stroke-width="3" stroke-linecap="round"/>
+    <text x="258" y="34" font-size="10" fill="#333">Extensions</text>
+
+    <line x1="370" y1="30" x2="420" y2="30" stroke="#9B0056" stroke-width="4" stroke-dasharray="12,6" stroke-linecap="round"/>
+    <text x="428" y="34" font-size="10" fill="#333">Insight Article</text>
+
+    <circle cx="600" cy="30" r="5.5" fill="white" stroke="#333" stroke-width="2.5"/>
+    <text x="614" y="34" font-size="10" fill="#333">Station</text>
+
+    <circle cx="715" cy="30" r="8" fill="white" stroke="#000" stroke-width="2.5"/>
+    <text x="730" y="34" font-size="10" fill="#333">Interchange</text>
+
+    <g transform="translate(870,30)">
+      <use href="#new-badge"/>
+    </g>
+    <text x="898" y="34" font-size="10" fill="#333">New in this release</text>
+
+    <line x1="1050" y1="30" x2="1100" y2="30" stroke="#003688" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.5"/>
+    <text x="1108" y="34" font-size="10" fill="#333">Connects to</text>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- MULTIMODAL + REASONING + STREAMING CONTROLS (new core, shown on Orange/emerging branches) -->
+  <!-- ============================================================ -->
+  <g id="new-core-controls">
+    <!-- Multimodal Controls — hangs off Emerging/Multimodal station, angled down to pipeline area -->
+    <line x1="620" y1="318" x2="620" y2="390" stroke="#00782A" stroke-width="3" stroke-dasharray="6,4" opacity="0.4"/>
+    <circle cx="620" cy="390" r="4" fill="white" stroke="#00782A" stroke-width="2"/>
+    <text x="620" y="406" text-anchor="middle" font-size="8.5" fill="#00782A" font-weight="bold">Multimodal Controls</text>
+    <g transform="translate(620,418)"><use href="#new-badge"/></g>
+
+    <!-- Reasoning Model Controls — hangs off Reasoning station -->
+    <line x1="770" y1="318" x2="770" y2="390" stroke="#00782A" stroke-width="3" stroke-dasharray="6,4" opacity="0.4"/>
+    <circle cx="770" cy="390" r="4" fill="white" stroke="#00782A" stroke-width="2"/>
+    <text x="770" y="406" text-anchor="middle" font-size="8.5" fill="#00782A" font-weight="bold">Reasoning Controls</text>
+    <g transform="translate(770,418)"><use href="#new-badge"/></g>
+
+    <!-- Streaming Controls — hangs off Streaming station -->
+    <line x1="1220" y1="318" x2="1220" y2="390" stroke="#00782A" stroke-width="3" stroke-dasharray="6,4" opacity="0.4"/>
+    <circle cx="1220" cy="390" r="4" fill="white" stroke="#00782A" stroke-width="2"/>
+    <text x="1220" y="406" text-anchor="middle" font-size="8.5" fill="#00782A" font-weight="bold">Streaming Controls</text>
+    <g transform="translate(1220,418)"><use href="#new-badge"/></g>
+  </g>
+
+  <!-- ============================================================ -->
+  <!-- FOOTER -->
+  <!-- ============================================================ -->
+  <text x="1440" y="1005" text-anchor="end" font-size="8" fill="#999">v2.0 — February 2026 — github.com/JonathanCGill/enterprise-ai-security-framework</text>
+
 </svg>
