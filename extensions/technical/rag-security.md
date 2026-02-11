@@ -10,11 +10,7 @@ This covers security controls for the RAG pipeline: ingestion, embedding, retrie
 
 ## Architecture and Attack Surface
 
-```
-[Source Documents] → [Ingestion Pipeline] → [Embedding Model] → [Vector Store]
-                                                                      ↓
-[User Query] → [Embedding Model] → [Similarity Search] → [Retrieved Chunks] → [LLM Prompt] → [Response]
-```
+![RAG Pipeline — Security Control Points](../../images/rag-security-controls.svg)
 
 | Component | Attack Surface | Control Category |
 |-----------|---------------|-----------------|
