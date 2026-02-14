@@ -102,6 +102,7 @@ Articles explaining the reasoning behind the pattern — suitable for standalone
 
 | Article | Key Argument |
 | --- | --- |
+| [Risk Stories](insights/risk-stories.md) | Real incidents mapped to framework controls and PACE resilience — where the pattern helps, and where it has limits |
 | [The First Control: Choosing the Right Tool](insights/the-first-control.md) | Design thinking before technology selection |
 | [Why Your AI Guardrails Aren't Enough](insights/why-guardrails-arent-enough.md) | Guardrails block known-bad; you need detection for unknown-bad |
 | [The Judge Detects. It Doesn't Decide.](insights/judge-detects-not-decides.md) | Async evaluation beats real-time blocking for nuanced decisions |
