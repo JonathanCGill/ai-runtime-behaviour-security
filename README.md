@@ -1,8 +1,8 @@
 # Enterprise AI Security Framework
 
-**Secure AI from experiment to production. A fast lane for low-risk deployments. Guardrails, LLM-as-Judge, and human oversight for everything else — scaled to the risk.**
+**Secure AI from experiment to production. A fast lane for low-risk deployments. Guardrails, LLM-as-Judge, and human oversight for everything else — scaled to the risk. Multi-agent security operations for when agents talk to agents.**
 
-A practical, open-source framework for implementing behavioral security controls across generative and agentic AI systems — from internal tools to regulated decisions. Controls scale to risk so low-risk AI moves fast and high-risk AI stays safe.
+A practical, open-source framework for implementing behavioral security controls across generative and agentic AI systems — from internal tools to regulated decisions, from single-model deployments to multi-agent orchestration. Controls scale to risk so low-risk AI moves fast and high-risk AI stays safe.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -33,7 +33,7 @@ The industry is converging on an answer: **runtime behavioral monitoring.** Inst
 
 This pattern already exists in production at major platforms (NVIDIA NeMo, AWS Bedrock, Azure AI, LangChain, Guardrails AI, and others). What's been missing is a clear, vendor-neutral explanation of *why* it's necessary and *how* to implement it proportionate to risk.
 
-That's what this framework provides. The [Infrastructure Controls](infrastructure/) section provides 80 technical controls that make the pattern enforceable at the infrastructure layer.
+That's what this framework provides. The [Infrastructure Controls](infrastructure/) section provides 80 technical controls that make the pattern enforceable at the infrastructure layer. The [MASO Framework](maso/) extends this into multi-agent orchestration — where multiple AI agents collaborate, delegate, and act autonomously.
 
 **But controls that slow adoption aren't controls — they're obstacles.** This framework scales controls to risk. Low-risk internal AI tools get a [Fast Lane](FAST-LANE.md): minimal controls, self-certification, deploy in days. High-risk regulated systems get the full architecture with defined fail postures and tested fallback paths. The goal is to make security the enabler, not the bottleneck.
 
@@ -51,6 +51,7 @@ Every control in this framework has a defined failure mode. The [PACE resilience
 | Implement controls with working code | [Implementation Guide](IMPLEMENTATION_GUIDE.md) |
 | Classify a system by risk | [Risk Tiers](core/risk-tiers.md) |
 | Deploy an agentic AI system | [Agentic Controls](core/agentic.md) |
+| **Secure a multi-agent system** | **[MASO Framework](maso/)** |
 | Understand what happens when controls fail | [PACE Resilience](PACE-RESILIENCE.md) |
 | Enforce controls at the infrastructure layer | [Infrastructure Controls](infrastructure/) |
 | Track your implementation | [Checklist](core/checklist.md) |
@@ -84,6 +85,21 @@ The essential documents for understanding and implementing the pattern.
 | [PACE Resilience](PACE-RESILIENCE.md) | The resilience methodology — what happens when controls fail, from fail-open to full stop |
 | [Checklist](core/checklist.md) | Track your implementation and PACE verification progress |
 | [Emerging Controls](core/emerging-controls.md) | Multimodal, reasoning, and streaming considerations *(theoretical)* |
+
+### Multi-Agent Security Operations (MASO)
+
+When AI agents collaborate, delegate tasks, and take autonomous actions across trust boundaries, single-model controls are not enough. The **[MASO Framework](maso/)** extends this framework into multi-agent orchestration with five dedicated control domains, three implementation tiers, and full PACE resilience integration.
+
+| Document | Purpose |
+| --- | --- |
+| [MASO Overview](maso/) | Architecture, PACE integration, OWASP dual mapping, control domains, threat intelligence |
+| [Tier 1 — Supervised](maso/implementation/tier-1-supervised.md) | Low autonomy: human approves all writes, pilot deployments |
+| [Tier 2 — Managed](maso/implementation/tier-2-managed.md) | Medium autonomy: NHI, signed bus, LLM-as-Judge, continuous monitoring |
+| [Tier 3 — Autonomous](maso/implementation/tier-3-autonomous.md) | High autonomy: self-healing PACE, adversarial testing, isolated kill switch |
+
+**MASO control domains:** Identity & Access, Data Protection, Execution Control, Observability, Supply Chain — each with per-tier implementation requirements, checklists, and graduation criteria.
+
+**OWASP coverage:** Full mapping against both the OWASP Top 10 for LLM Applications (2025) and the OWASP Top 10 for Agentic Applications (2026), with controls that address how individual LLM risks compound across agent chains.
 
 ### Extensions
 
@@ -121,7 +137,7 @@ Articles explaining the reasoning behind the pattern — suitable for standalone
 | [Behavioral Anomaly Detection](insights/behavioral-anomaly-detection.md) | Aggregating signals to detect drift from expected behavior |
 | [Multimodal AI Breaks Your Text-Based Guardrails](insights/multimodal-breaks-guardrails.md) | Images, audio, and video create new attack surfaces |
 | [When AI Thinks Before It Answers](insights/when-ai-thinks.md) | Reasoning models need reasoning-aware controls |
-| [When Agents Talk to Agents](insights/when-agents-talk-to-agents.md) | Multi-agent systems have accountability gaps |
+| [When Agents Talk to Agents](insights/when-agents-talk-to-agents.md) | Multi-agent systems have accountability gaps — see the [MASO Framework](maso/) for the operational answer |
 | [The Memory Problem](insights/the-memory-problem.md) | Long context and persistent memory introduce novel risks |
 | [You Can't Validate What Hasn't Finished](insights/you-cant-validate-unfinished.md) | Real-time streaming challenges existing validation approaches |
 | [Open-Weight Models Shift the Burden](insights/open-weight-models-shift-the-burden.md) | Self-hosted models inherit the provider's control responsibilities |
@@ -145,7 +161,7 @@ This framework defines *what* to enforce. The [infrastructure](infrastructure/) 
 
 ## Scope
 
-**In scope:** Custom LLM applications, AI decision support, document processing, agentic systems — from deployment through incident response.
+**In scope:** Custom LLM applications, AI decision support, document processing, single-agent and multi-agent systems — from deployment through incident response.
 
 **Out of scope:** Vendor AI products (use vendor controls), model training (see MLOps security guidance), and pre-deployment testing. This framework is about what happens in production.
 
@@ -178,10 +194,12 @@ The framework maps to established standards and risk taxonomies:
 | Standard | Relevance | Infrastructure Mapping |
 | --- | --- | --- |
 | [OWASP LLM Top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/) | Security vulnerabilities in LLM applications | [OWASP mapping](infrastructure/mappings/owasp-llm-top10.md) |
-| [OWASP Top 10 for Agentic Applications](https://genai.owasp.org/) | Risks specific to autonomous AI agents | [OWASP mapping](infrastructure/mappings/owasp-llm-top10.md) |
+| [OWASP Top 10 for Agentic Applications](https://genai.owasp.org/) | Risks specific to autonomous AI agents | [OWASP mapping](infrastructure/mappings/owasp-llm-top10.md) / [MASO mapping](maso/) |
 | [NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework) | AI risk management framework | [NIST mapping](infrastructure/mappings/nist-ai-rmf.md) |
 | [ISO 42001](https://www.iso.org/standard/81230.html) | AI management system standard | [ISO 42001 mapping](infrastructure/mappings/iso42001-annex-a.md) |
 | [NIST SP 800-218A](https://csrc.nist.gov/pubs/sp/800/218/a/final) | Secure development practices for generative AI and dual-use foundation models | [SP 800-218A mapping](infrastructure/mappings/nist-sp800-218a.md) |
+| [MITRE ATLAS](https://atlas.mitre.org/) | Adversarial threat landscape for AI systems | [MASO threat intelligence](maso/) |
+| [DORA](https://www.digital-operational-resilience-act.com/) | Digital operational resilience for financial services | [MASO regulatory alignment](maso/) |
 
 ---
 

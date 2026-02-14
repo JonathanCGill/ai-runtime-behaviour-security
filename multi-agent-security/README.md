@@ -2,7 +2,7 @@
 
 **A PACE-Driven Approach to Securing Multi-Model Agent Orchestration**
 
-> *A subsection of the [Enterprise AI Security Controls Framework](https://github.com/JonathanCGill/enterprise-ai-security-controls-framework)*
+> *Part of the [Enterprise AI Security Controls Framework](https://github.com/JonathanCGill/enterprise-ai-security-controls-framework)*
 > Version 1.0 · February 2026 · Jonathan Gill
 
 ---
@@ -178,19 +178,19 @@ Model provenance tracking and AIBOM generation for every model in the agent syst
 
 Consistent with the parent framework's risk-tiered approach, MASO defines three implementation tiers:
 
-### Tier 1 — Supervised Multi-Agent (Low Autonomy)
+### [Tier 1 — Supervised Multi-Agent](implementation/tier-1-supervised.md) (Low Autonomy)
 
 All agent actions require human approval. Inter-agent communication is logged but not encrypted. Behavioural monitoring is periodic (batch review). Suitable for early-stage pilot deployments and low-consequence use cases.
 
 **Minimum controls:** Guardrails layer, basic tool scoping, human-in-the-loop for all write operations, action audit log.
 
-### Tier 2 — Managed Multi-Agent (Medium Autonomy)
+### [Tier 2 — Managed Multi-Agent](implementation/tier-2-managed.md) (Medium Autonomy)
 
 Agents can execute read operations and low-consequence write operations autonomously. High-consequence actions escalate to human oversight. Inter-agent communication is signed and validated. Behavioural monitoring is continuous with automated anomaly alerting. PACE Alternate and Contingency phases are fully configured.
 
 **Required controls:** All three security layers operational, per-agent NHI, signed message bus, LLM-as-Judge evaluation, continuous anomaly scoring, PACE A and C configured and tested.
 
-### Tier 3 — Autonomous Multi-Agent (High Autonomy)
+### [Tier 3 — Autonomous Multi-Agent](implementation/tier-3-autonomous.md) (High Autonomy)
 
 Agents operate with minimal human intervention for pre-approved task categories. Human oversight focuses on exception handling and strategic review. Full PACE cycle operational and tested through regular red-team exercises. All five MASO control domains fully implemented.
 
@@ -215,14 +215,14 @@ MASO inherits the parent framework's regulatory mappings and extends them to mul
 
 ## Relationship to Parent Framework
 
-This framework is a direct extension of the [Enterprise AI Security Controls Framework](https://github.com/JonathanCGill/enterprise-ai-security-controls-framework). It inherits:
+MASO is the multi-agent extension of the [Enterprise AI Security Controls Framework](https://github.com/JonathanCGill/enterprise-ai-security-controls-framework). It inherits:
 
 - The **three-layer defence model** (guardrails, LLM-as-Judge, human oversight)
 - The **PACE resilience methodology**
 - The **risk classification matrix** and tiered implementation approach
 - The **regulatory mapping** framework
 
-It extends the parent framework by addressing:
+It extends the parent framework into multi-agent territory by addressing:
 
 - **Multi-model orchestration** security (agent-to-agent trust, delegation, authority chains)
 - **Inter-agent communication** integrity (the message bus as a security control point)
@@ -236,12 +236,21 @@ It extends the parent framework by addressing:
 ## File Structure
 
 ```
-insights/multi-agent-security/
+maso/
 ├── README.md                           # This document
 ├── images/
 │   ├── maso-architecture.svg           # Three-layer architecture with agent grid
 │   ├── pace-multi-agent-cycle.svg      # PACE resilience phases for agents
-│   └── owasp-dual-mapping.svg          # LLM Top 10 + Agentic Top 10 mapping
+│   ├── owasp-dual-mapping.svg          # LLM Top 10 + Agentic Top 10 mapping
+│   ├── tier-1-architecture.svg         # Tier 1 supervised architecture
+│   ├── tier-1-owasp-coverage.svg       # Tier 1 OWASP risk coverage matrix
+│   ├── tier-1-cost.svg                 # Tier 1 cost indicators
+│   ├── tier-2-architecture.svg         # Tier 2 managed architecture
+│   ├── tier-2-owasp-coverage.svg       # Tier 2 OWASP risk coverage matrix
+│   ├── tier-2-cost.svg                 # Tier 2 cost indicators
+│   ├── tier-3-architecture.svg         # Tier 3 autonomous architecture
+│   ├── tier-3-owasp-coverage.svg       # Tier 3 OWASP risk coverage matrix
+│   └── tier-3-cost.svg                 # Tier 3 cost indicators
 ├── controls/
 │   ├── identity-and-access.md          # NHI, credentials, zero-trust controls
 │   ├── data-protection.md              # Data fencing, DLP, RAG integrity
@@ -261,14 +270,13 @@ insights/multi-agent-security/
 
 ## What's Next
 
-This is the framework skeleton. The following subsections will be developed:
+The framework skeleton and implementation tiers are complete. The following subsections will be developed:
 
 1. **Detailed control specifications** for each of the five MASO domains, with implementation guidance, testing criteria, and maturity indicators.
 2. **Worked examples** for financial services, healthcare, and critical infrastructure use cases — consistent with the parent framework's sector-specific approach.
 3. **Red team playbook** for multi-agent systems — test scenarios mapped to each OWASP risk.
-4. **Cost model** for implementing MASO controls at each tier level.
-5. **Integration guide** for common agent orchestration frameworks (LangGraph, AutoGen, CrewAI, AWS Bedrock Agents).
+4. **Integration guide** for common agent orchestration frameworks (LangGraph, AutoGen, CrewAI, AWS Bedrock Agents).
 
 ---
 
-*© 2026 Jonathan Gill. Licensed under the same terms as the parent [Enterprise AI Security Controls Framework](https://github.com/JonathanCGill/enterprise-ai-security-controls-framework).*
+*© 2026 Jonathan Gill. Licensed under the same terms as the [Enterprise AI Security Controls Framework](https://github.com/JonathanCGill/enterprise-ai-security-controls-framework).*
