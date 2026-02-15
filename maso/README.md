@@ -96,12 +96,15 @@ The **[MASO Framework](maso/)** extends the foundation into multi-agent orchestr
 | --- | --- |
 | **Secure a multi-agent system** | **[MASO Framework](maso/)** |
 | Understand MASO controls at a glance | [MASO Tube Map](/images/maso-tube-map.svg) |
+| See real incidents mapped to controls | [Incident Tracker](maso/threat-intelligence/incident-tracker.md) |
+| Run adversarial tests on your agents | [Red Team Playbook](maso/red-team/red-team-playbook.md) |
+| Implement MASO in LangGraph, AutoGen, CrewAI, or Bedrock | [Integration Guide](maso/integration/integration-guide.md) |
+| See MASO applied in finance, healthcare, or energy | [Worked Examples](maso/examples/worked-examples.md) |
 | Deploy a single-model AI system | [Foundation Framework](foundations/) |
 | Deploy low-risk AI fast | [Fast Lane](FAST-LANE.md) |
 | Classify a system by risk | [Risk Tiers](core/risk-tiers.md) |
 | Understand PACE resilience | [PACE Methodology](PACE-RESILIENCE.md) |
 | Enforce controls at infrastructure level | [Infrastructure Controls](infrastructure/) |
-| See real incidents mapped to controls | [Risk Stories](insights/risk-stories.md) |
 
 ---
 
@@ -129,7 +132,11 @@ The **[MASO Framework](maso/)** extends the foundation into multi-agent orchestr
 ├── maso/
 │   ├── README.md                      # Multi-Agent Security Operations
 │   ├── controls/                      # 6 domain specifications + risk register
-│   └── implementation/                # 3 tier guides (supervised, managed, autonomous)
+│   ├── implementation/                # 3 tier guides (supervised, managed, autonomous)
+│   ├── threat-intelligence/           # Incident tracker + emerging threats
+│   ├── red-team/                      # Adversarial test playbook (13 scenarios)
+│   ├── integration/                   # LangGraph, AutoGen, CrewAI, AWS Bedrock patterns
+│   └── examples/                      # Financial services, healthcare, critical infrastructure
 ├── images/                            # All SVGs (tube map, architecture, OWASP coverage)
 ├── core/                              # Risk tiers, controls, checklists
 ├── infrastructure/                    # 80 technical controls, 11 domains
