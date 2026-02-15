@@ -1,26 +1,24 @@
 # Enterprise AI Security Framework
 
-**Secure AI from experiment to production. A fast lane for low-risk deployments. Guardrails, LLM-as-Judge, and human oversight for everything else — scaled to the risk. Multi-agent security operations for when agents talk to agents.**
-
-A practical, open-source framework for implementing behavioral security controls across generative and agentic AI systems — from internal tools to regulated decisions, from single-model deployments to multi-agent orchestration. Controls scale to risk so low-risk AI moves fast and high-risk AI stays safe.
+**Runtime behavioural security for AI systems — from single-model deployments to autonomous multi-agent orchestration.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-[![Enterprise AI Security Framework](/images/ai-security-tube-map.svg)](/images/ai-security-tube-map.svg)
-
 ---
 
-## Why This Exists
+## The Problem
 
 Traditional software assurance relies on design-time testing. You write code, test it, prove it works, ship it.
 
-**AI breaks this model.**
-
-AI systems are non-deterministic — the same input can produce different outputs. They exhibit emergent behavior that can't be predicted through conventional test suites. And adversarial inputs will find edge cases no QA team imagined.
+AI breaks this model. AI systems are non-deterministic — the same input can produce different outputs. They exhibit emergent behaviour that can't be predicted through conventional test suites. And adversarial inputs will find edge cases no QA team imagined.
 
 You can't fully test an AI system before deployment. The question is: **how do you know it's working correctly in production?**
 
-The industry is converging on an answer: **runtime behavioral monitoring.** Instead of proving correctness at design time, you continuously verify behavior in production through three complementary layers.
+---
+
+## The Foundation
+
+The industry is converging on an answer: **runtime behavioural monitoring.** Instead of proving correctness at design time, you continuously verify behaviour in production through three complementary layers.
 
 | Layer | What It Does | When It Acts |
 | --- | --- | --- |
@@ -31,183 +29,120 @@ The industry is converging on an answer: **runtime behavioral monitoring.** Inst
 
 **Guardrails prevent. Judge detects. Humans decide. Circuit breakers contain.**
 
-This pattern already exists in production at major platforms (NVIDIA NeMo, AWS Bedrock, Azure AI, LangChain, Guardrails AI, and others). What's been missing is a clear, vendor-neutral explanation of *why* it's necessary and *how* to implement it proportionate to risk.
+This pattern already exists in production at major platforms — NVIDIA NeMo, AWS Bedrock, Azure AI, LangChain, Guardrails AI, and others. The **[Foundation Framework](foundations/)** provides the complete implementation: risk classification, 80 infrastructure controls, PACE resilience methodology, regulatory mappings, and a fast lane for low-risk deployments.
 
-That's what this framework provides. The [Infrastructure Controls](../infrastructure/) section provides 80 technical controls that make the pattern enforceable at the infrastructure layer. The [MASO Framework](../maso/) extends this into multi-agent orchestration — where multiple AI agents collaborate, delegate, and act autonomously.
-
-**But controls that slow adoption aren't controls — they're obstacles.** This framework scales controls to risk. Low-risk internal AI tools get a [Fast Lane](../FAST-LANE.md): minimal controls, self-certification, deploy in days. High-risk regulated systems get the full architecture with defined fail postures and tested fallback paths. The goal is to make security the enabler, not the bottleneck.
-
-Every control in this framework has a defined failure mode. The [PACE resilience methodology](../PACE-RESILIENCE.md) (Primary, Alternate, Contingency, Emergency) ensures that when a control layer degrades — and it will — the system fails safely rather than silently. Even at the lowest risk tier, there's a fallback plan. At the highest, there's a structured degradation path from full autonomy to full stop.
+For single-model AI systems, this is the answer. **→ [Start here](foundations/)**
 
 ---
 
-## Get Started
+## The Next Problem
+
+Single-model controls assume one AI, one context window, one trust boundary. But the industry has already moved past this.
+
+Multi-agent systems — where multiple LLMs from different providers collaborate, delegate tasks, and take autonomous actions — are the emerging architecture for complex AI workflows. Planning agents decompose problems. Specialist agents execute. Evaluation agents verify. Orchestrators coordinate.
+
+This changes the threat model fundamentally:
+
+- **Prompt injection propagates.** A poisoned document processed by one agent becomes instructions for another.
+- **Delegation creates transitive authority.** If Agent A can delegate to Agent B, and Agent B has write access, then Agent A effectively has write access.
+- **Consensus is not evidence.** Three agents agreeing doesn't mean three independent opinions — not when they share the same model, training data, and retrieval corpus.
+- **Hallucinations compound.** Agent A hallucinates a claim. Agent B cites it as fact. By Agent C, it's been elaborated and presented with high confidence.
+- **Failures look like success.** The most dangerous multi-agent failure modes produce outputs that are well-formatted, confident, and unanimously agreed — and wrong.
+
+Single-model controls don't address any of this. You need a framework designed for multi-agent dynamics.
+
+---
+
+## MASO: Multi-Agent Security Operations
+
+![MASO Tube Map](/images/maso-tube-map.svg)
+
+The **[MASO Framework](maso/)** extends the foundation into multi-agent orchestration. Six control domains. 93 controls. 99 tests. Three implementation tiers. Full PACE resilience integration. Coverage of all 20 OWASP risks across both the LLM Top 10 (2025) and Agentic Top 10 (2026), plus 30 emergent risks that have no OWASP equivalent.
+
+### Control Domains
+
+| Domain | What It Secures |
+| --- | --- |
+| **[Prompt, Goal & Epistemic Integrity](maso/controls/prompt-goal-and-epistemic-integrity.md)** | Agent instructions, objectives, and information quality across chains — injection, goal hijack, groupthink, hallucination amplification, uncertainty stripping |
+| **[Identity & Access](maso/controls/identity-and-access.md)** | Non-Human Identity per agent, zero-trust credentials, scoped permissions, no transitive authority |
+| **[Data Protection](maso/controls/data-protection.md)** | Cross-agent data fencing, DLP on the message bus, RAG integrity, memory isolation |
+| **[Execution Control](maso/controls/execution-control.md)** | Sandboxed execution, blast radius caps, circuit breakers, LLM-as-Judge gate, interaction timeouts |
+| **[Observability](maso/controls/observability.md)** | Decision chain audit, anomaly scoring, drift detection, independent observability agent with kill switch |
+| **[Supply Chain](maso/controls/supply-chain.md)** | AIBOM per agent, signed tool manifests, MCP server vetting, A2A trust chain validation |
+
+### Implementation Tiers
+
+| Tier | Autonomy | Key Controls |
+| --- | --- | --- |
+| **[Tier 1 — Supervised](maso/implementation/tier-1-supervised.md)** | Human approves all writes | Guardrails, tool scoping, audit logging, manual review |
+| **[Tier 2 — Managed](maso/implementation/tier-2-managed.md)** | Auto-approve low-risk, escalate high-risk | NHI, signed bus, LLM-as-Judge, continuous anomaly scoring, PACE A/C configured |
+| **[Tier 3 — Autonomous](maso/implementation/tier-3-autonomous.md)** | Minimal human intervention | Self-healing PACE, adversarial testing, independent observability agent, kill switch |
+
+### What Makes MASO Different
+
+**Epistemic security.** MASO is the first framework to treat information-processing failures between agents as a first-class security concern. Groupthink, correlated errors, synthetic corroboration, semantic drift, and uncertainty stripping — these aren't adversarial attacks. They're emergent properties of multi-agent interaction. They produce failures that look like success. MASO has formal controls, test criteria, and maturity indicators for all of them.
+
+**PACE resilience for agent orchestration.** Every control has a defined failure mode. Every tier has a structured degradation path from full autonomy to full stop. The system doesn't just detect problems — it has a predetermined response at every phase: Primary → Alternate → Contingency → Emergency.
+
+**Dual OWASP coverage.** Full mapping against both the OWASP Top 10 for LLM Applications and the OWASP Top 10 for Agentic Applications, with controls that address how individual LLM risks compound across agent chains. An additional [Emergent Risk Register](maso/controls/risk-register.md) captures 30 risks beyond the OWASP taxonomies.
+
+**→ [Enter MASO](maso/)**
+
+---
+
+## Quick Navigation
 
 | If you want to... | Go here |
 | --- | --- |
-| Get the whole framework on one page | [Cheat Sheet](../CHEATSHEET.md) / [Decision Poster](../DECISION-POSTER.md) |
-| Deploy low-risk AI fast | [Fast Lane](../FAST-LANE.md) |
-| Understand the concepts in 30 minutes | [Quick Start](../QUICK_START.md) |
-| Implement controls with working code | [Implementation Guide](../IMPLEMENTATION_GUIDE.md) |
-| Classify a system by risk | [Risk Tiers](../core/risk-tiers.md) |
-| Deploy an agentic AI system | [Agentic Controls](../core/agentic.md) |
-| **Secure a multi-agent system** | **[MASO Framework](../maso/)** |
-| Understand what happens when controls fail | [PACE Resilience](../PACE-RESILIENCE.md) |
-| Enforce controls at the infrastructure layer | [Infrastructure Controls](../infrastructure/) |
-| Track your implementation | [Checklist](../core/checklist.md) |
-
----
-
-## Before You Build Controls
-
-> **[The First Control: Choosing the Right Tool](../insights/the-first-control.md)**
->
-> The most effective way to reduce AI risk is to not use AI where it doesn't belong. Before guardrails, judges, or human oversight — ask whether AI is the right tool for this problem. Design thinking should precede technology selection.
-
-Everything in this framework assumes you've already answered "yes" to that question. If your deployment is internal, read-only, handles no regulated data, and has a human reviewing output — start with the [Fast Lane](../FAST-LANE.md). You may not need the rest.
-
----
-
-## Framework Structure
-
-### Core
-
-The essential documents for understanding and implementing the pattern.
-
-| Document | Purpose |
-| --- | --- |
-| [Cheat Sheet](../CHEATSHEET.md) | The entire framework on one page — classify, control, fail posture, test |
-| [Decision Poster](../DECISION-POSTER.md) | Visual one-page reference — open on GitHub, print it, stick it on a wall |
-| [Fast Lane](../FAST-LANE.md) | Pre-approved minimal controls for low-risk AI — deploy without a bespoke security assessment |
-| [Risk Tiers](../core/risk-tiers.md) | Classify your AI system, determine control and resilience requirements |
-| [Controls](../core/controls.md) | Guardrails, Judge, and Human Oversight implementation with per-layer fail postures |
-| [Agentic](../core/agentic.md) | Controls for autonomous AI agents including graceful degradation path |
-| [PACE Resilience](../PACE-RESILIENCE.md) | The resilience methodology — what happens when controls fail, from fail-open to full stop |
-| [Checklist](../core/checklist.md) | Track your implementation and PACE verification progress |
-| [Emerging Controls](../core/emerging-controls.md) | Multimodal, reasoning, and streaming considerations *(theoretical)* |
-
-### Multi-Agent Security Operations (MASO)
-
-When AI agents collaborate, delegate tasks, and take autonomous actions across trust boundaries, single-model controls are not enough. The **[MASO Framework](../maso/)** extends this framework into multi-agent orchestration with six dedicated control domains, three implementation tiers, and full PACE resilience integration.
-
-| Document | Purpose |
-| --- | --- |
-| [MASO Overview](../maso/) | Architecture, PACE integration, OWASP dual mapping, control domains, threat intelligence |
-| [Tier 1 — Supervised](../maso/implementation/tier-1-supervised.md) | Low autonomy: human approves all writes, pilot deployments |
-| [Tier 2 — Managed](../maso/implementation/tier-2-managed.md) | Medium autonomy: NHI, signed bus, LLM-as-Judge, continuous monitoring |
-| [Tier 3 — Autonomous](../maso/implementation/tier-3-autonomous.md) | High autonomy: self-healing PACE, adversarial testing, isolated kill switch |
-
-**MASO control domains:** Prompt, Goal & Epistemic Integrity, Identity & Access, Data Protection, Execution Control, Observability, Supply Chain — each with per-tier implementation requirements, checklists, and graduation criteria.
-
-**OWASP coverage:** Full mapping against both the OWASP Top 10 for LLM Applications (2025) and the OWASP Top 10 for Agentic Applications (2026), with controls that address how individual LLM risks compound across agent chains. An additional [Emergent Risk Register](../maso/controls/risk-register.md) captures 30 risks beyond the OWASP taxonomies.
-
-### Extensions
-
-Reference material for specific needs: regulatory mapping, technical depth, templates, and worked examples.
-
-| Folder | Contents |
-| --- | --- |
-| [Regulatory](../extensions/regulatory/) | ISO 42001 and EU AI Act mapping |
-| [Technical](../extensions/technical/) | Bypass prevention, metrics — see also [Infrastructure Controls](../infrastructure/) |
-| [Industry Solutions](../extensions/technical/current-solutions.md) | Guardrails, evaluators, and safety model reference |
-| [Templates](../extensions/templates/) | Incident playbooks, threat models, testing guidance |
-| [Examples](../extensions/examples/) | Worked examples by use case |
-
-### Insights
-
-Articles explaining the reasoning behind the pattern — suitable for standalone reading, sharing, or adaptation.
-
-**Why This Pattern?**
-
-| Article | Key Argument |
-| --- | --- |
-| [Risk Stories](../insights/risk-stories.md) | Real incidents mapped to framework controls and PACE resilience — where the pattern helps, and where it has limits |
-| [The First Control: Choosing the Right Tool](../insights/the-first-control.md) | Design thinking before technology selection |
-| [Why Your AI Guardrails Aren't Enough](../insights/why-guardrails-arent-enough.md) | Guardrails block known-bad; you need detection for unknown-bad |
-| [The Judge Detects. It Doesn't Decide.](../insights/judge-detects-not-decides.md) | Async evaluation beats real-time blocking for nuanced decisions |
-| [Infrastructure Beats Instructions](../insights/infrastructure-beats-instructions.md) | You can't secure AI systems with prompts alone |
-| [Risk Tier Is Use Case, Not Technology](../insights/risk-tier-is-use-case.md) | Classification should reflect deployment context, not model capability |
-| [Humans Remain Accountable](../insights/humans-remain-accountable.md) | AI assists decisions; humans own outcomes |
-
-**Emerging Challenges**
-
-| Article | Key Argument |
-| --- | --- |
-| [The Verification Gap](../insights/the-verification-gap.md) | Current safety approaches can't confirm ground truth |
-| [Behavioral Anomaly Detection](../insights/behavioral-anomaly-detection.md) | Aggregating signals to detect drift from expected behavior |
-| [Multimodal AI Breaks Your Text-Based Guardrails](../insights/multimodal-breaks-guardrails.md) | Images, audio, and video create new attack surfaces |
-| [When AI Thinks Before It Answers](../insights/when-ai-thinks.md) | Reasoning models need reasoning-aware controls |
-| [When Agents Talk to Agents](../insights/when-agents-talk-to-agents.md) | Multi-agent systems have accountability gaps — see the [MASO Framework](../maso/) for the operational answer |
-| [The Memory Problem](../insights/the-memory-problem.md) | Long context and persistent memory introduce novel risks |
-| [You Can't Validate What Hasn't Finished](../insights/you-cant-validate-unfinished.md) | Real-time streaming challenges existing validation approaches |
-| [Open-Weight Models Shift the Burden](../insights/open-weight-models-shift-the-burden.md) | Self-hosted models inherit the provider's control responsibilities |
-| [When the Judge Can Be Fooled](../insights/when-the-judge-can-be-fooled.md) | The Judge layer needs its own threat model |
-
-### Infrastructure Controls
-
-This framework defines *what* to enforce. The [infrastructure](../infrastructure/) section defines *how* to enforce it at the infrastructure layer — 80 technical controls across 11 domains, with standards mappings and platform-specific patterns.
-
-| Resource | Contents |
-| --- | --- |
-| [Infrastructure Controls](../infrastructure/) | Technical infrastructure controls |
-
-**Control domains:** Identity & Access Management (8), Logging & Observability (10), Network & Segmentation (8), Data Protection (8), Secrets & Credentials (8), Supply Chain (8), Incident Response (8), Tool Access (6), Session & Scope (5), Delegation Chains (5), Sandbox Patterns (6).
-
-**Standards mappings:** Every control maps to the three-layer model, ISO 42001 Annex A, NIST AI RMF, and OWASP LLM/Agentic Top 10.
-
-**Platform patterns:** AWS Bedrock, Azure AI, and Databricks reference architectures.
-
----
-
-## Scope
-
-**In scope:** Custom LLM applications, AI decision support, document processing, single-agent and multi-agent systems — from deployment through incident response.
-
-**Out of scope:** Vendor AI products (use vendor controls), model training (see MLOps security guidance), and pre-deployment testing. This framework is about what happens in production.
-
-**Pre-deployment complement:** For secure development practices covering data sourcing, training, fine-tuning, and model release, see [NIST SP 800-218A](https://csrc.nist.gov/pubs/sp/800/218/a/final). This framework begins where SP 800-218A ends.
-
-**Note on fine-tuning:** Organisations that fine-tune or customise models before deployment operate in both the development and deployment lifecycle phases. They are simultaneously model producers (partially) and deployers. These organisations should apply SP 800-218A practices to their fine-tuning pipeline and this framework's controls to their production deployment. Neither framework alone provides complete coverage for this hybrid role.
-
----
-
-## Platforms Implementing This Pattern
-
-This isn't a theoretical proposal. These platforms already implement variants of the three-layer pattern:
-
-| Platform | Approach |
-| --- | --- |
-| [NVIDIA NeMo Guardrails](https://github.com/NVIDIA/NeMo-Guardrails) | Five rail types: input, dialog, retrieval, execution, output |
-| [LangChain](https://docs.langchain.com/) | Middleware chains with human-in-the-loop |
-| [Guardrails AI](https://www.guardrailsai.com/) | Open-source validator framework |
-| [Galileo](https://www.rungalileo.io/) | Eval-to-guardrail lifecycle |
-| [DeepEval](https://github.com/confident-ai/deepeval) | LLM-as-judge evaluation framework |
-| AWS Bedrock Guardrails | Managed input/output filtering |
-| Azure AI Content Safety | Content filtering and moderation |
+| **Secure a multi-agent system** | **[MASO Framework](maso/)** |
+| Understand MASO controls at a glance | [MASO Tube Map](/images/maso-tube-map.svg) |
+| See real incidents mapped to controls | [Incident Tracker](maso/threat-intelligence/incident-tracker.md) |
+| Run adversarial tests on your agents | [Red Team Playbook](maso/red-team/red-team-playbook.md) |
+| Implement MASO in LangGraph, AutoGen, CrewAI, or Bedrock | [Integration Guide](maso/integration/integration-guide.md) |
+| See MASO applied in finance, healthcare, or energy | [Worked Examples](maso/examples/worked-examples.md) |
+| Deploy a single-model AI system | [Foundation Framework](foundations/) |
+| Deploy low-risk AI fast | [Fast Lane](FAST-LANE.md) |
+| Classify a system by risk | [Risk Tiers](core/risk-tiers.md) |
+| Understand PACE resilience | [PACE Methodology](PACE-RESILIENCE.md) |
+| Enforce controls at infrastructure level | [Infrastructure Controls](infrastructure/) |
 
 ---
 
 ## Standards Alignment
 
-The framework maps to established standards and risk taxonomies:
-
-| Standard | Relevance | Infrastructure Mapping |
-| --- | --- | --- |
-| [OWASP LLM Top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/) | Security vulnerabilities in LLM applications | [OWASP mapping](../infrastructure/mappings/owasp-llm-top10.md) |
-| [OWASP Top 10 for Agentic Applications](https://genai.owasp.org/) | Risks specific to autonomous AI agents | [OWASP mapping](../infrastructure/mappings/owasp-llm-top10.md) / [MASO mapping](../maso/) |
-| [NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework) | AI risk management framework | [NIST mapping](../infrastructure/mappings/nist-ai-rmf.md) |
-| [ISO 42001](https://www.iso.org/standard/81230.html) | AI management system standard | [ISO 42001 mapping](../infrastructure/mappings/iso42001-annex-a.md) |
-| [NIST SP 800-218A](https://csrc.nist.gov/pubs/sp/800/218/a/final) | Secure development practices for generative AI and dual-use foundation models | [SP 800-218A mapping](../infrastructure/mappings/nist-sp800-218a.md) |
-| [MITRE ATLAS](https://atlas.mitre.org/) | Adversarial threat landscape for AI systems | [MASO threat intelligence](../maso/) |
-| [DORA](https://www.digital-operational-resilience-act.com/) | Digital operational resilience for financial services | [MASO regulatory alignment](../maso/) |
+| Standard | Coverage |
+| --- | --- |
+| [OWASP LLM Top 10 (2025)](https://owasp.org/www-project-top-10-for-large-language-model-applications/) | Full mapping across foundation + MASO |
+| [OWASP Agentic Top 10 (2026)](https://genai.owasp.org/) | Full mapping in MASO |
+| [NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework) | Govern, Map, Measure, Manage |
+| [ISO 42001](https://www.iso.org/standard/81230.html) | AI management system alignment |
+| [NIST SP 800-218A](https://csrc.nist.gov/pubs/sp/800/218/a/final) | Pre-deployment complement |
+| [MITRE ATLAS](https://atlas.mitre.org/) | Agent-focused threat intelligence |
+| [EU AI Act](https://artificialintelligenceact.eu/) | Art. 9, 14, 15 — risk management, oversight, robustness |
+| [DORA](https://www.digital-operational-resilience-act.com/) | Digital operational resilience for financial services |
 
 ---
 
-## Contributing
+## Repository Structure
 
-Feedback, corrections, and extensions are welcome. See [CONTRIBUTING.md](../CONTRIBUTING.md) for guidelines.
-
-This is a living framework. It will evolve as the field matures.
+```
+├── README.md                          # This document — start here
+├── foundations/
+│   └── README.md                      # Single-model AI security framework
+├── maso/
+│   ├── README.md                      # Multi-Agent Security Operations
+│   ├── controls/                      # 6 domain specifications + risk register
+│   ├── implementation/                # 3 tier guides (supervised, managed, autonomous)
+│   ├── threat-intelligence/           # Incident tracker + emerging threats
+│   ├── red-team/                      # Adversarial test playbook (13 scenarios)
+│   ├── integration/                   # LangGraph, AutoGen, CrewAI, AWS Bedrock patterns
+│   └── examples/                      # Financial services, healthcare, critical infrastructure
+├── images/                            # All SVGs (tube map, architecture, OWASP coverage)
+├── core/                              # Risk tiers, controls, checklists
+├── infrastructure/                    # 80 technical controls, 11 domains
+├── extensions/                        # Regulatory, templates, worked examples
+└── insights/                          # Analysis articles and emerging challenges
+```
 
 ---
 
@@ -217,19 +152,15 @@ This is a living framework. It will evolve as the field matures.
 
 His current focus is AI security governance: designing control architectures that address the unique challenges of securing non-deterministic systems at enterprise scale, and translating complex technical risk into actionable guidance for engineering teams and executive leadership.
 
-This framework represents a synthesis of practical implementation experience, industry patterns, and regulatory requirements — built to be useful, not theoretical.
-
 - GitHub: [@JonathanCGill](https://github.com/JonathanCGill)
 - LinkedIn: [Jonathan Gill](https://www.linkedin.com/in/jonathancgill/)
 
 ---
 
-## Citation
-
-If you reference this framework in publications, presentations, or derivative work, see [CITATION.md](../CITATION.md).
-
----
-
 ## License
 
-[MIT](../LICENSE) — Use it, adapt it, build on it.
+[MIT](LICENSE) — Use it, adapt it, build on it.
+
+## Citation
+
+If you reference this framework in publications, presentations, or derivative work, see [CITATION.md](CITATION.md).
