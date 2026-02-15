@@ -236,6 +236,11 @@ nav:
       - High-Volume Communications: extensions/examples/04-high-volume-customer-communications.md
       - Fraud Analytics: extensions/examples/05-fraud-analytics.md
 
+  - Credibility:
+    - Maturity & Validation: MATURITY.md
+    - Validated Against Real Incidents: VALIDATED-AGAINST.md
+    - Evolution: EVOLUTION.md
+
   - Community:
     - Contributing: CONTRIBUTING.md
     - Code of Conduct: CODE_OF_CONDUCT.md

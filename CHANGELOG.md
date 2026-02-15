@@ -13,6 +13,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Cost model with production data
 - Platform-specific implementation guides (detailed)
 - Case studies from production deployments
+- Judge accuracy benchmarks from real deployments
+- Epistemic risk detection algorithm specifications
+
+---
+
+## [0.7.0] - 2026-02-15
+
+### Added
+- **MATURITY.md** — Honest assessment of framework validation status
+  - Four-level validation model (production, incident, standards, pattern consistency)
+  - Explicit documentation of known gaps
+  - Call for pilot partners and peer review
+- **VALIDATED-AGAINST.md** — Control-by-control incident validation
+  - 32 controls mapped to 10 real-world incidents
+  - Evidence strength ratings (Strong: 3+ incidents, Moderate: 1–2, Threat-modelled: 0)
+  - Validation coverage map by MASO domain
+  - Top 5 most-validated controls identified
+- **EVOLUTION.md** — Narrative history of framework development
+  - Decision rationale for every major version
+  - What drove each change (incidents, feedback, architectural shifts)
+  - Timeline from v0.1.0 (Dec 2025) through current
+
+### Changed
+- Updated site navigation to include Credibility section (Maturity, Validated Against, Evolution)
+- Changelog now links to narrative Evolution page for context
+
+### Rationale
+The framework is comprehensive but has no production deployments. Rather than ignoring this gap, these additions address it directly: honest status assessment, evidence-based validation against real incidents, and a living record of how the framework evolves in response to real-world events. Credibility comes from transparency, not claims.
 
 ---
 

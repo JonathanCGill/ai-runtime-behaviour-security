@@ -111,6 +111,7 @@ The **[MASO Framework](maso/)** extends the foundation into multi-agent orchestr
 | Understand PACE resilience | [PACE Methodology](PACE-RESILIENCE.md) |
 | Enforce controls at infrastructure level | [Infrastructure Controls](infrastructure/) |
 | Navigate by role | [Framework Map](FRAMEWORK-MAP.md) |
+| Understand what's validated and what's not | [Maturity & Validation](MATURITY.md) |
 
 ---
 
