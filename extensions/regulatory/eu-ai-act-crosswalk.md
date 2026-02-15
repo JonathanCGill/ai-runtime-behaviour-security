@@ -191,59 +191,13 @@ This is where the framework's control model is specifically designed to comply:
 
 The framework's three-layer model directly supports Article 14:
 
-```
-┌────────────────────────────────────────────────────────────┐
-│                  EU AI Act Article 14                       │
-│                   Human Oversight                           │
-├────────────────────────────────────────────────────────────┤
-│                                                             │
-│  Requirement          Framework Implementation              │
-│  ───────────          ────────────────────────              │
-│                                                             │
-│  Understand AI    →   Training, documentation, HITL         │
-│                       context in review interface            │
-│                                                             │
-│  Interpret output →   Judge surfaces reasoning,             │
-│                       HITL reviews with full context         │
-│                                                             │
-│  Override AI      →   Override capability mandatory,         │
-│                       humans decide all CRITICAL actions     │
-│                                                             │
-│  Intervene/stop   →   Guardrails can be disabled,           │
-│                       system can be halted                   │
-│                                                             │
-│  KEY: Judge does NOT decide. Humans decide.                 │
-│                                                             │
-└────────────────────────────────────────────────────────────┘
-```
+![EU AI Act Article 14 — Human Oversight](../../images/eu-ai-act-article14.svg)
 
 ### Risk Management (Article 9)
 
 The framework provides comprehensive risk management:
 
-```
-┌────────────────────────────────────────────────────────────┐
-│                  EU AI Act Article 9                        │
-│               Risk Management System                        │
-├────────────────────────────────────────────────────────────┤
-│                                                             │
-│  Lifecycle Stage     Framework Controls                     │
-│  ───────────────     ─────────────────                      │
-│                                                             │
-│  Design          →   Risk classification, control selection │
-│                                                             │
-│  Development     →   Secure development, testing            │
-│                                                             │
-│  Deployment      →   Guardrails (inline protection)         │
-│                                                             │
-│  Operation       →   Judge (ongoing monitoring)             │
-│                      HITL (human oversight)                 │
-│                      Logging (audit trail)                  │
-│                                                             │
-│  Improvement     →   Feedback loops (HITL → guardrails)     │
-│                                                             │
-└────────────────────────────────────────────────────────────┘
-```
+![EU AI Act Article 9 — Risk Management System](../../images/eu-ai-act-article9.svg)
 
 ---
 

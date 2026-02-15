@@ -212,28 +212,7 @@ The AI governance function operates within the standard three lines model:
 
 **Queue Structure:**
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                     HITL QUEUE STRUCTURE                     │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  1ST LINE QUEUES (per BU)          AGO QUEUES               │
-│  ┌─────────────────────┐           ┌─────────────────────┐  │
-│  │ Routine findings    │           │ Escalations         │  │
-│  │ Quality issues      │ ────────▶ │ Cross-BU patterns   │  │
-│  │ Minor policy items  │           │ Regulatory concerns │  │
-│  └─────────────────────┘           │ Bias/fairness       │  │
-│                                     └─────────────────────┘  │
-│                                              │               │
-│                                              ▼               │
-│                                     ┌─────────────────────┐  │
-│                                     │ Governance          │  │
-│                                     │ Committee           │  │
-│                                     │ (CRITICAL decisions)│  │
-│                                     └─────────────────────┘  │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
-```
+![HITL Queue Structure](../../images/hitl-queue-structure.svg)
 
 ---
 
@@ -330,31 +309,7 @@ AGO conducts:
 
 **Risk Assessment Integration:**
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    RISK ASSESSMENT FLOW                      │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  1st Line proposes    AGO Risk reviews     Committee approves│
-│  AI system      ───▶  risk classification  ───▶  (CRITICAL)  │
-│                       assigns controls                       │
-│                              │                               │
-│                              ▼                               │
-│                       ┌─────────────┐                       │
-│                       │ Control     │                       │
-│                       │ Requirements│                       │
-│                       │ by Tier     │                       │
-│                       └─────────────┘                       │
-│                              │                               │
-│                              ▼                               │
-│                       ┌─────────────┐                       │
-│                       │ Guardrails  │                       │
-│                       │ Judge       │                       │
-│                       │ HITL        │                       │
-│                       └─────────────┘                       │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
-```
+![Risk Assessment Flow](../../images/risk-assessment-flow.svg)
 
 **6.2 AI management system objectives**
 
@@ -535,37 +490,7 @@ When nonconformity identified:
 
 **Improvement Cycle:**
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                   CONTINUOUS IMPROVEMENT                     │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│         ┌─────────┐                                         │
-│         │ HITL    │                                         │
-│         │Findings │                                         │
-│         └────┬────┘                                         │
-│              │                                               │
-│              ▼                                               │
-│    ┌─────────────────┐      ┌─────────────────┐            │
-│    │ Judge           │      │ Guardrail       │            │
-│    │ Calibration     │◀────▶│ Updates         │            │
-│    └────────┬────────┘      └────────┬────────┘            │
-│             │                        │                      │
-│             ▼                        ▼                      │
-│    ┌─────────────────┐      ┌─────────────────┐            │
-│    │ Evaluation      │      │ Pattern         │            │
-│    │ Criteria Update │      │ Library Update  │            │
-│    └────────┬────────┘      └────────┬────────┘            │
-│             │                        │                      │
-│             └────────────┬───────────┘                      │
-│                          ▼                                  │
-│                 ┌─────────────────┐                        │
-│                 │ Policy/Standard │                        │
-│                 │ Update          │                        │
-│                 └─────────────────┘                        │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
-```
+![Continuous Improvement Cycle](../../images/continuous-improvement-cycle.svg)
 
 ---
 

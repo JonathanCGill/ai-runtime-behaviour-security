@@ -99,49 +99,7 @@ The per-agent LLM-as-Judge in the original three-layer pattern fails at multi-ag
 
 ## The Practical Architecture
 
-```
- ┌──────────────────────────┐
- │    INTENT SPECIFICATION   │
- │  Goal + Constraints +     │
- │  Success Criteria          │
- └────────────┬───────────────┘
-              │ declared before execution
-              ▼
- ┌──────────────────────────┐
- │  MULTI-AGENT EXECUTION    │
- │  Technical controls active │
- │  All actions → audit log   │
- └────────────┬───────────────┘
-              │ workflow completes
-              ▼
- ┌──────────────────────────┐
- │    AUDIT LOG SUMMARISER   │
- │  Structured extraction:    │
- │  - Key decisions            │
- │  - Data lineage             │
- │  - Role adherence           │
- │  - Anomalous patterns       │
- └────────────┬───────────────┘
-              │ summary + intent + outputs
-              ▼
- ┌──────────────────────────┐
- │   POST-EXECUTION JUDGE    │
- │  Different model from      │
- │  operational agents        │
- │  Read-only access          │
- │  Separate trust zone       │
- └────────────┬───────────────┘
-              │ verdict
-              ▼
-     ┌────────┴────────┐
-     │                  │
-  PASS              FLAG/FAIL
-  (log + learn)     (quarantine output,
-                     alert, trigger
-                     human review,
-                     feed back to
-                     invariant rules)
-```
+![The Intent Layer — Post-Execution Evaluation](images/intent-layer-architecture.svg)
 
 ### Critical Design Decisions
 

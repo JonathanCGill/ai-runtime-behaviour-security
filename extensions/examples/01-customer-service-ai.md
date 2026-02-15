@@ -89,46 +89,6 @@ Based on HIGH risk tier, these controls apply:
 
 ![Aria Control Architecture](../../images/example-aria-architecture.svg)
 
-```
-Customer Input
-      │
-      ▼
-┌─────────────────┐
-│ Input Guardrails│ ◄── Inline, blocks known-bad
-│ (Rules-based)   │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│   Primary AI    │
-│   (GPT-4)       │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│Output Guardrails│ ◄── Inline, filters known-bad
-│ (Rules-based)   │
-└────────┬────────┘
-         │
-         ▼
-    Response to Customer
-         │
-         ▼
-      Logged
-         │
-         ▼ (async)
-┌─────────────────┐
-│  LLM-as-Judge   │ ◄── After-the-fact assurance
-│   (Sampling)    │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│ Human Review    │ ◄── Reviews findings, decides action
-│   (HITL)        │
-└─────────────────┘
-```
-
 ---
 
 ## Step 3: Guardrails Implementation (Inline)

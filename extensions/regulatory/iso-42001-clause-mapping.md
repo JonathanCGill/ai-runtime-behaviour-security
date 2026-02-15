@@ -79,30 +79,7 @@ This document provides detailed mapping of the framework's technical controls an
 
 **Framework Implementation:**
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│              OPERATIONAL RISK ASSESSMENT                     │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  PRE-DEPLOYMENT              IN-OPERATION                   │
-│  ┌─────────────────┐        ┌─────────────────┐            │
-│  │ Risk            │        │ Judge           │            │
-│  │ Classification  │        │ Monitoring      │            │
-│  │                 │        │                 │            │
-│  │ • Impact        │        │ • Quality       │            │
-│  │ • Data          │        │ • Policy        │            │
-│  │ • Autonomy      │        │ • Anomalies     │            │
-│  │ • Regulatory    │        │ • Bias          │            │
-│  └────────┬────────┘        └────────┬────────┘            │
-│           │                          │                      │
-│           ▼                          ▼                      │
-│  ┌─────────────────┐        ┌─────────────────┐            │
-│  │ Control         │        │ HITL Review     │            │
-│  │ Selection       │        │ of Findings     │            │
-│  └─────────────────┘        └─────────────────┘            │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
-```
+![Operational Risk Assessment](../../images/iso42001-risk-assessment.svg)
 
 **Platform Support:**
 
@@ -277,35 +254,7 @@ This document provides detailed mapping of the framework's technical controls an
 
 **Corrective Action Workflow:**
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│              CORRECTIVE ACTION WORKFLOW                      │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  DETECT              ANALYSE              CORRECT            │
-│  ┌─────────┐        ┌─────────┐         ┌─────────┐        │
-│  │ Judge   │───────▶│ Root    │────────▶│ Update  │        │
-│  │ Finding │        │ Cause   │         │Guardrail│        │
-│  └─────────┘        └─────────┘         └─────────┘        │
-│                                                │             │
-│  ┌─────────┐        ┌─────────┐         ┌─────┴─────┐      │
-│  │ HITL    │───────▶│ Pattern │────────▶│ Update    │      │
-│  │ Review  │        │ Analysis│         │ Judge     │      │
-│  └─────────┘        └─────────┘         └───────────┘      │
-│                                                │             │
-│  ┌─────────┐        ┌─────────┐         ┌─────┴─────┐      │
-│  │ Audit   │───────▶│ Gap     │────────▶│ Update    │      │
-│  │ Finding │        │ Analysis│         │ Process   │      │
-│  └─────────┘        └─────────┘         └───────────┘      │
-│                                                              │
-│                          VERIFY                              │
-│                     ┌─────────────┐                         │
-│                     │ Effectiveness│                        │
-│                     │ Review       │                        │
-│                     └─────────────┘                         │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
-```
+![Corrective Action Workflow](../../images/iso42001-corrective-action.svg)
 
 **Corrective Action by Control:**
 

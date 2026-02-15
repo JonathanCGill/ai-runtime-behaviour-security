@@ -36,36 +36,7 @@ A centralised governance function must:
 
 ### AGO Control Plane
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    AGO CONTROL PLANE                         │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  ┌───────────────────────────────────────────────────────┐  │
-│  │              GOVERNANCE STANDARDS                      │  │
-│  │                                                        │  │
-│  │  • Risk classification methodology (universal)         │  │
-│  │  • Guardrail pattern library (universal)              │  │
-│  │  • Judge evaluation criteria (universal)              │  │
-│  │  • HITL requirements by tier (universal)              │  │
-│  │  • Logging standards (universal)                      │  │
-│  └───────────────────────────────────────────────────────┘  │
-│                          │                                   │
-│         ┌────────────────┼────────────────┐                 │
-│         ▼                ▼                ▼                 │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐         │
-│  │   Bedrock   │  │ Databricks  │  │  Foundry    │         │
-│  │   Adapter   │  │   Adapter   │  │   Adapter   │         │
-│  └──────┬──────┘  └──────┬──────┘  └──────┬──────┘         │
-│         │                │                │                 │
-└─────────┼────────────────┼────────────────┼─────────────────┘
-          │                │                │
-          ▼                ▼                ▼
-   ┌─────────────┐  ┌─────────────┐  ┌─────────────┐
-   │ AWS Bedrock │  │ Databricks  │  │  Palantir   │
-   │  Platform   │  │  Platform   │  │   Foundry   │
-   └─────────────┘  └─────────────┘  └─────────────┘
-```
+![AGO Control Plane — Multi-Platform Governance](../../images/ago-control-plane-multiplatform.svg)
 
 ### Platform Adapters
 
@@ -128,30 +99,7 @@ patterns:
 
 ### Deployment Workflow
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│             GUARDRAIL DEPLOYMENT WORKFLOW                    │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  1. AGO defines/updates pattern in central library           │
-│                          │                                   │
-│                          ▼                                   │
-│  2. AGO Technical triggers deployment pipeline               │
-│                          │                                   │
-│         ┌────────────────┼────────────────┐                 │
-│         ▼                ▼                ▼                 │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐         │
-│  │ Bedrock     │  │ Databricks  │  │ Foundry     │         │
-│  │ Guardrail   │  │ AI Gateway  │  │ Config      │         │
-│  │ Update      │  │ Update      │  │ Update      │         │
-│  └─────────────┘  └─────────────┘  └─────────────┘         │
-│                                                              │
-│  3. Verification tests run on each platform                  │
-│                                                              │
-│  4. Metrics flow to central dashboard                        │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
-```
+![Guardrail Deployment Workflow](../../images/guardrail-deployment-workflow.svg)
 
 ---
 
@@ -169,35 +117,7 @@ patterns:
 
 For platforms without native Judge capability:
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                  AGO JUDGE SERVICE                           │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  ┌─────────────────────────────────────────────────────┐   │
-│  │              EVALUATION CRITERIA                     │   │
-│  │                                                      │   │
-│  │  Universal criteria defined by AGO:                  │   │
-│  │  • Quality (accuracy, helpfulness, appropriateness) │   │
-│  │  • Policy compliance (system rules, constraints)    │   │
-│  │  • Conduct risk (customer harm, business risk)      │   │
-│  │  • Anomaly detection (unusual patterns)             │   │
-│  │  • Bias indicators (fairness concerns)              │   │
-│  └─────────────────────────────────────────────────────┘   │
-│                          │                                   │
-│                          ▼                                   │
-│  ┌─────────────────────────────────────────────────────┐   │
-│  │              JUDGE INFRASTRUCTURE                    │   │
-│  │                                                      │   │
-│  │  Deployed by AGO Technical:                          │   │
-│  │  • Evaluation model (Claude, GPT-4, etc.)           │   │
-│  │  • Sampling logic per tier                          │   │
-│  │  • Finding classification                           │   │
-│  │  • Routing to HITL queues                           │   │
-│  └─────────────────────────────────────────────────────┘   │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
-```
+![AGO Judge Service](../../images/ago-judge-service.svg)
 
 ### Platform-Specific Judge Configuration
 
