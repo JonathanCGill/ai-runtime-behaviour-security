@@ -1,24 +1,20 @@
 # Framework Map
 
-Navigate the framework like a transit system. Each line represents a reading path. Interchanges show where topics connect.
-
-[![Enterprise AI Security Framework — Tube Map](images/ai-security-tube-map.svg)](images/ai-security-tube-map.svg)
+Navigate the framework by role or goal. Pick a reading path, follow it, branch when something connects.
 
 ---
 
-## Lines
+## Two Architectures, One Framework
 
-| Line | Theme | Stations |
-|------|-------|----------|
-| 🔴 **Runtime Controls** | The three-layer pattern | Risk Tiers → Guardrails → Judge → Judge Assurance → Human Oversight → Checklist |
-| 🔵 **Insights** | Why this pattern exists | The First Control → Why Guardrails Aren't Enough → Judge Detects → Infrastructure Beats Instructions → Risk Tier Is Use Case → Humans Remain Accountable |
-| 🟢 **Emerging Challenges** | Where the pattern meets its limits | Verification Gap → Behavioral Anomaly Detection → Multimodal Breaks Guardrails → When AI Thinks → When Agents Talk to Agents → The Memory Problem → Can't Validate What Hasn't Finished |
-| 🟠 **Agentic Security** | Agent-specific controls | Agentic Controls → Multi-Agent Controls → NHI Lifecycle |
-| 🟣 **Pipeline & Data** | RAG, supply chain, memory security | RAG Security → Supply Chain → Memory & Context |
-| 🟡 **Operations** | SOC integration, monitoring, cost | Metrics → SOC Integration → Anomaly Detection Ops → Cost & Latency |
-| ⚪ **Regulatory** | Compliance mapping | ISO 42001 → EU AI Act → Checklist |
-| 🔵 **Getting Started** | Onboarding paths | Quick Start → Implementation Guide → Risk Tiers → Controls |
-| 🩷 **Testing & Assurance** | Adversarial testing loop | Threat Modelling → Adversarial Testing → Red Team Exercises → *feedback into Guardrails and Judge Assurance* |
+This framework has two halves. The **Foundation** covers single-model AI deployments. **MASO** extends it to multi-agent orchestration. Both share the same three-layer pattern (Guardrails → Judge → Human Oversight) and PACE resilience methodology — MASO adds the controls needed when agents communicate, delegate, and act across trust boundaries.
+
+[![Single-Agent Architecture](/images/single-agent-architecture.svg)](/images/single-agent-architecture.svg)
+
+**Foundation** — Three-layer runtime security for single-model AI. Risk classification, 80 infrastructure controls, PACE resilience, fast lane for low-risk deployments. **→ [Start here](foundations/)**
+
+[![MASO Tube Map](/images/maso-tube-map.svg)](/images/maso-tube-map.svg)
+
+**MASO** — Six control domains, 93 controls, three implementation tiers, dual OWASP coverage. For systems where multiple agents collaborate autonomously. **→ [Start here](maso/)**
 
 ---
 
@@ -26,157 +22,165 @@ Navigate the framework like a transit system. Each line represents a reading pat
 
 ### "I need to explain this to leadership"
 
-Follow the **Insights** line left to right. Start with [The First Control](insights/the-first-control.md), which frames the design-thinking question. Then [Why Guardrails Aren't Enough](insights/why-guardrails-arent-enough.md) and [Humans Remain Accountable](insights/humans-remain-accountable.md) give you the business case. Skip the technical stations — come back to them when your team needs implementation detail.
+Start with the business case, not the controls.
 
-After that, jump to the two **Operational Gaps** articles: [The Supply Chain Problem](insights/the-supply-chain-problem.md) and [RAG Is Your Biggest Attack Surface](insights/rag-is-your-biggest-attack-surface.md). These are the risks most boards haven't heard about yet.
+1. [The First Control: Choosing the Right Tool](insights/the-first-control.md) — frames the design-thinking question
+2. [Why Your AI Guardrails Aren't Enough](insights/why-guardrails-arent-enough.md) — the case for the Judge layer
+3. [Humans Remain Accountable](insights/humans-remain-accountable.md) — accountability model
+4. [When Agents Talk to Agents](insights/when-agents-talk-to-agents.md) — the multi-agent problem statement
 
-### "I'm implementing controls for a new AI system"
+Then the two operational gap articles most boards haven't heard about: [The Supply Chain Problem](insights/the-supply-chain-problem.md) and [RAG Is Your Biggest Attack Surface](insights/rag-is-your-biggest-attack-surface.md).
 
-Start on the **Getting Started** line: [Quick Start](QUICK_START.md) → [Implementation Guide](IMPLEMENTATION_GUIDE.md). These feed directly into the **Runtime Controls** line.
+For multi-agent specifically, the [MASO worked examples](maso/examples/worked-examples.md) (financial services, healthcare, critical infrastructure) translate technical controls into business scenarios.
 
-On the red line, work left to right: [Risk Tiers](core/risk-tiers.md) tells you which controls you actually need. [Controls](core/controls.md) is the implementation core. [Judge Assurance](core/judge-assurance.md) covers calibrating and testing your evaluation layer. [Checklist](core/checklist.md) tracks your progress.
+### "I'm deploying a single-model AI system"
 
-If you're building agents, take the **Agentic** branch down from Judge: [Agentic](core/agentic.md) → [Multi-Agent Controls](core/multi-agent-controls.md) → [NHI Lifecycle](extensions/technical/nhi-lifecycle.md).
+Follow the foundation path:
+
+1. [Quick Start](QUICK_START.md) — zero to working controls in 30 minutes
+2. [Risk Tiers](core/risk-tiers.md) — classify your system
+3. [Controls](core/controls.md) — implement the three-layer pattern
+4. [PACE Resilience](PACE-RESILIENCE.md) — define fail postures and fallback paths
+5. [Checklist](core/checklist.md) — track progress
+
+If your system qualifies for the [Fast Lane](FAST-LANE.md) (internal, read-only, no regulated data, human-reviewed), start there instead — minimal controls, self-certification, deploy in days.
+
+If your system is agentic (single agent with tool access), add [Agentic Controls](core/agentic.md) after step 3.
+
+### "I'm building a multi-agent system"
+
+Start with the foundation path above — the single-agent controls are the baseline. Then layer on MASO:
+
+1. [MASO Overview](maso/) — architecture, control domains, OWASP mapping
+2. [Tier 1 — Supervised](maso/implementation/tier-1-supervised.md) — start here (human approves all writes)
+3. [Integration Guide](maso/integration/integration-guide.md) — LangGraph, AutoGen, CrewAI, AWS Bedrock patterns
+4. [Red Team Playbook](maso/red-team/red-team-playbook.md) — 13 adversarial test scenarios
+
+Graduate to [Tier 2](maso/implementation/tier-2-managed.md) and [Tier 3](maso/implementation/tier-3-autonomous.md) as your controls mature. The tier guides include graduation criteria — don't skip tiers.
 
 ### "I'm an architect designing the pipeline"
 
-Follow the **Emerging Challenges** line to find which challenges affect your architecture:
+Start with the challenges that affect your architecture:
 
-- Deploying multimodal? → [Multimodal Breaks Guardrails](insights/multimodal-breaks-guardrails.md) → [Multimodal Controls](core/multimodal-controls.md)
-- Using reasoning models? → [When AI Thinks](insights/when-ai-thinks.md) → [Reasoning Model Controls](core/reasoning-model-controls.md)
-- Building agents? → [When Agents Talk to Agents](insights/when-agents-talk-to-agents.md) → [Multi-Agent Controls](core/multi-agent-controls.md)
-- Streaming responses? → [Can't Validate What Hasn't Finished](insights/you-cant-validate-unfinished.md) → [Streaming Controls](core/streaming-controls.md)
+| If you're deploying... | Read this first |
+|---|---|
+| Multimodal models | [Multimodal Breaks Guardrails](insights/multimodal-breaks-guardrails.md) |
+| Reasoning models | [When AI Thinks Before It Answers](insights/when-ai-thinks.md) |
+| Single agents with tools | [Agentic Controls](core/agentic.md) |
+| Multi-agent orchestration | [MASO Overview](maso/) → [Integration Guide](maso/integration/integration-guide.md) |
+| Streaming responses | [Can't Validate What Hasn't Finished](insights/you-cant-validate-unfinished.md) |
+| RAG pipelines | [RAG Is Your Biggest Attack Surface](insights/rag-is-your-biggest-attack-surface.md) |
 
-Then drop to the **Pipeline & Data** line for the data-layer controls: [RAG Security](extensions/technical/rag-security.md), [Supply Chain](extensions/technical/supply-chain.md), [Memory & Context](core/memory-and-context.md).
+Then the data-layer controls: [RAG Security](extensions/technical/rag-security.md), [Supply Chain](extensions/technical/supply-chain.md), [Memory & Context](core/memory-and-context.md).
+
+For infrastructure enforcement: [Infrastructure Controls](infrastructure/) — 80 controls across 11 domains with AWS, Azure, and Databricks patterns.
 
 ### "I run a SOC and need to operationalise AI monitoring"
 
-Start with [Behavioral Anomaly Detection](insights/behavioral-anomaly-detection.md) on the green line — it explains what you're looking for and why traditional detection logic doesn't apply.
+1. [Behavioral Anomaly Detection](insights/behavioral-anomaly-detection.md) — what you're looking for and why traditional detection doesn't apply
+2. [SOC Integration](extensions/technical/soc-integration.md) — alert taxonomy, SIEM rules, triage
+3. [Anomaly Detection Ops](extensions/technical/anomaly-detection-ops.md) — baselining and detection engineering
+4. [Cost & Latency](extensions/technical/cost-and-latency.md) — budget the evaluation layer
 
-Then go straight to the **Operations** line: [SOC Integration](extensions/technical/soc-integration.md) gives you alert taxonomy, SIEM rules, and triage procedures. [Anomaly Detection Ops](extensions/technical/anomaly-detection-ops.md) covers baselining and detection engineering. [Cost & Latency](extensions/technical/cost-and-latency.md) helps you budget the evaluation layer without blowing your inference costs.
+For multi-agent monitoring, the [MASO Observability domain](maso/controls/observability.md) covers decision chain audit, anomaly scoring, drift detection, and independent kill switch architecture. The [Incident Tracker](maso/threat-intelligence/incident-tracker.md) maps 10 real-world AI security incidents to specific controls.
 
 ### "I need regulatory alignment"
 
-Follow the **Regulatory** line: [ISO 42001 Mapping](extensions/regulatory) and [EU AI Act](extensions/regulatory) connect back to the [Checklist](core/checklist.md) on the red line, showing which controls satisfy which requirements.
+| Standard | Single-Agent Mapping | Multi-Agent Mapping |
+|---|---|---|
+| OWASP LLM Top 10 (2025) | [OWASP mapping](infrastructure/mappings/owasp-llm-top10.md) | [MASO OWASP coverage](maso/) |
+| OWASP Agentic Top 10 (2026) | — | [MASO OWASP coverage](maso/) |
+| ISO 42001 | [ISO 42001 mapping](infrastructure/mappings/iso42001-annex-a.md) | [MASO regulatory alignment](maso/) |
+| NIST AI RMF | [NIST mapping](infrastructure/mappings/nist-ai-rmf.md) | [MASO regulatory alignment](maso/) |
+| EU AI Act | [EU AI Act mapping](extensions/regulatory/) | [MASO regulatory alignment](maso/) |
+| NIST SP 800-218A | [SP 800-218A mapping](infrastructure/mappings/nist-sp800-218a.md) | — |
+| DORA | — | [MASO regulatory alignment](maso/) |
 
 ### "I need to test and red team AI controls"
 
-Follow the **Testing & Assurance** loop. It branches off Risk Tiers on the red line and runs down the left side of the map:
+**Single-agent:** [Threat Model Template](extensions/templates/threat-model-template.md) → [Testing Guidance](extensions/templates/testing-guidance.md). Design adversarial tests targeting guardrails, Judge, and human oversight. Results feed back into control tuning — testing is continuous, not a pre-deployment gate.
 
-[Threat Model Template](extensions/templates/threat-model-template.md) gives you the starting structure. [Testing Guidance](extensions/templates/testing-guidance.md) covers what to test and how. From there, design adversarial tests that target your guardrails, judge, and human oversight layer specifically — the feedback loop arrow shows results flowing back into Judge Assurance and Guardrails for continuous improvement.
-
-The loop is deliberate: testing isn't a one-off pre-deployment gate. It's a continuous cycle that runs alongside production monitoring.
+**Multi-agent:** [Red Team Playbook](maso/red-team/red-team-playbook.md) — 13 structured scenarios across three tiers, from basic inter-agent prompt injection (RT-01) to PACE transition under active attack (RT-12). Includes success criteria, detection latency targets, and escalation guidance.
 
 ---
 
-## How the Map Works
+## Document Index
 
-The map uses London Underground visual conventions:
+### Entry Points
 
-- **Stations** (white circles) are individual documents
-- **Interchanges** (larger circles with black borders) are documents where multiple themes connect — Risk Tiers, Guardrails, Judge, Human Oversight, and Checklist are all interchanges
-- **Dashed lines** show where an insight article connects to its corresponding solution document
-- **The river** (pale blue band labelled DATA FLOW) separates the understanding/implementation zone above from the operational zone below
-- **Red NEW badges** mark content added in the latest release
-- **The pink testing loop** on the left side shows the continuous adversarial testing cycle — results feed back into Guardrails and Judge Assurance via the dashed feedback arrow
-- **Grey branch lines** are extensions — supplementary material you can follow if needed
+| Document | What It Is |
+|---|---|
+| [Root README](README.md) | Framework overview — the narrative arc from problem to solution |
+| [Foundation](foundations/) | Single-model AI security — full reference |
+| [MASO Framework](maso/) | Multi-agent security operations — full reference |
+| [Quick Start](QUICK_START.md) | Zero to working controls in 30 minutes |
+| [Cheat Sheet](CHEATSHEET.md) | Entire framework on one page |
+| [Decision Poster](DECISION-POSTER.md) | Visual one-page reference — print it |
+| [Fast Lane](FAST-LANE.md) | Pre-approved path for low-risk deployments |
 
-The three zone labels across the top — UNDERSTAND, IMPLEMENT, OPERATE — describe the journey left to right. Most readers won't traverse every line. Pick the line that matches your role, follow it, and branch when the map shows a connection to something relevant.
+### Core Documents
+
+| Document | Purpose |
+|---|---|
+| [Risk Tiers](core/risk-tiers.md) | Classify your system |
+| [Controls](core/controls.md) | Three-layer implementation |
+| [Agentic](core/agentic.md) | Single-agent tool and autonomy controls |
+| [PACE Resilience](PACE-RESILIENCE.md) | Fail postures and fallback paths |
+| [Checklist](core/checklist.md) | Implementation tracker |
+| [Emerging Controls](core/emerging-controls.md) | Multimodal, reasoning, streaming *(theoretical)* |
+| [Implementation Guide](IMPLEMENTATION_GUIDE.md) | Tools, cloud provider docs, what to build |
+
+### MASO Documents
+
+| Document | Purpose |
+|---|---|
+| [MASO Overview](maso/) | Architecture, PACE integration, OWASP mapping |
+| [Prompt, Goal & Epistemic Integrity](maso/controls/prompt-goal-and-epistemic-integrity.md) | 20 controls for instruction integrity and information quality |
+| [Identity & Access](maso/controls/identity-and-access.md) | NHI, zero-trust, scoped permissions |
+| [Data Protection](maso/controls/data-protection.md) | Cross-agent data fencing, DLP, RAG integrity |
+| [Execution Control](maso/controls/execution-control.md) | Sandboxing, blast radius, Judge gate |
+| [Observability](maso/controls/observability.md) | Audit, anomaly scoring, kill switch |
+| [Supply Chain](maso/controls/supply-chain.md) | AIBOM, tool manifests, MCP vetting |
+| [Risk Register](maso/controls/risk-register.md) | 30 emergent risks beyond OWASP |
+| [Tier 1 — Supervised](maso/implementation/tier-1-supervised.md) | Human approves all writes |
+| [Tier 2 — Managed](maso/implementation/tier-2-managed.md) | NHI, signed bus, Judge, continuous monitoring |
+| [Tier 3 — Autonomous](maso/implementation/tier-3-autonomous.md) | Self-healing PACE, adversarial testing, kill switch |
+| [Incident Tracker](maso/threat-intelligence/incident-tracker.md) | 10 real-world incidents mapped to controls |
+| [Emerging Threats](maso/threat-intelligence/emerging-threats.md) | 8 forward-looking threat patterns |
+| [Red Team Playbook](maso/red-team/red-team-playbook.md) | 13 adversarial test scenarios |
+| [Integration Guide](maso/integration/integration-guide.md) | LangGraph, AutoGen, CrewAI, Bedrock patterns |
+| [Worked Examples](maso/examples/worked-examples.md) | Finance, healthcare, critical infrastructure |
+
+### Insights
+
+| Article | Key Argument |
+|---|---|
+| [The First Control](insights/the-first-control.md) | Design thinking before technology selection |
+| [Why Guardrails Aren't Enough](insights/why-guardrails-arent-enough.md) | You need detection for unknown-bad |
+| [The Judge Detects. It Doesn't Decide.](insights/judge-detects-not-decides.md) | Async evaluation for nuanced decisions |
+| [Infrastructure Beats Instructions](insights/infrastructure-beats-instructions.md) | You can't secure AI with prompts |
+| [Risk Tier Is Use Case](insights/risk-tier-is-use-case.md) | Classification reflects deployment context |
+| [Humans Remain Accountable](insights/humans-remain-accountable.md) | Humans own outcomes |
+| [The Verification Gap](insights/the-verification-gap.md) | Can't confirm ground truth |
+| [Behavioral Anomaly Detection](insights/behavioral-anomaly-detection.md) | Drift detection signals |
+| [Multimodal Breaks Guardrails](insights/multimodal-breaks-guardrails.md) | New attack surfaces |
+| [When AI Thinks](insights/when-ai-thinks.md) | Reasoning-aware controls |
+| [When Agents Talk to Agents](insights/when-agents-talk-to-agents.md) | Multi-agent accountability gaps |
+| [The Memory Problem](insights/the-memory-problem.md) | Persistent memory risks |
+| [Can't Validate Unfinished](insights/you-cant-validate-unfinished.md) | Streaming validation |
+| [Open-Weight Models](insights/open-weight-models-shift-the-burden.md) | Self-hosted control burden |
+| [When the Judge Can Be Fooled](insights/when-the-judge-can-be-fooled.md) | Judge threat model |
+
+### Extensions & Infrastructure
+
+| Resource | Purpose |
+|---|---|
+| [Infrastructure Controls](infrastructure/) | 80 controls, 11 domains, platform patterns |
+| [Regulatory Mapping](extensions/regulatory/) | ISO 42001, EU AI Act |
+| [Technical Extensions](extensions/technical/) | Bypass prevention, metrics, SOC integration |
+| [Templates](extensions/templates/) | Threat models, testing guidance, playbooks |
+| [Worked Examples](extensions/worked-examples/) | Per-tier implementation walkthroughs |
 
 ---
 
-## Station Index
-
-Every station on the map, with its document link.
-
-### Runtime Controls (Red Line)
-
-| Station | Document |
-|---------|----------|
-| Risk Tiers | [core/risk-tiers.md](core/risk-tiers.md) |
-| Guardrails | [core/controls.md](core/controls.md) |
-| Judge | [core/controls.md](core/controls.md) |
-| Judge Assurance | [core/judge-assurance.md](core/judge-assurance.md) |
-| Human Oversight | [core/controls.md](core/controls.md) |
-| Checklist | [core/checklist.md](core/checklist.md) |
-
-### Insights (Blue Line)
-
-| Station | Document |
-|---------|----------|
-| The First Control | [insights/the-first-control.md](insights/the-first-control.md) |
-| Why Guardrails Aren't Enough | [insights/why-guardrails-arent-enough.md](insights/why-guardrails-arent-enough.md) |
-| Judge Detects. It Doesn't Decide. | [insights/judge-detects-not-decides.md](insights/judge-detects-not-decides.md) |
-| Infrastructure Beats Instructions | [insights/infrastructure-beats-instructions.md](insights/infrastructure-beats-instructions.md) |
-| Risk Tier Is Use Case | [insights/risk-tier-is-use-case.md](insights/risk-tier-is-use-case.md) |
-| Humans Remain Accountable | [insights/humans-remain-accountable.md](insights/humans-remain-accountable.md) |
-
-### Emerging Challenges (Green Line)
-
-| Station | Document |
-|---------|----------|
-| The Verification Gap | [insights/the-verification-gap.md](insights/the-verification-gap.md) |
-| Behavioral Anomaly Detection | [insights/behavioral-anomaly-detection.md](insights/behavioral-anomaly-detection.md) |
-| Multimodal Breaks Guardrails | [insights/multimodal-breaks-guardrails.md](insights/multimodal-breaks-guardrails.md) |
-| When AI Thinks Before It Answers | [insights/when-ai-thinks.md](insights/when-ai-thinks.md) |
-| When Agents Talk to Agents | [insights/when-agents-talk-to-agents.md](insights/when-agents-talk-to-agents.md) |
-| The Memory Problem | [insights/the-memory-problem.md](insights/the-memory-problem.md) |
-| Can't Validate What Hasn't Finished | [insights/you-cant-validate-unfinished.md](insights/you-cant-validate-unfinished.md) |
-
-### Agentic Security (Orange Line)
-
-| Station | Document |
-|---------|----------|
-| Agentic Controls | [core/agentic.md](core/agentic.md) |
-| Multi-Agent Controls | [core/multi-agent-controls.md](core/multi-agent-controls.md) |
-| NHI Lifecycle | [extensions/technical/nhi-lifecycle.md](extensions/technical/nhi-lifecycle.md) |
-
-### Pipeline & Data (Purple Line)
-
-| Station | Document |
-|---------|----------|
-| RAG Security | [extensions/technical/rag-security.md](extensions/technical/rag-security.md) |
-| Supply Chain | [extensions/technical/supply-chain.md](extensions/technical/supply-chain.md) |
-| Memory & Context | [core/memory-and-context.md](core/memory-and-context.md) |
-
-### Operations (Yellow Line)
-
-| Station | Document |
-|---------|----------|
-| Metrics | [extensions/technical/metrics.md](extensions/technical/metrics.md) |
-| SOC Integration | [extensions/technical/soc-integration.md](extensions/technical/soc-integration.md) |
-| Anomaly Detection Ops | [extensions/technical/anomaly-detection-ops.md](extensions/technical/anomaly-detection-ops.md) |
-| Cost & Latency | [extensions/technical/cost-and-latency.md](extensions/technical/cost-and-latency.md) |
-
-### Regulatory (Silver Line)
-
-| Station | Document |
-|---------|----------|
-| ISO 42001 Mapping | [extensions/regulatory/](extensions/regulatory) |
-| EU AI Act | [extensions/regulatory/](extensions/regulatory) |
-
-### Insight Articles (Purple Dashed)
-
-| Station | Document |
-|---------|----------|
-| The Supply Chain Problem | [insights/the-supply-chain-problem.md](insights/the-supply-chain-problem.md) |
-| RAG Is Your Biggest Attack Surface | [insights/rag-is-your-biggest-attack-surface.md](insights/rag-is-your-biggest-attack-surface.md) |
-
-### Testing & Assurance (Pink Loop)
-
-| Station | Document |
-|---------|----------|
-| Threat Modelling | [extensions/templates/threat-model-template.md](extensions/templates/threat-model-template.md) |
-| Adversarial Testing | [extensions/templates/testing-guidance.md](extensions/templates/testing-guidance.md) |
-| Red Team Exercises | [extensions/templates/testing-guidance.md](extensions/templates/testing-guidance.md) |
-| Testing Guidance | [extensions/templates/testing-guidance.md](extensions/templates/testing-guidance.md) |
-
-### Extensions (Grey Branches)
-
-| Station | Document |
-|---------|----------|
-| Bypass Prevention | [extensions/technical/bypass-prevention.md](extensions/technical/bypass-prevention.md) |
-| Infrastructure | [extensions/technical/infrastructure.md](extensions/technical/infrastructure.md) |
-| Current Solutions | [extensions/technical/current-solutions.md](extensions/technical/current-solutions.md) |
-| Playbooks & Templates | [extensions/templates/](extensions/templates) |
-| Emerging Controls | [core/emerging-controls.md](core/emerging-controls.md) |
+*Enterprise AI Security Framework · [MIT License](LICENSE)*

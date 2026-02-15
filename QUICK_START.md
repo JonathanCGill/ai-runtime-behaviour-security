@@ -213,6 +213,17 @@ You now have:
 - Conduct threat modelling — see [Threat Model Template](extensions/templates/threat-model-template.md)
 - Implement tier-appropriate controls from [Controls](core/controls.md)
 - If agentic: add controls from [Agentic](core/agentic.md)
+- If multi-agent: see below
+
+---
+
+## Multi-Agent? Start Here After the Basics
+
+Everything above applies to single-model deployments — one AI, one context window, one trust boundary. If you're building a system where **multiple agents communicate, delegate tasks, or take autonomous actions**, you need additional controls.
+
+The single-agent pattern (Guardrails → Judge → Human Oversight) remains the foundation. But multi-agent systems introduce risks it doesn't cover: prompt injection propagating across agent chains, hallucinations compounding through delegation, transitive authority creating unintended privilege escalation, and consensus that looks like independent validation but isn't.
+
+The **[MASO Framework](maso/)** extends this Quick Start's pattern into multi-agent orchestration. Start with [Tier 1 — Supervised](maso/implementation/tier-1-supervised.md) (human approves all writes) and graduate upward as your controls mature.
 
 ---
 
@@ -238,6 +249,7 @@ You now have:
 | Deep-dive technical | [Technical Controls](extensions/technical/) |
 | Map to regulations | [Regulatory Extensions](extensions/regulatory/) |
 | Test your controls | [Testing Guidance](extensions/templates/testing-guidance.md) |
+| **Secure multi-agent systems** | **[MASO Framework](maso/)** |
 
 ---
 

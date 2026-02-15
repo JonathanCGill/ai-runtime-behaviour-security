@@ -145,6 +145,7 @@ Fast Lane deployments should be reviewed annually to confirm they still meet all
 - HR assistant that processes employee records (PII — standard Tier 1+)
 - Code generation tool that auto-commits to production (write access, no human review — Tier 2+)
 - Internal tool that summarises patient notes (health data — Tier 2+)
+- **Any multi-agent system** (multiple agents communicating, delegating, or acting autonomously — see [MASO Framework](maso/))
 
 ---
 

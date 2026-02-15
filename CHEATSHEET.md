@@ -72,6 +72,27 @@ For each tool the agent uses, answer: Can the action be rolled back? Completed w
 
 ---
 
+## 4b. Multi-Agent Systems
+
+If deploying **multiple agents** that communicate, delegate, or act across trust boundaries, single-agent controls are necessary but not sufficient. The **[MASO Framework](maso/)** adds six control domains on top of the foundation.
+
+| MASO Control | What It Addresses |
+|---|---|
+| **Prompt, Goal & Epistemic Integrity** | Injection propagation across agents, goal drift, hallucination amplification, groupthink |
+| **Identity & Access** | Non-Human Identity per agent, no shared credentials, no transitive authority |
+| **Data Protection** | Cross-agent data fencing, DLP on the message bus, memory isolation |
+| **Execution Control** | Sandboxed execution, blast radius caps, LLM-as-Judge gate, interaction timeouts |
+| **Observability** | Decision chain audit, anomaly scoring, drift detection, independent kill switch |
+| **Supply Chain** | AIBOM per agent, signed tool manifests, MCP server vetting |
+
+**Implementation tiers:** [Tier 1 — Supervised](maso/implementation/tier-1-supervised.md) (human approves all writes) → [Tier 2 — Managed](maso/implementation/tier-2-managed.md) (auto-approve low-risk, escalate high-risk) → [Tier 3 — Autonomous](maso/implementation/tier-3-autonomous.md) (self-healing PACE, adversarial testing, kill switch).
+
+**Key difference from single-agent:** PACE extends to agent orchestration. When one agent fails, the system isolates that agent and tightens permissions across the chain — not just within a single model's control layers.
+
+**→ [Full MASO Framework](maso/)**
+
+---
+
 ## 5. Test
 
 | Test | Fast Lane | Tier 1 | Tier 2 | Tier 3 |
@@ -85,7 +106,7 @@ For each tool the agent uses, answer: Can the action be rolled back? Completed w
 
 ---
 
-## The Five Questions
+## The Six Questions
 
 Every AI deployment must answer these before production:
 
@@ -94,8 +115,9 @@ Every AI deployment must answer these before production:
 3. **Fail-open or fail-closed?**
 4. **What's the fallback path?**
 5. **Has it been tested?**
+6. **Is this multi-agent?** If yes → apply [MASO controls](maso/) on top of the foundation.
 
-If you can answer all five, you're ready. If you can't, you're not.
+If you can answer all six, you're ready. If you can't, you're not.
 
 ---
 

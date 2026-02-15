@@ -90,6 +90,33 @@ PACE answers all five. That's why it's a design principle, not an afterthought.
 
 ---
 
+## PACE for Multi-Agent Systems
+
+The two-axis model above applies to single-model deployments. When **multiple agents collaborate across trust boundaries**, PACE extends to a third axis: **agent orchestration resilience.**
+
+Multi-agent systems fail differently. A single agent producing a bad output is a local problem. An agent chain where one compromised agent's output becomes another agent's trusted input is a systemic problem. PACE for multi-agent systems must handle cascading failures, not just component failures.
+
+The **[MASO Framework](maso/)** integrates PACE at the orchestration level:
+
+| PACE Phase | Multi-Agent Response |
+|---|---|
+| **Primary** | All agents operational. Full autonomy within tier permissions. Message bus integrity verified. Judge evaluates cross-agent outputs. |
+| **Alternate** | One agent anomalous. Isolate that agent. Activate backup (potentially from a different provider). Tighten tool permissions to read-only across the chain. All write operations require human approval. |
+| **Contingency** | Multiple agents degraded or correlated failure detected. Suspend multi-agent orchestration. Human approves every action. Reduced capacity, high assurance. |
+| **Emergency** | Confirmed compromise or cascading failure. Kill switch fires. All agent sessions terminated. Non-AI fallback activated. Incident response engaged. |
+
+**Key differences from single-agent PACE:**
+
+**Blast radius is wider.** A compromised agent can inject instructions into the message bus that affect every downstream agent. Containment must isolate the agent *and* quarantine its recent outputs across the chain.
+
+**Transitions are automated at higher tiers.** At MASO Tier 2+, the monitoring agent or orchestrator can initiate P→A transitions without waiting for human approval — because multi-agent cascading failures move faster than human response times. Humans are notified, not gated.
+
+**Recovery requires chain verification.** Stepping back from C→A or A→P isn't just "restart the failed component." The system must verify that no poisoned data from the compromised agent persists in other agents' memory, context, or RAG corpus.
+
+**→ [MASO PACE Implementation](maso/)** · [Tier 1](maso/implementation/tier-1-supervised.md) · [Tier 2](maso/implementation/tier-2-managed.md) · [Tier 3](maso/implementation/tier-3-autonomous.md)
+
+---
+
 ## Testing Your PACE Plan
 
 A PACE plan that hasn't been tested is a plan that won't work.
@@ -115,6 +142,7 @@ For Tier 3 systems, testing should involve the same personnel who would handle a
 | [Controls](core/controls.md) | The three-layer architecture with integrated PACE resilience |
 | [Agentic](core/agentic.md) | Graceful degradation for autonomous agents |
 | [Risk Tiers](core/risk-tiers.md) | Classification that determines PACE requirements |
+| [MASO Framework](maso/) | PACE extended to multi-agent orchestration — agent failover, cascading failure response, kill switch architecture |
 | [Incident Playbook](extensions/templates) | Templates for Emergency layer activation |
 | [Infrastructure Beats Instructions](insights/infrastructure-beats-instructions.md) | Why the Emergency layer must be infrastructure, not prompts |
 
