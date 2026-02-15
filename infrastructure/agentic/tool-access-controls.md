@@ -180,3 +180,7 @@ Every tool invocation — whether permitted or denied — must be logged with su
 | **Guardrails** | Invocation logs provide evidence that guardrail enforcement (via the gateway) is functioning correctly. Logs of denied invocations prove the guardrails are active. |
 | **Judge** | Complete invocation logs are a primary input for Judge evaluation of agent behaviour — the Judge can assess whether the sequence and pattern of tool use was appropriate. |
 | **Human Oversight** | Full invocation logs give human reviewers the ability to understand exactly what an agent did, why it was allowed, and what it received in response. |
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

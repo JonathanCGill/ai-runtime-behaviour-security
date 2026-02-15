@@ -174,3 +174,7 @@ This trust is justified because:
 4. The feature flag provides a reliable kill switch. If a Fast Lane system causes problems, one person can stop it in minutes.
 
 What the Fast Lane does *not* do is remove security's authority. If a deployment doesn't clearly meet all four criteria, it goes through you. The Fast Lane handles the easy calls so you can focus on the hard ones.
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

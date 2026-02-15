@@ -66,7 +66,6 @@ Contributors who consistently provide high-quality contributions may be invited 
 ## Changes to Governance
 
 Changes to this governance document follow the "Significant Changes" process.
-
 ---
 
-*Enterprise AI Security Framework*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

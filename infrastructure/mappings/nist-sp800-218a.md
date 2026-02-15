@@ -104,7 +104,6 @@ The control IDs referenced above use the domain prefix scheme from this framewor
 | SS | Session & Scope |
 | DC | Delegation Chains |
 | SB | Sandbox Patterns |
-
 ---
 
-*This mapping is based on NIST SP 800-218A (July 2024). It will be updated if NIST releases revisions or implementation examples.*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

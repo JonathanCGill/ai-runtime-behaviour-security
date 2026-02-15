@@ -408,7 +408,6 @@ This testing guidance is a starting point, not a prescription. You'll need to ad
 3. **Human oversight** — Test that findings reach humans who can act
 
 How you implement these tests will vary. The need to test them will not.
-
 ---
 
-*Enterprise AI Security Framework — Testing Guidance*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

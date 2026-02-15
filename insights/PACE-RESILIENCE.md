@@ -243,13 +243,6 @@ If you're deploying AI at Tier 2 or above, and especially if you're running agen
 | [Risk Tiers](../core/risk-tiers.md) | Classification that determines PACE requirements |
 | [Incident Playbook](../extensions/templates) | Templates for Emergency layer activation |
 | [Infrastructure Beats Instructions](infrastructure-beats-instructions.md) | Why the Emergency layer must be infrastructure, not prompts |
-
 ---
 
-## Citation
-
-If you reference this document, see [CITATION.md](../CITATION.md).
-
-## License
-
-[MIT](../LICENSE) — Use it, adapt it, build on it.
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

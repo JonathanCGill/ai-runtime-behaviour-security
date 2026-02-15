@@ -188,3 +188,7 @@ No agentic AI system should enter production without:
 - [ ] Non-AI fallback path documented, tested, and staffed
 - [ ] Recovery (step-back-up) procedure documented with authorisation gates
 - [ ] Full degradation walkthrough completed with production-equivalent scenario
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

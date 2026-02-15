@@ -81,7 +81,6 @@ Open an issue or submit feedback via pull request. Your experience helps everyon
 ## Disclaimer
 
 Listing here doesn't imply endorsement of the framework by the organisation, nor endorsement of the organisation by the framework maintainers. It simply indicates use or evaluation.
-
 ---
 
-*Enterprise AI Security Framework — Adopters*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

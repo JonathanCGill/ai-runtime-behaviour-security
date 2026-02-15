@@ -185,3 +185,7 @@ Code scanning catches known dangerous patterns but is inherently incomplete — 
 - [ ] Pre-execution code scanning for dangerous patterns
 - [ ] Sandbox execution logged with code, output, resource usage, and duration
 - [ ] Sandbox escape attempts detected and classified as security incidents
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

@@ -114,11 +114,6 @@ For these, the control is: **risk-accept with monitoring, or don't deploy that m
 | Image generation | Output content classification, increased human review |
 | Audio (transcription/voice) | Transcription + text guardrails, audio quality validation |
 | Video | Treat as research/Tier 3 — high human oversight |
-
 ---
 
-## Related
-
-- [Controls](/core/controls.md) — Text-based control baseline
-- [Multimodal AI Breaks Your Text-Based Guardrails](/insights/multimodal-breaks-guardrails.md) — The problem statement
-- [Emerging Controls](/core/emerging-controls.md) — Research-stage controls for advanced multimodal scenarios
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

@@ -172,11 +172,6 @@ Teams will deploy AI without going through your controls. Find it.
 | **Procurement records** | AI tool subscriptions purchased outside IT |
 
 **Don't just block it.** Understand why teams are using shadow AI, and provide a sanctioned path that meets their needs with appropriate controls.
-
 ---
 
-## Related
-
-- [The Supply Chain Problem](/insights/the-supply-chain-problem.md) — The problem statement
-- [Behavioral Anomaly Detection Ops](/extensions/technical/anomaly-detection-ops.md) — Detecting model drift as a supply chain signal
-- [Judge Assurance](/core/judge-assurance.md) — Evaluating model behaviour over time
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

@@ -443,7 +443,6 @@ FOLLOW-UP ACTIONS
 |--------|-------|----------|--------|
 | | | | |
 ```
-
 ---
 
-*Enterprise AI Security Framework — Incident Response Playbook*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

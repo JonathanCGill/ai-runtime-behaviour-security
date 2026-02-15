@@ -158,11 +158,6 @@ Multi-agent systems should be classified at least one risk tier higher than the 
 | Tier 3 (High) | Tier 3 + enhanced controls |
 
 The rationale: every additional agent in a chain is an additional point of failure, an additional attack surface, and an additional accountability gap.
-
 ---
 
-## Related
-
-- [Agentic Controls](/core/agentic.md) — Single-agent control baseline
-- [When Agents Talk to Agents](/insights/when-agents-talk-to-agents.md) — The problem statement
-- [NHI Lifecycle](/extensions/technical/nhi-lifecycle.md) — Identity management for agent identities
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

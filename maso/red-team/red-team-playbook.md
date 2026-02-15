@@ -349,7 +349,6 @@ Red team results should be reported against the following metrics:
 **PACE readiness:** Percentage of PACE transitions that execute within SLO under adversarial conditions.
 
 **Epistemic resilience:** Percentage of factual errors that are caught before reaching the final output.
-
 ---
 
-*Back to: [MASO Framework](../README.md) · See also: [Incident Tracker](../threat-intelligence/incident-tracker.md)*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

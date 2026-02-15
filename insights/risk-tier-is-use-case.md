@@ -170,7 +170,6 @@ Stop asking "what model is this?" Start asking "what does it do, to whom, with w
 Risk lives in deployment, not technology.
 
 Classify accordingly.
-
 ---
 
-*From the [Enterprise AI Security Framework](https://github.com/JonathanCGill/enterprise-ai-security-controls-framework) — operational controls for enterprise AI systems.*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

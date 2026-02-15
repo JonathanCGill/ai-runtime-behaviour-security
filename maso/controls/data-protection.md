@@ -115,7 +115,6 @@ All Tier 2 controls remain active, plus:
 **Assuming memory isolation from model provider guarantees.** Model providers may offer session isolation, but if your orchestration framework maintains its own context store (which most do), that store is the actual memory surface. The provider's isolation guarantees don't cover your framework's state management.
 
 **Scanning outputs but not inter-agent messages.** DLP on final outputs catches data leakage to end users. But in a multi-agent system, the more dangerous leak path is agent-to-agent — where sensitive data crosses trust boundaries invisibly within the orchestration.
-
 ---
 
-*Previous: [Identity & Access](identity-and-access.md) · Back to: [MASO Framework](../README.md) · Next: [Execution Control](execution-control.md)*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

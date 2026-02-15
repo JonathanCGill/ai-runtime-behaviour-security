@@ -175,3 +175,7 @@
 | **Cost management** | Enable Bedrock model invocation metrics for cost tracking. Use SESS-01 token limits to prevent denial-of-wallet. |
 | **Model access** | Bedrock requires explicit model access grants per account. Use this as an additional control point (SUP-01). |
 | **CloudTrail** | Enable CloudTrail for all Bedrock management API calls. This covers control plane auditing (IAM-08). |
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

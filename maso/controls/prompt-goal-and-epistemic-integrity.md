@@ -197,7 +197,6 @@ This schema enables the judge to enforce provenance checks, uncertainty preserva
 **Assuming epistemic risks require an attacker.** Hallucination amplification, uncertainty stripping, and semantic drift happen through normal agent interaction dynamics. No adversarial input is needed. These are the most dangerous failure modes because they produce outputs that look correct, are well-formatted, and have multi-agent "agreement" — but are wrong.
 
 **Checking goal integrity at the output, not along the chain.** A goal hijack that occurs at step 2 of a 10-step chain will produce 8 steps of corrupted work before the final output is evaluated. Goal integrity must be monitored continuously, not just at the endpoint.
-
 ---
 
-*Back to: [MASO Framework](../README.md) · Next: [Identity & Access](identity-and-access.md)*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

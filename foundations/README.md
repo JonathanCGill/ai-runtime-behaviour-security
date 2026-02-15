@@ -224,7 +224,6 @@ This isn't a theoretical proposal. These platforms already implement variants of
 ## Contributing
 
 Feedback, corrections, and extensions welcome. See [CONTRIBUTING.md](../CONTRIBUTING.md).
-
 ---
 
-*© 2026 Jonathan Gill. [MIT License](../LICENSE). Citation: [CITATION.md](../CITATION.md).*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

@@ -315,3 +315,7 @@ It is not a silver bullet. It is detective, not preventive. The judge can be wro
 But combined with the technical controls that handle mechanics, it provides a **complete control stack**: mechanical constraints prevent what's forbidden, semantic evaluation catches what's incoherent, and sampled human review calibrates both.
 
 That is as close to a scalable multi-agent security architecture as the current state of the art supports.
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

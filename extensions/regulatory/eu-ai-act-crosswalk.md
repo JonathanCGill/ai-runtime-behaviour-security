@@ -332,7 +332,6 @@ This crosswalk provides guidance, not legal advice. Key limitations:
 2. **Technical standards pending:** EU is developing harmonised standards
 3. **Context matters:** Specific implementation depends on your use case
 4. **Legal advice required:** Consult legal counsel for your situation
-
 ---
 
-*This document is part of the Enterprise AI Security Framework — Discussion Draft*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

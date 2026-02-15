@@ -206,3 +206,7 @@ Not all actions are reversible. For those that aren't, require human approval.
 6. **Require approval for impact** — Irreversible actions need humans
 7. **Enable rollback** — Assume integrity will sometimes fail
 8. **Monitor aggressively** — Agents can cause harm fast
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

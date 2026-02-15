@@ -274,3 +274,7 @@ Cross-zone traffic logs feed into the enterprise SIEM alongside AI application l
 - [ ] Cross-zone traffic logged and monitored with anomaly detection
 - [ ] Automated tests verify guardrail bypass prevention in deployment pipeline
 - [ ] Network controls enforce IAM-04 agent tool constraints at layer 3/4
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

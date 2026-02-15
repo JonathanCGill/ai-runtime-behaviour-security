@@ -131,3 +131,7 @@ ISO 42001 Annex A sections A.2 through A.10 are mapped below. Each section lists
 | A.10 Third Parties | 8 controls | Supply chain and multi-tenant protection |
 
 **Note:** Full ISO 42001 compliance requires both the technical infrastructure controls in this repo and the organisational controls (policies, governance, training, roles, processes) addressed by the implementing organisation's AI management system. This mapping covers the technical layer only.
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

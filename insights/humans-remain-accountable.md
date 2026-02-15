@@ -156,7 +156,6 @@ Design systems where humans:
 Automate the analysis. Keep humans in the loop for decisions.
 
 Because when the regulator calls, "the AI did it" isn't an answer.
-
 ---
 
-*From the [Enterprise AI Security Framework](https://github.com/JonathanCGill/enterprise-ai-security-controls-framework) — operational controls for enterprise AI systems.*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

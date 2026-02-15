@@ -261,7 +261,6 @@ Key research informing these recommendations:
 - CALM Framework — Systematic bias quantification
 - Multiple practitioner sources on self-enhancement and position bias
 - Industry guidance from Arize, Evidently, Patronus AI, and others
-
 ---
 
-*Enterprise AI Security Framework — Judge Model Selection*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

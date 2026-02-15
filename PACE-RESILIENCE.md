@@ -145,13 +145,6 @@ For Tier 3 systems, testing should involve the same personnel who would handle a
 | [MASO Framework](maso/) | PACE extended to multi-agent orchestration — agent failover, cascading failure response, kill switch architecture |
 | [Incident Playbook](extensions/templates) | Templates for Emergency layer activation |
 | [Infrastructure Beats Instructions](insights/infrastructure-beats-instructions.md) | Why the Emergency layer must be infrastructure, not prompts |
-
 ---
 
-## Citation
-
-If you reference this document, see [CITATION.md](CITATION.md).
-
-## License
-
-[MIT](LICENSE) — Use it, adapt it, build on it.
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

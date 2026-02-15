@@ -261,9 +261,6 @@ Feedback, corrections, and extensions welcome. This is a living framework.
 
 - GitHub: [@JonathanCGill](https://github.com/JonathanCGill)
 - LinkedIn: [Jonathan Gill](https://www.linkedin.com/in/jonathancgill/)
-
 ---
 
-## License
-
-[MIT](../LICENSE) — Use it, adapt it, build on it.
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

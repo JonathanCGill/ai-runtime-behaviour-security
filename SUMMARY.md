@@ -56,3 +56,7 @@
 
 * [Governance](GOVERNANCE.md)
 * [Security](SECURITY.md)
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

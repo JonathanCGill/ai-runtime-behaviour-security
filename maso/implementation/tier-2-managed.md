@@ -326,8 +326,6 @@ Tier 3 (Autonomous Multi-Agent) requires a high bar of demonstrated maturity. Mo
 **PACE in action:**
 
 The drift detection system notices the Analysis Agent's preliminary amounts are trending 15% higher than baseline over the past 72 hours. The drift score reaches 65, triggering automatic P→A transition. The Analysis Agent is isolated. A backup Analysis Agent (using a different model provider) is activated with read-only access. All amount calculations now require human approval. The security team investigates and discovers the RAG knowledge base was updated with a new policy addendum that the agent is interpreting more broadly than intended. The RAG content is corrected, the original agent is re-tested, baselines are updated, and the system returns to Primary.
-
 ---
 
-*Previous: [Tier 1 — Supervised Multi-Agent Deployment](tier-1-supervised.md)*
-*Next: [Tier 3 — Autonomous Multi-Agent Deployment](tier-3-autonomous.md)*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

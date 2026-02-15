@@ -180,7 +180,6 @@ For multi-agent monitoring, the [MASO Observability domain](maso/controls/observ
 | [Technical Extensions](extensions/technical/) | Bypass prevention, metrics, SOC integration |
 | [Templates](extensions/templates/) | Threat models, testing guidance, playbooks |
 | [Worked Examples](extensions/examples/) | Per-tier implementation walkthroughs |
-
 ---
 
-*Enterprise AI Security Framework · [MIT License](LICENSE)*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

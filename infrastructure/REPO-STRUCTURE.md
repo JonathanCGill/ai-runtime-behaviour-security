@@ -110,3 +110,7 @@ This repo defines:
 - **Which platforms** implement it (AWS, Azure, Databricks patterns)
 
 The parent framework answers *what*. This repo answers *how*.
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

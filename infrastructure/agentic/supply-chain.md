@@ -236,3 +236,7 @@ Continuously monitor for newly disclosed vulnerabilities, attacks, and safety is
 | **Guardrails** | Vulnerability monitoring may identify new attack patterns that require guardrail rule updates (e.g., new injection techniques). |
 | **Judge** | New vulnerability disclosures may require Judge evaluation criteria updates to detect exploitation of newly discovered weaknesses. |
 | **Human Oversight** | Vulnerability monitoring feeds human risk assessment and drives prioritised remediation decisions. |
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

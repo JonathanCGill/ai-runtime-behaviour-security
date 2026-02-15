@@ -164,3 +164,7 @@ These items prevent PACE plan decay over time:
 - [ ] New team members briefed on PACE plan and their role in it
 - [ ] Departing team members' PACE responsibilities reassigned
 - [ ] Lessons from any real degradation events incorporated into PACE plan
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

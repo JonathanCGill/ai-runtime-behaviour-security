@@ -124,7 +124,6 @@ If your agent security strategy is "we wrote really good instructions," you don'
 Instructions express intent. Infrastructure enforces it.
 
 Build both. Trust only the second.
-
 ---
 
-*From the [Enterprise AI Security Framework](https://github.com/JonathanCGill/enterprise-ai-security-controls-framework) — operational controls for enterprise AI systems.*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

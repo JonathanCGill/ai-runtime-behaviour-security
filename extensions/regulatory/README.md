@@ -11,3 +11,7 @@ Standards alignment and sector-specific guidance.
 | [ai-governance-operating-model.md](ai-governance-operating-model.md) | Organisational governance structures |
 | [platform-integration-guide.md](platform-integration-guide.md) | GRC platform integration |
 | [banking-cyber-risks-ai-lens.md](banking-cyber-risks-ai-lens.md) | Banking sector AI risk guidance |
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

@@ -170,13 +170,6 @@ The OWASP Agentic Top 10, AWS's Agentic AI Security Scoping Matrix, and emerging
 | [Amazon Q CVE-2025-8217 (July 2025)](https://labs.lares.com/owasp-agentic-top-10/) | Compromised agent extension with destructive capability |
 | [KPMG AI Pulse Q4 2025](https://kpmg.com/us/en/media/news/q4-ai-pulse.html) | 80% of leaders cite cybersecurity as top barrier to agentic AI; 65% cite system complexity |
 | [Obsidian Security: 2025 AI Agent Landscape](https://www.obsidiansecurity.com/blog/ai-agent-market-landscape) | 90% of agents over-permissioned; agents move 16x more data than humans |
-
 ---
 
-## A Note on Intellectual Honesty
-
-It would be convenient to claim this framework scales to any AI architecture. It doesn't. The three-layer pattern addresses the most common enterprise AI deployment model today — and addresses it well. But the field is moving toward multi-agent, autonomous, persistent-memory architectures that require fundamentally different security thinking.
-
-Acknowledging this limit is not a weakness of the framework. It is a condition of taking the problem seriously.
-
-> "The first step to solving a problem is admitting it exists. The first step to maintaining credibility is admitting what you don't yet know."
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

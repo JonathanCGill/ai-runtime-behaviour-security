@@ -186,3 +186,7 @@ Framework had grown to 48 files. Core + Extensions model provides clear "start h
 - `Removed` for now removed features
 - `Fixed` for any bug fixes
 - `Security` for vulnerability fixes
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

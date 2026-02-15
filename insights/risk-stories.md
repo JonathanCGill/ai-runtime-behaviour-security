@@ -284,9 +284,6 @@ The framework can't prevent a political decision to keep a broken system running
 ## Contributing a Story
 
 If you have a grounded, documented AI incident that illustrates a control gap or success, contributions are welcome. See [CONTRIBUTING.md](../CONTRIBUTING.md). Stories must be based on publicly documented events with verifiable sources, not hypotheticals.
-
 ---
 
-## Sources
-
-All incidents referenced in these stories are documented in public reporting and, where applicable, in the [AI Incident Database](https://incidentdatabase.ai/). Specific tribunal rulings, corporate statements, and news coverage are cited within each story.
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

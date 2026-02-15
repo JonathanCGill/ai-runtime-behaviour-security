@@ -145,3 +145,7 @@ If any dimension suggests higher tier, use it.
 - No significant incidents
 - Reduced scope documented
 - Governance approval
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

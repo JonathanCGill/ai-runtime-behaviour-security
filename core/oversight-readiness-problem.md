@@ -214,7 +214,6 @@ Human oversight of AI systems is not a checkbox. It is an engineered control tha
 The core principle is simple: **if your system is only safe when the human performs perfectly, it is not safe.** The guardrails and LLM-as-Judge layers must be strong enough that human oversight is defence-in-depth, not the primary safety mechanism. And the human oversight layer must be actively maintained, continuously measured, and deliberately designed to force the engagement that passive monitoring cannot sustain.
 
 The ironies of automation guarantee that the moment you most need human judgement is the moment it is least likely to be available. Design accordingly.
-
 ---
 
-*This article is part of the Enterprise AI Security Framework. For the full framework including guardrail architecture, LLM-as-Judge implementation patterns, and risk classification matrices, see the [repository root](../README.md).*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

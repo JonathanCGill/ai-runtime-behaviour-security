@@ -143,12 +143,6 @@ Judge evaluations on identical or near-identical inputs can be cached:
 | **As % of generator cost** | **____%** |
 
 **Rule of thumb:** Security overhead is typically 15–40% of generator cost for Tier 2, and 40–100% for Tier 3.
-
 ---
 
-## Related
-
-- [Controls](/core/controls.md) — The layers being costed
-- [Judge Assurance](/core/judge-assurance.md) — Evaluating judge accuracy (affects model selection)
-- [Streaming Controls](/core/streaming-controls.md) — Latency implications of streaming vs. non-streaming
-- [Risk Tiers](/core/risk-tiers.md) — Tier determines control density and therefore cost
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

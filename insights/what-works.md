@@ -79,3 +79,7 @@ Controls reduce risk. They do not eliminate it.
 - Human oversight only works if the humans are trained, resourced, and empowered to override the system.
 
 The framework's value is not in promising zero risk. It is in making the residual risk **visible, measurable, and manageable**. That is worth doing, and the data shows it works.
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

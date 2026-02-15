@@ -107,11 +107,6 @@ Shared embeddings or knowledge that multiple users access (e.g., company FAQ, pr
 - Shared content must be read-only for end users
 - Ingestion pipeline is controlled (see [RAG Security](/extensions/technical/rag-security.md))
 - User-specific context is never written to shared stores
-
 ---
 
-## Related
-
-- [The Memory Problem](/insights/the-memory-problem.md) — The problem statement
-- [Controls](/core/controls.md) — Per-request control baseline
-- [RAG Security](/extensions/technical/rag-security.md) — Securing the retrieval pipeline that feeds context
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

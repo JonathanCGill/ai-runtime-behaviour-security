@@ -179,3 +179,7 @@
 **System approved for production:** ☐
 
 **Approver:** __________________ **Date:** __________
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

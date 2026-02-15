@@ -196,3 +196,7 @@
 | **MLflow integration** | MLflow is deeply integrated — use it for model tracking, experiment logging, and trace capture rather than building custom logging. |
 | **Multi-cloud** | Databricks runs on AWS, Azure, and GCP. The Databricks-layer controls (Unity Catalog, AI Gateway) are consistent across clouds, but network controls (NET-01 through NET-08) use cloud-specific primitives. |
 | **Mosaic AI Gateway** | AI Gateway provides built-in rate limiting, guardrails, and usage tracking. Configure these as the first layer, then supplement with custom controls for domain-specific requirements. |
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

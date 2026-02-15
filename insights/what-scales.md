@@ -204,3 +204,7 @@ The honest position: we know enough to start building. We don't know enough to p
 | [OWASP Top 10 for Agentic Applications (Dec 2025)](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/) | Definitive risk taxonomy, least agency principle |
 | [KPMG AI Pulse Q4 2025](https://kpmg.com/us/en/media/news/q4-ai-pulse.html) | 80% cite cybersecurity as top barrier; 65% cite system complexity |
 | [Obsidian Security: AI Agent Landscape (Jan 2026)](https://www.obsidiansecurity.com/blog/ai-agent-market-landscape) | 90% agents over-permissioned; 16x data movement vs humans |
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

@@ -228,3 +228,7 @@ Model I/O sent to the LLM-as-Judge for evaluation contains all the sensitive dat
 - [ ] Evaluation data tokenised before reaching the Judge
 - [ ] Multi-tenant context isolation verified and tested
 - [ ] Data classification metadata required for all vector store documents
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

@@ -279,7 +279,6 @@ Use this template to document AI systems in your inventory (AI.3.1, AI.3.2).
 | Full reassessment | [Per tier] | [Date] |
 | Control verification | [Per tier] | [Date] |
 | Performance review | [Monthly/Quarterly] | [Date] |
-
 ---
 
-*Template Version: 1.0 | Enterprise AI Security Framework*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

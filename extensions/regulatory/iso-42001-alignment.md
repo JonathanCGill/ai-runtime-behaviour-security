@@ -603,7 +603,6 @@ ISO 42001 does not explicitly address agentic AI. The framework extends coverage
 ### The Operating Model in One Page
 
 ![AI Governance Operating Model Summary](../../images/iso-42001-operating-model-summary.svg)
-
 ---
 
-*This document is part of the Enterprise AI Security Framework — Discussion Draft*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

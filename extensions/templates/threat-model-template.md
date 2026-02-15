@@ -384,7 +384,6 @@ This template is a starting point. Your threat model needs to reflect:
 - Your existing controls
 
 **The framework provides principles. You provide the specifics.**
-
 ---
 
-*Enterprise AI Security Framework — Threat Modelling Template*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

@@ -100,13 +100,6 @@ This prioritization is not permanent. As the threat landscape matures and agenti
 | AI Incident Database (AIID) | Crowdsourced incident tracking, 1,300+ incidents | [incidentdatabase.ai](https://incidentdatabase.ai/) |
 | AIAAIC Repository | Independent incident and controversy tracking | [aiaaic.org](https://www.aiaaic.org/aiaaic-repository) |
 | Reco AI & Cloud Security: 2025 Year in Review | Enterprise breach case studies, SaaS/AI intersection | [reco.ai](https://www.reco.ai/blog/ai-and-cloud-security-breaches-2025) |
-
 ---
 
-## A Note on Data Quality
-
-AI incident databases are in their infancy. As the Stanford AI Index notes, there is no agreed standard for what constitutes a "serious" AI incident. The AIAAIC and AIID databases use different schemas, different severity classifications, and different inclusion criteria. Some "AI incidents" in these databases are not AI system failures at all (e.g., data center environmental issues).
-
-Treat the numbers in this document as directional, not precise. The trends are clear even if the exact counts are approximate.
-
-> The absence of perfect data is not an excuse for ignoring the data that exists.
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

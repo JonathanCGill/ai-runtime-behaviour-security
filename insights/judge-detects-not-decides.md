@@ -105,7 +105,6 @@ Instead, build a Judge that:
 Then let humans decide.
 
 The Judge detects. Humans decide. Keep it that way.
-
 ---
 
-*From the [Enterprise AI Security Framework](https://github.com/JonathanCGill/enterprise-ai-security-controls-framework) — operational controls for enterprise AI systems.*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

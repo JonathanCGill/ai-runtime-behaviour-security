@@ -444,12 +444,6 @@ rules:
 ## Architecture Diagram
 
 ![Fraud Analytics Architecture](../../images/example-fraud-architecture.svg)
-
 ---
 
-## Related
-
-- [Behavioral Anomaly Detection](../../insights/behavioral-anomaly-detection.md) — Alert aggregation patterns
-- [The Verification Gap](../../insights/the-verification-gap.md) — Independent verification
-- [High-Volume Customer Communications](./04-high-volume-customer-communications.md) — Timing band patterns
-- [Controls Reference](../../core/controls.md) — Full control specifications
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

@@ -175,3 +175,7 @@ Infrastructure controls make these layers enforceable. Without the infrastructur
 | **SAND-04** Enforce resource limits | Resource limits are guardrails against denial of service and resource abuse | Judge monitors resource consumption patterns for anomalies | Humans define resource limits and review high-consumption sessions |
 | **SAND-05** Prevent persistent state | Ephemeral environments prevent state accumulation — a guardrail on long-term compromise | Judge evaluates that session state does not persist beyond session boundaries | Humans verify ephemeral policy compliance |
 | **SAND-06** Scan code before execution | Pre-execution scanning is a guardrail catching malicious or dangerous code before it runs | Judge evaluates scanning results alongside execution behaviour | Humans review scan findings and define scanning policy |
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

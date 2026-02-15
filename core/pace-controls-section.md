@@ -104,3 +104,7 @@ Every system at Tier 2 or above must have a documented, tested, and maintained n
 | **Testing** | Annually: confirm it still works | Quarterly: run production-equivalent traffic through it | Monthly: operate in parallel for a defined period |
 | **Activation** | Manual (feature flag, deployment rollback) | Automated (circuit breaker with health checks) | Automated (circuit breaker) with manual confirmation within defined window |
 | **Capacity** | Best effort | Must handle 100% of AI traffic at degraded quality | Must handle critical subset at production quality |
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

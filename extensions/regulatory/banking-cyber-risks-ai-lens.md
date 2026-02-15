@@ -680,7 +680,6 @@ When banks build AI-powered SaaS solutions for internal use or customer-facing s
 8. Establish AI red-teaming capability to test AI systems against these risks
 9. Build cost-based DoS into threat modelling for AI systems
 10. Develop AI-specific incident response playbooks
-
 ---
 
-*Enterprise AI Security Framework — Discussion Draft*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

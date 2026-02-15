@@ -199,3 +199,7 @@ The LLM-as-Judge is a powerful assurance mechanism when used correctly:
 - Assume it's infallible
 
 **The Judge makes human oversight scalable. It doesn't replace it.**
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

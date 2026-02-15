@@ -111,3 +111,7 @@ The Manage function addresses risk treatment and response. Infrastructure contro
 | **Total** | **51** | |
 
 **Note:** Many NIST AI RMF subcategories are primarily organisational in nature (governance structures, policy creation, stakeholder engagement, training programmes). This mapping identifies the infrastructure controls that support these subcategories technically, but organisational implementation is required for full framework alignment.
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

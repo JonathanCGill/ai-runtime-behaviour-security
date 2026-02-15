@@ -322,3 +322,7 @@ AI system logs should flow to the enterprise SIEM/SOAR with:
 - [ ] Retention policies defined and enforced per data type
 - [ ] PII redaction applied at log ingestion with periodic effectiveness audits
 - [ ] AI logs integrated with enterprise SIEM with correlation rules active
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

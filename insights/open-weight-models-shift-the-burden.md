@@ -83,7 +83,6 @@ If you're deploying open-weight models at a higher risk tier, your control budge
 This framework does not currently prescribe different control sets per deployment model. That may change in a future release as open-weight deployment patterns mature and the control evidence base grows. For now, treat the controls in this section as supplementary guidance for self-hosted deployments — applied on top of your existing risk-tier requirements.
 
 Desktop-scale and edge deployments of small models introduce additional considerations (limited compute for guardrails, no network access for Judge evaluation, constrained observability). These are acknowledged but deferred to a future iteration of the framework.
-
 ---
 
-*Related: [Infrastructure Beats Instructions](infrastructure-beats-instructions.md) · [Risk Tier Is Use Case, Not Technology](risk-tier-is-use-case.md) · [Controls](../core/controls.md)*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

@@ -163,7 +163,6 @@ These are not speculative — they are extrapolations from demonstrated attack p
 | ET-08 AI vs AI defences | High | High | Tier 3 | Execution Control |
 
 **Key observation:** The majority of emerging threats target multi-agent interaction patterns — the spaces between agents, not the agents themselves. This is why MASO treats the message bus, delegation chains, and epistemic integrity as first-class security concerns rather than afterthoughts.
-
 ---
 
-*Back to: [MASO Framework](../README.md) · See also: [Incident Tracker](incident-tracker.md)*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

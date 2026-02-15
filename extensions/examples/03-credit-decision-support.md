@@ -721,7 +721,6 @@ CreditAssist demonstrates CRITICAL-tier implementation with proper control separ
 - Satisfies regulatory requirements
 - Allows the Judge to operate async without impacting operations
 - Provides comprehensive audit trail
-
 ---
 
-*This worked example is part of the Enterprise AI Security Framework — Discussion Draft*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

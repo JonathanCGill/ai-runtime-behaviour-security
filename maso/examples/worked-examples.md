@@ -203,7 +203,6 @@ Three patterns emerge across all three examples:
 **2. Data boundaries define the architecture.** PHI containment (healthcare), information barriers (financial services), and OT/IT segmentation (critical infrastructure) all impose hard constraints on which agents can communicate with which. MASO's data protection controls (DP-1.1, DP-2.1, DP-1.3) map directly to these regulatory requirements.
 
 **3. Human oversight scales with consequence severity.** Tier 1's human-in-the-loop for all writes is non-negotiable in safety-critical systems. The question is not whether to have human oversight, but how to make it effective at the speed the operation requires. Latency SLOs (EC-2.9) ensure that security controls don't make the system too slow to be safe.
-
 ---
 
-*Back to: [MASO Framework](../README.md) · See also: [Implementation Tiers](../implementation/tier-1-supervised.md)*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

@@ -224,7 +224,6 @@ The following CSF 2.0 subcategory areas have no direct mapping to this framework
 **For CSF gap assessments:** This mapping shows where AI deployments introduce new control requirements within existing CSF subcategories. PR.DS-10 (data-in-use), DE.CM-09 (runtime monitoring), and the GV.SC supply chain subcategories are most significantly affected by AI.
 
 **For audit and compliance:** The mapping provides traceability from this framework's 80 infrastructure controls to CSF 2.0 outcomes, supporting compliance evidence for organisations that report against CSF.
-
 ---
 
-*This mapping is based on NIST CSF 2.0 (February 2024) and informed by NIST IR 8596 Initial Preliminary Draft (December 2025). It will be updated when IR 8596 is finalised.*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

@@ -259,7 +259,6 @@ Use this questionnaire when assessing AI vendors, foundation model providers, an
 **Assessor:** ____________________  
 **Date:** ____________________  
 **Review date:** ____________________
-
 ---
 
-*Enterprise AI Security Framework — Vendor Assessment Template*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

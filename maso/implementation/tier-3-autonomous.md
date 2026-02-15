@@ -346,8 +346,6 @@ Tier 3 autonomous operations face the most intense regulatory scrutiny. Specific
 **DORA (for financial services in the EU):** Article 11 requires ICT risk management including for AI systems. The PACE resilience model, with its four-phase degradation and recovery cycle, maps directly to DORA's operational resilience requirements. The kill switch procedure and automated regression to lower tiers provide the "rapid containment" capability DORA requires.
 
 **APRA CPS 234 (for Australian financial services):** Requires that information assets (including AI systems) are managed commensurate with their sensitivity and criticality. Tier 3 systems handling customer financial data must demonstrate that the autonomous controls (drift detection, blast radius caps, kill switch) provide protection equivalent to or better than human supervision. The adversarial testing programme provides the evidence base for this claim.
-
 ---
 
-*Previous: [Tier 2 — Managed Multi-Agent Deployment](tier-2-managed.md)*
-*Back to: [MASO Framework](../README.md)*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

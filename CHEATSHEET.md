@@ -118,7 +118,6 @@ Every AI deployment must answer these before production:
 6. **Is this multi-agent?** If yes → apply [MASO controls](maso/) on top of the foundation.
 
 If you can answer all six, you're ready. If you can't, you're not.
-
 ---
 
-*Full framework: [github.com/JonathanCGill/enterprise-ai-security-controls-framework](https://github.com/JonathanCGill/enterprise-ai-security-controls-framework) · MIT License*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

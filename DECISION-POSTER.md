@@ -22,3 +22,7 @@ To print at full size: click the image above to open the SVG directly, then use 
 | [Fast Lane](FAST-LANE.md) | Pre-approved path for low-risk deployments |
 | [PACE Resilience](PACE-RESILIENCE.md) | Full resilience methodology |
 | [README](README.md) | Full framework overview |
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

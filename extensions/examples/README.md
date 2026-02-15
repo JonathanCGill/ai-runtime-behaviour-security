@@ -9,3 +9,7 @@ Control implementations for specific use cases.
 | [03-credit-decision-support.md](03-credit-decision-support.md) | Credit decision support (CRITICAL tier) |
 | [04-high-volume-customer-communications.md](04-high-volume-customer-communications.md) | High-volume outbound communications (CRITICAL tier) — latency and time-band controls |
 | [05-fraud-analytics.md](05-fraud-analytics.md) | AI-assisted fraud triage (HIGH tier) — three-authority model, alert aggregation |
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

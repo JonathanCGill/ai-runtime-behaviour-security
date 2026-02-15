@@ -230,3 +230,7 @@ AI incident response must integrate with the existing enterprise IR process, not
 - [ ] Post-incident review template includes three-layer gap analysis
 - [ ] AI incidents tracked in enterprise incident management system
 - [ ] Injection technique catalogue maintained and updated from incidents
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

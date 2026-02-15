@@ -171,7 +171,6 @@ What's been missing: a clear explanation of *why* this pattern is necessary and 
 That's what the [Enterprise AI Security Framework](../README.md) provides — a practical synthesis of the pattern with implementation guidance. For detailed solution comparison, see [Current Solutions](../extensions/technical/current-solutions.md).
 
 > **Design reviews prove intent. Behavioral monitoring proves reality.**
-
 ---
 
-*From the [Enterprise AI Security Framework](https://github.com/JonathanCGill/enterprise-ai-security-controls-framework) — operational controls for enterprise AI systems.*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

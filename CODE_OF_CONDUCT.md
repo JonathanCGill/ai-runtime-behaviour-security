@@ -30,7 +30,6 @@ Maintainers have the right to remove, edit, or reject comments, commits, code, i
 ## Attribution
 
 This Code of Conduct is adapted from the [Contributor Covenant](https://www.contributor-covenant.org/), version 2.1.
-
 ---
 
-*Enterprise AI Security Framework*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

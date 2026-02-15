@@ -168,3 +168,7 @@ Humans review findings, make decisions, remain accountable.
 6. **Enhanced guardrails** — Add ML detection
 7. **Judge operational** — Drive workflows
 8. **Continuous tuning** — Improve from findings
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

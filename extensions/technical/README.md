@@ -23,3 +23,7 @@ Deep dives on controls, infrastructure, and metrics.
 | [ai-specific-risks.md](novel-ai-risks.md) | AI-specific risk categories |
 | [support-systems-risk.md](support-systems-risk.md) | Feeder system risk analysis |
 | [emerging-trends-impact.md](emerging-trends-impact.md) | Technology trend impact assessment |
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

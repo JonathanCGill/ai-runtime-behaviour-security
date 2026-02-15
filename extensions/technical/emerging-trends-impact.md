@@ -324,7 +324,6 @@ The core principle — Guardrails prevent, Judge detects, Humans decide — surv
 **Agentic AI is the critical trend to watch.** It challenges the interaction-centric model and requires genuine architectural extension. Other trends (multimodal, reasoning models, longer contexts) are accommodated with relatively minor adjustments.
 
 The framework should be treated as a **living document** that evolves with the technology. This is not a weakness — it's a design principle.
-
 ---
 
-*Enterprise AI Security Framework — Discussion Draft*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

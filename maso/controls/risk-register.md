@@ -169,7 +169,6 @@ These overlap significantly with the OWASP Agentic Top 10. MASO controls are gen
 The source table's mitigations align well with MASO's approach in the security and data categories — these are the domains where OWASP coverage is strongest. The critical gap is epistemic: all eight epistemic risks require new controls. These risks are the most dangerous because they produce failures that look like success — confident, well-formatted, unanimously agreed outputs that are wrong.
 
 The source table correctly identifies that the Judge/Challenger is not the solution for every risk. Specifically: secrets leakage (SR-05), logging as breach vector (SR-06), cost blowouts (OP-01), and accountability blur (HF-02) require platform governance and infrastructure controls, not evaluation-layer interventions. MASO's tiered approach (prevention at Layer 1, detection at Layer 2, governance at Layer 3) is the right architecture for this — but the existing control specs need the amendments listed above to close the gaps.
-
 ---
 
-*Back to: [MASO Framework](../README.md)*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

@@ -182,7 +182,6 @@ The inspect-then-deliver model assumes time we don't have.
 Security approaches will adapt: more prevention, probabilistic intervention, faster detection, graceful degradation. But the fundamental tension — validation takes time, streaming doesn't wait — won't disappear.
 
 Build for imperfect control. Design for fast recovery.
-
 ---
 
-*From the [Enterprise AI Security Framework](https://github.com/JonathanCGill/enterprise-ai-security-controls-framework) — operational controls for enterprise AI systems.*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

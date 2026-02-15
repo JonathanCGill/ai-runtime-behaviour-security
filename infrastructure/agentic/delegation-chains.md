@@ -151,3 +151,7 @@ The identity of the originating user must be propagated through the entire deleg
 | **Guardrails** | User identity propagation ensures that guardrail enforcement always considers the user's authorisation level, even in deeply nested delegation chains. |
 | **Judge** | User identity in chain logs enables the Judge to evaluate whether actions taken on behalf of a user are consistent with that user's role, permissions, and historical behaviour patterns. |
 | **Human Oversight** | User identity propagation enables accountability. Every action by every agent in a chain is traceable to the human who initiated it. |
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

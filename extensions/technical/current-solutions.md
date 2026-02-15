@@ -500,9 +500,6 @@ This guide synthesizes publicly available documentation, research, and community
 - **OWASP** — LLM Top 10 and community contributions
 - **NIST** — AI Risk Management Framework
 - **The broader AI safety research community**
-
 ---
 
-*Last updated: February 2026*
-
-*This page aims to provide accurate, helpful information. Solutions evolve rapidly — verify current capabilities with vendor documentation.*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

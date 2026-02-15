@@ -185,7 +185,6 @@ This format enables: full chain reconstruction, per-agent performance trending, 
 **Comprehensive logging without log security.** Agent logs contain reasoning chains, tool parameters, context fragments, and potentially sensitive data. Without classification, encryption, and access controls, the observability layer becomes a high-value target for data exfiltration — the very attack it's supposed to detect (SR-06).
 
 **No named human on the decision chain.** "The agents decided" is not accountability. Every workflow must have a designated human owner. The decision chain log must record who that person is. Judge approval is a tool, not a transfer of responsibility.
-
 ---
 
-*Previous: [Execution Control](execution-control.md) · Back to: [MASO Framework](../README.md) · Next: [Supply Chain](supply-chain.md)*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

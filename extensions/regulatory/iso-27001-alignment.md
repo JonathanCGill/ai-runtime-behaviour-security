@@ -473,7 +473,6 @@ When documenting AI systems in your Statement of Applicability (SoA):
 **The AI framework operates within the ISMS, not parallel to it.**
 
 AI systems are information systems. ISO 27001 controls apply. The AI framework adds AI-specific controls where the standard controls are insufficient for AI-specific risks (prompt injection, model manipulation, agentic behaviour, etc.).
-
 ---
 
-*Enterprise AI Security Framework — Discussion Draft*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

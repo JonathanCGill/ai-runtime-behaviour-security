@@ -122,11 +122,6 @@ What's been missing: clear guidance on *why* this pattern is necessary and *how*
 4. **Infrastructure beats instructions** — Enforce technically, not via prompts
 5. **Assume bypasses happen** — Design for detection, not just prevention
 6. **Humans remain accountable** — AI assists; humans own outcomes
-
 ---
 
-## The Key Insight
-
-> **Design reviews prove intent. Behavioral monitoring proves reality.**
-
-You can review prompts and guardrail configs. But you won't know what your AI actually does until it does it. That's why runtime monitoring isn't optional — it's primary assurance.
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

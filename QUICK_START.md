@@ -260,7 +260,6 @@ You can't fully test AI at design time. You must monitor behavior in production.
 > **Design reviews prove intent. Behavioral monitoring proves reality.**
 
 The pattern — Guardrails, Judge, Human Oversight — gives you predictable, proportionate controls that work.
-
 ---
 
-*Enterprise AI Security Framework — Quick Start Guide*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

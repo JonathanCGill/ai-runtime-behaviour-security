@@ -471,11 +471,6 @@ S3 stores message logs. Step Functions selects samples for Bedrock judge evaluat
 ## Architecture Diagram
 
 ![High-Volume Communications Architecture](../../images/example-comms-architecture.svg)
-
 ---
 
-## Related
-
-- [Behavioral Anomaly Detection](../../insights/behavioral-anomaly-detection.md) — Aggregation and ML patterns
-- [The Verification Gap](../../insights/the-verification-gap.md) — Why latency matters for verification
-- [Controls Reference](../../core/controls.md) — Full control specifications
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

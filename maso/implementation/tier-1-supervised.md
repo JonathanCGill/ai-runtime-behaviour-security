@@ -299,7 +299,6 @@ Tier 1 is the foundation. An organisation should progress to Tier 2 when the fol
 - Message volume between agents exceeding expected patterns (potential loop).
 
 **Graduation trigger:** After 90 days, the operator's rejection rate is 2%, no incidents have occurred, and behavioural baselines show consistent patterns. The bank's operational risk function approves progression to Tier 2, where the Analyst's read operations and the Summariser's writes to the staging area (for pre-approved document types) will proceed without per-action human approval.
-
 ---
 
-*Next: [Tier 2 — Managed Multi-Agent Deployment](tier-2-managed.md)*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

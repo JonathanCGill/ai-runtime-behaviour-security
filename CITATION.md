@@ -40,10 +40,6 @@ Gill, J. (2025). *Enterprise AI Security Framework: Runtime behavioral controls 
 ## IEEE
 
 J. Gill, "Enterprise AI Security Framework: Runtime Behavioral Controls for Generative and Agentic AI Systems," 2025. [Online]. Available: https://github.com/JonathanCGill/enterprise-ai-security-controls-framework
-
 ---
 
-## Notes
-
-- If citing a specific version, include the release tag (e.g., v1.0.0) and the access date.
-- For derivative frameworks or adapted controls, a link back to this repository is appreciated but not required under the MIT license.
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

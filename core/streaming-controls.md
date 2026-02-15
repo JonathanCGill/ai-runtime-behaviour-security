@@ -147,11 +147,6 @@ The client must support retraction. This means:
 | Deterministic safety | You cannot guarantee no user ever sees problematic content in a stream |
 
 This is an inherent trade-off. If you need deterministic safety, don't stream.
-
 ---
 
-## Related
-
-- [You Can't Validate What Hasn't Finished](/insights/you-cant-validate-unfinished.md) — The problem statement
-- [Controls](/core/controls.md) — The three-layer pattern (designed for complete responses)
-- [Cost and Latency](/extensions/technical/cost-and-latency.md) — Latency budgets for evaluation
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

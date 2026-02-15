@@ -241,3 +241,7 @@ This audit trail must be append-only and stored separately from the systems it m
 - [ ] Credentials never appear in model context windows
 - [ ] Session credentials are short-lived and auto-expiring
 - [ ] All access changes logged to append-only audit trail
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

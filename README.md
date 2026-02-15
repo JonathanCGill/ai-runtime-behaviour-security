@@ -177,13 +177,6 @@ If you adopt any part of this framework, you are responsible for validating that
 This framework was written with the help of AI — primarily Claude and ChatGPT. The architecture, control design, risk analysis, editorial decisions, and professional judgment are mine. The AI helped with drafting, structuring, research synthesis, and generating the volume of detailed content across 30+ documents that would have taken one person months to write manually.
 
 This is a framework about securing AI systems, written with the assistance of AI systems. I think that's appropriate. The output has been reviewed, edited, and validated against real-world implementation experience. But I'm not going to pretend a human typed every word, because that would be dishonest — and honesty about AI use is kind of the point.
-
 ---
 
-## License
-
-[MIT](LICENSE) — Use it, adapt it, build on it.
-
-## Citation
-
-If you reference this framework in publications, presentations, or derivative work, see [CITATION.md](CITATION.md).
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

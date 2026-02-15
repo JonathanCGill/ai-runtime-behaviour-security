@@ -288,7 +288,6 @@ Maintain documentation of:
 - [ ] Update policy for regulatory changes
 - [ ] Audit compliance quarterly
 - [ ] Report retention metrics
-
 ---
 
-*Enterprise AI Security Framework — Data Retention Guidance*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

@@ -443,7 +443,6 @@ The framework's technical controls directly support ISO 42001 compliance:
 | Improvement (10.2) | Feedback loops | All controls |
 
 **Key message:** Technical controls are not separate from governance—they ARE the operational implementation of ISO 42001 requirements.
-
 ---
 
-*This document is part of the Enterprise AI Security Framework — Discussion Draft*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

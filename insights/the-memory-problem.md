@@ -180,7 +180,6 @@ Context windows will keep growing. Memory capabilities will become standard. The
 Frameworks designed for stateless systems will struggle. The security model needs to evolve from "inspect the transaction" to "govern the state."
 
 We're early in that evolution.
-
 ---
 
-*From the [Enterprise AI Security Framework](https://github.com/JonathanCGill/enterprise-ai-security-controls-framework) — operational controls for enterprise AI systems.*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

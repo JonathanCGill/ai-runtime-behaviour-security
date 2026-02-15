@@ -97,11 +97,6 @@ The three-layer pattern monitors output quality. RAG security requires controlli
 ## The Controls
 
 See [RAG Security Controls](/extensions/technical/rag-security.md) for implementation guidance.
-
 ---
 
-## Related
-
-- [Controls](/core/controls.md) — The three-layer pattern
-- [Infrastructure Beats Instructions](/insights/infrastructure-beats-instructions.md) — Why retrieval access control must be infrastructure-enforced
-- [The Memory Problem](/insights/the-memory-problem.md) — Persistent context risks overlap with RAG context risks
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

@@ -265,3 +265,7 @@ Agent actions, decisions, and tool invocations are not logged with sufficient de
 | AGT-08 Autonomous Action Without Oversight | IAM-05, TOOL-04, SESS-04 |
 | AGT-09 Inadequate Sandboxing | SAND-01 through SAND-06 |
 | AGT-10 Insufficient Logging | TOOL-06, LOG-04, DEL-02, LOG-01, LOG-07 |
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

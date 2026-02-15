@@ -410,7 +410,6 @@ The correct response is not to avoid AI. It's to:
 3. **Monitor continuously** — because you can't test exhaustively
 4. **Keep humans in the loop** — for decisions where errors have real consequences
 5. **Be honest** — with regulators, customers, and executives about what AI can and can't guarantee
-
 ---
 
-*Enterprise AI Security Framework — Discussion Draft*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

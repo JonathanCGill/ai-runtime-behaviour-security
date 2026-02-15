@@ -409,7 +409,6 @@ This is appropriate because:
 - Low regulatory exposure
 
 **Don't over-engineer.** Match controls to actual risk.
-
 ---
 
-*This worked example is part of the Enterprise AI Security Framework — Discussion Draft*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

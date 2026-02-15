@@ -478,7 +478,6 @@ Be honest about what's impossible:
 - [ ] Reviewer metrics and monitoring
 - [ ] Separation of duties for config
 - [ ] Configuration drift detection
-
 ---
 
-*Enterprise AI Security Framework — Bypass Prevention*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

@@ -286,7 +286,6 @@ For security team:
 - Predictive analytics
 - Automated remediation
 - Continuous improvement feedback loops
-
 ---
 
-*Enterprise AI Security Framework — Operational Metrics*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

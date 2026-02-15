@@ -132,7 +132,6 @@ Reasoning capability will improve. Models will think longer and more effectively
 Security and governance approaches that assume transparent, fast, input-output models will age poorly.
 
 The framework needs to evolve to handle systems that think — even when we can't watch them do it.
-
 ---
 
-*From the [Enterprise AI Security Framework](https://github.com/JonathanCGill/enterprise-ai-security-controls-framework) — operational controls for enterprise AI systems.*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

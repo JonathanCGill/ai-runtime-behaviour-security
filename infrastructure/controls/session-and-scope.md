@@ -130,3 +130,7 @@ For abnormal termination (crash, timeout, forced kill), cleanup must still occur
 - [ ] Session cleanup verified for normal and abnormal termination
 - [ ] Session metadata logged for forensics and drift detection
 - [ ] Cross-session data correlation attacks considered in threat model
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

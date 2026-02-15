@@ -158,7 +158,6 @@ MCP (Model Context Protocol) servers extend agent capabilities by providing tool
 **AIBOM as a compliance document rather than an operational tool.** The AIBOM is useful only if it is compared against the deployed configuration automatically. A beautifully formatted AIBOM that sits in a wiki and diverges from reality is worse than no AIBOM — it provides false assurance.
 
 **Allowing agents to discover tools at runtime.** Dynamic tool discovery is the defining feature of MCP-based agent frameworks and the defining vulnerability of their supply chain. At Tier 1 and Tier 2, tool discovery must be disabled in favour of static allow-lists. Even at Tier 3, discovery should be limited to pre-approved registries with signed manifests.
-
 ---
 
-*Previous: [Observability](observability.md) · Back to: [MASO Framework](../README.md)*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

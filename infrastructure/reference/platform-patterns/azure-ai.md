@@ -178,3 +178,7 @@
 | **Data residency** | Azure OpenAI processes data in the region of deployment. Azure AI Content Safety may process in different regions — verify data residency requirements. |
 | **Provisioned throughput** | For consistent performance, use provisioned throughput units (PTUs) — avoids token-based throttling that could affect guardrail latency. |
 | **Entra ID integration** | Leverage Entra ID deeply — Conditional Access, PIM, and workload identity provide strong IAM-01 through IAM-06 implementation. |
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

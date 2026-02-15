@@ -153,7 +153,6 @@ Multi-agent architectures will become common. They solve problems single agents 
 The security and governance models will lag. We're building single-agent controls for multi-agent systems.
 
 Expect failures. Design for them. Learn from them.
-
 ---
 
-*From the [Enterprise AI Security Framework](https://github.com/JonathanCGill/enterprise-ai-security-controls-framework) — operational controls for enterprise AI systems.*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

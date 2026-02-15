@@ -208,3 +208,7 @@ AI projects are prone to embedded credentials — API keys in notebooks, tokens 
 - [ ] Pre-commit and CI/CD scanning for embedded credentials in AI codebases
 - [ ] Notebook scanning for credentials in code, outputs, and metadata
 - [ ] Credential exposure treated as a security incident with defined response playbook
+
+---
+
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

@@ -118,12 +118,6 @@ When the Judge is unavailable, degraded, or untrusted:
 Even with all these controls, you cannot prove the Judge is correct. You can only measure its accuracy against human judgment, track its consistency over time, and react when it drifts.
 
 This is the same epistemic limitation identified in [The Verification Gap](/insights/the-verification-gap.md). The Judge doesn't solve it — it manages it. Judge Assurance ensures you know how well it's managing.
-
 ---
 
-## Related
-
-- [Controls](/core/controls.md) — The three-layer pattern
-- [The Verification Gap](/insights/the-verification-gap.md) — Why ground truth is hard
-- [Behavioral Anomaly Detection](/insights/behavioral-anomaly-detection.md) — Detecting Judge drift as anomaly
-- [Cost and Latency](/extensions/technical/cost-and-latency.md) — When you can't afford to judge everything
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

@@ -240,7 +240,6 @@ The controls, patterns, and examples that follow are for systems where AI genuin
 - [Why Guardrails Aren't Enough](./why-guardrails-arent-enough.md) — The limits of inline controls
 - [Humans Remain Accountable](./humans-remain-accountable.md) — Review workflow realities
 - [Risk Tiers](../core/risk-tiers.md) — Determining appropriate control intensity
-
 ---
 
-*From the [Enterprise AI Security Framework](https://github.com/JonathanCGill/enterprise-ai-security-controls-framework) — operational controls for enterprise AI systems.*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

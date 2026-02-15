@@ -132,12 +132,6 @@ Anomaly detection will generate false positives. Plan for this:
 3. **Week 4:** Implement 3–5 highest-value detection rules (start with user-level volume anomalies and system-level block rate)
 4. **Week 5–8:** Tune thresholds based on false positive rate
 5. **Ongoing:** Add detection rules as new patterns emerge
-
 ---
 
-## Related
-
-- [Behavioral Anomaly Detection](/insights/behavioral-anomaly-detection.md) — The concept
-- [Operational Metrics](/extensions/technical/operational-metrics.md) — What to collect
-- [SOC Integration](/extensions/technical/soc-integration.md) — Where alerts go
-- [Judge Assurance](/core/judge-assurance.md) — Model-level anomaly detection
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*

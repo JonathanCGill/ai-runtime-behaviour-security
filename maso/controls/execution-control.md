@@ -164,7 +164,6 @@ The action classification engine is the core mechanism that replaces per-action 
 **Treating task completion as the quality metric.** An agent that reports 100% completion with zero uncertainty is more suspicious than one that reports 85% with documented unknowns. Judge criteria must include faithfulness, analytical depth, and evidence quality — not just format compliance and completion rate (GV-02).
 
 **Ignoring latency as a security-relevant metric.** Latency SLOs are not just a performance concern. An orchestration that takes 10x longer than expected may indicate a runaway loop, a deadlock, or an agent being manipulated into excessive processing. Latency monitoring feeds into anomaly detection.
-
 ---
 
-*Previous: [Prompt, Goal & Epistemic Integrity](prompt-goal-and-epistemic-integrity.md) · Back to: [MASO Framework](../README.md) · Next: [Observability](observability.md)*
+*Enterprise AI Security Controls Framework, 2026 (Jonathan Gill).*
