@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" font-family="Arial, Helvetica, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="700" viewBox="0 0 900 700" font-family="Arial, Helvetica, sans-serif">
   <title>Data Flow: Critical Risk Tier</title>
   <desc>Data flow diagram showing how a request moves through the three control layers for a Critical risk tier AI system. The Judge operates inline (synchronous) and HITL is required on all decisions.</desc>
 

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" font-family="Arial, Helvetica, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="680" viewBox="0 0 900 680" font-family="Arial, Helvetica, sans-serif">
   <title>Data Flow: High Risk Tier</title>
   <desc>Data flow diagram showing how a request moves through the three control layers for a High risk tier AI system.</desc>
 
