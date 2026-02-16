@@ -10,7 +10,7 @@ Standards alignment and sector-specific guidance.
 | [eu-ai-act-crosswalk.md](eu-ai-act-crosswalk.md) | EU AI Act requirements mapping |
 | [ai-governance-operating-model.md](ai-governance-operating-model.md) | Organisational governance structures |
 | [platform-integration-guide.md](platform-integration-guide.md) | GRC platform integration |
-| [banking-cyber-risks-ai-lens.md](banking-cyber-risks-ai-lens.md) | Banking sector AI risk guidance |
+| [high-risk-financial-services.md](high-risk-financial-services.md) | Financial services AI risk guidance |
 
 ---
 
