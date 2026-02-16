@@ -52,6 +52,12 @@
 * [Integration Guide](maso/integration/integration-guide.md)
 * [Worked Examples](maso/examples/worked-examples.md)
 
+## Credibility
+
+* [Maturity & Validation](MATURITY.md)
+* [Validated Against Real Incidents](VALIDATED-AGAINST.md)
+* [Evolution](EVOLUTION.md)
+
 ## Governance
 
 * [Governance](GOVERNANCE.md)
