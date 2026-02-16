@@ -197,7 +197,7 @@ nav:
       - ISO 42001 Alignment: extensions/regulatory/iso-42001-alignment.md
       - ISO 42001 Clause Mapping: extensions/regulatory/iso-42001-clause-mapping.md
       - AI Governance Operating Model: extensions/regulatory/ai-governance-operating-model.md
-      - Banking Cyber Risks: extensions/regulatory/banking-cyber-risks-ai-lens.md
+      - High-Risk Financial Services: extensions/regulatory/high-risk-financial-services.md
       - Platform Integration Guide: extensions/regulatory/platform-integration-guide.md
     - Technical:
       - extensions/technical/README.md
