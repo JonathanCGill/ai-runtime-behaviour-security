@@ -6,6 +6,31 @@
 
 ---
 
+## What This Is
+
+This is a thinking tool — not a standard, policy, reference architecture, or compliance checklist.
+
+It does not tell you what to do. It gives you a structured way to reason about what you *should* do, given your own threat model, risk appetite, regulatory obligations, and existing infrastructure. Two organisations reading this framework should arrive at different implementations, because they have different contexts. That's the point.
+
+**What it provides:**
+
+- **A way of thinking about controls, not a prescription for them.** The framework describes *what* needs to be true (e.g., "agent identity is individually scoped and short-lived") and *why* it matters. It does not mandate a specific product, vendor, or architecture to get there. If your existing tools already satisfy a control, you don't need new ones.
+- **Help deciding where to invest.** Not every control matters equally. Risk tiers, PACE resilience levels, and the distinction between foundation and multi-agent controls exist so you can reason about priority. A supervised single-agent system doesn't need the same controls as an autonomous multi-agent pipeline — and treating them the same wastes effort and creates a false sense of coverage.
+- **Defence in depth as a design principle.** No single control is the answer. The layered approach — guardrails, LLM-as-Judge, human oversight, circuit breakers — exists because each layer covers gaps in the others. The question isn't "which layer do we need?" but "what happens when each layer fails?"
+- **Resilience thinking for AI products.** Traditional security asks "how do we prevent bad things?" This framework also asks "what happens when prevention fails?" That's the PACE thread — Primary, Alternate, Contingency, Emergency — running through every control domain. Your system should degrade gracefully, not fail silently.
+- **Clarity on when tools are *not* needed.** Some controls are already handled by your existing infrastructure — your cloud provider's IAM, your API gateway's rate limiting, your platform's audit logging. The framework should help you see where you already have coverage, not convince you to buy something new.
+
+**What it is not:**
+
+- Not a certification or audit standard. You cannot be "compliant with" this framework.
+- Not a product recommendation. Tool and vendor references are illustrative, not endorsements.
+- Not a substitute for professional security assessment of your specific deployment.
+- Not a finished document. AI security is moving fast. This framework reflects the current state of industry practice and will evolve as the landscape does.
+
+If you take one thing from this: the value is in the thinking, not the checklist. A team that understands *why* a control exists and *what happens when it fails* will make better decisions than a team that implements every control on a list without understanding the reasoning behind it.
+
+---
+
 ## The Problem
 
 Traditional software assurance relies on design-time testing. You write code, test it, prove it works, ship it.
@@ -169,9 +194,9 @@ His current focus is AI security governance: designing control architectures tha
 
 ## Disclaimer
 
-This framework is provided as-is under the [MIT License](LICENSE). It reflects one practitioner's synthesis of industry patterns, regulatory requirements, and operational experience — not a certification, audit standard, or guarantee of security.
+This framework is provided as-is under the [MIT License](LICENSE). As described in [What This Is](#what-this-is), it is a thinking tool — not a standard, certification, or guarantee of security. It reflects one practitioner's synthesis of industry patterns, regulatory requirements, and operational experience.
 
-If you adopt any part of this framework, you are responsible for validating that it works in your environment, against your threat model, and within your regulatory obligations. No framework substitutes for professional security assessment of your specific deployment.
+If you adopt any part of this framework, you are responsible for validating it against your own threat model, environment, and regulatory obligations.
 
 ---
 
