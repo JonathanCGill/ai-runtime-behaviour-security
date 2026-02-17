@@ -30,7 +30,7 @@ Agentic AI security reduces to two problems:
 
 ### Problem 1: System Access
 
-The agent should only reach systems it needs, with minimum necessary permissions.
+The agent should only reach systems it needs, with minimum necessary permissions. For the governance model, lifecycle, and threat landscape behind these controls, see [IAM Governance for AI Systems](iam-governance.md).
 
 | Control | Implementation |
 |---------|----------------|

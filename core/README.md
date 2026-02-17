@@ -94,6 +94,7 @@ What's been missing: clear guidance on *why* this pattern is necessary and *how*
 | [Risk Tiers](risk-tiers.md) | Classification criteria, control mapping |
 | [Controls](controls.md) | Guardrails, Judge, HITL implementation |
 | [Agentic](agentic.md) | Additional controls for agents |
+| [IAM Governance](iam-governance.md) | Identity governance, agent lifecycle, delegation, threats |
 | [Checklist](checklist.md) | Implementation tracking |
 | [Emerging Controls](emerging-controls.md) | Multimodal, reasoning, streaming overview |
 

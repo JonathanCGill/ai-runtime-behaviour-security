@@ -96,6 +96,7 @@ nav:
       - Judge Assurance: core/judge-assurance.md
       - When the Judge Can Be Fooled: core/when-the-judge-can-be-fooled.md
       - Agentic AI Controls: core/agentic.md
+      - IAM Governance: core/iam-governance.md
       - Emerging Controls: core/emerging-controls.md
       - Memory & Context: core/memory-and-context.md
       - Multi-Agent Controls: core/multi-agent-controls.md

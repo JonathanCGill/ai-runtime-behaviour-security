@@ -3,6 +3,7 @@
 > **Control Domain:** Limiting Controls  
 > **Purpose:** Define and enforce who and what can interact with AI system components, at what privilege level, and under what conditions.  
 > **Relationship:** Enables the Guardrails layer (by ensuring only authorised requests reach the model) and the Human Oversight layer (by enforcing approval workflows for high-risk actions).
+> **Governance:** See [IAM Governance for AI Systems](../../core/iam-governance.md) for the governance principles, lifecycle model, delegation rules, and threat landscape that these controls implement.
 
 ---
 
