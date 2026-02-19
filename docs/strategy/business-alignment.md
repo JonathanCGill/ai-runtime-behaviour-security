@@ -87,7 +87,7 @@ Which brings us to this framework's contribution. The models above tell you how 
 
 ## The Alignment Model
 
-![Business-AI Alignment Model](../images/strategy-alignment-model.svg)
+![Business-AI Alignment Model](../../images/strategy-alignment-model.svg)
 
 Alignment requires honest answers to four questions, in order:
 

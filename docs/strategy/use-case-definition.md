@@ -24,7 +24,7 @@ The difference matters because the framework's entire control model flows from t
 
 A use case definition that security and governance can work with answers ten questions. These aren't optional fields on a form — each one directly determines a control requirement.
 
-![Use Case Definition Model](../images/strategy-use-case-model.svg)
+![Use Case Definition Model](../../images/strategy-use-case-model.svg)
 
 | # | Question | What It Determines | Framework Connection |
 |---|----------|-------------------|---------------------|

@@ -22,7 +22,7 @@ The framework's [novel risk #12](../extensions/technical/novel-ai-risks.md) — 
 
 AI systems require skills across three domains — and most organisations have significant gaps in at least two.
 
-![Human Factors Skills Map](../images/strategy-human-factors.svg)
+![Human Factors Skills Map](../../images/strategy-human-factors.svg)
 
 | Skill Domain | Who Needs It | Current Gap |
 |--------------|-------------|-------------|

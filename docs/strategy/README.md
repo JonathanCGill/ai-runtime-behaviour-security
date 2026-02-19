@@ -42,7 +42,7 @@ Read in order, or jump to what's relevant.
 
 ## The Strategic Landscape
 
-![AI Strategy Landscape](../images/strategy-landscape.svg)
+![AI Strategy Landscape](../../images/strategy-landscape.svg)
 
 Most organisations sit in one of four positions:
 

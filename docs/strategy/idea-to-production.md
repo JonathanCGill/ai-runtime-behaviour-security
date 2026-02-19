@@ -24,7 +24,7 @@ This article defines the complete process. Every stage has a clear output that f
 
 ## The End-to-End Flow
 
-![Idea to Production Flow](../images/strategy-idea-to-production.svg)
+![Idea to Production Flow](../../images/strategy-idea-to-production.svg)
 
 Eight stages. Each produces a defined output. Each has a gate before the next stage can begin.
 
@@ -126,7 +126,7 @@ This stage explicitly evaluates alternatives. The framework's [first control](..
 
 ### The Tool Selection Decision Tree
 
-![Tool Selection Decision Tree](../images/strategy-tool-selection.svg)
+![Tool Selection Decision Tree](../../images/strategy-tool-selection.svg)
 
 | Question | If Yes | If No |
 |----------|--------|-------|
