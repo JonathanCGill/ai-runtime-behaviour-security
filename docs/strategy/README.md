@@ -37,6 +37,7 @@ Read in order, or jump to what's relevant.
 | 6 | [Framework Tensions](framework-tensions.md) | Where this framework supports strategy, where it's silent, and where it actively constrains strategic choices |
 | 7 | [Use Case Definition](use-case-definition.md) | What makes a good use case from a security and governance perspective — and how to translate one into a risk profile |
 | 8 | [From Idea to Production](idea-to-production.md) | The complete lifecycle: strategy to use case to tool selection to risk tiering to deployment to ongoing governance |
+| 9 | [The Thread](the-thread.md) | How strategy, use case definition, solution filtering, security design, and continuous monitoring connect into a single lifecycle with a return loop |
 
 ---
 
