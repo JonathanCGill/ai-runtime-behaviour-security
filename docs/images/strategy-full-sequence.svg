@@ -12,7 +12,7 @@
 
   <!-- Title -->
   <text x="460" y="36" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#1e293b" text-anchor="middle">From Strategy to Production</text>
-  <text x="460" y="58" font-family="Arial, sans-serif" font-size="13" fill="#64748b" text-anchor="middle">The full sequence &#x2014; four phases, ten articles, gates between each phase</text>
+  <text x="460" y="58" font-family="Arial, sans-serif" font-size="13" fill="#64748b" text-anchor="middle">The full sequence &#x2014; four phases, ten articles, guardrails between each phase</text>
 
   <!-- ════════ PHASE 1 ════════ -->
   <rect x="40" y="80" width="840" height="148" rx="12" fill="#10b981" opacity="0.08" stroke="#10b981" stroke-width="1.5"/>
@@ -40,9 +40,9 @@
   <text x="777" y="195" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Not AI &#x2192; standard SDLC</text>
   <line x1="777" y1="166" x2="777" y2="178" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4"/>
 
-  <!-- Gate 1 -->
-  <rect x="370" y="210" width="180" height="26" rx="6" fill="#10b981"/>
-  <text x="460" y="228" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">GATE: Problem + AI confirmed</text>
+  <!-- Guardrail 1 -->
+  <rect x="330" y="210" width="260" height="26" rx="6" fill="#10b981"/>
+  <text x="460" y="228" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">PREVENT: Steer to right tool early</text>
 
   <!-- Arrow between phases -->
   <line x1="460" y1="236" x2="460" y2="260" stroke="#475569" stroke-width="2" marker-end="url(#seqFwd)"/>
@@ -77,9 +77,9 @@
   <text x="519" y="381" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e293b">Progression</text>
   <text x="519" y="398" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Maturity supports this deployment</text>
 
-  <!-- Gate 2 -->
-  <rect x="320" y="424" width="280" height="26" rx="6" fill="#0ea5e9"/>
-  <text x="460" y="442" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">GATE: Platform, data, skills, maturity confirmed</text>
+  <!-- Guardrail 2 -->
+  <rect x="290" y="424" width="340" height="26" rx="6" fill="#0ea5e9"/>
+  <text x="460" y="442" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">PREVENT: Standard platforms inherit controls</text>
 
   <!-- Arrow between phases -->
   <line x1="460" y1="450" x2="460" y2="478" stroke="#475569" stroke-width="2" marker-end="url(#seqFwd)"/>
@@ -105,9 +105,9 @@
   <text x="519" y="545" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e293b">Use Case Definition</text>
   <text x="519" y="562" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Ten questions &#x2192; risk tier assigned</text>
 
-  <!-- Gate 3 -->
-  <rect x="300" y="588" width="320" height="26" rx="6" fill="#f59e0b"/>
-  <text x="460" y="606" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#1e293b" text-anchor="middle">GATE: Complete definition, risk tier, control spec</text>
+  <!-- Guardrail 3 -->
+  <rect x="290" y="588" width="340" height="26" rx="6" fill="#f59e0b"/>
+  <text x="460" y="606" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#1e293b" text-anchor="middle">DETECT: Incomplete definitions surface in monitoring</text>
 
   <!-- Arrow between phases -->
   <line x1="460" y1="614" x2="460" y2="642" stroke="#475569" stroke-width="2" marker-end="url(#seqFwd)"/>
@@ -133,9 +133,9 @@
   <text x="523" y="709" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e293b">The Thread</text>
   <text x="523" y="726" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Return loop: monitoring &#x2192; reassessment</text>
 
-  <!-- No final gate label -->
-  <rect x="300" y="752" width="320" height="26" rx="6" fill="#7c3aed"/>
-  <text x="460" y="770" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">NO FINAL GATE &#x2014; Ongoing governance is continuous</text>
+  <!-- Continuous governance -->
+  <rect x="280" y="752" width="360" height="26" rx="6" fill="#7c3aed"/>
+  <text x="460" y="770" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">ABSORB: Continuous monitoring, drift is expected</text>
 
   <!-- ════════ RETURN LOOP ════════ -->
   <!-- Arrow down from Phase 4 to return label -->
@@ -171,5 +171,5 @@
   <rect x="570" y="856" width="16" height="16" rx="4" fill="#0ea5e9"/>
   <rect x="590" y="856" width="16" height="16" rx="4" fill="#f59e0b"/>
   <rect x="610" y="856" width="16" height="16" rx="4" fill="#7c3aed"/>
-  <text x="636" y="868" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Phase colours match gates</text>
+  <text x="636" y="868" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Phase colours match guardrails</text>
 </svg>

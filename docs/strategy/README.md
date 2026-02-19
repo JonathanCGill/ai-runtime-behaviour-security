@@ -14,6 +14,22 @@ Ten articles, in order. Each one answers a specific question that must be resolv
 
 ---
 
+## Why Guardrails, Not Gates
+
+Traditional governance relies on gates — hard checkpoints where a review board approves or rejects before work can proceed. Gates assume that security is always in the room, that risk acceptance is always documented, and that nobody moves forward without permission.
+
+In practice, gates get bypassed. They get risk-accepted past. They get skipped in fast-paced environments where delivery pressure outweighs governance friction. The result is shadow AI — systems that exist outside the framework, invisible to the people responsible for managing risk.
+
+This section takes a different approach: **guardrails instead of gates.**
+
+- **Prevent** where possible — approved platforms, standardised patterns, and default-safe configurations mean teams start inside the boundaries without having to ask permission.
+- **Detect** where prevention isn't practical — monitoring, logging, and anomaly detection surface problems whether or not a formal review happened.
+- **Absorb failure** — the environment is designed so that when something goes wrong (and it will), the blast radius is contained and recovery is fast.
+
+This doesn't mean accepting shadow IT. It means recognising that change happens, security is not always present at the point of decision, and the system must be resilient enough to handle that reality. The goal is visibility and proportionate response, not the illusion of control that a gate provides.
+
+---
+
 ## The Progression
 
 ![AI Strategy Landscape](../images/strategy-landscape.svg)
@@ -29,7 +45,7 @@ Before committing to AI, confirm that the problem is real and that AI is genuine
 
 Most AI failures start here. The problem is vague, the success criteria are missing, or AI was chosen because it's available rather than because it's appropriate. The [Use Case Filter](use-case-filter.md) provides a structured seven-question decision flow with five exits. The first exit that fits is the answer — don't keep going just because you want to reach the AI options.
 
-**Gate:** You have a confirmed business problem with measurable success criteria, and the filter has determined that AI (of a specific kind) is the right approach. If the filter pointed elsewhere, exit to standard SDLC.
+**Guardrails:** The Use Case Filter is the preventive control — it steers teams toward the right tool before investment begins. If a team skips it, downstream monitoring will surface the gap: systems without confirmed success criteria generate alerts because they can't demonstrate value. The environment doesn't block progress — it makes the absence of alignment visible.
 
 ---
 
@@ -52,7 +68,7 @@ AI is the right answer. Now confirm that the organisation has the platform, data
 
 [Progression](progression.md) prevents the most common strategic failure: skipping from low-risk experiments to high-risk autonomous systems without building the operational competence in between.
 
-**Gate:** You have an approved platform and pattern, confirmed data readiness, identified skill gaps with remediation plans, and a progression position that supports the intended level of AI autonomy.
+**Guardrails:** Approved platforms are the preventive control — teams that build on standard infrastructure inherit logging, monitoring, and controls by default. Teams that go off-pattern aren't blocked, but their systems are visible: non-standard deployments trigger detection because they don't report to the central control plane. Data quality issues and skill gaps surface during operation, not at a review meeting that may never happen.
 
 ---
 
@@ -69,7 +85,7 @@ Define the system precisely enough to classify its risk and design proportionate
 
 [Framework Tensions](framework-tensions.md) is honest about where the framework supports strategy, where it's silent (retirement processes, competitive dynamics), and where it actively constrains choices (edge cases, high-autonomy deployments). Understanding these tensions prevents surprises during implementation.
 
-**Gate:** A complete use case definition (no TBDs), a scored risk profile with a confirmed tier, and a control specification that matches the tier.
+**Guardrails:** The ten questions in Use Case Definition are the preventive control — answering them correctly means the risk tier and control specification are proportionate to actual risk. But if a team deploys with an incomplete definition, the detective controls catch it: systems with mismatched control specifications generate monitoring anomalies. The environment doesn't require a perfect definition to proceed — it reveals the consequences of an incomplete one.
 
 ---
 
@@ -79,14 +95,14 @@ Implement the system and its controls together, deploy with appropriate caution,
 
 | # | Article | Question It Answers |
 |---|---------|-------------------|
-| 9 | [From Idea to Production](idea-to-production.md) | What are the stages, gates, owners, and outputs from first commit to ongoing governance? |
+| 9 | [From Idea to Production](idea-to-production.md) | What are the stages, guardrails, owners, and outputs from first commit to ongoing governance? |
 | 10 | [The Thread](the-thread.md) | How does the whole lifecycle connect — and how do monitoring signals feed back into reassessment? |
 
-[From Idea to Production](idea-to-production.md) defines eight stages with explicit outputs and gates: strategic alignment, use case definition, tool selection, risk classification, control design, build and test, deploy and operate, ongoing governance. It's the operational process that turns the earlier articles into action.
+[From Idea to Production](idea-to-production.md) defines eight stages with explicit outputs: strategic alignment, use case definition, tool selection, risk classification, control design, build and test, deploy and operate, ongoing governance. It's the operational process that turns the earlier articles into action.
 
 [The Thread](the-thread.md) adds what most lifecycles miss: the **return loop**. Monitoring signals get triaged as operational (fix in place) or strategic (return to an earlier phase). Scope creep returns you to definition. Risk profile changes return you to classification. Technology mismatches return you to the filter. Without this loop, a system that was correctly classified at launch becomes an incorrectly classified system over time.
 
-**Gate:** There is no final gate. Ongoing governance is continuous. The system is monitored, the use case definition is maintained as a living document, and the return loop triggers reassessment when reality diverges from design.
+**Guardrails:** Ongoing governance is the detective control that never stops. There is no final sign-off that declares a system "done." Monitoring runs continuously, the use case definition is maintained as a living document, and the return loop triggers reassessment when reality diverges from design. The environment absorbs drift — it doesn't pretend drift won't happen.
 
 ---
 
