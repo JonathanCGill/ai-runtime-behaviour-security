@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500" font-family="Segoe UI, Roboto, sans-serif">
+  <defs>
+    <marker id="ar-cyan" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#58a6ff" stroke-width="1.2"/>
+    </marker>
+    <marker id="ar-green" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#3fb950" stroke-width="1.2"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="500" fill="#0d1117" rx="8"/>
+
+  <!-- Title -->
+  <text x="450" y="38" text-anchor="middle" fill="#e6edf3" font-size="18" font-weight="600">Permission Intersection Model for Delegation Chains</text>
+  <text x="450" y="58" text-anchor="middle" fill="#8b949e" font-size="12">DEL-01 — Effective permissions = User ∩ Agent A ∩ Agent B (no escalation)</text>
+
+  <!-- User permissions circle -->
+  <ellipse cx="190" cy="180" rx="130" ry="80" fill="none" stroke="#58a6ff" stroke-width="1.5" opacity="0.4"/>
+  <ellipse cx="190" cy="180" rx="130" ry="80" fill="#58a6ff" opacity="0.05"/>
+  <text x="190" y="120" text-anchor="middle" fill="#58a6ff" font-size="13" font-weight="600">User Permissions</text>
+  <text x="100" y="180" fill="#8b949e" font-size="10">read:docs</text>
+  <text x="100" y="196" fill="#8b949e" font-size="10">write:docs</text>
+  <text x="100" y="212" fill="#8b949e" font-size="10">read:reports</text>
+  <text x="100" y="228" fill="#8b949e" font-size="10">send:email</text>
+
+  <!-- Agent A permissions circle -->
+  <ellipse cx="330" cy="180" rx="130" ry="80" fill="none" stroke="#d29922" stroke-width="1.5" opacity="0.4"/>
+  <ellipse cx="330" cy="180" rx="130" ry="80" fill="#d29922" opacity="0.05"/>
+  <text x="380" y="120" text-anchor="middle" fill="#d29922" font-size="13" font-weight="600">Agent A Permissions</text>
+  <text x="370" y="160" fill="#8b949e" font-size="10">read:docs</text>
+  <text x="370" y="176" fill="#8b949e" font-size="10">read:reports</text>
+  <text x="370" y="192" fill="#8b949e" font-size="10">query:database</text>
+  <text x="370" y="208" fill="#8b949e" font-size="10">call:api-x</text>
+
+  <!-- Intersection highlight -->
+  <text x="250" y="176" text-anchor="middle" fill="#3fb950" font-size="10" font-weight="600">read:docs</text>
+  <text x="250" y="194" text-anchor="middle" fill="#3fb950" font-size="10" font-weight="600">read:reports</text>
+
+  <!-- Arrow from User+AgentA intersection down to effective permissions -->
+  <line x1="260" y1="260" x2="260" y2="300" stroke="#3fb950" stroke-width="1.5" marker-end="url(#ar-green)"/>
+
+  <!-- Agent B permissions (smaller circle below) -->
+  <ellipse cx="440" cy="350" rx="110" ry="60" fill="none" stroke="#bc8cff" stroke-width="1.5" opacity="0.4"/>
+  <ellipse cx="440" cy="350" rx="110" ry="60" fill="#bc8cff" opacity="0.05"/>
+  <text x="510" y="328" fill="#bc8cff" font-size="13" font-weight="600">Agent B Permissions</text>
+  <text x="480" y="355" fill="#8b949e" font-size="10">read:docs</text>
+  <text x="480" y="371" fill="#8b949e" font-size="10">write:docs</text>
+  <text x="480" y="387" fill="#8b949e" font-size="10">read:reports</text>
+
+  <!-- Effective permissions box -->
+  <rect x="130" y="310" width="200" height="100" rx="6" fill="#0d2118" stroke="#3fb950" stroke-width="2"/>
+  <text x="230" y="335" text-anchor="middle" fill="#3fb950" font-size="13" font-weight="600">Effective Permissions</text>
+  <text x="230" y="355" text-anchor="middle" fill="#e6edf3" font-size="11">User ∩ Agent A ∩ Agent B</text>
+  <text x="230" y="378" text-anchor="middle" fill="#3fb950" font-size="12" font-weight="600">read:docs</text>
+  <text x="230" y="396" text-anchor="middle" fill="#3fb950" font-size="12" font-weight="600">read:reports</text>
+
+  <!-- Arrow from Agent B intersection -->
+  <line x1="342" y1="365" x2="332" y2="365" stroke="#3fb950" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- Right side: Chain diagram -->
+  <text x="680" y="120" text-anchor="middle" fill="#e6edf3" font-size="14" font-weight="600">Delegation Chain</text>
+
+  <!-- User node -->
+  <rect x="640" y="140" width="80" height="36" rx="18" fill="#161b22" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="680" y="163" text-anchor="middle" fill="#58a6ff" font-size="12" font-weight="500">User</text>
+
+  <!-- Arrow -->
+  <line x1="680" y1="176" x2="680" y2="210" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#ar-cyan)"/>
+  <text x="700" y="198" fill="#8b949e" font-size="9">delegates</text>
+
+  <!-- Agent A node -->
+  <rect x="630" y="212" width="100" height="36" rx="18" fill="#161b22" stroke="#d29922" stroke-width="1.5"/>
+  <text x="680" y="235" text-anchor="middle" fill="#d29922" font-size="12" font-weight="500">Agent A</text>
+
+  <!-- Arrow -->
+  <line x1="680" y1="248" x2="680" y2="282" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#ar-cyan)"/>
+  <text x="700" y="270" fill="#8b949e" font-size="9">delegates</text>
+
+  <!-- Agent B node -->
+  <rect x="630" y="284" width="100" height="36" rx="18" fill="#161b22" stroke="#bc8cff" stroke-width="1.5"/>
+  <text x="680" y="307" text-anchor="middle" fill="#bc8cff" font-size="12" font-weight="500">Agent B</text>
+
+  <!-- Arrow to gateway -->
+  <line x1="680" y1="320" x2="680" y2="354" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#ar-cyan)"/>
+  <text x="700" y="342" fill="#8b949e" font-size="9">invokes</text>
+
+  <!-- Gateway node -->
+  <rect x="615" y="356" width="130" height="40" rx="6" fill="#122117" stroke="#3fb950" stroke-width="2"/>
+  <text x="680" y="381" text-anchor="middle" fill="#3fb950" font-size="12" font-weight="600">Gateway</text>
+
+  <!-- Gateway annotation -->
+  <text x="680" y="416" text-anchor="middle" fill="#8b949e" font-size="10">Evaluates: User ∩ A ∩ B</text>
+  <text x="680" y="432" text-anchor="middle" fill="#3fb950" font-size="10" font-weight="500">Permits only intersection</text>
+
+  <!-- Bottom annotation -->
+  <rect x="40" y="450" width="820" height="36" rx="4" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="450" y="473" text-anchor="middle" fill="#8b949e" font-size="11">Delegation can only narrow permissions, never expand them. The gateway enforces intersection at every hop — the agent cannot override this.</text>
+</svg>

@@ -1,0 +1,221 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="700" viewBox="0 0 1100 700" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.2"/>
+    </filter>
+    <marker id="arrowG" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#4ecca3"/>
+    </marker>
+    <marker id="arrowO" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#f0a500"/>
+    </marker>
+    <marker id="arrowR" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#e94560"/>
+    </marker>
+    <marker id="arrowP" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#c084fc"/>
+    </marker>
+    <marker id="arrowW" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#ffffff" opacity="0.6"/>
+    </marker>
+    <pattern id="diag" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#e94560" stroke-width="0.5" opacity="0.15"/>
+    </pattern>
+  </defs>
+
+  <rect width="1100" height="700" rx="8" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="550" y="35" text-anchor="middle" fill="#e6e6e6" font-size="22" font-weight="700">AI System Network Zones — NET-01</text>
+  <text x="550" y="55" text-anchor="middle" fill="#8b949e" font-size="12">Six zones with explicit traffic rules between them</text>
+
+  <!-- ===== Consumers (external) ===== -->
+  <rect x="30" y="80" width="120" height="120" rx="6" fill="#1a3a5c" stroke="#8b949e" stroke-width="1" filter="url(#shadow)"/>
+  <text x="90" y="115" text-anchor="middle" fill="#e6e6e6" font-size="12" font-weight="600">👤 Users</text>
+  <text x="90" y="135" text-anchor="middle" fill="#e6e6e6" font-size="12" font-weight="600">⚙️ Apps</text>
+  <text x="90" y="155" text-anchor="middle" fill="#e6e6e6" font-size="12" font-weight="600">🤖 Agents</text>
+  <text x="90" y="175" text-anchor="middle" fill="#8b949e" font-size="9">Consumers</text>
+
+  <!-- Arrow to Zone 1 -->
+  <line x1="150" y1="140" x2="195" y2="140" stroke="#4ecca3" stroke-width="2" marker-end="url(#arrowG)"/>
+  <text x="172" y="132" text-anchor="middle" fill="#4ecca3" font-size="8">HTTPS</text>
+
+  <!-- ===== ZONE 1: INGRESS ===== -->
+  <rect x="200" y="75" width="150" height="130" rx="6" fill="#0f3460" stroke="#4ecca3" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="200" y="75" width="150" height="22" rx="6" fill="#4ecca3"/>
+  <rect x="200" y="87" width="150" height="10" fill="#0f3460"/>
+  <text x="275" y="90" text-anchor="middle" fill="#0d1117" font-size="11" font-weight="700">ZONE 1 · INGRESS</text>
+
+  <rect x="215" y="105" width="120" height="30" rx="4" fill="#1a3a5c" stroke="#4ecca3" stroke-width="0.5"/>
+  <text x="275" y="124" text-anchor="middle" fill="#e6e6e6" font-size="10">API Gateway</text>
+
+  <rect x="215" y="142" width="120" height="30" rx="4" fill="#1a3a5c" stroke="#4ecca3" stroke-width="0.5"/>
+  <text x="275" y="161" text-anchor="middle" fill="#e6e6e6" font-size="10">WAF · Rate Limit</text>
+
+  <rect x="215" y="175" width="120" height="22" rx="4" fill="#1a3a5c" stroke="#4ecca3" stroke-width="0.5"/>
+  <text x="275" y="190" text-anchor="middle" fill="#8b949e" font-size="9">TLS termination</text>
+
+  <!-- Arrow to Zone 2 -->
+  <line x1="350" y1="140" x2="405" y2="140" stroke="#4ecca3" stroke-width="2" marker-end="url(#arrowG)"/>
+
+  <!-- ===== ZONE 2: RUNTIME ===== -->
+  <rect x="410" y="60" width="280" height="200" rx="6" fill="#0f3460" stroke="#f0a500" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="410" y="60" width="280" height="22" rx="6" fill="#f0a500"/>
+  <rect x="410" y="72" width="280" height="10" fill="#0f3460"/>
+  <text x="550" y="75" text-anchor="middle" fill="#0d1117" font-size="11" font-weight="700">ZONE 2 · RUNTIME</text>
+
+  <rect x="425" y="90" width="120" height="38" rx="4" fill="#1a3a5c" stroke="#f0a500" stroke-width="1"/>
+  <text x="485" y="109" text-anchor="middle" fill="#f0a500" font-size="10" font-weight="600">🛡️ Input Guard</text>
+  <text x="485" y="122" text-anchor="middle" fill="#8b949e" font-size="8">Inline filter</text>
+
+  <rect x="555" y="90" width="120" height="38" rx="4" fill="#1a3a5c" stroke="#f0a500" stroke-width="1"/>
+  <text x="615" y="109" text-anchor="middle" fill="#f0a500" font-size="10" font-weight="600">🛡️ Output Guard</text>
+  <text x="615" y="122" text-anchor="middle" fill="#8b949e" font-size="8">Inline filter</text>
+
+  <rect x="425" y="138" width="250" height="42" rx="4" fill="#1a3a5c" stroke="#4ecca3" stroke-width="1.5"/>
+  <text x="550" y="158" text-anchor="middle" fill="#4ecca3" font-size="12" font-weight="600">🧠 Model Endpoint</text>
+  <text x="550" y="174" text-anchor="middle" fill="#8b949e" font-size="9">Inference only · Not directly addressable</text>
+
+  <rect x="425" y="190" width="250" height="32" rx="4" fill="#1a3a5c" stroke="#c084fc" stroke-width="0.5"/>
+  <text x="550" y="211" text-anchor="middle" fill="#c084fc" font-size="10">📚 Vector Store (READ only)</text>
+
+  <!-- Internal flow arrows in Zone 2 -->
+  <line x1="485" y1="128" x2="485" y2="133" stroke="#f0a500" stroke-width="1"/>
+  <line x1="615" y1="128" x2="615" y2="133" stroke="#f0a500" stroke-width="1"/>
+
+  <!-- ===== ZONE 3: EVALUATION ===== -->
+  <rect x="410" y="290" width="280" height="120" rx="6" fill="#1e1e3f" stroke="#c084fc" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="410" y="290" width="280" height="22" rx="6" fill="#c084fc"/>
+  <rect x="410" y="302" width="280" height="10" fill="#1e1e3f"/>
+  <text x="550" y="305" text-anchor="middle" fill="#0d1117" font-size="11" font-weight="700">ZONE 3 · EVALUATION</text>
+
+  <rect x="425" y="320" width="120" height="38" rx="4" fill="#1a3a5c" stroke="#c084fc" stroke-width="1"/>
+  <text x="485" y="339" text-anchor="middle" fill="#c084fc" font-size="10" font-weight="600">⚖️ LLM-as-Judge</text>
+  <text x="485" y="352" text-anchor="middle" fill="#8b949e" font-size="8">Independent eval</text>
+
+  <rect x="555" y="320" width="120" height="38" rx="4" fill="#1a3a5c" stroke="#c084fc" stroke-width="0.5"/>
+  <text x="615" y="339" text-anchor="middle" fill="#e6e6e6" font-size="10">📊 Drift Detection</text>
+  <text x="615" y="352" text-anchor="middle" fill="#8b949e" font-size="8">Baseline analysis</text>
+
+  <rect x="425" y="368" width="250" height="30" rx="4" fill="#1a3a5c" stroke="#c084fc" stroke-width="0.5"/>
+  <text x="550" y="388" text-anchor="middle" fill="#8b949e" font-size="9">Separate compute · Separate credentials · One-way data flow</text>
+
+  <!-- Arrow from Zone 2 → Zone 3 (async push) -->
+  <line x1="550" y1="260" x2="550" y2="285" stroke="#c084fc" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arrowP)"/>
+  <text x="565" y="278" fill="#c084fc" font-size="8">Async push</text>
+
+  <!-- X mark: Zone 3 cannot reach Zone 2 -->
+  <text x="525" y="278" fill="#e94560" font-size="12" font-weight="700">✗</text>
+
+  <!-- ===== ZONE 4: INGESTION ===== -->
+  <rect x="750" y="60" width="190" height="200" rx="6" fill="#0f3460" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="750" y="60" width="190" height="22" rx="6" fill="#e94560"/>
+  <rect x="750" y="72" width="190" height="10" fill="#0f3460"/>
+  <text x="845" y="75" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="700">ZONE 4 · INGESTION</text>
+
+  <rect x="765" y="90" width="160" height="35" rx="4" fill="#1a3a5c" stroke="#e94560" stroke-width="0.5"/>
+  <text x="845" y="112" text-anchor="middle" fill="#e6e6e6" font-size="10">📄 Document Processor</text>
+
+  <rect x="765" y="133" width="160" height="35" rx="4" fill="#1a3a5c" stroke="#e94560" stroke-width="0.5"/>
+  <text x="845" y="155" text-anchor="middle" fill="#e6e6e6" font-size="10">🔢 Embedding Pipeline</text>
+
+  <rect x="765" y="176" width="160" height="35" rx="4" fill="#1a3a5c" stroke="#f0a500" stroke-width="1"/>
+  <text x="845" y="198" text-anchor="middle" fill="#f0a500" font-size="10">📚 Vector Store (WRITE)</text>
+
+  <rect x="765" y="220" width="160" height="28" rx="4" fill="#3a1a1a" stroke="#e94560" stroke-width="1"/>
+  <text x="845" y="239" text-anchor="middle" fill="#e94560" font-size="9" font-weight="600">⚠️ Untrusted content</text>
+
+  <!-- X marks between Zone 2 and Zone 4 -->
+  <line x1="695" y1="140" x2="745" y2="140" stroke="#e94560" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="720" y="133" text-anchor="middle" fill="#e94560" font-size="14" font-weight="700">✗</text>
+  <text x="720" y="155" text-anchor="middle" fill="#e94560" font-size="7">No direct path</text>
+
+  <!-- ===== ZONE 5: CONTROL PLANE ===== -->
+  <rect x="750" y="290" width="190" height="120" rx="6" fill="#1a1a2e" stroke="#533483" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="750" y="290" width="190" height="22" rx="6" fill="#533483"/>
+  <rect x="750" y="302" width="190" height="10" fill="#1a1a2e"/>
+  <text x="845" y="305" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="700">ZONE 5 · CONTROL PLANE</text>
+
+  <rect x="765" y="320" width="160" height="28" rx="4" fill="#1e1e3f" stroke="#533483" stroke-width="0.5"/>
+  <text x="845" y="339" text-anchor="middle" fill="#e6e6e6" font-size="9">System Prompts · Guardrail Rules</text>
+
+  <rect x="765" y="354" width="160" height="28" rx="4" fill="#1e1e3f" stroke="#533483" stroke-width="0.5"/>
+  <text x="845" y="373" text-anchor="middle" fill="#e6e6e6" font-size="9">Model Config · Agent Permissions</text>
+
+  <rect x="765" y="388" width="160" height="16" rx="3" fill="#2d1b4e"/>
+  <text x="845" y="400" text-anchor="middle" fill="#c084fc" font-size="8" font-weight="600">MFA · VPN · Bastion Only</text>
+
+  <!-- ===== ZONE 6: LOGGING ===== -->
+  <rect x="200" y="445" width="740" height="95" rx="6" fill="#0d1117" stroke="#8b949e" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="200" y="445" width="740" height="22" rx="6" fill="#30363d"/>
+  <rect x="200" y="457" width="740" height="10" fill="#0d1117"/>
+  <text x="570" y="460" text-anchor="middle" fill="#e6e6e6" font-size="11" font-weight="700">ZONE 6 · LOGGING</text>
+
+  <rect x="220" y="475" width="140" height="28" rx="4" fill="#1a3a5c" stroke="#8b949e" stroke-width="0.5"/>
+  <text x="290" y="494" text-anchor="middle" fill="#e6e6e6" font-size="9">Log Ingestion</text>
+
+  <rect x="375" y="475" width="140" height="28" rx="4" fill="#1a3a5c" stroke="#8b949e" stroke-width="0.5"/>
+  <text x="445" y="494" text-anchor="middle" fill="#e6e6e6" font-size="9">Primary Log Store</text>
+
+  <rect x="530" y="475" width="140" height="28" rx="4" fill="#1a3a5c" stroke="#8b949e" stroke-width="0.5"/>
+  <text x="600" y="494" text-anchor="middle" fill="#e6e6e6" font-size="9">Forensic Store</text>
+
+  <rect x="685" y="475" width="140" height="28" rx="4" fill="#1a3a5c" stroke="#c084fc" stroke-width="0.5"/>
+  <text x="755" y="494" text-anchor="middle" fill="#c084fc" font-size="9">SIEM Integration</text>
+
+  <text x="570" y="528" text-anchor="middle" fill="#8b949e" font-size="9">Write-only from all zones · Append-only storage · No runtime read access</text>
+
+  <!-- Arrows from all zones to Zone 6 (logging) -->
+  <line x1="275" y1="205" x2="275" y2="440" stroke="#8b949e" stroke-width="1" stroke-dasharray="3 2" marker-end="url(#arrowW)"/>
+  <line x1="550" y1="260" x2="445" y2="440" stroke="#8b949e" stroke-width="1" stroke-dasharray="3 2"/>
+  <line x1="550" y1="410" x2="500" y2="440" stroke="#8b949e" stroke-width="1" stroke-dasharray="3 2"/>
+  <line x1="845" y1="260" x2="700" y2="440" stroke="#8b949e" stroke-width="1" stroke-dasharray="3 2"/>
+  <line x1="845" y1="410" x2="750" y2="440" stroke="#8b949e" stroke-width="1" stroke-dasharray="3 2"/>
+
+  <!-- ===== Agent Egress ===== -->
+  <rect x="410" y="555" width="280" height="55" rx="6" fill="#2d2a00" stroke="#f0a500" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="550" y="577" text-anchor="middle" fill="#f0a500" font-size="11" font-weight="600">🌐 Agent Egress Proxy (NET-04)</text>
+  <text x="550" y="597" text-anchor="middle" fill="#8b949e" font-size="9">Allowlisted destinations only · Rate limited · Payload inspection</text>
+
+  <!-- Arrow from Zone 2 down to egress -->
+  <line x1="550" y1="260" x2="550" y2="550" stroke="#f0a500" stroke-width="1.5" stroke-dasharray="5 3" marker-end="url(#arrowO)"/>
+  <text x="535" y="540" fill="#f0a500" font-size="8">Constrained</text>
+
+  <!-- External tools -->
+  <rect x="750" y="555" width="140" height="55" rx="6" fill="#1a3a5c" stroke="#8b949e" stroke-width="1"/>
+  <text x="820" y="577" text-anchor="middle" fill="#e6e6e6" font-size="10">🔧 External Tools</text>
+  <text x="820" y="597" text-anchor="middle" fill="#8b949e" font-size="9">Declared endpoints only</text>
+
+  <line x1="690" y1="582" x2="745" y2="582" stroke="#f0a500" stroke-width="1.5" marker-end="url(#arrowO)"/>
+
+  <!-- ===== LEGEND ===== -->
+  <rect x="30" y="635" width="1040" height="50" rx="5" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+  <text x="50" y="657" fill="#8b949e" font-size="10" font-weight="600">ZONES:</text>
+
+  <rect x="110" y="647" width="12" height="12" rx="2" fill="#4ecca3"/>
+  <text x="128" y="658" fill="#8b949e" font-size="9">1 Ingress</text>
+
+  <rect x="200" y="647" width="12" height="12" rx="2" fill="#f0a500"/>
+  <text x="218" y="658" fill="#8b949e" font-size="9">2 Runtime</text>
+
+  <rect x="295" y="647" width="12" height="12" rx="2" fill="#c084fc"/>
+  <text x="313" y="658" fill="#8b949e" font-size="9">3 Evaluation</text>
+
+  <rect x="400" y="647" width="12" height="12" rx="2" fill="#e94560"/>
+  <text x="418" y="658" fill="#8b949e" font-size="9">4 Ingestion</text>
+
+  <rect x="500" y="647" width="12" height="12" rx="2" fill="#533483"/>
+  <text x="518" y="658" fill="#8b949e" font-size="9">5 Control Plane</text>
+
+  <rect x="615" y="647" width="12" height="12" rx="2" fill="#30363d"/>
+  <text x="633" y="658" fill="#8b949e" font-size="9">6 Logging</text>
+
+  <text x="720" y="658" fill="#e94560" font-size="10" font-weight="700">✗</text>
+  <text x="733" y="658" fill="#8b949e" font-size="9">Blocked path</text>
+
+  <line x1="810" y1="653" x2="840" y2="653" stroke="#8b949e" stroke-width="1" stroke-dasharray="3 2"/>
+  <text x="848" y="658" fill="#8b949e" font-size="9">Write-only to logs</text>
+
+  <!-- Footer -->
+  <text x="550" y="695" text-anchor="middle" fill="#484f58" font-size="9">AI Runtime Behaviour Security — Technical Controls · Network &amp; Segmentation · github.com/JonathanCGill</text>
+</svg>

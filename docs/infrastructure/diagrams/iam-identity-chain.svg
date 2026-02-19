@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="260" viewBox="0 0 800 260" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="1" dy="1" stdDeviation="2" flood-color="#000" flood-opacity="0.2"/>
+    </filter>
+    <marker id="arrowR" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#4ecca3"/>
+    </marker>
+    <marker id="arrowD" markerWidth="6" markerHeight="8" refX="3" refY="8" orient="auto">
+      <polygon points="0 0, 3 8, 6 0" fill="#4ecca3"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="260" rx="8" fill="#0d1117"/>
+
+  <!-- User -->
+  <rect x="30" y="20" width="155" height="50" rx="6" fill="#1a3a5c" stroke="#4ecca3" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="107" y="42" text-anchor="middle" fill="#e6e6e6" font-size="12" font-weight="600">👤 User</text>
+  <text x="107" y="58" text-anchor="middle" fill="#8b949e" font-size="9">Authn via IdP</text>
+
+  <!-- Arrow down -->
+  <line x1="107" y1="70" x2="107" y2="90" stroke="#4ecca3" stroke-width="1.5" marker-end="url(#arrowD)"/>
+
+  <!-- Application -->
+  <rect x="50" y="95" width="175" height="50" rx="6" fill="#1a3a5c" stroke="#4ecca3" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="137" y="117" text-anchor="middle" fill="#e6e6e6" font-size="12" font-weight="600">⚙️ Application</text>
+  <text x="137" y="133" text-anchor="middle" fill="#8b949e" font-size="9">Service identity (OAuth 2.0 / mTLS)</text>
+
+  <!-- Arrow right -->
+  <line x1="225" y1="120" x2="268" y2="120" stroke="#4ecca3" stroke-width="1.5" marker-end="url(#arrowR)"/>
+
+  <!-- AI Gateway -->
+  <rect x="273" y="85" width="185" height="70" rx="6" fill="#2d1b1b" stroke="#e94560" stroke-width="2" filter="url(#shadow)"/>
+  <text x="365" y="110" text-anchor="middle" fill="#e94560" font-size="13" font-weight="700">AI Gateway</text>
+  <text x="365" y="128" text-anchor="middle" fill="#8b949e" font-size="9">Validates user + service identity</text>
+  <text x="365" y="143" text-anchor="middle" fill="#8b949e" font-size="9">Enforces policy · Injects credentials</text>
+
+  <!-- Arrows right to three destinations -->
+  <line x1="458" y1="100" x2="510" y2="55" stroke="#4ecca3" stroke-width="1.5" marker-end="url(#arrowR)"/>
+  <line x1="458" y1="120" x2="510" y2="120" stroke="#4ecca3" stroke-width="1.5" marker-end="url(#arrowR)"/>
+  <line x1="458" y1="140" x2="510" y2="195" stroke="#4ecca3" stroke-width="1.5" marker-end="url(#arrowR)"/>
+
+  <!-- Model Endpoint -->
+  <rect x="515" y="25" width="250" height="55" rx="6" fill="#1a3a5c" stroke="#4ecca3" stroke-width="1" filter="url(#shadow)"/>
+  <text x="640" y="48" text-anchor="middle" fill="#4ecca3" font-size="12" font-weight="600">🧠 Model Endpoint</text>
+  <text x="640" y="66" text-anchor="middle" fill="#8b949e" font-size="9">Receives user context · Per-user policy</text>
+
+  <!-- Tool APIs -->
+  <rect x="515" y="95" width="250" height="55" rx="6" fill="#1a3a5c" stroke="#f0a500" stroke-width="1" filter="url(#shadow)"/>
+  <text x="640" y="118" text-anchor="middle" fill="#f0a500" font-size="12" font-weight="600">🔧 Tool APIs</text>
+  <text x="640" y="136" text-anchor="middle" fill="#8b949e" font-size="9">Scoped to agent's declared permissions</text>
+
+  <!-- Vector Store -->
+  <rect x="515" y="165" width="250" height="55" rx="6" fill="#1a3a5c" stroke="#c084fc" stroke-width="1" filter="url(#shadow)"/>
+  <text x="640" y="188" text-anchor="middle" fill="#c084fc" font-size="12" font-weight="600">📚 Vector Store</text>
+  <text x="640" y="206" text-anchor="middle" fill="#8b949e" font-size="9">Filtered by user's data access rights</text>
+
+  <!-- Footer -->
+  <text x="400" y="250" text-anchor="middle" fill="#484f58" font-size="9">IAM-01 · Identity propagated through full AI pipeline · No anonymous access</text>
+</svg>

@@ -1,0 +1,248 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="850" viewBox="0 0 1100 850" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <linearGradient id="pipelineBg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0f3460"/>
+      <stop offset="100%" style="stop-color:#1a4a7a"/>
+    </linearGradient>
+    <linearGradient id="detectionBg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.2"/>
+    </filter>
+    <marker id="arrowWhite" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#ffffff" opacity="0.7"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#f0a500"/>
+    </marker>
+    <marker id="arrowCyan" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#4ecca3"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#e94560"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#c084fc"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1100" height="850" rx="8" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="550" y="40" text-anchor="middle" fill="#e6e6e6" font-size="22" font-weight="700">Logging &amp; Observability — AI System Architecture</text>
+  <text x="550" y="62" text-anchor="middle" fill="#8b949e" font-size="13">Capture Points · Pipeline · Detection · Correlation</text>
+
+  <!-- ===== SECTION 1: LOG CAPTURE POINTS ===== -->
+  <rect x="30" y="80" width="1040" height="200" rx="6" fill="url(#pipelineBg)" stroke="#1a6f9a" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="50" y="105" fill="#4ecca3" font-size="14" font-weight="700" letter-spacing="2">LOG CAPTURE POINTS</text>
+  <text x="290" y="105" fill="#8b949e" font-size="11">Every interaction point generates structured log events</text>
+
+  <!-- Runtime flow with capture points -->
+  <!-- User Input -->
+  <rect x="50" y="125" width="120" height="55" rx="5" fill="#1a3a5c" stroke="#4ecca3" stroke-width="1"/>
+  <text x="110" y="148" text-anchor="middle" fill="#e6e6e6" font-size="11" font-weight="600">User Input</text>
+  <text x="110" y="165" text-anchor="middle" fill="#4ecca3" font-size="9" font-weight="600">📍 LOG-01</text>
+
+  <line x1="170" y1="152" x2="200" y2="152" stroke="#ffffff" stroke-width="1.5" opacity="0.5" marker-end="url(#arrowWhite)"/>
+
+  <!-- Input Guardrails -->
+  <rect x="205" y="125" width="130" height="55" rx="5" fill="#1a3a5c" stroke="#f0a500" stroke-width="1.5"/>
+  <text x="270" y="145" text-anchor="middle" fill="#f0a500" font-size="11" font-weight="600">Input Guardrails</text>
+  <text x="270" y="160" text-anchor="middle" fill="#8b949e" font-size="9">Pass / Block / Modify</text>
+  <text x="270" y="173" text-anchor="middle" fill="#f0a500" font-size="9" font-weight="600">📍 LOG-02</text>
+
+  <line x1="335" y1="152" x2="365" y2="152" stroke="#ffffff" stroke-width="1.5" opacity="0.5" marker-end="url(#arrowWhite)"/>
+
+  <!-- Model -->
+  <rect x="370" y="120" width="130" height="65" rx="5" fill="#1a3a5c" stroke="#4ecca3" stroke-width="2"/>
+  <text x="435" y="143" text-anchor="middle" fill="#e6e6e6" font-size="12" font-weight="700">🧠 Model</text>
+  <text x="435" y="160" text-anchor="middle" fill="#8b949e" font-size="9">Inference + metadata</text>
+  <text x="435" y="175" text-anchor="middle" fill="#4ecca3" font-size="9" font-weight="600">📍 LOG-01</text>
+
+  <line x1="500" y1="152" x2="530" y2="152" stroke="#ffffff" stroke-width="1.5" opacity="0.5" marker-end="url(#arrowWhite)"/>
+
+  <!-- Output Guardrails -->
+  <rect x="535" y="125" width="130" height="55" rx="5" fill="#1a3a5c" stroke="#f0a500" stroke-width="1.5"/>
+  <text x="600" y="145" text-anchor="middle" fill="#f0a500" font-size="11" font-weight="600">Output Guardrails</text>
+  <text x="600" y="160" text-anchor="middle" fill="#8b949e" font-size="9">Pass / Block / Modify</text>
+  <text x="600" y="173" text-anchor="middle" fill="#f0a500" font-size="9" font-weight="600">📍 LOG-02</text>
+
+  <line x1="665" y1="152" x2="695" y2="152" stroke="#ffffff" stroke-width="1.5" opacity="0.5" marker-end="url(#arrowWhite)"/>
+
+  <!-- Response -->
+  <rect x="700" y="125" width="120" height="55" rx="5" fill="#1a3a5c" stroke="#4ecca3" stroke-width="1"/>
+  <text x="760" y="148" text-anchor="middle" fill="#e6e6e6" font-size="11" font-weight="600">Response</text>
+  <text x="760" y="165" text-anchor="middle" fill="#4ecca3" font-size="9" font-weight="600">📍 LOG-01</text>
+
+  <!-- Judge (async) -->
+  <rect x="370" y="200" width="295" height="50" rx="5" fill="#1e1e3f" stroke="#c084fc" stroke-width="1.5"/>
+  <text x="517" y="222" text-anchor="middle" fill="#c084fc" font-size="11" font-weight="600">⚖️ LLM-as-Judge (Async)</text>
+  <text x="517" y="239" text-anchor="middle" fill="#c084fc" font-size="9" font-weight="600">📍 LOG-03 · Score, verdict, reasoning</text>
+  <line x1="435" y1="185" x2="435" y2="195" stroke="#c084fc" stroke-width="1" stroke-dasharray="3 2" marker-end="url(#arrowPurple)"/>
+  <line x1="600" y1="185" x2="600" y2="195" stroke="#c084fc" stroke-width="1" stroke-dasharray="3 2" marker-end="url(#arrowPurple)"/>
+
+  <!-- Agent actions (side panel) -->
+  <rect x="850" y="120" width="200" height="140" rx="5" fill="#1a3a5c" stroke="#e94560" stroke-width="1.5"/>
+  <text x="950" y="143" text-anchor="middle" fill="#e94560" font-size="12" font-weight="600">🤖 Agent Actions</text>
+  <line x1="865" y1="150" x2="1035" y2="150" stroke="#e94560" stroke-width="0.5" opacity="0.3"/>
+  <text x="870" y="168" fill="#8b949e" font-size="10">Step 1: [think] reasoning</text>
+  <text x="870" y="185" fill="#8b949e" font-size="10">Step 2: [tool_call] → auth check</text>
+  <text x="870" y="202" fill="#8b949e" font-size="10">Step 3: [tool_result]</text>
+  <text x="870" y="219" fill="#8b949e" font-size="10">Step 4: [human_approval]</text>
+  <text x="870" y="236" fill="#8b949e" font-size="10">Step 5: [respond]</text>
+  <text x="950" y="255" text-anchor="middle" fill="#e94560" font-size="9" font-weight="600">📍 LOG-04 · Full decision chain</text>
+  <line x1="820" y1="152" x2="845" y2="152" stroke="#e94560" stroke-width="1" stroke-dasharray="3 2" marker-end="url(#arrowRed)"/>
+
+  <!-- ===== SECTION 2: LOG PIPELINE ===== -->
+  <rect x="30" y="295" width="1040" height="155" rx="6" fill="#0d1117" stroke="#30363d" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="50" y="320" fill="#f0a500" font-size="14" font-weight="700" letter-spacing="2">LOG PIPELINE</text>
+  <text x="215" y="320" fill="#8b949e" font-size="11">Ingest · Redact · Enrich · Store</text>
+
+  <!-- Pipeline stages -->
+  <rect x="60" y="340" width="140" height="80" rx="5" fill="#1a3a5c" stroke="#f0a500" stroke-width="1"/>
+  <text x="130" y="363" text-anchor="middle" fill="#f0a500" font-size="11" font-weight="600">Ingest</text>
+  <text x="130" y="380" text-anchor="middle" fill="#8b949e" font-size="9">Structured schema</text>
+  <text x="130" y="393" text-anchor="middle" fill="#8b949e" font-size="9">Correlation IDs</text>
+  <text x="130" y="406" text-anchor="middle" fill="#8b949e" font-size="9">Timestamp normalization</text>
+
+  <line x1="200" y1="380" x2="230" y2="380" stroke="#f0a500" stroke-width="1.5" marker-end="url(#arrowOrange)"/>
+
+  <rect x="235" y="340" width="140" height="80" rx="5" fill="#1a3a5c" stroke="#f0a500" stroke-width="1"/>
+  <text x="305" y="363" text-anchor="middle" fill="#f0a500" font-size="11" font-weight="600">Redact (LOG-09)</text>
+  <text x="305" y="380" text-anchor="middle" fill="#8b949e" font-size="9">PII detection (NER)</text>
+  <text x="305" y="393" text-anchor="middle" fill="#8b949e" font-size="9">Credential scrubbing</text>
+  <text x="305" y="406" text-anchor="middle" fill="#8b949e" font-size="9">Tokenization</text>
+
+  <line x1="375" y1="380" x2="405" y2="380" stroke="#f0a500" stroke-width="1.5" marker-end="url(#arrowOrange)"/>
+
+  <rect x="410" y="340" width="140" height="80" rx="5" fill="#1a3a5c" stroke="#f0a500" stroke-width="1"/>
+  <text x="480" y="363" text-anchor="middle" fill="#f0a500" font-size="11" font-weight="600">Enrich</text>
+  <text x="480" y="380" text-anchor="middle" fill="#8b949e" font-size="9">Risk tier tagging</text>
+  <text x="480" y="393" text-anchor="middle" fill="#8b949e" font-size="9">Identity resolution</text>
+  <text x="480" y="406" text-anchor="middle" fill="#8b949e" font-size="9">Baseline comparison</text>
+
+  <line x1="550" y1="380" x2="580" y2="380" stroke="#f0a500" stroke-width="1.5" marker-end="url(#arrowOrange)"/>
+
+  <!-- Storage destinations -->
+  <rect x="585" y="335" width="180" height="45" rx="5" fill="#2d4a1e" stroke="#4ecca3" stroke-width="1.5"/>
+  <text x="675" y="355" text-anchor="middle" fill="#4ecca3" font-size="11" font-weight="600">Primary Log Store</text>
+  <text x="675" y="370" text-anchor="middle" fill="#8b949e" font-size="9">Append-only · Tamper-evident (LOG-07)</text>
+
+  <rect x="585" y="390" width="180" height="45" rx="5" fill="#3a1a1a" stroke="#e94560" stroke-width="1"/>
+  <text x="675" y="410" text-anchor="middle" fill="#e94560" font-size="11" font-weight="600">Forensic Store (Tier 3+)</text>
+  <text x="675" y="425" text-anchor="middle" fill="#8b949e" font-size="9">Encrypted · Dual-approval access</text>
+
+  <!-- SIEM -->
+  <rect x="810" y="335" width="240" height="100" rx="5" fill="#1e1e3f" stroke="#c084fc" stroke-width="1.5"/>
+  <text x="930" y="358" text-anchor="middle" fill="#c084fc" font-size="12" font-weight="600">Enterprise SIEM / SOAR</text>
+  <line x1="825" y1="365" x2="1035" y2="365" stroke="#c084fc" stroke-width="0.5" opacity="0.3"/>
+  <text x="930" y="383" text-anchor="middle" fill="#8b949e" font-size="10">LOG-10 · Cross-domain correlation</text>
+  <text x="930" y="400" text-anchor="middle" fill="#8b949e" font-size="9">OCSF / ECS compatible schema</text>
+  <text x="930" y="417" text-anchor="middle" fill="#8b949e" font-size="9">AI events + infra events + identity events</text>
+  <text x="930" y="430" text-anchor="middle" fill="#8b949e" font-size="9">Correlation rules for cross-domain patterns</text>
+
+  <line x1="765" y1="357" x2="805" y2="370" stroke="#c084fc" stroke-width="1.5" marker-end="url(#arrowPurple)"/>
+
+  <!-- ===== SECTION 3: DETECTION & ALERTING ===== -->
+  <rect x="30" y="465" width="1040" height="240" rx="6" fill="url(#detectionBg)" stroke="#533483" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="50" y="490" fill="#e94560" font-size="14" font-weight="700" letter-spacing="2">DETECTION &amp; ALERTING</text>
+  <text x="280" y="490" fill="#8b949e" font-size="11">LOG-05 (Drift) · LOG-06 (Injection) · Anomaly Classification</text>
+
+  <!-- Drift Detection -->
+  <rect x="50" y="510" width="310" height="175" rx="5" fill="#1e1e3f" stroke="#f0a500" stroke-width="1"/>
+  <text x="205" y="533" text-anchor="middle" fill="#f0a500" font-size="12" font-weight="600">📊 Behavioural Drift Detection (LOG-05)</text>
+  <line x1="65" y1="540" x2="345" y2="540" stroke="#f0a500" stroke-width="0.5" opacity="0.3"/>
+  <text x="70" y="558" fill="#8b949e" font-size="10">Baseline metrics monitored:</text>
+  <text x="70" y="576" fill="#e6e6e6" font-size="10">• Guardrail block rate (per category, per window)</text>
+  <text x="70" y="592" fill="#e6e6e6" font-size="10">• Judge flag rate (per evaluation criterion)</text>
+  <text x="70" y="608" fill="#e6e6e6" font-size="10">• Response length distribution</text>
+  <text x="70" y="624" fill="#e6e6e6" font-size="10">• Token consumption per session</text>
+  <text x="70" y="640" fill="#e6e6e6" font-size="10">• Tool invocation frequency (agentic)</text>
+  <text x="70" y="656" fill="#e6e6e6" font-size="10">• Judge/guardrail disagreement rate</text>
+  <text x="70" y="675" fill="#f0a500" font-size="9" font-weight="600">Alert: deviation &gt; 2σ from rolling baseline</text>
+
+  <!-- Injection Detection -->
+  <rect x="380" y="510" width="310" height="175" rx="5" fill="#1e1e3f" stroke="#e94560" stroke-width="1"/>
+  <text x="535" y="533" text-anchor="middle" fill="#e94560" font-size="12" font-weight="600">🎯 Prompt Injection Detection (LOG-06)</text>
+  <line x1="395" y1="540" x2="675" y2="540" stroke="#e94560" stroke-width="0.5" opacity="0.3"/>
+  <text x="400" y="558" fill="#8b949e" font-size="10">Detection layers:</text>
+  <text x="400" y="576" fill="#e6e6e6" font-size="10">1. Pattern matching on raw input</text>
+  <text x="400" y="592" fill="#e6e6e6" font-size="10">2. Guardrail confidence scoring</text>
+  <text x="400" y="608" fill="#e6e6e6" font-size="10">3. Output anomaly detection</text>
+  <text x="400" y="624" fill="#e6e6e6" font-size="10">4. Cross-request correlation</text>
+  <text x="400" y="640" fill="#e6e6e6" font-size="10">5. Judge evaluation patterns</text>
+  <text x="400" y="660" fill="#8b949e" font-size="9">Raw pre-guardrail input preserved</text>
+  <text x="400" y="675" fill="#e94560" font-size="9" font-weight="600">Injection attempts → separate collection</text>
+
+  <!-- Anomaly Classification -->
+  <rect x="710" y="510" width="340" height="175" rx="5" fill="#1e1e3f" stroke="#4ecca3" stroke-width="1"/>
+  <text x="880" y="533" text-anchor="middle" fill="#4ecca3" font-size="12" font-weight="600">🔍 Anomaly Classification</text>
+  <line x1="725" y1="540" x2="1035" y2="540" stroke="#4ecca3" stroke-width="0.5" opacity="0.3"/>
+
+  <!-- Classification boxes -->
+  <rect x="725" y="555" width="155" height="48" rx="4" fill="#1a3a5c" stroke="#4ecca3" stroke-width="1"/>
+  <text x="802" y="573" text-anchor="middle" fill="#4ecca3" font-size="10" font-weight="600">EXPECTED VARIATION</text>
+  <text x="802" y="590" text-anchor="middle" fill="#8b949e" font-size="9">Within baseline bounds</text>
+
+  <rect x="890" y="555" width="155" height="48" rx="4" fill="#1a3a5c" stroke="#f0a500" stroke-width="1"/>
+  <text x="967" y="573" text-anchor="middle" fill="#f0a500" font-size="10" font-weight="600">ANOMALY</text>
+  <text x="967" y="590" text-anchor="middle" fill="#8b949e" font-size="9">Significant deviation → investigate</text>
+
+  <rect x="725" y="615" width="155" height="48" rx="4" fill="#3a1a1a" stroke="#e94560" stroke-width="1.5"/>
+  <text x="802" y="633" text-anchor="middle" fill="#e94560" font-size="10" font-weight="600">INCIDENT</text>
+  <text x="802" y="650" text-anchor="middle" fill="#8b949e" font-size="9">Confirmed failure → invoke IR</text>
+
+  <!-- Escalation flow -->
+  <line x1="880" y1="603" x2="880" y2="610" stroke="#f0a500" stroke-width="1" marker-end="url(#arrowOrange)"/>
+  <line x1="802" y1="603" x2="802" y2="610" stroke="#e94560" stroke-width="1" marker-end="url(#arrowRed)"/>
+
+  <!-- Response actions -->
+  <rect x="890" y="615" width="155" height="48" rx="4" fill="#2d4a1e" stroke="#4ecca3" stroke-width="1"/>
+  <text x="967" y="633" text-anchor="middle" fill="#4ecca3" font-size="10" font-weight="600">RESPONSE</text>
+  <text x="967" y="650" text-anchor="middle" fill="#8b949e" font-size="9">Update guardrails · Retrain Judge</text>
+
+  <!-- Feedback arrows -->
+  <text x="735" y="685" fill="#8b949e" font-size="9">Feedback loops: Anomaly findings → guardrail rule updates → Judge criteria refinement</text>
+
+  <!-- ===== RETENTION BAR ===== -->
+  <rect x="30" y="720" width="1040" height="55" rx="6" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+  <text x="50" y="745" fill="#8b949e" font-size="12" font-weight="600">RETENTION (LOG-08):</text>
+  
+  <rect x="225" y="732" width="90" height="22" rx="3" fill="#1a3a5c" stroke="#4ecca3" stroke-width="1"/>
+  <text x="270" y="747" text-anchor="middle" fill="#4ecca3" font-size="9" font-weight="600">90 days</text>
+  <text x="270" y="764" text-anchor="middle" fill="#8b949e" font-size="8">Full model I/O</text>
+
+  <rect x="330" y="732" width="90" height="22" rx="3" fill="#1a3a5c" stroke="#f0a500" stroke-width="1"/>
+  <text x="375" y="747" text-anchor="middle" fill="#f0a500" font-size="9" font-weight="600">1 year</text>
+  <text x="375" y="764" text-anchor="middle" fill="#8b949e" font-size="8">Metadata + decisions</text>
+
+  <rect x="435" y="732" width="90" height="22" rx="3" fill="#1a3a5c" stroke="#e94560" stroke-width="1"/>
+  <text x="480" y="747" text-anchor="middle" fill="#e94560" font-size="9" font-weight="600">2 years</text>
+  <text x="480" y="764" text-anchor="middle" fill="#8b949e" font-size="8">Injection attempts</text>
+
+  <rect x="540" y="732" width="90" height="22" rx="3" fill="#1a3a5c" stroke="#c084fc" stroke-width="1"/>
+  <text x="585" y="747" text-anchor="middle" fill="#c084fc" font-size="9" font-weight="600">3 years</text>
+  <text x="585" y="764" text-anchor="middle" fill="#8b949e" font-size="8">Access changes + metrics</text>
+
+  <text x="680" y="747" fill="#8b949e" font-size="9">Adjust per GDPR / POPIA / sector requirements</text>
+
+  <!-- ===== LEGEND ===== -->
+  <rect x="30" y="790" width="1040" height="35" rx="5" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+  <text x="50" y="812" fill="#8b949e" font-size="10" font-weight="600">CONTROLS:</text>
+  <text x="120" y="812" fill="#4ecca3" font-size="9">LOG-01 Model I/O</text>
+  <text x="230" y="812" fill="#f0a500" font-size="9">LOG-02 Guardrails</text>
+  <text x="340" y="812" fill="#c084fc" font-size="9">LOG-03 Judge</text>
+  <text x="430" y="812" fill="#e94560" font-size="9">LOG-04 Agent</text>
+  <text x="530" y="812" fill="#f0a500" font-size="9">LOG-05 Drift</text>
+  <text x="620" y="812" fill="#e94560" font-size="9">LOG-06 Injection</text>
+  <text x="730" y="812" fill="#4ecca3" font-size="9">LOG-07 Integrity</text>
+  <text x="840" y="812" fill="#8b949e" font-size="9">LOG-08 Retention</text>
+  <text x="940" y="812" fill="#8b949e" font-size="9">LOG-09 Redaction</text>
+  <text x="1030" y="812" fill="#c084fc" font-size="9">LOG-10 SIEM</text>
+
+  <!-- Footer -->
+  <text x="550" y="845" text-anchor="middle" fill="#484f58" font-size="10">AI Runtime Behaviour Security — Technical Controls · Logging &amp; Observability · github.com/JonathanCGill</text>
+</svg>

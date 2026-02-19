@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="620" viewBox="0 0 900 620" font-family="Segoe UI, Roboto, sans-serif">
+
+  <!-- Background -->
+  <rect width="900" height="620" fill="#0d1117" rx="8"/>
+
+  <!-- Title -->
+  <text x="450" y="38" text-anchor="middle" fill="#e6edf3" font-size="18" font-weight="600">AI Incident Severity Classification</text>
+  <text x="450" y="58" text-anchor="middle" fill="#8b949e" font-size="12">IR-01 — AI-specific incident categories with containment actions</text>
+
+  <!-- Severity column headers -->
+  <rect x="40" y="80" width="200" height="32" rx="4" fill="#f8514922" stroke="#f85149" stroke-width="1"/>
+  <text x="140" y="101" text-anchor="middle" fill="#f85149" font-size="13" font-weight="600">SEV-1  Critical</text>
+
+  <rect x="260" y="80" width="200" height="32" rx="4" fill="#d2992222" stroke="#d29922" stroke-width="1"/>
+  <text x="360" y="101" text-anchor="middle" fill="#d29922" font-size="13" font-weight="600">SEV-2  High</text>
+
+  <rect x="480" y="80" width="200" height="32" rx="4" fill="#58a6ff22" stroke="#58a6ff" stroke-width="1"/>
+  <text x="580" y="101" text-anchor="middle" fill="#58a6ff" font-size="13" font-weight="600">SEV-3  Medium</text>
+
+  <rect x="700" y="80" width="160" height="32" rx="4" fill="#3fb95022" stroke="#3fb950" stroke-width="1"/>
+  <text x="780" y="101" text-anchor="middle" fill="#3fb950" font-size="13" font-weight="600">SEV-4  Low</text>
+
+  <!-- Incident Categories section -->
+  <text x="40" y="140" fill="#e6edf3" font-size="14" font-weight="600">Incident Categories</text>
+
+  <!-- Category rows -->
+  <!-- Row 1: Prompt Injection -->
+  <rect x="40" y="155" width="820" height="44" rx="4" fill="#161b22" stroke="#30363d" stroke-width="0.5"/>
+  <text x="55" y="175" fill="#e6edf3" font-size="11" font-weight="500">Prompt Injection</text>
+  <text x="55" y="191" fill="#8b949e" font-size="10">Successful extraction of</text>
+  <text x="55" y="191" fill="#f85149" font-size="10" dx="150">credentials or PII</text>
+  <text x="275" y="175" fill="#8b949e" font-size="10">Injection bypasses guardrails,</text>
+  <text x="275" y="191" fill="#8b949e" font-size="10">modifies model behaviour</text>
+  <text x="495" y="175" fill="#8b949e" font-size="10">Injection detected and</text>
+  <text x="495" y="191" fill="#8b949e" font-size="10">blocked by guardrails</text>
+  <text x="715" y="175" fill="#8b949e" font-size="10">Attempted injection,</text>
+  <text x="715" y="191" fill="#8b949e" font-size="10">no observed effect</text>
+
+  <!-- Row 2: Guardrail Failure -->
+  <rect x="40" y="205" width="820" height="44" rx="4" fill="#161b22" stroke="#30363d" stroke-width="0.5"/>
+  <text x="55" y="225" fill="#e6edf3" font-size="11" font-weight="500">Guardrail Failure</text>
+  <text x="55" y="241" fill="#8b949e" font-size="10">Complete guardrail bypass;</text>
+  <text x="55" y="241" fill="#f85149" font-size="10" dx="148">unfiltered output</text>
+  <text x="275" y="225" fill="#8b949e" font-size="10">Partial bypass; some harmful</text>
+  <text x="275" y="241" fill="#8b949e" font-size="10">content reaches users</text>
+  <text x="495" y="225" fill="#8b949e" font-size="10">Guardrail degrades; increased</text>
+  <text x="495" y="241" fill="#8b949e" font-size="10">false negative rate</text>
+  <text x="715" y="225" fill="#8b949e" font-size="10">Configuration drift;</text>
+  <text x="715" y="241" fill="#8b949e" font-size="10">no harmful output yet</text>
+
+  <!-- Row 3: Behavioural Drift -->
+  <rect x="40" y="255" width="820" height="44" rx="4" fill="#161b22" stroke="#30363d" stroke-width="0.5"/>
+  <text x="55" y="275" fill="#e6edf3" font-size="11" font-weight="500">Behavioural Drift</text>
+  <text x="55" y="291" fill="#8b949e" font-size="10">Model produces harmful</text>
+  <text x="55" y="291" fill="#f85149" font-size="10" dx="140">or dangerous outputs</text>
+  <text x="275" y="275" fill="#8b949e" font-size="10">Drift exceeds 3σ from baseline;</text>
+  <text x="275" y="291" fill="#8b949e" font-size="10">output quality degraded</text>
+  <text x="495" y="275" fill="#8b949e" font-size="10">Drift exceeds 2σ; gradual</text>
+  <text x="495" y="291" fill="#8b949e" font-size="10">quality change detected</text>
+  <text x="715" y="275" fill="#8b949e" font-size="10">Minor drift within</text>
+  <text x="715" y="291" fill="#8b949e" font-size="10">expected variance</text>
+
+  <!-- Row 4: Data Poisoning -->
+  <rect x="40" y="305" width="820" height="44" rx="4" fill="#161b22" stroke="#30363d" stroke-width="0.5"/>
+  <text x="55" y="325" fill="#e6edf3" font-size="11" font-weight="500">Data Poisoning</text>
+  <text x="55" y="341" fill="#8b949e" font-size="10">Confirmed backdoor in</text>
+  <text x="55" y="341" fill="#f85149" font-size="10" dx="137">production model</text>
+  <text x="275" y="325" fill="#8b949e" font-size="10">Poisoned data in RAG or</text>
+  <text x="275" y="341" fill="#8b949e" font-size="10">training pipeline detected</text>
+  <text x="495" y="325" fill="#8b949e" font-size="10">Suspicious content in</text>
+  <text x="495" y="341" fill="#8b949e" font-size="10">ingestion pipeline flagged</text>
+  <text x="715" y="325" fill="#8b949e" font-size="10">Source integrity check</text>
+  <text x="715" y="341" fill="#8b949e" font-size="10">failure; no impact yet</text>
+
+  <!-- Row 5: Agent Violation -->
+  <rect x="40" y="355" width="820" height="44" rx="4" fill="#161b22" stroke="#30363d" stroke-width="0.5"/>
+  <text x="55" y="375" fill="#e6edf3" font-size="11" font-weight="500">Agent Violation</text>
+  <text x="55" y="391" fill="#8b949e" font-size="10">Agent performs irreversible</text>
+  <text x="55" y="391" fill="#f85149" font-size="10" dx="152">unauthorised action</text>
+  <text x="275" y="375" fill="#8b949e" font-size="10">Agent bypasses gateway;</text>
+  <text x="275" y="391" fill="#8b949e" font-size="10">privilege escalation detected</text>
+  <text x="495" y="375" fill="#8b949e" font-size="10">Agent exceeds rate limits</text>
+  <text x="495" y="391" fill="#8b949e" font-size="10">or scope boundaries</text>
+  <text x="715" y="375" fill="#8b949e" font-size="10">Unusual tool usage</text>
+  <text x="715" y="391" fill="#8b949e" font-size="10">pattern flagged</text>
+
+  <!-- Row 6: Credential Exposure -->
+  <rect x="40" y="405" width="820" height="44" rx="4" fill="#161b22" stroke="#30363d" stroke-width="0.5"/>
+  <text x="55" y="425" fill="#e6edf3" font-size="11" font-weight="500">Credential Exposure</text>
+  <text x="55" y="441" fill="#8b949e" font-size="10">Production credentials</text>
+  <text x="55" y="441" fill="#f85149" font-size="10" dx="127">in model output</text>
+  <text x="275" y="425" fill="#8b949e" font-size="10">Credentials detected in</text>
+  <text x="275" y="441" fill="#8b949e" font-size="10">model context window</text>
+  <text x="495" y="425" fill="#8b949e" font-size="10">Credential patterns in</text>
+  <text x="495" y="441" fill="#8b949e" font-size="10">logs or non-production</text>
+  <text x="715" y="425" fill="#8b949e" font-size="10">Credential scan false</text>
+  <text x="715" y="441" fill="#8b949e" font-size="10">positive requiring review</text>
+
+  <!-- Containment Actions -->
+  <text x="40" y="480" fill="#e6edf3" font-size="14" font-weight="600">Containment Actions</text>
+
+  <rect x="40" y="492" width="200" height="110" rx="4" fill="#2d1215" stroke="#f85149" stroke-width="1"/>
+  <text x="55" y="512" fill="#f85149" font-size="11" font-weight="500">Immediate (≤15 min)</text>
+  <text x="55" y="530" fill="#8b949e" font-size="10">• Isolate affected system</text>
+  <text x="55" y="546" fill="#8b949e" font-size="10">• Rotate exposed credentials</text>
+  <text x="55" y="562" fill="#8b949e" font-size="10">• Disable model endpoint</text>
+  <text x="55" y="578" fill="#8b949e" font-size="10">• Activate incident bridge</text>
+  <text x="55" y="594" fill="#8b949e" font-size="10">• Notify executive stakeholders</text>
+
+  <rect x="260" y="492" width="200" height="110" rx="4" fill="#2d1f11" stroke="#d29922" stroke-width="1"/>
+  <text x="275" y="512" fill="#d29922" font-size="11" font-weight="500">Urgent (≤1 hour)</text>
+  <text x="275" y="530" fill="#8b949e" font-size="10">• Block affected pathway</text>
+  <text x="275" y="546" fill="#8b949e" font-size="10">• Hot-reload guardrail rules</text>
+  <text x="275" y="562" fill="#8b949e" font-size="10">• Initiate model rollback</text>
+  <text x="275" y="578" fill="#8b949e" font-size="10">• Begin forensic log capture</text>
+  <text x="275" y="594" fill="#8b949e" font-size="10">• Assign investigation lead</text>
+
+  <rect x="480" y="492" width="200" height="110" rx="4" fill="#111d2e" stroke="#58a6ff" stroke-width="1"/>
+  <text x="495" y="512" fill="#58a6ff" font-size="11" font-weight="500">Standard (≤4 hours)</text>
+  <text x="495" y="530" fill="#8b949e" font-size="10">• Adjust guardrail thresholds</text>
+  <text x="495" y="546" fill="#8b949e" font-size="10">• Increase Judge sensitivity</text>
+  <text x="495" y="562" fill="#8b949e" font-size="10">• Review and patch config</text>
+  <text x="495" y="578" fill="#8b949e" font-size="10">• Update monitoring rules</text>
+  <text x="495" y="594" fill="#8b949e" font-size="10">• Document initial findings</text>
+
+  <rect x="700" y="492" width="160" height="110" rx="4" fill="#0d2118" stroke="#3fb950" stroke-width="1"/>
+  <text x="715" y="512" fill="#3fb950" font-size="11" font-weight="500">Scheduled (≤24 hours)</text>
+  <text x="715" y="530" fill="#8b949e" font-size="10">• Log and monitor</text>
+  <text x="715" y="546" fill="#8b949e" font-size="10">• Schedule review</text>
+  <text x="715" y="562" fill="#8b949e" font-size="10">• Update baselines</text>
+  <text x="715" y="578" fill="#8b949e" font-size="10">• Track in backlog</text>
+</svg>

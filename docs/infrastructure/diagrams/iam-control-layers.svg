@@ -1,0 +1,211 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="780" viewBox="0 0 1100 780" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <linearGradient id="controlPlane" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="dataPlane" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0f3460"/>
+      <stop offset="100%" style="stop-color:#1a4a7a"/>
+    </linearGradient>
+    <linearGradient id="gateway" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e94560"/>
+      <stop offset="100%" style="stop-color:#c23152"/>
+    </linearGradient>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.2"/>
+    </filter>
+    <marker id="arrowWhite" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#ffffff" opacity="0.7"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#e94560"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#4ecca3"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1100" height="780" rx="8" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="550" y="40" text-anchor="middle" fill="#e6e6e6" font-size="22" font-weight="700">Identity &amp; Access Management — AI System Architecture</text>
+  <text x="550" y="62" text-anchor="middle" fill="#8b949e" font-size="13">Control Plane / Data Plane Separation with Agent Authorization Gateway</text>
+
+  <!-- CONTROL PLANE -->
+  <rect x="30" y="85" width="1040" height="170" rx="6" fill="url(#controlPlane)" stroke="#533483" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="50" y="110" fill="#e94560" font-size="14" font-weight="700" letter-spacing="2">CONTROL PLANE</text>
+  <text x="250" y="110" fill="#8b949e" font-size="11">IAM-03 · MFA Required · Dual Approval · Append-Only Audit</text>
+
+  <!-- Control plane components -->
+  <rect x="60" y="125" width="180" height="55" rx="5" fill="#1e1e3f" stroke="#533483" stroke-width="1"/>
+  <text x="150" y="148" text-anchor="middle" fill="#e6e6e6" font-size="12" font-weight="600">System Prompt Config</text>
+  <text x="150" y="166" text-anchor="middle" fill="#8b949e" font-size="10">Version-controlled</text>
+
+  <rect x="260" y="125" width="180" height="55" rx="5" fill="#1e1e3f" stroke="#533483" stroke-width="1"/>
+  <text x="350" y="148" text-anchor="middle" fill="#e6e6e6" font-size="12" font-weight="600">Guardrail Rules</text>
+  <text x="350" y="166" text-anchor="middle" fill="#8b949e" font-size="10">Rule definitions &amp; thresholds</text>
+
+  <rect x="460" y="125" width="180" height="55" rx="5" fill="#1e1e3f" stroke="#533483" stroke-width="1"/>
+  <text x="550" y="148" text-anchor="middle" fill="#e6e6e6" font-size="12" font-weight="600">Judge Eval Criteria</text>
+  <text x="550" y="166" text-anchor="middle" fill="#8b949e" font-size="10">Evaluation policies</text>
+
+  <rect x="660" y="125" width="180" height="55" rx="5" fill="#1e1e3f" stroke="#533483" stroke-width="1"/>
+  <text x="750" y="148" text-anchor="middle" fill="#e6e6e6" font-size="12" font-weight="600">Agent Permissions</text>
+  <text x="750" y="166" text-anchor="middle" fill="#8b949e" font-size="10">Tool allowlists &amp; constraints</text>
+
+  <rect x="860" y="125" width="180" height="55" rx="5" fill="#1e1e3f" stroke="#533483" stroke-width="1"/>
+  <text x="950" y="148" text-anchor="middle" fill="#e6e6e6" font-size="12" font-weight="600">Risk Tier Config</text>
+  <text x="950" y="166" text-anchor="middle" fill="#8b949e" font-size="10">Use case classification</text>
+
+  <!-- Control plane access -->
+  <rect x="60" y="195" width="230" height="42" rx="4" fill="#2d1b4e" stroke="#533483" stroke-width="1"/>
+  <text x="175" y="213" text-anchor="middle" fill="#c084fc" font-size="11" font-weight="600">👤 Platform Engineers (MFA)</text>
+  <text x="175" y="228" text-anchor="middle" fill="#8b949e" font-size="9">Privileged Identity Management</text>
+
+  <rect x="310" y="195" width="230" height="42" rx="4" fill="#2d1b4e" stroke="#533483" stroke-width="1"/>
+  <text x="425" y="213" text-anchor="middle" fill="#c084fc" font-size="11" font-weight="600">🔄 CI/CD Pipeline (signed)</text>
+  <text x="425" y="228" text-anchor="middle" fill="#8b949e" font-size="9">Automated config deployment</text>
+
+  <rect x="560" y="195" width="230" height="42" rx="4" fill="#2d1b4e" stroke="#533483" stroke-width="1"/>
+  <text x="675" y="213" text-anchor="middle" fill="#c084fc" font-size="11" font-weight="600">📋 Approval Workflow</text>
+  <text x="675" y="228" text-anchor="middle" fill="#8b949e" font-size="9">Dual approval for Tier 3+</text>
+
+  <!-- Separation line -->
+  <line x1="30" y1="275" x2="1070" y2="275" stroke="#e94560" stroke-width="2" stroke-dasharray="8 4"/>
+  <rect x="440" y="267" width="220" height="18" rx="3" fill="#0d1117"/>
+  <text x="550" y="280" text-anchor="middle" fill="#e94560" font-size="11" font-weight="700" letter-spacing="1.5">NO RUNTIME ACCESS ↕</text>
+
+  <!-- DATA PLANE -->
+  <rect x="30" y="295" width="1040" height="440" rx="6" fill="url(#dataPlane)" stroke="#1a6f9a" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="50" y="320" fill="#4ecca3" font-size="14" font-weight="700" letter-spacing="2">DATA PLANE</text>
+  <text x="210" y="320" fill="#8b949e" font-size="11">IAM-01 · IAM-02 · IAM-06 · Session-Scoped Tokens</text>
+
+  <!-- Identity sources -->
+  <rect x="60" y="340" width="150" height="65" rx="5" fill="#1a3a5c" stroke="#1a6f9a" stroke-width="1"/>
+  <text x="135" y="363" text-anchor="middle" fill="#e6e6e6" font-size="12" font-weight="600">👤 Human User</text>
+  <text x="135" y="380" text-anchor="middle" fill="#8b949e" font-size="10">IdP authenticated</text>
+  <text x="135" y="393" text-anchor="middle" fill="#8b949e" font-size="10">IAM-01</text>
+
+  <rect x="60" y="420" width="150" height="65" rx="5" fill="#1a3a5c" stroke="#1a6f9a" stroke-width="1"/>
+  <text x="135" y="443" text-anchor="middle" fill="#e6e6e6" font-size="12" font-weight="600">⚙️ App Service</text>
+  <text x="135" y="460" text-anchor="middle" fill="#8b949e" font-size="10">OAuth 2.0 / mTLS</text>
+  <text x="135" y="473" text-anchor="middle" fill="#8b949e" font-size="10">IAM-01, IAM-06</text>
+
+  <rect x="60" y="500" width="150" height="65" rx="5" fill="#1a3a5c" stroke="#1a6f9a" stroke-width="1"/>
+  <text x="135" y="523" text-anchor="middle" fill="#e6e6e6" font-size="12" font-weight="600">🤖 AI Agent</text>
+  <text x="135" y="540" text-anchor="middle" fill="#8b949e" font-size="10">Unique identity, scoped</text>
+  <text x="135" y="553" text-anchor="middle" fill="#8b949e" font-size="10">IAM-01, IAM-04</text>
+
+  <!-- AI Gateway -->
+  <rect x="280" y="340" width="170" height="230" rx="6" fill="url(#gateway)" filter="url(#shadow)"/>
+  <text x="365" y="365" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">AI GATEWAY</text>
+  <line x1="295" y1="375" x2="435" y2="375" stroke="#ffffff" stroke-width="0.5" opacity="0.3"/>
+  <text x="365" y="398" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="600">Identity Validation</text>
+  <text x="365" y="418" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="600">Token Verification</text>
+  <text x="365" y="438" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="600">Rate Limiting</text>
+  <text x="365" y="458" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="600">Policy Enforcement</text>
+  <line x1="295" y1="470" x2="435" y2="470" stroke="#ffffff" stroke-width="0.5" opacity="0.3"/>
+  <text x="365" y="492" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="600">Credential Injection</text>
+  <text x="365" y="508" text-anchor="middle" fill="#ffffff" font-size="9" opacity="0.8">(out-of-band, IAM-07)</text>
+  <line x1="295" y1="520" x2="435" y2="520" stroke="#ffffff" stroke-width="0.5" opacity="0.3"/>
+  <text x="365" y="542" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="600">Audit Logging</text>
+  <text x="365" y="558" text-anchor="middle" fill="#ffffff" font-size="9" opacity="0.8">(IAM-08)</text>
+
+  <!-- Arrows from identities to gateway -->
+  <line x1="210" y1="372" x2="275" y2="410" stroke="#ffffff" stroke-width="1.5" opacity="0.5" marker-end="url(#arrowWhite)"/>
+  <line x1="210" y1="452" x2="275" y2="452" stroke="#ffffff" stroke-width="1.5" opacity="0.5" marker-end="url(#arrowWhite)"/>
+  <line x1="210" y1="532" x2="275" y2="495" stroke="#ffffff" stroke-width="1.5" opacity="0.5" marker-end="url(#arrowWhite)"/>
+
+  <!-- Backend Components -->
+  <!-- Model Endpoint -->
+  <rect x="520" y="340" width="170" height="70" rx="5" fill="#1a3a5c" stroke="#4ecca3" stroke-width="1.5"/>
+  <text x="605" y="365" text-anchor="middle" fill="#4ecca3" font-size="12" font-weight="600">🧠 Model Endpoint</text>
+  <text x="605" y="383" text-anchor="middle" fill="#8b949e" font-size="10">Receives user context</text>
+  <text x="605" y="397" text-anchor="middle" fill="#8b949e" font-size="10">Per-user policy enforced</text>
+
+  <!-- Guardrails -->
+  <rect x="520" y="425" width="170" height="55" rx="5" fill="#1a3a5c" stroke="#f0a500" stroke-width="1.5"/>
+  <text x="605" y="450" text-anchor="middle" fill="#f0a500" font-size="12" font-weight="600">🛡️ Guardrails</text>
+  <text x="605" y="468" text-anchor="middle" fill="#8b949e" font-size="10">Input / Output filtering</text>
+
+  <!-- Vector Store -->
+  <rect x="520" y="495" width="170" height="55" rx="5" fill="#1a3a5c" stroke="#4ecca3" stroke-width="1.5"/>
+  <text x="605" y="520" text-anchor="middle" fill="#4ecca3" font-size="12" font-weight="600">📚 Vector Store</text>
+  <text x="605" y="538" text-anchor="middle" fill="#8b949e" font-size="10">User-filtered access</text>
+
+  <!-- Authorization Gateway (for agents) -->
+  <rect x="750" y="340" width="170" height="100" rx="6" fill="#2d4a1e" stroke="#4ecca3" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="835" y="362" text-anchor="middle" fill="#4ecca3" font-size="12" font-weight="700">🔒 Auth Gateway</text>
+  <text x="835" y="380" text-anchor="middle" fill="#e6e6e6" font-size="10">Tool Invocation</text>
+  <text x="835" y="396" text-anchor="middle" fill="#8b949e" font-size="9">Permission check (IAM-04)</text>
+  <text x="835" y="412" text-anchor="middle" fill="#8b949e" font-size="9">Reversibility check</text>
+  <text x="835" y="428" text-anchor="middle" fill="#8b949e" font-size="9">Human approval routing (IAM-05)</text>
+
+  <!-- Tools -->
+  <rect x="750" y="460" width="78" height="45" rx="4" fill="#1a3a5c" stroke="#1a6f9a" stroke-width="1"/>
+  <text x="789" y="480" text-anchor="middle" fill="#e6e6e6" font-size="10" font-weight="600">🔧 Tool A</text>
+  <text x="789" y="494" text-anchor="middle" fill="#8b949e" font-size="9">Allowed</text>
+
+  <rect x="842" y="460" width="78" height="45" rx="4" fill="#1a3a5c" stroke="#1a6f9a" stroke-width="1"/>
+  <text x="881" y="480" text-anchor="middle" fill="#e6e6e6" font-size="10" font-weight="600">🔧 Tool B</text>
+  <text x="881" y="494" text-anchor="middle" fill="#8b949e" font-size="9">Allowed</text>
+
+  <rect x="750" y="515" width="78" height="45" rx="4" fill="#3a1a1a" stroke="#e94560" stroke-width="1" stroke-dasharray="4 2"/>
+  <text x="789" y="535" text-anchor="middle" fill="#e94560" font-size="10" font-weight="600">🚫 Tool C</text>
+  <text x="789" y="549" text-anchor="middle" fill="#e94560" font-size="9">Denied</text>
+
+  <rect x="842" y="515" width="78" height="45" rx="4" fill="#2d2a00" stroke="#f0a500" stroke-width="1"/>
+  <text x="881" y="535" text-anchor="middle" fill="#f0a500" font-size="10" font-weight="600">⏸️ Tool D</text>
+  <text x="881" y="549" text-anchor="middle" fill="#f0a500" font-size="9">Needs approval</text>
+
+  <!-- Judge -->
+  <rect x="520" y="570" width="400" height="55" rx="5" fill="#1a3a5c" stroke="#c084fc" stroke-width="1.5"/>
+  <text x="720" y="595" text-anchor="middle" fill="#c084fc" font-size="12" font-weight="600">⚖️ LLM-as-Judge (Async Evaluation)</text>
+  <text x="720" y="613" text-anchor="middle" fill="#8b949e" font-size="10">Independent identity · Read-only access · Own credentials (IAM-02)</text>
+
+  <!-- Arrows from gateway to components -->
+  <line x1="450" y1="400" x2="515" y2="375" stroke="#4ecca3" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+  <line x1="450" y1="450" x2="515" y2="452" stroke="#4ecca3" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+  <line x1="450" y1="500" x2="515" y2="522" stroke="#4ecca3" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+
+  <!-- Arrow from model to auth gateway (agent tool calls) -->
+  <line x1="690" y1="375" x2="745" y2="380" stroke="#f0a500" stroke-width="1.5" marker-end="url(#arrowGreen)" stroke-dasharray="4 3"/>
+
+  <!-- Human approval arrow -->
+  <rect x="945" y="505" width="100" height="60" rx="5" fill="#1a3a5c" stroke="#f0a500" stroke-width="1.5"/>
+  <text x="995" y="530" text-anchor="middle" fill="#f0a500" font-size="11" font-weight="600">👤 Human</text>
+  <text x="995" y="548" text-anchor="middle" fill="#8b949e" font-size="9">Reviewer</text>
+  <text x="995" y="558" text-anchor="middle" fill="#8b949e" font-size="9">IAM-05</text>
+  <line x1="920" y1="537" x2="940" y2="535" stroke="#f0a500" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+
+  <!-- Audit log arrow -->
+  <rect x="60" y="590" width="380" height="45" rx="5" fill="#1e1e3f" stroke="#8b949e" stroke-width="1"/>
+  <text x="250" y="612" text-anchor="middle" fill="#8b949e" font-size="11" font-weight="600">📜 Append-Only Audit Trail (IAM-08)</text>
+  <text x="250" y="627" text-anchor="middle" fill="#8b949e" font-size="9">Separate storage · No runtime write access · Tamper-evident</text>
+
+  <!-- Legend -->
+  <rect x="60" y="650" width="980" height="70" rx="5" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+  <text x="80" y="672" fill="#8b949e" font-size="11" font-weight="600">LEGEND:</text>
+
+  <rect x="150" y="662" width="14" height="14" rx="2" fill="#e94560"/>
+  <text x="170" y="674" fill="#8b949e" font-size="10">AI Gateway (entry point)</text>
+
+  <rect x="330" y="662" width="14" height="14" rx="2" fill="#4ecca3"/>
+  <text x="350" y="674" fill="#8b949e" font-size="10">Authorized path</text>
+
+  <rect x="480" y="662" width="14" height="14" rx="2" fill="#f0a500"/>
+  <text x="500" y="674" fill="#8b949e" font-size="10">Requires human approval</text>
+
+  <rect x="680" y="662" width="14" height="14" rx="2" fill="#e94560" stroke="#e94560" stroke-dasharray="3 2"/>
+  <text x="700" y="674" fill="#8b949e" font-size="10">Denied by policy</text>
+
+  <rect x="860" y="662" width="14" height="14" rx="2" fill="#533483"/>
+  <text x="880" y="674" fill="#8b949e" font-size="10">Control plane (privileged)</text>
+
+  <text x="80" y="704" fill="#8b949e" font-size="9">Controls: IAM-01 (Authentication) · IAM-02 (Least Privilege) · IAM-03 (Plane Separation) · IAM-04 (Tool Constraints) · IAM-05 (Human Approval) · IAM-06 (Session Credentials) · IAM-07 (Credential Exposure) · IAM-08 (Audit)</text>
+
+  <!-- Footer -->
+  <text x="550" y="760" text-anchor="middle" fill="#484f58" font-size="10">AI Runtime Behaviour Security — Technical Controls · Identity &amp; Access Management · github.com/JonathanCGill</text>
+</svg>
