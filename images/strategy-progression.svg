@@ -1,164 +1,106 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="880" height="620" viewBox="0 0 880 620" font-family="Arial, Helvetica, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="380" viewBox="0 0 900 380">
   <defs>
-    <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
-      <feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.1"/>
-    </filter>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5d6d7e"/>
+    <linearGradient id="noAiGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#94a3b8"/>
+      <stop offset="100%" style="stop-color:#64748b"/>
+    </linearGradient>
+    <linearGradient id="assistGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#4f46e5"/>
+    </linearGradient>
+    <linearGradient id="supportGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0ea5e9"/>
+      <stop offset="100%" style="stop-color:#0284c7"/>
+    </linearGradient>
+    <linearGradient id="superGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#d97706"/>
+    </linearGradient>
+    <linearGradient id="autoGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="100%" style="stop-color:#dc2626"/>
+    </linearGradient>
+    <marker id="stepArrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#94a3b8"/>
     </marker>
   </defs>
 
-  <rect width="880" height="620" fill="#f8f9fa" rx="8"/>
+  <rect width="900" height="380" fill="#f8fafc"/>
 
-  <!-- Title -->
-  <text x="440" y="30" text-anchor="middle" font-size="17" font-weight="bold" fill="#2c3e50">AI Strategy Progression Model</text>
-  <text x="440" y="50" text-anchor="middle" font-size="11" fill="#7f8c8d">Each step builds the capability needed for the next — skip none</text>
+  <text x="450" y="36" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#1e293b" text-anchor="middle">Strategy Progression Model</text>
+  <text x="450" y="58" font-family="Arial, sans-serif" font-size="13" fill="#64748b" text-anchor="middle">Each step builds capability for the next &#x2014; skipping steps is the most common failure</text>
 
-  <!-- Timeline bar -->
-  <rect x="60" y="75" width="760" height="8" rx="4" fill="#d5dbdb"/>
+  <!-- Risk arrow along bottom -->
+  <rect x="50" y="340" width="800" height="24" rx="12" fill="#e2e8f0"/>
+  <text x="100" y="356" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Low risk</text>
+  <text x="450" y="356" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Risk, controls, skills required &#x2192;</text>
+  <text x="810" y="356" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">High risk</text>
 
-  <!-- Step markers on timeline -->
-  <circle cx="120" cy="79" r="12" fill="#95a5a6" stroke="#fff" stroke-width="2"/>
-  <text x="120" y="83" text-anchor="middle" font-size="9" font-weight="bold" fill="#fff">0</text>
+  <!-- No AI -->
+  <rect x="25" y="80" width="150" height="240" rx="8" fill="url(#noAiGrad)"/>
+  <text x="100" y="108" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">No AI</text>
+  <text x="100" y="130" font-family="Arial, sans-serif" font-size="10" fill="#e2e8f0" text-anchor="middle">Manual processes</text>
+  <text x="100" y="148" font-family="Arial, sans-serif" font-size="10" fill="#e2e8f0" text-anchor="middle">Human decides</text>
+  <rect x="40" y="165" width="120" height="50" rx="5" fill="rgba(255,255,255,0.15)"/>
+  <text x="100" y="185" font-family="Arial, sans-serif" font-size="9" fill="#e2e8f0" text-anchor="middle">Pre-framework</text>
+  <text x="100" y="200" font-family="Arial, sans-serif" font-size="9" fill="#e2e8f0" text-anchor="middle">No controls needed</text>
+  <rect x="40" y="230" width="120" height="40" rx="5" fill="rgba(255,255,255,0.12)"/>
+  <text x="100" y="248" font-family="Arial, sans-serif" font-size="9" fill="#cbd5e1" text-anchor="middle">Learn: nothing yet</text>
+  <text x="100" y="262" font-family="Arial, sans-serif" font-size="9" fill="#cbd5e1" text-anchor="middle">Build: nothing yet</text>
 
-  <circle cx="280" cy="79" r="12" fill="#2980b9" stroke="#fff" stroke-width="2"/>
-  <text x="280" y="83" text-anchor="middle" font-size="9" font-weight="bold" fill="#fff">1</text>
+  <line x1="178" y1="200" x2="196" y2="200" stroke="#94a3b8" stroke-width="2" marker-end="url(#stepArrow)"/>
 
-  <circle cx="440" cy="79" r="12" fill="#27ae60" stroke="#fff" stroke-width="2"/>
-  <text x="440" y="83" text-anchor="middle" font-size="9" font-weight="bold" fill="#fff">2</text>
+  <!-- Assisted -->
+  <rect x="200" y="80" width="150" height="240" rx="8" fill="url(#assistGrad)"/>
+  <text x="275" y="108" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Assisted</text>
+  <text x="275" y="130" font-family="Arial, sans-serif" font-size="10" fill="#e0e7ff" text-anchor="middle">AI drafts, suggests</text>
+  <text x="275" y="148" font-family="Arial, sans-serif" font-size="10" fill="#e0e7ff" text-anchor="middle">Human decides all</text>
+  <rect x="215" y="165" width="120" height="50" rx="5" fill="rgba(255,255,255,0.15)"/>
+  <text x="275" y="185" font-family="Arial, sans-serif" font-size="9" fill="#e0e7ff" text-anchor="middle">Fast Lane</text>
+  <text x="275" y="200" font-family="Arial, sans-serif" font-size="9" fill="#e0e7ff" text-anchor="middle">Basic guardrails</text>
+  <rect x="215" y="230" width="120" height="40" rx="5" fill="rgba(255,255,255,0.12)"/>
+  <text x="275" y="248" font-family="Arial, sans-serif" font-size="9" fill="#c7d2fe" text-anchor="middle">Learn: deploy + guardrails</text>
+  <text x="275" y="262" font-family="Arial, sans-serif" font-size="9" fill="#c7d2fe" text-anchor="middle">Build: eng + ops skills</text>
 
-  <circle cx="600" cy="79" r="12" fill="#f39c12" stroke="#fff" stroke-width="2"/>
-  <text x="600" y="83" text-anchor="middle" font-size="9" font-weight="bold" fill="#fff">3</text>
+  <line x1="353" y1="200" x2="371" y2="200" stroke="#94a3b8" stroke-width="2" marker-end="url(#stepArrow)"/>
 
-  <circle cx="760" cy="79" r="12" fill="#e74c3c" stroke="#fff" stroke-width="2"/>
-  <text x="760" y="83" text-anchor="middle" font-size="9" font-weight="bold" fill="#fff">4</text>
+  <!-- Supported -->
+  <rect x="375" y="80" width="150" height="240" rx="8" fill="url(#supportGrad)"/>
+  <text x="450" y="108" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Supported</text>
+  <text x="450" y="130" font-family="Arial, sans-serif" font-size="10" fill="#e0f2fe" text-anchor="middle">AI recommends</text>
+  <text x="450" y="148" font-family="Arial, sans-serif" font-size="10" fill="#e0f2fe" text-anchor="middle">Human acts</text>
+  <rect x="390" y="165" width="120" height="50" rx="5" fill="rgba(255,255,255,0.15)"/>
+  <text x="450" y="185" font-family="Arial, sans-serif" font-size="9" fill="#e0f2fe" text-anchor="middle">Tier 1 (LOW/MEDIUM)</text>
+  <text x="450" y="200" font-family="Arial, sans-serif" font-size="9" fill="#e0f2fe" text-anchor="middle">Judge + guardrails</text>
+  <rect x="390" y="230" width="120" height="40" rx="5" fill="rgba(255,255,255,0.12)"/>
+  <text x="450" y="248" font-family="Arial, sans-serif" font-size="9" fill="#bae6fd" text-anchor="middle">Learn: Judge + HITL</text>
+  <text x="450" y="262" font-family="Arial, sans-serif" font-size="9" fill="#bae6fd" text-anchor="middle">Build: governance</text>
 
-  <!-- Time labels -->
-  <text x="120" y="60" text-anchor="middle" font-size="8" fill="#7f8c8d">Start</text>
-  <text x="280" y="60" text-anchor="middle" font-size="8" fill="#7f8c8d">Month 2-3</text>
-  <text x="440" y="60" text-anchor="middle" font-size="8" fill="#7f8c8d">Month 6-9</text>
-  <text x="600" y="60" text-anchor="middle" font-size="8" fill="#7f8c8d">Month 12-18</text>
-  <text x="760" y="60" text-anchor="middle" font-size="8" fill="#7f8c8d">Month 24-36</text>
+  <line x1="528" y1="200" x2="546" y2="200" stroke="#94a3b8" stroke-width="2" marker-end="url(#stepArrow)"/>
 
-  <!-- Step 0: No AI -->
-  <rect x="50" y="105" width="150" height="195" rx="8" fill="#f2f3f4" stroke="#95a5a6" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="125" y="125" text-anchor="middle" font-size="12" font-weight="bold" fill="#5d6d7e">No AI</text>
-  <text x="125" y="140" text-anchor="middle" font-size="9" fill="#7f8c8d">Manual processes</text>
-  <line x1="62" y1="148" x2="188" y2="148" stroke="#d5dbdb" stroke-width="1"/>
-  <text x="62" y="166" font-size="8" fill="#5d6d7e">Who decides: Humans</text>
-  <text x="62" y="180" font-size="8" fill="#5d6d7e">Controls: N/A</text>
-  <text x="62" y="198" font-size="8" fill="#2c3e50">What you have:</text>
-  <text x="62" y="212" font-size="8" fill="#5d6d7e">• Manual expertise</text>
-  <text x="62" y="226" font-size="8" fill="#5d6d7e">• Defined processes</text>
-  <text x="62" y="240" font-size="8" fill="#5d6d7e">• Domain knowledge</text>
-  <text x="62" y="260" font-size="8" font-weight="bold" fill="#5d6d7e">Don't lose these.</text>
-  <text x="62" y="274" font-size="8" font-weight="bold" fill="#5d6d7e">You'll need them back.</text>
+  <!-- Supervised -->
+  <rect x="550" y="80" width="150" height="240" rx="8" fill="url(#superGrad)"/>
+  <text x="625" y="108" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Supervised</text>
+  <text x="625" y="130" font-family="Arial, sans-serif" font-size="10" fill="#fefce8" text-anchor="middle">AI acts on routine</text>
+  <text x="625" y="148" font-family="Arial, sans-serif" font-size="10" fill="#fefce8" text-anchor="middle">Human handles complex</text>
+  <rect x="565" y="165" width="120" height="50" rx="5" fill="rgba(255,255,255,0.15)"/>
+  <text x="625" y="185" font-family="Arial, sans-serif" font-size="9" fill="#fefce8" text-anchor="middle">Tier 2 (HIGH)</text>
+  <text x="625" y="200" font-family="Arial, sans-serif" font-size="9" fill="#fefce8" text-anchor="middle">Full control stack</text>
+  <rect x="565" y="230" width="120" height="40" rx="5" fill="rgba(255,255,255,0.12)"/>
+  <text x="625" y="248" font-family="Arial, sans-serif" font-size="9" fill="#fef08a" text-anchor="middle">Learn: scaled oversight</text>
+  <text x="625" y="262" font-family="Arial, sans-serif" font-size="9" fill="#fef08a" text-anchor="middle">Build: maturity</text>
 
-  <!-- Step 1: Assisted -->
-  <rect x="210" y="105" width="150" height="195" rx="8" fill="#eaf2f8" stroke="#2980b9" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="285" y="125" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a5276">Assisted</text>
-  <text x="285" y="140" text-anchor="middle" font-size="9" fill="#7f8c8d">Fast Lane</text>
-  <line x1="222" y1="148" x2="348" y2="148" stroke="#aed6f1" stroke-width="1"/>
-  <text x="222" y="166" font-size="8" fill="#5d6d7e">Who decides: Humans</text>
-  <text x="222" y="180" font-size="8" fill="#5d6d7e">AI: Drafts, suggests</text>
-  <text x="222" y="198" font-size="8" fill="#2c3e50">Controls needed:</text>
-  <text x="222" y="212" font-size="8" fill="#5d6d7e">• Basic guardrails</text>
-  <text x="222" y="226" font-size="8" fill="#5d6d7e">• Usage logging</text>
-  <text x="222" y="240" font-size="8" fill="#5d6d7e">• Feature flag</text>
-  <text x="222" y="260" font-size="8" fill="#2c3e50">You learn:</text>
-  <text x="222" y="274" font-size="8" fill="#5d6d7e">• How to deploy AI</text>
-  <text x="222" y="288" font-size="8" fill="#5d6d7e">• Usage patterns</text>
+  <line x1="703" y1="200" x2="721" y2="200" stroke="#94a3b8" stroke-width="2" marker-end="url(#stepArrow)"/>
 
-  <!-- Step 2: Supported -->
-  <rect x="370" y="105" width="150" height="195" rx="8" fill="#eafaf1" stroke="#27ae60" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="445" y="125" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e8449">Supported</text>
-  <text x="445" y="140" text-anchor="middle" font-size="9" fill="#7f8c8d">Tier 1</text>
-  <line x1="382" y1="148" x2="508" y2="148" stroke="#a9dfbf" stroke-width="1"/>
-  <text x="382" y="166" font-size="8" fill="#5d6d7e">Who decides: Humans</text>
-  <text x="382" y="180" font-size="8" fill="#5d6d7e">AI: Recommends</text>
-  <text x="382" y="198" font-size="8" fill="#2c3e50">Controls added:</text>
-  <text x="382" y="212" font-size="8" fill="#5d6d7e">• Judge (5-10%)</text>
-  <text x="382" y="226" font-size="8" fill="#5d6d7e">• HITL process</text>
-  <text x="382" y="240" font-size="8" fill="#5d6d7e">• Risk classification</text>
-  <text x="382" y="260" font-size="8" fill="#2c3e50">You learn:</text>
-  <text x="382" y="274" font-size="8" fill="#5d6d7e">• Judge operations</text>
-  <text x="382" y="288" font-size="8" fill="#5d6d7e">• False positive mgmt</text>
-
-  <!-- Step 3: Supervised -->
-  <rect x="530" y="105" width="150" height="195" rx="8" fill="#fef9e7" stroke="#f39c12" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="605" y="125" text-anchor="middle" font-size="12" font-weight="bold" fill="#935116">Supervised</text>
-  <text x="605" y="140" text-anchor="middle" font-size="9" fill="#7f8c8d">Tier 2</text>
-  <line x1="542" y1="148" x2="668" y2="148" stroke="#f9e79f" stroke-width="1"/>
-  <text x="542" y="166" font-size="8" fill="#5d6d7e">Who decides: AI routine</text>
-  <text x="542" y="180" font-size="8" fill="#5d6d7e">Humans: exceptions</text>
-  <text x="542" y="198" font-size="8" fill="#2c3e50">Controls added:</text>
-  <text x="542" y="212" font-size="8" fill="#5d6d7e">• Judge (20-50%)</text>
-  <text x="542" y="226" font-size="8" fill="#5d6d7e">• 4hr review SLAs</text>
-  <text x="542" y="240" font-size="8" fill="#5d6d7e">• AI governance body</text>
-  <text x="542" y="260" font-size="8" fill="#2c3e50">You learn:</text>
-  <text x="542" y="274" font-size="8" fill="#5d6d7e">• External AI ops</text>
-  <text x="542" y="288" font-size="8" fill="#5d6d7e">• Incident response</text>
-
-  <!-- Step 4: Autonomous -->
-  <rect x="690" y="105" width="150" height="195" rx="8" fill="#fdedec" stroke="#e74c3c" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="765" y="125" text-anchor="middle" font-size="12" font-weight="bold" fill="#922b21">Autonomous</text>
-  <text x="765" y="140" text-anchor="middle" font-size="9" fill="#7f8c8d">Tier 3</text>
-  <line x1="702" y1="148" x2="828" y2="148" stroke="#f5b7b1" stroke-width="1"/>
-  <text x="702" y="166" font-size="8" fill="#5d6d7e">Who decides: AI</text>
-  <text x="702" y="180" font-size="8" fill="#5d6d7e">Humans: monitor</text>
-  <text x="702" y="198" font-size="8" fill="#2c3e50">Controls added:</text>
-  <text x="702" y="212" font-size="8" fill="#5d6d7e">• Judge (100%)</text>
-  <text x="702" y="226" font-size="8" fill="#5d6d7e">• 1hr review SLAs</text>
-  <text x="702" y="240" font-size="8" fill="#5d6d7e">• Kill switch, full PACE</text>
-  <text x="702" y="260" font-size="8" fill="#2c3e50">Prerequisites:</text>
-  <text x="702" y="274" font-size="8" fill="#5d6d7e">• 6+ mo Judge data</text>
-  <text x="702" y="288" font-size="8" fill="#5d6d7e">• Proven governance</text>
-
-  <!-- Arrows between steps -->
-  <line x1="200" y1="200" x2="210" y2="200" stroke="#5d6d7e" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <line x1="360" y1="200" x2="370" y2="200" stroke="#5d6d7e" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <line x1="520" y1="200" x2="530" y2="200" stroke="#5d6d7e" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <line x1="680" y1="200" x2="690" y2="200" stroke="#5d6d7e" stroke-width="1.5" marker-end="url(#arrow)"/>
-
-  <!-- Risk + Value bars -->
-  <text x="60" y="330" font-size="10" font-weight="bold" fill="#2c3e50">Value delivered</text>
-  <rect x="60" y="336" width="760" height="14" rx="4" fill="#fff" stroke="#d5dbdb" stroke-width="1"/>
-  <rect x="60" y="336" width="0" height="14" rx="4" fill="#27ae60" opacity="0.3"/>
-  <rect x="60" y="336" width="120" height="14" rx="4" fill="#27ae60" opacity="0.4"/>
-  <rect x="60" y="336" width="340" height="14" rx="4" fill="#27ae60" opacity="0.3"/>
-  <rect x="60" y="336" width="570" height="14" rx="4" fill="#27ae60" opacity="0.3"/>
-  <rect x="60" y="336" width="760" height="14" rx="4" fill="#27ae60" opacity="0.2"/>
-
-  <text x="60" y="370" font-size="10" font-weight="bold" fill="#2c3e50">Risk exposure</text>
-  <rect x="60" y="376" width="760" height="14" rx="4" fill="#fff" stroke="#d5dbdb" stroke-width="1"/>
-  <rect x="60" y="376" width="0" height="14" rx="4" fill="#e74c3c" opacity="0.1"/>
-  <rect x="60" y="376" width="120" height="14" rx="4" fill="#e74c3c" opacity="0.15"/>
-  <rect x="60" y="376" width="340" height="14" rx="4" fill="#e74c3c" opacity="0.2"/>
-  <rect x="60" y="376" width="570" height="14" rx="4" fill="#e74c3c" opacity="0.3"/>
-  <rect x="60" y="376" width="760" height="14" rx="4" fill="#e74c3c" opacity="0.4"/>
-
-  <text x="60" y="410" font-size="10" font-weight="bold" fill="#2c3e50">Control overhead</text>
-  <rect x="60" y="416" width="760" height="14" rx="4" fill="#fff" stroke="#d5dbdb" stroke-width="1"/>
-  <rect x="60" y="416" width="0" height="14" rx="4" fill="#2980b9" opacity="0.1"/>
-  <rect x="60" y="416" width="120" height="14" rx="4" fill="#2980b9" opacity="0.15"/>
-  <rect x="60" y="416" width="340" height="14" rx="4" fill="#2980b9" opacity="0.25"/>
-  <rect x="60" y="416" width="570" height="14" rx="4" fill="#2980b9" opacity="0.35"/>
-  <rect x="60" y="416" width="760" height="14" rx="4" fill="#2980b9" opacity="0.5"/>
-
-  <text x="60" y="450" font-size="10" font-weight="bold" fill="#2c3e50">Skill requirement</text>
-  <rect x="60" y="456" width="760" height="14" rx="4" fill="#fff" stroke="#d5dbdb" stroke-width="1"/>
-  <rect x="60" y="456" width="0" height="14" rx="4" fill="#8e44ad" opacity="0.1"/>
-  <rect x="60" y="456" width="120" height="14" rx="4" fill="#8e44ad" opacity="0.15"/>
-  <rect x="60" y="456" width="340" height="14" rx="4" fill="#8e44ad" opacity="0.25"/>
-  <rect x="60" y="456" width="570" height="14" rx="4" fill="#8e44ad" opacity="0.35"/>
-  <rect x="60" y="456" width="760" height="14" rx="4" fill="#8e44ad" opacity="0.5"/>
-
-  <!-- Key insight box -->
-  <rect x="120" y="495" width="640" height="80" rx="6" fill="#fff" stroke="#2c3e50" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="440" y="520" text-anchor="middle" font-size="11" font-weight="bold" fill="#2c3e50">The Most Common Failure</text>
-  <text x="440" y="540" text-anchor="middle" font-size="9" fill="#5d6d7e">Organisations skip from "No AI" directly to "Supervised" or "Autonomous" because the business case is compelling.</text>
-  <text x="440" y="555" text-anchor="middle" font-size="9" fill="#5d6d7e">They lack Judge experience, HITL maturity, and incident response capability. Everything is new simultaneously.</text>
-  <text x="440" y="568" text-anchor="middle" font-size="9" font-weight="bold" fill="#e74c3c">The progression exists because each step builds what the next step needs to succeed.</text>
-
-  <text x="440" y="607" text-anchor="middle" font-size="9" fill="#95a5a6">AI Runtime Behaviour Security — Strategy Progression © Jonathan Gill 2025</text>
+  <!-- Autonomous -->
+  <rect x="725" y="80" width="150" height="240" rx="8" fill="url(#autoGrad)"/>
+  <text x="800" y="108" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Autonomous</text>
+  <text x="800" y="130" font-family="Arial, sans-serif" font-size="10" fill="#fee2e2" text-anchor="middle">AI acts independently</text>
+  <text x="800" y="148" font-family="Arial, sans-serif" font-size="10" fill="#fee2e2" text-anchor="middle">Human oversees</text>
+  <rect x="740" y="165" width="120" height="50" rx="5" fill="rgba(255,255,255,0.15)"/>
+  <text x="800" y="185" font-family="Arial, sans-serif" font-size="9" fill="#fee2e2" text-anchor="middle">Tier 3 (CRITICAL)</text>
+  <text x="800" y="200" font-family="Arial, sans-serif" font-size="9" fill="#fee2e2" text-anchor="middle">Max controls + PACE</text>
+  <rect x="740" y="230" width="120" height="40" rx="5" fill="rgba(255,255,255,0.12)"/>
+  <text x="800" y="248" font-family="Arial, sans-serif" font-size="9" fill="#fca5a5" text-anchor="middle">Requires: all prior</text>
+  <text x="800" y="262" font-family="Arial, sans-serif" font-size="9" fill="#fca5a5" text-anchor="middle">capabilities proven</text>
 </svg>

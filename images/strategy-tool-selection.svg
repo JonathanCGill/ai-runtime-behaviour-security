@@ -1,116 +1,80 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="880" height="560" viewBox="0 0 880 560" font-family="Arial, Helvetica, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="440" viewBox="0 0 900 440">
   <defs>
-    <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
-      <feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.1"/>
-    </filter>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5d6d7e"/>
+    <marker id="yesArrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#10b981"/>
     </marker>
-    <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#27ae60"/>
+    <marker id="noArrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#94a3b8"/>
     </marker>
   </defs>
 
-  <rect width="880" height="560" fill="#f8f9fa" rx="8"/>
+  <rect width="900" height="440" fill="#f8fafc"/>
 
-  <!-- Title -->
-  <text x="440" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#2c3e50">Tool Selection Decision Tree</text>
-  <text x="440" y="46" text-anchor="middle" font-size="11" fill="#7f8c8d">AI is one option — not the default</text>
+  <text x="450" y="36" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#1e293b" text-anchor="middle">Tool Selection Decision Tree</text>
+  <text x="450" y="58" font-family="Arial, sans-serif" font-size="13" fill="#64748b" text-anchor="middle">Not everything needs AI &#x2014; follow the questions honestly</text>
 
-  <!-- Start -->
-  <rect x="310" y="62" width="260" height="36" rx="18" fill="#2c3e50" filter="url(#shadow)"/>
-  <text x="440" y="85" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">Use Case Defined (Stage 2)</text>
+  <!-- Question 1 -->
+  <rect x="250" y="75" width="400" height="44" rx="8" fill="#1e293b"/>
+  <text x="450" y="102" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">Can this be solved with deterministic rules?</text>
 
-  <line x1="440" y1="98" x2="440" y2="124" stroke="#5d6d7e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- Yes: rules engine -->
+  <line x1="650" y1="97" x2="720" y2="97" stroke="#10b981" stroke-width="2" marker-end="url(#yesArrow)"/>
+  <text x="685" y="90" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#10b981" text-anchor="middle">Yes</text>
+  <rect x="730" y="80" width="150" height="34" rx="6" fill="#f1f5f9" stroke="#10b981" stroke-width="1.5"/>
+  <text x="805" y="102" font-family="Arial, sans-serif" font-size="11" fill="#1e293b" text-anchor="middle">Rules / automation</text>
 
-  <!-- Q1: Deterministic rules? -->
-  <polygon points="440,124 580,162 440,200 300,162" fill="#fff" stroke="#2980b9" stroke-width="2" filter="url(#shadow)"/>
-  <text x="440" y="157" text-anchor="middle" font-size="9" font-weight="bold" fill="#1a5276">Solvable with</text>
-  <text x="440" y="170" text-anchor="middle" font-size="9" font-weight="bold" fill="#1a5276">deterministic rules?</text>
+  <!-- No -->
+  <line x1="450" y1="119" x2="450" y2="148" stroke="#94a3b8" stroke-width="2" marker-end="url(#noArrow)"/>
+  <text x="462" y="138" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">No</text>
 
-  <!-- Q1 Yes -->
-  <line x1="580" y1="162" x2="690" y2="162" stroke="#27ae60" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
-  <text x="625" y="155" font-size="8" font-weight="bold" fill="#27ae60">Yes</text>
-  <rect x="694" y="140" width="160" height="44" rx="8" fill="#eafaf1" stroke="#27ae60" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="774" y="159" text-anchor="middle" font-size="10" font-weight="bold" fill="#1e8449">Traditional Code</text>
-  <text x="774" y="174" text-anchor="middle" font-size="8" fill="#5d6d7e">Rules engine, workflows</text>
+  <!-- Question 2 -->
+  <rect x="250" y="150" width="400" height="44" rx="8" fill="#1e293b"/>
+  <text x="450" y="177" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">Does it require understanding unstructured input?</text>
 
-  <!-- Q1 No -->
-  <line x1="440" y1="200" x2="440" y2="228" stroke="#5d6d7e" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <text x="452" y="218" font-size="8" fill="#5d6d7e">No</text>
+  <line x1="650" y1="172" x2="720" y2="172" stroke="#10b981" stroke-width="2" marker-end="url(#yesArrow)"/>
+  <text x="685" y="165" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#10b981" text-anchor="middle">Yes</text>
+  <rect x="730" y="155" width="150" height="34" rx="6" fill="#f1f5f9" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="805" y="177" font-family="Arial, sans-serif" font-size="11" fill="#1e293b" text-anchor="middle">AI likely appropriate</text>
 
-  <!-- Q2: Structured repeatable process? -->
-  <polygon points="440,228 580,266 440,304 300,266" fill="#fff" stroke="#2980b9" stroke-width="2" filter="url(#shadow)"/>
-  <text x="440" y="258" text-anchor="middle" font-size="9" font-weight="bold" fill="#1a5276">Structured, repeatable</text>
-  <text x="440" y="271" text-anchor="middle" font-size="9" font-weight="bold" fill="#1a5276">UI-based process?</text>
+  <line x1="450" y1="194" x2="450" y2="223" stroke="#94a3b8" stroke-width="2" marker-end="url(#noArrow)"/>
+  <text x="462" y="213" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">No</text>
 
-  <!-- Q2 Yes -->
-  <line x1="580" y1="266" x2="690" y2="266" stroke="#27ae60" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
-  <text x="625" y="259" font-size="8" font-weight="bold" fill="#27ae60">Yes</text>
-  <rect x="694" y="244" width="160" height="44" rx="8" fill="#eaf2f8" stroke="#2980b9" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="774" y="263" text-anchor="middle" font-size="10" font-weight="bold" fill="#1a5276">RPA / Automation</text>
-  <text x="774" y="278" text-anchor="middle" font-size="8" fill="#5d6d7e">Deterministic, auditable</text>
+  <!-- Question 3 -->
+  <rect x="250" y="225" width="400" height="44" rx="8" fill="#1e293b"/>
+  <text x="450" y="252" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">Does it require pattern recognition across large datasets?</text>
 
-  <!-- Q2 No -->
-  <line x1="440" y1="304" x2="440" y2="332" stroke="#5d6d7e" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <text x="452" y="322" font-size="8" fill="#5d6d7e">No</text>
+  <line x1="650" y1="247" x2="720" y2="247" stroke="#10b981" stroke-width="2" marker-end="url(#yesArrow)"/>
+  <text x="685" y="240" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#10b981" text-anchor="middle">Yes</text>
+  <rect x="730" y="230" width="150" height="34" rx="6" fill="#f1f5f9" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="805" y="252" font-family="Arial, sans-serif" font-size="11" fill="#1e293b" text-anchor="middle">AI / ML appropriate</text>
 
-  <!-- Q3: Pattern recognition on structured data? -->
-  <polygon points="440,332 590,370 440,408 290,370" fill="#fff" stroke="#2980b9" stroke-width="2" filter="url(#shadow)"/>
-  <text x="440" y="362" text-anchor="middle" font-size="9" font-weight="bold" fill="#1a5276">Pattern recognition on</text>
-  <text x="440" y="375" text-anchor="middle" font-size="9" font-weight="bold" fill="#1a5276">structured data only?</text>
+  <line x1="450" y1="269" x2="450" y2="298" stroke="#94a3b8" stroke-width="2" marker-end="url(#noArrow)"/>
+  <text x="462" y="288" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">No</text>
 
-  <!-- Q3 Yes -->
-  <line x1="590" y1="370" x2="690" y2="370" stroke="#27ae60" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
-  <text x="630" y="363" font-size="8" font-weight="bold" fill="#27ae60">Yes</text>
-  <rect x="694" y="348" width="160" height="44" rx="8" fill="#fef9e7" stroke="#f39c12" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="774" y="367" text-anchor="middle" font-size="10" font-weight="bold" fill="#935116">Traditional ML</text>
-  <text x="774" y="382" text-anchor="middle" font-size="8" fill="#5d6d7e">Predictable, testable</text>
+  <!-- Question 4 -->
+  <rect x="250" y="300" width="400" height="44" rx="8" fill="#1e293b"/>
+  <text x="450" y="327" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">Does it need to generate novel content or responses?</text>
 
-  <!-- Q3 No -->
-  <line x1="440" y1="408" x2="440" y2="436" stroke="#5d6d7e" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <text x="452" y="426" font-size="8" fill="#5d6d7e">No</text>
+  <line x1="650" y1="322" x2="720" y2="322" stroke="#10b981" stroke-width="2" marker-end="url(#yesArrow)"/>
+  <text x="685" y="315" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#10b981" text-anchor="middle">Yes</text>
+  <rect x="730" y="305" width="150" height="34" rx="6" fill="#f1f5f9" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="805" y="327" font-family="Arial, sans-serif" font-size="11" fill="#1e293b" text-anchor="middle">Generative AI</text>
 
-  <!-- Q4: Multiple AI components coordinating? -->
-  <polygon points="440,436 590,474 440,512 290,474" fill="#fff" stroke="#2980b9" stroke-width="2" filter="url(#shadow)"/>
-  <text x="440" y="466" text-anchor="middle" font-size="9" font-weight="bold" fill="#1a5276">Multiple AI components</text>
-  <text x="440" y="479" text-anchor="middle" font-size="9" font-weight="bold" fill="#1a5276">coordinating?</text>
+  <line x1="450" y1="344" x2="450" y2="373" stroke="#94a3b8" stroke-width="2" marker-end="url(#noArrow)"/>
+  <text x="462" y="363" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">No</text>
 
-  <!-- Q4 Yes -->
-  <line x1="590" y1="474" x2="690" y2="474" stroke="#27ae60" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
-  <text x="630" y="467" font-size="8" font-weight="bold" fill="#27ae60">Yes</text>
-  <rect x="694" y="452" width="160" height="44" rx="8" fill="#fdedec" stroke="#e74c3c" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="774" y="471" text-anchor="middle" font-size="10" font-weight="bold" fill="#922b21">Multi-Agent AI</text>
-  <text x="774" y="486" text-anchor="middle" font-size="8" fill="#5d6d7e">Framework + MASO</text>
+  <!-- Question 5 -->
+  <rect x="250" y="375" width="400" height="44" rx="8" fill="#1e293b"/>
+  <text x="450" y="402" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">Does it require real-time, non-deterministic reasoning?</text>
 
-  <!-- Q4 No -->
-  <line x1="290" y1="474" x2="186" y2="474" stroke="#5d6d7e" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <text x="248" y="467" font-size="8" fill="#5d6d7e">No</text>
-  <rect x="26" y="452" width="160" height="44" rx="8" fill="#f4ecf7" stroke="#8e44ad" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="106" y="471" text-anchor="middle" font-size="10" font-weight="bold" fill="#6c3483">LLM / Gen AI</text>
-  <text x="106" y="486" text-anchor="middle" font-size="8" fill="#5d6d7e">Full framework applies</text>
+  <line x1="650" y1="397" x2="720" y2="397" stroke="#10b981" stroke-width="2" marker-end="url(#yesArrow)"/>
+  <text x="685" y="390" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#10b981" text-anchor="middle">Yes</text>
+  <rect x="730" y="380" width="150" height="34" rx="6" fill="#f1f5f9" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="805" y="402" font-family="Arial, sans-serif" font-size="11" fill="#1e293b" text-anchor="middle">LLM-based AI</text>
 
-  <!-- Left annotation: Framework scope -->
-  <rect x="26" y="64" width="230" height="140" rx="6" fill="#fff" stroke="#bdc3c7" stroke-width="1" filter="url(#shadow)"/>
-  <text x="141" y="86" text-anchor="middle" font-size="11" font-weight="bold" fill="#2c3e50">Framework Scope</text>
-  <line x1="38" y1="94" x2="244" y2="94" stroke="#d5dbdb" stroke-width="1"/>
-  <rect x="38" y="104" width="10" height="10" rx="2" fill="#eafaf1" stroke="#27ae60" stroke-width="1"/>
-  <text x="54" y="114" font-size="8" fill="#5d6d7e">Traditional: Outside framework</text>
-  <rect x="38" y="122" width="10" height="10" rx="2" fill="#eaf2f8" stroke="#2980b9" stroke-width="1"/>
-  <text x="54" y="132" font-size="8" fill="#5d6d7e">RPA: Outside framework</text>
-  <rect x="38" y="140" width="10" height="10" rx="2" fill="#fef9e7" stroke="#f39c12" stroke-width="1"/>
-  <text x="54" y="150" font-size="8" fill="#5d6d7e">Traditional ML: Partial framework</text>
-  <rect x="38" y="158" width="10" height="10" rx="2" fill="#f4ecf7" stroke="#8e44ad" stroke-width="1"/>
-  <text x="54" y="168" font-size="8" fill="#5d6d7e">LLM/Gen AI: Full framework</text>
-  <rect x="38" y="176" width="10" height="10" rx="2" fill="#fdedec" stroke="#e74c3c" stroke-width="1"/>
-  <text x="54" y="186" font-size="8" fill="#5d6d7e">Multi-Agent: Framework + MASO</text>
-
-  <!-- Hybrid note -->
-  <rect x="26" y="218" width="230" height="68" rx="6" fill="#fff" stroke="#e67e22" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="141" y="240" text-anchor="middle" font-size="10" font-weight="bold" fill="#e67e22">Most solutions are hybrid</text>
-  <line x1="38" y1="248" x2="244" y2="248" stroke="#f9e79f" stroke-width="1"/>
-  <text x="38" y="264" font-size="8" fill="#5d6d7e">AI for cognition. Deterministic systems</text>
-  <text x="38" y="276" font-size="8" fill="#5d6d7e">for action. Risk tier follows the AI parts.</text>
-
-  <text x="440" y="545" text-anchor="middle" font-size="9" fill="#95a5a6">AI Runtime Behaviour Security — Tool Selection © Jonathan Gill 2025</text>
+  <!-- No: traditional -->
+  <line x1="250" y1="397" x2="165" y2="397" stroke="#94a3b8" stroke-width="2" marker-end="url(#noArrow)"/>
+  <text x="210" y="390" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8">No</text>
+  <rect x="15" y="380" width="150" height="34" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="90" y="402" font-family="Arial, sans-serif" font-size="11" fill="#1e293b" text-anchor="middle">Traditional ML</text>
 </svg>

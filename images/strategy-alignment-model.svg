@@ -1,121 +1,97 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="880" height="600" viewBox="0 0 880 600" font-family="Arial, Helvetica, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="400" viewBox="0 0 900 400">
   <defs>
-    <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
-      <feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.1"/>
-    </filter>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5d6d7e"/>
-    </marker>
-    <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#27ae60"/>
-    </marker>
-    <marker id="arrowRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#e74c3c"/>
+    <linearGradient id="q1Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#4f46e5"/>
+    </linearGradient>
+    <linearGradient id="q2Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0ea5e9"/>
+      <stop offset="100%" style="stop-color:#0284c7"/>
+    </linearGradient>
+    <linearGradient id="q3Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#d97706"/>
+    </linearGradient>
+    <linearGradient id="q4Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#059669"/>
+    </linearGradient>
+    <marker id="arrowRight" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8"/>
     </marker>
   </defs>
 
-  <rect width="880" height="600" fill="#f8f9fa" rx="8"/>
+  <rect width="900" height="400" fill="#f8fafc"/>
 
-  <!-- Title -->
-  <text x="440" y="30" text-anchor="middle" font-size="17" font-weight="bold" fill="#2c3e50">Business-AI Alignment Model</text>
-  <text x="440" y="50" text-anchor="middle" font-size="11" fill="#7f8c8d">Four questions, in order — skip none</text>
+  <text x="450" y="36" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#1e293b" text-anchor="middle">Business-AI Alignment Model</text>
+  <text x="450" y="58" font-family="Arial, sans-serif" font-size="13" fill="#64748b" text-anchor="middle">Four questions, in order &#x2014; each filters before the next</text>
 
   <!-- Question 1 -->
-  <rect x="260" y="70" width="360" height="72" rx="8" fill="#2c3e50" filter="url(#shadow)"/>
-  <text x="290" y="94" font-size="11" font-weight="bold" fill="#aeb6bf">Q1</text>
-  <text x="320" y="94" font-size="12" font-weight="bold" fill="#fff">What business problem are we solving?</text>
-  <text x="320" y="112" font-size="9" fill="#aeb6bf">Is there a real, measurable problem — or a technology</text>
-  <text x="320" y="124" font-size="9" fill="#aeb6bf">looking for a purpose?</text>
+  <rect x="30" y="85" width="195" height="200" rx="10" fill="url(#q1Grad)"/>
+  <text x="127" y="112" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="rgba(255,255,255,0.3)" text-anchor="middle">1</text>
+  <text x="127" y="140" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">What business</text>
+  <text x="127" y="157" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">problem are</text>
+  <text x="127" y="174" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">we solving?</text>
+  <rect x="45" y="190" width="165" height="80" rx="6" fill="rgba(255,255,255,0.15)"/>
+  <text x="127" y="212" font-family="Arial, sans-serif" font-size="10" fill="#e0e7ff" text-anchor="middle">Reveals whether there's</text>
+  <text x="127" y="227" font-family="Arial, sans-serif" font-size="10" fill="#e0e7ff" text-anchor="middle">a real problem, or a</text>
+  <text x="127" y="242" font-family="Arial, sans-serif" font-size="10" fill="#e0e7ff" text-anchor="middle">technology looking</text>
+  <text x="127" y="257" font-family="Arial, sans-serif" font-size="10" fill="#e0e7ff" text-anchor="middle">for a purpose</text>
 
-  <!-- Arrow Q1 to Q2 -->
-  <line x1="440" y1="142" x2="440" y2="168" stroke="#27ae60" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
-  <text x="452" y="160" font-size="9" font-weight="bold" fill="#27ae60">Real problem</text>
-
-  <!-- Q1 No branch -->
-  <line x1="620" y1="106" x2="730" y2="106" stroke="#e74c3c" stroke-width="1.5" marker-end="url(#arrowRed)"/>
-  <rect x="733" y="88" width="130" height="36" rx="4" fill="#fdedec" stroke="#e74c3c" stroke-width="1.5"/>
-  <text x="798" y="107" text-anchor="middle" font-size="9" font-weight="bold" fill="#922b21">STOP</text>
-  <text x="798" y="119" text-anchor="middle" font-size="8" fill="#922b21">No problem to solve</text>
+  <!-- Arrow 1-2 -->
+  <line x1="230" y1="185" x2="253" y2="185" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrowRight)"/>
 
   <!-- Question 2 -->
-  <rect x="260" y="170" width="360" height="72" rx="8" fill="#1a5276" filter="url(#shadow)"/>
-  <text x="290" y="194" font-size="11" font-weight="bold" fill="#aed6f1">Q2</text>
-  <text x="320" y="194" font-size="12" font-weight="bold" fill="#fff">Does AI provide a genuine advantage?</text>
-  <text x="320" y="212" font-size="9" fill="#aed6f1">Is AI the right tool — or just the fashionable one?</text>
-  <text x="320" y="224" font-size="9" fill="#aed6f1">Compare at least two non-AI alternatives</text>
+  <rect x="258" y="85" width="195" height="200" rx="10" fill="url(#q2Grad)"/>
+  <text x="355" y="112" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="rgba(255,255,255,0.3)" text-anchor="middle">2</text>
+  <text x="355" y="140" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">Does AI provide</text>
+  <text x="355" y="157" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">a genuine</text>
+  <text x="355" y="174" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">advantage?</text>
+  <rect x="273" y="190" width="165" height="80" rx="6" fill="rgba(255,255,255,0.15)"/>
+  <text x="355" y="212" font-family="Arial, sans-serif" font-size="10" fill="#e0f2fe" text-anchor="middle">Reveals whether AI is</text>
+  <text x="355" y="227" font-family="Arial, sans-serif" font-size="10" fill="#e0f2fe" text-anchor="middle">the right tool, or just</text>
+  <text x="355" y="242" font-family="Arial, sans-serif" font-size="10" fill="#e0f2fe" text-anchor="middle">the fashionable one</text>
 
-  <!-- Arrow Q2 to Q3 -->
-  <line x1="440" y1="242" x2="440" y2="268" stroke="#27ae60" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
-  <text x="452" y="260" font-size="9" font-weight="bold" fill="#27ae60">AI wins on merit</text>
-
-  <!-- Q2 No branch -->
-  <line x1="620" y1="206" x2="730" y2="206" stroke="#e74c3c" stroke-width="1.5" marker-end="url(#arrowRed)"/>
-  <rect x="733" y="188" width="130" height="36" rx="4" fill="#fdedec" stroke="#e74c3c" stroke-width="1.5"/>
-  <text x="798" y="207" text-anchor="middle" font-size="9" font-weight="bold" fill="#922b21">USE ALTERNATIVE</text>
-  <text x="798" y="219" text-anchor="middle" font-size="8" fill="#922b21">Rules, automation, etc.</text>
+  <!-- Arrow 2-3 -->
+  <line x1="458" y1="185" x2="481" y2="185" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrowRight)"/>
 
   <!-- Question 3 -->
-  <rect x="260" y="270" width="360" height="72" rx="8" fill="#1e8449" filter="url(#shadow)"/>
-  <text x="290" y="294" font-size="11" font-weight="bold" fill="#a9dfbf">Q3</text>
-  <text x="320" y="294" font-size="12" font-weight="bold" fill="#fff">Can we deliver it?</text>
-  <text x="320" y="312" font-size="9" fill="#a9dfbf">Data ready? Skills available? Organisation prepared?</text>
-  <text x="320" y="324" font-size="9" fill="#a9dfbf">See: Data Reality, Human Factors</text>
+  <rect x="486" y="85" width="195" height="200" rx="10" fill="url(#q3Grad)"/>
+  <text x="583" y="112" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="rgba(255,255,255,0.3)" text-anchor="middle">3</text>
+  <text x="583" y="140" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">Can we</text>
+  <text x="583" y="157" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">deliver it?</text>
+  <rect x="501" y="190" width="165" height="80" rx="6" fill="rgba(255,255,255,0.15)"/>
+  <text x="583" y="212" font-family="Arial, sans-serif" font-size="10" fill="#fefce8" text-anchor="middle">Reveals whether the</text>
+  <text x="583" y="227" font-family="Arial, sans-serif" font-size="10" fill="#fefce8" text-anchor="middle">plan is feasible, or</text>
+  <text x="583" y="242" font-family="Arial, sans-serif" font-size="10" fill="#fefce8" text-anchor="middle">aspirational</text>
 
-  <!-- Arrow Q3 to Q4 -->
-  <line x1="440" y1="342" x2="440" y2="368" stroke="#27ae60" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
-  <text x="452" y="360" font-size="9" font-weight="bold" fill="#27ae60">Constraints met</text>
-
-  <!-- Q3 No branch -->
-  <line x1="620" y1="306" x2="730" y2="306" stroke="#f39c12" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <rect x="733" y="288" width="130" height="36" rx="4" fill="#fef9e7" stroke="#f39c12" stroke-width="1.5"/>
-  <text x="798" y="307" text-anchor="middle" font-size="9" font-weight="bold" fill="#935116">FIX FIRST</text>
-  <text x="798" y="319" text-anchor="middle" font-size="8" fill="#935116">Data, skills, readiness</text>
+  <!-- Arrow 3-4 -->
+  <line x1="686" y1="185" x2="709" y2="185" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrowRight)"/>
 
   <!-- Question 4 -->
-  <rect x="260" y="370" width="360" height="72" rx="8" fill="#7d3c98" filter="url(#shadow)"/>
-  <text x="290" y="394" font-size="11" font-weight="bold" fill="#d7bde2">Q4</text>
-  <text x="320" y="394" font-size="12" font-weight="bold" fill="#fff">Can we operate it safely?</text>
-  <text x="320" y="412" font-size="9" fill="#d7bde2">What tier? What controls? Who operates them?</text>
-  <text x="320" y="424" font-size="9" fill="#d7bde2">Is the full lifecycle cost in the business case?</text>
+  <rect x="714" y="85" width="160" height="200" rx="10" fill="url(#q4Grad)"/>
+  <text x="794" y="112" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="rgba(255,255,255,0.3)" text-anchor="middle">4</text>
+  <text x="794" y="140" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">Can we operate</text>
+  <text x="794" y="157" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">it safely?</text>
+  <rect x="729" y="190" width="130" height="80" rx="6" fill="rgba(255,255,255,0.15)"/>
+  <text x="794" y="212" font-family="Arial, sans-serif" font-size="10" fill="#d1fae5" text-anchor="middle">Reveals whether we</text>
+  <text x="794" y="227" font-family="Arial, sans-serif" font-size="10" fill="#d1fae5" text-anchor="middle">can sustain it, not</text>
+  <text x="794" y="242" font-family="Arial, sans-serif" font-size="10" fill="#d1fae5" text-anchor="middle">just launch it</text>
 
-  <!-- Arrow Q4 to GO -->
-  <line x1="440" y1="442" x2="440" y2="470" stroke="#27ae60" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
-  <text x="452" y="462" font-size="9" font-weight="bold" fill="#27ae60">Funded + governed</text>
+  <!-- Filter-out labels -->
+  <text x="127" y="315" font-family="Arial, sans-serif" font-size="10" fill="#ef4444" text-anchor="middle">No real problem?</text>
+  <text x="127" y="330" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#ef4444" text-anchor="middle">STOP</text>
 
-  <!-- Q4 No branch -->
-  <line x1="620" y1="406" x2="730" y2="406" stroke="#f39c12" stroke-width="1.5" marker-end="url(#arrow)"/>
-  <rect x="733" y="388" width="130" height="36" rx="4" fill="#fef9e7" stroke="#f39c12" stroke-width="1.5"/>
-  <text x="798" y="407" text-anchor="middle" font-size="9" font-weight="bold" fill="#935116">REDUCE SCOPE</text>
-  <text x="798" y="419" text-anchor="middle" font-size="8" fill="#935116">Lower tier or fund controls</text>
+  <text x="355" y="315" font-family="Arial, sans-serif" font-size="10" fill="#ef4444" text-anchor="middle">Non-AI is better?</text>
+  <text x="355" y="330" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#ef4444" text-anchor="middle">USE ALTERNATIVE</text>
 
-  <!-- GO -->
-  <rect x="340" y="472" width="200" height="44" rx="22" fill="#27ae60" filter="url(#shadow)"/>
-  <text x="440" y="491" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">PROCEED</text>
-  <text x="440" y="507" text-anchor="middle" font-size="9" fill="#d5f5e3">Deploy with appropriate controls</text>
+  <text x="583" y="315" font-family="Arial, sans-serif" font-size="10" fill="#ef4444" text-anchor="middle">Can't build it?</text>
+  <text x="583" y="330" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#ef4444" text-anchor="middle">BUILD READINESS FIRST</text>
 
-  <!-- Left annotation -->
-  <rect x="20" y="70" width="220" height="200" rx="6" fill="#fff" stroke="#bdc3c7" stroke-width="1" filter="url(#shadow)"/>
-  <text x="130" y="92" text-anchor="middle" font-size="11" font-weight="bold" fill="#2c3e50">Most organisations skip to here</text>
-  <line x1="32" y1="100" x2="228" y2="100" stroke="#d5dbdb" stroke-width="1"/>
-  <text x="32" y="120" font-size="9" fill="#5d6d7e">Common pattern:</text>
-  <text x="32" y="138" font-size="9" fill="#2c3e50">1. Identify a use case ✓</text>
-  <text x="32" y="154" font-size="9" fill="#e74c3c">2. Assume AI is the answer ✗</text>
-  <text x="32" y="170" font-size="9" fill="#e74c3c">3. Discover constraints during build ✗</text>
-  <text x="32" y="186" font-size="9" fill="#e74c3c">4. Discover costs at launch ✗</text>
-  <text x="32" y="210" font-size="9" fill="#5d6d7e">The four-question model prevents</text>
-  <text x="32" y="224" font-size="9" fill="#5d6d7e">expensive discoveries.</text>
-  <text x="32" y="248" font-size="9" font-style="italic" fill="#7f8c8d">"If any answer is 'we don't know'</text>
-  <text x="32" y="262" font-size="9" font-style="italic" fill="#7f8c8d">— that's your next step."</text>
+  <text x="794" y="315" font-family="Arial, sans-serif" font-size="10" fill="#10b981" text-anchor="middle">All four pass?</text>
+  <text x="794" y="330" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#10b981" text-anchor="middle">PROCEED</text>
 
-  <!-- Framework reference -->
-  <rect x="20" y="310" width="220" height="130" rx="6" fill="#eaf2f8" stroke="#2980b9" stroke-width="1" filter="url(#shadow)"/>
-  <text x="130" y="332" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a5276">Framework Connects At</text>
-  <line x1="32" y1="340" x2="228" y2="340" stroke="#aed6f1" stroke-width="1"/>
-  <text x="32" y="360" font-size="9" fill="#2c3e50">Q2: First Control (right tool?)</text>
-  <text x="32" y="378" font-size="9" fill="#2c3e50">Q3: Data Reality + Human Factors</text>
-  <text x="32" y="396" font-size="9" fill="#2c3e50">Q4: Risk Tiers + Control Matrix</text>
-  <text x="32" y="414" font-size="9" fill="#2c3e50">GO: Quick Start + PACE</text>
-  <text x="32" y="432" font-size="9" fill="#7f8c8d">Q1 is yours — not the framework's</text>
-
-  <text x="440" y="585" text-anchor="middle" font-size="9" fill="#95a5a6">AI Runtime Behaviour Security — Business-AI Alignment © Jonathan Gill 2025</text>
+  <!-- Bottom note -->
+  <rect x="150" y="355" width="600" height="30" rx="6" fill="#f1f5f9"/>
+  <text x="450" y="375" font-family="Arial, sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Most organisations skip questions 2&#x2013;4 and discover constraints during implementation</text>
 </svg>

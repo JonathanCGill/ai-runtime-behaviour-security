@@ -1,160 +1,83 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="880" height="620" viewBox="0 0 880 620" font-family="Arial, Helvetica, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="460" viewBox="0 0 900 460">
   <defs>
-    <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
-      <feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.1"/>
-    </filter>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5d6d7e"/>
-    </marker>
+    <linearGradient id="ucCenterGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a5f"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
   </defs>
 
-  <rect width="880" height="620" fill="#f8f9fa" rx="8"/>
+  <rect width="900" height="460" fill="#f8fafc"/>
 
-  <!-- Title -->
-  <text x="440" y="28" text-anchor="middle" font-size="17" font-weight="bold" fill="#2c3e50">Use Case Definition → Risk Profile → Controls</text>
-  <text x="440" y="46" text-anchor="middle" font-size="11" fill="#7f8c8d">Ten questions in, scored risk tier and control specification out</text>
+  <text x="450" y="36" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#1e293b" text-anchor="middle">Use Case Definition Model</text>
+  <text x="450" y="58" font-family="Arial, sans-serif" font-size="13" fill="#64748b" text-anchor="middle">Ten questions &#x2014; each directly determines a control requirement</text>
 
-  <!-- Left column: 10 Questions -->
-  <rect x="20" y="65" width="280" height="500" rx="8" fill="#eaf2f8" stroke="#2980b9" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="160" y="88" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a5276">Use Case Definition</text>
-  <text x="160" y="102" text-anchor="middle" font-size="9" fill="#5d6d7e">10 questions — skip none</text>
-  <line x1="32" y1="110" x2="288" y2="110" stroke="#aed6f1" stroke-width="1"/>
+  <!-- Central box -->
+  <rect x="325" y="160" width="250" height="140" rx="12" fill="url(#ucCenterGrad)"/>
+  <text x="450" y="195" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">Use Case</text>
+  <text x="450" y="215" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">Definition</text>
+  <text x="450" y="245" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Drives risk tier</text>
+  <text x="450" y="262" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Drives control selection</text>
+  <text x="450" y="279" font-family="Arial, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Drives operating model</text>
 
-  <text x="36" y="130" font-size="9" font-weight="bold" fill="#1a5276">Q1</text>
-  <text x="56" y="130" font-size="9" fill="#2c3e50">What does it do? (+ what it doesn't)</text>
-  <text x="36" y="152" font-size="9" font-weight="bold" fill="#1a5276">Q2</text>
-  <text x="56" y="152" font-size="9" fill="#2c3e50">What decisions does it make/influence?</text>
-  <text x="36" y="174" font-size="9" font-weight="bold" fill="#1a5276">Q3</text>
-  <text x="56" y="174" font-size="9" fill="#2c3e50">What data does it access?</text>
-  <text x="36" y="196" font-size="9" font-weight="bold" fill="#1a5276">Q4</text>
-  <text x="56" y="196" font-size="9" fill="#2c3e50">Who are the users?</text>
-  <text x="36" y="218" font-size="9" font-weight="bold" fill="#1a5276">Q5</text>
-  <text x="56" y="218" font-size="9" fill="#2c3e50">What happens when it's wrong?</text>
-  <text x="36" y="240" font-size="9" font-weight="bold" fill="#1a5276">Q6</text>
-  <text x="56" y="240" font-size="9" fill="#2c3e50">Expected volume?</text>
-  <text x="36" y="262" font-size="9" font-weight="bold" fill="#1a5276">Q7</text>
-  <text x="56" y="262" font-size="9" fill="#2c3e50">Regulatory context?</text>
-  <text x="36" y="284" font-size="9" font-weight="bold" fill="#1a5276">Q8</text>
-  <text x="56" y="284" font-size="9" fill="#2c3e50">Tools/actions it can take?</text>
-  <text x="36" y="306" font-size="9" font-weight="bold" fill="#1a5276">Q9</text>
-  <text x="56" y="306" font-size="9" fill="#2c3e50">Where in the business process?</text>
-  <text x="36" y="328" font-size="9" font-weight="bold" fill="#e67e22">Q10</text>
-  <text x="56" y="328" font-size="9" fill="#2c3e50">Who is accountable?</text>
+  <!-- Q1-Q5: Left column -->
+  <rect x="20" y="78" width="260" height="32" rx="6" fill="#6366f1"/>
+  <text x="150" y="99" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle">1. What does it do?</text>
+  <line x1="280" y1="94" x2="325" y2="180" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="4"/>
 
-  <line x1="32" y1="345" x2="288" y2="345" stroke="#aed6f1" stroke-width="1"/>
-  <text x="36" y="365" font-size="9" font-weight="bold" fill="#2c3e50">Maps to 6 risk dimensions:</text>
-  <text x="36" y="383" font-size="8" fill="#5d6d7e">Q2 → Decision Authority</text>
-  <text x="36" y="397" font-size="8" fill="#5d6d7e">Q5 → Reversibility</text>
-  <text x="36" y="411" font-size="8" fill="#5d6d7e">Q3 → Data Sensitivity</text>
-  <text x="36" y="425" font-size="8" fill="#5d6d7e">Q4 → Audience</text>
-  <text x="36" y="439" font-size="8" fill="#5d6d7e">Q6 → Scale</text>
-  <text x="36" y="453" font-size="8" fill="#5d6d7e">Q7 → Regulatory</text>
+  <rect x="20" y="120" width="260" height="32" rx="6" fill="#4f46e5"/>
+  <text x="150" y="141" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle">2. What decisions does it influence?</text>
+  <line x1="280" y1="136" x2="325" y2="200" stroke="#4f46e5" stroke-width="1.5" stroke-dasharray="4"/>
 
-  <line x1="32" y1="466" x2="288" y2="466" stroke="#aed6f1" stroke-width="1"/>
-  <text x="36" y="486" font-size="9" font-weight="bold" fill="#2c3e50">Also determines:</text>
-  <text x="36" y="504" font-size="8" fill="#5d6d7e">Q1 → Guardrail topic rules</text>
-  <text x="36" y="518" font-size="8" fill="#5d6d7e">Q8 → Agentic controls needed</text>
-  <text x="36" y="532" font-size="8" fill="#5d6d7e">Q9 → Threat model scope</text>
-  <text x="36" y="546" font-size="8" fill="#5d6d7e">Q10 → Governance assignments</text>
+  <rect x="20" y="162" width="260" height="32" rx="6" fill="#0ea5e9"/>
+  <text x="150" y="183" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle">3. What data does it access?</text>
+  <line x1="280" y1="178" x2="325" y2="215" stroke="#0ea5e9" stroke-width="1.5" stroke-dasharray="4"/>
 
-  <!-- Arrow left to middle -->
-  <line x1="300" y1="310" x2="330" y2="310" stroke="#5d6d7e" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="20" y="204" width="260" height="32" rx="6" fill="#0284c7"/>
+  <text x="150" y="225" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle">4. Who are the users?</text>
+  <line x1="280" y1="220" x2="325" y2="230" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="4"/>
 
-  <!-- Middle column: Scoring -->
-  <rect x="335" y="65" width="210" height="280" rx="8" fill="#fef9e7" stroke="#f39c12" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="440" y="88" text-anchor="middle" font-size="13" font-weight="bold" fill="#935116">Risk Scoring</text>
-  <text x="440" y="102" text-anchor="middle" font-size="9" fill="#5d6d7e">Six dimensions, highest wins</text>
-  <line x1="347" y1="110" x2="533" y2="110" stroke="#f9e79f" stroke-width="1"/>
+  <rect x="20" y="246" width="260" height="32" rx="6" fill="#059669"/>
+  <text x="150" y="267" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle">5. What happens when it's wrong?</text>
+  <line x1="280" y1="262" x2="325" y2="250" stroke="#059669" stroke-width="1.5" stroke-dasharray="4"/>
 
-  <!-- Dimension bars -->
-  <text x="351" y="132" font-size="8" fill="#2c3e50">Decision Authority</text>
-  <rect x="351" y="138" width="180" height="10" rx="3" fill="#d5dbdb"/>
-  <rect x="351" y="138" width="135" height="10" rx="3" fill="#e74c3c" opacity="0.7"/>
+  <!-- Q6-Q10: Right column -->
+  <rect x="620" y="78" width="260" height="32" rx="6" fill="#f59e0b"/>
+  <text x="750" y="99" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle">6. What's the expected volume?</text>
+  <line x1="620" y1="94" x2="575" y2="180" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4"/>
 
-  <text x="351" y="164" font-size="8" fill="#2c3e50">Reversibility</text>
-  <rect x="351" y="170" width="180" height="10" rx="3" fill="#d5dbdb"/>
-  <rect x="351" y="170" width="90" height="10" rx="3" fill="#f39c12" opacity="0.7"/>
+  <rect x="620" y="120" width="260" height="32" rx="6" fill="#d97706"/>
+  <text x="750" y="141" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle">7. What regulatory context applies?</text>
+  <line x1="620" y1="136" x2="575" y2="200" stroke="#d97706" stroke-width="1.5" stroke-dasharray="4"/>
 
-  <text x="351" y="196" font-size="8" fill="#2c3e50">Data Sensitivity</text>
-  <rect x="351" y="202" width="180" height="10" rx="3" fill="#d5dbdb"/>
-  <rect x="351" y="202" width="180" height="10" rx="3" fill="#e74c3c" opacity="0.7"/>
+  <rect x="620" y="162" width="260" height="32" rx="6" fill="#ef4444"/>
+  <text x="750" y="183" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle">8. What tools/actions can it take?</text>
+  <line x1="620" y1="178" x2="575" y2="215" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4"/>
 
-  <text x="351" y="228" font-size="8" fill="#2c3e50">Audience</text>
-  <rect x="351" y="234" width="180" height="10" rx="3" fill="#d5dbdb"/>
-  <rect x="351" y="234" width="90" height="10" rx="3" fill="#f39c12" opacity="0.7"/>
+  <rect x="620" y="204" width="260" height="32" rx="6" fill="#dc2626"/>
+  <text x="750" y="225" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle">9. Where in the business process?</text>
+  <line x1="620" y1="220" x2="575" y2="230" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="4"/>
 
-  <text x="351" y="260" font-size="8" fill="#2c3e50">Scale</text>
-  <rect x="351" y="266" width="180" height="10" rx="3" fill="#d5dbdb"/>
-  <rect x="351" y="266" width="135" height="10" rx="3" fill="#e74c3c" opacity="0.7"/>
+  <rect x="620" y="246" width="260" height="32" rx="6" fill="#7c3aed"/>
+  <text x="750" y="267" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle">10. Who is accountable?</text>
+  <line x1="620" y1="262" x2="575" y2="250" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="4"/>
 
-  <text x="351" y="292" font-size="8" fill="#2c3e50">Regulatory</text>
-  <rect x="351" y="298" width="180" height="10" rx="3" fill="#d5dbdb"/>
-  <rect x="351" y="298" width="135" height="10" rx="3" fill="#e74c3c" opacity="0.7"/>
+  <!-- Outputs arrow -->
+  <line x1="450" y1="300" x2="450" y2="340" stroke="#1e293b" stroke-width="2"/>
+  <polygon points="443 340, 450 352, 457 340" fill="#1e293b"/>
 
-  <!-- Legend -->
-  <rect x="351" y="318" width="12" height="8" rx="2" fill="#27ae60" opacity="0.7"/>
-  <text x="367" y="326" font-size="7" fill="#5d6d7e">LOW</text>
-  <rect x="397" y="318" width="12" height="8" rx="2" fill="#f39c12" opacity="0.7"/>
-  <text x="413" y="326" font-size="7" fill="#5d6d7e">MED</text>
-  <rect x="437" y="318" width="12" height="8" rx="2" fill="#e74c3c" opacity="0.7"/>
-  <text x="453" y="326" font-size="7" fill="#5d6d7e">HIGH</text>
-  <rect x="477" y="318" width="12" height="8" rx="2" fill="#922b21"/>
-  <text x="493" y="326" font-size="7" fill="#5d6d7e">CRIT</text>
+  <!-- Outputs -->
+  <rect x="175" y="360" width="160" height="70" rx="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="255" y="385" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">Risk Tier</text>
+  <text x="255" y="405" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">LOW &#x2192; CRITICAL</text>
+  <text x="255" y="420" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Scored from answers</text>
 
-  <!-- Tier result -->
-  <rect x="365" y="360" width="150" height="40" rx="20" fill="#e74c3c" filter="url(#shadow)"/>
-  <text x="440" y="377" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">TIER: HIGH</text>
-  <text x="440" y="392" text-anchor="middle" font-size="8" fill="#fadbd8">Highest dimension wins</text>
+  <rect x="370" y="360" width="160" height="70" rx="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="450" y="385" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">Control Set</text>
+  <text x="450" y="405" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Guardrails, Judge, HITL</text>
+  <text x="450" y="420" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Matched to tier</text>
 
-  <!-- AI assist box -->
-  <rect x="335" y="415" width="210" height="100" rx="6" fill="#f4ecf7" stroke="#8e44ad" stroke-width="1" filter="url(#shadow)"/>
-  <text x="440" y="436" text-anchor="middle" font-size="10" font-weight="bold" fill="#6c3483">AI-Assisted Scoring</text>
-  <line x1="347" y1="442" x2="533" y2="442" stroke="#d7bde2" stroke-width="1"/>
-  <text x="351" y="458" font-size="8" fill="#2c3e50">AI can: parse, score, propose tier</text>
-  <text x="351" y="472" font-size="8" fill="#2c3e50">AI cannot: make final decision</text>
-  <text x="351" y="486" font-size="8" fill="#2c3e50">AI should: flag missing info,</text>
-  <text x="351" y="500" font-size="8" fill="#2c3e50">propose conservatively (bias HIGH)</text>
-
-  <!-- Arrow middle to right -->
-  <line x1="545" y1="310" x2="575" y2="310" stroke="#5d6d7e" stroke-width="2" marker-end="url(#arrow)"/>
-
-  <!-- Right column: Control Outputs -->
-  <rect x="580" y="65" width="280" height="500" rx="8" fill="#eafaf1" stroke="#27ae60" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="720" y="88" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e8449">Control Specification</text>
-  <text x="720" y="102" text-anchor="middle" font-size="9" fill="#5d6d7e">Tier determines controls</text>
-  <line x1="592" y1="110" x2="848" y2="110" stroke="#a9dfbf" stroke-width="1"/>
-
-  <text x="596" y="130" font-size="9" font-weight="bold" fill="#1e8449">Security outputs:</text>
-  <text x="596" y="148" font-size="8" fill="#2c3e50">• Guardrail rules (from Q1 scope)</text>
-  <text x="596" y="162" font-size="8" fill="#2c3e50">• DLP config (from Q3 data types)</text>
-  <text x="596" y="176" font-size="8" fill="#2c3e50">• Access controls (from Q4 users)</text>
-  <text x="596" y="190" font-size="8" fill="#2c3e50">• Agentic controls (from Q8 tools)</text>
-  <text x="596" y="204" font-size="8" fill="#2c3e50">• Threat model (from Q9 integration)</text>
-  <text x="596" y="218" font-size="8" fill="#2c3e50">• PACE fail posture (from Q5 consequences)</text>
-
-  <line x1="592" y1="230" x2="848" y2="230" stroke="#a9dfbf" stroke-width="1"/>
-  <text x="596" y="250" font-size="9" font-weight="bold" fill="#1e8449">Governance outputs:</text>
-  <text x="596" y="268" font-size="8" fill="#2c3e50">• Control matrix (from scored tier)</text>
-  <text x="596" y="282" font-size="8" fill="#2c3e50">• HITL requirements (from Q2 authority)</text>
-  <text x="596" y="296" font-size="8" fill="#2c3e50">• Staffing model (from Q6 volume)</text>
-  <text x="596" y="310" font-size="8" fill="#2c3e50">• Compliance controls (from Q7 regulation)</text>
-  <text x="596" y="324" font-size="8" fill="#2c3e50">• Accountability map (from Q10 owner)</text>
-
-  <line x1="592" y1="338" x2="848" y2="338" stroke="#a9dfbf" stroke-width="1"/>
-  <text x="596" y="358" font-size="9" font-weight="bold" fill="#1e8449">Operational outputs:</text>
-  <text x="596" y="376" font-size="8" fill="#2c3e50">• Judge sampling rate (from tier)</text>
-  <text x="596" y="390" font-size="8" fill="#2c3e50">• Log retention (from tier)</text>
-  <text x="596" y="404" font-size="8" fill="#2c3e50">• Review SLA (from tier)</text>
-  <text x="596" y="418" font-size="8" fill="#2c3e50">• Infrastructure sizing (from Q6 volume)</text>
-  <text x="596" y="432" font-size="8" fill="#2c3e50">• Monitoring baselines (from Q1 scope)</text>
-
-  <line x1="592" y1="448" x2="848" y2="448" stroke="#a9dfbf" stroke-width="1"/>
-  <text x="596" y="468" font-size="9" font-weight="bold" fill="#1e8449">Who sees it:</text>
-  <text x="596" y="486" font-size="8" fill="#2c3e50">• Board: 1-page summary (tier + cost)</text>
-  <text x="596" y="500" font-size="8" fill="#2c3e50">• Risk: Full scoring + justification</text>
-  <text x="596" y="514" font-size="8" fill="#2c3e50">• Security: Technical spec + diagrams</text>
-  <text x="596" y="528" font-size="8" fill="#2c3e50">• Operations: Playbook + SLAs</text>
-  <text x="596" y="542" font-size="8" fill="#2c3e50">• Audit: Full evidence pack</text>
-
-  <text x="440" y="607" text-anchor="middle" font-size="9" fill="#95a5a6">AI Runtime Behaviour Security — Use Case to Risk Profile © Jonathan Gill 2025</text>
+  <rect x="565" y="360" width="160" height="70" rx="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="645" y="385" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">Operating Model</text>
+  <text x="645" y="405" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Staffing, SLAs, PACE</text>
+  <text x="645" y="420" font-family="Arial, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Sized from volume</text>
 </svg>

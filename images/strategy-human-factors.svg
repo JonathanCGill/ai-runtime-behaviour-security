@@ -1,148 +1,72 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="880" height="560" viewBox="0 0 880 560" font-family="Arial, Helvetica, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="400" viewBox="0 0 900 400">
   <defs>
-    <filter id="shadow" x="-2%" y="-2%" width="104%" height="106%">
-      <feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.1"/>
-    </filter>
+    <linearGradient id="techGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#4f46e5"/>
+    </linearGradient>
+    <linearGradient id="opsGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0ea5e9"/>
+      <stop offset="100%" style="stop-color:#0284c7"/>
+    </linearGradient>
+    <linearGradient id="domainGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#d97706"/>
+    </linearGradient>
   </defs>
 
-  <rect width="880" height="560" fill="#f8f9fa" rx="8"/>
+  <rect width="900" height="400" fill="#f8fafc"/>
 
-  <!-- Title -->
-  <text x="440" y="30" text-anchor="middle" font-size="17" font-weight="bold" fill="#2c3e50">Human Factors in AI Strategy</text>
-  <text x="440" y="50" text-anchor="middle" font-size="11" fill="#7f8c8d">Five constraints that strategies routinely underestimate</text>
+  <text x="450" y="36" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#1e293b" text-anchor="middle">Human Factors Skills Map</text>
+  <text x="450" y="58" font-family="Arial, sans-serif" font-size="13" fill="#64748b" text-anchor="middle">Three skill domains &#x2014; most organisations have gaps in at least two</text>
 
-  <!-- Five pillars -->
+  <!-- AI Technical -->
+  <rect x="30" y="80" width="270" height="300" rx="10" fill="url(#techGrad)"/>
+  <text x="165" y="112" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">AI Technical</text>
+  <text x="165" y="132" font-family="Arial, sans-serif" font-size="11" fill="#c7d2fe" text-anchor="middle">Building, deploying, maintaining</text>
 
-  <!-- Pillar 1: Skills -->
-  <rect x="30" y="75" width="156" height="300" rx="8" fill="#eaf2f8" stroke="#2980b9" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="108" y="100" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a5276">Skills</text>
-  <text x="108" y="116" text-anchor="middle" font-size="9" fill="#5d6d7e">What people can</text>
-  <text x="108" y="128" text-anchor="middle" font-size="9" fill="#5d6d7e">do today</text>
-  <line x1="42" y1="136" x2="174" y2="136" stroke="#aed6f1" stroke-width="1"/>
-  <text x="46" y="156" font-size="8" fill="#2c3e50">Build skills</text>
-  <rect x="42" y="162" width="130" height="6" rx="3" fill="#d5dbdb"/>
-  <rect x="42" y="162" width="52" height="6" rx="3" fill="#e74c3c"/>
-  <text x="46" y="184" font-size="8" fill="#2c3e50">Operate skills</text>
-  <rect x="42" y="190" width="130" height="6" rx="3" fill="#d5dbdb"/>
-  <rect x="42" y="190" width="26" height="6" rx="3" fill="#e74c3c"/>
-  <text x="46" y="212" font-size="8" fill="#2c3e50">Domain + AI awareness</text>
-  <rect x="42" y="218" width="130" height="6" rx="3" fill="#d5dbdb"/>
-  <rect x="42" y="218" width="39" height="6" rx="3" fill="#f39c12"/>
-  <text x="46" y="248" font-size="8" fill="#5d6d7e">AI technical: scarce</text>
-  <text x="46" y="262" font-size="8" fill="#5d6d7e">AI operational: rare</text>
-  <text x="46" y="276" font-size="8" fill="#5d6d7e">AI-aware domain: gap</text>
-  <text x="46" y="300" font-size="8" font-weight="bold" fill="#1a5276">Fast Lane needs</text>
-  <text x="46" y="312" font-size="8" font-weight="bold" fill="#1a5276">weeks of training.</text>
-  <text x="46" y="328" font-size="8" font-weight="bold" fill="#1a5276">Tier 3 needs</text>
-  <text x="46" y="340" font-size="8" font-weight="bold" fill="#1a5276">months to years.</text>
-  <text x="46" y="362" font-size="7" fill="#e74c3c">■ Current availability</text>
+  <rect x="45" y="150" width="240" height="35" rx="5" fill="rgba(255,255,255,0.15)"/>
+  <text x="165" y="172" font-family="Arial, sans-serif" font-size="10" fill="#e0e7ff" text-anchor="middle">Prompt engineering &#x2014; weeks to learn</text>
+  <rect x="45" y="195" width="240" height="35" rx="5" fill="rgba(255,255,255,0.15)"/>
+  <text x="165" y="217" font-family="Arial, sans-serif" font-size="10" fill="#e0e7ff" text-anchor="middle">RAG pipelines &#x2014; 1-3 months</text>
+  <rect x="45" y="240" width="240" height="35" rx="5" fill="rgba(255,255,255,0.15)"/>
+  <text x="165" y="262" font-family="Arial, sans-serif" font-size="10" fill="#e0e7ff" text-anchor="middle">Fine-tuning / ML training &#x2014; specialist</text>
+  <rect x="45" y="285" width="240" height="35" rx="5" fill="rgba(255,255,255,0.15)"/>
+  <text x="165" y="307" font-family="Arial, sans-serif" font-size="10" fill="#e0e7ff" text-anchor="middle">Multi-agent orchestration &#x2014; very rare</text>
 
-  <!-- Pillar 2: Time -->
-  <rect x="200" y="75" width="156" height="300" rx="8" fill="#eafaf1" stroke="#27ae60" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="278" y="100" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e8449">Time</text>
-  <text x="278" y="116" text-anchor="middle" font-size="9" fill="#5d6d7e">What people can</text>
-  <text x="278" y="128" text-anchor="middle" font-size="9" fill="#5d6d7e">learn before launch</text>
-  <line x1="212" y1="136" x2="344" y2="136" stroke="#a9dfbf" stroke-width="1"/>
-  <text x="216" y="156" font-size="8" fill="#2c3e50">AI awareness</text>
-  <text x="316" y="156" font-size="8" fill="#5d6d7e" text-anchor="end">2-4 hrs</text>
-  <text x="216" y="172" font-size="8" fill="#2c3e50">HITL review basics</text>
-  <text x="316" y="172" font-size="8" fill="#5d6d7e" text-anchor="end">2-3 days</text>
-  <text x="216" y="188" font-size="8" fill="#2c3e50">Guardrail config</text>
-  <text x="316" y="188" font-size="8" fill="#5d6d7e" text-anchor="end">1-2 wks</text>
-  <text x="216" y="204" font-size="8" fill="#2c3e50">Judge design</text>
-  <text x="316" y="204" font-size="8" fill="#5d6d7e" text-anchor="end">2-4 wks</text>
-  <text x="216" y="220" font-size="8" fill="#2c3e50">Risk classification</text>
-  <text x="316" y="220" font-size="8" fill="#5d6d7e" text-anchor="end">1-2 wks</text>
-  <text x="216" y="236" font-size="8" fill="#2c3e50">Incident response</text>
-  <text x="316" y="236" font-size="8" fill="#5d6d7e" text-anchor="end">2-3 wks</text>
-  <text x="216" y="252" font-size="8" fill="#2c3e50">Multi-agent security</text>
-  <text x="316" y="252" font-size="8" fill="#5d6d7e" text-anchor="end">1-2 mo</text>
-  <line x1="212" y1="264" x2="344" y2="264" stroke="#a9dfbf" stroke-width="1"/>
-  <text x="216" y="284" font-size="8" fill="#5d6d7e">These are times to basic</text>
-  <text x="216" y="296" font-size="8" fill="#5d6d7e">competence. Operational</text>
-  <text x="216" y="308" font-size="8" fill="#5d6d7e">competence takes 2-3×</text>
-  <text x="216" y="324" font-size="8" fill="#5d6d7e">longer.</text>
-  <text x="216" y="348" font-size="8" font-weight="bold" fill="#1e8449">The gap between basic</text>
-  <text x="216" y="360" font-size="8" font-weight="bold" fill="#1e8449">and operational is where</text>
-  <text x="216" y="372" font-size="8" font-weight="bold" fill="#1e8449">mistakes happen.</text>
+  <rect x="45" y="335" width="240" height="30" rx="5" fill="rgba(255,255,255,0.25)"/>
+  <text x="165" y="355" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">Gap: competitive market, expensive talent</text>
 
-  <!-- Pillar 3: Capacity -->
-  <rect x="370" y="75" width="156" height="300" rx="8" fill="#fef9e7" stroke="#f39c12" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="448" y="100" text-anchor="middle" font-size="13" font-weight="bold" fill="#935116">Capacity</text>
-  <text x="448" y="116" text-anchor="middle" font-size="9" fill="#5d6d7e">What people can</text>
-  <text x="448" y="128" text-anchor="middle" font-size="9" fill="#5d6d7e">absorb at once</text>
-  <line x1="382" y1="136" x2="514" y2="136" stroke="#f9e79f" stroke-width="1"/>
-  <text x="386" y="156" font-size="8" fill="#2c3e50">Awareness</text>
-  <text x="480" y="156" font-size="8" fill="#5d6d7e" text-anchor="end">days</text>
-  <text x="386" y="172" font-size="8" fill="#2c3e50">Understanding</text>
-  <text x="480" y="172" font-size="8" fill="#5d6d7e" text-anchor="end">weeks</text>
-  <text x="386" y="188" font-size="8" fill="#2c3e50">Competence</text>
-  <text x="480" y="188" font-size="8" fill="#5d6d7e" text-anchor="end">months</text>
-  <text x="386" y="204" font-size="8" fill="#2c3e50">Confidence</text>
-  <text x="480" y="204" font-size="8" fill="#5d6d7e" text-anchor="end">months-years</text>
-  <text x="386" y="220" font-size="8" fill="#2c3e50">Mastery</text>
-  <text x="480" y="220" font-size="8" fill="#5d6d7e" text-anchor="end">years</text>
-  <line x1="382" y1="234" x2="514" y2="234" stroke="#f9e79f" stroke-width="1"/>
-  <text x="386" y="258" font-size="8" fill="#5d6d7e">HITL requires the</text>
-  <text x="386" y="270" font-size="8" fill="#5d6d7e">Confidence phase.</text>
-  <text x="386" y="286" font-size="8" fill="#5d6d7e">Most strategies plan</text>
-  <text x="386" y="298" font-size="8" fill="#5d6d7e">for Competence.</text>
-  <text x="386" y="326" font-size="8" font-weight="bold" fill="#935116">AI competes with</text>
-  <text x="386" y="338" font-size="8" font-weight="bold" fill="#935116">cloud migration,</text>
-  <text x="386" y="350" font-size="8" font-weight="bold" fill="#935116">compliance, BAU.</text>
-  <text x="386" y="366" font-size="8" font-weight="bold" fill="#935116">Something gives.</text>
+  <!-- AI Operational -->
+  <rect x="315" y="80" width="270" height="300" rx="10" fill="url(#opsGrad)"/>
+  <text x="450" y="112" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">AI Operational</text>
+  <text x="450" y="132" font-family="Arial, sans-serif" font-size="11" fill="#bae6fd" text-anchor="middle">Monitoring, tuning, operating controls</text>
 
-  <!-- Pillar 4: Willingness -->
-  <rect x="540" y="75" width="156" height="300" rx="8" fill="#f4ecf7" stroke="#8e44ad" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="618" y="100" text-anchor="middle" font-size="13" font-weight="bold" fill="#6c3483">Willingness</text>
-  <text x="618" y="116" text-anchor="middle" font-size="9" fill="#5d6d7e">What people will</text>
-  <text x="618" y="128" text-anchor="middle" font-size="9" fill="#5d6d7e">actually do</text>
-  <line x1="552" y1="136" x2="684" y2="136" stroke="#d7bde2" stroke-width="1"/>
-  <text x="556" y="156" font-size="8" fill="#2c3e50">Fear of replacement</text>
-  <text x="556" y="172" font-size="8" fill="#5d6d7e">→ People undermine adoption</text>
-  <text x="556" y="192" font-size="8" fill="#2c3e50">Expertise threat</text>
-  <text x="556" y="208" font-size="8" fill="#5d6d7e">→ Senior experts disengage</text>
-  <text x="556" y="228" font-size="8" fill="#2c3e50">Workflow disruption</text>
-  <text x="556" y="244" font-size="8" fill="#5d6d7e">→ Workarounds and bypass</text>
-  <text x="556" y="264" font-size="8" fill="#2c3e50">Trust deficit</text>
-  <text x="556" y="280" font-size="8" fill="#5d6d7e">→ Over-checking or ignoring</text>
-  <text x="556" y="300" font-size="8" fill="#2c3e50">Change fatigue</text>
-  <text x="556" y="316" font-size="8" fill="#5d6d7e">→ Minimum effort compliance</text>
-  <line x1="552" y1="330" x2="684" y2="330" stroke="#d7bde2" stroke-width="1"/>
-  <text x="556" y="350" font-size="8" font-weight="bold" fill="#6c3483">Not a training problem.</text>
-  <text x="556" y="362" font-size="8" font-weight="bold" fill="#6c3483">A leadership problem.</text>
+  <rect x="330" y="150" width="240" height="35" rx="5" fill="rgba(255,255,255,0.15)"/>
+  <text x="450" y="172" font-family="Arial, sans-serif" font-size="10" fill="#e0f2fe" text-anchor="middle">Guardrail maintenance &#x2014; 2-3 months</text>
+  <rect x="330" y="195" width="240" height="35" rx="5" fill="rgba(255,255,255,0.15)"/>
+  <text x="450" y="217" font-family="Arial, sans-serif" font-size="10" fill="#e0f2fe" text-anchor="middle">Judge calibration &#x2014; 3-6 months</text>
+  <rect x="330" y="240" width="240" height="35" rx="5" fill="rgba(255,255,255,0.15)"/>
+  <text x="450" y="262" font-family="Arial, sans-serif" font-size="10" fill="#e0f2fe" text-anchor="middle">HITL queue management &#x2014; 1 month</text>
+  <rect x="330" y="285" width="240" height="35" rx="5" fill="rgba(255,255,255,0.15)"/>
+  <text x="450" y="307" font-family="Arial, sans-serif" font-size="10" fill="#e0f2fe" text-anchor="middle">AI incident response &#x2014; 6 months</text>
 
-  <!-- Pillar 5: Sustainability -->
-  <rect x="710" y="75" width="156" height="300" rx="8" fill="#fdedec" stroke="#e74c3c" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="788" y="100" text-anchor="middle" font-size="13" font-weight="bold" fill="#922b21">Sustainability</text>
-  <text x="788" y="116" text-anchor="middle" font-size="9" fill="#5d6d7e">What people can</text>
-  <text x="788" y="128" text-anchor="middle" font-size="9" fill="#5d6d7e">maintain over time</text>
-  <line x1="722" y1="136" x2="854" y2="136" stroke="#f5b7b1" stroke-width="1"/>
-  <text x="726" y="156" font-size="8" fill="#2c3e50">Alert fatigue</text>
-  <text x="830" y="156" font-size="8" fill="#5d6d7e" text-anchor="end">2-3 mo</text>
-  <text x="726" y="172" font-size="8" fill="#2c3e50">Guardrail drift</text>
-  <text x="830" y="172" font-size="8" fill="#5d6d7e" text-anchor="end">3-6 mo</text>
-  <text x="726" y="188" font-size="8" fill="#2c3e50">Judge decay</text>
-  <text x="830" y="188" font-size="8" fill="#5d6d7e" text-anchor="end">3-6 mo</text>
-  <text x="726" y="204" font-size="8" fill="#2c3e50">Knowledge attrition</text>
-  <text x="830" y="204" font-size="8" fill="#5d6d7e" text-anchor="end">6-12 mo</text>
-  <text x="726" y="220" font-size="8" fill="#2c3e50">Process erosion</text>
-  <text x="830" y="220" font-size="8" fill="#5d6d7e" text-anchor="end">6-12 mo</text>
-  <line x1="722" y1="234" x2="854" y2="234" stroke="#f5b7b1" stroke-width="1"/>
-  <text x="726" y="254" font-size="8" fill="#5d6d7e">PACE covers technical</text>
-  <text x="726" y="266" font-size="8" fill="#5d6d7e">failover.</text>
-  <text x="726" y="286" font-size="8" fill="#5d6d7e">No equivalent for</text>
-  <text x="726" y="298" font-size="8" fill="#5d6d7e">human failover.</text>
-  <text x="726" y="326" font-size="8" font-weight="bold" fill="#922b21">Day 1 is not the</text>
-  <text x="726" y="338" font-size="8" font-weight="bold" fill="#922b21">problem.</text>
-  <text x="726" y="354" font-size="8" font-weight="bold" fill="#922b21">Month 6 is.</text>
+  <rect x="330" y="335" width="240" height="30" rx="5" fill="rgba(255,255,255,0.25)"/>
+  <text x="450" y="355" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">Gap: skill set barely exists yet</text>
 
-  <!-- Bottom annotation -->
-  <rect x="120" y="400" width="640" height="80" rx="6" fill="#fff" stroke="#2c3e50" stroke-width="1.5" filter="url(#shadow)"/>
-  <text x="440" y="425" text-anchor="middle" font-size="11" font-weight="bold" fill="#2c3e50">The Framework Gap</text>
-  <text x="440" y="445" text-anchor="middle" font-size="9" fill="#5d6d7e">The framework specifies what controls are needed and who operates them.</text>
-  <text x="440" y="460" text-anchor="middle" font-size="9" fill="#5d6d7e">It doesn't address whether those people are trained, available, willing, or sustainably capable.</text>
-  <text x="440" y="475" text-anchor="middle" font-size="9" font-weight="bold" fill="#2c3e50">Strategy must fill this gap. Controls don't work if the humans operating them aren't ready.</text>
+  <!-- AI-Aware Domain -->
+  <rect x="600" y="80" width="270" height="300" rx="10" fill="url(#domainGrad)"/>
+  <text x="735" y="112" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">AI-Aware Domain</text>
+  <text x="735" y="132" font-family="Arial, sans-serif" font-size="11" fill="#fef08a" text-anchor="middle">Using AI outputs critically</text>
 
-  <text x="440" y="545" text-anchor="middle" font-size="9" fill="#95a5a6">AI Runtime Behaviour Security — Human Factors © Jonathan Gill 2025</text>
+  <rect x="615" y="150" width="240" height="35" rx="5" fill="rgba(255,255,255,0.15)"/>
+  <text x="735" y="172" font-family="Arial, sans-serif" font-size="10" fill="#fefce8" text-anchor="middle">Understanding limitations &#x2014; hours</text>
+  <rect x="615" y="195" width="240" height="35" rx="5" fill="rgba(255,255,255,0.15)"/>
+  <text x="735" y="217" font-family="Arial, sans-serif" font-size="10" fill="#fefce8" text-anchor="middle">Critical evaluation &#x2014; 1-2 months</text>
+  <rect x="615" y="240" width="240" height="35" rx="5" fill="rgba(255,255,255,0.15)"/>
+  <text x="735" y="262" font-family="Arial, sans-serif" font-size="10" fill="#fefce8" text-anchor="middle">HITL review competence &#x2014; 1 month</text>
+  <rect x="615" y="285" width="240" height="35" rx="5" fill="rgba(255,255,255,0.15)"/>
+  <text x="735" y="307" font-family="Arial, sans-serif" font-size="10" fill="#fefce8" text-anchor="middle">Mastery (trust vs. override) &#x2014; years</text>
+
+  <rect x="615" y="335" width="240" height="30" rx="5" fill="rgba(255,255,255,0.25)"/>
+  <text x="735" y="355" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">Gap: non-deterministic tools are new</text>
 </svg>
