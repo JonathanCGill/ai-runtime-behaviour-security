@@ -6,7 +6,7 @@
 
 ---
 
-> **You tested your AI before deployment. You proved it worked. Then it hallucinated a medical dosage, leaked customer data through a prompt injection, or autonomously approved a transaction it should have escalated.** Traditional software assurance assumes deterministic behaviour. AI doesn't have any. If your security model can't answer "what is this system doing *right now*, and how do I know it's correct?" — you have a gap. This framework exists to close it.
+> **You tested your AI before deployment. You proved it worked. Then it hallucinated a medical dosage, leaked customer data through a prompt injection, or autonomously approved a transaction it should have escalated.** Traditional software assurance assumes deterministic behaviour. AI doesn't have any. If your security model can't answer "what is this system doing *right now*, and how do I know it's correct?" — you have a gap. This framework helps you figure out how to close it.
 
 ---
 
