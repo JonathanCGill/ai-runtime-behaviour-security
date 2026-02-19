@@ -160,7 +160,7 @@ nav:
       - Azure AI: infrastructure/reference/platform-patterns/azure-ai.md
       - Databricks: infrastructure/reference/platform-patterns/databricks.md
 
-  - Strategy:
+  - From Strategy to Production:
     - strategy/README.md
     - Business Alignment: strategy/business-alignment.md
     - Use Case Filter: strategy/use-case-filter.md
