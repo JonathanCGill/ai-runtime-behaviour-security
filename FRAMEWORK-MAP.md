@@ -182,6 +182,8 @@ For multi-agent monitoring, the [MASO Observability domain](maso/controls/observ
 | [Human Factors](strategy/human-factors.md) | Can our people build, operate, and sustain this? |
 | [Progression](strategy/progression.md) | How do we move from low-risk to high-risk safely? |
 | [Framework Tensions](strategy/framework-tensions.md) | Where does the framework help strategy — and where does it constrain it? |
+| [Use Case Definition](strategy/use-case-definition.md) | How do we define use cases so security and governance can work with them? |
+| [From Idea to Production](strategy/idea-to-production.md) | What's the complete process from idea to running system to ongoing control? |
 
 ### Extensions & Infrastructure
 
