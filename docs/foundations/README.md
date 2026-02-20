@@ -9,6 +9,19 @@
 
 ---
 
+## How This Section Is Organised
+
+This page is the **conceptual overview** — it explains the architecture, the risk-scaling model, and how the pieces connect. The implementation details — risk classification criteria, specific control definitions, checklists, and specialised controls for multimodal, reasoning, streaming, and memory — live in the **[Core](../core/)** directory.
+
+| If you want to... | Go here |
+| --- | --- |
+| Understand the architecture and principles | **You're in the right place** — keep reading |
+| Classify a system and select controls | [Core: Risk Tiers](../core/risk-tiers.md) → [Controls](../core/controls.md) |
+| See the implementation checklist | [Core: Checklist](../core/checklist.md) |
+| Read specialised controls (multimodal, reasoning, streaming, memory) | [Core: Specialised Controls](../core/README.md#specialized-controls) |
+
+---
+
 ## Architecture
 
 ![Single-Agent Security Architecture](../images/single-agent-architecture.svg)

@@ -68,6 +68,29 @@ For single-model AI systems, this is the answer. **→ [Start here](foundations/
 
 ---
 
+## Strategy: From Ideas to Running Systems
+
+Security controls answer *how to secure* AI. They don't answer *what to build*, *whether AI is the right tool*, or *whether the organisation can deliver and operate it safely*.
+
+The **[From Strategy to Production](strategy/)** section bridges this gap — connecting business strategy to the framework's controls through a defined process:
+
+| Stage | Question | Output |
+| --- | --- | --- |
+| [Business Alignment](strategy/business-alignment.md) | Is this worth doing? Is AI the right tool? | Business case with alternatives assessed |
+| [Use Case Definition](strategy/use-case-definition.md) | What exactly will it do? | Ten-question definition that feeds risk classification |
+| [Risk Classification](core/risk-tiers.md) | What tier? What controls? | Six-dimension scored profile with governance approval |
+| [From Idea to Production](strategy/idea-to-production.md) | How do we get from idea to safe operation? | Eight-stage lifecycle with gates and owners |
+
+Three constraints that strategies routinely underestimate:
+
+- **[Data Reality](strategy/data-reality.md)** — Your data determines your strategy more than your ambition does. The framework can secure AI built on poor data; it cannot make it accurate.
+- **[Human Factors](strategy/human-factors.md)** — Skills, learning time, capacity, willingness, sustainability. Controls don't work if the people operating them aren't ready.
+- **[Progression](strategy/progression.md)** — Moving from low to high risk takes 2–3 years. Skipping steps is the most common strategic failure.
+
+The strategy section is honest about [where the framework helps and where it constrains](strategy/framework-tensions.md) strategic choices — and what to do when strategies legitimately test the framework's limits.
+
+---
+
 ## The Next Problem
 
 Single-model controls assume one AI, one context window, one trust boundary. But the industry has already moved past this.
@@ -120,29 +143,6 @@ The **[MASO Framework](maso/)** extends the foundation into multi-agent orchestr
 **Dual OWASP coverage.** Full mapping against both the OWASP Top 10 for LLM Applications and the OWASP Top 10 for Agentic Applications, with controls that address how individual LLM risks compound across agent chains. An additional [Emergent Risk Register](maso/controls/risk-register.md) captures 30 risks beyond the OWASP taxonomies.
 
 **→ [Enter MASO](maso/)**
-
----
-
-## Strategy: From Ideas to Running Systems
-
-Security controls answer *how to secure* AI. They don't answer *what to build*, *whether AI is the right tool*, or *whether the organisation can deliver and operate it safely*.
-
-The **[From Strategy to Production](strategy/)** section bridges this gap — connecting business strategy to the framework's controls through a defined process:
-
-| Stage | Question | Output |
-| --- | --- | --- |
-| [Business Alignment](strategy/business-alignment.md) | Is this worth doing? Is AI the right tool? | Business case with alternatives assessed |
-| [Use Case Definition](strategy/use-case-definition.md) | What exactly will it do? | Ten-question definition that feeds risk classification |
-| [Risk Classification](core/risk-tiers.md) | What tier? What controls? | Six-dimension scored profile with governance approval |
-| [From Idea to Production](strategy/idea-to-production.md) | How do we get from idea to safe operation? | Eight-stage lifecycle with gates and owners |
-
-Three constraints that strategies routinely underestimate:
-
-- **[Data Reality](strategy/data-reality.md)** — Your data determines your strategy more than your ambition does. The framework can secure AI built on poor data; it cannot make it accurate.
-- **[Human Factors](strategy/human-factors.md)** — Skills, learning time, capacity, willingness, sustainability. Controls don't work if the people operating them aren't ready.
-- **[Progression](strategy/progression.md)** — Moving from low to high risk takes 2–3 years. Skipping steps is the most common strategic failure.
-
-The strategy section is honest about [where the framework helps and where it constrains](strategy/framework-tensions.md) strategic choices — and what to do when strategies legitimately test the framework's limits.
 
 ---
 

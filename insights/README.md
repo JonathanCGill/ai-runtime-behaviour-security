@@ -58,4 +58,21 @@ What the peer-reviewed literature says about runtime AI security controls.
 
 ---
 
+## Analysis
+
+Deeper examinations of where the framework meets production reality — what works, what scales, and where the pattern breaks.
+
+| Article | One-Line Summary |
+|---------|-----------------|
+| [State of Reality](state-of-reality.md) | The AI security threat is real, specific, and concentrated in measurable failure modes |
+| [Risk Stories](risk-stories.md) | Real production incidents show where missing controls caused or worsened failures |
+| [What Scales](what-scales.md) | Security controls succeed only if their cost grows slower than the system they protect |
+| [What Works](what-works.md) | Deployed controls are measurably reducing breach detection time and costs |
+| [The Intent Layer](the-intent-layer.md) | Mechanical controls constrain what agents can do; semantic evaluation determines whether actions align with objectives |
+| [When the Pattern Breaks](when-the-pattern-breaks.md) | The three-layer pattern designed for single-agent systems fails to scale in complex multi-agent architectures |
+| [Open-Weight Models Shift the Burden](open-weight-models-shift-the-burden.md) | Self-hosted models inherit the provider's control responsibilities |
+| [PACE Resilience](PACE-RESILIENCE.md) | How the three-layer architecture achieves operational resilience through layered, independent control redundancy |
+
+---
+
 *AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -217,9 +217,9 @@ nav:
     - Technical:
       - extensions/technical/README.md
       - Control Selection Guide: extensions/technical/control-selection-guide.md
-      - Control Families: extensions/technical/03-control-families.md
-      - LLM-as-Judge: extensions/technical/03-llm-as-a-judge.md
-      - Agentic Controls: extensions/technical/04-agentic-controls.md
+      - Control Families: extensions/technical/control-families.md
+      - LLM-as-Judge Implementation: extensions/technical/llm-as-judge-implementation.md
+      - Agentic Controls (Extended): extensions/technical/agentic-controls-extended.md
       - Judge Model Selection: extensions/technical/judge-model-selection.md
       - RAG Security: extensions/technical/rag-security.md
       - Anomaly Detection Ops: extensions/technical/anomaly-detection-ops.md

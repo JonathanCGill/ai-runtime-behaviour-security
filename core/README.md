@@ -2,6 +2,38 @@
 
 Implementing behavioral controls for AI systems in production.
 
+> *This is the implementation companion to the [Foundation overview](../foundations/). The Foundation explains the architecture and principles. This section contains the risk classification criteria, control definitions, checklists, and specialised controls you need to implement them.*
+
+---
+
+## Reading Order
+
+Start with the essentials, then branch into specialised topics based on your deployment:
+
+**Essential (read in order):**
+1. [Risk Tiers](risk-tiers.md) — classify your system
+2. [Controls](controls.md) — implement the three-layer pattern
+3. [Agentic](agentic.md) — add controls if your agent has tool access
+4. [IAM Governance](iam-governance.md) — identity, lifecycle, delegation
+5. [Judge Assurance](judge-assurance.md) — measure and calibrate the Judge
+6. [Checklist](checklist.md) — track implementation progress
+
+**Specialised (read based on your deployment type):**
+
+| If you're deploying... | Read |
+|---|---|
+| Multimodal models (image, audio, video) | [Multimodal Controls](multimodal-controls.md) |
+| Reasoning models (chain-of-thought) | [Reasoning Model Controls](reasoning-model-controls.md) |
+| Streaming responses | [Streaming Controls](streaming-controls.md) |
+| Persistent memory or long context | [Memory and Context](memory-and-context.md) |
+| Multi-agent systems | [Multi-Agent Controls](multi-agent-controls.md) then [MASO](../maso/) |
+| Open-weight / self-hosted models | [Open-Weight Models](../insights/open-weight-models-shift-the-burden.md) |
+
+**PACE resilience (read after controls):**
+- [Control Layer Resilience](pace-controls-section.md) — PACE for each control layer
+- [PACE for Agentic AI](pace-agentic-section.md) — PACE for agentic deployments
+- [PACE Checklist](pace-checklist-section.md) — verify your fail postures
+
 ---
 
 ## The Fundamental Shift

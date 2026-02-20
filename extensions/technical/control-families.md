@@ -799,7 +799,7 @@ Human oversight is a known failure mode in every industry that uses it (aviation
 
 Additional controls for autonomous AI agents (systems that take actions, not just generate content).
 
-> **See [Agentic Controls](04-agentic-controls.md) for comprehensive coverage.**
+> **See [Agentic Controls](agentic-controls-extended.md) for comprehensive coverage.**
 >
 > **Control ID note:** Agentic controls use two complementary schemes. **AG.x** (AG.1–AG.4) provides structural decomposition by phase (planning, execution, assurance, multi-agent). **AI.10.x** provides implementation control IDs within the main control family numbering. See the control selection guide for the mapping: AI.10.1–10.6 implement AG.1–AG.4.
 
