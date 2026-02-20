@@ -26,39 +26,7 @@ You don't need governance theory. You need an architecture reference.
 
 Every AI request passes through a pipeline. Controls intercept at specific points:
 
-```
-User Request
-    │
-    ▼
-┌──────────────┐
-│  Input        │ ◄── Guardrails: injection detection, input validation,
-│  Guardrails   │     content policy, PII redaction
-└──────┬───────┘
-       │
-       ▼
-┌──────────────┐
-│  AI Model     │ ◄── Your LLM / agent / pipeline
-│  (Task Agent) │
-└──────┬───────┘
-       │
-       ▼
-┌──────────────┐
-│  Output       │ ◄── Guardrails: hallucination check, content filter,
-│  Guardrails   │     PII scanner, format validation
-└──────┬───────┘
-       │
-       ▼
-┌──────────────┐
-│  LLM-as-Judge │ ◄── Independent model evaluates: policy compliance,
-│  (Evaluator)  │     semantic correctness, safety, quality
-└──────┬───────┘
-       │
-       ▼
-┌──────────────┐
-│  Delivery /   │ ◄── Route to customer OR to human review queue
-│  Escalation   │     based on Judge confidence + risk tier
-└──────────────┘
-```
+![Pipeline Control Flow](../images/pipeline-control-flow.svg)
 
 **Key architectural decisions:**
 - Judge runs **asynchronously** for most tiers (doesn't block response). Runs **synchronously** for CRITICAL tier (blocks until evaluated)

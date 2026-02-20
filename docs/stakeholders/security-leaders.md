@@ -24,20 +24,7 @@ You've secured applications, networks, identities, and data for years. AI breaks
 
 Three layers, applied proportionately by risk:
 
-```
-┌─────────────────────────────────────────────────────┐
-│                   Human Oversight                    │
-│            (edge cases, accountability)              │
-├─────────────────────────────────────────────────────┤
-│                   LLM-as-Judge                       │
-│         (semantic evaluation, policy checks)         │
-├─────────────────────────────────────────────────────┤
-│                    Guardrails                         │
-│           (input/output filtering, real-time)        │
-├─────────────────────────────────────────────────────┤
-│                    AI System                          │
-└─────────────────────────────────────────────────────┘
-```
+![Three-Layer Control Stack](../images/three-layer-stack.svg)
 
 This isn't a product recommendation. It's a **pattern** your teams implement with whatever tooling fits your environment. The framework describes *what needs to be true* at each layer and *how to verify it*.
 

@@ -62,15 +62,7 @@ This is the language risk committees understand: inherent risk, control effectiv
 
 Every control layer has a defined degradation path:
 
-```
-P ─── Primary ──── All three layers operational
-│
-A ─── Alternate ─── One layer degraded, system continues with reduced scope
-│
-C ─── Contingency ── Multiple layers degraded, human review required
-│
-E ─── Emergency ──── Circuit breaker activated, AI removed from path
-```
+![PACE Degradation Path](../images/pace-degradation.svg)
 
 This maps directly to operational resilience frameworks (DORA, operational risk appetite statements, BCM). The AI system doesn't fail silently — it transitions through predetermined states, each with defined risk implications.
 

@@ -16,9 +16,9 @@ These pages tell you **what matters for your role**, **why you should care**, an
 
 ## Pick Your Role
 
-<table>
+<table markdown="block">
 <tr>
-<td width="50%">
+<td width="50%" markdown="block">
 
 ### [Security Leaders](security-leaders.md)
 CISOs, Security Directors, Security Architects
@@ -26,7 +26,7 @@ CISOs, Security Directors, Security Architects
 *You're accountable for AI risk but the threat model is different from anything you've secured before.*
 
 </td>
-<td width="50%">
+<td width="50%" markdown="block">
 
 ### [Risk & Governance](risk-and-governance.md)
 CROs, Risk Managers, GRC Teams
@@ -36,7 +36,7 @@ CROs, Risk Managers, GRC Teams
 </td>
 </tr>
 <tr>
-<td>
+<td markdown="block">
 
 ### [Enterprise Architects](enterprise-architects.md)
 Solution Architects, Platform Architects, Technical Leads
@@ -44,7 +44,7 @@ Solution Architects, Platform Architects, Technical Leads
 *You're designing the pipeline. You need to know where controls go, what they cost, and how they fail.*
 
 </td>
-<td>
+<td markdown="block">
 
 ### [Product Owners](product-owners.md)
 Product Managers, Business Owners, Delivery Leads
@@ -54,7 +54,7 @@ Product Managers, Business Owners, Delivery Leads
 </td>
 </tr>
 <tr>
-<td>
+<td markdown="block">
 
 ### [AI Engineers](ai-engineers.md)
 ML Engineers, AI Developers, Data Scientists, Platform Engineers
@@ -62,7 +62,7 @@ ML Engineers, AI Developers, Data Scientists, Platform Engineers
 *You're building the system. You need implementation patterns, not governance theory.*
 
 </td>
-<td>
+<td markdown="block">
 
 ### [Compliance & Legal](compliance-and-legal.md)
 Compliance Officers, Legal Counsel, DPOs, Audit Teams

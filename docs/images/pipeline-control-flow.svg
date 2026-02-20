@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="'Segoe UI', system-ui, -apple-system, sans-serif">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="108%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#00000012"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#78909C"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="720" height="420" rx="10" fill="#FAFAFA"/>
+
+  <!-- Title -->
+  <text x="360" y="30" text-anchor="middle" fill="#37474F" font-size="14" font-weight="600">Control Placement in the AI Request/Response Flow</text>
+
+  <!-- User Request -->
+  <rect x="270" y="46" width="180" height="36" rx="18" fill="#ECEFF1" stroke="#90A4AE" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="360" y="69" text-anchor="middle" fill="#546E7A" font-size="12" font-weight="500">User Request</text>
+
+  <!-- Arrow -->
+  <line x1="360" y1="82" x2="360" y2="100" stroke="#78909C" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Input Guardrails -->
+  <rect x="220" y="104" width="280" height="46" rx="8" fill="#2E7D32" filter="url(#shadow)"/>
+  <text x="360" y="124" text-anchor="middle" fill="white" font-size="13" font-weight="600">Input Guardrails</text>
+  <text x="360" y="140" text-anchor="middle" fill="#C8E6C9" font-size="10">injection detection · content policy · PII redaction</text>
+
+  <!-- Annotation -->
+  <line x1="504" y1="127" x2="530" y2="127" stroke="#A5D6A7" stroke-width="1"/>
+  <text x="538" y="123" fill="#2E7D32" font-size="10" font-weight="500">~10ms</text>
+  <text x="538" y="136" fill="#78909C" font-size="9">every request</text>
+
+  <!-- Arrow -->
+  <line x1="360" y1="150" x2="360" y2="168" stroke="#78909C" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- AI Model -->
+  <rect x="220" y="172" width="280" height="46" rx="8" fill="#455A64" filter="url(#shadow)"/>
+  <text x="360" y="192" text-anchor="middle" fill="white" font-size="13" font-weight="600">AI Model / Agent</text>
+  <text x="360" y="208" text-anchor="middle" fill="#CFD8DC" font-size="10">your LLM · RAG pipeline · tool-calling agent</text>
+
+  <!-- Arrow -->
+  <line x1="360" y1="218" x2="360" y2="236" stroke="#78909C" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Output Guardrails -->
+  <rect x="220" y="240" width="280" height="46" rx="8" fill="#2E7D32" filter="url(#shadow)"/>
+  <text x="360" y="260" text-anchor="middle" fill="white" font-size="13" font-weight="600">Output Guardrails</text>
+  <text x="360" y="276" text-anchor="middle" fill="#C8E6C9" font-size="10">hallucination check · PII scan · format validation</text>
+
+  <!-- Annotation -->
+  <line x1="504" y1="263" x2="530" y2="263" stroke="#A5D6A7" stroke-width="1"/>
+  <text x="538" y="259" fill="#2E7D32" font-size="10" font-weight="500">~10ms</text>
+  <text x="538" y="272" fill="#78909C" font-size="9">every response</text>
+
+  <!-- Arrow -->
+  <line x1="360" y1="286" x2="360" y2="304" stroke="#78909C" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- LLM-as-Judge -->
+  <rect x="220" y="308" width="280" height="46" rx="8" fill="#7B1FA2" filter="url(#shadow)"/>
+  <text x="360" y="328" text-anchor="middle" fill="white" font-size="13" font-weight="600">LLM-as-Judge</text>
+  <text x="360" y="344" text-anchor="middle" fill="#E1BEE7" font-size="10">policy compliance · semantic correctness · safety</text>
+
+  <!-- Annotation -->
+  <line x1="504" y1="331" x2="530" y2="331" stroke="#CE93D8" stroke-width="1"/>
+  <text x="538" y="325" fill="#7B1FA2" font-size="10" font-weight="500">~500ms–5s</text>
+  <text x="538" y="338" fill="#78909C" font-size="9">async or sync</text>
+  <text x="538" y="350" fill="#78909C" font-size="9">by risk tier</text>
+
+  <!-- Arrow -->
+  <line x1="360" y1="354" x2="360" y2="372" stroke="#78909C" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Delivery / Escalation -->
+  <rect x="220" y="376" width="280" height="36" rx="8" fill="#1565C0" filter="url(#shadow)"/>
+  <text x="360" y="399" text-anchor="middle" fill="white" font-size="12" font-weight="500">Deliver to Customer  ·  or  ·  Escalate to Human</text>
+
+  <!-- Annotation -->
+  <line x1="504" y1="394" x2="530" y2="394" stroke="#64B5F6" stroke-width="1"/>
+  <text x="538" y="390" fill="#1565C0" font-size="10" font-weight="500">Route decision</text>
+  <text x="538" y="403" fill="#78909C" font-size="9">based on Judge</text>
+
+  <!-- Left side: "Different model" callout -->
+  <rect x="24" y="226" width="170" height="46" rx="6" fill="#FFF3E0" stroke="#FF6F00" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="109" y="246" text-anchor="middle" fill="#E65100" font-size="10" font-weight="600">Key architecture decision</text>
+  <text x="109" y="260" text-anchor="middle" fill="#BF360C" font-size="9">Judge uses different model</text>
+  <line x1="194" y1="262" x2="218" y2="320" stroke="#FF6F00" stroke-width="1" stroke-dasharray="4,2"/>
+</svg>
