@@ -281,6 +281,57 @@ The monitoring pipeline is a platform service. It runs against every deployment.
 
 ---
 
+## Stakeholder Views
+
+Automated risk tiering changes the operating model for every function involved in AI governance. What each stakeholder sees — and what changes for them — depends on where they sit in the organisation's control structure.
+
+### First Line — Delivery Teams
+
+Delivery teams are the primary beneficiaries. Classification drops from a multi-week process to a two-minute self-service form. Controls auto-apply. The team does not configure guardrails, provision logging, or set up review queues — the platform does. Their responsibility is answering the six questions honestly and responding when monitoring surfaces findings. They own the risk. They do not own the infrastructure.
+
+### Second Line — Risk and Compliance Functions
+
+In organisations operating a three lines of defence model, second line functions — enterprise risk management, compliance, information security risk — provide oversight, challenge, and frameworks. Automated risk tiering changes their operating model fundamentally.
+
+**What improves:**
+
+- **Visibility without overhead.** Second line no longer relies on periodic self-assessments or governance meetings to understand the risk profile of AI deployments. The platform provides a real-time view of every system's tier, anomaly score, and control state. The risk register populates itself.
+- **Challenge with evidence.** When second line challenges a classification, they do so with runtime data — not with a questionnaire response from three months ago. "Your system was classified Tier 1 but has been operating at Tier 2 controls for six weeks because monitoring detected PII in outputs" is a more productive conversation than "please re-attest your risk classification."
+- **Proportionality is enforced mechanically.** The framework's proportionality principle — higher risk, stronger controls — is encoded in the scoring logic and the control provisioning layer. Second line does not need to check whether teams have implemented the right controls for their tier. The platform enforces it.
+
+**What changes:**
+
+- The second line role shifts from **review and approve** to **define and monitor**. Second line defines the scoring logic, the control configurations per tier, the escalation thresholds, and the de-escalation criteria. They do not review individual classifications — the deterministic scoring engine handles that. They review the *rules*, not the *results*.
+- Second line monitors aggregate patterns across the portfolio: which tiers are most common, where escalations cluster, which dimensions drive the highest classifications, and whether de-escalation criteria are appropriately calibrated. This is portfolio-level risk management, not case-by-case review.
+- Regulatory reporting draws directly from platform data. When regulators ask "how do you classify your AI systems and what controls apply?", the answer is a data export — not a narrative.
+
+### Third Line — Internal Audit
+
+Internal audit provides independent assurance over both the first and second lines. Automated risk tiering gives audit something most AI governance frameworks do not: **a deterministic, auditable trail from classification to control to runtime evidence.**
+
+**What audit can now verify:**
+
+- **Classification integrity.** The scoring logic is deterministic. The same answers always produce the same tier. Audit can test the scoring engine directly — submit known answer sets and verify the output. They can also compare classification answers against observable system behaviour: if a team said "internal users only" but logs show external IP addresses, the classification is demonstrably wrong.
+- **Control enforcement.** Controls are platform-provisioned, not team-implemented. Audit does not need to check whether a Tier 2 system has the correct guardrails configured — the platform enforces this at deployment. Audit verifies that the platform's control provisioning logic matches the framework's requirements for each tier. Test once, rely continuously.
+- **Monitoring effectiveness.** The seven signals, the anomaly score calculation, and the escalation thresholds are all defined in code. Audit can review the logic, test with synthetic data, and verify that escalations fire when they should. They can also review historical escalation events: did the score cross 60? Did controls tighten? Did the team receive notification? The evidence trail is complete.
+- **De-escalation governance.** Every de-escalation requires sustained low anomaly scores and explicit product owner approval. Audit can verify that no system had its controls reduced without meeting the defined criteria and obtaining documented approval. This is a binary check against platform records — not a judgement call.
+
+**What changes for audit:**
+
+- The audit approach shifts from **testing team-level compliance** (did this team implement the controls their tier requires?) to **testing platform-level enforcement** (does the platform correctly provision and maintain controls for each tier?). This is a more efficient model. Instead of sampling 30 AI deployments and checking controls on each, audit tests the provisioning engine once and verifies it is correctly applied everywhere.
+- Audit evidence is machine-generated and immutable. Classification records, control configurations, monitoring data, escalation events, and de-escalation approvals are all captured by the platform. Audit does not request evidence from teams — they query the platform.
+- The audit cycle can shift from annual to continuous. Platform data supports ongoing assurance rather than point-in-time testing.
+
+### CISO and Security Leadership
+
+The CISO's function builds and operates the platform. They define control configurations. They do not own individual risk classifications — product owners do. What they gain is a portfolio-level view of AI risk that updates in real time: how many systems at each tier, where anomaly scores are elevated, which controls are firing most frequently, and where the framework's assumptions are being tested by production behaviour.
+
+### Platform Engineering
+
+Platform engineering implements the control provisioning, the monitoring pipeline, and the self-service form. They are the team that makes "controls as infrastructure" real. Their success metric is straightforward: when a team answers six questions, the right controls apply within minutes, not days.
+
+---
+
 ## Operating Principles
 
 **1. The form is the risk assessment.** If the six questions are answered honestly, the tier is correct. No secondary review needed for Tier 1 and Tier 2. The scoring logic is the risk methodology — published, deterministic, and auditable.
