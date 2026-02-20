@@ -6,9 +6,9 @@
 
 ## The Heckling Problem
 
-Andrew Baker's essay *The Futility of Corporate Heckling* identifies a pattern that every delivery team recognises: functions that drift from enablement into commentary. They attend steering forums, publish decks, rate maturity, explain what good looks like, and diagnose other teams from a safe distance — without ever carrying the burden of delivering anything meaningful themselves.
+There is a pattern that every delivery team recognises: corporate functions that drift from enablement into commentary. They attend steering forums, publish decks, rate maturity, explain what good looks like, and diagnose other teams from a safe distance — without ever carrying the burden of delivering anything meaningful themselves.
 
-Baker's description of cyber security teams is uncomfortably precise:
+The description of what this looks like in cyber security is uncomfortably precise:
 
 > *"A penetration test report is not value. A spreadsheet of findings is not protection. A quarterly email with severity ratings is not security. If the same issues reappear release after release, the problem is not developer immaturity. It is systemic enablement."*
 
@@ -16,7 +16,7 @@ And then the line that should be printed on the wall of every security operation
 
 > *"Give teams tools that solve real problems and they will use them. Give them a list of issues and you will be negotiated."*
 
-This framework exists because we believe that AI systems need runtime behavioural security. But if the framework is consumed as narrative — as a maturity model to diagnose teams with, as a checklist for a governance function to enforce from the sidelines, as a deck explaining why delivery teams are not good enough — then it has become exactly the heckling tool Baker describes.
+This framework exists because we believe that AI systems need runtime behavioural security. But if the framework is consumed as narrative — as a maturity model to diagnose teams with, as a checklist for a governance function to enforce from the sidelines, as a deck explaining why delivery teams are not good enough — then it has become exactly the heckling tool it was supposed to prevent.
 
 The framework must be delivered as infrastructure, not as commentary. This article maps the specific design decisions that prevent the framework from becoming the problem it was built to solve.
 
@@ -70,7 +70,7 @@ If the PACE plan is implemented as platform infrastructure — circuit breakers 
 
 ### 5. The Framework Itself as a Counter-Narrative
 
-Baker identifies the most insidious form of heckling: the seductive counter-narrative. Because the heckler carries no production responsibility, they have spare capacity to construct compelling alternatives. Cleaner models. Simpler approaches. Visions unburdened by delivery.
+The most insidious form of heckling is the seductive counter-narrative. Because the heckler carries no production responsibility, they have spare capacity to construct compelling alternatives. Cleaner models. Simpler approaches. Visions unburdened by delivery.
 
 A security framework is, inherently, a counter-narrative. It describes a world in which every deployment is classified, every control is implemented, every resilience plan is tested, and every human reviewer meets their SLA. Delivery teams have already considered most of these concerns. They have already debated alternatives. They have made deliberate choices under constraints the framework's authors never encountered.
 
@@ -84,7 +84,7 @@ The framework already contains the right principles. The challenge is ensuring t
 
 ### Principle 1: The Secure Path Must Be the Easiest Path
 
-Baker's formulation is definitive: "A cyber team that works with platform teams to harden pipelines, embeds guardrails into CI/CD, provides reusable components to prevent entire classes of vulnerability, and supplies consumable building blocks which make the secure path the easiest path — is a team creating value."
+The formulation is simple: a cyber team that works with platform teams to harden pipelines, embeds guardrails into CI/CD, provides reusable components to prevent entire classes of vulnerability, and supplies consumable building blocks which make the secure path the easiest path — is a team creating value.
 
 For this framework, that means:
 
@@ -111,7 +111,7 @@ If the Fast Lane feels like an exception rather than the norm, the organisation 
 
 ### Principle 3: Embed, Don't Narrate
 
-Baker's solution to corporate heckling is reintegration: "Move architects into delivery teams. Embed risk practitioners into sprint ceremonies. Put UX designers in the room when engineering trade offs are being made. Give cyber teams ownership of platform controls rather than audit findings."
+The solution to corporate heckling is reintegration. Move architects into delivery teams. Embed risk practitioners into sprint ceremonies. Put UX designers in the room when engineering trade-offs are being made. Give cyber teams ownership of platform controls rather than audit findings.
 
 For this framework:
 
@@ -125,7 +125,7 @@ For this framework:
 
 The [strategy section](../strategy/) describes the framework's philosophy as "guardrails, not gates." This must extend to implementation.
 
-Every control in the framework should be evaluated against Baker's test: does it produce a tool, or does it produce a finding?
+Every control in the framework should be evaluated against a simple test: does it produce a tool, or does it produce a finding?
 
 | Output | Example | Assessment |
 |---|---|---|
@@ -140,7 +140,7 @@ This is the framework's existing principle of [infrastructure beats instructions
 
 ### Principle 5: Never Rate Maturity
 
-Baker is precise about this: "Maturity is not declared in a deck. It is built in code, in platforms, in patterns that actually make delivery easier, and it is built by people who carry outcomes rather than narratives."
+Maturity is not declared in a deck. It is built in code, in platforms, in patterns that actually make delivery easier, and it is built by people who carry outcomes rather than narratives.
 
 The framework contains a [Maturity & Validation](../MATURITY.md) document. It is honest about what is validated, what is emerging, and what remains unproven. This is the right kind of maturity assessment — it evaluates the framework's own evidence base.
 
@@ -152,7 +152,7 @@ If you want to know whether a team's AI system is secure, look at the controls r
 
 ## The Bar Raiser Distinction
 
-Baker distinguishes between the heckler and the bar raiser. The heckler arrives with a pre-formed narrative. The bar raiser arrives with pattern recognition earned from having delivered.
+There is a distinction between the heckler and the bar raiser. The heckler arrives with a pre-formed narrative. The bar raiser arrives with pattern recognition earned from having delivered.
 
 A security function operating this framework as a bar raiser looks like this:
 
@@ -202,7 +202,7 @@ This means the product owner must:
 
 This is not a punitive model. It is a clarity model. Security teams should never be in the position of arguing *for* controls against a product owner who wants them gone. The security team's job is to build the controls and make them available. The product owner's job is to decide which ones apply to their product. If they choose to operate with fewer controls than the framework recommends for their risk tier, that choice is documented, the residual risk is quantified, and the accountability is unambiguous.
 
-The alternative — where security teams own the decision about which controls are required — creates exactly the heckling dynamic Baker describes. Security becomes the function that says no from the sidelines. Product owners become the teams that negotiate around controls they had no part in selecting. Neither side carries the other's constraints. Both sides produce narratives. Nothing ships.
+The alternative — where security teams own the decision about which controls are required — creates exactly this heckling dynamic. Security becomes the function that says no from the sidelines. Product owners become the teams that negotiate around controls they had no part in selecting. Neither side carries the other's constraints. Both sides produce narratives. Nothing ships.
 
 Make the controls default. Make removal a product decision. Make the consequences visible. Then get out of the way.
 
@@ -214,7 +214,7 @@ This framework describes what must be true about AI systems in production. How t
 
 Delivered as platform infrastructure — as shared services, automated pipelines, self-service classification, and pre-configured resilience — the framework reduces friction for delivery teams while maintaining security outcomes. The secure path is the easiest path. Teams adopt it because it makes their work faster, not because a governance function told them to.
 
-Delivered as narrative — as maturity models, assessment frameworks, compliance checklists, and quarterly reports — the framework becomes exactly the corporate heckling that Baker describes. Confident, loud, and useless.
+Delivered as narrative — as maturity models, assessment frameworks, compliance checklists, and quarterly reports — the framework becomes exactly the corporate heckling it was designed to eliminate. Confident, loud, and useless.
 
 The framework's value is not in the document. It is in the infrastructure that implements it.
 
