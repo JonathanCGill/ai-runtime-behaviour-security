@@ -76,6 +76,15 @@ copyright: Copyright &copy; 2026 Jonathan Gill &mdash; MIT License
 nav:
   - Home: README.md
 
+  - Stakeholder Views:
+    - stakeholders/README.md
+    - Security Leaders: stakeholders/security-leaders.md
+    - Risk & Governance: stakeholders/risk-and-governance.md
+    - Enterprise Architects: stakeholders/enterprise-architects.md
+    - Product Owners: stakeholders/product-owners.md
+    - AI Engineers: stakeholders/ai-engineers.md
+    - Compliance & Legal: stakeholders/compliance-and-legal.md
+
   - Guide:
     - Tube Map: TUBE-MAP.md
     - Framework Map: FRAMEWORK-MAP.md

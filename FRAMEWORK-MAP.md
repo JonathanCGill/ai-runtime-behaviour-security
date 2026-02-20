@@ -2,6 +2,8 @@
 
 Navigate the framework by role or goal. Pick a reading path, follow it, branch when something connects.
 
+> **New: [Stakeholder Views](stakeholders/)** — dedicated entry points for Security Leaders, Risk & Governance, Enterprise Architects, Product Owners, AI Engineers, and Compliance & Legal. Each page answers "what's in this for me?" with a targeted reading path and Monday-morning actions.
+
 ---
 
 ## Two Architectures, One Framework

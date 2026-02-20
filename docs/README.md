@@ -79,7 +79,7 @@ The **[From Strategy to Production](strategy/)** section bridges this gap — co
 | [Business Alignment](strategy/business-alignment.md) | Is this worth doing? Is AI the right tool? | Business case with alternatives assessed |
 | [Use Case Definition](strategy/use-case-definition.md) | What exactly will it do? | Ten-question definition that feeds risk classification |
 | [Risk Classification](core/risk-tiers.md) | What tier? What controls? | Six-dimension scored profile with governance approval |
-| [From Idea to Production](strategy/idea-to-production.md) | How do we get from idea to safe operation? | Eight-stage lifecycle with guardrails and owners |
+| [From Idea to Production](strategy/idea-to-production.md) | How do we get from idea to safe operation? | Eight-stage lifecycle with gates and owners |
 
 Three constraints that strategies routinely underestimate:
 
@@ -150,6 +150,7 @@ The **[MASO Framework](maso/)** extends the foundation into multi-agent orchestr
 
 | If you want to... | Go here |
 | --- | --- |
+| **Find what matters for your role** | **[Stakeholder Views](stakeholders/)** — Security, Risk, Architecture, Product, Engineering, Compliance |
 | **See the entire framework on one map** | **[Tube Map](TUBE-MAP.md)** |
 | **Secure a multi-agent system** | **[MASO Framework](maso/)** |
 | Understand MASO controls at a glance | [MASO Domain Map](images/maso-tube-map.svg) |
@@ -161,6 +162,7 @@ The **[MASO Framework](maso/)** extends the foundation into multi-agent orchestr
 | Deploy a single-model AI system | [Foundation Framework](foundations/) |
 | Deploy low-risk AI fast | [Fast Lane](FAST-LANE.md) |
 | Classify a system by risk | [Risk Tiers](core/risk-tiers.md) |
+| Quantify AI risk for board reporting | [Risk Assessment](core/risk-assessment.md) |
 | Understand PACE resilience | [PACE Methodology](PACE-RESILIENCE.md) |
 | Enforce controls at infrastructure level | [Infrastructure Controls](infrastructure/) |
 | Navigate by role | [Framework Map](FRAMEWORK-MAP.md) |
@@ -200,7 +202,8 @@ The **[MASO Framework](maso/)** extends the foundation into multi-agent orchestr
 │   ├── red-team/                      # Adversarial test playbook (13 scenarios)
 │   ├── integration/                   # LangGraph, AutoGen, CrewAI, AWS Bedrock patterns
 │   └── examples/                      # Financial services, healthcare, critical infrastructure
-├── images/                            # All SVGs (tube map, architecture, OWASP coverage)
+├── stakeholders/                      # Role-based entry points (security, risk, architecture, product, engineering, compliance)
+├── images/                            # All SVGs (tube map, architecture, OWASP coverage, stakeholder map)
 ├── core/                              # Risk tiers, controls, IAM governance, checklists
 ├── infrastructure/                    # 80 technical controls, 11 domains
 ├── extensions/                        # Regulatory, templates, worked examples

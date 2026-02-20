@@ -2,6 +2,8 @@
 
 Navigate the framework by role or goal. Pick a reading path, follow it, branch when something connects.
 
+> **New: [Stakeholder Views](stakeholders/)** — dedicated entry points for Security Leaders, Risk & Governance, Enterprise Architects, Product Owners, AI Engineers, and Compliance & Legal. Each page answers "what's in this for me?" with a targeted reading path and Monday-morning actions.
+
 ---
 
 ## Two Architectures, One Framework
@@ -22,12 +24,13 @@ This framework has two halves. The **Foundation** covers single-model AI deploym
 
 ### "I need to explain this to leadership"
 
-Start with the business case, not the controls.
+Start with strategy, then the business case for controls.
 
-1. [The First Control: Choosing the Right Tool](insights/the-first-control.md) — frames the design-thinking question
-2. [Why Your AI Guardrails Aren't Enough](insights/why-guardrails-arent-enough.md) — the case for the Judge layer
-3. [Humans Remain Accountable](insights/humans-remain-accountable.md) — accountability model
-4. [When Agents Talk to Agents](insights/when-agents-talk-to-agents.md) — the multi-agent problem statement
+1. [AI Strategy](strategy/) — business alignment, data reality, human factors, progression
+2. [The First Control: Choosing the Right Tool](insights/the-first-control.md) — frames the design-thinking question
+3. [Why Your AI Guardrails Aren't Enough](insights/why-guardrails-arent-enough.md) — the case for the Judge layer
+4. [Humans Remain Accountable](insights/humans-remain-accountable.md) — accountability model
+5. [When Agents Talk to Agents](insights/when-agents-talk-to-agents.md) — the multi-agent problem statement
 
 Then the two operational gap articles most boards haven't heard about: [The Supply Chain Problem](insights/the-supply-chain-problem.md) and [RAG Is Your Biggest Attack Surface](insights/rag-is-your-biggest-attack-surface.md).
 
@@ -170,6 +173,19 @@ For multi-agent monitoring, the [MASO Observability domain](maso/controls/observ
 | [Can't Validate Unfinished](insights/you-cant-validate-unfinished.md) | Streaming validation |
 | [Open-Weight Models](insights/open-weight-models-shift-the-burden.md) | Self-hosted control burden |
 | [When the Judge Can Be Fooled](core/when-the-judge-can-be-fooled.md) | Judge threat model |
+
+### Strategy
+
+| Article | Key Question |
+|---|---|
+| [AI Strategy Overview](strategy/) | Where do I start with AI strategy? |
+| [Business Alignment](strategy/business-alignment.md) | Is this the right problem for AI? Can we deliver and operate it? |
+| [Data Reality](strategy/data-reality.md) | Is our data ready for the strategy we want to pursue? |
+| [Human Factors](strategy/human-factors.md) | Can our people build, operate, and sustain this? |
+| [Progression](strategy/progression.md) | How do we move from low-risk to high-risk safely? |
+| [Framework Tensions](strategy/framework-tensions.md) | Where does the framework help strategy — and where does it constrain it? |
+| [Use Case Definition](strategy/use-case-definition.md) | How do we define use cases so security and governance can work with them? |
+| [From Idea to Production](strategy/idea-to-production.md) | What's the complete process from idea to running system to ongoing control? |
 
 ### Extensions & Infrastructure
 
