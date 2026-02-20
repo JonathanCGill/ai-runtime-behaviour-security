@@ -232,6 +232,8 @@ If you adopt any part of this framework, you are responsible for validating it a
 
 This framework was written with AI assistance (Claude and ChatGPT) for drafting, structuring, and research synthesis. Architecture, control design, risk analysis, and editorial judgment are the author's.
 
+This is a personal project. It is not affiliated with, endorsed by, or representative of any employer, organisation, or other entity. The views and opinions expressed are the author's own and should not be construed as reflecting the position or policy of any company or institution with which the author is or has been associated.
+
 ---
 
 *AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

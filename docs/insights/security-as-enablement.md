@@ -225,3 +225,5 @@ Everything else is heckling.
 ---
 
 *AI Runtime Behaviour Security, 2026 (Jonathan Gill).*
+
+*This article represents the personal views and opinions of the author alone. It is not affiliated with, endorsed by, or representative of any employer, organisation, or other entity. Nothing in this article should be construed as reflecting the position or policy of any company or institution with which the author is or has been associated.*
