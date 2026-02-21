@@ -63,6 +63,9 @@ markdown_extensions:
       custom_checkbox: true
 
 extra:
+  analytics:
+    provider: google
+    property: G-LHJX43M3XE
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/JonathanCGill

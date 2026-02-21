@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jonathancgill.github.io/ai-runtime-behaviour-security/sitemap.xml
