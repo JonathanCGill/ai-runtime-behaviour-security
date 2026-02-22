@@ -6,7 +6,7 @@
 
 > **You tested your AI before deployment. You proved it worked. Then it hallucinated a medical dosage, leaked customer data through a prompt injection, or autonomously approved a transaction it should have escalated.** Traditional software assurance assumes deterministic behaviour. AI doesn't have any. If your security model can't answer "what is this system doing *right now*, and how do I know it's correct?" — you have a gap. This framework helps you figure out how to close it.
 
-**This is a thinking tool, not a checklist.** It gives you a structured way to reason about what controls your AI systems need — given your threat model, risk appetite, and regulatory obligations. Two organisations should arrive at different implementations. That's the point.
+**This is a thinking tool, not a checklist.** It gives you a structured way to reason about what controls your AI systems need — given your threat model, risk appetite, and regulatory obligations. Two organisations should arrive at different implementations. That's the point. Mapped to OWASP LLM Top 10, OWASP Agentic Top 10, NIST AI RMF, ISO 42001, and the EU AI Act.
 
 **Executives and board members:** [What AI runtime risk means for leadership](stakeholders/risk-and-governance.md) — 5-minute read. | **New here?** [Quick Start](QUICK_START.md) — zero to working controls in 30 minutes.
 
@@ -207,6 +207,11 @@ If you take one thing from this: the value is in the thinking, not the checklist
 
 ## Repository Structure
 
+<details>
+<summary><strong>Expand to see the full repository layout.</strong></summary>
+
+<br>
+
 ```
 ├── README.md                          # This document — start here
 ├── TUBE-MAP.md                        # Complete framework tube map with guide
@@ -228,6 +233,8 @@ If you take one thing from this: the value is in the thinking, not the checklist
 ├── insights/                          # Analysis articles and emerging challenges
 └── strategy/                          # AI strategy — alignment, data, human factors, progression
 ```
+
+</details>
 
 ---
 
