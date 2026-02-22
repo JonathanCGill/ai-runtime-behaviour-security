@@ -9,11 +9,13 @@ description: Open-source framework for runtime behavioural security of AI system
 
 [![Controls: 173](https://img.shields.io/badge/Controls-173-blue?style=flat-square)](foundations/) [![Tests: 99](https://img.shields.io/badge/Tests-99-blue?style=flat-square)](maso/red-team/red-team-playbook.md) [![OWASP: Full Coverage](https://img.shields.io/badge/OWASP-Full_Coverage-brightgreen?style=flat-square)](maso/controls/risk-register.md) [![PACE Resilience](https://img.shields.io/badge/PACE-Resilience-orange?style=flat-square)](PACE-RESILIENCE.md) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
-> **You tested your AI before deployment. You proved it worked. Then it hallucinated a medical dosage, leaked customer data through a prompt injection, or autonomously approved a transaction it should have escalated.** Traditional software assurance assumes deterministic behaviour. AI doesn't have any. If your security model can't answer "what is this system doing *right now*, and how do I know it's correct?" — you have a gap. This framework helps you figure out how to close it.
+> You tested your AI before deployment. You proved it worked. Then it hallucinated a medical dosage, leaked customer data, or approved a transaction it shouldn't have.
 
-**This is a thinking tool, not a checklist.** It gives you a structured way to reason about what controls your AI systems need — given your threat model, risk appetite, and regulatory obligations. Two organisations should arrive at different implementations. That's the point. Mapped to OWASP LLM Top 10, OWASP Agentic Top 10, NIST AI RMF, ISO 42001, and the EU AI Act.
+Traditional security assumes deterministic systems. AI isn't deterministic. If your security model can't answer *"what is this system doing right now, and how do I know it's correct?"* — you have a gap.
 
-**Executives and board members:** [What AI runtime risk means for leadership](stakeholders/risk-and-governance.md) — 5-minute read. | **New here?** [Quick Start](QUICK_START.md) — zero to working controls in 30 minutes.
+**This framework helps you close it.** Not with a checklist — with a structured way to reason about what controls your AI systems need, given your threat model, risk appetite, and regulatory obligations. Mapped to OWASP LLM Top 10, NIST AI RMF, ISO 42001, and the EU AI Act.
+
+**Executives:** [What AI runtime risk means for leadership](stakeholders/risk-and-governance.md) — 5-minute read | **New here?** [Quick Start](QUICK_START.md) — zero to working controls in 30 minutes
 
 ---
 
@@ -24,11 +26,19 @@ description: Open-source framework for runtime behavioural security of AI system
 | **Find what matters for my role** | **[Stakeholder Views](stakeholders/)** — Security, Risk, Architecture, Product, Engineering, Compliance |
 | **Secure a single-model AI system** | **[Foundation Framework](foundations/)** — 80 controls, risk tiers, PACE resilience |
 | **Secure a multi-agent system** | **[MASO Framework](maso/)** — 93 controls, 6 domains, 3 tiers |
-| **Align AI with business strategy** | **[From Strategy to Production](strategy/)** |
 | **Deploy low-risk AI quickly** | **[Fast Lane](FAST-LANE.md)** |
-| **See the entire framework on one map** | **[Tube Map](TUBE-MAP.md)** |
 | **Get started in 30 minutes** | **[Quick Start](QUICK_START.md)** — from zero to working controls |
 | **Get the one-page reference** | **[Cheat Sheet](CHEATSHEET.md)** — classify, control, fail posture, test |
+
+<details>
+<summary><strong>More entry points</strong> — risk, compliance, implementation, testing</summary>
+
+<br>
+
+| I want to... | Start here |
+| --- | --- |
+| Align AI with business strategy | [From Strategy to Production](strategy/) |
+| See the entire framework on one map | [Tube Map](TUBE-MAP.md) |
 | Classify a system by risk | [Risk Tiers](core/risk-tiers.md) |
 | Quantify AI risk for board reporting | [Risk Assessment](core/risk-assessment.md) |
 | Understand PACE resilience | [PACE Methodology](PACE-RESILIENCE.md) |
@@ -41,6 +51,8 @@ description: Open-source framework for runtime behavioural security of AI system
 | Navigate by role | [Framework Map](FRAMEWORK-MAP.md) |
 | Understand what's validated and what's not | [Maturity & Validation](MATURITY.md) |
 | See all references and further reading | [References & Sources](REFERENCES.md) |
+
+</details>
 
 ---
 

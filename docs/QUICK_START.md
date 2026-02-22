@@ -10,9 +10,9 @@ Get from zero to working controls in 30 minutes.
 
 ## Why You're Here
 
-You're building AI systems and need to answer: **"How do we know it's working correctly?"**
+You're building AI systems and need to answer one question: **"How do we know it's working correctly?"**
 
-Traditional testing is necessary but insufficient. AI systems are non-deterministic, exhibit emergent behavior, and face adversarial inputs you can't predict. You need runtime behavioral monitoring.
+You can't fully test AI before deployment. It's non-deterministic, it surprises you in production, and adversaries will find edge cases your test suite didn't. You need runtime controls.
 
 ---
 
@@ -223,11 +223,16 @@ You now have:
 
 ## Multi-Agent? Start Here After the Basics
 
-Everything above applies to single-model deployments — one AI, one context window, one trust boundary. If you're building a system where **multiple agents communicate, delegate tasks, or take autonomous actions**, you need additional controls.
+Everything above applies to single-model deployments — one AI, one context window, one trust boundary.
 
-The single-agent pattern (Guardrails → Judge → Human Oversight) remains the foundation. But multi-agent systems introduce risks it doesn't cover: prompt injection propagating across agent chains, hallucinations compounding through delegation, transitive authority creating unintended privilege escalation, and consensus that looks like independent validation but isn't.
+If your agents **communicate, delegate, or act autonomously**, you need additional controls. The single-agent pattern stays as your foundation, but multi-agent systems add new risks:
 
-The **[MASO Framework](maso/)** extends this Quick Start's pattern into multi-agent orchestration. Start with [Tier 1 — Supervised](maso/implementation/tier-1-supervised.md) (human approves all writes) and graduate upward as your controls mature.
+- Prompt injection propagating across agent chains
+- Hallucinations compounding through delegation
+- Transitive authority creating unintended privilege escalation
+- Consensus that looks like independent validation but isn't
+
+The **[MASO Framework](maso/)** extends this pattern into multi-agent orchestration. Start with [Tier 1 — Supervised](maso/implementation/tier-1-supervised.md) and graduate upward as your controls mature.
 
 ---
 
