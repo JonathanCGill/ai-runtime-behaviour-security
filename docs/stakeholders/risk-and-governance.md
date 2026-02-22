@@ -105,7 +105,7 @@ The question isn't whether to manage AI risk. It's whether you have a defensible
 
 ### Quantified residual risk — in language the board already uses
 
-The [Risk Assessment](../core/risk-assessment.md) methodology produces outputs your risk committee can read without translation:
+Your risk committee can read this without translation. The [Risk Assessment](../core/risk-assessment.md) methodology produces these outputs directly:
 
 **Example: HIGH-tier system** (customer-facing chatbot, 1M transactions/year):
 
@@ -129,7 +129,7 @@ The methodology is aligned to **NIST AI RMF** (Govern, Map, Measure, Manage):
 
 ### A classification scheme that maps to risk appetite
 
-Four tiers with six scoring dimensions. Each dimension produces a measurable assessment, not a subjective rating:
+Four tiers. Six scoring dimensions. Each produces a measurable assessment, not a subjective rating:
 
 | Dimension | What It Measures |
 |---|---|
@@ -140,7 +140,7 @@ Four tiers with six scoring dimensions. Each dimension produces a measurable ass
 | Scale | Hundreds or millions of transactions? |
 | Regulatory | Which regulatory obligations apply? |
 
-The classification drives everything downstream — control requirements, evaluation coverage, human oversight frequency, resilience posture. **Risk appetite is expressed through tier boundaries**, not abstract statements.
+The tier drives everything downstream: which controls apply, how much evaluation coverage, how often humans review, what resilience posture is required. **Risk appetite is expressed through tier boundaries**, not abstract statements.
 
 ### Defined resilience for operational risk
 
@@ -155,7 +155,7 @@ Every control layer has a predetermined degradation path:
 | **Contingency** | Supervised-only mode, human approval required | Reduced throughput, risk contained |
 | **Emergency** | AI traffic stopped, non-AI fallback active | No AI risk exposure, operational impact |
 
-This maps directly to operational resilience frameworks (DORA, BCM, operational risk appetite statements). The AI system doesn't fail silently — it transitions through predetermined states, each with defined risk implications that have been approved in advance.
+This maps directly to DORA, BCM, and operational risk appetite statements. The AI system doesn't fail silently. It transitions through states you've already approved, each with defined risk implications.
 
 ### Regulatory mapping you can hand to auditors
 
