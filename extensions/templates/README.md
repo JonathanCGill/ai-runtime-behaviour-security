@@ -11,6 +11,7 @@ Operational templates and reference documents.
 | [vendor-assessment-questionnaire.md](vendor-assessment-questionnaire.md) | AI vendor due diligence questions |
 | [data-retention-guidance.md](data-retention-guidance.md) | Retention by data type and jurisdiction |
 | [model-card-template.md](model-card-template.md) | AI system documentation template |
+| [reference-architecture-worksheet.md](reference-architecture-worksheet.md) | Compose framework controls into a system architecture |
 
 ---
 
