@@ -22,6 +22,44 @@ Your organisation is deploying AI systems that behave differently every time the
 
 ---
 
+## Five Runtime Control Principles
+
+The framework is built on five principles. Every control, every metric, every degradation path follows from these:
+
+1. **Prevent known-bad in real time.** Guardrails block prompt injection, data leakage, and policy violations before the AI responds. This is your first line — fast, pattern-based, always on.
+2. **Detect unknown-bad independently.** A separate AI evaluates outputs the guardrails passed. It catches semantic violations, hallucinated facts, and subtle policy breaches that pattern matching misses.
+3. **Keep humans in the loop where it matters.** Not on every transaction — on the ones that matter. High-risk decisions, edge cases, and flagged outputs route to qualified reviewers with defined SLAs.
+4. **Fail to a safe state, not to silence.** When controls degrade, the system doesn't continue unchecked. It transitions through predetermined states — each with defined risk implications — down to full stop if needed.
+5. **Measure everything. Assert nothing.** Control effectiveness is quantified through red team testing, evaluation datasets, and human agreement studies. "We have guardrails" is not a risk treatment.
+
+## How the Layers Work Together
+
+![Three-Layer Control Stack](../images/three-layer-stack.svg)
+
+Three independent control layers, each catching what the previous one missed:
+
+| Layer | Function | Speed | What It Catches |
+|---|---|---|---|
+| **Guardrails** | Block known-bad patterns | Real-time (<100ms) | Prompt injection, PII leakage, policy violations |
+| **AI Evaluation** | Assess output quality and safety | Near-real-time | Hallucination, semantic policy breaches, tone violations |
+| **Human Oversight** | Review flagged and sampled outputs | Hours to days | Edge cases, novel risks, calibration drift |
+
+Circuit breakers sit across all three: if any layer detects a critical failure or becomes unavailable, the system transitions to a predetermined safe state.
+
+## What This Adds That Existing Standards Don't
+
+You already have NIST AI RMF, ISO 42001, and the EU AI Act. This framework isn't competing with them — it fills three gaps they don't address:
+
+| Gap | What's Missing in Standards | What This Framework Provides |
+|---|---|---|
+| **Runtime behaviour** | Standards focus on design-time risk assessment and pre-deployment testing. They don't specify how to monitor and control AI *after* it's deployed, in production, under real conditions. | A layered runtime control architecture with quantified per-layer effectiveness |
+| **Defined failure modes** | Standards require "robustness" and "resilience" but don't define what happens when specific control layers fail. | PACE degradation: four predetermined states (Primary → Alternate → Contingency → Emergency) with pre-approved risk implications |
+| **Multi-agent security** | Standards address single AI systems. They don't cover agent-to-agent communication, delegated authority, tool access chains, or emergent behaviour in multi-agent workflows. | MASO: six control domains for multi-agent orchestration with risk-tiered implementation |
+
+This framework is the **implementation layer** that sits between what standards require and what engineering teams build. It turns "implement risk management measures" (EU AI Act Art. 9) into "here are the three control layers, here's how to measure each one, and here's what happens when they fail."
+
+---
+
 ## Why AI Risk Is Different
 
 AI introduces a risk category your frameworks weren't designed for: **non-deterministic system behaviour.**
