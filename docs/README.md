@@ -30,10 +30,16 @@ description: Open-source framework for runtime behavioural security of AI system
 | **Get started in 30 minutes** | **[Quick Start](QUICK_START.md)** — from zero to working controls |
 | **Get the one-page reference** | **[Cheat Sheet](CHEATSHEET.md)** — classify, control, fail posture, test |
 | Classify a system by risk | [Risk Tiers](core/risk-tiers.md) |
+| Quantify AI risk for board reporting | [Risk Assessment](core/risk-assessment.md) |
 | Understand PACE resilience | [PACE Methodology](PACE-RESILIENCE.md) |
 | Run adversarial tests on agents | [Red Team Playbook](maso/red-team/red-team-playbook.md) |
 | Implement in LangGraph, AutoGen, CrewAI, or Bedrock | [Integration Guide](maso/integration/integration-guide.md) |
+| Enforce controls at infrastructure level | [Infrastructure Controls](infrastructure/) |
 | See real incidents mapped to controls | [Incident Tracker](maso/threat-intelligence/incident-tracker.md) |
+| See MASO applied in finance, healthcare, or energy | [Worked Examples](maso/examples/worked-examples.md) |
+| Navigate by role | [Framework Map](FRAMEWORK-MAP.md) |
+| Understand what's validated and what's not | [Maturity & Validation](MATURITY.md) |
+| See all references and further reading | [References & Sources](REFERENCES.md) |
 
 ---
 
@@ -192,21 +198,6 @@ If you take one thing from this: the value is in the thinking, not the checklist
 | [MITRE ATLAS](https://atlas.mitre.org/) | Agent-focused threat intelligence |
 | [EU AI Act](https://artificialintelligenceact.eu/) | Art. 9, 14, 15 — risk management, oversight, robustness |
 | [DORA](https://www.digital-operational-resilience-act.com/) | Digital operational resilience for financial services |
-
----
-
-## More Navigation
-
-| If you want to... | Go here |
-| --- | --- |
-| Understand MASO controls at a glance | [MASO Domain Map](images/maso-tube-map.svg) |
-| See MASO applied in finance, healthcare, or energy | [Worked Examples](maso/examples/worked-examples.md) |
-| Govern agent identity and access | [IAM Governance](core/iam-governance.md) |
-| Quantify AI risk for board reporting | [Risk Assessment](core/risk-assessment.md) |
-| Enforce controls at infrastructure level | [Infrastructure Controls](infrastructure/) |
-| Navigate by role | [Framework Map](FRAMEWORK-MAP.md) |
-| Understand what's validated and what's not | [Maturity & Validation](MATURITY.md) |
-| See all references, sources, and further reading | [References & Sources](REFERENCES.md) |
 
 ---
 

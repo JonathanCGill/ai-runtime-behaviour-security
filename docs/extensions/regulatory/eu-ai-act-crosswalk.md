@@ -203,9 +203,32 @@ The framework provides comprehensive risk management:
 
 ## Evidence Package for Regulators
 
-When demonstrating EU AI Act compliance, provide:
+When demonstrating EU AI Act compliance, provide the evidence below. The Audit Evidence Matrix consolidates all evidence requirements into a single audit-ready view. The per-article tables below provide additional detail.
 
-### Article 9 Evidence
+### Audit Evidence Matrix
+
+This is the table your auditor needs. One row per control obligation, with the specific artefact, who produces it, and how to verify it.
+
+| EU AI Act Ref | Control Layer | Risk Type | Framework Control | Evidence Artefact | Produced By | Verification Method |
+|---|---|---|---|---|---|---|
+| Art. 9(2)(a) | Risk Management | Risk identification | AI.2.1 Risk Classification | Risk tier scoring record (six dimensions, signed off) | Product owner + risk function | Review scoring against tier criteria; verify governance approval |
+| Art. 9(2)(b) | Risk Management | Risk estimation | AI.2.2 Risk Assessment | Quantified risk assessment (inherent → residual per threat) | Risk function | Verify calculation methodology matches framework; check recalibration date |
+| Art. 9(4) | Guardrails | Risk mitigation | AI.7 Guardrails | Guardrail rule configuration export + red team results | Engineering + security | Run red team scenarios; compare block rate to documented effectiveness |
+| Art. 9(4) | AI Evaluation | Risk mitigation | AI.8 Judge | Judge evaluation criteria + accuracy measurement report | Engineering + risk function | Compare Judge accuracy against labelled evaluation dataset (≥95% target) |
+| Art. 9(4) | Human Oversight | Risk mitigation | AI.9 HITL | HITL sampling configuration + reviewer agreement study | Operations | Verify sampling rates match tier; review inter-rater reliability scores |
+| Art. 9(8) | All | Ongoing management | AI.2.3 Ongoing Risk Monitoring | Quarterly risk recalibration report | Risk function | Verify effectiveness rates updated with latest red team/Judge/HITL data |
+| Art. 12(1) | Logging | Record-keeping | AI.11.1 Logging | Log configuration showing required fields (LOG-01) | Engineering | Verify all 14 required fields present; sample 100 records |
+| Art. 12(2) | Logging | Traceability | AI.11.1 Logging | Sample log export with correlation IDs | Engineering | Trace one transaction end-to-end: input → guardrail → model → Judge → output |
+| Art. 12 | Logging | Retention | AI.11.1 Logging | Retention policy document + verification evidence | IT operations | Verify oldest retained log meets retention period (7 years for CRITICAL) |
+| Art. 14(1) | Human Oversight | Human oversight design | AI.9.1 HITL | HITL operating procedure + review interface screenshots | Operations | Walk through one review cycle; verify reviewer has full context |
+| Art. 14(3)(a) | Human Oversight | Understanding capability | AI.9.1 HITL | Reviewer training records + competency assessment | Operations / HR | Verify training covers system capabilities, limitations, and automation bias |
+| Art. 14(4)(a) | Human Oversight | Override capability | AI.9.3 Human Override | Override mechanism documentation + test evidence | Engineering | Execute override; verify system responds within SLA |
+| Art. 14(4)(b) | Circuit Breaker | Stop capability | PACE Emergency | Emergency stop procedure + last drill record | Engineering + operations | Verify last drill within 90 days; review restoration time |
+| Art. 15(1) | AI Evaluation | Accuracy | AI.6.2 Validation | Model validation report + Judge accuracy metrics | Engineering + risk function | Compare stated accuracy to validation dataset results |
+| Art. 15(3) | Guardrails | Cybersecurity | AI.7 Guardrails | Guardrail test results (injection, data leakage) | Security | Run OWASP LLM Top 10 test cases; verify block rates |
+| Art. 15(4) | All | Resilience | PACE Resilience | PACE state definitions + last failover drill record | Engineering + operations | Verify each PACE state is defined; review drill results and restoration times |
+
+### Article 9 Evidence (Detail)
 
 | Evidence | Source |
 |----------|--------|
@@ -215,7 +238,7 @@ When demonstrating EU AI Act compliance, provide:
 | Test results | Validation reports, golden set results |
 | Ongoing monitoring reports | Judge summaries, drift reports |
 
-### Article 14 Evidence
+### Article 14 Evidence (Detail)
 
 | Evidence | Source |
 |----------|--------|
@@ -225,7 +248,7 @@ When demonstrating EU AI Act compliance, provide:
 | HITL decision records | Review logs with decisions |
 | Training records | Staff training documentation |
 
-### Article 12 Evidence
+### Article 12 Evidence (Detail)
 
 | Evidence | Source |
 |----------|--------|
