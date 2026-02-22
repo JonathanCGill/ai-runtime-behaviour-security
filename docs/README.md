@@ -34,6 +34,7 @@ description: Open-source framework for runtime behavioural security of AI system
 | Understand PACE resilience | [PACE Methodology](PACE-RESILIENCE.md) |
 | Run adversarial tests on agents | [Red Team Playbook](maso/red-team/red-team-playbook.md) |
 | Implement in LangGraph, AutoGen, CrewAI, or Bedrock | [Integration Guide](maso/integration/integration-guide.md) |
+| See one transaction end-to-end with every log event | [Runtime Telemetry Reference](extensions/technical/runtime-telemetry-reference.md) |
 | Enforce controls at infrastructure level | [Infrastructure Controls](infrastructure/) |
 | See real incidents mapped to controls | [Incident Tracker](maso/threat-intelligence/incident-tracker.md) |
 | See MASO applied in finance, healthcare, or energy | [Worked Examples](maso/examples/worked-examples.md) |

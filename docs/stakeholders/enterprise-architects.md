@@ -100,6 +100,8 @@ Wire these as **health checks and circuit breakers** in your service mesh or orc
 
 **If you're building multi-agent:** [MASO Integration Guide](../maso/integration/integration-guide.md) — LangGraph, AutoGen, CrewAI, AWS Bedrock patterns.
 
+**If you want to see one transaction end-to-end:** [Runtime Telemetry Reference](../extensions/technical/runtime-telemetry-reference.md) — every JSON event, every threshold, every evidence artefact for a single request through the full control stack.
+
 ---
 
 ## What You Can Do Monday Morning
