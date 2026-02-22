@@ -8,6 +8,8 @@
 
 **This is a thinking tool, not a checklist.** It gives you a structured way to reason about what controls your AI systems need — given your threat model, risk appetite, and regulatory obligations. Two organisations should arrive at different implementations. That's the point.
 
+**Executives and board members:** [What AI runtime risk means for leadership](stakeholders/risk-and-governance.md) — 5-minute read. | **New here?** [Quick Start](QUICK_START.md) — zero to working controls in 30 minutes.
+
 ---
 
 ## Find Your Entry Point
@@ -20,6 +22,8 @@
 | **Align AI with business strategy** | **[From Strategy to Production](strategy/)** |
 | **Deploy low-risk AI quickly** | **[Fast Lane](FAST-LANE.md)** |
 | **See the entire framework on one map** | **[Tube Map](TUBE-MAP.md)** |
+| **Get started in 30 minutes** | **[Quick Start](QUICK_START.md)** — from zero to working controls |
+| **Get the one-page reference** | **[Cheat Sheet](CHEATSHEET.md)** — classify, control, fail posture, test |
 | Classify a system by risk | [Risk Tiers](core/risk-tiers.md) |
 | Understand PACE resilience | [PACE Methodology](PACE-RESILIENCE.md) |
 | Run adversarial tests on agents | [Red Team Playbook](maso/red-team/red-team-playbook.md) |
@@ -27,6 +31,8 @@
 | See real incidents mapped to controls | [Incident Tracker](maso/threat-intelligence/incident-tracker.md) |
 
 ---
+
+The framework has three layers: **[Foundation](foundations/)** secures single-model AI, **[MASO](maso/)** extends into multi-agent orchestration, and **[Strategy](strategy/)** connects both to business decisions. Each builds on the last.
 
 ## The Problem
 
