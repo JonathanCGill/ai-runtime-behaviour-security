@@ -111,4 +111,70 @@ Shared embeddings or knowledge that multiple users access (e.g., company FAQ, pr
 - User-specific context is never written to shared stores
 ---
 
+## Behavioural Learning and Preference Data
+
+The controls above address what the model *remembers* — context windows, persistent memory, shared knowledge. But some systems are designed to *learn* from user behaviour: adapting communication style, building preference profiles, personalising recommendations based on interaction history.
+
+This is a different threat surface. Memory controls govern *storage and retrieval*. Behavioural learning controls govern *what you choose to extract, model, and act on*.
+
+### The Problem
+
+A system that learns customer preferences builds a behavioural profile. Over time, that profile becomes:
+
+- **Quasi-identifying** — Writing style, reading patterns, product preferences, and interaction timing can re-identify a user even without explicit PII
+- **Inferential** — The system can infer sensitive attributes (financial situation, health concerns, emotional state) from behavioural signals the user didn't intend to share
+- **Self-reinforcing** — Recommendation engines create feedback loops: the system shows you what it thinks you want, you interact with it, and that interaction confirms its model — even if the model was wrong
+- **Poisonable** — An adversary can inject false preference signals to manipulate future recommendations (showing a user competing products, biasing pricing, or shifting trust)
+
+### Decision Framework
+
+Before building a preference-learning system, answer these questions:
+
+| Question | If you can't answer clearly, stop |
+|----------|----------------------------------|
+| **What are you learning, and why?** | "User preferences" is too vague. Define exactly which signals you extract (product categories browsed, response length preference, time-of-day patterns) and the business purpose for each |
+| **Does the user know?** | Transparency isn't optional. The user should understand what the system has learned about them, in language they can read — not a JSON dump |
+| **Can the user see, correct, and delete what you've learned?** | If you store a preference model, users need the ability to inspect it, dispute incorrect inferences, and request deletion. This is regulatory in many jurisdictions and good practice in all of them |
+| **Is the learned data more sensitive than the raw data?** | Individual page views are low-sensitivity. An inferred health concern derived from browsing patterns is high-sensitivity. Classify the *output* of your learning, not just the input |
+| **How do you detect preference poisoning?** | If an attacker can shift your model of a user by injecting interactions, your recommendation engine becomes an attack surface. Define baselines and anomaly detection for profile changes |
+| **What's your feedback loop risk?** | If the system recommends → user clicks → system reinforces, you can converge on a narrow model that doesn't reflect the user's actual preferences. Build in diversity or exploration mechanisms |
+
+### What the Framework Covers
+
+Your existing controls from this document and the broader framework apply to the *infrastructure* of behavioural learning:
+
+| Framework control | How it applies to preference learning |
+|---|---|
+| **Persistent memory controls** (Section 3 above) | Preference data is persistent memory. Apply the same controls: TTLs, access scoping, content filtering, injection prevention, user memory controls |
+| **Accumulated PII** (Threat Model above) | Behavioural profiles are the canonical example. Individual interactions are low-risk; the accumulated profile is high-risk |
+| **Cross-session data governance** (Section 5 above) | Preference data flows across sessions. Apply the same isolation, classification, and access controls |
+| **Data retention** ([Data Retention Guidance](../extensions/templates/data-retention-guidance.md)) | Preference data needs retention limits. Define how long you keep learned preferences and how you purge them |
+| **Judge evaluation** ([Controls](controls.md)) | Your Judge can evaluate whether recommendations are appropriate, whether the system is over-personalising, and whether inferred preferences are plausible |
+
+### What the Framework Does Not Cover
+
+The *policy decisions* — what to learn, when to ask consent, how to explain inferences — are domain-specific. The framework gives you the security and governance infrastructure. You need domain expertise and legal guidance for:
+
+- **Consent design** — What does meaningful consent look like for behavioural learning? (Not "I agree to terms." Granular, revocable, specific.)
+- **Explainability** — How do you present a learned preference model to a non-technical user in a way they can understand and act on?
+- **Differential privacy** — How do you learn aggregate patterns without exposing individual behaviour? (Research-stage for most enterprises, but critical at scale.)
+- **Fairness and bias in recommendations** — If your preference model correlates with protected characteristics, your recommendations may discriminate. This is a fairness problem, not just a security problem.
+
+### Offramps — Go Here Next
+
+| Topic | Resource | Why |
+|-------|----------|-----|
+| **Profiling under GDPR** | [ICO Guidance on Profiling and Automated Decision-Making](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/individual-rights/automated-decision-making-and-profiling/) | Defines when behavioural profiling requires explicit consent, a right to object, and human review. Directly applicable if you serve UK/EU users |
+| **GDPR transparency requirements** | GDPR Articles 13–14 (right to be informed), Article 15 (right of access), Article 22 (automated individual decision-making) | What you must disclose about automated profiling. Your legal team should map these to your preference learning system |
+| **CCPA right to know and delete** | [California Attorney General CCPA Resources](https://oag.ca.gov/privacy/ccpa) | If you serve California residents, they have the right to know what data you've collected (including inferences) and to request deletion |
+| **NIST Privacy Framework** | [NIST Privacy Framework 1.0](https://www.nist.gov/privacy-framework) | Maps privacy risk management to your existing NIST AI RMF alignment. The "Identify-P" and "Control-P" functions apply directly to preference data |
+| **Recommendation system fairness** | Your AI/ML team's fairness evaluation tools (Fairlearn, AI Fairness 360, What-If Tool) | Test whether your preference model produces discriminatory recommendations. The framework's Judge can flag outliers, but fairness testing requires dedicated tooling |
+| **Consent management platforms** | Your privacy/compliance team's consent management documentation (OneTrust, Cookiebot, TrustArc, or equivalent) | The mechanism for capturing, storing, and honouring user consent for behavioural learning. Don't build this from scratch |
+
+**The framework's role:** Secure the storage, access, and lifecycle of preference data using existing memory and data protection controls. Detect anomalies in preference profiles. Evaluate recommendation quality through the Judge layer.
+
+**Your responsibility:** Decide *what* to learn, get *informed consent*, provide *transparency and user control*, and ensure *fairness*. These are design and policy decisions, not security controls — but they determine whether your security controls are protecting the right things.
+
+---
+
 *AI Runtime Behaviour Security, 2026 (Jonathan Gill).*
