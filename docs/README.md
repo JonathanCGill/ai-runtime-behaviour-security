@@ -178,6 +178,8 @@ His current focus is AI security governance: designing control architectures tha
 - GitHub: [@JonathanCGill](https://github.com/JonathanCGill)
 - LinkedIn: [Jonathan Gill](https://www.linkedin.com/in/jonathancgill/)
 
+[Read more](ABOUT.md){ .md-button }
+
 ---
 
 ## Disclaimer
