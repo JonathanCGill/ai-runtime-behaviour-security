@@ -93,6 +93,8 @@ Deeper examinations of where the framework meets production reality - what works
 | [Open-Weight Models Shift the Burden](open-weight-models-shift-the-burden.md) | Self-hosted models inherit the provider's control responsibilities |
 | [PACE Resilience](PACE-RESILIENCE.md) | How the three-layer architecture achieves operational resilience through layered, independent control redundancy |
 | [Security as Enablement, Not Commentary](security-as-enablement.md) | Security frameworks create value when delivered as platform infrastructure, not as narrative that diagnoses teams from the sidelines |
+| [The Constraint Curve](the-constraint-curve.md) | Every constraint reduces both risk and capability - proportionate controls find the peak; over-constraining destroys the value that justified using an LLM |
+| [The Hallucination Boundary](the-hallucination-boundary.md) | The same hallucination is a nuisance in one context and a catastrophe in another - tolerance is a function of decision authority, blast radius, and reversibility |
 | [Automated Risk Tiering](automated-risk-tiering.md) | Classification should take two minutes, produce an immediate result, and auto-apply the controls that make the risk manageable |
 | [Beyond Security](beyond-security.md) | The framework's architecture - layered independence, tiering, PACE, quantitative compounding - transfers to drift, fairness, explainability, and reliability |
 
