@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 540" role="img" aria-label="Graph showing how hallucination consequence severity increases with decision authority, and how tolerance shrinks from advisory systems to autonomous systems">
+  <defs>
+    <linearGradient id="tolerable" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#009688" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#009688" stop-opacity="0.03"/>
+    </linearGradient>
+    <linearGradient id="dangerous" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.03"/>
+    </linearGradient>
+    <linearGradient id="catastrophic" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#ef4444" stop-opacity="0.03"/>
+    </linearGradient>
+    <marker id="axArrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#334155"/>
+    </marker>
+    <marker id="ayArrow" markerWidth="6" markerHeight="8" refX="3" refY="0" orient="auto">
+      <polygon points="0 8, 3 0, 6 8" fill="#334155"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="780" height="540" rx="8" fill="#f8fafc"/>
+
+  <!-- Title -->
+  <text x="390" y="30" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="700" fill="#1e293b" text-anchor="middle">The Hallucination Risk Curve: When a Wrong Answer Spells the End</text>
+  <text x="390" y="48" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Hallucination tolerance as a function of decision authority and blast radius</text>
+
+  <!-- Chart area: x=90..720, y=65..420 -->
+
+  <!-- Consequence zones (horizontal bands) -->
+  <rect x="90" y="65" width="630" height="90" fill="url(#catastrophic)"/>
+  <rect x="90" y="155" width="630" height="110" fill="url(#dangerous)"/>
+  <rect x="90" y="265" width="630" height="155" fill="url(#tolerable)"/>
+
+  <!-- Zone boundary lines -->
+  <line x1="90" y1="155" x2="720" y2="155" stroke="#ef4444" stroke-width="0.8" stroke-dasharray="4,3" opacity="0.5"/>
+  <line x1="90" y1="265" x2="720" y2="265" stroke="#f59e0b" stroke-width="0.8" stroke-dasharray="4,3" opacity="0.5"/>
+
+  <!-- Zone labels on right -->
+  <text x="726" y="115" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600" fill="#dc2626" text-anchor="start">CATASTROPHIC</text>
+  <text x="726" y="127" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#dc2626" text-anchor="start" opacity="0.7">Irreversible harm</text>
+  <text x="726" y="210" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600" fill="#d97706" text-anchor="start">DANGEROUS</text>
+  <text x="726" y="222" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#d97706" text-anchor="start" opacity="0.7">Recoverable harm</text>
+  <text x="726" y="340" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600" fill="#0f766e" text-anchor="start">TOLERABLE</text>
+  <text x="726" y="352" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#0f766e" text-anchor="start" opacity="0.7">Nuisance only</text>
+
+  <!-- Axes -->
+  <line x1="90" y1="420" x2="720" y2="420" stroke="#334155" stroke-width="1.5" marker-end="url(#axArrow)"/>
+  <line x1="90" y1="420" x2="90" y2="65" stroke="#334155" stroke-width="1.5" marker-end="url(#ayArrow)"/>
+
+  <!-- X axis label -->
+  <text x="405" y="448" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600" fill="#334155" text-anchor="middle">Decision Authority</text>
+  <text x="130" y="462" font-family="Inter, system-ui, sans-serif" font-size="8.5" fill="#64748b" text-anchor="start">Advisory</text>
+  <text x="280" y="462" font-family="Inter, system-ui, sans-serif" font-size="8.5" fill="#64748b" text-anchor="middle">Influential</text>
+  <text x="450" y="462" font-family="Inter, system-ui, sans-serif" font-size="8.5" fill="#64748b" text-anchor="middle">Determinative</text>
+  <text x="640" y="462" font-family="Inter, system-ui, sans-serif" font-size="8.5" fill="#64748b" text-anchor="middle">Autonomous</text>
+
+  <!-- X axis tick marks -->
+  <line x1="130" y1="420" x2="130" y2="426" stroke="#334155" stroke-width="1"/>
+  <line x1="280" y1="420" x2="280" y2="426" stroke="#334155" stroke-width="1"/>
+  <line x1="450" y1="420" x2="450" y2="426" stroke="#334155" stroke-width="1"/>
+  <line x1="640" y1="420" x2="640" y2="426" stroke="#334155" stroke-width="1"/>
+
+  <!-- Y axis label -->
+  <text x="32" y="245" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600" fill="#334155" text-anchor="middle" transform="rotate(-90, 32, 245)">Consequence of Hallucination</text>
+
+  <!-- Y axis markers -->
+  <text x="82" y="394" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#64748b" text-anchor="end">Low</text>
+  <text x="82" y="270" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#64748b" text-anchor="end">Medium</text>
+  <text x="82" y="160" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#64748b" text-anchor="end">High</text>
+  <text x="82" y="95" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#64748b" text-anchor="end">Critical</text>
+
+  <!-- THE TOLERANCE BOUNDARY CURVE -->
+  <!-- Shows the boundary below which hallucinations are tolerable - shrinks rapidly as authority increases -->
+  <path d="M 90,395 C 150,390 200,380 250,350 C 300,315 350,275 400,250 C 450,225 500,195 560,165 C 600,148 660,120 720,95" fill="none" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="580" y="88" font-family="Inter, system-ui, sans-serif" font-size="9.5" font-weight="600" fill="#1e293b" text-anchor="start">Tolerance boundary</text>
+  <text x="580" y="100" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#475569" text-anchor="start">(above = unacceptable risk)</text>
+
+  <!-- SINGLE-AGENT HALLUCINATION curve -->
+  <path d="M 90,370 C 180,340 280,270 380,210 C 460,165 560,115 700,80" fill="none" stroke="#ef4444" stroke-width="2" stroke-dasharray="8,4" stroke-linecap="round"/>
+  <text x="700" y="73" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600" fill="#ef4444" text-anchor="end">Single-agent impact</text>
+
+  <!-- MULTI-AGENT AMPLIFIED HALLUCINATION curve (steeper - worse) -->
+  <path d="M 90,355 C 160,290 230,200 320,140 C 400,95 480,78 620,70" fill="none" stroke="#7c3aed" stroke-width="2" stroke-dasharray="4,3" stroke-linecap="round"/>
+  <text x="625" y="66" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600" fill="#7c3aed" text-anchor="start">Multi-agent amplified</text>
+
+  <!-- Example data points -->
+
+  <!-- 1. Internal chatbot drafting notes - advisory, tolerable -->
+  <circle cx="130" cy="380" r="6" fill="#009688" stroke="#fff" stroke-width="1.5"/>
+  <text x="140" y="376" font-family="Inter, system-ui, sans-serif" font-size="7.5" fill="#334155" text-anchor="start">Internal chatbot</text>
+  <text x="140" y="386" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#64748b" text-anchor="start">Wrong meeting summary</text>
+
+  <!-- 2. Customer FAQ bot - influential, low-medium -->
+  <circle cx="280" cy="310" r="6" fill="#f59e0b" stroke="#fff" stroke-width="1.5"/>
+  <text x="290" y="305" font-family="Inter, system-ui, sans-serif" font-size="7.5" fill="#334155" text-anchor="start">Customer FAQ bot</text>
+  <text x="290" y="315" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#64748b" text-anchor="start">Wrong product info</text>
+
+  <!-- 3. Research assistant - influential, medium -->
+  <circle cx="310" cy="240" r="6" fill="#f59e0b" stroke="#fff" stroke-width="1.5"/>
+  <text x="244" y="233" font-family="Inter, system-ui, sans-serif" font-size="7.5" fill="#334155" text-anchor="start">Research assistant</text>
+  <text x="244" y="243" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#64748b" text-anchor="start">Fabricated citation</text>
+
+  <!-- 4. Clinical decision support - determinative, high -->
+  <circle cx="450" cy="140" r="6" fill="#ef4444" stroke="#fff" stroke-width="1.5"/>
+  <text x="460" y="138" font-family="Inter, system-ui, sans-serif" font-size="7.5" fill="#334155" text-anchor="start">Clinical support</text>
+  <text x="460" y="148" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#64748b" text-anchor="start">Hallucinated drug interaction</text>
+
+  <!-- 5. Credit decision engine - autonomous, catastrophic -->
+  <circle cx="620" cy="90" r="6" fill="#ef4444" stroke="#fff" stroke-width="1.5"/>
+  <text x="536" y="182" font-family="Inter, system-ui, sans-serif" font-size="7.5" fill="#334155" text-anchor="start">Credit decisions</text>
+  <text x="536" y="192" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#64748b" text-anchor="start">Fabricated financials</text>
+  <line x1="570" y1="178" x2="616" y2="96" stroke="#94a3b8" stroke-width="0.8" stroke-dasharray="2,2"/>
+
+  <!-- 6. Multi-agent investment chain - amplified catastrophic -->
+  <circle cx="500" cy="85" r="6" fill="#7c3aed" stroke="#fff" stroke-width="1.5"/>
+  <text x="420" y="170" font-family="Inter, system-ui, sans-serif" font-size="7.5" fill="#334155" text-anchor="start">Investment chain</text>
+  <text x="420" y="180" font-family="Inter, system-ui, sans-serif" font-size="7" fill="#64748b" text-anchor="start">Amplified false revenue</text>
+  <line x1="456" y1="166" x2="497" y2="91" stroke="#94a3b8" stroke-width="0.8" stroke-dasharray="2,2"/>
+
+  <!-- Key insight callout -->
+  <rect x="100" y="476" width="580" height="48" rx="6" fill="#fff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="110" y="494" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600" fill="#1e293b">Key insight:</text>
+  <text x="178" y="494" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#475569">The same hallucination (a wrong fact) is a nuisance in an internal chatbot,</text>
+  <text x="110" y="510" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#475569">a liability in a customer-facing system, and a catastrophe in an autonomous decision engine.</text>
+  <text x="110" y="524" font-family="Inter, system-ui, sans-serif" font-size="9" fill="#475569">Multi-agent amplification makes it worse: confident, agreed-upon, well-formatted, and wrong.</text>
+</svg>
