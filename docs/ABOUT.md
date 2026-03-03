@@ -1,6 +1,6 @@
 # About the Author
 
-<div style="float: right; margin: 0 0 1em 1.5em; max-width: 200px;">
+<div style="float: right; margin: 0 0 1em 1.5em; max-width: 120px;">
   <img src="images/Jonathan Gill.jpg" alt="Jonathan Gill" style="border-radius: 8px; width: 100%;">
 </div>
 
