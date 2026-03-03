@@ -51,7 +51,7 @@ ai-security-infrastructure-controls/
 └── reference/
     └── platform-patterns/
         ├── aws-bedrock.md             # AWS Bedrock implementation patterns
-        ├── azure-ai.md                # Azure AI implementation patterns
+        ├── microsoft-foundry.md        # Microsoft Foundry implementation patterns
         └── databricks.md              # Databricks implementation patterns
 ```
 

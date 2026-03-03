@@ -73,7 +73,7 @@ If you're building on a specific platform, these map framework controls to platf
 | Platform | Pattern Guide | Key Services |
 |---|---|---|
 | AWS Bedrock | [AWS Bedrock Patterns](../infrastructure/reference/platform-patterns/aws-bedrock.md) | Bedrock Guardrails, CloudWatch, IAM |
-| Azure AI | [Azure AI Patterns](../infrastructure/reference/platform-patterns/azure-ai.md) | Azure AI Content Safety, Responsible AI toolkit |
+| Microsoft Foundry | [Microsoft Foundry Patterns](../infrastructure/reference/platform-patterns/microsoft-foundry.md) | Azure AI Content Safety, Responsible AI toolkit |
 | Databricks | [Databricks Patterns](../infrastructure/reference/platform-patterns/databricks.md) | MLflow, Unity Catalog, Model Serving |
 | LangChain / LangGraph | [Integration Guide](../maso/integration/integration-guide.md) | LangSmith, callbacks, output parsers |
 

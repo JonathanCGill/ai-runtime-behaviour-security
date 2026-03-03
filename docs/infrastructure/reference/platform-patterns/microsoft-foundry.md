@@ -1,6 +1,6 @@
-# Azure AI Implementation Patterns
+# Microsoft Foundry Implementation Patterns
 
-> **Purpose:** Platform-specific guidance for implementing the infrastructure controls on Azure using Azure OpenAI Service and Azure AI Studio as the model hosting platforms.  
+> **Purpose:** Platform-specific guidance for implementing the infrastructure controls on Azure using Azure OpenAI Service and Microsoft Foundry (formerly Azure AI Studio) as the model hosting platforms.  
 > **Status:** Reference patterns - adapt to your specific architecture and Azure subscription structure.
 
 ---

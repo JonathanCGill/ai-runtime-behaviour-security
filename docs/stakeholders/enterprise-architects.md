@@ -96,7 +96,7 @@ Wire these as **health checks and circuit breakers** in your service mesh or orc
 | 4 | [Cost & Latency](../extensions/technical/cost-and-latency.md) | Budget the evaluation layer - latency vs. coverage trade-offs |
 | 5 | [PACE Resilience](../PACE-RESILIENCE.md) | Fail postures as architecture decisions |
 
-**If you're building with a specific platform:** [AWS Bedrock](../infrastructure/reference/platform-patterns/aws-bedrock.md) · [Azure AI](../infrastructure/reference/platform-patterns/azure-ai.md) · [Databricks](../infrastructure/reference/platform-patterns/databricks.md)
+**If you're building with a specific platform:** [AWS Bedrock](../infrastructure/reference/platform-patterns/aws-bedrock.md) · [Microsoft Foundry](../infrastructure/reference/platform-patterns/microsoft-foundry.md) · [Databricks](../infrastructure/reference/platform-patterns/databricks.md)
 
 **If you're building multi-agent:** [MASO Integration Guide](../maso/integration/integration-guide.md) - LangGraph, AutoGen, CrewAI, AWS Bedrock patterns.
 

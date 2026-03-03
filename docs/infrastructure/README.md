@@ -223,7 +223,7 @@ Reference patterns for implementing these controls on specific platforms:
 | Platform | Covers |
 |----------|--------|
 | [AWS Bedrock](reference/platform-patterns/aws-bedrock.md) | Bedrock Guardrails, Knowledge Bases, Agent Framework, VPC architecture, IAM roles |
-| [Azure AI](reference/platform-patterns/azure-ai.md) | Azure OpenAI, AI Content Safety, APIM, Entra ID PIM, Sentinel |
+| [Microsoft Foundry](reference/platform-patterns/microsoft-foundry.md) | Azure OpenAI, AI Content Safety, APIM, Entra ID PIM, Sentinel |
 | [Databricks](reference/platform-patterns/databricks.md) | Mosaic AI Gateway, Model Serving, Unity Catalog, Vector Search, Inference Tables |
 
 ---

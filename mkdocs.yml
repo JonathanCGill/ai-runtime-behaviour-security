@@ -185,7 +185,7 @@ nav:
       - CSF 2.0: infrastructure/mappings/csf-2.0.md
     - Platform Patterns:
       - AWS Bedrock: infrastructure/reference/platform-patterns/aws-bedrock.md
-      - Azure AI: infrastructure/reference/platform-patterns/azure-ai.md
+      - Microsoft Foundry: infrastructure/reference/platform-patterns/microsoft-foundry.md
       - Databricks: infrastructure/reference/platform-patterns/databricks.md
 
   - Strategy & Insights:
