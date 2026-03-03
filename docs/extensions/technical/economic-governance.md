@@ -10,7 +10,13 @@ LLM inference costs depend on input length, output length, model selection, and 
 
 The result is a new class of operational risk: **economic risk from uncontrolled AI runtime behaviour.**
 
-This isn't hypothetical. IDC's 2025 survey found that 92% of decision-makers reported AI agent costs higher than expected. The Greyhound CIO Pulse 2025 found that 68% of digital leaders experienced major budget overruns during initial agent deployments, with nearly half attributing overruns to runaway tool loops and recursive logic. Gartner predicts that over 40% of agentic AI projects will fail to reach production by 2027, driven by cost and complexity.
+This isn't hypothetical:
+
+- **IDC's 2025 survey** found that 92% of decision-makers reported AI agent costs higher than expected, with inference being the most common cause.
+- **The Greyhound CIO Pulse 2025** found that 68% of digital leaders experienced major budget overruns during initial agent deployments, with nearly half attributing overruns to runaway tool loops and recursive logic.
+- **Mavvrik's 2025 AI Cost Governance Report** (372 companies surveyed) found that 84% of companies report AI costs cutting gross margins by more than 6%, and 80% of enterprises miss AI infrastructure forecasts by more than 25%.
+- **Gartner** predicts that over 40% of agentic AI projects will fail to reach production by 2027, driven by cost and complexity.
+- **IDC FutureScape 2026** warns that by 2027, G1000 organisations will face up to a 30% rise in underestimated AI infrastructure costs — not from overspending, but from under-forecasting expenses unique to AI workloads.
 
 The framework's [Cost & Latency](cost-and-latency.md) guide covers how to budget for security controls. This document covers a different problem: **how to govern AI economics at runtime** — monitoring spend, enforcing budgets, and preventing runaway costs before they become incidents.
 
@@ -29,6 +35,18 @@ Economic governance is not just a finance concern. Uncontrolled AI spending crea
 | **Model downgrade pressure** | Cost pressure forces use of cheaper, less capable models | Judge and guardrail effectiveness reduced |
 
 Financial denial-of-service is an emerging threat class. An attacker who can trigger expensive model calls — through prompt injection that causes verbose output, or inputs that trigger agent retry loops — can inflict economic harm without exfiltrating data or compromising systems.
+
+---
+
+## Governance Must Move Inside the System
+
+For most of the past decade, AI governance lived comfortably outside the systems it was meant to regulate. As long as AI behaved like a tool — producing predictions or recommendations on demand — that separation mostly worked.
+
+That assumption is breaking down. As AI systems move from assistive components to autonomous actors, governance imposed from the outside no longer scales. O'Reilly Radar's "Control Planes for Autonomous AI" (2025) identifies the critical architectural insight: **control planes should function as feedback systems, not gatekeepers.** Signals flow continuously from execution into governance — confidence degradation, policy boundary crossings, cost acceleration patterns. Those signals are evaluated in real time, not weeks later during audits. Responses flow back: throttling, intervention, escalation, or constraint adjustment.
+
+The distinction matters: *output monitoring tells you what happened. Control plane telemetry tells you why it was allowed to happen.*
+
+Economic governance follows the same principle. Budget enforcement that operates outside the AI system — monthly cost reviews, manual spend approvals — cannot contain a cost spike that happens in minutes. The enforcement must be architectural: embedded in the request pipeline, aware of cost in real time, and capable of automated response.
 
 ---
 
@@ -112,7 +130,11 @@ Runtime controls for agent economics:
 | **Diminishing returns detection** | Detect when additional iterations aren't improving outcomes; terminate early |
 | **Recursive call depth limits** | Prevent agents from spawning unbounded sub-agent chains |
 
-Google's Budget Tracker and BATS framework (2025) introduces budget awareness directly into the agent decision loop — giving agents real-time feedback about what they've spent, what's left, and what's worth doing next. This approach treats budget as a first-class input to agent reasoning, not an external constraint applied after the fact.
+Google's **Budget Tracker and BATS framework** (arXiv: 2511.17006, 2025) from Google Cloud AI Research, Google DeepMind, UC Santa Barbara, and NYU provides the most rigorous treatment of this problem to date. Budget Tracker is a lightweight plug-in that provides continuous budget awareness — like a fuel gauge, it appends remaining budget information after every tool response. It operates purely at the prompt level with no additional training required. The results are striking: a Gemini-2.5-Pro agent achieved similar accuracy with **10 tool calls versus 100** for standard ReAct, using 40% fewer search calls and cutting total cost by 31%.
+
+BATS (Budget Aware Test-time Scaling) extends this by dynamically adapting planning strategy based on remaining resources — deciding whether to "dig deeper" on a promising lead or "pivot" to new paths. On the BrowseComp benchmark, it achieved 24.6% accuracy at ~$0.23/query versus a parallel scaling baseline requiring >$0.50 for similar accuracy.
+
+The key insight: **budget as a first-class input to agent reasoning, not an external constraint applied after the fact.**
 
 ### 4. Optimise: Spend Effectively, Not Less
 
@@ -171,6 +193,52 @@ Mature AI economic governance tracks cost per business outcome, not cost per API
 | **Security cost ratio** | Control cost as percentage of total AI cost | Tracks whether security overhead is proportionate |
 | **Cost per risk tier** | Average interaction cost segmented by tier | Validates that higher-risk systems cost more (they should) |
 | **Cost variance coefficient** | Standard deviation of per-interaction cost | Measures predictability — high variance signals governance gaps |
+
+---
+
+## Provider-Native Controls: Know the Gaps
+
+AI model providers offer varying levels of native cost controls. Organisations should understand what providers offer — and where they fall short:
+
+| Provider | Native Budget Control | Limitation |
+|----------|----------------------|------------|
+| **Anthropic** | Hard monthly spend caps tied to usage tiers; token bucket rate limiting (RPM, TPM, TPD) | Organisation-level only; no per-application or per-user granularity |
+| **OpenAI** | Budget limit settings; configurable alerts | Reported to function as alerts rather than hard stops in some configurations — verify enforcement behaviour |
+| **Azure OpenAI** | TPM/RPM quotas per deployment | **No built-in hard spending cap.** Quotas control request rate but do not correlate to total monthly spending; exceeding limits triggers throttling, not blocking |
+| **AWS Bedrock** | Per-model throughput provisioning; CloudWatch billing alarms | Billing alarms are reactive, not preventive; no native per-request cost enforcement |
+| **Google Vertex AI** | Budget alerts via Cloud Billing; quota limits | Alerts are notifications, not enforcement; budget exceeded before alert arrives |
+
+**The gap is consistent:** provider-native controls operate at the infrastructure level (rate limits, billing alerts) but not at the application level (per-user budgets, per-feature limits, graduated responses). This is why a centralised AI gateway is essential.
+
+### The AI Gateway Pattern
+
+A centralised AI gateway or proxy — sitting between your applications and model providers — is the primary enforcement point for economic governance:
+
+| Gateway | Type | Key Strength |
+|---------|------|-------------|
+| **LiteLLM** | Open source | Unified interface for 100+ providers; per-key dollar budgets with automatic hard-stop enforcement; 8ms P95 latency at 1K RPS |
+| **Portkey** | Commercial | Hierarchical budgets (org → workspace → team → key); soft and hard limits; policy-as-code enforcement |
+| **Bifrost** | Open source | High performance (11μs overhead at 5K RPS); real-time cost visibility as first-class capability |
+| **Langfuse** | Open source | Detailed cost attribution at span level within multi-step agent workflows; strong observability |
+
+The gateway pattern provides a single enforcement point regardless of which models or providers are used downstream. It also enables model routing — automatically directing requests to cost-appropriate models based on task complexity.
+
+---
+
+## Runtime Enforcement Taxonomy
+
+Runtime budget enforcement operates across six layers. Mature organisations implement controls at multiple layers:
+
+| Layer | What It Controls | Examples |
+|-------|-----------------|---------|
+| **1. Provider-level** | Rate limits and spend caps from the model provider | Anthropic hard caps, OpenAI budget limits, Azure TPM quotas |
+| **2. Gateway-level** | Centralised request-level enforcement | LiteLLM virtual key budgets, Portkey hierarchical limits, policy-as-code |
+| **3. Agent-level** | Budget awareness within agent reasoning | Google BATS budget tracker, iteration caps, loop detection |
+| **4. Infrastructure-level** | Compute resource constraints | Kubernetes resource quotas, GPU fractional sharing, wall-clock timeboxing |
+| **5. Organisational** | Human governance processes | Cross-functional FinOps teams, approval workflows, progressive trust models |
+| **6. Observability** | Detection and feedback | Real-time telemetry, cost anomaly detection, tiered alerting dashboards |
+
+Layer 2 (gateway) is the minimum viable enforcement point. Layers 1 and 4 provide defence in depth. Layer 3 is emerging but essential for agentic systems. Layers 5 and 6 provide the governance context that makes technical controls meaningful.
 
 ---
 
@@ -303,13 +371,36 @@ Economic governance requires clear roles and responsibilities:
 
 ## References
 
+### Standards and Frameworks
+
+- NIST AI Risk Management Framework (AI RMF 1.0) — economic harm categories and continuous monitoring — [nist.gov/itl/ai-risk-management-framework](https://www.nist.gov/itl/ai-risk-management-framework)
+- ISO/IEC 42001:2023 — AI management system standard — [iso.org/standard/42001](https://www.iso.org/standard/42001)
+- OECD, "Governing with Artificial Intelligence" (2025) — [oecd.org](https://www.oecd.org/en/publications/2025/06/governing-with-artificial-intelligence_398fa287/full-report.html)
+
+### Industry Research
+
 - FinOps Foundation, "FinOps for AI Overview" (2025) — [finops.org/wg/finops-for-ai-overview](https://www.finops.org/wg/finops-for-ai-overview/)
 - FinOps Foundation, "State of FinOps 2026" — [data.finops.org](https://data.finops.org/)
-- Google, "Budget Tracker and BATS Framework" (2025) — budget-aware agent cost governance
+- Mavvrik, "2025 State of AI Cost Governance Report" — [mavvrik.ai](https://www.mavvrik.ai/state-of-ai-cost-governance-report/)
+- CloudZero, "The State of AI Costs in 2025" — [cloudzero.com](https://www.cloudzero.com/state-of-ai-costs/)
 - IDC FutureScape 2026 — AI infrastructure cost underestimation projections
-- NIST AI Risk Management Framework (AI RMF 1.0) — economic harm categories and continuous monitoring — [nist.gov/itl/ai-risk-management-framework](https://www.nist.gov/itl/ai-risk-management-framework)
-- OECD, "Governing with Artificial Intelligence" (2025) — [oecd.org](https://www.oecd.org/en/publications/2025/06/governing-with-artificial-intelligence_398fa287/full-report.html)
 - Gartner — AI agent production failure predictions; AI strategy ROI findings
+- Galileo AI, "The Hidden Costs of Agentic AI" — [galileo.ai](https://galileo.ai/blog/hidden-cost-of-agentic-ai)
+
+### Academic Papers
+
+- Google Cloud AI Research, Google DeepMind et al., "Budget Aware Test-time Scaling" (BATS), arXiv: 2511.17006 (2025) — [arxiv.org](https://arxiv.org/abs/2511.17006)
+- O'Reilly Radar, "Control Planes for Autonomous AI" (2025) — [oreilly.com](https://www.oreilly.com/radar/control-planes-for-autonomous-ai-why-governance-has-to-move-inside-the-system/)
+- GovAI, "Computing Power and the Governance of AI" — [governance.ai](https://www.governance.ai/analysis/computing-power-and-the-governance-of-ai)
+- "AI Governance through Markets", arXiv: 2501.17755 (2025) — [arxiv.org](https://arxiv.org/html/2501.17755v1)
+- Springer, "AI Governance: A Systematic Literature Review" (AI and Ethics, 2025) — [springer.com](https://link.springer.com/article/10.1007/s43681-024-00653-w)
+
+### Tools
+
+- LiteLLM — open-source LLM proxy with budget enforcement — [github.com/BerriAI/litellm](https://github.com/BerriAI/litellm)
+- Portkey — AI gateway with hierarchical budget controls — [portkey.ai](https://portkey.ai/)
+- Langfuse — open-source LLM observability with cost tracking — [langfuse.com](https://langfuse.com/)
+- OpenCost — CNCF Kubernetes cost monitoring with AI plugin — [opencost.io](https://opencost.io/)
 
 ---
 
