@@ -34,7 +34,7 @@
   <text x="275" y="203" class="arrow-text">passes within-bounds outputs</text>
 
   <!-- Layer 1 — Guardrails (bottom) -->
-  <rect x="40" y="216" width="440" height="72" rx="10" fill="#2a9d8f"/>
+  <rect x="40" y="216" width="440" height="72" rx="10" fill="#4051b5"/>
   <text x="260" y="244" text-anchor="middle" class="title">Guardrails</text>
   <text x="260" y="262" text-anchor="middle" class="desc">Content policies · scope constraints · tool-use permissions</text>
   <text x="260" y="276" text-anchor="middle" class="desc">Fast, deterministic — blocks known-bad patterns</text>

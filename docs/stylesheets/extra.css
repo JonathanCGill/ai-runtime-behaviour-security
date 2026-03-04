@@ -1,19 +1,19 @@
-/* ── Colour scheme: dark navy primary, muted teal accent ── */
+/* ── Colour scheme: dark navy primary, indigo accent ── */
 :root {
   --md-default-bg-color: #f8f8f8;
   --md-primary-fg-color: #1a1a2e;
   --md-primary-fg-color--light: #2d2d4a;
   --md-primary-fg-color--dark: #0f0f1e;
-  --md-accent-fg-color: #2a9d8f;
-  --md-accent-fg-color--transparent: rgba(42, 157, 143, 0.1);
+  --md-accent-fg-color: #4051b5;
+  --md-accent-fg-color--transparent: rgba(64, 81, 181, 0.1);
 }
 
 [data-md-color-scheme="slate"] {
   --md-primary-fg-color: #1a1a2e;
   --md-primary-fg-color--light: #2d2d4a;
   --md-primary-fg-color--dark: #0f0f1e;
-  --md-accent-fg-color: #2a9d8f;
-  --md-accent-fg-color--transparent: rgba(42, 157, 143, 0.1);
+  --md-accent-fg-color: #4051b5;
+  --md-accent-fg-color--transparent: rgba(64, 81, 181, 0.1);
 }
 
 /* ── Typography: 18px body, 720px max width ── */
@@ -234,7 +234,7 @@ img[src$=".svg"] {
   display: none;
 }
 
-/* Mobile drawer: remove all teal accent, use black throughout */
+/* Mobile drawer: remove accent colour, use black throughout */
 .md-nav--primary {
   --md-accent-fg-color: var(--md-default-fg-color);
   --md-accent-fg-color--transparent: transparent;
@@ -251,7 +251,7 @@ img[src$=".svg"] {
   color: var(--md-default-fg-color) !important;
 }
 
-/* Footer: clean light style, no teal or blue */
+/* Footer: clean light style, no accent colour */
 .md-footer {
   background-color: #f5f5f5;
   color: var(--md-default-fg-color);

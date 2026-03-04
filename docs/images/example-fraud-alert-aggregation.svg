@@ -105,7 +105,7 @@
   <text x="515" y="261" class="box-detail">• Emerging typologies</text>
   
   <!-- Output 3: ML Detection -->
-  <rect x="500" y="280" width="180" height="80" rx="8" fill="white" stroke="#0d9488" stroke-width="2"/>
+  <rect x="500" y="280" width="180" height="80" rx="8" fill="white" stroke="#3949ab" stroke-width="2"/>
   <text x="590" y="300" text-anchor="middle" class="box-title">ML Anomaly Detection</text>
   <text x="515" y="320" class="box-detail">• Baseline modelling</text>
   <text x="515" y="333" class="box-detail">• Drift detection</text>
