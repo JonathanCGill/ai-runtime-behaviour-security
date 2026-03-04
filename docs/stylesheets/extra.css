@@ -1,5 +1,6 @@
 /* ── Colour scheme: dark navy primary, muted teal accent ── */
 :root {
+  --md-default-bg-color: #f8f8f8;
   --md-primary-fg-color: #1a1a2e;
   --md-primary-fg-color--light: #2d2d4a;
   --md-primary-fg-color--dark: #0f0f1e;

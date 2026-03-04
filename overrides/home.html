@@ -1,9 +1,18 @@
 {% extends "main.html" %}
 
+{# Hide the H1 and source-file link on the landing page #}
+{% block extrahead %}
+  {{ super() }}
+  <style>
+    .md-content__inner > h1:first-child { display: none; }
+    .md-content__inner > .md-source-file { display: none; }
+  </style>
+{% endblock %}
+
 {# No sidebar on the landing page #}
 {% block site_nav %}{% endblock %}
 
-{# Render content directly — no wrapper div, so existing CSS selectors work #}
+{# Render content directly #}
 {% block content %}
   {{ page.content }}
 {% endblock %}
