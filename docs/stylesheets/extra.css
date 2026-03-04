@@ -251,9 +251,39 @@ img[src$=".svg"] {
   color: var(--md-default-fg-color) !important;
 }
 
-/* Footer: subtle, matching the light theme */
+/* Footer: clean light style, no teal or blue */
 .md-footer {
-  background-color: var(--md-primary-fg-color);
+  background-color: #f5f5f5;
+  color: var(--md-default-fg-color);
+}
+
+.md-footer-meta {
+  background-color: #e8e8e8;
+}
+
+.md-footer-nav__link,
+.md-footer-prev .md-footer-nav__link,
+.md-footer-next .md-footer-nav__link,
+.md-footer__link {
+  color: var(--md-default-fg-color) !important;
+}
+
+.md-footer-nav__direction,
+.md-footer__direction {
+  color: var(--md-default-fg-color--light) !important;
+}
+
+.md-footer-meta__inner {
+  color: var(--md-default-fg-color--light);
+}
+
+.md-footer-meta__inner a,
+.md-social__link {
+  color: var(--md-default-fg-color) !important;
+}
+
+.md-copyright {
+  color: var(--md-default-fg-color--light);
 }
 
 /* Giscus comments: ensure full width within content area */
