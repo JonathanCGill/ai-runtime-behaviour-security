@@ -160,18 +160,11 @@ img[src$=".svg"] {
   }
 }
 
-/* ── Navbar: seamless with page background ── */
+/* ── Single-row navbar ── */
 .md-header {
   background-color: var(--md-default-bg-color);
-  color: var(--md-default-fg-color);
+  color: #000;
   box-shadow: none;
-}
-
-.md-header__topic,
-.md-header-nav__topic,
-.md-header .md-header__title {
-  color: var(--md-default-fg-color);
-  font-family: var(--md-text-font);
 }
 
 .md-header .md-logo img,
@@ -179,23 +172,60 @@ img[src$=".svg"] {
   filter: none;
 }
 
-/* Search icon / header icons: dark on light navbar */
 .md-header .md-icon {
-  color: var(--md-default-fg-color);
+  color: #000;
 }
 
-/* Tabs bar: centred, seamless, matching font */
-.md-tabs {
-  background-color: var(--md-default-bg-color);
+.md-header__title,
+.md-header__topic {
+  color: #000;
   font-family: var(--md-text-font);
 }
 
-.md-tabs__list {
+/* Inline nav tabs inside the header row */
+.md-header-tabs {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0.25rem;
+  flex: 1;
   justify-content: center;
+  align-items: center;
 }
 
-.md-tabs__link {
+.md-header-tabs__link {
+  color: #000;
   font-family: var(--md-text-font);
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.4rem 0.75rem;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 0.25rem;
+  transition: color 0.15s, background-color 0.15s;
+}
+
+.md-header-tabs__link--active {
+  color: #000;
+  font-weight: 600;
+}
+
+.md-header-tabs__link:hover {
+  color: #000;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+/* Hide inline tabs on mobile — drawer takes over */
+@media (max-width: 76.25em) {
+  .md-header-tabs {
+    display: none;
+  }
+}
+
+/* Old tabs bar is now empty — hide it */
+.md-tabs {
+  display: none;
 }
 
 /* Footer: subtle, matching the light theme */

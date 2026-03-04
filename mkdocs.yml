@@ -5,9 +5,7 @@ site_description: >-
   deployments to autonomous multi-agent orchestration.
 site_author: Jonathan Gill
 
-repo_url: https://github.com/JonathanCGill/ai-runtime-behaviour-security
-repo_name: JonathanCGill/ai-runtime-behaviour-security
-edit_uri: edit/main/
+edit_uri: ""
 
 docs_dir: docs
 site_dir: site
@@ -33,7 +31,6 @@ theme:
         name: Switch to light mode
   features:
     - navigation.tabs
-    - navigation.tabs.sticky
     - navigation.indexes
     - navigation.top
     - navigation.footer
@@ -44,8 +41,7 @@ theme:
     - content.action.edit
     - content.action.view
     - toc.follow
-  icon:
-    repo: fontawesome/brands/github
+  icon: {}
 
 plugins:
   - search
