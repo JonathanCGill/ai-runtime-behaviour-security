@@ -104,17 +104,17 @@
   <text x="860" y="175" font-family="Arial, sans-serif" font-size="9" fill="#64748b">Payment proc</text>
   <text x="860" y="190" font-family="Arial, sans-serif" font-size="9" fill="#64748b">Account ctrl</text>
 
-  <rect x="960" y="130" width="100" height="70" rx="6" fill="white" stroke="#0d9488" stroke-width="2"/>
+  <rect x="960" y="130" width="100" height="70" rx="6" fill="white" stroke="#3949ab" stroke-width="2"/>
   <text x="1010" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#1e293b">Analyse</text>
   <text x="970" y="175" font-family="Arial, sans-serif" font-size="9" fill="#64748b">Judge eval</text>
   <text x="970" y="190" font-family="Arial, sans-serif" font-size="9" fill="#64748b">Drift detect</text>
 
-  <rect x="880" y="220" width="150" height="50" rx="6" fill="#0d9488"/>
+  <rect x="880" y="220" width="150" height="50" rx="6" fill="#3949ab"/>
   <text x="955" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">Policy Updates</text>
   <text x="955" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white" opacity="0.9">Improve over time</text>
 
-  <path d="M 880 245 L 342 245 L 342 240" stroke="#0d9488" stroke-width="2" fill="none" stroke-dasharray="5,3"/>
-  <polygon points="342,240 338,247 346,247" fill="#0d9488"/>
+  <path d="M 880 245 L 342 245 L 342 240" stroke="#3949ab" stroke-width="2" fill="none" stroke-dasharray="5,3"/>
+  <polygon points="342,240 338,247 346,247" fill="#3949ab"/>
 
   <!-- ALERT SPINE -->
   <rect x="30" y="385" width="1040" height="110" rx="10" fill="#1e293b"/>
@@ -126,7 +126,7 @@
   <line x1="497" y1="305" x2="497" y2="385" stroke="#22c55e" stroke-width="2" stroke-dasharray="4"/>
   <line x1="700" y1="335" x2="700" y2="385" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4"/>
   <line x1="900" y1="200" x2="900" y2="385" stroke="#64748b" stroke-width="2" stroke-dasharray="4"/>
-  <line x1="1010" y1="200" x2="1010" y2="385" stroke="#0d9488" stroke-width="2" stroke-dasharray="4"/>
+  <line x1="1010" y1="200" x2="1010" y2="385" stroke="#3949ab" stroke-width="2" stroke-dasharray="4"/>
 
   <rect x="100" y="455" width="150" height="35" rx="6" fill="#3b82f6"/>
   <text x="175" y="477" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">Per-Case Timeline</text>
@@ -134,7 +134,7 @@
   <rect x="290" y="455" width="150" height="35" rx="6" fill="#8b5cf6"/>
   <text x="365" y="477" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">Cross-Case Analytics</text>
 
-  <rect x="480" y="455" width="150" height="35" rx="6" fill="#0d9488"/>
+  <rect x="480" y="455" width="150" height="35" rx="6" fill="#3949ab"/>
   <text x="555" y="477" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">ML Anomaly Detection</text>
 
   <rect x="670" y="455" width="150" height="35" rx="6" fill="#f59e0b"/>

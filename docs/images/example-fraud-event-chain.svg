@@ -143,8 +143,8 @@
   
   <!-- Stage 7 -->
   <g transform="translate(930, 70)">
-    <rect width="130" height="160" rx="8" fill="white" stroke="#0d9488" stroke-width="2"/>
-    <circle cx="20" cy="20" r="14" fill="#0d9488"/>
+    <rect width="130" height="160" rx="8" fill="white" stroke="#3949ab" stroke-width="2"/>
+    <circle cx="20" cy="20" r="14" fill="#3949ab"/>
     <text x="20" y="25" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="bold" fill="white">7</text>
     <text x="70" y="20" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="bold" fill="#1e293b">Post-Event</text>
     <text x="70" y="32" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="bold" fill="#1e293b">Assurance</text>

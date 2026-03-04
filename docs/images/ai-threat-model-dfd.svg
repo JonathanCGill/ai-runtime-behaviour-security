@@ -489,5 +489,5 @@
   <text x="60" y="962" class="legend-head" fill="#166534">FRAMEWORK MAPPING</text>
   <text x="200" y="962" class="legend-text">TB2 maps to the Runtime line (green) on the AI Security Reference Architecture tube map.</text>
   <text x="200" y="976" class="legend-text">Controls: Input Guardrails → Output Guardrails → Judge → HITL. The three-layer pattern (guardrails prevent, judge detects, humans decide) addresses A1, A3, A6.</text>
-  <text x="200" y="990" class="legend-text">A2 (indirect injection) and A4 (RAG poisoning) require Data Zone controls - mapped to the Monitoring line (teal) and Verification line (cyan).</text>
+  <text x="200" y="990" class="legend-text">A2 (indirect injection) and A4 (RAG poisoning) require Data Zone controls - mapped to the Monitoring line (indigo) and Verification line (cyan).</text>
 </svg>

@@ -19,13 +19,13 @@ theme:
   palette:
     - scheme: default
       primary: indigo
-      accent: teal
+      accent: indigo
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
     - scheme: slate
       primary: indigo
-      accent: teal
+      accent: indigo
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
