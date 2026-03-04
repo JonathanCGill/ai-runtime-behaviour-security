@@ -18,8 +18,6 @@ comments: false
 
 </div>
 
----
-
 ## Why This Matters
 
 ### The problem
@@ -53,8 +51,6 @@ Each layer operates independently. If guardrails miss something, the judge catch
 Banking supervisors, data protection authorities, and AI regulators are all converging on the same expectation: you must be able to demonstrate that your AI systems behave within defined boundaries, and that you have controls to detect and respond when they do not.
 
 This framework maps directly to EU AI Act requirements for high-risk AI systems, NIST AI RMF functions, ISO 42001 controls, and sector-specific expectations from banking regulators. It is not a compliance checkbox. It is an operational architecture that produces the evidence compliance requires. The controls are the compliance. That is the point.
-
----
 
 ### Where to go from here
 

@@ -77,12 +77,16 @@ img[src$=".svg"] {
   display: none;
 }
 
-/* Subtitle line under hidden h1 */
+/* Hero tagline — big, bold, impossible to miss */
 .home-subtitle {
   text-align: center;
-  font-size: 1.15rem;
-  color: var(--md-default-fg-color--light);
-  margin-bottom: 1.5rem;
+  font-size: 1.65rem;
+  line-height: 1.35;
+  color: var(--md-default-fg-color);
+  font-weight: 700;
+  max-width: 38rem;
+  margin: 1rem auto 2rem;
+  letter-spacing: -0.01em;
 }
 
 /* Three clickable paths at bottom of homepage */
@@ -156,7 +160,37 @@ img[src$=".svg"] {
   }
 }
 
-/* Footer: match the header (primary) colour */
+/* ── Navbar: blend with page background ── */
+.md-header {
+  background-color: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  box-shadow: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.md-header__topic,
+.md-header-nav__topic,
+.md-header .md-header__title {
+  color: var(--md-default-fg-color);
+}
+
+.md-header .md-logo img,
+.md-header .md-logo svg {
+  filter: none;
+}
+
+/* Search icon / header icons: dark on light navbar */
+.md-header .md-icon {
+  color: var(--md-default-fg-color);
+}
+
+/* Tabs bar: match navbar */
+.md-tabs {
+  background-color: var(--md-default-bg-color);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+/* Footer: subtle, matching the light theme */
 .md-footer {
   background-color: var(--md-primary-fg-color);
 }
