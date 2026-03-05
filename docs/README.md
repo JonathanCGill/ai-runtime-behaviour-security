@@ -86,3 +86,9 @@ Securing autonomous agent coordination in multi-agent systems.
 </div>
 
 </div>
+
+---
+
+<p style="text-align: center; font-size: 0.85rem; color: var(--md-default-fg-color--light);">
+Created by <a href="https://www.linkedin.com/in/jonathancgill/">Jonathan C. Gill</a>
+</p>
