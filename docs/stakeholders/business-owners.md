@@ -122,6 +122,8 @@ Each phase requires demonstrated operational maturity before progressing. You do
 
 **If you're planning AI strategy:** [From Strategy to Production](../strategy/) covers the full lifecycle from business alignment through data reality, human factors, and progression planning.
 
+**To see the framework in action across a full enterprise:** Read [A Day in the Life](../strategy/enterprise-day-in-the-life.md) - what a single day looks like when eight AI systems across multiple departments operate under the framework, including a Business Owner quarterly planning session.
+
 ## What You Can Do Monday Morning
 
 1. **Classify every AI system in your portfolio** using the [Risk Tiers](../core/risk-tiers.md). Map each product's AI to a tier. This gives you the portfolio view - and reveals whether any products are running at a higher tier than their controls support.

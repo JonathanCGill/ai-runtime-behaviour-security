@@ -105,6 +105,8 @@ Read these in order. Total time: ~90 minutes.
 
 **If you're presenting to the board:** Add [Risk Assessment](../core/risk-assessment.md) for the quantified methodology.
 
+**To see the framework in action across a full enterprise:** Read [A Day in the Life](../strategy/enterprise-day-in-the-life.md) - what a single day looks like when eight AI systems across multiple departments operate under the framework.
+
 ## What You Can Do Monday Morning
 
 1. **Inventory every AI deployment** across the portfolio. Use the [Risk Tiers](../core/risk-tiers.md) six-dimension scoring to classify each one. Most CIOs don't have a complete, consistently classified view of their AI estate.
