@@ -2,8 +2,6 @@
 
 *You cannot fully test a non-deterministic system before deployment. Security must shift from "prove it works" to "continuously verify it's working."*
 
----
-
 ## The Assumption That Doesn't Hold
 
 Enterprise security is built on a fundamental assumption: test the system, prove it works, deploy it, protect it. Static analysis, penetration testing, code review, QA - all happen before production. If the system passes, it ships.
@@ -13,8 +11,6 @@ AI breaks this model.
 A traditional API returns the same output for the same input. You can test it exhaustively. An AI system returns *different* outputs for the same input. The same prompt, same model, same temperature - different response. Not occasionally. By design. Non-determinism is the feature, not the bug.
 
 This means your pre-deployment test suite - no matter how thorough - proves the system *can* behave correctly. It cannot prove the system *will* behave correctly on the next request.
-
----
 
 ## What This Means in Practice
 
@@ -31,8 +27,6 @@ This is not a theoretical risk. Documented incidents include:
 - **Perplexity AI exfiltrating data** through carefully crafted retrieval queries
 
 Each of these systems passed testing. Each failed in production.
-
----
 
 ## The Architecture That Works
 
@@ -66,8 +60,6 @@ When the layers themselves fail - when the guardrail service goes down, or the J
 
 The system fails safely. Not silently.
 
----
-
 ## Why Guardrails Alone Are Not Enough
 
 Most enterprise "AI security" today consists of guardrails: input/output filters that block known-bad patterns. This is Layer 1 without Layers 2 and 3.
@@ -79,8 +71,6 @@ No guardrail catches "this response is factually correct but contextually harmfu
 No guardrail catches "this response is technically within policy but the user's intent is adversarial." That requires human judgement.
 
 The three layers work because they address fundamentally different failure categories: known-bad (guardrails), unknown-bad (Judge), and ambiguous (human). Remove any layer and you have a gap.
-
----
 
 ## When Agents Talk to Agents
 
@@ -106,8 +96,6 @@ Every agent-to-agent message is untrusted input. Every delegation is a potential
 
 The controls exist. The challenge is that most organisations are deploying multi-agent systems with single-agent security models, or with no security model at all.
 
----
-
 ## What You Should Do Now
 
 If you are deploying AI in an enterprise, you need runtime behavioural security. Here is where to start:
@@ -124,8 +112,6 @@ If you are deploying AI in an enterprise, you need runtime behavioural security.
 
 **6. Treat multi-agent deployments as a distinct risk category.** If your agents talk to other agents, your single-agent controls are necessary but not sufficient. Agent-to-agent messages are untrusted input. Permissions do not transfer implicitly. Every boundary is an attack surface.
 
----
-
 ## The Bottom Line
 
 AI security is not a design-time problem with a design-time solution. It is a runtime problem that requires continuous, layered, independent monitoring of every interaction in production.
@@ -134,6 +120,3 @@ The pattern is proven. NVIDIA NeMo Guardrails, AWS Bedrock Guardrails, Azure AI 
 
 The question is not whether your AI systems need runtime behavioural security. The question is whether you will implement it before or after an incident forces you to.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

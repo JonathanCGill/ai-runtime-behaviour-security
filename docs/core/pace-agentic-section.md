@@ -4,8 +4,6 @@
 
 > *This document uses the simplified three-tier system (Tier 1/2/3). See [Risk Tiers - Simplified Tier Mapping](risk-tiers.md#simplified-tier-mapping) for the mapping to LOW/MEDIUM/HIGH/CRITICAL.*
 
----
-
 ## Why Agents Need a Degradation Path
 
 Agentic AI systems can't be stopped the way you stop a web server. When you shut down an agent, you may be interrupting:
@@ -19,8 +17,6 @@ Agentic AI systems can't be stopped the way you stop a web server. When you shut
 "Turn it off" is not a resilience plan. It's a panic response that creates orphaned transactions, locked resources, and confused downstream systems. The degradation path provides structured alternatives between "fully autonomous" and "completely stopped."
 
 ![Agentic AI Graceful Degradation Path](../images/pace-degradation-path.svg)
-
----
 
 ## The Five Degradation Phases
 
@@ -80,8 +76,6 @@ Each phase reduces the agent's autonomy while maintaining as much business value
 | **What changes** | Service unavailable. All agent sessions terminated with transaction resolution. Audit logs and state snapshots immutable and preserved. Stakeholders notified. |
 | **Trigger to recovery** | Root cause identified. Fix implemented and validated. Degradation path tested. Risk function sign-off. Phased restart through Supervised → Constrained → Normal. |
 
----
-
 ## Transaction Resolution
 
 Before an agent can transition to a lower phase, in-flight transactions must be resolved. For each tool in the agent's permission set, the architect must define the resolution strategy.
@@ -106,8 +100,6 @@ For every tool or system the agent can access, document:
 | Decisioning engine submission | Yes (within window) | Yes (human resubmits) | Yes (partial submission corrupts record) | Must either complete submission or roll back entirely. No partial state. |
 | Customer notification email | No (once sent) | Yes (human sends) | No | If queued but not sent, hold for human review. If sent, log and accept. |
 | Document generation | No | Yes (human regenerates) | No | Discard incomplete documents. Human regenerates if needed. |
-
----
 
 ## Multi-Agent Cascade Prevention
 
@@ -144,8 +136,6 @@ All phase transitions must be:
 - Visible to the orchestrator and all dependent agents
 - Communicated to the human oversight function
 
----
-
 ## State Preservation for Post-Incident Analysis
 
 When the degradation path activates (any transition below Normal), the following must be preserved before the agent's state changes:
@@ -161,8 +151,6 @@ When the degradation path activates (any transition below Normal), the following
 
 All preservation must be automated. The agent must not be able to modify its own logs during a phase transition. Immutability is enforced at the infrastructure layer.
 
----
-
 ## Recovery: Stepping Back Up
 
 Recovery is not "restart and hope." It's a phased return through the degradation path:
@@ -177,8 +165,6 @@ Recovery is not "restart and hope." It's a phased return through the degradation
 
 At Tier 3, each step-up requires explicit authorisation. The agent does not return to Normal automatically.
 
----
-
 ## Pre-Deployment Requirements
 
 No agentic AI system should enter production without:
@@ -191,6 +177,3 @@ No agentic AI system should enter production without:
 - [ ] Recovery (step-back-up) procedure documented with authorisation gates
 - [ ] Full degradation walkthrough completed with production-equivalent scenario
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

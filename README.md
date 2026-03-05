@@ -8,8 +8,6 @@
 
 Most AI security guidance stops at the model layer. This framework addresses what happens after deployment: how AI systems behave in production, how that behaviour is monitored, and how it's contained when things go wrong. Built from 20+ years of enterprise cybersecurity experience in regulated financial services.
 
----
-
 ## The Problem You're Solving
 
 You can't fully test an AI system before deployment. The input space is natural language — effectively infinite. Emergent behaviour can't be predicted through conventional test suites. And adversarial inputs will find edge cases no QA team imagined.
@@ -19,8 +17,6 @@ So how do you know it's working correctly in production?
 Most enterprise "AI security" today is guardrails: input/output filters that block known-bad patterns. That catches what you can define in advance. It doesn't catch the response that's fluent, confident, and wrong. The recommendation based on hallucinated data. The action that's technically authorised but contextually dangerous.
 
 **You need layered runtime controls — not just faster pattern matching.**
-
----
 
 ## The Architecture
 
@@ -39,8 +35,6 @@ Each layer catches what the others miss. Remove any layer and you have a gap. Th
 
 ![Single-Agent Security Architecture](docs/images/single-agent-architecture.svg)
 
----
-
 ## Who This Is For
 
 **Security leaders** writing an AI security strategy and finding that existing frameworks describe what should be true without specifying how to make it true in production.
@@ -51,8 +45,6 @@ Each layer catches what the others miss. Remove any layer and you have a gap. Th
 
 **Engineers** building AI systems who want implementation patterns, not slide decks. Guardrail configs, Judge prompts, integration code.
 **→** [AI Engineers view](docs/stakeholders/ai-engineers.md) | [Integration Guide](docs/maso/integration/integration-guide.md) — LangGraph, AutoGen, CrewAI, Bedrock
-
----
 
 ## Start Here
 
@@ -105,8 +97,6 @@ Each layer catches what the others miss. Remove any layer and you have a gap. Th
 
 </details>
 
----
-
 ## When Agents Talk to Agents
 
 Single-model controls assume one AI, one context window, one trust boundary. Multi-agent systems break every one of those assumptions.
@@ -121,8 +111,6 @@ When multiple LLMs collaborate, delegate, and take autonomous actions, new failu
 The **[MASO Framework](docs/maso/)** extends the foundation into multi-agent orchestration: 128 controls across 7 domains, 3 implementation tiers (supervised → managed → autonomous), full OWASP coverage for both LLM and Agentic top 10s, plus 34 emergent risks that have no OWASP equivalent — including epistemic failures like groupthink and synthetic corroboration that no other framework formally addresses.
 
 **→ [Enter MASO](docs/maso/)**
-
----
 
 ## Strategy: From Ideas to Running Systems
 
@@ -139,8 +127,6 @@ The **[From Strategy to Production](docs/strategy/)** section bridges this gap:
 
 Three constraints strategies routinely underestimate: **[Data Reality](docs/strategy/data-reality.md)** — your data determines your strategy more than your ambition does. **[Human Factors](docs/strategy/human-factors.md)** — controls don't work if the people operating them aren't ready. **[Progression](docs/strategy/progression.md)** — moving from low to high risk takes 2–3 years; skipping steps is the most common strategic failure.
 
----
-
 ## Standards Alignment
 
 | Standard | Coverage |
@@ -153,8 +139,6 @@ Three constraints strategies routinely underestimate: **[Data Reality](docs/stra
 | [MITRE ATLAS](https://atlas.mitre.org/) | Agent-focused threat intelligence |
 | [EU AI Act](https://artificialintelligenceact.eu/) | Art. 9, 14, 15 — risk management, oversight, robustness |
 | [DORA](https://www.digital-operational-resilience-act.com/) | Digital operational resilience for financial services |
-
----
 
 ## About This Framework
 
@@ -180,8 +164,6 @@ Three constraints strategies routinely underestimate: **[Data Reality](docs/stra
 - Not a finished document. AI security is moving fast. This framework will evolve as the landscape does.
 
 </details>
-
----
 
 ## Repository Structure
 
@@ -215,8 +197,6 @@ Three constraints strategies routinely underestimate: **[Data Reality](docs/stra
 
 </details>
 
----
-
 ## About the Author
 
 **Jonathan Gill** is a cybersecurity practitioner with over 30 years in information technology and 20+ years in enterprise cybersecurity. His career spans UNIX system administration, building national-scale ISP infrastructure, enterprise security architecture at major financial institutions, and diplomatic IT service.
@@ -225,8 +205,6 @@ His current focus is AI security governance: designing control architectures tha
 
 - GitHub: [@JonathanCGill](https://github.com/JonathanCGill)
 - LinkedIn: [Jonathan Gill](https://www.linkedin.com/in/jonathancgill/)
-
----
 
 ## Disclaimer
 
@@ -238,6 +216,3 @@ This framework was written with AI assistance (Claude and ChatGPT) for drafting,
 
 This is a personal project. It is not affiliated with, endorsed by, or representative of any employer, organisation, or other entity. The views and opinions expressed are the author's own and should not be construed as reflecting the position or policy of any company or institution with which the author is or has been associated.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

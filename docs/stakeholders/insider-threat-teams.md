@@ -4,8 +4,6 @@
 
 > *Part of [Stakeholder Views](README.md) · [AI Runtime Behaviour Security](../)*
 
----
-
 ## The Problem You Already Solve
 
 You monitor humans for behavioural anomalies. You build baselines for how people normally work - when they log in, what they access, how much data they move, who they communicate with. When behaviour deviates from that baseline, you investigate.
@@ -21,8 +19,6 @@ An agent has an identity (a non-human identity - NHI). It has access privileges 
 Everything you built for humans applies. The analytical framework transfers. The detection techniques transfer. The risk scoring transfers.
 
 The question isn't whether to monitor agents for insider risk. It's whether you're already doing it - and if not, how quickly you can extend what you have.
-
----
 
 ## What This Framework Gives You
 
@@ -75,8 +71,6 @@ The last two were added specifically because your discipline has proven them. Th
 
 The agent's NHI should be enrolled in your identity analytics the same way a service account is. The same rules that flag "service account active at unusual hours" should flag "agent active at unusual hours."
 
----
-
 ## Your Starting Path
 
 Read these in order. Total time: ~60 minutes.
@@ -93,8 +87,6 @@ Read these in order. Total time: ~60 minutes.
 
 **If you run Splunk/Exabeam/Securonix:** The same principle applies - agent identities are entities. Enrol them in your existing behavioural analytics pipeline.
 
----
-
 ## What You Can Do Monday Morning
 
 1. **Inventory your organisation's AI agent NHIs.** Work with the IAM team to identify every non-human identity associated with an AI agent. Many organisations don't track these separately from service accounts. You can't monitor what you haven't inventoried.
@@ -110,8 +102,6 @@ Read these in order. Total time: ~60 minutes.
 4. **Add agent scenarios to your next insider threat exercise.** Your red team tests whether employees can exfiltrate data. Add a scenario where an agent is the exfiltration vector - prompt-injected to send data to an external endpoint, or memory-poisoned to gradually widen its access scope.
 
 5. **Establish a 30-day baseline.** Before you can detect anomalies, you need to know what normal looks like. Collect 30 days of agent activity data - invocation times, tool usage, data volumes, session patterns. This becomes your anchored reference point.
-
----
 
 ## Common Objections - With Answers
 
@@ -130,8 +120,6 @@ It doesn't need to explicitly. If it supports custom entity types or service acc
 **"This doubles the workload for our team."**
 It extends existing capability, it doesn't duplicate it. Your correlation rules, risk scoring models, investigation workflows, and escalation procedures all apply. The new work is: inventorying agent NHIs, enrolling them, and tuning thresholds during the initial baselining period. After that, agents are just another set of entities in your existing programme.
 
----
-
 ## The Bigger Picture
 
 Insider risk programmes exist because organisations learned that perimeter security isn't enough - threats come from inside too. AI agents create the same lesson for a new era: the entity inside your perimeter, with legitimate access, behaving anomalously.
@@ -140,6 +128,3 @@ The 15+ years your discipline has invested in UEBA, behavioural baselines, peer 
 
 The organisations that extend their insider risk programmes to cover AI agents will detect compromises that organisations relying solely on guardrails and output evaluation will miss. Your programme is the missing layer.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

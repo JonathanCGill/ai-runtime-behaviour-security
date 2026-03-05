@@ -4,8 +4,6 @@
 
 > **Position paper:** [Why Containment Beats Evaluation - A Runtime Security Architecture for Sandbagging-Resistant AI Governance in Regulated Environments](https://airuntimesecurity.co.za/insights/why-containment-beats-evaluation/) (Jonathan Gill, March 2026)
 
----
-
 ## The Core Argument
 
 The dominant paradigm in AI safety follows a linear sequence: evaluate a model's capabilities, determine what is safe to permit based on those results, then deploy with safeguards calibrated to the evaluation findings. This **evaluate-then-permit** model underpins every major frontier safety framework.
@@ -13,8 +11,6 @@ The dominant paradigm in AI safety follows a linear sequence: evaluate a model's
 Sandbagging threatens this paradigm at its foundation. If a model can detect that it is being evaluated and strategically underperform, the evaluation produces a false picture of capabilities. Safeguards are calibrated to a capability level that does not reflect reality.
 
 The safety research community is attempting to solve sandbagging by making evaluations more accurate. This framework takes a different position: **make evaluations less important.**
-
----
 
 ## The Mirror Risk: Evaluation Overconfidence
 
@@ -25,8 +21,6 @@ This is arguably the more prevalent failure mode in enterprise deployment today.
 If sandbagging is a model hiding what it *can* do, this is **sandbugging** - a model masking what it *cannot* do.
 
 Both failure modes share the same structural cause: security and governance that depend on evaluation accuracy inherit the full uncertainty of that evaluation. The constrain-regardless architecture addresses both directions of failure through the same mechanism, as described in the following sections.
-
----
 
 ## Constrain-Regardless vs Evaluate-Then-Permit
 
@@ -39,8 +33,6 @@ This is a fundamental inversion. Permissions are derived from **business intent 
 If permissions are not derived from evaluation, there is nothing to game. A model that conceals its ability to exfiltrate data cannot exploit that ability if the containment boundary does not permit data exfiltration in the first place. The capability exists; the execution path does not.
 
 This is the principle that drives the framework's [Containment Through Declared Intent](containment-through-intent.md) architecture and the [Infrastructure Beats Instructions](infrastructure-beats-instructions.md) design principle.
-
----
 
 ## Closed-Loop vs Open-Loop Control
 
@@ -63,8 +55,6 @@ Closed-loop systems can still fail - through sensor error (judge blind spots), a
 
 In engineering, no critical system operates on open-loop control. AI governance should be no different. The question is not whether the model passed its evaluation. The question is whether the model is behaving correctly **right now**.
 
----
-
 ## Compound Defence by Design
 
 The three layers are not just defence-in-depth by coincidence. Each layer is specifically designed to catch what the previous layer misses.
@@ -82,8 +72,6 @@ The Judge must be **owned, configured, and governed by the deploying organisatio
 **Layer 3 - Human Oversight Escalation:** Triggered by defined thresholds: judge confidence below threshold, anomalous patterns, high-stakes decisions, periodic audit. This layer handles what the first two cannot resolve autonomously.
 
 **The compound requirement:** For sandbagging or any adversarial behaviour to succeed, a model would need to simultaneously: remain within its containment boundary (evading all technical controls), produce output that passes the Judge's behavioural constitution over sustained periods without triggering drift detection, **and** avoid triggering any human escalation threshold. This is not defence-in-depth by accident - it is defence-in-depth by design, where each layer is specifically calibrated to catch what the previous layer misses.
-
----
 
 ## Action-Space vs Reasoning-Space Constraints
 
@@ -103,8 +91,6 @@ A model summarising customer complaints needs full reasoning freedom to interpre
 Ironically, the alternative approaches - evaluate-then-permit and vendor-side safety training - are *more* likely to constrain the reasoning space. Over-refusal, where a model declines legitimate business queries because safety training is poorly calibrated, is a reasoning-space constraint. It reduces utility without improving operational security. Containment avoids this by moving control to the action layer and leaving reasoning alone.
 
 The right question is not *whether* to constrain, but **where on the spectrum of action-space tightness to operate**. This is what the framework's [risk tiers](../core/risk-tiers.md) determine - proportionate governance that preserves AI's value precisely because it does not attempt to control AI's reasoning.
-
----
 
 ## Making Sandbagging and Sandbugging Operationally Irrelevant
 
@@ -129,8 +115,6 @@ This does not mean either risk is harmless. A model that sandbags within its per
 
 For the detailed treatment of sandbagging mitigations and AISI evidence, see [Evaluation Integrity Risks](evaluation-integrity-risks.md).
 
----
-
 ## Limits
 
 Intellectual honesty requires acknowledging what this architecture does not solve:
@@ -147,8 +131,6 @@ Intellectual honesty requires acknowledging what this architecture does not solv
 
 None of these invalidate the architecture. They define its operating envelope. A control system that is honest about its failure modes is more trustworthy than one that claims none.
 
----
-
 ## Regulatory Alignment
 
 The constrain-regardless architecture aligns with regulatory expectations:
@@ -161,8 +143,6 @@ The constrain-regardless architecture aligns with regulatory expectations:
 | **Banking supervisors** (APRA, PRA, ECB) | Operational risk controls owned by deploying institution, not outsourced to technology providers |
 | **International AI Safety Report 2026** | Defence-in-depth with layered safeguards where no single control is trusted alone |
 | **CoSAI Principles** | Human-governed, bounded and resilient, risk-based controls |
-
----
 
 ## Relationship to Other Framework Pages
 
@@ -177,6 +157,3 @@ The constrain-regardless architecture aligns with regulatory expectations:
 | [PACE Resilience](../PACE-RESILIENCE.md) | Structured degradation when the closed-loop detects failure |
 | [Why AI Security Is a Runtime Problem](why-ai-security-is-a-runtime-problem.md) | The broader case for continuous runtime security over point-in-time assessment |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

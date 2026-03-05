@@ -8,8 +8,6 @@ description: One-page AI security reference. Classify systems, select controls, 
 
 > *This document uses the simplified three-tier system (Tier 1/2/3). See [Risk Tiers - Simplified Tier Mapping](core/risk-tiers.md#simplified-tier-mapping) for the mapping to LOW/MEDIUM/HIGH/CRITICAL.*
 
----
-
 ## 1. Classify
 
 | All four true? | → **Fast Lane** - self-certify, deploy in days |
@@ -25,8 +23,6 @@ description: One-page AI security reference. Classify systems, select controls, 
 | **2 - Medium** | Customer-facing. Human reviews before delivery. | Customer support draft, document processing, decision support |
 | **3 - High** | Regulated decisions, autonomous agents with write access, financial/medical/legal. | Loan decisioning, autonomous trading, clinical support |
 
----
-
 ## 2. Controls Required
 
 | Control | Fast Lane | Tier 1 | Tier 2 | Tier 3 |
@@ -38,8 +34,6 @@ description: One-page AI security reference. Classify systems, select controls, 
 | **Usage Logging** | Yes | Yes | Yes | Yes |
 
 **Agentic add-ons** (if agent has write access): tool permission matrix, transaction resolution plan, multi-agent cascade prevention, 5-phase degradation path (Tier 2+).
-
----
 
 ## 3. Fail Posture
 
@@ -60,8 +54,6 @@ For **each** control, define: when it fails, does the system fail-open or fail-c
 | Tier 2 | Rule-based / templated | Minutes (auto) | Quarterly |
 | Tier 3 | Staffed parallel process | Seconds (auto) | Monthly |
 
----
-
 ## 4. Agentic Degradation Path
 
 If deploying an agent, define these five phases before go-live:
@@ -75,8 +67,6 @@ If deploying an agent, define these five phases before go-live:
 | **Full Stop** | None | All sessions terminated, incident response |
 
 For each tool the agent uses, answer: Can the action be rolled back? Completed without the agent? Is partial completion dangerous?
-
----
 
 ## 4b. Multi-Agent Systems
 
@@ -98,8 +88,6 @@ If deploying **multiple agents** that communicate, delegate, or act across trust
 
 **→ [Full MASO Framework](maso/)**
 
----
-
 ## 5. Test
 
 | Test | Fast Lane | Tier 1 | Tier 2 | Tier 3 |
@@ -110,8 +98,6 @@ If deploying **multiple agents** that communicate, delegate, or act across trust
 | Full degradation walkthrough | - | - | Semi-annual | Quarterly |
 | Non-AI fallback operation | Annual | Annual | Quarterly | Monthly |
 | Recovery (step back up) | - | Annual | Quarterly | Monthly |
-
----
 
 ## The Six Questions
 
@@ -126,6 +112,3 @@ Every AI deployment must answer these before production:
 
 If you can answer all six, you're ready. If you can't, you're not.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

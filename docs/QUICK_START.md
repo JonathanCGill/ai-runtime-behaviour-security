@@ -6,15 +6,11 @@ description: Get from zero to working AI security controls in 30 minutes. Classi
 
 Get from zero to working controls in 30 minutes.
 
----
-
 ## Why You're Here
 
 You're building AI systems and need to answer one question: **"How do we know it's working correctly?"**
 
 You can't fully test AI before deployment. It's non-deterministic, it surprises you in production, and adversaries will find edge cases your test suite didn't. You need runtime controls.
-
----
 
 ## The Pattern
 
@@ -31,8 +27,6 @@ The industry is converging on three layers of control:
 **Guardrails prevent. Judge detects. Humans decide.**
 
 This guide shows you how to implement this pattern proportionate to your risk level.
-
----
 
 ## Step 1: Classify Your System (5 minutes)
 
@@ -55,8 +49,6 @@ Answer these questions:
 Write down your tier. This determines your control requirements.
 
 → For detailed criteria, see [Risk Tiers](core/risk-tiers.md)
-
----
 
 ## Step 2: Implement Guardrails (10 minutes)
 
@@ -94,8 +86,6 @@ Filter outputs before they reach users.
 | HIGH | Domain-specific rules, stricter filtering |
 | CRITICAL | Allow-lists (not deny-lists), pre-approval for sensitive topics |
 
----
-
 ## Step 3: Add Logging (5 minutes)
 
 You can't evaluate what you don't capture.
@@ -114,8 +104,6 @@ You can't evaluate what you don't capture.
 | MEDIUM | 1 year | Team + compliance |
 | HIGH | 3 years | Restricted + audit |
 | CRITICAL | 7 years | Restricted + legal hold |
-
----
 
 ## Step 4: Set Up Judge (10 minutes)
 
@@ -168,8 +156,6 @@ RESPOND:
 
 → For Judge model selection guidance, see [Judge Model Selection](extensions/technical/judge-model-selection.md)
 
----
-
 ## Step 5: Define Human Review (5 minutes)
 
 Who looks at flagged interactions? What do they do?
@@ -185,8 +171,6 @@ Who looks at flagged interactions? What do they do?
 - Escalation paths to legal/compliance
 - Approval workflows for system changes
 
----
-
 ## You're Done (For Now)
 
 You now have:
@@ -198,8 +182,6 @@ You now have:
 - ✅ Human review process
 
 **This is minimum viable governance.** It's not complete, but it's defensible.
-
----
 
 ## What's Next
 
@@ -219,8 +201,6 @@ You now have:
 - If agentic: add controls from [Agentic](core/agentic.md)
 - If multi-agent: see below
 
----
-
 ## Multi-Agent? Start Here After the Basics
 
 Everything above applies to single-model deployments - one AI, one context window, one trust boundary.
@@ -234,8 +214,6 @@ If your agents **communicate, delegate, or act autonomously**, you need addition
 
 The **[MASO Framework](maso/)** extends this pattern into multi-agent orchestration. Start with [Tier 1 - Supervised](maso/implementation/tier-1-supervised.md) and graduate upward as your controls mature.
 
----
-
 ## Common Mistakes
 
 | Mistake | Problem | Fix |
@@ -245,8 +223,6 @@ The **[MASO Framework](maso/)** extends this pattern into multi-agent orchestrat
 | No logging | Can't investigate | Log everything |
 | No human process | No accountability | Define before launch |
 | Over-engineer | Never ships | Start simple, iterate |
-
----
 
 ## Resources
 
@@ -260,8 +236,6 @@ The **[MASO Framework](maso/)** extends this pattern into multi-agent orchestrat
 | Test your controls | [Testing Guidance](extensions/templates/testing-guidance.md) |
 | **Secure multi-agent systems** | **[MASO Framework](maso/)** |
 
----
-
 ## The Key Insight
 
 You can't fully test AI at design time. You must monitor behavior in production.
@@ -270,6 +244,3 @@ You can't fully test AI at design time. You must monitor behavior in production.
 
 The pattern - Guardrails, Judge, Human Oversight - gives you predictable, proportionate controls that work.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

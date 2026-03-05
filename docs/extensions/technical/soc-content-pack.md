@@ -4,8 +4,6 @@
 
 This content pack extends the [SOC Integration](soc-integration.md) architecture guide with concrete, platform-specific detection content. Import what applies to your SIEM. Ignore the rest.
 
----
-
 ## Prerequisites
 
 Before deploying these rules, ensure:
@@ -14,8 +12,6 @@ Before deploying these rules, ensure:
 2. The `ai_security` index (or equivalent) is created and receiving data.
 3. Correlation IDs are propagated across API gateway → application → LLM provider → Judge (see [SOC Integration: Identity Correlation](soc-integration.md#identity-correlation)).
 4. Alert routing is configured to the AI Platform Team and SOC queues.
-
----
 
 ## Detection Rules
 
@@ -54,8 +50,6 @@ service:ai_security @category:prompt_attack | stats count by @user_id,@src_ip | 
 | **Framework Control** | LOG-06, NET-02 |
 | **Response** | Block user after 10 attempts. Capture full payloads for threat intel. |
 
----
-
 ### 2. Judge Flag Clustering - High-Severity Burst
 
 **What it detects:** Multiple high-confidence Judge flags for the same user or endpoint in a short period, indicating sustained policy violation or coordinated attack.
@@ -84,8 +78,6 @@ AISecurity_CL
 | **Severity** | High |
 | **Framework Control** | Judge Assurance, LOG-01 |
 | **Response** | Triage per [Judge Flag procedure](soc-integration.md#judge-flag-medium-severity). Escalate if multiple policies violated. |
-
----
 
 ### 3. Data Exfiltration - Anomalous Output Volume
 
@@ -122,8 +114,6 @@ AISecurity_CL
 | **Framework Control** | DAT-06, NET-04 |
 | **Response** | Investigate user activity. Check if output contains structured data, PII, or credential patterns. |
 
----
-
 ### 4. Agent Boundary Violation - Unauthorised Tool Use
 
 **What it detects:** An agent attempting to invoke tools outside its declared permission set, indicating prompt injection, goal hijacking, or misconfiguration.
@@ -152,8 +142,6 @@ AISecurity_CL
 | **Framework Control** | IAM-04, TOOL-01, TOOL-02 |
 | **Response** | Halt agent immediately. Determine if prompt injection triggered the tool call. Review full conversation context. |
 
----
-
 ### 5. Guardrail Bypass - Successful Attack
 
 **What it detects:** A guardrail passed a request but the Judge subsequently flagged the same transaction as a policy violation - indicating the guardrail was bypassed.
@@ -179,8 +167,6 @@ AISecurity_CL
 | **Severity** | Critical |
 | **Framework Control** | Guardrails + Judge Assurance, bypass-prevention |
 | **Response** | This is a confirmed guardrail gap. Escalate to AI Security team. Update guardrail rules. Review all transactions from this user in the window. |
-
----
 
 ### 6. Model Drift - Judge Accuracy Degradation
 
@@ -213,8 +199,6 @@ AISecurity_CL
 | **Framework Control** | Judge Assurance, operational-metrics |
 | **Response** | Investigate whether the model provider updated the Judge model. Trigger human calibration review per [Judge Assurance](../../core/judge-assurance.md). |
 
----
-
 ### 7. Credential Exposure - Secrets in Model I/O
 
 **What it detects:** Credential patterns (API keys, tokens, connection strings) appearing in model inputs or outputs despite guardrail scanning.
@@ -240,8 +224,6 @@ AISecurity_CL
 | **Severity** | High |
 | **Framework Control** | SEC-04, SEC-05, IAM-07 |
 | **Response** | Treat exposed credential as compromised. Trigger immediate rotation (SEC-05). Investigate whether credential was exfiltrated. |
-
----
 
 ### 8. Anomalous Usage Pattern - Off-Hours / Geo Shift
 
@@ -271,8 +253,6 @@ AISecurity_CL
 | **Severity** | Medium |
 | **Framework Control** | LOG-01, IAM-01 |
 | **Response** | Cross-reference with HR/IdP for travel. If not explained, treat as potential account compromise. |
-
----
 
 ## Correlation Searches
 
@@ -313,8 +293,6 @@ index=ai_security (category="agent_boundary_violation" OR category="tool_invocat
         AND mvfind(category, "tool_invocation") >= 0
 | eval severity="critical"
 ```
-
----
 
 ## Dashboard Panels
 
@@ -385,8 +363,6 @@ index=ai_security category="judge_flag"
 | sort judge_score
 ```
 
----
-
 ## SOC Analyst Quick Reference
 
 AI security alerts look different from traditional security events. This reference maps AI concepts to SOC-familiar equivalents.
@@ -420,8 +396,6 @@ AI Security Alert Received
     └── Pattern → Escalate. Check for coordinated activity across users/endpoints.
 ```
 
----
-
 ## Deployment Notes
 
 **Import order:** Deploy detection rules before correlation searches. Correlation searches depend on detection rule output.
@@ -435,8 +409,6 @@ AI Security Alert Received
 - New agent tools are onboarded
 - Threat intelligence identifies new attack patterns
 
----
-
 ## Related
 
 - [SOC Integration](soc-integration.md) - Architecture, alert taxonomy, and triage procedures
@@ -444,6 +416,3 @@ AI Security Alert Received
 - [Operational Metrics](operational-metrics.md) - Metrics that feed SOC dashboards
 - [Logging & Observability](../../infrastructure/controls/logging-and-observability.md) - Infrastructure-level logging controls
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

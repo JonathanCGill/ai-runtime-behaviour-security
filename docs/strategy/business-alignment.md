@@ -4,8 +4,6 @@
 
 > Part of [From Strategy to Production](./)
 
----
-
 ## The Alignment Problem Nobody Talks About
 
 Most AI strategy documents start with technology: models, platforms, architectures. Then they look for business problems to attach them to.
@@ -15,8 +13,6 @@ This is backwards.
 Business strategy asks: **What problems do we need to solve, and what's the best way to solve them?** AI is one possible answer. Often it's not the best one. The organisations that succeed with AI are the ones that start with the problem and work backwards to the solution - including the possibility that the solution doesn't involve AI at all.
 
 The framework's [first control](../insights/the-first-control.md) makes this point for security. The same principle applies to strategy: the most effective AI decision you'll make is often choosing *not* to use AI for a particular problem.
-
----
 
 ## What Already Exists
 
@@ -83,8 +79,6 @@ Most organisations don't need all of these. The point is that **strategic alignm
 
 Which brings us to this framework's contribution. The models above tell you how to align strategy. They don't tell you how to evaluate whether a specific AI initiative is the right thing to build, given your actual constraints. That's what the four questions below are for.
 
----
-
 ## The Alignment Model
 
 ![Business-AI Alignment Model](../images/strategy-alignment-model.svg)
@@ -99,8 +93,6 @@ Alignment requires honest answers to four questions, in order:
 | 4 | **Can we operate it safely?** Given the risk profile and required controls | Whether we can sustain it, not just launch it |
 
 Most organisations skip questions 2-4. They identify a problem (question 1), assume AI is the answer, and discover the constraints during implementation - when changing direction is expensive.
-
----
 
 ## Question 1: What Business Problem Are We Solving?
 
@@ -138,8 +130,6 @@ Each of these can be evaluated against multiple solutions - AI, automation, proc
 
 **The honest answer is often "some AI, some not."** A customer service system might use AI for initial query understanding and routing, but deterministic logic for account actions. The strategy should be precise about which components benefit from AI, not assume the entire process should be AI-driven.
 
----
-
 ## Question 2: Does AI Provide a Genuine Advantage?
 
 Assuming the problem is real, does AI solve it better than alternatives?
@@ -173,8 +163,6 @@ For any proposed AI use case, identify at least two non-AI alternatives and comp
 In this example, the AI solution has a clear cost advantage over human review at scale, but the rules-based approach is cheaper and faster for year 1. The strategic question is volume: at what document volume does the AI investment pay back? If it's 10,000 documents per year, rules-based wins. If it's 500,000, AI wins.
 
 **The framework's risk tiers are relevant here.** A MEDIUM-tier AI deployment requires Judge evaluation, logging, and periodic human review. These controls have real cost. A LOW-tier rules-based system needs basic guardrails and logging. The control overhead should be part of the cost comparison, not an afterthought.
-
----
 
 ## Question 3: Can We Deliver It?
 
@@ -238,8 +226,6 @@ The data and technical capability exist. The organisational readiness doesn't. T
 
 Option B is most commonly the right answer, because it generates value while building capability. The framework's tiered approach directly supports this - the same system can start at MEDIUM (decision support, human reviews every output) and graduate to HIGH or CRITICAL (automated decisions) as controls mature. This is covered in [Progression](progression.md).
 
----
-
 ## Question 4: Can We Operate It Safely?
 
 "Can we build it?" and "can we run it?" are different questions.
@@ -287,8 +273,6 @@ The difference between MEDIUM and CRITICAL isn't just a label. It's a 9x staffin
 
 **Strategic implication:** The risk tier determines operational cost. If the strategy requires a CRITICAL-tier deployment but the budget assumes MEDIUM-tier operations, the strategy will fail. Either reduce the risk tier (by reducing autonomy, limiting data access, or keeping humans in the loop) or fund the controls properly.
 
----
-
 ## Aligning Products to Constraints
 
 The framework creates constraints. Business strategy creates ambitions. Alignment means accepting three realities:
@@ -325,8 +309,6 @@ This is how mature organisations handle the tension between innovation and contr
 
 Regulatory requirements are not negotiable within the organisation. If the EU AI Act classifies your use case as high-risk, you need the controls the Act specifies - regardless of what this framework says. The framework's [regulatory crosswalks](../extensions/regulatory/) help identify where external constraints apply.
 
----
-
 ## Common Strategic Mistakes
 
 | Mistake | What Happens | Better Approach |
@@ -338,8 +320,6 @@ Regulatory requirements are not negotiable within the organisation. If the EU AI
 | **Building before governance exists** | System deployed without risk classification or controls | Establish minimum governance before first deployment ([Quick Start](../QUICK_START.md)) |
 | **Copying competitor strategy** | Different data, different skills, different risk appetite - different outcome | Assess your own constraints honestly |
 | **"We'll add security later"** | Security retrofit is always more expensive and less effective | Include security controls in initial design |
-
----
 
 ## A Strategic Decision Template
 
@@ -360,6 +340,3 @@ For each proposed AI initiative, answer honestly:
 
 If any answer is "we don't know yet" - that's your next step, not building the system.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

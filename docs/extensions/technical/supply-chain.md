@@ -6,8 +6,6 @@
 
 Controls for the AI supply chain: model provenance, framework dependencies, and provider trust. Complements runtime monitoring with pre-deployment and continuous verification.
 
----
-
 ## Controls by Component
 
 ### 1. Model Provenance
@@ -78,8 +76,6 @@ Embedding models are often overlooked. They encode your proprietary data. If the
 | **Pin embedding model version** | Changing the embedding model requires re-embedding your entire corpus. Pin it. |
 | **Test embedding consistency** | Periodically embed known test strings and verify the output hasn't changed |
 | **Monitor provider changes** | If using an API embedding model, monitor for version changes (same as LLM version pinning) |
-
----
 
 ## AI-BOM (AI Bill of Materials)
 
@@ -157,8 +153,6 @@ ai_bom:
 | Vulnerability scan dependencies | Weekly (automated) |
 | Review provider security posture | Annually or on significant change |
 
----
-
 ## Shadow AI Discovery
 
 Teams will deploy AI without going through your controls. Find it.
@@ -173,6 +167,3 @@ Teams will deploy AI without going through your controls. Find it.
 
 **Don't just block it.** Understand why teams are using shadow AI, and provide a sanctioned path that meets their needs with appropriate controls.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -4,8 +4,6 @@
 
 ![Support Systems Iceberg](../../images/support-systems-iceberg.svg)
 
----
-
 ## Why This Matters
 
 The industry focuses here:
@@ -30,8 +28,6 @@ But failures actually come from here:
 | Guardrail config pushed without review | Medium | Low |
 
 **The mundane risks are more likely to hurt you than the exotic ones.**
-
----
 
 ## Risk Categories
 
@@ -61,8 +57,6 @@ Your AI system depends on things you don't control.
 | Contractual protections | SLAs, deprecation notice, data handling | AI.13 Supplier |
 | Capacity planning | Understand rate limits vs demand | AI.15 Continuity |
 
----
-
 #### 1.2 Infrastructure Dependency
 
 | Risk | Scenario | Impact |
@@ -81,8 +75,6 @@ Your AI system depends on things you don't control.
 | Health checks | Monitor all dependencies continuously | AI.11 Monitoring |
 | Graceful degradation | System continues with reduced function | AI.15 Continuity |
 | Capacity alerts | Alert before limits hit | AI.11 Monitoring |
-
----
 
 #### 1.3 Data Supply Chain
 
@@ -105,8 +97,6 @@ This is arguably the highest-probability, highest-impact category. When RAG data
 | Pipeline monitoring | Monitor ingestion pipelines for failures | AI.11 Monitoring |
 | Source health checks | Monitor upstream data sources | AI.11 Monitoring |
 | Freshness metadata | Include "last updated" in AI responses where relevant | AI.7 Guardrails |
-
----
 
 ### 2. Configuration Risk
 
@@ -134,8 +124,6 @@ AI systems are extraordinarily sensitive to configuration. A one-word change in 
 | Rollback capability | Instant revert to last known good | AI.14 Configuration |
 | Pre-production testing | Test config changes before prod | AI.4 Development |
 
----
-
 #### 2.2 Secrets Management
 
 | Risk | Scenario | Impact |
@@ -155,8 +143,6 @@ AI systems are extraordinarily sensitive to configuration. A one-word change in 
 | Per-service credentials | Unique keys per service/environment | AI.15 Cryptography |
 | Secret scanning | Scan repos and logs for leaked keys | AI.4 Development |
 | Access logging | Log all API key usage | AI.11 Logging |
-
----
 
 ### 3. Observability Risk
 
@@ -184,8 +170,6 @@ If you can't see it, you can't govern it. Observability failures are silent and 
 | Tamper protection | Immutable logs for CRITICAL tier | AI.11 Logging |
 | Redundant logging | Write to multiple destinations for CRITICAL | AI.11 Logging |
 
----
-
 #### 3.2 Monitoring and Alerting
 
 | Risk | Scenario | Impact |
@@ -203,8 +187,6 @@ If you can't see it, you can't govern it. Observability failures are silent and 
 | Alert testing | Test that alerts fire correctly | AI.11 Monitoring |
 | Escalation paths | Defined escalation when alerts ignored | AI.12 Incident |
 | Dashboard freshness | Show "last updated" on all dashboards | AI.11 Monitoring |
-
----
 
 ### 4. People Risk
 
@@ -228,8 +210,6 @@ The H in HITL is a single point of failure.
 | Runbooks | Documented procedures for common operations | AI.14 Training |
 | Succession planning | Identified backup for key roles | AI.1 Governance |
 
----
-
 #### 4.2 HITL Sustainability
 
 | Risk | Scenario | Impact |
@@ -251,8 +231,6 @@ The H in HITL is a single point of failure.
 | Rotation | Rotate reviewers to maintain attention | AI.9 HITL |
 | Calibration | Regular calibration exercises | AI.9 HITL |
 | Canary reviews | Inject known findings to test reviewer attention | AI.9 HITL |
-
----
 
 ### 5. Financial Risk
 
@@ -278,8 +256,6 @@ AI costs are variable, opaque, and can spike without warning.
 | Forecast vs actual | Monthly comparison | AI.1 Governance |
 | Shadow AI detection | Monitor for unauthorised AI API usage | AI.3 Inventory |
 
----
-
 ### 6. Vendor Concentration Risk
 
 | Risk | Scenario | Impact |
@@ -297,8 +273,6 @@ AI costs are variable, opaque, and can spike without warning.
 | Abstraction layer | Don't hard-code to one provider's API | AI.4 Development |
 | Exit planning | Documented migration path | AI.13 Supplier |
 | Control separation | Don't run guardrails on same platform as AI | AI.15 Continuity |
-
----
 
 ### 7. Change Management Risk
 
@@ -320,8 +294,6 @@ AI costs are variable, opaque, and can spike without warning.
 | Automated testing | Tests run on every change | AI.4 Development |
 | Change freeze | Freeze periods for critical business times | AI.4 Development |
 
----
-
 ## Risk Heat Map
 
 ![Support Systems Risk Heat Map](../../images/support-systems-risk-heatmap.svg)
@@ -342,8 +314,6 @@ AI costs are variable, opaque, and can spike without warning.
 
 The pattern: **high-probability, high-impact risks get the least attention** because they're not exciting. Prompt injection is interesting. API key rotation is not. But API key rotation is more likely to take you down.
 
----
-
 ## Framework Integration
 
 These risks map to existing control families, but most need strengthening:
@@ -362,8 +332,6 @@ These risks map to existing control families, but most need strengthening:
 | Cost control | AG.2.2 Circuit Breakers, AI.11 Monitoring | Needs budget caps and attribution |
 | Vendor concentration | AI.13 Supplier | Needs exit planning |
 | Change management | AI.4 Development, AI.14 Configuration | Needs AI-specific change process |
-
----
 
 ## Implementation Priority
 
@@ -396,8 +364,6 @@ These risks map to existing control families, but most need strengthening:
 | Full dependency mapping | Understand all failure paths |
 | Canary reviews for HITL | Test reviewer attention |
 | Exit planning for primary vendor | Have the plan before you need it |
-
----
 
 ## Operational Checklist
 
@@ -435,6 +401,3 @@ Use this for each production AI system:
 | Exit plan documented? | ☐ |
 | Alternative evaluated? | ☐ |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

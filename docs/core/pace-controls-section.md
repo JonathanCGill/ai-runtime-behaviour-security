@@ -4,15 +4,11 @@
 
 > *This document uses the simplified three-tier system (Tier 1/2/3). See [Risk Tiers - Simplified Tier Mapping](risk-tiers.md#simplified-tier-mapping) for the mapping to LOW/MEDIUM/HIGH/CRITICAL.*
 
----
-
 ## Design Principle
 
 Every control layer will eventually fail. The question is not *whether* but *how*. Before deploying any AI system, the architect must define the fail posture for each control at the assigned risk tier. This is a mandatory design input, not an operational afterthought.
 
 ![Fail Posture Decision Tree](../images/pace-fail-posture-decision.svg)
-
----
 
 ## Guardrails - Internal PACE
 
@@ -34,8 +30,6 @@ Guardrails are the Primary layer: deterministic, fast, always-on. When they degr
 | C → E | Evidence of configuration tampering; known vulnerability actively exploited; guardrail logs show signs of adversarial manipulation |
 | Recovery: C/E → P | Engine restored, all filters validated with test suite, monitoring confirms normal operation for >15 min (Tier 1) / >1 hour (Tier 2/3) |
 
----
-
 ## LLM-as-Judge - Internal PACE
 
 The Judge is the Alternate layer: probabilistic, asynchronous, catches what guardrails miss. Its failure modes are different from guardrails - it can be slow, wrong, or manipulated - and the fallback response differs by tier.
@@ -55,8 +49,6 @@ The Judge is the Alternate layer: probabilistic, asynchronous, catches what guar
 | A → C | Judge health check failing; >50% of evaluation requests returning errors; complete unresponsiveness for >60s |
 | C → E | Anomalous score patterns (e.g., all outputs scoring identically); evidence of prompt injection in evaluation chain; Judge model integrity check fails |
 | Recovery: C/E → P | Judge model reloaded from known-good checkpoint, validated against test suite, calibration confirmed against baseline, monitoring confirms normal operation for >1 hour |
-
----
 
 ## Human Oversight - Internal PACE
 
@@ -80,8 +72,6 @@ Human Oversight is the Contingency layer: slow, expensive, but brings judgment t
 
 > **See also:** [Humans in the Business Process](../extensions/technical/humans-in-the-business-process.md) describes how existing business process checkpoints can serve as an Alternate or Contingency layer when dedicated HITL reviewers degrade - without adding new reviewers or changing the automated decision.
 
----
-
 ## Cross-Layer PACE: Architecture-Level Resilience
 
 When individual layer PACE has been exhausted - the layer is at its Emergency state - the architecture-level PACE activates:
@@ -93,8 +83,6 @@ When individual layer PACE has been exhausted - the layer is at its Emergency st
 | Human Oversight at E (unavailable) | Guardrails and Judge operate without human backstop. At Tier 2+, tighten all automated thresholds. At Tier 3, activate circuit breaker - automated-only operation is not acceptable for regulated decisions. |
 | Two or more layers at E simultaneously | **Circuit breaker activates immediately, regardless of tier.** Route to non-AI fallback. This is a systemic failure requiring incident response. |
 | Circuit breaker activated | Non-AI fallback path serves traffic. All AI components isolated. Incident response team assembled. Recovery requires layer-by-layer restoration with validation at each step. |
-
----
 
 ## The Non-AI Fallback Path
 
@@ -109,6 +97,3 @@ Every system at Tier 2 or above must have a documented, tested, and maintained n
 | **Activation** | Manual (feature flag, deployment rollback) | Automated (circuit breaker with health checks) | Automated (circuit breaker) with manual confirmation within defined window |
 | **Capacity** | Best effort | Must handle 100% of AI traffic at degraded quality | Must handle critical subset at production quality |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -6,8 +6,6 @@
 
 This covers security controls for the RAG pipeline: ingestion, embedding, retrieval, and augmentation. It does not cover the LLM's own behaviour - that's addressed by the three-layer pattern.
 
----
-
 ## Architecture and Attack Surface
 
 ![RAG Pipeline - Security Control Points](../../images/rag-security-controls.svg)
@@ -20,8 +18,6 @@ This covers security controls for the RAG pipeline: ingestion, embedding, retrie
 | Vector Store | Unauthorised access, data exfiltration | Data store security |
 | Similarity Search | Retrieval of unauthorised content | Access control |
 | Retrieved Chunks → LLM | Indirect prompt injection | Content sanitisation |
-
----
 
 ## Controls
 
@@ -125,8 +121,6 @@ Retrieved content becomes part of the LLM prompt. If it contains adversarial ins
 | Embedding inversion (recovering source text from embeddings) | Use embedding models resistant to inversion; monitor for bulk embedding extraction queries |
 | Chunk attribution in response | If user shouldn't know a document exists, don't cite it - strip source attribution from responses |
 
----
-
 ## RAG-Specific Risk Tier Adjustments
 
 | Factor | Risk Tier Impact |
@@ -137,6 +131,3 @@ Retrieved content becomes part of the LLM prompt. If it contains adversarial ins
 | RAG corpus is updated from external sources | +1 tier for ingestion risk |
 | RAG corpus is user-generated (support tickets, emails) | +1 tier for content poisoning risk |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

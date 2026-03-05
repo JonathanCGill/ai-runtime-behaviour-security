@@ -4,11 +4,7 @@
 
 *Click the image to view full-size. Right-click to save or print (landscape, A3 recommended).*
 
----
-
 [![AI Runtime Behaviour Security - Complete Tube Map](images/ai-security-tube-map.svg)](images/ai-security-tube-map.svg)
-
----
 
 ## How to Read the Map
 
@@ -55,8 +51,6 @@ The **PACE resilience sidebar** on the right shows that resilience planning runs
 | **Operations** | Yellow | Cross-cutting | Metrics → SOC Integration → Anomaly Detection → Cost & Latency - serves both architectures |
 | **Regulatory** | Silver | Cross-cutting | Runs vertically through both zones: NIST, ISO 42001, EU AI Act, OWASP (LLM + Agentic), DORA, MITRE ATLAS |
 
----
-
 ## Related
 
 | Resource | Purpose |
@@ -68,6 +62,3 @@ The **PACE resilience sidebar** on the right shows that resilience planning runs
 | [Foundation](foundations/) | Single-agent security framework |
 | [MASO](maso/) | Multi-agent security operations |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

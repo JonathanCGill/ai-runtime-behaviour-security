@@ -67,6 +67,3 @@ Contributors who consistently provide high-quality contributions may be invited 
 
 Changes to this governance document follow the "Significant Changes" process.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

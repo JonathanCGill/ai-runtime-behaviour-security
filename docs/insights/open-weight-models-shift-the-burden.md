@@ -2,8 +2,6 @@
 
 **When you self-host a model, you inherit the controls the provider would have applied. Most organisations don't realise this until something goes wrong.**
 
----
-
 ## The Deployment Model Changes the Control Surface
 
 This framework classifies AI systems by use case, not by technology. That's deliberate - [Risk Tier Is Use Case, Not Technology](risk-tier-is-use-case.md) explains why.
@@ -24,8 +22,6 @@ An organisation calling GPT-4o or Claude via API operates in a fundamentally dif
 The 2026 International AI Safety Report makes this point clearly: open-weight models cannot be recalled once released, their safeguards are easier to remove, and actors can use them outside monitored environments. This isn't a theoretical concern - it's the operating reality for any enterprise deploying open-weight models for cost, latency, or data sovereignty reasons.
 
 The UK AI Security Institute's *Frontier AI Trends Report* (December 2025) confirms this with empirical data: safeguards on open-weight models can be **"quickly and cheaply removed."** The open-to-closed source capability gap has narrowed to **4–8 months**, meaning the most capable open-weight models are approaching parity with closed API models - but without the provider-maintained safety infrastructure. This makes runtime monitoring the primary control when model weights are accessible, because you cannot rely on the model's built-in safeguards surviving deployment.
-
----
 
 ## What This Means for the Three-Layer Pattern
 
@@ -51,8 +47,6 @@ Human oversight requirements don't change based on deployment model. But the **i
 
 If you haven't built the observability layer, your human reviewers are flying blind.
 
----
-
 ## Control Adjustments for Open-Weight Deployments
 
 Organisations deploying open-weight models should apply these additional controls on top of their risk-tier requirements:
@@ -66,8 +60,6 @@ Organisations deploying open-weight models should apply these additional control
 | **Egress controls and sandboxing** | Self-hosted models with tool access need network-level restrictions. The model can't phone home for safety updates - your infrastructure must enforce boundaries. |
 | **Judge independence** | If possible, use a separate model (or provider) for the Judge layer. Avoid evaluating a model's outputs with the same model. |
 
----
-
 ## The Sovereignty Trade-Off
 
 Many organisations choose open-weight models for legitimate reasons: data residency requirements, latency constraints, cost at scale, or regulatory mandates that prohibit sending data to third-party APIs.
@@ -78,14 +70,9 @@ These are valid drivers. But they come with a security trade-off that should be 
 
 If you're deploying open-weight models at a higher risk tier, your control budget - people, tooling, monitoring - needs to reflect the additional responsibilities you've taken on. A Tier 3 use case on a hosted API and the same use case on a self-hosted open-weight model are not equivalent from a control implementation perspective, even though they sit at the same risk tier.
 
----
-
 ## Scope Note
 
 This framework does not currently prescribe different control sets per deployment model. That may change in a future release as open-weight deployment patterns mature and the control evidence base grows. For now, treat the controls in this section as supplementary guidance for self-hosted deployments - applied on top of your existing risk-tier requirements.
 
 Desktop-scale and edge deployments of small models introduce additional considerations (limited compute for guardrails, no network access for Judge evaluation, constrained observability). These are acknowledged but deferred to a future iteration of the framework.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

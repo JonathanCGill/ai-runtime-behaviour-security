@@ -2,8 +2,6 @@
 
 Thank you for your interest in contributing to this project. This document provides guidelines for contributions.
 
----
-
 ## How to Contribute
 
 ### Reporting Issues
@@ -41,8 +39,6 @@ If you find an error, omission, or have a suggestion:
 - Additional examples and use cases
 - Translations (discuss first)
 - Tooling and automation
-
----
 
 ## Style Guide
 
@@ -88,8 +84,6 @@ If you find an error, omission, or have a suggestion:
 - Numbered prefixes for ordered content: `01-introduction.md`
 - SVG for diagrams: `diagram-name.svg`
 
----
-
 ## Review Process
 
 1. **Automated checks** — Links, markdown formatting
@@ -106,8 +100,6 @@ If you find an error, omission, or have a suggestion:
 | **Clarity** | Is it easy to understand? |
 | **Consistency** | Does it match existing style and structure? |
 | **Completeness** | Is it thorough enough to be useful? |
-
----
 
 ## Types of Contributions
 
@@ -140,8 +132,6 @@ Areas where new content is welcome:
 - Clear, readable at reasonable zoom
 - Include alt text descriptions
 
----
-
 ## Code of Conduct
 
 This project follows a standard code of conduct. In summary:
@@ -153,8 +143,6 @@ This project follows a standard code of conduct. In summary:
 
 See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) for details.
 
----
-
 ## Recognition
 
 Contributors will be recognised in:
@@ -162,8 +150,6 @@ Contributors will be recognised in:
 - Git commit history
 - Contributors list (for significant contributions)
 - Release notes (for major contributions)
-
----
 
 ## Questions?
 
@@ -174,6 +160,3 @@ If you're unsure about anything:
 3. Tag it with `question`
 
 We're happy to help guide your contribution.
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

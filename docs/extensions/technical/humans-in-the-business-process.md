@@ -2,8 +2,6 @@
 
 *When humans can't supervise AI directly, catch problems before they're committed to in the process.*
 
----
-
 ## The Problem HITL Can't Solve
 
 Every AI governance framework puts humans in the loop. The framework's own data shows why this fails at scale:
@@ -20,8 +18,6 @@ Human-in-the-Loop (HITL) asks a person to watch the AI and decide in real time w
 
 At high volumes, in fast-moving systems, this assumption breaks. The human either can't keep up (volume), stops paying attention (fatigue), or lacks the context to evaluate individual AI outputs in isolation (the decision makes sense only when you see where it lands in the business process).
 
----
-
 ## The Insight: Business Processes Already Have Human Decision Points
 
 AI systems don't operate in isolation. They feed into business processes that already have human touchpoints - not because of the AI, but because the business process requires them.
@@ -31,8 +27,6 @@ A credit decision AI feeds into an underwriting workflow where a human underwrit
 These humans aren't supervising the AI. They're doing their jobs. But in doing their jobs, they encounter the AI's outputs *in context* - not as an abstract "approve/reject this AI output" task, but as part of a real decision with real consequences that they own.
 
 **This is Humans in the Business Process (HITBP):** using the existing human decision points in the business workflow as a detection and correction layer for AI failures - without adding new reviewers, without changing the automated decision, and without slowing down the AI.
-
----
 
 ## HITL vs. HOTL vs. HITBP
 
@@ -46,8 +40,6 @@ These humans aren't supervising the AI. They're doing their jobs. But in doing t
 | **Cognitive load** | High (decontextualised review) | Low initially, degrades to zero | Appropriate (contextualised business decision) |
 | **Fatigue profile** | 2-3 months to degradation | Weeks to dashboard blindness | Sustained - it's their actual job |
 | **Regulatory fit** | GDPR Art. 22 compliant if meaningful | Weak - passive monitoring may not qualify | Strong - human makes the consequential decision in the process |
-
----
 
 ## How It Works
 
@@ -81,8 +73,6 @@ HITBP is not a replacement for HITL on CRITICAL-tier systems where regulation de
 
 HITBP works when there is a natural human decision point between the AI's output and the irrevocable action. If the AI output *is* the irrevocable action (auto-send, auto-execute, auto-deny with no review), HITBP doesn't apply and HITL remains the control.
 
----
-
 ## Why the Business Context Matters
 
 The framework's [Oversight Readiness Problem](../../core/oversight-readiness-problem.md) identifies a core failure: HITL reviewers see AI outputs *in isolation*. They're asked "is this output acceptable?" without the business context that makes the answer obvious.
@@ -98,8 +88,6 @@ The reviewer has to decide whether this is a good recommendation based on the AI
 The underwriter isn't reviewing the AI. They're making a lending decision. The AI's recommendation is one input. Their business context gives them everything they need to catch an error that a HITL reviewer - seeing only the AI's output - would miss.
 
 This is the insight: **the business process provides the context that makes human judgement effective**.
-
----
 
 ## The Feedback Loop
 
@@ -126,8 +114,6 @@ When a human in the business process catches a problem:
 | **Feedback-to-fix time** | Time from correction to AI control update | Target: within next guardrail/Judge calibration cycle |
 | **Repeat correction rate** | Same error type caught after feedback was provided | Should trend toward zero for each category |
 | **Uncaught error rate** | Errors that passed through HITBP undetected (found later) | Most important - indicates HITBP blind spots |
-
----
 
 ## Does This Work in a Fast-Moving System?
 
@@ -158,8 +144,6 @@ This is the key: **the AI is fast, but the business commitment is at business sp
 
 For truly real-time systems where the AI's output *is* the committed action (auto-block a transaction, auto-send a message, auto-execute a trade), HITBP cannot help before the action. It can still help after - the business process human can detect that the action was wrong and trigger correction, reversal, or remediation. This is weaker than prevention but better than no human involvement at all.
 
----
-
 ## HITBP and the Three-Layer Pattern
 
 HITBP is not a replacement for any layer. It is an additional detection and correction mechanism that operates outside the AI system's control boundary, in the business process.
@@ -181,8 +165,6 @@ HITBP is not a replacement for any layer. It is an additional detection and corr
 | **HITL** | HITBP reduces the burden on dedicated HITL reviewers - if the business process will catch it, HITL can focus on cases with no downstream human checkpoint |
 | **PACE** | HITBP provides a natural Alternate or Contingency layer when HITL degrades - the [Human Oversight PACE model](../../core/pace-controls-section.md) identifies "no reviewers available" as Emergency; HITBP provides a fallback path through the business process |
 
----
-
 ## HITBP and Regulatory Requirements
 
 ### GDPR Article 22
@@ -202,8 +184,6 @@ HITBP is well-suited to this requirement because the business process human has 
 ### Fair Lending (ECOA, SR 11-7)
 
 Adverse action notice requirements demand that the institution can explain the factors that led to a credit decision. When the human in the business process makes the final decision (informed by AI), the explanation comes from the human's judgement - which is auditable, explainable, and accountable.
-
----
 
 ## Implementation
 
@@ -250,8 +230,6 @@ Add HITBP to the Human Oversight PACE model as an Alternate or Contingency:
 | **Contingency** | Queue overloaded; throttle AI throughput | Rely on HITBP checkpoints; AI continues at full speed but all outputs pass through business process human before commitment; accept slower business process pace |
 | **Emergency** | No reviewers available; suspend AI requiring approval | HITBP is last human layer before circuit breaker; if business process checkpoints also fail or don't exist for this system, activate circuit breaker |
 
----
-
 ## Limitations
 
 HITBP has real limitations. Being honest about them matters more than overselling the concept.
@@ -266,8 +244,6 @@ HITBP has real limitations. Being honest about them matters more than oversellin
 | **Detection latency is at business process pace** | Problems are caught hours or days later, not in milliseconds |
 | **Depends on the human having the authority and willingness to override** | Organisational dynamics matter - a junior analyst may not override an AI recommendation even when they should |
 
----
-
 ## When to Use What
 
 | Situation | Primary Human Oversight Mechanism |
@@ -279,8 +255,6 @@ HITBP has real limitations. Being honest about them matters more than oversellin
 | MEDIUM tier, business process has natural checkpoints | HITBP (primary) + Judge sampling |
 | LOW tier | Neither - guardrails and Judge sufficient |
 
----
-
 ## Summary
 
 HITL puts a human between the AI and its output. HITBP recognises that a human already exists between the AI's output and the business consequence - and that human has better context, stronger motivation, and more sustainable engagement than a dedicated AI reviewer.
@@ -291,6 +265,3 @@ The framework's [Human Factors](../../strategy/human-factors.md) analysis identi
 
 The concept is strongest where the business process naturally places a human decision between the AI's output and the irrevocable action. It is weakest - and does not apply - where the AI's output *is* the irrevocable action. For those cases, HITL and the three-layer pattern remain the primary defence.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -2,8 +2,6 @@
 
 Use this questionnaire when assessing AI vendors, foundation model providers, and AI SaaS platforms. Adapt based on the risk tier of your intended use case.
 
----
-
 ## Instructions
 
 | Risk Tier | Required Sections |
@@ -12,8 +10,6 @@ Use this questionnaire when assessing AI vendors, foundation model providers, an
 | HIGH | All sections |
 | MEDIUM | Sections 1-5, 7 |
 | LOW | Sections 1-3 |
-
----
 
 ## 1. Vendor Identification
 
@@ -28,8 +24,6 @@ Use this questionnaire when assessing AI vendors, foundation model providers, an
 | Intended use case(s) | |
 | Risk tier of use case | |
 
----
-
 ## 2. Security Certifications and Compliance
 
 | Question | Response | Evidence Required |
@@ -41,8 +35,6 @@ Use this questionnaire when assessing AI vendors, foundation model providers, an
 | Has the vendor completed an independent AI security assessment? | Yes / No | Report |
 | When was the last penetration test? | Date | Summary report |
 | Are there any outstanding critical/high findings? | Yes / No | Remediation plan |
-
----
 
 ## 3. Data Handling
 
@@ -78,8 +70,6 @@ Use this questionnaire when assessing AI vendors, foundation model providers, an
 | Is customer data shared with third parties? | Yes / No | |
 | Can data use be contractually restricted? | Yes / No | |
 
----
-
 ## 4. Model Information
 
 ### 4.1 Model Provenance
@@ -113,8 +103,6 @@ Use this questionnaire when assessing AI vendors, foundation model providers, an
 | How is the model monitored for drift? | |
 | What is the known false positive/negative rate for safety measures? | |
 | Can guardrails be configured by the customer? | Yes / No |
-
----
 
 ## 5. Operational Security
 
@@ -150,8 +138,6 @@ Use this questionnaire when assessing AI vendors, foundation model providers, an
 | Has the vendor had any security breaches in the past 3 years? | |
 | If yes, what was the root cause and remediation? | |
 
----
-
 ## 6. Model Updates and Change Management
 
 | Question | Response |
@@ -162,8 +148,6 @@ Use this questionnaire when assessing AI vendors, foundation model providers, an
 | What is the deprecation policy for model versions? | |
 | How are behaviour changes documented? | |
 | Is there a changelog available? | |
-
----
 
 ## 7. Business Continuity and Exit
 
@@ -187,8 +171,6 @@ Use this questionnaire when assessing AI vendors, foundation model providers, an
 | Is there an exit assistance clause? | |
 | What alternative vendors exist for this capability? | |
 | How difficult would migration be? | |
-
----
 
 ## 8. AI-Specific Risks
 
@@ -220,8 +202,6 @@ Use this questionnaire when assessing AI vendors, foundation model providers, an
 | Is source attribution available (for RAG systems)? | |
 | How can outputs be audited? | |
 
----
-
 ## 9. Commercial and Legal
 
 | Question | Response |
@@ -232,8 +212,6 @@ Use this questionnaire when assessing AI vendors, foundation model providers, an
 | Are audit rights included in the contract? | |
 | What jurisdiction governs the contract? | |
 | Is there a DPA (Data Processing Agreement)? | |
-
----
 
 ## 10. Assessment Summary
 
@@ -260,6 +238,3 @@ Use this questionnaire when assessing AI vendors, foundation model providers, an
 **Date:** ____________________  
 **Review date:** ____________________
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

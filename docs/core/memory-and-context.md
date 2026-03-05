@@ -14,8 +14,6 @@ The three-layer pattern evaluates individual requests and responses. But AI syst
 
 A single request-response pair may be safe. The accumulated context may not be.
 
----
-
 ## Threat Model
 
 | Threat | Vector | Impact |
@@ -25,8 +23,6 @@ A single request-response pair may be safe. The accumulated context may not be.
 | **Memory manipulation** | Injecting false "memories" via conversation that persist across sessions | Ongoing manipulation of model behaviour for a user |
 | **Context window overflow** | Filling the context with irrelevant content to push out system instructions | Guardrail bypass - system prompt "forgotten" |
 | **Accumulated PII** | Individual turns are PII-free but the conversation as a whole builds a profile | Privacy violation - model holds more personal data than any individual turn reveals |
-
----
 
 ## Controls
 
@@ -83,8 +79,6 @@ Don't just evaluate individual turns. Periodically evaluate the full conversatio
 | **Right to deletion** | Implement memory deletion that actually deletes - not just soft-delete |
 | **Encryption** | Encrypt persistent memory at rest and in transit - same controls as any data store |
 
----
-
 ## Architecture Patterns
 
 ### Stateless (Recommended for Tier 1–2)
@@ -110,8 +104,6 @@ Shared embeddings or knowledge that multiple users access (e.g., company FAQ, pr
 - Shared content must be read-only for end users
 - Ingestion pipeline is controlled (see [RAG Security](../extensions/technical/rag-security.md))
 - User-specific context is never written to shared stores
-
----
 
 ## Behavioural Learning and Preference Data
 
@@ -177,6 +169,3 @@ The *policy decisions* - what to learn, when to ask consent, how to explain infe
 
 **Your responsibility:** Decide *what* to learn, get *informed consent*, provide *transparency and user control*, and ensure *fairness*. These are design and policy decisions, not security controls - but they determine whether your security controls are protecting the right things.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

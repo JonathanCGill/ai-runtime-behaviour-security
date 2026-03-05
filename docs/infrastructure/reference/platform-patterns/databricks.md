@@ -3,8 +3,6 @@
 > **Purpose:** Platform-specific guidance for implementing the infrastructure controls on Databricks using Model Serving, Mosaic AI Gateway, and Unity Catalog as the AI platform.  
 > **Status:** Reference patterns - adapt to your specific workspace architecture and cloud provider.
 
----
-
 ## Architecture Mapping
 
 | Framework Zone | Databricks Implementation |
@@ -15,8 +13,6 @@
 | **Zone 4 - Ingestion** | Delta Live Tables / Databricks Jobs + Vector Search (write), Document ingestion pipelines |
 | **Zone 5 - Control Plane** | Unity Catalog (governance), Workspace Admin Console, Databricks Secrets |
 | **Zone 6 - Logging** | Inference Tables, System Tables, Unity Catalog audit logs, lakehouse SIEM integration |
-
----
 
 ## Identity & Access (IAM Controls)
 
@@ -46,8 +42,6 @@
 - Use **Databricks OAuth M2M** tokens with short expiry for service-to-service auth.
 - Agent sessions should use **per-request token exchange** rather than long-lived tokens.
 - Secrets API credentials accessed via **Databricks Secrets** scope - mounted at runtime, not stored in notebooks.
-
----
 
 ## Logging & Observability (LOG Controls)
 
@@ -88,8 +82,6 @@
 - Export to cloud-native SIEM (Sentinel, Security Lake, Chronicle) via **Delta Live Tables** streaming to cloud storage.
 - **Unity Catalog audit logs** feed into SIEM for access pattern analysis.
 
----
-
 ## Network & Segmentation (NET Controls)
 
 ### NET-01: Network Zones
@@ -117,8 +109,6 @@
 - Use cloud-native egress controls (AWS Security Groups / Azure NSGs) for outbound destination restriction.
 - **Unity Catalog external connections** control which external data sources agents can access.
 
----
-
 ## Data Protection (DAT Controls)
 
 ### DAT-03: PII Detection
@@ -141,8 +131,6 @@
 - All Databricks API communication over TLS 1.2.
 - Vector Search indexes encrypted with workspace encryption settings.
 
----
-
 ## Secrets & Credentials (SEC Controls)
 
 ### SEC-01/03: Vault and Context Isolation
@@ -156,8 +144,6 @@
 
 - **Databricks notebooks** support version control via **Repos** - integrate with CI/CD scanning.
 - Use pre-commit hooks on the Git repository backing Databricks Repos for credential scanning.
-
----
 
 ## Supply Chain (SUP Controls)
 
@@ -173,8 +159,6 @@
 - **MLflow model metadata** tracks: framework, dependencies, environment, creation timestamp.
 - **Unity Catalog lineage** shows data-to-model-to-endpoint relationships.
 
----
-
 ## Incident Response (IR Controls)
 
 ### IR-04: Rollback
@@ -183,8 +167,6 @@
 - Unity Catalog model versions are immutable - previous versions always available.
 - Vector Search indexes can be rebuilt from Delta table source data.
 - **Databricks Jobs** with approval gates (webhook-based) for deployment automation.
-
----
 
 ## Databricks-Specific Considerations
 
@@ -197,6 +179,3 @@
 | **Multi-cloud** | Databricks runs on AWS, Azure, and GCP. The Databricks-layer controls (Unity Catalog, AI Gateway) are consistent across clouds, but network controls (NET-01 through NET-08) use cloud-specific primitives. |
 | **Mosaic AI Gateway** | AI Gateway provides built-in rate limiting, guardrails, and usage tracking. Configure these as the first layer, then supplement with custom controls for domain-specific requirements. |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

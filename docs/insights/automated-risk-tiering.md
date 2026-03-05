@@ -2,8 +2,6 @@
 
 *If classifying your AI system requires a governance meeting, a questionnaire, and a three-week wait for sign-off - you have built a gate, not a guardrail. Classification should take two minutes, produce an immediate result, and auto-apply the controls that make the risk manageable.*
 
----
-
 ## The Problem with Manual Classification
 
 The framework defines [risk tiers](../core/risk-tiers.md) across six dimensions: decision authority, reversibility, data sensitivity, audience, scale, and regulatory context. The highest dimension wins. The logic is sound.
@@ -24,15 +22,11 @@ The framework was designed to be proportionate. The implementation process is no
 
 The [Fast Lane](../FAST-LANE.md) was designed to solve this for low-risk deployments. This article extends the same principle to all tiers: **classification should be self-service, instant, and directly connected to automated control deployment.**
 
----
-
 ## The Automated Path
 
 ![Automated Risk Tiering Flow](../images/automated-risk-tiering.svg)
 
 The flow has three phases. Each one removes a manual step that currently exists in most organisations' implementation of risk frameworks.
-
----
 
 ## Phase 1: Self-Service Classification
 
@@ -91,8 +85,6 @@ Self-service classification works because the scoring logic is mechanical. But t
 
 Everything else flows through without human intervention.
 
----
-
 ## Phase 2: Auto-Applied Controls
 
 Classification without automated control deployment is just a labelling exercise. The tier must *do* something the moment it is assigned.
@@ -124,8 +116,6 @@ A team that classifies their system as Tier 2 (HIGH) and deploys on the AI platf
 - **Circuit breaker** configured with the team's PACE alternate (reduced functionality mode) as the fallback destination.
 
 The team did not build any of this. They answered six questions. The platform did the rest.
-
----
 
 ## Phase 3: Continuous Risk Monitoring
 
@@ -188,8 +178,6 @@ When all criteria are met, the system proposes a tier reduction to the product o
 
 De-escalation is slow by design. Escalation is fast by design. The asymmetry is intentional.
 
----
-
 ## The Flaw
 
 This model has a structural weakness, and it is important to name it explicitly.
@@ -209,8 +197,6 @@ This is why continuous monitoring is not optional - it is the corrective layer f
 The team classified their system as Tier 1. The monitoring system observed Tier 2 behaviour. Controls escalated automatically. The team was notified with evidence: "Your system is processing data patterns consistent with confidential content. Judge coverage has been increased from 10% to 50%. Please review your classification."
 
 No governance meeting. No blame. No maturity assessment. The platform detected a gap and closed it.
-
----
 
 ## Implementation Architecture
 
@@ -265,8 +251,6 @@ every 5 minutes:
 
 The monitoring pipeline is a platform service. It runs against every deployment. It does not require team configuration. If you deploy on the platform, you are monitored. Opting out is not an option.
 
----
-
 ## What This Changes
 
 | Today | Automated |
@@ -278,8 +262,6 @@ The monitoring pipeline is a platform service. It runs against every deployment.
 | Teams avoid classification to avoid friction | Classification is frictionless; avoiding it is harder than doing it |
 | Security function reviews teams | Platform monitors systems |
 | Governance produces narratives | Infrastructure produces outcomes |
-
----
 
 ## Stakeholder Views
 
@@ -330,8 +312,6 @@ The CISO's function builds and operates the platform. They define control config
 
 Platform engineering implements the control provisioning, the monitoring pipeline, and the self-service form. They are the team that makes "controls as infrastructure" real. Their success metric is straightforward: when a team answers six questions, the right controls apply within minutes, not days.
 
----
-
 ## Operating Principles
 
 **1. The form is the risk assessment.** If the six questions are answered honestly, the tier is correct. No secondary review needed for Tier 1 and Tier 2. The scoring logic is the risk methodology - published, deterministic, and auditable.
@@ -347,8 +327,6 @@ Platform engineering implements the control provisioning, the monitoring pipelin
 **6. The product owner owns the risk.** Classification is the team's responsibility. De-escalation is the product owner's decision. The security function builds the platform and defines the controls. It does not own the classification, the tier, or the decision to accept residual risk. Accountability follows the decision, not the infrastructure.
 
 **7. The framework evolves through runtime evidence.** When monitoring consistently shows that a tier's controls are too aggressive or too permissive, the tier definitions change. The evidence comes from production behaviour, not from governance reviews. Strategy that tests the framework's limits is feedback, not non-compliance.
-
----
 
 ## Getting Started
 
@@ -369,9 +347,5 @@ If you are implementing automated risk tiering, start here:
 Each step delivers value independently. You do not need all six to start. A self-service form with manual control provisioning is already better than a governance meeting. A monitoring pipeline with alerting is already better than periodic review.
 
 Build the infrastructure. Ship it. Iterate.
-
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*
 
 *This article represents the personal views and opinions of the author alone. It is not affiliated with, endorsed by, or representative of any employer, organisation, or other entity. Nothing in this article should be construed as reflecting the position or policy of any company or institution with which the author is or has been associated.*

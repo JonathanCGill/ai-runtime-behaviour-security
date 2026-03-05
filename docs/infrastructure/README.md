@@ -8,8 +8,6 @@ description: Infrastructure controls that enforce AI behavioural security across
 
 Companion to [AI Runtime Behaviour Security](https://github.com/JonathanCGill/ai-runtime-behaviour-security), which defines the three-layer behavioural security pattern (Guardrails → LLM-as-Judge → Human Oversight). This repo defines the 80 technical infrastructure controls that underpin that pattern.
 
----
-
 ## The Problem
 
 You can't enforce behavioural security controls on infrastructure you don't control. The parent framework tells you *what* to enforce. This repo tells you *how* to enforce it:
@@ -21,8 +19,6 @@ You can't enforce behavioural security controls on infrastructure you don't cont
 - **How are credentials managed?** → [Secrets & Credentials](controls/secrets-and-credentials.md)
 - **Can you trust the model?** → [Supply Chain](agentic/supply-chain.md)
 - **What happens when things break?** → [Incident Response](controls/incident-response.md)
-
----
 
 ## Architecture
 
@@ -41,8 +37,6 @@ You can't enforce behavioural security controls on infrastructure you don't cont
 ### Network Zone Architecture
 
 ![Network Zones](diagrams/network-zones.svg)
-
----
 
 ## Control Domains
 
@@ -153,8 +147,6 @@ AI-specific incident categories, detection triggers, containment procedures, rol
 | IR-07 | Conduct AI-specific post-incident review | All |
 | IR-08 | Integrate with enterprise IR processes | All |
 
----
-
 ## Agentic AI Controls
 
 Additional controls for systems where AI agents invoke tools, generate code, delegate to other agents, or take autonomous actions.
@@ -201,8 +193,6 @@ Additional controls for systems where AI agents invoke tools, generate code, del
 | SAND-05 | Prevent persistent state escaping sessions |
 | SAND-06 | Scan generated code before execution |
 
----
-
 ## Regulatory & Standards Mappings
 
 Every control maps to the three-layer behavioural model and to established standards:
@@ -214,8 +204,6 @@ Every control maps to the three-layer behavioural model and to established stand
 | [NIST AI RMF](mappings/nist-ai-rmf.md) | 51 subcategories across Govern, Map, Measure, Manage |
 | [OWASP LLM Top 10](mappings/owasp-llm-top10.md) | All 10 risks + OWASP Agentic Top 10 |
 
----
-
 ## Platform Implementation Patterns
 
 Reference patterns for implementing these controls on specific platforms:
@@ -226,13 +214,9 @@ Reference patterns for implementing these controls on specific platforms:
 | [Microsoft Foundry](reference/platform-patterns/microsoft-foundry.md) | Azure OpenAI, AI Content Safety, APIM, Entra ID PIM, Sentinel |
 | [Databricks](reference/platform-patterns/databricks.md) | Mosaic AI Gateway, Model Serving, Unity Catalog, Vector Search, Inference Tables |
 
----
-
 ## Diagrams
 
 Fourteen SVG diagrams covering IAM architecture, logging pipelines, network zones, agent egress flows, credential isolation, data classification, incident classification, delegation permission models, and more. All in [`diagrams/`](diagrams/).
-
----
 
 ## Design Principles
 
@@ -244,19 +228,13 @@ Fourteen SVG diagrams covering IAM architecture, logging pipelines, network zone
 6. **Infrastructure beats instructions.** Security controls are enforced via deterministic infrastructure (gateways, network policy, vaults), never via prompt instructions that can be overridden.
 7. **AI controls add to your existing security, they don't replace it.** These 80 controls address AI-specific risks. Your organisation's existing DLP (inbound and outbound), API gateways, database access controls, IAM, SIEM, network segmentation, secure coding practices, and incident response capabilities all still apply - and all still catch failures that AI-specific controls miss. Defence in depth includes everything outside this framework.
 
----
-
 ## Repo Structure
 
 See [REPO-STRUCTURE.md](REPO-STRUCTURE.md) for the full layout and rationale.
 
----
-
 ## Contributing
 
 Feedback, corrections, and extensions welcome. This is a living framework.
-
----
 
 ## Author
 
@@ -266,6 +244,3 @@ Feedback, corrections, and extensions welcome. This is a living framework.
 - LinkedIn: [Jonathan Gill](https://www.linkedin.com/in/jonathancgill/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

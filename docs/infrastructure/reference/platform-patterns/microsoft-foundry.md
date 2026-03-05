@@ -3,8 +3,6 @@
 > **Purpose:** Platform-specific guidance for implementing the infrastructure controls on Azure using Azure OpenAI Service and Microsoft Foundry (formerly Azure AI Studio) as the model hosting platforms.  
 > **Status:** Reference patterns - adapt to your specific architecture and Azure subscription structure.
 
----
-
 ## Architecture Mapping
 
 | Framework Zone | Azure Implementation |
@@ -15,8 +13,6 @@
 | **Zone 4 - Ingestion** | Azure Functions / Azure Data Factory + Azure AI Search (vector write), Azure AI Document Intelligence |
 | **Zone 5 - Control Plane** | Azure Key Vault, Azure Policy, Azure RBAC, Entra ID Privileged Identity Management |
 | **Zone 6 - Logging** | Azure Monitor / Log Analytics, Azure Storage (log archive), Microsoft Sentinel |
-
----
 
 ## Identity & Access (IAM Controls)
 
@@ -46,8 +42,6 @@
 - Use **Entra ID workload identity federation** for session-bound token issuance.
 - Token lifetime configured via **token lifetime policies** in Entra ID.
 - **Managed Identity** credential rotation handled automatically by Azure.
-
----
 
 ## Logging & Observability (LOG Controls)
 
@@ -83,8 +77,6 @@
 - For third-party SIEM: use **Azure Event Hubs** export from Log Analytics.
 - Sentinel **custom analytics rules** for AI incident detection (IR-02 triggers).
 
----
-
 ## Network & Segmentation (NET Controls)
 
 ### NET-01: Network Zones
@@ -114,8 +106,6 @@
 - **Azure Firewall application rules** implement the egress destination allowlist.
 - **NSG flow logs** captured for cross-zone traffic monitoring (NET-08).
 
----
-
 ## Data Protection (DAT Controls)
 
 ### DAT-03: PII Detection
@@ -139,8 +129,6 @@
 - All Azure service communication over TLS 1.2.
 - **Azure Storage** encryption with CMK for log archives.
 
----
-
 ## Secrets & Credentials (SEC Controls)
 
 ### SEC-01/03: Vault and Context Isolation
@@ -156,8 +144,6 @@
 - **Azure DevOps credential scanner** in CI/CD pipelines.
 - Custom APIM policies detect credential patterns in model I/O.
 
----
-
 ## Incident Response (IR Controls)
 
 ### IR-04: Rollback
@@ -166,8 +152,6 @@
 - APIM policy **revisions** - rollback guardrail policies to previous revision.
 - Azure AI Search index **aliases** - point to previous known-good index.
 - **Azure DevOps pipelines** with approval gates for all AI component deployments.
-
----
 
 ## Azure-Specific Considerations
 
@@ -179,6 +163,3 @@
 | **Provisioned throughput** | For consistent performance, use provisioned throughput units (PTUs) - avoids token-based throttling that could affect guardrail latency. |
 | **Entra ID integration** | Leverage Entra ID deeply - Conditional Access, PIM, and workload identity provide strong IAM-01 through IAM-06 implementation. |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

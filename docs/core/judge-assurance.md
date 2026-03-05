@@ -8,8 +8,6 @@ The three-layer pattern depends on the LLM-as-Judge to detect "unknown-bad" outp
 
 If you deploy a Judge without evaluating its accuracy, you've added cost and latency without knowing whether you've added safety.
 
----
-
 ## What Can Go Wrong
 
 | Failure Mode | Impact |
@@ -21,8 +19,6 @@ If you deploy a Judge without evaluating its accuracy, you've added cost and lat
 | **Evaluation collapse** | Judge uses same reasoning patterns as the generator - shared blind spots |
 
 The last one is the most insidious. If your generator is GPT-4 and your judge is also GPT-4, they may share the same failure modes. The judge won't catch what it can't see.
-
----
 
 ## Controls
 
@@ -100,8 +96,6 @@ When the Judge is unavailable, degraded, or untrusted:
 
 **Never fail open.** If the Judge can't evaluate, tighten other controls. Don't skip evaluation.
 
----
-
 ## Integration with Existing Controls
 
 | Existing Layer | Judge Assurance Addition |
@@ -111,15 +105,11 @@ When the Judge is unavailable, degraded, or untrusted:
 | **Human Oversight** | Humans now serve dual purpose - deciding edge cases AND calibrating the Judge |
 | **Metrics** | Add Judge-specific metrics to your monitoring dashboard |
 
----
-
 ## The Honest Assessment
 
 Even with all these controls, you cannot prove the Judge is correct. You can only measure its accuracy against human judgment, track its consistency over time, and react when it drifts.
 
 This is the same epistemic limitation identified in [The Verification Gap](../insights/the-verification-gap.md). The Judge doesn't solve it - it manages it. Judge Assurance ensures you know how well it's managing.
-
----
 
 ## Related Documents
 
@@ -132,6 +122,3 @@ The Judge layer is covered across several documents. If you're here, you probabl
 | [Privileged Agent Governance](../maso/controls/privileged-agent-governance.md) | MASO controls for the Judge as a privileged agent: calibration testing (PA-2.2), criteria versioning (PA-2.3), model rotation (PA-3.4), continuous calibration (PA-3.5). |
 | [Execution Control - EC-2.5](../maso/controls/execution-control.md) | Judge as the gate for agent actions. Action classification rules. Cross-validation at Tier 3 (EC-3.3). |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

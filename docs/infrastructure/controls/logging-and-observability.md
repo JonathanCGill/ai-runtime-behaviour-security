@@ -4,8 +4,6 @@
 > **Purpose:** Capture, correlate, and analyse AI system behaviour to detect drift, anomalies, misuse, and control failures in production.  
 > **Relationship:** Enables the LLM-as-Judge layer (by providing the data the Judge evaluates) and the Human Oversight layer (by surfacing the signals humans need to make decisions).
 
----
-
 ## Why AI Logging Is Different
 
 Traditional application logging records discrete events: user logged in, API called, error thrown. AI systems require a fundamentally different approach because:
@@ -15,8 +13,6 @@ Traditional application logging records discrete events: user logged in, API cal
 3. **Multi-step reasoning.** Agentic systems chain decisions. A single harmful outcome may result from a sequence of individually reasonable steps. Logging must preserve the full chain.
 4. **Adversarial inputs.** Prompt injection attempts must be detectable in logs. This means logging raw inputs *before* guardrail processing, not just the sanitised versions.
 5. **Evaluation loops.** The Judge LLM's evaluations are themselves AI outputs that need logging and monitoring. Who watches the watchers? The logging pipeline does.
-
----
 
 ## Control Objectives
 
@@ -32,8 +28,6 @@ Traditional application logging records discrete events: user logged in, API cal
 | LOG-08 | Implement retention policies aligned with regulatory requirements | All |
 | LOG-09 | Redact sensitive data in logs while preserving forensic utility | All |
 | LOG-10 | Correlate AI system logs with enterprise security telemetry | Tier 3+ |
-
----
 
 ## LOG-01: Model Input/Output Logging
 
@@ -69,8 +63,6 @@ Every interaction with a model endpoint must be logged with sufficient context t
 
 AI logging generates significantly more data than traditional application logging. A single interaction may produce 5,000+ tokens of logged content. Plan storage, retention, and query infrastructure accordingly.
 
----
-
 ## LOG-02: Guardrail Decision Logging
 
 Every guardrail evaluation must be logged, including passes. You need to know what the guardrails *didn't* catch as much as what they did.
@@ -99,8 +91,6 @@ Guardrail logs enable:
 - **Coverage gaps:** Categories of content that are never flagged may indicate missing guardrail rules.
 - **Drift detection:** Changes in the distribution of guardrail decisions over time may indicate changes in user behaviour or model behaviour.
 
----
-
 ## LOG-03: Judge Evaluation Logging
 
 The LLM-as-Judge layer produces evaluations that are themselves AI outputs. These must be logged with the same rigour as primary model outputs.
@@ -127,8 +117,6 @@ The Judge itself can fail, hallucinate, or be manipulated. Log analysis should d
 - **Evaluation latency:** Is the Judge keeping up with production throughput?
 - **Score distribution shifts:** A sudden change in the distribution of Judge scores may indicate Judge drift or model drift.
 - **Disagreement rates:** How often does the Judge flag content that guardrails passed? High rates may indicate guardrail gaps or Judge miscalibration.
-
----
 
 ## LOG-04: Agent Action Logging
 
@@ -157,8 +145,6 @@ Logs must support reconstruction of the full decision chain for any agent task:
 ![Agent Decision Chain Reconstruction](../diagrams/agent-chain-reconstruction.svg)
 
 This chain is the forensic record. Without it, you cannot explain *why* the agent did what it did.
-
----
 
 ## LOG-05: Behavioural Drift Detection
 
@@ -196,8 +182,6 @@ Not every anomaly is an incident. The logging pipeline should classify:
 - **Anomaly:** Statistically significant deviation - investigate.
 - **Incident:** Anomaly confirmed as control failure, misuse, or compromise - invoke IR.
 
----
-
 ## LOG-06: Prompt Injection Detection
 
 Prompt injection is the primary adversarial threat to LLM systems. Logging must support detection of both known and novel injection patterns.
@@ -222,8 +206,6 @@ Store injection attempts (confirmed and suspected) in a separate collection for:
 - Threat intelligence sharing (anonymised).
 - Training data for injection detection models.
 
----
-
 ## LOG-07: Log Integrity Protection
 
 AI system logs are high-value forensic and compliance artifacts. They must be protected from tampering, including by privileged insiders and by the AI system itself.
@@ -235,8 +217,6 @@ AI system logs are high-value forensic and compliance artifacts. They must be pr
 - **Separate storage:** AI system logs are stored in a system that the AI system itself cannot access for writes (preventing an agent from covering its tracks).
 - **Access control:** Read access to logs is restricted and audited. The AI system's runtime identities have no read access to historical logs.
 - **Backup:** Logs are replicated to a separate failure domain.
-
----
 
 ## LOG-08: Retention Policies
 
@@ -253,8 +233,6 @@ AI system logs are high-value forensic and compliance artifacts. They must be pr
 
 Adjust per regulatory requirements (GDPR, POPIA, sector-specific).
 
----
-
 ## LOG-09: Sensitive Data Redaction
 
 AI logs frequently contain PII, financial data, or other sensitive information - because users put it in their prompts and models include it in their responses.
@@ -266,8 +244,6 @@ AI logs frequently contain PII, financial data, or other sensitive information -
 3. **Redaction patterns:** Names, email addresses, phone numbers, national IDs, credit card numbers, medical record numbers, account numbers.
 4. **Tokenisation option:** Replace PII with consistent tokens (`[PERSON_1]`, `[EMAIL_1]`) that preserve referential integrity across a session without exposing real values.
 5. **Audit redaction effectiveness:** Periodically sample logs and verify that redaction is working. PII leakage into logs is a data protection incident.
-
----
 
 ## LOG-10: Enterprise Telemetry Correlation
 
@@ -291,8 +267,6 @@ AI system logs should flow to the enterprise SIEM/SOAR with:
 - Correlation IDs that link AI system events to infrastructure events.
 - Alert rules that trigger on cross-domain patterns (not just AI-domain patterns).
 
----
-
 ## Three-Layer Mapping
 
 | Control | Guardrails | LLM-as-Judge | Human Oversight |
@@ -308,8 +282,6 @@ AI system logs should flow to the enterprise SIEM/SOAR with:
 | LOG-09 Redaction | PII doesn't persist in guardrail logs | Judge doesn't receive unnecessary PII | Reduces data protection risk for oversight teams |
 | LOG-10 Correlation | Guardrail evasion visible in broader context | Judge findings enriched with infrastructure context | Humans see the full picture |
 
----
-
 ## Platform-Neutral Implementation Checklist
 
 - [ ] All model interactions logged with full context (input, output, identities, metadata)
@@ -323,6 +295,3 @@ AI system logs should flow to the enterprise SIEM/SOAR with:
 - [ ] PII redaction applied at log ingestion with periodic effectiveness audits
 - [ ] AI logs integrated with enterprise SIEM with correlation rules active
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

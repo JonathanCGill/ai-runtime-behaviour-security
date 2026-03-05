@@ -2,8 +2,6 @@
 
 *And what to do about it*
 
----
-
 Every enterprise deploying AI in production has the same conversation eventually: "We need guardrails." Input validation. Output filtering. Content policies. Prompt injection detection.
 
 They're right. Guardrails are necessary.
@@ -11,8 +9,6 @@ They're right. Guardrails are necessary.
 But they're not sufficient. And the gap between "necessary" and "sufficient" is where AI systems fail in ways that damage customers, trigger regulatory scrutiny, and erode trust.
 
 This article explains why guardrails alone don't work, and introduces a three-layer control model that does.
-
----
 
 ## The Guardrail Illusion
 
@@ -25,8 +21,6 @@ They're pattern matchers. They block inputs that look like attacks you've seen b
 But AI systems fail in ways that don't match patterns. A customer service bot that subtly steers users toward expensive products. A document summariser that invents citations. An agent that finds a creative path around its stated constraints. None of these trigger guardrails because none of them look like the attacks guardrails were built to catch.
 
 Guardrails are bouncers checking IDs at the door. They stop obvious problems. They don't notice the trouble that's already inside.
-
----
 
 ## The Three Failures Guardrails Miss
 
@@ -48,8 +42,6 @@ A single interaction looks fine. A thousand interactions reveal a pattern: the A
 
 Guardrails operate on individual transactions. They can't see patterns.
 
----
-
 ## The Missing Layer: Assurance
 
 If guardrails are the bouncer, you also need a detective. Someone reviewing the footage, noticing patterns, flagging concerns for investigation.
@@ -66,8 +58,6 @@ When something looks wrong, the Judge flags it. A human investigates. The human 
 
 This is a critical distinction: **the Judge detects. It doesn't decide.**
 
----
-
 ## Why the Judge Doesn't Block
 
 The instinct is to make the Judge an active control. If it spots a problem, block the transaction. Reject the response. Protect the user.
@@ -81,8 +71,6 @@ This instinct is wrong, for three reasons.
 **Accountability.** When an AI system makes a consequential decision about a customer, someone needs to be accountable. Under GDPR Article 22, automated decisions with legal or significant effects require human involvement. An AI blocking transactions is an automated decision. A human reviewing AI findings and choosing to act is human oversight.
 
 The Judge is assurance, not control. It makes human oversight scalable without replacing it.
-
----
 
 ## The Three-Layer Model
 
@@ -102,8 +90,6 @@ Effective AI security combines three layers:
 
 No single layer is sufficient. Together, they provide defence in depth.
 
----
-
 ## Implementation Principles
 
 **Start with logging.** The Judge needs data. If you're not capturing full AI interactions - inputs, outputs, context - start there. You can't evaluate what you didn't record.
@@ -115,8 +101,6 @@ No single layer is sufficient. Together, they provide defence in depth.
 **Build feedback loops.** When the Judge finds something guardrails missed, update the guardrails. Every Judge finding is an opportunity to improve inline controls. Over time, more gets caught at the first layer.
 
 **Design escalation paths.** Judge findings go somewhere. Define queues, SLAs, and responsibilities. A finding without an owner is a finding ignored.
-
----
 
 ## The Uncomfortable Truth About Agents
 
@@ -138,8 +122,6 @@ Don't tell the agent "stay under budget." Give it an API key that stops working 
 
 Instructions are policy. Infrastructure is enforcement.
 
----
-
 ## What This Means for Your Team
 
 If you're running AI in production with guardrails alone, you have blind spots. You're catching obvious problems and missing subtle ones. You're protected against yesterday's attacks and exposed to tomorrow's.
@@ -151,8 +133,6 @@ Start with one system. Add logging. Deploy a Judge. Review its findings weekly. 
 Then expand.
 
 The organisations getting AI security right aren't the ones with the most sophisticated guardrails. They're the ones that assume guardrails aren't enough - and build accordingly.
-
----
 
 ## This Pattern Exists
 
@@ -174,6 +154,3 @@ For practical implementation guidance on the guardrail layer itself - what to de
 
 > **Design reviews prove intent. Behavioral monitoring proves reality.**
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

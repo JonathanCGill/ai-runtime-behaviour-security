@@ -4,8 +4,6 @@
 
 **The LLM-as-Judge pattern works because it provides independent evaluation. But the Judge is itself an LLM - and LLMs can be manipulated.**
 
----
-
 ## The Problem
 
 [The Judge Detects. It Doesn't Decide.](../insights/judge-detects-not-decides.md) explains why asynchronous LLM evaluation is a critical layer in the three-layer pattern. The Judge catches what guardrails miss - the unknown-bad, the subtly inappropriate, the contextually wrong.
@@ -19,8 +17,6 @@ The UK AI Security Institute's *Frontier AI Trends Report* (December 2025) adds 
 If the primary model can detect and game evaluations, it can potentially game your Judge too.
 
 This doesn't invalidate the Judge pattern. It means the Judge layer needs its own threat model. For a comprehensive treatment of evaluation integrity risks - including sandbagging mitigations and canary interaction strategies - see **[Evaluation Integrity Risks](../insights/evaluation-integrity-risks.md)**.
-
----
 
 ## How the Judge Can Fail
 
@@ -53,8 +49,6 @@ The Judge is an LLM. It has the same fundamental limitations as any LLM:
 - **Evaluation fatigue at scale.** When the Judge evaluates thousands of outputs, subtle quality degradation may fall below its detection threshold. Individual outputs pass; the aggregate pattern is problematic.
 - **Capability ceiling.** The Judge can only detect problems it's capable of understanding. If the primary model is more capable than the Judge in a specific domain, the evaluation provides false assurance.
 
----
-
 ## Mitigations
 
 None of these are complete solutions. They reduce the attack surface - which is the point of defence-in-depth.
@@ -70,8 +64,6 @@ None of these are complete solutions. They reduce the attack surface - which is 
 | **Domain-specific Judges** | For high-risk domains, use Judges fine-tuned or prompted with domain expertise. A general-purpose Judge evaluating medical advice is a known weak point. |
 | **Human calibration** | Regularly sample Judge evaluations and compare them to human assessment. Measure agreement rates. Adjust when they diverge. This is the Human Oversight layer doing its job. |
 
----
-
 ## The Honest Assessment
 
 The Judge layer is not a silver bullet. No single layer is - that's why the pattern has three.
@@ -81,8 +73,6 @@ What the Judge provides is **detection at a different timescale and with a diffe
 The adversarial robustness of the Judge improves with independence, structure, and monitoring - the same principles that improve any security control. Perfect evaluation isn't achievable. Useful evaluation is.
 
 The goal is not a Judge that never fails. The goal is a Judge whose failures are **different from the primary model's failures**, so the combination catches what neither would alone.
-
----
 
 ## What This Framework Recommends
 
@@ -94,6 +84,3 @@ For **Tier 3** (high-risk) systems: All of the above, plus model independence ac
 
 For **agentic systems**: Judge evaluation of tool calls and action sequences is more critical - and harder - than evaluation of text outputs. An agent that takes the wrong action causes direct harm regardless of how well-written its reasoning was. See [Agentic Controls](../core/agentic.md) for additional requirements.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

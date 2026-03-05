@@ -2,8 +2,6 @@
 
 *You gave your agents a universal protocol for calling tools. You didn't give your security architecture one for controlling them.*
 
----
-
 ## The Protocol Everyone's Adopting
 
 Model Context Protocol (MCP) is becoming the standard way AI agents connect to tools, data sources, and services. Open-sourced by Anthropic in late 2024 and adopted rapidly across the ecosystem - IDE plugins, enterprise platforms, developer toolchains, internal automation - MCP provides a universal interface for agents to discover and invoke external capabilities.
@@ -13,8 +11,6 @@ The value proposition is compelling: instead of building custom integrations for
 The security implications are not plug and play.
 
 MCP solves a real interoperability problem. But it also introduces an attack surface that most organisations are not controlling - because the protocol itself was designed for capability, not for governance, and the security model is being retrofitted rather than built in.
-
----
 
 ## What MCP Actually Does
 
@@ -27,8 +23,6 @@ MCP defines a client-server protocol between an AI agent (the client) and a tool
 The agent connects to one or more MCP servers, discovers their capabilities, and invokes them as part of its reasoning and action loop. The LLM sees tool descriptions and decides when and how to call them.
 
 This is where the problems start.
-
----
 
 ## Seven Risks You're Probably Not Controlling
 
@@ -105,8 +99,6 @@ Each MCP client and server may implement its own logging, but there's no unified
 
 **The risk:** When something goes wrong - data exfiltration, unintended actions, policy violations - you lack the audit trail to investigate, attribute, or remediate.
 
----
-
 ## Why the Three-Layer Pattern Still Works
 
 The good news: MCP doesn't break the security architecture. It just reveals where organisations haven't implemented it for tool access.
@@ -118,8 +110,6 @@ The good news: MCP doesn't break the security architecture. It just reveals wher
 | **Human Oversight** | Ambiguous cases - novel tool usage patterns the automated layers can't classify, high-impact operations that require explicit approval, tool calls that are technically permitted but contextually suspicious |
 
 The three layers work. But they must be applied at the MCP boundary - between the agent and the MCP server - not just at the LLM input/output boundary where most organisations deploy them today.
-
----
 
 ## What Controls Are Missing
 
@@ -135,8 +125,6 @@ The current MCP ecosystem has gaps that map directly to controls this framework 
 | No data flow control | [DP-03](../infrastructure/controls/data-protection.md) | Data classification boundaries are enforced at the infrastructure layer, not by agent self-restraint. |
 
 These aren't new controls invented for MCP. They're existing controls that organisations haven't applied to MCP because the protocol's ease of use made the security gaps invisible.
-
----
 
 ## What You Should Do Now
 
@@ -158,8 +146,6 @@ These aren't new controls invented for MCP. They're existing controls that organ
 
 **7. Build the security architecture first.** Define your tool manifests, your gateway policy, your monitoring requirements, and your approval workflows before connecting your first MCP server. Retrofitting security after agents are in production and users depend on the capabilities is significantly harder.
 
----
-
 ## The Pattern
 
 MCP is the latest instance of a recurring pattern in technology adoption:
@@ -174,8 +160,6 @@ We've seen this with APIs (OAuth came after widespread API adoption), with cloud
 MCP is in phase 2. The adoption is real. The security model is incomplete. The incidents haven't happened at scale yet - but the architecture makes them inevitable.
 
 The organisations that implement controls now - tool manifests, gateway enforcement, supply chain verification, monitoring - will be the ones that don't appear in next year's incident reports.
-
----
 
 ## AISI MCP Autonomy Classification for Financial Services
 
@@ -199,8 +183,6 @@ The AISI data showed the financial services MCP ecosystem shifting rapidly towar
 
 > **Source:** UK AI Security Institute, *Frontier AI Trends Report*, December 2025.
 
----
-
 ## Key Takeaways
 
 1. **MCP is an agent-to-tool protocol, not a security protocol.** It solves interoperability. It does not solve authentication, authorisation, or monitoring. Those are your responsibility.
@@ -215,8 +197,6 @@ The AISI data showed the financial services MCP ecosystem shifting rapidly towar
 
 6. **Put the gateway between the agent and the server.** This single architectural decision - a deterministic proxy that mediates all MCP tool invocations - addresses the majority of the risks described here. The agent proposes. The gateway decides.
 
----
-
 ## Related
 
 - [Tool Access Controls](../infrastructure/agentic/tool-access-controls.md) - Declares, mediates, and constrains agent tool invocations
@@ -226,6 +206,3 @@ The AISI data showed the financial services MCP ecosystem shifting rapidly towar
 - [Infrastructure Beats Instructions](infrastructure-beats-instructions.md) - Why prompt-based security fails and deterministic enforcement works
 - [RAG Is Your Biggest Attack Surface](rag-is-your-biggest-attack-surface.md) - Another data path that bypasses traditional access controls
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

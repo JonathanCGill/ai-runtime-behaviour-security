@@ -4,8 +4,6 @@
 
 > *Part of [Stakeholder Views](README.md) · [AI Runtime Behaviour Security](../)*
 
----
-
 ## The Problem You Have
 
 AI regulation is arriving faster than most compliance programmes can adapt. You're facing:
@@ -15,8 +13,6 @@ AI regulation is arriving faster than most compliance programmes can adapt. You'
 2. **Evidence gaps.** Traditional compliance evidence (policy documents, annual assessments, audit logs) doesn't cover what regulators are asking about AI: *How do you know the AI's output is correct? How do you detect bias in real-time decisions? What happens when your AI fails? Can you explain why the AI made a specific decision?*
 
 3. **Scope uncertainty.** Which of your AI systems are "high risk" under the EU AI Act? Which are "critical" under DORA? Your AI team says "it's just a chatbot" - your regulator might disagree.
-
----
 
 ## What This Framework Gives You
 
@@ -64,8 +60,6 @@ The framework's four-tier system maps to regulatory risk categories:
 
 The classification dimensions (decision authority, reversibility, data sensitivity, audience, scale, regulatory) **directly support** the risk assessment your regulator expects. Completing the [Risk Tiers](../core/risk-tiers.md) classification for each AI system produces artefacts that satisfy regulatory risk assessment requirements.
 
----
-
 ## Your Starting Path
 
 | # | Document | Why You Need It |
@@ -80,8 +74,6 @@ The classification dimensions (decision authority, reversibility, data sensitivi
 
 **For detailed NIST mapping:** [NIST AI RMF Mapping](../infrastructure/mappings/nist-ai-rmf.md) - all 51 subcategories.
 
----
-
 ## What You Can Do Monday Morning
 
 1. **Inventory your AI systems** using the [Risk Tiers](../core/risk-tiers.md) classification. Regulators will ask "what AI systems do you operate and how are they classified?" You need this answer before they ask.
@@ -93,8 +85,6 @@ The classification dimensions (decision authority, reversibility, data sensitivi
 4. **Verify human oversight evidence.** For each system with human oversight requirements, confirm you can produce: escalation criteria, review rates, override counts, reviewer qualifications. If you can't produce this evidence today, you have a gap.
 
 5. **Check your AI audit trail.** Can you reconstruct why a specific AI system produced a specific output for a specific user at a specific time? If not, you can't satisfy explainability or transparency obligations. The [Observability](../maso/controls/observability.md) domain defines what to log.
-
----
 
 ## Common Objections - With Answers
 
@@ -113,6 +103,3 @@ The core requirements are already clear across all major frameworks: risk assess
 **"Compliance requirements will slow down AI adoption."**
 Compliance requirements scale with risk. LOW-tier systems (internal, read-only, no regulated data) go through the [Fast Lane](../FAST-LANE.md) - self-certification, minimal controls, days not months. Compliance only adds significant overhead for HIGH and CRITICAL tier systems - where the regulatory obligations actually apply.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

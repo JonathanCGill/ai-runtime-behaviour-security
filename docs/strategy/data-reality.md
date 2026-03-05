@@ -4,8 +4,6 @@
 
 > Part of [From Strategy to Production](./)
 
----
-
 ## The Data Assumption
 
 Every AI strategy assumes data. "We'll use AI to analyse customer behaviour." "We'll build an AI-powered risk model." "We'll automate document processing with AI."
@@ -13,8 +11,6 @@ Every AI strategy assumes data. "We'll use AI to analyse customer behaviour." "W
 Each of these assumes that the required data exists, is accessible, is clean enough to use, and can legally be processed. In most organisations, at least one of these assumptions is wrong.
 
 Data isn't a supporting resource for AI strategy. **Data is the strategy's foundation.** An organisation with excellent data and a modest model will outperform an organisation with poor data and the most capable model available. This is well-established in machine learning literature and routinely ignored in strategic planning.
-
----
 
 ## The Data Readiness Assessment
 
@@ -116,8 +112,6 @@ This is particularly important for high-stakes AI and is directly connected to t
 
 **Real-world scenario:** A retailer wants to use loyalty card data to train a personalised recommendation AI. The loyalty card terms say data will be used "to provide personalised offers." Legal advises that training an AI model is different from running a database query, and may require updated consent under GDPR legitimate interest assessment. This isn't a technical blocker - it's a 3-month legal process that wasn't in the project plan.
 
----
-
 ## How Data Reality Shapes Strategy
 
 ### The Data-Strategy Matrix
@@ -145,8 +139,6 @@ The framework's [risk tiers](../core/risk-tiers.md) classify systems by their po
 | **CRITICAL** | Maximum controls | **Question the deployment.** CRITICAL decisions on poor data may not be appropriate. |
 
 The framework doesn't currently incorporate data quality into risk classification. This is a gap. A CRITICAL-tier system built on well-curated, representative data is a different risk profile from a CRITICAL-tier system built on incomplete, biased data. The controls are the same; the residual risk is not.
-
----
 
 ## Data Strategies That Work
 
@@ -190,8 +182,6 @@ Not every data problem needs solving. For LOW and MEDIUM tier AI deployments, im
 
 **The framework supports this.** The three-layer model (Guardrails → Judge → Human) is designed to catch errors regardless of their cause. Data quality issues manifest as AI output errors, which the Judge can detect and humans can review. The controls don't need to know *why* the output is wrong - they need to know *that* it's wrong.
 
----
-
 ## Data Anti-Patterns
 
 | Anti-Pattern | Why It Happens | What Goes Wrong |
@@ -202,8 +192,6 @@ Not every data problem needs solving. For LOW and MEDIUM tier AI deployments, im
 | **"More data is always better"** | Quantity over quality mindset | Large datasets with poor quality produce worse models than small datasets with good quality |
 | **"The vendor handles our data"** | Outsource AI to a vendor; assume data is their problem | Vendor needs your data in a usable form; data preparation still falls on you |
 | **"Our data is fine"** | No one has actually assessed quality | Reality is only discovered when the model performs poorly in production |
-
----
 
 ## The Uncomfortable Truth
 
@@ -217,6 +205,3 @@ Most organisations' data is not ready for the AI strategy they want to pursue. T
 
 The framework can secure AI systems built on poor data. It cannot make them accurate. That distinction is critical for strategy.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -5,8 +5,6 @@
 > Part of [AI Runtime Behaviour Security](./)
 > Last updated: March 2026
 
----
-
 ## How to Read This Page
 
 The [Incident Tracker](maso/threat-intelligence/incident-tracker.md) is organised by incident — "here's what happened, here are the controls." This page inverts that view. It's organised by **control** — "here's the control, here are the real-world incidents it addresses."
@@ -21,8 +19,6 @@ Each control is mapped to the incidents it would have prevented or detected, wit
 |--------|---------|
 | **High** | Controls directly and deterministically prevent the failure. The mechanism is concrete and testable. |
 | **Moderate** | Controls significantly reduce the risk but cannot fully eliminate it. The failure class has inherent uncertainty. |
-
----
 
 ## Validation Summary
 
@@ -48,8 +44,6 @@ These controls are referenced across the highest number of documented incidents.
 
 **What this tells you:** If you implement nothing else, input guardrails and an independent Judge gate address the widest range of documented attack patterns. Circuit breakers provide the safety net when prevention fails. This is consistent with the framework's core architecture — Guardrails prevent, Judge detects, Circuit breaker contains.
 
----
-
 ## Control-by-Control Validation
 
 ### Untrusted Content Isolation
@@ -61,8 +55,6 @@ These controls are referenced across the highest number of documented incidents.
 | INC-01: Copilot EchoLeak | Email body and attachments tagged as untrusted data, never instruction — prevents LLM from treating email content as executable commands |
 
 **Why this matters:** The root cause of indirect prompt injection is that AI systems treat all input as potential instruction. Untrusted content isolation enforces the instruction/data boundary at the protocol level. This control is architecturally simple but addresses the most common AI attack primitive.
-
----
 
 ### Input Guardrails / Context Sanitisation
 
@@ -82,8 +74,6 @@ The single most broadly validated control. Addresses the widest range of attack 
 
 **Limitations:** Guardrails are pattern-based. They catch known injection techniques effectively but can be evaded by novel or highly contextual attacks. This is exactly why the framework pairs guardrails with Judge evaluation.
 
----
-
 ### Tool Scoping / Capability Constraints (Least Privilege)
 
 **Incident alignment: Strong (5 incidents) · Confidence: High**
@@ -98,8 +88,6 @@ The single most broadly validated control. Addresses the widest range of attack 
 
 **Why this is fundamental:** Five separate incidents across different platforms and attack types would have been prevented or contained by this single control principle. If your AI system can invoke tools, least privilege is non-negotiable.
 
----
-
 ### Capability Allowlisting / Tool Invocation Policy
 
 **Incident alignment: Moderate (2 incidents) · Confidence: High**
@@ -108,8 +96,6 @@ The single most broadly validated control. Addresses the widest range of attack 
 |----------|----------------------|
 | INC-04: LangChain Experimental | Only explicitly approved tools and functions available to the LLM; all others denied by default |
 | INC-06: Claude Code Interpreter | Capability segmentation — file read capabilities and network capabilities operate under separate permission grants |
-
----
 
 ### Structured Query Enforcement / Deterministic Query Builder
 
@@ -121,8 +107,6 @@ The single most broadly validated control. Addresses the widest range of attack 
 
 **Why this is deterministic:** This control doesn't depend on probabilistic detection. The LLM physically cannot compose arbitrary SQL/Cypher because the architecture only allows parameterised queries. This is the gold standard for AI-to-database interaction security.
 
----
-
 ### Database Least-Privilege Role
 
 **Incident alignment: Moderate (1 incident) · Confidence: High**
@@ -131,8 +115,6 @@ The single most broadly validated control. Addresses the widest range of attack 
 |----------|----------------------|
 | INC-03: LangChain SQLi | Database connection uses minimum required permissions (read-only where possible) — limits blast radius even if a query escapes validation |
 
----
-
 ### Execution Sandboxing
 
 **Incident alignment: Moderate (1 incident) · Confidence: High**
@@ -140,8 +122,6 @@ The single most broadly validated control. Addresses the widest range of attack 
 | Incident | How This Control Helps |
 |----------|----------------------|
 | INC-04: LangChain Experimental | Code execution occurs in an isolated sandbox with no access to the host system — even if code execution is triggered, blast radius is contained |
-
----
 
 ### LLM-as-Judge Gate (Various Specialisations)
 
@@ -160,8 +140,6 @@ The second most broadly validated control category. Deployed as specialised judg
 
 **Important distinction:** For injection-based incidents (INC-01, 02, 05, 06), the Judge provides High-confidence defence as an independent second layer. For hallucination incidents (INC-07, 08), the Judge significantly reduces risk but can't fully eliminate it — subtle hallucinations that are semantically close to the source material may evade verification.
 
----
-
 ### Grounded Response Requirement / Mandatory Source Citation
 
 **Incident alignment: Moderate (2 incidents) · Confidence: Moderate**
@@ -173,8 +151,6 @@ The second most broadly validated control category. Deployed as specialised judg
 
 **Why Moderate confidence:** Grounding eliminates the most egregious hallucinations — the Air Canada chatbot couldn't have invented a non-existent policy if it was constrained to citing the actual policy document. But generative models can still produce subtle misinterpretations of grounded content. The framework's position is that policy and regulatory advice should use retrieval-only architectures where possible.
 
----
-
 ### Human Escalation for High-Impact Outputs
 
 **Incident alignment: Moderate (2 incidents) · Confidence: Moderate**
@@ -183,8 +159,6 @@ The second most broadly validated control category. Deployed as specialised judg
 |----------|----------------------|
 | INC-07: Air Canada hallucination | Responses involving financial commitments or policy advice routed to human review |
 | INC-08: NYC MyCity | Questions involving discrimination law, tenant rights, and labour law routed to human review |
-
----
 
 ### Authority Separation (LLM Proposes, System Commits)
 
@@ -196,8 +170,6 @@ The second most broadly validated control category. Deployed as specialised judg
 
 **Why this is deterministic:** Authority separation isn't a probabilistic control. The LLM physically cannot make binding commercial commitments because the architecture separates proposal from commitment. The $1 car offer would never have been confirmable because no approval workflow would have validated it.
 
----
-
 ### Transactional Approval Workflow / Offer-Policy Validator
 
 **Incident alignment: Moderate (1 incident) · Confidence: High**
@@ -205,8 +177,6 @@ The second most broadly validated control category. Deployed as specialised judg
 | Incident | How This Control Helps |
 |----------|----------------------|
 | INC-09: Chevrolet $1 | All pricing and offer responses validated against current business rules before being served — selling a $50K vehicle for $1 fails policy validation |
-
----
 
 ### Outbound Data Classification / Egress Anomaly Detection
 
@@ -217,8 +187,6 @@ The second most broadly validated control category. Deployed as specialised judg
 | INC-01: Copilot EchoLeak | Outbound traffic monitored for sensitive data patterns; anomalous retrieval triggers alert |
 | INC-05: HackerOne exfil | All outbound data classified before transmission; sensitive data blocked from unauthorised destinations |
 | INC-06: Claude Code Interpreter | Network egress controlled; outbound traffic to unapproved endpoints blocked |
-
----
 
 ### Circuit Breaker
 
@@ -234,8 +202,6 @@ The second most broadly validated control category. Deployed as specialised judg
 
 **Why circuit breakers appear so often:** They're the last line of defence. When guardrails miss an injection, when the Judge doesn't catch a subtle attack, the circuit breaker provides a hard stop based on observable behaviour anomalies. Five of nine incidents would have been contained by this single control.
 
----
-
 ### Audit Logging / Action Logging
 
 **Incident alignment: Strong (5 incidents) · Confidence: High**
@@ -250,8 +216,6 @@ The second most broadly validated control category. Deployed as specialised judg
 
 **Why logging is a control, not just compliance:** In three of these incidents (INC-01, 04, 06), audit logs would have enabled detection of the attack *during* exploitation, not just after. In two (INC-07, 09), they provide the accountability trail that prevents "we didn't know" defences.
 
----
-
 ### Confidence Threshold Enforcement
 
 **Incident alignment: Moderate (1 incident) · Confidence: Moderate**
@@ -260,8 +224,6 @@ The second most broadly validated control category. Deployed as specialised judg
 |----------|----------------------|
 | INC-07: Air Canada hallucination | Responses below confidence threshold are withheld or qualified with uncertainty language |
 
----
-
 ### Commitment Circuit Breaker (Domain-Specific)
 
 **Incident alignment: Moderate (1 incident) · Confidence: High**
@@ -269,8 +231,6 @@ The second most broadly validated control category. Deployed as specialised judg
 | Incident | How This Control Helps |
 |----------|----------------------|
 | INC-09: Chevrolet $1 | Responses containing commitment language ("binding," "guarantee," "we agree to") automatically blocked |
-
----
 
 ## Validation Coverage Map
 
@@ -304,8 +264,6 @@ Controls in these categories are based on threat modelling and architectural rea
 
 - **Tier 3 autonomous controls** (self-healing PACE, adversarial testing suites, independent kill switch) — These are designed for fully autonomous multi-agent systems, which are still rare in production. The controls are architecturally sound but won't be incident-validated until autonomous systems are common enough to be attacked.
 
----
-
 ## How This Page Evolves
 
 This is a living document. As new AI security incidents are publicly disclosed:
@@ -317,6 +275,3 @@ This is a living document. As new AI security incidents are publicly disclosed:
 
 If you know of a public AI security incident not listed here, [open an issue](https://github.com/JonathanCGill/ai-runtime-behaviour-security/issues). We'll map it to controls and update both pages.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

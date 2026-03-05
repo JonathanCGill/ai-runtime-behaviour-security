@@ -3,9 +3,6 @@
 **10,000 Concurrent Customers, 60,000 Agent Instances, Nine Stress Dimensions**
 
 > Part of the [MASO Framework](../README.md) · Stress Testing
-> Version 1.0 · March 2026
-
----
 
 ## Scenario Overview
 
@@ -31,8 +28,6 @@ This is a fundamentally different scaling challenge from the [100-Agent Stress T
 - **Session affinity:** Each customer session is pinned to a dedicated set of agent instances. Agent state is session-scoped - no cross-customer data sharing at the agent level.
 - **Lifecycle:** Agent instances are created when a customer begins a session and terminated when the session ends or times out.
 
----
-
 ## What Makes This Different
 
 The [100-Agent Stress Test](100-agent-stress-test-overview.md) examines eight stress dimensions for a fleet of diverse agents collaborating on complex tasks. This scenario introduces three challenges that the 100-agent exercise does not cover:
@@ -44,8 +39,6 @@ The [100-Agent Stress Test](100-agent-stress-test-overview.md) examines eight st
 3. **Ephemeral lifecycle.** Agents are created and destroyed continuously. Identity, credentials, and observability must work for agents that exist for minutes, not hours or days. Traditional approaches to agent identity (pre-provisioned credentials, onboarding procedures) do not survive contact with Kubernetes autoscaling.
 
 4. **Economic pressure on security controls.** During peak trading (Black Friday, Christmas), costs escalate progressively while revenue growth plateaus. The corporate intent to profit during peak for technology reinvestment creates direct pressure to reduce control overhead. This scenario tests whether economic governance is robust enough to prevent cost-driven security erosion.
-
----
 
 ## The Economic Scaling Problem
 
@@ -62,8 +55,6 @@ This risk is amplified during peak trading — exactly when margins matter most.
 - **Cost pressure creates governance decisions, not just technical decisions.** When costs escalate, someone must decide whether to reduce Judge sampling, substitute cheaper models, or suspend personalisation. These are security and risk decisions disguised as cost decisions. Whether they are made by the right people, with the right information, under time pressure, is what this stress test examines.
 
 Stress Dimensions 1–8 test whether MASO's security controls survive at scale. Stress Dimension 9 tests whether the organisation's economics survive — and whether economic pressure causes the security controls to be weakened through human decisions rather than technical failures.
-
----
 
 ## How to Run This Exercise
 
@@ -84,8 +75,6 @@ This exercise is designed for teams deploying customer-facing AI agent systems a
 - The Kubernetes/platform engineering lead
 - The payments and fraud operations lead
 - The risk owner who will sign off on the deployment
-
----
 
 ## Stress Dimension 1: Observability - Per-Type, Not Per-Instance
 
@@ -133,8 +122,6 @@ Level 2: Instance-level investigation (triggered)
   - Correlation with customer session data
 ```
 
----
-
 ## Stress Dimension 2: Judge Evaluation - Sampling by Risk Tier
 
 ### The 5-Agent Reality
@@ -174,8 +161,6 @@ The solution is **risk-tiered Judge sampling**:
 | Guardrails (Layer 1) | Hard boundary enforcement | Must compensate for reduced Judge coverage on lower-risk actions |
 | OB-2.2 Drift detection | Behavioural change detection | Aggregate sampling results to detect systematic quality shifts |
 
----
-
 ## Stress Dimension 3: Human Oversight - Exception-Driven, Not Routine
 
 ### The 5-Agent Reality
@@ -206,8 +191,6 @@ The risk is **false negatives at the guardrail and Judge layers**. If the guardr
 | Human oversight (Layer 3) | Routine review of agent outputs | Exception-only: humans see Judge-flagged actions only |
 | EC-2.6 Decision commit protocol | Validating action authority | Must operate at machine speed for routine actions; human involvement only on exceptions |
 | OB-1.4 Output quality log | Log human approval decisions | Log automated approval decisions too; human review becomes audit-based, not inline |
-
----
 
 ## Stress Dimension 4: Identity and Credentials at Kubernetes Scale
 
@@ -242,8 +225,6 @@ The solution maps to Kubernetes-native identity:
 | IA-2.3 No transitive permissions | Preventing privilege laundering | Enforced architecturally: agent types cannot assume other types' IAM roles |
 | IA-2.5 Credential rotation | Regular credential refresh | Eliminated: credentials die with the pod |
 
----
-
 ## Stress Dimension 5: Data Protection and PCI Scope
 
 ### The 5-Agent Reality
@@ -274,8 +255,6 @@ The Payment Agent handles PCI-scoped data (card numbers, CVVs, authentication da
 | DP-2.1 DLP on message bus | Preventing data leakage | PCI pattern detection (card numbers, CVVs) on every inter-agent message |
 | DP-1.3 Memory isolation | Preventing cross-boundary persistence | Payment Agent context must be purged after session; other agents must reject PCI data |
 | OB-1.1 Action audit log | Complete action logging | PCI data masking in log pipeline before storage |
-
----
 
 ## Stress Dimension 6: PACE at Scale - Two-Level Resilience
 
@@ -316,8 +295,6 @@ The critical question is: **who decides the type-level transition?** Individual 
 | OB-2.2 Drift detection | Per-agent behavioural baseline | Detect type-level failures by aggregating instance health signals |
 | OB-3.2 Circuit breaker | Emergency halt | Must support type-level halt (suspend all instances of one type) without affecting other types |
 
----
-
 ## Stress Dimension 7: Kill Switch - Graduated Shutdown
 
 ### The 5-Agent Reality
@@ -353,8 +330,6 @@ A graduated shutdown protocol is essential:
 | EC-2.6 Decision commit protocol | Validating action authority | Must support "drain" mode: complete committed actions, block new ones |
 | Tier 3 isolated kill switch | Independence from agent control plane | Must operate independently of EKS; ideally on separate infrastructure |
 
----
-
 ## Stress Dimension 8: Compound Attacks at Transaction Volume
 
 ### The 5-Agent Reality
@@ -388,8 +363,6 @@ The scale introduces attack vectors that do not exist at small scale:
 | DP-2.3 RAG integrity | Data source validation | Shared knowledge base is single point of failure at scale; content signing and verification required |
 | PG-2.5 Claim provenance | Source tracking | Must trace across agent type boundaries, not just agent instances |
 | OB-2.1 Anomaly scoring | Per-agent detection | Population-level anomaly detection catches coordinated attacks across instances |
-
----
 
 ## Stress Dimension 9: Economic Governance Under Peak Trading Pressure
 
@@ -562,8 +535,6 @@ The economic governance stress test passes when the team can:
 4. Maintain CRITICAL-action Judge coverage at 100% throughout the entire escalation.
 5. Articulate, to the board, why the cost overrun happened and why reducing security controls was not the answer — before anyone asks them to.
 
----
-
 ## Summary: Where MASO Holds and Where It Adapts
 
 ### Where MASO Holds Without Modification
@@ -588,8 +559,6 @@ The economic governance stress test passes when the team can:
 | **Identity lifecycle** | Map to Kubernetes pod identity; eliminate credential rotation | Low - Kubernetes-native identity is simpler, not harder |
 | **Economic governance** | Pre-approved peak trading runbooks; graduated cost responses with security-control floor; root-cause identification within 30 minutes of cost alert | High - requires cross-functional governance (security, finance, engineering) and pre-agreed decision rights under pressure |
 
----
-
 ## Relationship to Other MASO Documents
 
 | Document | Relationship |
@@ -603,6 +572,3 @@ The economic governance stress test passes when the team can:
 | [Economic Governance](../../extensions/technical/economic-governance.md) | Defines the Meter → Attribute → Enforce → Optimise model. Stress Dimension 9 applies it under peak trading pressure with escalating cost-to-revenue divergence |
 | [PACE Resilience](../../PACE-RESILIENCE.md) | Defines the three-axis PACE model. This document proposes instance-level and type-level PACE as a scaling adaptation |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

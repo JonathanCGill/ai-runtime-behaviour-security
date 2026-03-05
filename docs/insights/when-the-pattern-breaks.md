@@ -2,8 +2,6 @@
 
 > This framework's three-layer pattern (guardrails prevent, judge detects, humans decide) was designed for **single-agent, request-response architectures**. This document is honest about where that pattern holds, where it strains, and where it breaks in complex multi-agent systems.
 
----
-
 ## The Architecture Assumption
 
 The three-layer pattern assumes a simple topology:
@@ -15,8 +13,6 @@ One input. One model. One output. Clear trust boundaries. The guardrails know wh
 This works. The data confirms it (see [What's Working](what-works.md)).
 
 The question is what happens when the topology changes.
-
----
 
 ## Scaling Stages: Where It Holds, Strains, and Breaks
 
@@ -97,8 +93,6 @@ Traditional RBAC doesn't work when agents dynamically request new permissions, s
 
 At Stage 4, the system operates at machine speed across potentially thousands of agent interactions per second. Human review of edge cases is not just a bottleneck - it's architecturally incompatible. The OWASP Agentic Top 10 introduces **ASI09: Human-Agent Trust Exploitation** as a distinct risk: "confident, polished explanations misled human operators into approving harmful actions." The humans-in-the-loop aren't just too slow; they're actively being manipulated by the agents they're supposed to oversee.
 
----
-
 ## What Replaces the Pattern at Scale?
 
 The three-layer pattern doesn't need to be abandoned. It needs to be **augmented** for multi-agent architectures. The emerging consensus (from OWASP, AWS, and production deployments) points to several new architectural primitives:
@@ -141,8 +135,6 @@ This is the judge pattern elevated to the system level - but with important diff
 
 Every agentic system needs a physically isolated, non-negotiable mechanism to halt agent execution. This is not optional. The OWASP Agentic Top 10 calls for "kill switches as a non-negotiable, auditable, and physically isolated mechanism." The Amazon Q incident (CVE-2025-8217) demonstrated what happens without one: a compromised VS Code extension with `--trust-all-tools --no-interactive` flags could execute destructive commands affecting nearly a million developers.
 
----
-
 ## Honest Summary: Where This Framework Applies
 
 | System Complexity | Pattern Status | What's Needed |
@@ -157,8 +149,6 @@ This framework remains valid for Stage 1 and Stage 2 systems, which represent th
 
 The OWASP Agentic Top 10, AWS's Agentic AI Security Scoping Matrix, and emerging production experience from early agentic adopters are collectively building the next layer of guidance. This framework will incorporate that guidance as it matures from theory to observed practice.
 
----
-
 ## Sources
 
 | Source | Relevance |
@@ -171,6 +161,3 @@ The OWASP Agentic Top 10, AWS's Agentic AI Security Scoping Matrix, and emerging
 | [KPMG AI Pulse Q4 2025](https://kpmg.com/us/en/media/news/q4-ai-pulse.html) | 80% of leaders cite cybersecurity as top barrier to agentic AI; 65% cite system complexity |
 | [Obsidian Security: 2025 AI Agent Landscape](https://www.obsidiansecurity.com/blog/ai-agent-market-landscape) | 90% of agents over-permissioned; agents move 16x more data than humans |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

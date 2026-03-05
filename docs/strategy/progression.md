@@ -4,8 +4,6 @@
 
 > Part of [From Strategy to Production](./)
 
----
-
 ## The Maturity Trap
 
 Organisations want to be at Tier 3. Autonomous agents making decisions, driving efficiency, transforming operations. The business case for full autonomy is always more compelling than the business case for decision support.
@@ -13,8 +11,6 @@ Organisations want to be at Tier 3. Autonomous agents making decisions, driving 
 So they skip. They go from no AI directly to autonomous AI. Sometimes it works - usually because the specific use case is forgiving and the data is good. More often it fails, and the failure is expensive, visible, and corrosive to future AI investment.
 
 The framework provides a progression path. This article explains why it exists, how to use it, and where it breaks down.
-
----
 
 ## The Progression Model
 
@@ -31,8 +27,6 @@ The framework supports five positions on a progression from no AI to autonomous 
 | **Autonomous** | Tier 3 (CRITICAL) | AI acts independently; human monitors | AI decides; human oversees |
 
 Each step up increases value. Each step up also increases risk, control requirements, skill requirements, and operational complexity. The progression is designed so that each step builds the capability needed for the next.
-
----
 
 ## What Each Step Builds
 
@@ -139,8 +133,6 @@ Each step up increases value. Each step up also increases risk, control requirem
 
 **The mistake:** Treating autonomous AI as a cost-saving measure. If the business case depends on eliminating human review, the business case is wrong. Autonomous AI reduces human decision-making but increases human monitoring, governance, and incident response. The human cost shifts - it doesn't disappear.
 
----
-
 ## Progression Timelines
 
 ### Realistic Timeline for a Typical Enterprise
@@ -174,8 +166,6 @@ This feels slow. It is slow. It's also realistic. Organisations that claim to go
 
 Even accelerated, the progression from nothing to Tier 3 is 12-18 months. The reason is that operational maturity - the ability to detect and respond to AI failures - can't be compressed below the time it takes to actually operate systems and encounter real problems.
 
----
-
 ## What Makes Organisations Skip Steps
 
 | Reason | Why It's Tempting | Why It's Dangerous |
@@ -204,8 +194,6 @@ Month 7: Regulatory inquiry. "Show us your controls." No Judge accuracy data. No
 Month 8: System pulled back to human-supervised mode. 6 months of autonomous operation replaced with decision-support while controls are built. The progression starts where it should have started.
 
 **Cost of skipping:** Lost customer trust. Regulatory scrutiny. 8 months of operating without appropriate controls. More expensive than doing it right because everything was built reactively under pressure.
-
----
 
 ## The Framework's Role in Progression
 
@@ -243,8 +231,6 @@ The tiered model is inherently progressive:
 | **Human readiness criteria** | Minimum human capability requirements per tier (training, experience, backup) | Prevents the "controls exist but nobody can operate them" failure |
 | **Data quality overlay** | Data quality as a risk modifier that affects effective tier | Prevents high-risk AI on low-quality data |
 
----
-
 ## Progression Patterns by Industry
 
 ### Financial Services
@@ -280,8 +266,6 @@ The tiered model is inherently progressive:
 
 **Typical progression:** 12-18 months to reach Supervised. Faster progression possible because regulatory intensity is lower than financial services or healthcare.
 
----
-
 ## When to Stay Where You Are
 
 Not every organisation needs to reach Tier 3. Not every organisation should.
@@ -310,6 +294,3 @@ Not every organisation needs to reach Tier 3. Not every organisation should.
 
 The strategic goal is not "highest tier possible." It's "right tier for the business, operated safely." For many organisations, that's Tier 1 or Tier 2 - and that's fine.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

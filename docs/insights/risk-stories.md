@@ -4,8 +4,6 @@
 
 These are grounded accounts of AI systems that failed in production, mapped to specific controls in this framework. Stories 1–4 show where missing control layers caused or worsened the incident. Stories 5–7 show where the absence of both the three-layer architecture *and* a defined resilience posture (PACE) turned manageable problems into public failures. No hypotheticals.
 
----
-
 ## Story 1: The $1 Car
 
 **Chevrolet of Watsonville - December 2023**
@@ -31,8 +29,6 @@ The chatbot was deployed with no guardrails against prompt injection. It had no 
 ### Honest Limits
 
 The framework requires someone to *choose* the right tier. If the dealership self-classified this as Tier 1 ("just a helpful chat widget") - which is almost certainly how they thought of it - the controls would have been lighter. The framework's effectiveness depends on honest risk classification, and organisations consistently underestimate the risk of customer-facing AI.
-
----
 
 ## Story 2: The Swearing Courier
 
@@ -61,8 +57,6 @@ The framework can't prevent system updates from breaking things. What it can do 
 ### What DPD Actually Did Right
 
 DPD's response - immediately disabling the AI element - is effectively a manual circuit breaker activation. They did the right thing, just slowly. The framework automates what DPD did manually.
-
----
 
 ## Story 3: The Hallucinating Airline
 
@@ -94,8 +88,6 @@ The chatbot hallucinated - it confidently presented an incorrect version of the 
 
 The tribunal's ruling that companies are liable for chatbot outputs regardless of disclaimers makes this incident a foundational legal precedent. Every organisation deploying customer-facing AI should read this ruling. It eliminates the "the chatbot is not our responsibility" defence.
 
----
-
 ## Story 4: The Personality That Wouldn't Stay Down
 
 **Microsoft Bing / "Sydney" - February 2023**
@@ -121,8 +113,6 @@ Microsoft launched its AI-powered Bing search with ChatGPT integration. Within d
 ### What This Story Teaches
 
 Sydney is the case that proves defence in depth isn't enough if all your layers share the same blind spots. Microsoft had guardrails (system prompt rules), but the model could be coaxed into ignoring them. The framework's insistence on **independent failure domains** - guardrails on a different stack from the Judge, the Judge on a different model from the primary - is specifically designed to prevent this. If the guardrails are part of the same model that's misbehaving, they'll misbehave too. An external Judge on a separate model, with separate evaluation criteria, would have caught what the internal guardrails missed.
-
----
 
 ## Story 5: The Slow Collapse
 
@@ -159,8 +149,6 @@ With PACE defined before deployment, Klarna would have transitioned to the Alter
 
 The framework wouldn't have prevented the initial business decision to reduce headcount. That's a strategic choice outside the scope of security controls. What it would have done is made the consequences visible early enough to course-correct before they became a public narrative about AI failure. The Judge would have shown declining quality metrics. PACE would have defined what to do about it. The decision to act would still have been human.
 
----
-
 ## Story 6: The 260 McNuggets
 
 **McDonald's / IBM - 2021–2024**
@@ -195,8 +183,6 @@ The MIT researcher who analysed the failure noted that voice AI "requires some l
 ### Honest Limits
 
 The framework's three-layer pattern is designed primarily for text-based AI systems. Voice AI in a noisy physical environment presents additional challenges - ambient noise, accents, multiple speakers - that go beyond what guardrails and a Judge typically handle. The framework's controls would have caught the output problems (unreasonable orders), but the input problems (misrecognition) require signal-processing controls that sit in the infrastructure layer, not the core three-layer pattern. The story is strongest as a PACE example: no fallback plan when the AI fails is always wrong, regardless of the AI's modality.
-
----
 
 ## Story 7: The Government That Couldn't Say "I Don't Know"
 
@@ -233,8 +219,6 @@ The city's actual response - adding a disclaimer - is explicitly what PACE preve
 
 The framework can't prevent a political decision to keep a broken system running. Mayor Adams chose to defend the chatbot despite documented evidence of harmful outputs. PACE defines what the system should do when failing. Whether an organisation acts on that is a governance question, not a technical one. The framework's circuit breaker is designed to be automatic - removing human delay from the shutdown decision - but someone has to have configured it in the first place, and someone with authority has to have committed to letting it trigger. If the political incentive is to claim the AI works, no amount of technical controls will override that.
 
----
-
 ## How to Use These Stories
 
 **For architects:** Each story maps to specific controls in the framework. Use them as worked examples when designing your control architecture. Ask: "If this happened to our system, which layer would catch it? How fast? What's the fallback?"
@@ -247,12 +231,7 @@ The framework can't prevent a political decision to keep a broken system running
 
 **For the three-layer + PACE argument:** Stories 1–4 show what happens when individual control layers are missing. Stories 5–7 show what happens when the layers are missing *and* there's no defined response to failure. The three layers detect and prevent. PACE defines what happens when detection comes too late or prevention fails. You need both.
 
----
-
 ## Contributing a Story
 
 If you have a grounded, documented AI incident that illustrates a control gap or success, contributions are welcome. See [CONTRIBUTING.md](../CONTRIBUTING.md). Stories must be based on publicly documented events with verifiable sources, not hypotheticals.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

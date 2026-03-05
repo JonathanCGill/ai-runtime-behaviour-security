@@ -4,8 +4,6 @@
 
 This example follows Meridian Bank (fictional) as they deploy an AI-powered customer service assistant. We walk through every step: risk classification, control selection, implementation, monitoring, and incident response.
 
----
-
 ## Important: Control Layer Separation
 
 This example uses the layered control model:
@@ -17,8 +15,6 @@ This example uses the layered control model:
 | **Human Oversight** | Review findings, decide action | As needed |
 
 **The Judge does not block transactions.** It reviews interactions after the fact and surfaces findings for human review. Guardrails handle real-time protection.
-
----
 
 ## The Use Case
 
@@ -54,8 +50,6 @@ This example uses the layered control model:
 - Custom API integration for account data
 - Deployed in bank's Azure environment
 
----
-
 ## Step 1: Risk Classification
 
 ### Assessment
@@ -79,8 +73,6 @@ Rationale: While Aria doesn't make decisions, it accesses sensitive customer fin
 
 **Approval Required:** Security + Risk sign-off
 
----
-
 ## Step 2: Control Selection
 
 Based on HIGH risk tier, these controls apply:
@@ -88,8 +80,6 @@ Based on HIGH risk tier, these controls apply:
 ### Control Architecture
 
 ![Aria Control Architecture](../../images/example-aria-architecture.svg)
-
----
 
 ## Step 3: Guardrails Implementation (Inline)
 
@@ -206,8 +196,6 @@ def filter_output(response: str, customer_id: str, context: dict) -> Tuple[bool,
     
     return True, response
 ```
-
----
 
 ## Step 4: LLM-as-Judge Implementation (Async)
 
@@ -332,8 +320,6 @@ def process_judge_evaluation(evaluation: dict, conversation_id: str):
         return
 ```
 
----
-
 ## Step 5: HITL Configuration
 
 ### Review Queues
@@ -367,8 +353,6 @@ def process_judge_evaluation(evaluation: dict, conversation_id: str):
 | Random sample | ~500 | 2 min each | 2.0 FTE |
 | Complaints | ~20 | 30 min each | 1.5 FTE |
 | **Total** | | | **7.5 FTE** |
-
----
 
 ## Step 6: System Prompt
 
@@ -404,8 +388,6 @@ Time: {current_time}
 Begin by greeting the customer and asking how you can help.
 ```
 
----
-
 ## Step 7: Monitoring Dashboard
 
 ### Real-Time Metrics (Guardrails)
@@ -435,8 +417,6 @@ Begin by greeting the customer and asking how you can help.
 | Judge accuracy vs HITL decisions | Calibrate Judge |
 | Customer satisfaction trend | Overall quality |
 | Conversation topic distribution | Monitor scope |
-
----
 
 ## Step 8: Logging
 
@@ -498,8 +478,6 @@ Begin by greeting the customer and asking how you can help.
 | Judge evaluations | 3 years | Hot (90d) → Cold |
 | HITL decisions | 7 years | Compliance archive |
 
----
-
 ## Step 9: Incident Response Example
 
 ### Scenario: Judge Detects Pattern of Hallucinations
@@ -537,8 +515,6 @@ Daily HITL review notices: Judge flagged 12 conversations yesterday with "halluc
 
 **Key Learning:** Judge caught an issue that guardrails couldn't-guardrails don't know what the correct mortgage rate is. This is the value of async quality assurance.
 
----
-
 ## Step 10: Costs
 
 ### Implementation Costs (One-Time)
@@ -566,8 +542,6 @@ Daily HITL review notices: Judge flagged 12 conversations yesterday with "halluc
 | **Total Annual** | **$1,091,000** | |
 
 **Cost per Conversation: ~$0.06**
-
----
 
 ## Lessons Learned
 
@@ -599,8 +573,6 @@ After 6 months in production:
 | Customer satisfaction | >4.0/5.0 | 4.3/5.0 |
 | Security incidents | 0 | 0 |
 
----
-
 ## Summary
 
 Aria demonstrates HIGH-tier implementation with proper control separation:
@@ -614,6 +586,3 @@ Aria demonstrates HIGH-tier implementation with proper control separation:
 
 **The Judge is not a gatekeeper.** It's a quality assurance mechanism that makes human oversight scalable. Guardrails protect in real-time. The Judge finds what they miss. Humans decide what to do about it.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

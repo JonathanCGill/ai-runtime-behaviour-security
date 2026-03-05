@@ -2,8 +2,6 @@
 
 This document maps the AI Runtime Behaviour Security to ISO 27001:2022 information security requirements.
 
----
-
 ## Executive Summary
 
 **The AI framework is complementary to, not a replacement for, ISO 27001.**
@@ -18,8 +16,6 @@ ISO 27001 provides the Information Security Management System (ISMS). The AI fra
 
 **Key finding:** No fundamental changes needed. Some controls need explicit AI interpretation. A few gaps exist where AI introduces novel risks.
 
----
-
 ## ISO 27001 Structure Overview
 
 ISO 27001:2022 has:
@@ -32,8 +28,6 @@ ISO 27001:2022 has:
 | People (A.6) | 8 | Medium - awareness, responsibilities |
 | Physical (A.7) | 14 | Low - standard physical security applies |
 | Technological (A.8) | 34 | High - access, logging, development, data protection |
-
----
 
 ## Annex A Control Mapping
 
@@ -79,8 +73,6 @@ ISO 27001:2022 has:
 | **A.5.36** Compliance with policies and standards | Ensure compliance | Judge monitors compliance | ✅ Aligned |
 | **A.5.37** Documented operating procedures | Document procedures | Operating model documents | ✅ Aligned |
 
----
-
 ### A.6 People Controls
 
 | Control | ISO 27001 Requirement | AI Framework Mapping | Gap? |
@@ -94,8 +86,6 @@ ISO 27001:2022 has:
 | **A.6.7** Remote working | Secure remote work | Standard applies | ✅ Standard |
 | **A.6.8** Information security event reporting | Report security events | Escalation to HITL, incident reporting | ✅ Aligned |
 
----
-
 ### A.7 Physical Controls
 
 Physical controls (A.7.1 - A.7.14) apply to AI systems as they do to any information system. No AI-specific mapping needed - standard physical security controls apply to:
@@ -104,8 +94,6 @@ Physical controls (A.7.1 - A.7.14) apply to AI systems as they do to any informa
 - Physical security of on-premise GPU/TPU infrastructure
 
 **No gaps identified.**
-
----
 
 ### A.8 Technological Controls
 
@@ -146,8 +134,6 @@ Physical controls (A.7.1 - A.7.14) apply to AI systems as they do to any informa
 | **A.8.33** Test information | Protect test data | Standard applies | ✅ Standard |
 | **A.8.34** Protection of information systems during audit testing | Protect during audits | Standard applies | ✅ Standard |
 
----
-
 ## Gap Analysis Summary
 
 ### Gaps Identified
@@ -171,8 +157,6 @@ Physical controls (A.7.1 - A.7.14) apply to AI systems as they do to any informa
 | **A.8.11** Data masking | Mask data in storage/transit | PII filtering in prompts and responses |
 | **A.8.12** Data leakage prevention | Prevent data exfiltration | Prevent model leaking training data, sensitive context |
 | **A.8.16** Monitoring | Monitor for security events | Judge monitoring for policy violations, anomalies |
-
----
 
 ## Required Additions
 
@@ -198,8 +182,6 @@ Physical controls (A.7.1 - A.7.14) apply to AI systems as they do to any informa
 
 **Evidence:** Vendor assessment records, certifications
 
----
-
 #### AI.13.2 AI Vendor Agreements
 
 **Requirement:** Include AI-specific terms in vendor agreements.
@@ -219,8 +201,6 @@ Physical controls (A.7.1 - A.7.14) apply to AI systems as they do to any informa
 
 **Evidence:** Contract terms, DPAs
 
----
-
 #### AI.13.3 Model Provenance
 
 **Requirement:** Understand and document the provenance of AI models used.
@@ -237,8 +217,6 @@ Physical controls (A.7.1 - A.7.14) apply to AI systems as they do to any informa
 
 **Evidence:** Model documentation, provenance records
 
----
-
 #### AI.13.4 API and Model Monitoring
 
 **Requirement:** Monitor third-party AI APIs and models for security issues.
@@ -254,8 +232,6 @@ Physical controls (A.7.1 - A.7.14) apply to AI systems as they do to any informa
 | Cost anomalies | Unexpected usage or cost spikes |
 
 **Evidence:** Monitoring dashboards, alert logs
-
----
 
 ### 2. AI Security Training (New Section)
 
@@ -279,8 +255,6 @@ Physical controls (A.7.1 - A.7.14) apply to AI systems as they do to any informa
 
 **Evidence:** Training records, completion rates
 
----
-
 ### 3. AI Business Continuity (New Section)
 
 **Control: AI.15 AI System Continuity**
@@ -301,8 +275,6 @@ Physical controls (A.7.1 - A.7.14) apply to AI systems as they do to any informa
 
 **Evidence:** BCP documentation, AI system RTOs
 
----
-
 #### AI.15.2 AI System Resilience
 
 **Requirement:** Design AI systems for resilience.
@@ -318,8 +290,6 @@ Physical controls (A.7.1 - A.7.14) apply to AI systems as they do to any informa
 | Rate limit handling | Graceful handling of API rate limits |
 
 **Evidence:** Architecture documentation, resilience testing records
-
----
 
 ### 4. AI Intellectual Property (New Section)
 
@@ -341,8 +311,6 @@ Physical controls (A.7.1 - A.7.14) apply to AI systems as they do to any informa
 
 **Evidence:** IP inventory, protection measures documentation
 
----
-
 #### AI.16.2 Third-Party IP Compliance
 
 **Requirement:** Ensure AI use complies with third-party IP rights.
@@ -357,8 +325,6 @@ Physical controls (A.7.1 - A.7.14) apply to AI systems as they do to any informa
 | Copyright infringement | Guardrails to prevent generating infringing content |
 
 **Evidence:** License compliance records, legal review
-
----
 
 ### 5. Outsourced AI Development (Addition to AI.4)
 
@@ -379,8 +345,6 @@ Physical controls (A.7.1 - A.7.14) apply to AI systems as they do to any informa
 | Handover | Secure knowledge transfer |
 
 **Evidence:** Contracts, code review records, validation records
-
----
 
 ## Updated Control Family Index
 
@@ -403,8 +367,6 @@ Physical controls (A.7.1 - A.7.14) apply to AI systems as they do to any informa
 | **AI.15** | **AI System Continuity** | **BCP for AI systems** |
 | **AI.16** | **AI Intellectual Property** | **Model and data IP protection** |
 
----
-
 ## ISO 27001 Statement of Applicability Considerations
 
 When documenting AI systems in your Statement of Applicability (SoA):
@@ -418,8 +380,6 @@ When documenting AI systems in your Statement of Applicability (SoA):
 | A.8.15 Logging | Include AI interaction logging |
 | A.8.16 Monitoring | Include Judge monitoring, anomaly detection |
 | A.8.25-29 Development | Include AI development lifecycle |
-
----
 
 ## Integration Approach
 
@@ -439,8 +399,6 @@ When documenting AI systems in your Statement of Applicability (SoA):
 1. **Implement ISO 27001 first** - Foundation for all information security
 2. **Layer AI controls on top** - AI framework extends ISMS
 3. **Single integrated audit** - Cover both in one management system
-
----
 
 ## Summary
 
@@ -474,6 +432,3 @@ When documenting AI systems in your Statement of Applicability (SoA):
 
 AI systems are information systems. ISO 27001 controls apply. The AI framework adds AI-specific controls where the standard controls are insufficient for AI-specific risks (prompt injection, model manipulation, agentic behaviour, etc.).
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

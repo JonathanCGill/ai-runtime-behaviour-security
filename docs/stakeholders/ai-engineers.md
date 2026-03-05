@@ -4,8 +4,6 @@
 
 > *Part of [Stakeholder Views](README.md) · [AI Runtime Behaviour Security](../)*
 
----
-
 ## The Problem You Have
 
 You're building AI systems. Your security and risk teams have requirements that sound like governance bureaucracy. You've been asked for "guardrails," "a Judge," "human oversight," "PACE resilience" - but what you actually need is:
@@ -15,8 +13,6 @@ You're building AI systems. Your security and risk teams have requirements that 
 - **How do I test it?** Verification that controls actually work.
 - **What breaks if I get it wrong?** Failure modes you need to handle.
 - **What already exists?** Libraries, services, and platform features you can use instead of building from scratch.
-
----
 
 ## What This Framework Gives You
 
@@ -86,8 +82,6 @@ Controls that aren't tested don't work. The framework provides:
 - [Judge Assurance](../core/judge-assurance.md) - how to measure Judge accuracy, calibrate confidence thresholds, detect drift
 - [When the Judge Can Be Fooled](../core/when-the-judge-can-be-fooled.md) - failure modes specific to the evaluation layer
 
----
-
 ## Your Starting Path
 
 | # | Document | Why You Need It |
@@ -104,8 +98,6 @@ Controls that aren't tested don't work. The framework provides:
 
 **If you're building RAG:** [RAG Security](../extensions/technical/rag-security.md) - the attack surface you probably haven't considered.
 
----
-
 ## What You Can Do Monday Morning
 
 1. **Add input guardrails.** If you have no controls today, start with injection detection on input. NVIDIA NeMo, Guardrails AI, or your platform's built-in content safety. This alone catches ~90% of known-pattern attacks.
@@ -117,8 +109,6 @@ Controls that aren't tested don't work. The framework provides:
 4. **Wire a circuit breaker.** If your guardrail service goes down, your system should degrade to a safe state - not continue without protection. A simple health check and fallback route takes an afternoon.
 
 5. **Red team your own system.** Spend an hour trying to break it. The [Red Team Playbook](../maso/red-team/red-team-playbook.md) has structured scenarios. Document what you find. This is the most effective way to identify control gaps.
-
----
 
 ## Common Objections - With Answers
 
@@ -137,6 +127,3 @@ Correct - which is why the framework doesn't require human review of every trans
 **"This is security's job, not mine."**
 Security sets the requirements. You implement them. The framework gives you concrete patterns so you're not guessing. The [Controls](../core/controls.md) document tells you exactly what to build. The [Checklist](../core/checklist.md) tracks your progress. Security reviews the result, not the implementation approach.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

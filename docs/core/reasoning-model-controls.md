@@ -13,8 +13,6 @@ Reasoning models (OpenAI o1/o3, Claude with extended thinking, Gemini with think
 - Show the model "considering" harmful approaches before selecting a safe one
 - Be manipulated to bypass safety controls that only check the final output
 
----
-
 ## Current State of Access
 
 | Provider | Reasoning Trace Access | Implication |
@@ -23,8 +21,6 @@ Reasoning models (OpenAI o1/o3, Claude with extended thinking, Gemini with think
 | Anthropic (extended thinking) | Exposed as `thinking` blocks | Can monitor, but content is explicitly marked as draft reasoning |
 | Google (Gemini thinking) | Partially exposed | Limited inspection capability |
 | Open-source (Qwen QwQ, etc.) | Fully visible | Full monitoring possible |
-
----
 
 ## Controls
 
@@ -66,6 +62,3 @@ Be honest about what you can't do:
 | **Tier 2** | Output-focused evaluation with periodic behavioral testing |
 | **Tier 3** | If traces are accessible: sample-based trace monitoring. If not: enhanced output evaluation + adversarial testing. Consider whether a reasoning model is necessary - a non-reasoning model with stronger output controls may be more governable |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

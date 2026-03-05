@@ -2,8 +2,6 @@
 
 Data retention requirements for AI systems, covering the 10 data states specific to AI and jurisdictional requirements.
 
----
-
 ## The 10 Data States in AI Systems
 
 AI systems create data in states that traditional retention policies may not address:
@@ -20,8 +18,6 @@ AI systems create data in states that traditional retention policies may not add
 | 8. In Judge evaluation | Judge inputs and outputs | Retain with interaction |
 | 9. In HITL queue | Pending human review | Retain with interaction |
 | 10. In backups | Copies of above | Mirror source retention |
-
----
 
 ## Retention by Risk Tier
 
@@ -68,8 +64,6 @@ AI systems create data in states that traditional retention policies may not add
 | System prompts (current) | 90 days | 1 year | Reference |
 | Incidents | 1 year | 3 years | Lessons learned |
 
----
-
 ## Jurisdictional Requirements
 
 ### United Kingdom
@@ -111,8 +105,6 @@ AI systems create data in states that traditional retention policies may not add
 | **SR 11-7** | Model documentation, validation | Duration of use + examination cycle |
 | **BCBS 239** | Risk data | Sufficient for risk reporting |
 
----
-
 ## Interaction Log Content
 
 ### What to Log (by Tier)
@@ -143,8 +135,6 @@ AI systems create data in states that traditional retention policies may not add
 | Raw biometric data | Privacy | Hash or don't log |
 | Health data (unless required) | HIPAA/GDPR | Minimise or mask |
 
----
-
 ## PII in Logs
 
 ### Detection and Handling
@@ -165,8 +155,6 @@ AI systems create data in states that traditional retention policies may not add
 | **Masking** | Partial visibility sufficient | Some data visible |
 | **Encryption** | Full data needed, access controlled | Key management overhead |
 
----
-
 ## Vector Store Retention
 
 Vector embeddings require special consideration:
@@ -184,8 +172,6 @@ Vector embeddings require special consideration:
 2. **Track** lineage from source documents to embeddings
 3. **Implement** deletion procedures that work with your vector DB
 4. **Verify** deletions are complete (not just soft-deleted)
-
----
 
 ## Judge and HITL Data
 
@@ -209,8 +195,6 @@ HITL decisions must capture:
 
 **Retain HITL decisions for accountability** - typically same as interaction retention or longer.
 
----
-
 ## Deletion Procedures
 
 ### Standard Deletion
@@ -233,8 +217,6 @@ When litigation or regulatory investigation is anticipated:
 4. **Notify** relevant personnel
 5. **Release** hold only when legal confirms
 
----
-
 ## Backup Considerations
 
 | Backup Type | Retention Approach |
@@ -245,8 +227,6 @@ When litigation or regulatory investigation is anticipated:
 | **Disaster recovery** | Mirror primary retention |
 
 **Key principle:** Backup retention should not exceed primary retention without explicit justification. Otherwise you have data you should have deleted.
-
----
 
 ## Audit and Compliance
 
@@ -268,8 +248,6 @@ Maintain documentation of:
 | Deletion verification | Quarterly | Sample check that deletion occurred |
 | Legal hold review | Quarterly | Confirm holds still needed |
 
----
-
 ## Implementation Checklist
 
 ### Initial Setup
@@ -289,6 +267,3 @@ Maintain documentation of:
 - [ ] Audit compliance quarterly
 - [ ] Report retention metrics
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -4,8 +4,6 @@
 
 This document defines the operating model for a centralised AI governance function, mapping technical controls to governance processes and ISO 42001 requirements.
 
----
-
 ## Executive Summary
 
 A centralised AI governance function provides:
@@ -22,13 +20,9 @@ This operating model integrates:
 - Organisational governance (policies, committees, roles)
 - ISO 42001 requirements
 
----
-
 ## Governance Architecture
 
 ![Governance Architecture](../../images/governance-architecture.svg)
-
----
 
 ## Three Lines Model for AI
 
@@ -102,8 +96,6 @@ This matters most for:
 - **MCP server supply chain** where third-party tools run inside your trust boundary. The producer publishes the server. The implementer must vet, sign, and sandbox it. The principal accepts the risk of granting tool access.
 - **Incident attribution** where root cause analysis must distinguish between a model deficiency (producer), a misconfiguration (implementer), and an inappropriate deployment decision (principal).
 
----
-
 ## Centralised AI Governance Function
 
 ### Organisation Structure
@@ -150,8 +142,6 @@ This matters most for:
 - Tool development and automation
 
 **Headcount:** 3-5 FTE (depends on platform complexity)
-
----
 
 ## How Technical Controls Map to Governance
 
@@ -234,8 +224,6 @@ This matters most for:
 
 ![HITL Queue Structure](../../images/hitl-queue-structure.svg)
 
----
-
 ## ISO 42001 Alignment
 
 ### Clause Mapping
@@ -285,8 +273,6 @@ AGO maintains the AIMS including:
 - Control standards
 - Records and evidence
 
----
-
 ### Clause 5: Leadership
 
 **5.1 Leadership and commitment**
@@ -315,8 +301,6 @@ AGO maintains AI policy that:
 | AGO Risk | Assess risk, review findings | Escalate, recommend |
 | AGO Technical | Operate controls, maintain tools | Configure controls |
 
----
-
 ### Clause 6: Planning
 
 **6.1 Actions to address risks and opportunities**
@@ -342,8 +326,6 @@ AGO sets measurable objectives:
 | HITL SLA compliance | % reviews within SLA | >95% |
 | Incident response | Mean time to contain | <4 hours |
 | Training | % staff trained | >90% |
-
----
 
 ### Clause 7: Support
 
@@ -399,8 +381,6 @@ AGO maintains:
 - Audit trails
 - Meeting minutes
 
----
-
 ### Clause 8: Operation
 
 **8.1 Operational planning and control**
@@ -442,8 +422,6 @@ AGO defines requirements for each phase:
 | Operation | Guardrails active; Judge sampling; HITL |
 | Monitoring | Performance monitoring; drift detection |
 | Retirement | Decommissioning process; record retention |
-
----
 
 ### Clause 9: Performance Evaluation
 
@@ -487,8 +465,6 @@ Governance Committee reviews:
 | Management Review (ISO) | Quarterly | AIMS effectiveness |
 | Board/Audit Committee | Quarterly | Material risks, assurance |
 
----
-
 ### Clause 10: Improvement
 
 **10.1 Continual improvement**
@@ -511,8 +487,6 @@ When nonconformity identified:
 **Improvement Cycle:**
 
 ![Continuous Improvement Cycle](../../images/continuous-improvement-cycle.svg)
-
----
 
 ## Operating Rhythm
 
@@ -560,8 +534,6 @@ When nonconformity identified:
 | Training refresh | AGO | Training completion |
 | External certification | Certification body | Certificate |
 
----
-
 ## Platform Integration
 
 ### Centralised Control Plane
@@ -585,8 +557,6 @@ Many organisations use multiple platforms. AGO provides consistency:
 - Common SLAs
 - Aggregated reporting
 - Consistent policies
-
----
 
 ## Metrics Framework
 
@@ -622,8 +592,6 @@ Many organisations use multiple platforms. AGO provides consistency:
 | Queue depth | Items awaiting review | Trend stable | AGO Risk |
 | System availability | Judge + HITL system uptime | >99.5% | AGO Technical |
 
----
-
 ## Staffing Model
 
 ### AGO Headcount by Portfolio Size
@@ -650,8 +618,6 @@ FTE = (Volume × Sample Rate × Review Time) / Working Hours
 | AGO Policy | Regulatory knowledge, policy drafting, stakeholder management |
 | AGO Risk | Risk assessment, investigation, regulatory engagement |
 | AGO Technical | ML/AI, platform expertise, data engineering, automation |
-
----
 
 ## Implementation Roadmap
 
@@ -688,8 +654,6 @@ FTE = (Volume × Sample Rate × Review Time) / Working Hours
 - Achieve ISO 42001 certification
 - Transition to BAU
 
----
-
 ## Summary
 
 A centralised AI governance function aligned with ISO 42001:
@@ -704,6 +668,3 @@ A centralised AI governance function aligned with ISO 42001:
 
 **The key insight:** Technical controls (guardrails, Judge, HITL) are governance controls. A centralised function ensures they're applied consistently, operated effectively, and demonstrate compliance.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

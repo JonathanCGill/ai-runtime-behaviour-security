@@ -4,8 +4,6 @@
 
 This document provides detailed mapping of the framework's technical controls and platform components to ISO/IEC 42001:2023 requirements.
 
----
-
 ## Quick Reference Matrix
 
 | ISO Clause | Requirement | Guardrails | Judge | HITL | Platform |
@@ -18,8 +16,6 @@ This document provides detailed mapping of the framework's technical controls an
 | 9.1 | Monitoring | Effectiveness metrics | Accuracy metrics | SLA metrics | Dashboards |
 | 9.2 | Internal audit | Audit evidence | Audit evidence | Audit evidence | Audit logs |
 | 10.2 | Corrective action | Pattern updates | Criteria updates | Process updates | Tool updates |
-
----
 
 ## Clause 6: Planning
 
@@ -47,8 +43,6 @@ This document provides detailed mapping of the framework's technical controls an
 - Risk assessment documents
 - Judge findings (ongoing risk indicators)
 
----
-
 ### 6.1.3 AI Risk Treatment
 
 **Requirement:** The organisation shall define and apply an AI risk treatment process.
@@ -69,8 +63,6 @@ This document provides detailed mapping of the framework's technical controls an
 | MEDIUM | Moderate mitigation | Standard guardrails + 5-10% Judge + periodic HITL |
 | LOW | Accept with monitoring | Basic guardrails + optional Judge + spot checks |
 
----
-
 ## Clause 8: Operation
 
 ### 8.2 AI Risk Assessment (Operational)
@@ -88,8 +80,6 @@ This document provides detailed mapping of the framework's technical controls an
 | Bedrock | Risk assessment templates | Guardrail metrics, inference logs |
 | Databricks | Model validation, bias testing | MLflow Judges, Lakehouse Monitoring |
 | Foundry | Sensitive Data Scanner, AIP Evals | Continuous evaluation, audit logs |
-
----
 
 ### 8.3 AI Risk Treatment (Operational)
 
@@ -116,8 +106,6 @@ This document provides detailed mapping of the framework's technical controls an
 - HITL decisions (treatment verification)
 - Pattern updates (treatment improvement)
 
----
-
 ### 8.4 AI System Lifecycle
 
 **Requirement:** The organisation shall establish processes for the AI system life cycle.
@@ -140,8 +128,6 @@ This document provides detailed mapping of the framework's technical controls an
 | Bedrock | Guardrail versioning; inference logging; CloudFormation |
 | Databricks | MLflow model registry; Deployment Jobs; Unity Catalog |
 | Foundry | Version control; release management; audit trails |
-
----
 
 ## Clause 9: Performance Evaluation
 
@@ -176,8 +162,6 @@ This document provides detailed mapping of the framework's technical controls an
 | **Human Oversight** | HITL coverage, SLA compliance, override rate | 8.4 |
 | **Improvement** | Pattern updates, criteria updates, findings resolved | 10.2 |
 
----
-
 ### 9.2 Internal Audit
 
 **Requirement:** The organisation shall conduct internal audits at planned intervals.
@@ -209,8 +193,6 @@ This document provides detailed mapping of the framework's technical controls an
 | Databricks | Unity Catalog lineage; audit logs; inference tables |
 | Foundry | Audit logs; workflow lineage; decision trails |
 
----
-
 ### 9.3 Management Review
 
 **Requirement:** Top management shall review the organisation's AIMS at planned intervals.
@@ -234,8 +216,6 @@ This document provides detailed mapping of the framework's technical controls an
 | Performance metrics | Guardrail, Judge, HITL metrics |
 | Audit results | Control audit findings |
 | Opportunities for improvement | HITL feedback, pattern gaps identified |
-
----
 
 ## Clause 10: Improvement
 
@@ -266,8 +246,6 @@ This document provides detailed mapping of the framework's technical controls an
 | Judge | Missed issues | Adjust sampling, add criteria |
 | HITL | SLA breach | Add capacity, improve tooling |
 | HITL | Wrong decision | Additional training, clearer guidance |
-
----
 
 ## Annex A Mapping (Informative)
 
@@ -335,8 +313,6 @@ ISO 42001 Annex A provides reference control objectives. Here's how the framewor
 | A.11.1 Supply chain | Vendor assessment; platform security |
 | A.11.2 Customer relationships | Customer-facing guardrails; complaint handling |
 
----
-
 ## Certification Readiness Checklist
 
 ### Documentation Requirements
@@ -376,8 +352,6 @@ ISO 42001 Annex A provides reference control objectives. Here's how the framewor
 | Internal audits conducted | Audit reports | ☐ |
 | Training delivered | Training records | ☐ |
 
----
-
 ## Summary
 
 The framework's technical controls directly support ISO 42001 compliance:
@@ -393,6 +367,3 @@ The framework's technical controls directly support ISO 42001 compliance:
 
 **Key message:** Technical controls are not separate from governance-they ARE the operational implementation of ISO 42001 requirements.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

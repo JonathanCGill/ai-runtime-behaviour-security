@@ -5,8 +5,6 @@
 > Part of [AI Runtime Behaviour Security](./)
 > Last updated: February 2026
 
----
-
 ## Status
 
 This reference has **not been deployed end-to-end in a production environment.** No organisation has implemented the full control set and reported back on operational results. The adopters list is empty.
@@ -25,8 +23,6 @@ What this reference *is not*:
 - **Not battle-tested at scale.** No one has run this at 100K+ daily interactions and reported back on false positive rates, Judge accuracy, operational overhead, or PACE failover performance.
 - **Not a certification or audit standard.** Implementing this does not constitute compliance with any regulation. It may support compliance - the regulatory crosswalks show how - but that's your assessment to make, not ours.
 - **Not complete.** Several control domains are explicitly marked as emerging: multimodal, reasoning models, streaming, epistemic risk detection. These are well-articulated but lack the operational depth of the core three-layer pattern.
-
----
 
 ## Validation Layers
 
@@ -84,8 +80,6 @@ The architectural patterns used in this framework exist independently in product
 
 Pattern consistency doesn't prove this reference's *specific implementation* works - but it demonstrates the architectural approach is sound and independently adopted.
 
----
-
 ## Known Gaps
 
 We track what we know we don't know.
@@ -99,8 +93,6 @@ We track what we know we don't know.
 | **Kill switch architecture** | Identified as critical for MASO Tier 3; detailed implementation patterns still emerging | Preferred pattern for agent-to-human emergency communication unclear |
 | **Supply chain vetting automation** | AIBOM and MCP vetting controls specified; enterprise tooling not yet mature | Manual review still required for novel components |
 | **RAG poisoning detection** | Controls are mostly preventive (integrity checks, provenance); detective controls (finding poisoned data already in corpus) are limited | Retrospective detection weak |
-
----
 
 ## How You Can Help
 
@@ -132,8 +124,6 @@ Specific areas where expert review would be most valuable:
 
 If you're aware of a public AI security incident not in our [Incident Tracker](maso/threat-intelligence/incident-tracker.md), open an issue. We'll map it to controls and add it to the evidence base.
 
----
-
 ## A Note on Honesty
 
 This section exists because too much guidance presents itself as established when it's theoretical, proven when it's proposed, and comprehensive when it's partial.
@@ -144,6 +134,3 @@ The architecture is sound - the patterns exist independently in production. The 
 
 Help us close that gap.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

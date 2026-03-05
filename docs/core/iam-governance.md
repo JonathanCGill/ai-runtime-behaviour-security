@@ -2,8 +2,6 @@
 
 **Why traditional identity and access management fails for AI agents - and what to do about it.**
 
----
-
 ## The Problem Traditional IAM Doesn't Solve
 
 Identity and access management was designed for a world where every actor is a human sitting at a keyboard, or an application running a predictable, pre-defined workflow. Access decisions are static: a role is assigned, permissions are granted, access reviews happen quarterly.
@@ -20,8 +18,6 @@ AI agents break every assumption in this model.
 | Audit trail links action to person | Audit trail must link action to originating user *through* a chain of agents |
 
 The consequence: AI agents are becoming **authorisation bypass paths**. A user with limited access can instruct an agent to perform actions the user couldn't perform directly - because the agent's service account has broader permissions than the user's role. This is not a theoretical risk. It is the primary IAM threat in AI systems today.
-
----
 
 ## Governance Principles
 
@@ -105,8 +101,6 @@ Some actions cannot be undone: financial transactions, data deletion, external c
 
 **Implication:** The approval workflow must be fast enough that it doesn't become a bottleneck, but robust enough that it cannot be rubber-stamped. Canary cases, rotation, and SLA monitoring prevent reviewer fatigue.
 
----
-
 ## The Agent Identity Taxonomy
 
 Not all non-human identities are equal. AI systems introduce identity classes that traditional IAM doesn't distinguish.
@@ -121,8 +115,6 @@ Not all non-human identities are equal. AI systems introduce identity classes th
 | **MCP Tool Server** | External tool providing capabilities to agents | mTLS, OAuth 2.1 | Per-invocation | New: tool supply chain governance |
 
 The critical distinction is between *application services* (deterministic, predictable, auditable code paths) and *AI agents* (non-deterministic, autonomous, capable of novel behaviour). Traditional NHI governance handles the former. AI agent governance must handle the latter.
-
----
 
 ## The Agent Identity Lifecycle
 
@@ -256,8 +248,6 @@ When an agent is no longer needed, its identity is fully removed. Not disabled -
 
 All credentials revoked, all active sessions terminated, all downstream system access removed. Audit logs archived (immutable, retained per regulatory requirements).
 
----
-
 ## Delegation and Attribution
 
 In multi-agent systems, the delegation chain determines who is accountable for every action.
@@ -295,8 +285,6 @@ Context-aware access requires:
 
 **See also:** [High-Risk Financial Services - Access Controls](../extensions/regulatory/high-risk-financial-services.md#access-controls-who-can-touch-what)
 
----
-
 ## The IAM Threat Landscape
 
 AI agents face identity-based threats that traditional IAM was not designed to counter.
@@ -332,8 +320,6 @@ AI agents face identity-based threats that traditional IAM was not designed to c
 | **Identity at AI speed** | Attack and defence cycles measured in seconds, not days - human-speed governance becomes a bottleneck |
 | **Regulatory identity mandates** | EU AI Act and sector-specific regulation requiring machine-readable identity chains for every AI action |
 
----
-
 ## How This Maps to the Three-Layer Defence
 
 IAM is not a standalone domain. It integrates with every layer of the runtime behavioural security pattern.
@@ -354,8 +340,6 @@ The three layers must operate independently for IAM:
 
 This is PACE resilience applied to IAM. If one layer fails, the others continue. If all three fail, the [circuit breaker](../PACE-RESILIENCE.md) routes traffic to a non-AI fallback.
 
----
-
 ## Standards and Frameworks
 
 This governance model draws from internationally recognised standards and emerging guidance.
@@ -372,8 +356,6 @@ This governance model draws from internationally recognised standards and emergi
 | **OAuth 2.0/2.1** | Delegation standards - On-Behalf-Of, token exchange, DPoP, PKCE | Identity propagation through chains |
 | **SPIFFE/SPIRE** | Workload identity - cryptographic attestation replaces static secrets for agent authentication. CNCF-graduated. See [Workload Identity](#workload-identity-spiffe-and-spire) | Kubernetes, containerised, orchestrated, cross-trust-boundary |
 | **CoSAI MCP Taxonomy** | 12 MCP threat categories with actionable controls - identity chains, zero-trust, sandboxing | Industry consortium (EY, Google, IBM, Meta, Microsoft, NVIDIA, PayPal) |
-
----
 
 ## Governance Checklist
 
@@ -411,8 +393,6 @@ This governance model draws from internationally recognised standards and emergi
 | IAM metrics dashboard operational? | |
 | Regulatory compliance mapping maintained? | |
 
----
-
 ## Related Framework Content
 
 | Topic | Document | What It Covers |
@@ -428,6 +408,3 @@ This governance model draws from internationally recognised standards and emergi
 | **Three-layer pattern** | [Core Controls](controls.md) | How guardrails, Judge, and Human Oversight work together |
 | **PACE resilience** | [PACE Resilience](../PACE-RESILIENCE.md) | Failover methodology applied to all controls including IAM |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

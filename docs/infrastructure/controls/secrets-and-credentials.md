@@ -4,8 +4,6 @@
 > **Purpose:** Manage API keys, tokens, model endpoint credentials, and service secrets across AI system components, preventing exposure via context windows, logs, or compromised agents.  
 > **Relationship:** Supports the Guardrails layer (by keeping credentials out of model I/O) and the IAM controls (by providing the credential infrastructure that IAM policies reference).
 
----
-
 ## Why AI Credential Management Is Different
 
 Traditional secrets management stores credentials in vaults and injects them into applications at runtime. AI systems introduce a new attack surface: **the context window as a credential exposure vector.**
@@ -21,8 +19,6 @@ Traditional secrets management stores credentials in vaults and injects them int
 
 The core problem: **anything in the model's context window is potentially exfiltrable via prompt injection.** Credentials must never enter the context window.
 
----
-
 ## Control Objectives
 
 | ID | Objective | Risk Tiers |
@@ -35,8 +31,6 @@ The core problem: **anything in the model's context window is potentially exfilt
 | SEC-06 | Isolate agent credentials per session (no accumulation) | Tier 2+ (agentic) |
 | SEC-07 | Protect model endpoint credentials from client exposure | All |
 | SEC-08 | Scan code and configuration for embedded AI credentials | All |
-
----
 
 ## SEC-01: Context Window Isolation
 
@@ -51,8 +45,6 @@ Credentials must never appear in model prompts, system prompts, conversation his
 **Tool result sanitisation:** When a tool returns data, the gateway strips any credentials from the response before injecting it into the agent's context. Connection strings, tokens, and API keys in tool responses are redacted.
 
 **System prompt design:** System prompts must not contain credentials. If the model needs to know which tools are available, it receives tool descriptions - not the credentials to access them.
-
----
 
 ## SEC-02: Short-Lived, Scoped Tokens
 
@@ -73,8 +65,6 @@ Every credential used by an AI system component must be:
 | **Expiry** | Token auto-expires at session end or after defined TTL |
 | **Revocation** | Immediate revocation on session termination or anomaly detection |
 
----
-
 ## SEC-03: Centralised Vault
 
 All AI system credentials must be stored in a centralised secrets vault with:
@@ -84,8 +74,6 @@ All AI system credentials must be stored in a centralised secrets vault with:
 - **Least-privilege access** - AI system components authenticate to the vault with their own scoped identities. No shared vault tokens.
 - **Automated rotation** - the vault supports automatic credential rotation without downtime.
 - **No static exports** - credentials are fetched at runtime, never exported to config files, environment variables, or code repositories.
-
----
 
 ## SEC-04: Credential Scanning on Model I/O
 
@@ -116,8 +104,6 @@ Despite best efforts, credentials may appear in model I/O. Credential scanning i
 - **In tool results:** Redact before context injection, log, and flag the tool API for review.
 - **In any context:** Treat the credential as compromised and trigger rotation (SEC-05).
 
----
-
 ## SEC-05: Credential Rotation on Exposure
 
 Any credential that appears in a model context window, log entry, or model output must be treated as compromised and rotated immediately.
@@ -138,8 +124,6 @@ Any credential that appears in a model context window, log entry, or model outpu
 - The incident is logged and classified for investigation.
 - Downstream systems that accepted the compromised credential are notified.
 
----
-
 ## SEC-06: Agent Credential Isolation
 
 Agents that invoke multiple tools across a session accumulate access to multiple backend systems. If the agent's session is compromised, all accumulated access is at risk.
@@ -152,8 +136,6 @@ Agents that invoke multiple tools across a session accumulate access to multiple
 - An agent cannot request credentials for tools outside its declared permission set (IAM-04).
 - Token reuse across sessions is blocked - every session starts with fresh credentials.
 
----
-
 ## SEC-07: Model Endpoint Credential Protection
 
 Model API credentials (the keys/tokens used to call inference endpoints) are high-value targets. Compromise means an attacker can use the model directly, bypassing all guardrails.
@@ -164,8 +146,6 @@ Model API credentials (the keys/tokens used to call inference endpoints) are hig
 - Model endpoint credentials are rotated on a schedule (at minimum monthly) and immediately on suspected compromise.
 - Model endpoint credentials are stored in the vault, not in environment variables, code, or configuration files.
 - Rate limiting at the model endpoint detects credential abuse (unusual volume, unusual source, unusual hours).
-
----
 
 ## SEC-08: Code and Configuration Scanning
 
@@ -178,8 +158,6 @@ AI projects are prone to embedded credentials - API keys in notebooks, tokens in
 - **Notebook scanning:** Jupyter/Databricks notebooks are scanned for credentials in code cells, outputs, and metadata.
 - **Configuration file scanning:** Deployment manifests, environment files, and infrastructure-as-code templates are scanned.
 - **Container image scanning:** Docker images used for AI components are scanned for embedded credentials.
-
----
 
 ## Three-Layer Mapping
 
@@ -194,8 +172,6 @@ AI projects are prone to embedded credentials - API keys in notebooks, tokens in
 | SEC-07 Endpoint protection | Gateway protects model endpoint credentials | Judge endpoint credentials separate from primary | Humans manage endpoint credential rotation |
 | SEC-08 Code scanning | Guardrail configs scanned for embedded creds | Evaluation configs scanned | Humans review scan findings |
 
----
-
 ## Platform-Neutral Implementation Checklist
 
 - [ ] No credentials in model context windows (system prompts, user prompts, tool results)
@@ -209,6 +185,3 @@ AI projects are prone to embedded credentials - API keys in notebooks, tokens in
 - [ ] Notebook scanning for credentials in code, outputs, and metadata
 - [ ] Credential exposure treated as a security incident with defined response playbook
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

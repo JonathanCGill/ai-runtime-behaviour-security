@@ -2,13 +2,9 @@
 
 *Reasoning models create a new problem: do you trust the thinking you can't see?*
 
----
-
 A new class of models thinks before responding. OpenAI's o1, Anthropic's extended thinking, and similar approaches run internal reasoning chains - sometimes for seconds, sometimes longer - before producing output.
 
 This changes the security model in ways we're only starting to understand.
-
----
 
 ## The Hidden Chain Problem
 
@@ -22,8 +18,6 @@ This creates a trust gap:
 **What you don't see:** The chain of thought that produced it.
 
 Was the reasoning sound? Did the model consider the right factors? Did it explore paths that would concern you before settling on a safe-looking answer? You don't know.
-
----
 
 ## Security Implications
 
@@ -61,8 +55,6 @@ This affects:
 
 The assumption that AI responses are fast is baked into many architectures. Reasoning models break that assumption.
 
----
-
 ## What the Framework Says
 
 The three-layer model still applies, with extensions:
@@ -88,8 +80,6 @@ The three-layer model still applies, with extensions:
 - **Recognise:** humans may not be qualified to evaluate complex reasoning
 - **Escalate:** to domain experts when reasoning is outside reviewer competence
 
----
-
 ## The Deeper Question
 
 Reasoning models are more capable. They solve problems that previous models couldn't. The capability comes from the thinking.
@@ -103,8 +93,6 @@ The answer isn't yes or no. It's: what evidence do you need, and can you get it?
 For LOW-tier systems, maybe you accept the black box. The stakes are low.
 
 For CRITICAL systems, you probably need reasoning visibility. If the model won't show its thinking, it may not be appropriate for decisions that matter.
-
----
 
 ## Practical Guidance
 
@@ -123,8 +111,6 @@ For CRITICAL systems, you probably need reasoning visibility. If the model won't
 3. Develop Judge prompts that can assess reasoning quality
 4. Plan for the compute cost of evaluating thinking, not just outputs
 
----
-
 ## The Trajectory
 
 Reasoning capability will improve. Models will think longer and more effectively. The competitive advantage of reasoning means it won't stay optional.
@@ -133,6 +119,3 @@ Security and governance approaches that assume transparent, fast, input-output m
 
 The framework needs to evolve to handle systems that think - even when we can't watch them do it.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

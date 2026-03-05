@@ -4,8 +4,6 @@
 
 > *Part of [Technical Extensions](README.md) · [AI Runtime Behaviour Security](../../)*
 
----
-
 ## Purpose
 
 This document shows exactly what happens when a single request passes through the runtime control stack. It follows one transaction from user input to final response, showing the JSON event emitted at each layer, the thresholds that trigger action, and the evidence artefact each event produces.
@@ -14,15 +12,11 @@ This document shows exactly what happens when a single request passes through th
 
 **Architecture:** AWS Bedrock with Claude, guardrails via Bedrock Guardrails, Judge via async evaluation, human oversight via review queue.
 
----
-
 ## The Transaction
 
 **User input:** `"What's the best investment for my retirement savings of $450,000?"`
 
 This input triggers five events across the control stack. Each event is logged, evaluated, and produces audit evidence.
-
----
 
 ### Event 1: Request Received (LOG-01)
 
@@ -51,8 +45,6 @@ The platform logs the raw request before any processing.
 ```
 
 **Evidence produced:** Request audit trail (Art. 12 record-keeping).
-
----
 
 ### Event 2: Guardrail Evaluation (LOG-02)
 
@@ -143,8 +135,6 @@ Input guardrails run before the request reaches the model. Output guardrails run
 
 **Evidence produced:** Guardrail effectiveness measurement (Art. 9 risk mitigation), content modification audit trail.
 
----
-
 ### Event 3: Model Response (LOG-01 completion)
 
 ```json
@@ -161,8 +151,6 @@ Input guardrails run before the request reaches the model. Output guardrails run
 ```
 
 **Evidence produced:** Full response audit trail with model attribution (Art. 12 traceability).
-
----
 
 ### Event 4: Judge Evaluation (LOG-03)
 
@@ -206,8 +194,6 @@ The Judge evaluates the response asynchronously. For HIGH tier systems, 100% of 
 
 **Evidence produced:** Independent evaluation record with reasoning (Art. 14 human oversight support, Art. 15 accuracy measurement).
 
----
-
 ### Event 5: Human Oversight Routing Decision
 
 Based on the Judge evaluation, the system decides whether human review is needed.
@@ -244,8 +230,6 @@ Based on the Judge evaluation, the system decides whether human review is needed
 ```
 
 **Evidence produced:** Oversight decision audit trail (Art. 14 human oversight), escalation records.
-
----
 
 ## Detection Queries for This Scenario
 
@@ -289,8 +273,6 @@ index=ai_security event_type="oversight_decision" human_review_required="true"
 
 **Threshold:** z-score > 3.0 (3 standard deviations above 7-day rolling baseline). Indicates either a model behaviour change or an attack campaign.
 
----
-
 ## Evidence Artefacts Summary
 
 Every transaction through the control stack produces evidence for five compliance requirements:
@@ -302,8 +284,6 @@ Every transaction through the control stack produces evidence for five complianc
 | **Art. 14** Human oversight | Oversight routing decision + review records | Event 5 + HITL log | 1 year |
 | **Art. 15** Accuracy | Judge scores + validation metrics | LOG-03 | 1 year |
 | **PACE** Resilience | Control layer health status | Platform telemetry | 1 year |
-
----
 
 ## Failure Scenario: What Changes When the Judge Goes Down
 
@@ -339,8 +319,6 @@ When the Judge layer becomes unavailable, PACE transitions from Primary to Alter
 
 This is the operational resilience evidence auditors look for: not just "we have controls" but "here's exactly what happens when they fail."
 
----
-
 ## Connecting to Existing Documentation
 
 | Topic | Detailed Reference |
@@ -352,6 +330,3 @@ This is the operational resilience evidence auditors look for: not just "we have
 | PACE degradation methodology | [PACE Resilience](../../PACE-RESILIENCE.md) |
 | Risk tier classification | [Risk Tiers](../../core/risk-tiers.md) |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

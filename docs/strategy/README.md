@@ -8,15 +8,11 @@ description: Guided path from business problem identification through governed A
 
 > Part of [AI Runtime Behaviour Security](../)
 
----
-
 ## What This Section Does
 
 The rest of this framework tells you **how to secure AI systems**. This section tells you **how to get there** - from the first conversation about a business problem through to a system running safely in production with continuous monitoring.
 
 Ten articles, in order. Each one answers a specific question that must be resolved before the next step makes sense. Skip one and the downstream decisions are built on assumptions instead of evidence.
-
----
 
 ## Why Guardrails, Not Gates
 
@@ -31,8 +27,6 @@ This section takes a different approach: **guardrails instead of gates.**
 - **Absorb failure** - the environment is designed so that when something goes wrong (and it will), the blast radius is contained and recovery is fast.
 
 This doesn't mean accepting shadow IT. It means recognising that change happens, security is not always present at the point of decision, and the system must be resilient enough to handle that reality. The goal is visibility and proportionate response, not the illusion of control that a gate provides.
-
----
 
 ## The Progression
 
@@ -50,8 +44,6 @@ Before committing to AI, confirm that the problem is real and that AI is genuine
 Most AI failures start here. The problem is vague, the success criteria are missing, or AI was chosen because it's available rather than because it's appropriate. The [Use Case Filter](use-case-filter.md) provides a structured seven-question decision flow with five exits. The first exit that fits is the answer - don't keep going just because you want to reach the AI options.
 
 **Guardrails:** The Use Case Filter is the preventive control - it steers teams toward the right tool before investment begins. If a team skips it, downstream monitoring will surface the gap: systems without confirmed success criteria generate alerts because they can't demonstrate value. The environment doesn't block progress - it makes the absence of alignment visible.
-
----
 
 ### Phase 2: Can We Actually Build and Run This?
 
@@ -74,8 +66,6 @@ AI is the right answer. Now confirm that the organisation has the platform, data
 
 **Guardrails:** Approved platforms are the preventive control - teams that build on standard infrastructure inherit logging, monitoring, and controls by default. Teams that go off-pattern aren't blocked, but their systems are visible: non-standard deployments trigger detection because they don't report to the central control plane. Data quality issues and skill gaps surface during operation, not at a review meeting that may never happen.
 
----
-
 ### Phase 3: What Exactly Are We Building - and What Are the Risks?
 
 Define the system precisely enough to classify its risk and design proportionate controls.
@@ -90,8 +80,6 @@ Define the system precisely enough to classify its risk and design proportionate
 [Framework Tensions](framework-tensions.md) is honest about where the framework supports strategy, where it's silent (retirement processes, competitive dynamics), and where it actively constrains choices (edge cases, high-autonomy deployments). Understanding these tensions prevents surprises during implementation.
 
 **Guardrails:** The ten questions in Use Case Definition are the preventive control - answering them correctly means the risk tier and control specification are proportionate to actual risk. But if a team deploys with an incomplete definition, the detective controls catch it: systems with mismatched control specifications generate monitoring anomalies. The environment doesn't require a perfect definition to proceed - it reveals the consequences of an incomplete one.
-
----
 
 ### Phase 4: Build, Deploy, Govern - and Keep Governing
 
@@ -108,13 +96,9 @@ Implement the system and its controls together, deploy with appropriate caution,
 
 **Guardrails:** Ongoing governance is the detective control that never stops. There is no final sign-off that declares a system "done." Monitoring runs continuously, the use case definition is maintained as a living document, and the return loop triggers reassessment when reality diverges from design. The environment absorbs drift - it doesn't pretend drift won't happen.
 
----
-
 ## The Full Sequence
 
 ![From Strategy to Production - Full Sequence](../images/strategy-full-sequence.svg)
-
----
 
 ## Where Organisations Are
 
@@ -126,8 +110,6 @@ Most organisations sit in one of four positions on the AI adoption curve. The ar
 | **Scaling** | Proven use cases being rolled out | Articles 3–6: standardise platforms and validate readiness | Scaling without controls - operational surprises at volume |
 | **Embedding** | AI integrated into core processes | Articles 7–10: rigorous definition, classification, and governance | Dependency without resilience - single points of failure |
 | **Transforming** | Business model dependent on AI | All articles, with emphasis on The Thread | Regulatory exposure - the governance loop is the safety net |
-
----
 
 ## Key Principles
 
@@ -148,8 +130,6 @@ The most dangerous strategies assume capabilities the organisation doesn't have.
 **5. The lifecycle is a loop, not a line.**
 A system that was correctly classified at launch and never reassessed is, over time, an incorrectly classified system. [The Thread](the-thread.md) makes the return loop explicit.
 
----
-
 ## Relationship to the Framework
 
 This section references framework components throughout but does not repeat them. You'll need familiarity with:
@@ -160,6 +140,3 @@ This section references framework components throughout but does not repeat them
 - [PACE Resilience](../PACE-RESILIENCE.md) - the degradation model
 - [Governance Operating Model](../extensions/regulatory/ai-governance-operating-model.md) - the organisational structure
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

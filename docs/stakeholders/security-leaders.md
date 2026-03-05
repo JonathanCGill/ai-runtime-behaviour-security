@@ -4,8 +4,6 @@
 
 > *Part of [Stakeholder Views](README.md) · [AI Runtime Behaviour Security](../)*
 
----
-
 ## The Problem You Have
 
 You've secured applications, networks, identities, and data for years. AI breaks your mental model in three ways:
@@ -15,8 +13,6 @@ You've secured applications, networks, identities, and data for years. AI breaks
 2. **The threat model is unfamiliar.** Prompt injection isn't SQL injection. Hallucination isn't a bug - it's a property of the technology. An AI system can be exploited through its *training data*, its *retrieval corpus*, or just a cleverly worded question. Your WAF won't see it.
 
 3. **You're accountable, but the technology team is building.** AI systems are being deployed faster than security organisations can evaluate them. You need a way to set requirements without becoming a bottleneck.
-
----
 
 ## What This Framework Gives You
 
@@ -51,8 +47,6 @@ Every control layer has a defined fail posture. When the Judge goes down, the sy
 
 Full mapping against [OWASP LLM Top 10 (2025)](../infrastructure/mappings/owasp-llm-top10.md) and OWASP Agentic Top 10 (2026). When audit asks, you have a control-by-control crosswalk.
 
----
-
 ## Your Starting Path
 
 Read these in order. Total time: ~90 minutes.
@@ -69,8 +63,6 @@ Read these in order. Total time: ~90 minutes.
 
 **If you run a SOC:** Add [SOC Integration](../extensions/technical/soc-integration.md) and [Behavioral Anomaly Detection](../insights/behavioral-anomaly-detection.md).
 
----
-
 ## What You Can Do Monday Morning
 
 1. **Classify your existing AI deployments** using the [Risk Tiers](../core/risk-tiers.md). Most organisations don't have a complete inventory of what's running, at what risk level.
@@ -82,8 +74,6 @@ Read these in order. Total time: ~90 minutes.
 4. **Add AI-specific scenarios to your next red team exercise.** The [Red Team Playbook](../maso/red-team/red-team-playbook.md) has 13 structured scenarios you can adapt.
 
 5. **Use the [Risk Assessment](../core/risk-assessment.md) template** for the next board security update. Replace "we have AI guardrails" with quantified residual risk.
-
----
 
 ## Common Objections - With Answers
 
@@ -99,6 +89,3 @@ Your vendor provides guardrails. They don't provide the Judge layer, human overs
 **"The AI team says their model is safe."**
 Design-time safety testing is necessary but insufficient. The question isn't whether the model is safe in the lab - it's whether it behaves correctly in production, under adversarial conditions, with real customer data. That's a runtime security problem. That's what this framework solves.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

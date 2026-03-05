@@ -8,8 +8,6 @@ The most sophisticated control framework in the world is irrelevant if you don't
 
 This isn't a theoretical gap. It's the dominant failure mode in enterprise AI security today. Organisations are deploying controls for AI systems they know about while the majority of their AI exposure sits outside their line of sight.
 
----
-
 ## The Scale of What You Don't Know
 
 The data on enterprise AI visibility is stark:
@@ -27,8 +25,6 @@ Mid-sized organisations average **200 shadow AI tools per 1,000 employees**. Sma
 
 The implication: **most enterprise AI security programmes are protecting a minority of their actual AI exposure.**
 
----
-
 ## Why Visibility Fails
 
 AI is harder to inventory than traditional software. Traditional IT assets - servers, databases, SaaS applications - have observable network signatures, licence records, and procurement trails. AI is different:
@@ -42,8 +38,6 @@ AI is harder to inventory than traditional software. Traditional IT assets - ser
 **AI is composable.** Developers integrate AI APIs into internal tools, scripts, and workflows. A Python script calling the OpenAI API doesn't appear in your SaaS inventory. A Slack bot using an LLM backend doesn't register as a new application. The AI capability is woven into existing infrastructure in ways that traditional asset management can't see.
 
 **Agentic AI compounds the problem.** AI agents that autonomously call tools, invoke other agents, and execute multi-step workflows create discovery challenges that go beyond anything traditional IT asset management was designed for. An agent spawned dynamically during a workflow execution may exist for minutes, consume significant resources, and disappear - leaving only log traces that require specialised tooling to interpret.
-
----
 
 ## The Cost of Not Knowing
 
@@ -66,8 +60,6 @@ But financial loss is only part of the picture. Lack of visibility also means:
 - **Incident response blindness.** When an AI-related incident occurs, your first question is "which system caused this?" If you don't have a comprehensive inventory, that question takes hours or days to answer - time during which the incident continues.
 
 - **Audit failure.** External auditors increasingly ask for AI system inventories. "We don't know what AI we're running" is an audit finding, not an acceptable answer.
-
----
 
 ## What Visibility Actually Requires
 
@@ -128,8 +120,6 @@ At this level, you have:
 - **Risk-based alerting** when AI systems drift outside acceptable parameters
 - **Board-level reporting** on AI risk posture
 - **Defined owners** for every AI system, with accountability for its behaviour
-
----
 
 ## Governance Through Metrics: What to Measure
 
@@ -212,8 +202,6 @@ A warning: metrics without context are dangerous. Tracking 50 KPIs that nobody a
 - Review and retire metrics that don't drive action
 - Report trends, not snapshots - a single data point is noise; a trajectory is signal
 
----
-
 ## The Regulatory Push for Visibility
 
 Regulation is making AI visibility a compliance requirement, not a best practice:
@@ -246,8 +234,6 @@ Regulation is making AI visibility a compliance requirement, not a best practice
 
 The direction is clear: regulators worldwide are requiring AI inventories. Organisations that cannot demonstrate visibility into their AI estate will face compliance gaps regardless of how good their controls are.
 
----
-
 ## What the Market Is Building
 
 The AI governance market is responding to the visibility gap. It's projected to grow from **$227 million in 2024 to $4.83 billion by 2034**, with the specialised AI observability segment reaching **$12.5 billion by 2034** (Custom Market Insights / QKS Group).
@@ -269,8 +255,6 @@ Agentic AI adds a new dimension. With **62% of organisations experimenting with 
 
 Traditional AI inventory assumes relatively static systems - a model deployed to an endpoint, a chatbot on a website, an API behind a gateway. AI agents are dynamic. They spawn, delegate, consume resources, and terminate within single workflow executions. Discovering and governing these ephemeral entities requires fundamentally different tooling - closer to container orchestration monitoring than traditional application inventory.
 
----
-
 ## The Honest Position
 
 Gartner predicts that **40% of organisations will suffer security and compliance incidents due to shadow AI by 2030**. Through 2026, **at least 80% of unauthorised AI transactions will be caused by internal policy violations** - not malicious attacks. The threat is coming from inside the house.
@@ -287,8 +271,6 @@ None of this requires exotic technology. Most of the monitoring patterns - asset
 
 **You can't govern what you can't see. And right now, most enterprises can't see most of their AI.**
 
----
-
 ## Key Takeaways
 
 1. **Visibility is the prerequisite for everything else.** No control framework, governance policy, or compliance programme works without knowing what AI systems exist in your environment.
@@ -303,8 +285,6 @@ None of this requires exotic technology. Most of the monitoring patterns - asset
 
 6. **Start with discovery, not perfection.** Partial visibility is dramatically better than none. Automate what you can, classify what you find, monitor what matters most, and measure whether you're improving.
 
----
-
 ## Related
 
 - [State of Reality](state-of-reality.md) - What the incident data actually shows
@@ -312,8 +292,6 @@ None of this requires exotic technology. Most of the monitoring patterns - asset
 - [Infrastructure Beats Instructions](infrastructure-beats-instructions.md) - Why controls must be enforced at infrastructure level
 - [Risk Tier Is Use Case, Not Technology](risk-tier-is-use-case.md) - Risk classification for control prioritisation
 - [The Supply Chain Problem](the-supply-chain-problem.md) - Visibility into AI components you don't control
-
----
 
 ## Sources
 
@@ -334,6 +312,3 @@ None of this requires exotic technology. Most of the monitoring patterns - asset
 | [World Economic Forum](https://www.weforum.org/) | AI governance KPI adoption rates | 2023 |
 | [Forrester AEGIS](https://www.forrester.com/blogs/forrester-aegis-the-new-standard-for-ai-governance/) | AI governance market forecast, control framework alignment | 2025 |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -4,8 +4,6 @@
 
 > Part of [From Strategy to Production](./)
 
----
-
 ## Why This Article Exists
 
 The strategy section has ten articles. Each one does its job. Business Alignment asks whether the problem is real. The Use Case Filter asks whether AI is the right answer. Data Reality asks whether the data supports it. And so on through implementation, deployment, and governance.
@@ -13,8 +11,6 @@ The strategy section has ten articles. Each one does its job. Business Alignment
 But readers tell us the same thing: they can follow each article individually, and still not see how they connect. The stages in [From Idea to Production](idea-to-production.md) define the process. This article tells the story - how decisions made early constrain what happens later, how monitoring findings feed back into strategy, and why the lifecycle is a loop, not a line.
 
 ![The Thread](../images/strategy-thread.svg)
-
----
 
 ## Phase 1: Strategy - Knowing What Problem You're Solving
 
@@ -50,8 +46,6 @@ Only if the problem genuinely requires understanding unstructured input, generat
 
 **The honest answer is often hybrid.** A single system might use rules for routing, search for retrieval, and an LLM for response generation. The filter applies per-component. The framework applies only to the AI components.
 
----
-
 ## Phase 2: Definition - Knowing What You're Building
 
 **Articles:** [Use Case Definition](use-case-definition.md) + [Data Reality](data-reality.md) + [Human Factors](human-factors.md)
@@ -84,8 +78,6 @@ Two articles provide reality checks before anyone starts building:
 **[Human Factors](human-factors.md)** asks whether the organisation can operate what it builds. Do HITL reviewers have the domain expertise to evaluate AI output? Can the team maintain guardrails as the system evolves? Is there enough AI operational skill to tune Judges, investigate anomalies, and manage drift? Skills gaps don't prevent deployment - they prevent safe deployment.
 
 **Why this matters for the rest of the thread:** Incomplete use case definitions produce incorrect risk classifications. Incorrect risk classifications produce inadequate controls. Inadequate controls produce incidents. The time spent here is the cheapest risk mitigation in the entire lifecycle.
-
----
 
 ## Phase 3: Classification and Control Design - Knowing What Security Looks Like
 
@@ -124,8 +116,6 @@ Each tier mandates specific controls. The specification isn't a checklist - it's
 
 **Why this matters for the rest of the thread:** The control specification is the contract between the deployment and the governance function. Every metric in Phase 5 traces back to a control designed here. If monitoring detects a problem, the first question is whether the control was correctly specified - and the answer is in this phase.
 
----
-
 ## Phase 4: Build, Test, and Deploy - Making It Real
 
 **Framework references:** [Implementation Guide](../IMPLEMENTATION_GUIDE.md) → [Testing Guidance](../extensions/templates/testing-guidance.md) → [SOC Integration](../extensions/technical/soc-integration.md)
@@ -155,8 +145,6 @@ Deployment isn't the end of implementation - it's the beginning of operational l
 These baselines matter. They define what "normal" looks like. Without them, Phase 5 has nothing to compare against.
 
 **Why this matters for the rest of the thread:** The baselines established during the first 30 days are the foundation of continuous monitoring. Every anomaly in Phase 5 is measured as deviation from these baselines. Poorly established baselines produce either constant false alarms (too tight) or missed problems (too loose).
-
----
 
 ## Phase 5: Continuous Monitoring - Knowing It's Still Working
 
@@ -212,8 +200,6 @@ Monitoring produces data. The governance function needs signals - meaningful pat
 | **Judge accuracy dropping** | Judge's evaluation is diverging from human judgement | Recalibrate; may indicate that the domain is evolving |
 | **New data sources accessed** | The system's data exposure has changed | Reassess data sensitivity dimension |
 | **Volume threshold breach** | System operating at scale beyond original design | Reassess scale dimension; check HITL capacity |
-
----
 
 ## The Return Loop - Where Most Lifecycles Break
 
@@ -278,8 +264,6 @@ TRIAGE: Is this operational or strategic?
 The use case definition from Phase 2 is not a project artifact - it's an operational document. It gets maintained alongside the running system. When monitoring reveals that reality has diverged from the definition, the definition gets updated, the risk profile gets rescored, and control adequacy gets reassessed.
 
 The governance function maintains a registry of all AI use cases. Each entry links to the current use case definition, current risk tier, current control specification, and the date of last reassessment. Overdue reassessments are flagged in the [governance dashboard](idea-to-production.md).
-
----
 
 ## The Thread in Practice - A Single Use Case, End to End
 
@@ -372,8 +356,6 @@ Each signal traced back through the lifecycle. The monitoring detected the drift
 
 Without the thread, these signals would be operational noise - logged, maybe reviewed, never connected to the strategic decisions that defined the system.
 
----
-
 ## The Anti-Patterns
 
 What happens when the thread breaks:
@@ -390,8 +372,6 @@ What happens when the thread breaks:
 | **Return loop absent** | Monitoring produces data but doesn't trigger reassessment | Systems drift beyond their classification; controls become inadequate |
 | **Use case definition not maintained** | Definition written at start, never updated | Gap between documented risk profile and actual system widens over time |
 
----
-
 ## Summary
 
 The thread is five phases that form a loop:
@@ -404,8 +384,6 @@ The thread is five phases that form a loop:
 
 The forward path gets most of the attention. The return loop is where governance actually happens. An AI system that was correctly classified at launch and never reassessed is, over time, an incorrectly classified system. The thread is what keeps the classification current, the controls adequate, and the risk visible.
 
----
-
 ## Article Map
 
 | Thread Phase | Strategy Articles | Framework Documents |
@@ -417,6 +395,3 @@ The forward path gets most of the attention. The return loop is where governance
 | 5. Monitoring | [From Idea to Production](idea-to-production.md) (Stage 8) | [Operational Metrics](../extensions/technical/operational-metrics.md), [Anomaly Detection](../extensions/technical/anomaly-detection-ops.md), [SOC Integration](../extensions/technical/soc-integration.md), [Governance Operating Model](../extensions/regulatory/ai-governance-operating-model.md) |
 | Return Loop | All of the above - the loop can land anywhere | All of the above - the response depends on where |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

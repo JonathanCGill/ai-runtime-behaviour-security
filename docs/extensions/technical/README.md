@@ -41,6 +41,3 @@ Deep dives on controls, infrastructure, and metrics.
 | [rag-security.md](rag-security.md) | RAG pipeline security |
 | [cost-and-latency.md](cost-and-latency.md) | Cost and latency impact analysis |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

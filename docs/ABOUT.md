@@ -8,15 +8,11 @@
 
 He develops threat models, risk frameworks, and practical mitigations for AI systems — with particular emphasis on runtime behavioural risks, loss-of-control scenarios, and oversight gaps in autonomous AI deployments.
 
----
-
 ## Current Focus
 
 AI security governance at enterprise scale: designing regulator-ready AI security control frameworks, assessing generative and agentic AI solutions, and defining security guardrails for cloud-native AI platforms. Translating complex technical risk into actionable guidance for engineering teams, regulators, and executive leadership.
 
 This framework — AI Runtime Behaviour Security — is the result of that work. It exists because most AI security guidance stops at the model layer, and the industry needs practical, open-source reference material for what happens after deployment.
-
----
 
 ## Expertise
 
@@ -26,8 +22,6 @@ This framework — AI Runtime Behaviour Security — is the result of that work.
 - **Threat-driven security assessment** — penetration testing across large enterprise portfolios, aligned to realistic adversary behaviour
 - **Regulatory and standards alignment** — ISO 42001, ISO 27001, NIST AI RMF, NIST CSF 2.0, NIST SP 800-218A, EU AI Act, OWASP LLM Top 10
 - **Cloud and platform security** — architecture review across AWS, Azure, and Databricks, including AI platform-specific security patterns
-
----
 
 ## Career Path
 
@@ -43,8 +37,6 @@ Over 30 years across infrastructure, security engineering, consulting, and leade
 | 1999 – 2001 | Network Manager | Botswana Telecommunications Corporation — built a national ISP from scratch |
 | 1992 – 1998 | UNIX & Applications Systems Administrator | Diplomatic IT service |
 
----
-
 ## Education & Certifications
 
 **BSc (Hons) Open, Information Technology** — The Open University (2003–2007)
@@ -55,14 +47,10 @@ Over 30 years across infrastructure, security engineering, consulting, and leade
 - AWS: Generative AI Applications with Amazon Bedrock
 - Practical Introduction to Quantum-Safe Cryptography
 
----
-
 ## Connect
 
 - **GitHub**: [@JonathanCGill](https://github.com/JonathanCGill)
 - **LinkedIn**: [Jonathan Gill](https://www.linkedin.com/in/jonathancgill/)
-
----
 
 ## AI Assistance Disclosure
 
@@ -70,6 +58,3 @@ This framework was written with AI assistance (Claude and ChatGPT) for drafting,
 
 This is a personal project. It is not affiliated with, endorsed by, or representative of any employer, organisation, or other entity.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -8,6 +8,3 @@ The article covers:
 - Control adjustments for open-weight deployments
 - The sovereignty trade-off
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

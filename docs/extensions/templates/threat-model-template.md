@@ -2,8 +2,6 @@
 
 A structured approach to identifying threats in AI systems, aligned with risk tiers.
 
----
-
 ## Why Threat Model AI Systems?
 
 AI systems don't exist in isolation. They're part of a data flow supply chain:
@@ -16,15 +14,11 @@ AI systems don't exist in isolation. They're part of a data flow supply chain:
 
 Traditional threat modelling (STRIDE, PASTA, etc.) applies, but AI introduces unique considerations. This template helps you think through both.
 
----
-
 ## The AI Data Flow
 
 ![AI Data Flow Supply Chain](../../images/ai-data-flow-supply-chain.svg)
 
 Every box in this diagram is an attack surface. Every arrow is a data flow that can be manipulated.
-
----
 
 ## Threat Modelling Process
 
@@ -86,8 +80,6 @@ For each significant threat:
 - Detective controls (Judge, monitoring)
 - Responsive controls (human review, playbooks)
 
----
-
 ## Threats by Risk Tier
 
 The same AI capability poses different threats depending on deployment context.
@@ -119,8 +111,6 @@ The same AI capability poses different threats depending on deployment context.
 
 **Appropriate response:** Basic guardrails, periodic review, clear disclaimers.
 
----
-
 ### MEDIUM Tier Example: Internal Document Assistant
 
 **System:** Answers employee questions about internal policies and procedures, searches company knowledge base (Confluence, SharePoint), summarises documents. Internal only, no sensitive data access.
@@ -151,8 +141,6 @@ The same AI capability poses different threats depending on deployment context.
 
 **Appropriate response:** Rules-based guardrails, periodic quality sampling via Judge (recommended), batch human review, 1-year log retention.
 
----
-
 ### HIGH Tier Example: Customer Support Agent
 
 **System:** Answers customer questions, accesses order history, can initiate refunds up to $50.
@@ -182,8 +170,6 @@ The same AI capability poses different threats depending on deployment context.
 | Workflow abuse | Low | Medium | AI triggers unintended processes |
 
 **Appropriate response:** Strong input validation, action limits, comprehensive logging, regular Judge review, escalation paths.
-
----
 
 ### CRITICAL Tier Example: Credit Decision Support
 
@@ -217,8 +203,6 @@ The same AI capability poses different threats depending on deployment context.
 
 **Appropriate response:** Comprehensive controls at every layer, mandatory human review, full audit trail, bias testing, regulatory monitoring.
 
----
-
 ### CRITICAL Tier Example: Medical Triage Assistant
 
 **System:** Reviews patient symptoms, suggests triage priority, accessed by emergency staff.
@@ -250,8 +234,6 @@ The same AI capability poses different threats depending on deployment context.
 | Malpractice liability | Medium | Critical | AI contributes to adverse outcome |
 
 **Appropriate response:** Maximum controls, mandatory clinician verification, real-time monitoring, immediate escalation capability, extensive testing, regulatory compliance, continuous validation.
-
----
 
 ## Including Upstream and Downstream Systems
 
@@ -290,8 +272,6 @@ For each output destination:
 | Are humans incentivized to verify? | Or rubber-stamp? |
 | What training do humans have? | Determines effective oversight |
 | How are human decisions logged? | Audit trail completeness |
-
----
 
 ## AI-Specific Threat Modelling Techniques
 
@@ -336,8 +316,6 @@ Use the ATLAS framework for adversarial ML threats:
 - Impact (causing harm)
 
 → See atlas.mitre.org for detailed techniques
-
----
 
 ## Threat Model Documentation Template
 
@@ -391,8 +369,6 @@ Use the ATLAS framework for adversarial ML threats:
 - **Trigger for Ad-hoc Review:**
 ```
 
----
-
 ## Key Takeaways
 
 1. **AI doesn't exist in isolation** - threat model the full supply chain
@@ -402,8 +378,6 @@ Use the ATLAS framework for adversarial ML threats:
 5. **Include humans** - over-reliance is a threat
 6. **Use established frameworks** - STRIDE-AI, ATLAS, attack trees
 7. **Document and review** - threat models age; update them
-
----
 
 ## Adapting This Template
 
@@ -417,6 +391,3 @@ This template is a starting point. Your threat model needs to reflect:
 
 **The framework provides principles. You provide the specifics.**
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

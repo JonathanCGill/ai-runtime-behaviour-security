@@ -4,13 +4,9 @@
 > Covers: LLM03 (Supply Chain Vulnerabilities) · ASI04 (Agentic Supply Chain)
 > Also covers: HF-02 (Accountability - AIBOM component)
 
----
-
 ## Principle
 
 Every component in the agent system - models, tools, MCP servers, RAG sources, plugins, and protocol endpoints - is a supply chain dependency. Each dependency is inventoried, versioned, integrity-verified, and auditable. No component is loaded at runtime without prior vetting and signing. The supply chain attack surface scales linearly with the number of agents and exponentially with the number of dynamic integrations.
-
----
 
 ## Why This Matters in Multi-Agent Systems
 
@@ -21,8 +17,6 @@ Every component in the agent system - models, tools, MCP servers, RAG sources, p
 **Model provider changes propagate silently.** When a model provider updates their model (version change, fine-tuning update, safety filter modification), every agent using that model is affected simultaneously. If the update introduces a regression - reduced safety filtering, changed behaviour on edge cases, or degraded quality - the agents inherit the regression with no notice.
 
 **Credential harvesting through tool manifests.** A poisoned tool manifest can describe a tool that requires "authentication tokens" as parameters. The agent, following its instructions to use the tool, passes credentials to the attacker's endpoint. This is a supply chain attack that doesn't require compromising the agent's code - only its tool configuration.
-
----
 
 ## Controls by Tier
 
@@ -57,8 +51,6 @@ All Tier 2 controls remain active, plus:
 | **SC-3.3** Continuous dependency scanning | Automated scanning of all agent dependencies for known vulnerabilities and indicators of tampering | Minimum: daily scan. Results feed into the observability layer and trigger alerts on findings. |
 | **SC-3.4** A2A trust chain validation | Agent-to-agent protocol endpoints (A2A, MCP, custom) validated against a trust chain before interaction | Prevents a compromised external service from injecting itself into the agent orchestration. |
 
----
-
 ## AIBOM Specification (Tier 2+)
 
 The AI Bill of Materials is the supply chain equivalent of an SBOM (Software Bill of Materials). It provides a complete, versioned inventory of every component that contributes to an agent's behaviour.
@@ -82,8 +74,6 @@ The AI Bill of Materials is the supply chain equivalent of an SBOM (Software Bil
 
 The AIBOM should be generated automatically as part of the deployment pipeline and stored alongside the agent's configuration in version control. Any discrepancy between the deployed agent and its AIBOM indicates either a deployment error or tampering.
 
----
-
 ## MCP Server Vetting Process (Tier 2+)
 
 MCP (Model Context Protocol) servers extend agent capabilities by providing tools and data. They are the most dynamic component of the supply chain and require structured vetting before agents can connect.
@@ -103,8 +93,6 @@ MCP (Model Context Protocol) servers extend agent capabilities by providing tool
 **Approval authority:** AI security team for Tier 2. AI Security Architect for Tier 3 (higher bar due to autonomous usage).
 
 **Re-vetting triggers:** Any update to the MCP server, change in maintainer, security advisory affecting the server's dependencies, or a 6-month periodic review - whichever comes first.
-
----
 
 ## Testing Criteria
 
@@ -135,8 +123,6 @@ MCP (Model Context Protocol) servers extend agent capabilities by providing tool
 | SC-T3.3 | Dependency vulnerability detection | Introduce a dependency with a known CVE into the agent's environment. Continuous scanning detects it within 24 hours. |
 | SC-T3.4 | A2A trust chain | Introduce a new A2A endpoint not in the trust chain. Agent rejects the connection. |
 
----
-
 ## Maturity Indicators
 
 | Level | Indicator |
@@ -146,8 +132,6 @@ MCP (Model Context Protocol) servers extend agent capabilities by providing tool
 | **Defined** | AIBOM per agent. Signed tool manifests. MCP server allow-listing with vetting process. Runtime integrity checks. |
 | **Quantitatively Managed** | AIBOM accuracy measured (deployed vs. documented). Manifest verification failure rate tracked. MCP vetting completion time measured. |
 | **Optimising** | Model version pinning with automated rollback. Continuous dependency scanning. A2A trust chain validation. AIBOM generation fully automated in CI/CD pipeline. |
-
----
 
 ## Common Pitfalls
 
@@ -159,6 +143,3 @@ MCP (Model Context Protocol) servers extend agent capabilities by providing tool
 
 **Allowing agents to discover tools at runtime.** Dynamic tool discovery is the defining feature of MCP-based agent frameworks and the defining vulnerability of their supply chain. At Tier 1 and Tier 2, tool discovery must be disabled in favour of static allow-lists. Even at Tier 3, discovery should be limited to pre-approved registries with signed manifests.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

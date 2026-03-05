@@ -3,15 +3,11 @@
 > Part of the [AI Security Infrastructure Controls](../README.md) framework - Agentic AI Controls.
 > Companion to [AI Runtime Behaviour Security](https://github.com/JonathanCGill/ai-runtime-behaviour-security).
 
----
-
 ## Overview
 
 When an AI agent delegates a task to another agent, the delegation creates a chain of trust that must be explicitly managed. Without controls, delegation chains become a privilege escalation vector: Agent A has permission to call Agent B, which has permission to call Tool C - but the original user may never have been authorised to use Tool C. The delegation chain must not grant more authority than the originating user possesses.
 
 These five controls enforce the principle that delegation reduces permissions (never increases them), maintains a linked audit trail, limits chain depth, requires explicit authorisation, and propagates the original user identity through the entire chain.
-
----
 
 ## DEL-01 - Enforce Least Delegation (No Privilege Escalation)
 
@@ -38,8 +34,6 @@ The effective permissions at any point in a delegation chain must be the interse
 | **Guardrails** | Permission intersection is the guardrail that prevents privilege escalation through delegation. It is enforced deterministically at the gateway, not by the agent's self-restraint. |
 | **Judge** | Judge can evaluate whether delegation patterns are consistent with intended task scope, detecting attempts to route through higher-privilege agents. |
 | **Human Oversight** | The permission intersection model is auditable - reviewers can trace exactly what permissions were effective at each point in the chain and verify no escalation occurred. |
-
----
 
 ## DEL-02 - Maintain Complete Audit Trail Across Chains
 
@@ -68,8 +62,6 @@ Every delegation chain must produce a linked, chronological audit trail that all
 | **Judge** | The complete chain audit trail is a primary input for Judge evaluation of multi-agent workflows. The Judge can assess whether the chain's collective behaviour was appropriate. |
 | **Human Oversight** | End-to-end chain reconstruction is essential for human reviewers. Without it, multi-agent systems are opaque and unaccountable. |
 
----
-
 ## DEL-03 - Limit Delegation Depth
 
 **Risk Tiers:** Tier 2+ (agentic)
@@ -97,8 +89,6 @@ Constrain the maximum depth of delegation chains to prevent unbounded recursive 
 | **Judge** | Shorter chains are easier for the Judge to evaluate comprehensively. Depth limits ensure that chain complexity remains within the Judge's effective evaluation capacity. |
 | **Human Oversight** | Depth limits ensure that delegation chains remain tractable for human review. A chain of depth 15 is effectively unauditable. |
 
----
-
 ## DEL-04 - Require Explicit Delegation Authorisation
 
 **Risk Tiers:** Tier 2+ (agentic)
@@ -124,8 +114,6 @@ Delegation between agents must be explicitly authorised. An agent's ability to i
 | **Guardrails** | Explicit delegation authorisation prevents agents from recruiting other agents beyond their declared scope, a critical guardrail against autonomous capability expansion. |
 | **Judge** | Judge can verify that all delegations in a chain match the declared authorisation, detecting any delegation that bypassed the manifest. |
 | **Human Oversight** | Delegation manifests give human reviewers a complete map of agent-to-agent trust relationships, enabling review of the system's actual delegation topology. |
-
----
 
 ## DEL-05 - Propagate User Identity Through Chains
 
@@ -153,6 +141,3 @@ The identity of the originating user must be propagated through the entire deleg
 | **Judge** | User identity in chain logs enables the Judge to evaluate whether actions taken on behalf of a user are consistent with that user's role, permissions, and historical behaviour patterns. |
 | **Human Oversight** | User identity propagation enables accountability. Every action by every agent in a chain is traceable to the human who initiated it. |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

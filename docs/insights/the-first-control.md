@@ -10,8 +10,6 @@ Before guardrails, before judges, before human oversight - there's a more fundam
 
 This isn't anti-AI. It's design thinking. The goal is system fitness, not technology adoption.
 
----
-
 ## The Problem with "AI First"
 
 Enterprise architects face real pressure to deploy AI meaningfully. The promise is compelling: faster decisions, smarter automation, better customer experience.
@@ -21,8 +19,6 @@ But architecture is not about promise. It's about **system behaviour over time**
 AI introduces probabilistic components into environments that were historically deterministic. That changes the cost structure, the operational model, and the failure modes in ways that are easy to underestimate.
 
 When AI is introduced without design thinking, teams optimise for novelty rather than system fitness.
-
----
 
 ## The Design Thinking Question
 
@@ -40,8 +36,6 @@ Design thinking asks architects to focus on:
 - Unintended consequences
 
 AI should emerge as a solution to a well-understood problem - not as a starting point looking for application.
-
----
 
 ## The Architectural Shift
 
@@ -63,8 +57,6 @@ This creates new classes of failure that cannot be eliminated - only designed ar
 - Unexpected tool behaviour in agentic flows
 
 Every AI deployment permanently adds these failure modes to your system. The question is whether the value justifies it.
-
----
 
 ## The Hidden Cost Model
 
@@ -92,8 +84,6 @@ AI → review → exception handling → remediation → audit
 
 Each layer adds operational surface area. These costs rarely appear in initial ROI estimates.
 
----
-
 ## The Real Cost of AI
 
 AI adoption brings persistent overhead that doesn't exist with deterministic systems:
@@ -110,8 +100,6 @@ These aren't optional in regulated or safety-sensitive systems. They're the pric
 The correct architectural question:
 
 > "Does the benefit justify permanent system complexity?"
-
----
 
 ## Where AI Genuinely Delivers Value
 
@@ -137,8 +125,6 @@ AI acting as an intelligent index for documentation or logs saves time without e
 
 The pattern: **AI augments human judgment on reversible decisions.**
 
----
-
 ## Where AI Is the Wrong Tool
 
 AI is poorly suited for:
@@ -154,8 +140,6 @@ These domains require deterministic guarantees and auditable logic. Replacing th
 
 **The right answer is often: don't use AI here.**
 
----
-
 ## The Litmus Test
 
 Before approving any AI use case:
@@ -169,8 +153,6 @@ Before approving any AI use case:
 | Would traditional software handle this adequately? | Use traditional software |
 
 If most answers are negative, AI adds complexity without net value.
-
----
 
 ## The Review Paradox
 
@@ -189,8 +171,6 @@ Design thinking asks:
 - Are we creating hidden queues?
 - What happens when volume spikes?
 
----
-
 ## The Architectural Boundary That Works
 
 A reliable pattern:
@@ -205,8 +185,6 @@ This ensures:
 
 Human oversight complements this model but should not be mistaken for absolute protection.
 
----
-
 ## Implications for This Framework
 
 Everything in this Framework assumes you've already answered "yes" to the fundamental question: AI is the right tool for this problem.
@@ -216,8 +194,6 @@ If you haven't done that design work, no amount of guardrails, judges, or human 
 **The first control is choosing wisely.**
 
 The controls, patterns, and examples that follow are for systems where AI genuinely improves outcomes. They're not a license to deploy AI everywhere - they're a framework for deploying AI well where it belongs.
-
----
 
 ## Key Takeaways
 
@@ -233,14 +209,9 @@ The controls, patterns, and examples that follow are for systems where AI genuin
 
 6. **The goal is system fitness, not AI adoption.** Use AI where it improves outcomes - and restraint where it doesn't.
 
----
-
 ## Related
 
 - [Why Guardrails Aren't Enough](./why-guardrails-arent-enough.md) - The limits of inline controls
 - [Humans Remain Accountable](./humans-remain-accountable.md) - Review workflow realities
 - [Risk Tiers](../core/risk-tiers.md) - Determining appropriate control intensity
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

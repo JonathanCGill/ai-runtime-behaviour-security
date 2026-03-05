@@ -2,11 +2,6 @@
 
 **How the three-layer pattern reduces residual risk - with worked examples across all four tiers.**
 
-> *Part of the [AI Runtime Behaviour Security](../)*
-> Version 1.0 · February 2026 · Jonathan Gill
-
----
-
 ## NIST AI RMF Alignment
 
 This document implements activities from all four functions of the [NIST AI Risk Management Framework (AI RMF 1.0)](https://www.nist.gov/itl/ai-risk-management-framework). If your organisation already uses NIST AI RMF, this risk assessment plugs directly into your existing process.
@@ -22,8 +17,6 @@ The methodology below follows the NIST RMF lifecycle: **identify** threats (MAP)
 
 > For detailed infrastructure control mappings to all 51 NIST AI RMF subcategories, see [NIST AI RMF Mapping](../infrastructure/mappings/nist-ai-rmf.md).
 
----
-
 ## Why Quantify Control Effectiveness
 
 Most AI security guidance says "add guardrails" or "implement human oversight" without answering the question that risk committees actually ask: **how much does each layer reduce the probability of harm, and what residual risk remains?**
@@ -31,8 +24,6 @@ Most AI security guidance says "add guardrails" or "implement human oversight" w
 This document provides a quantitative model for answering that question. It uses illustrative effectiveness rates - not empirically validated benchmarks - to demonstrate the methodology. Your actual rates will depend on your implementation quality, threat landscape, and operational maturity. The point is the approach, not the specific numbers.
 
 > **Important:** The effectiveness percentages in this document are illustrative. They exist to demonstrate how layered controls compound to reduce residual risk. Your organisation should measure actual effectiveness through red teaming, Judge accuracy calibration (see [Judge Assurance](judge-assurance.md)), and incident data. Replace the illustrative rates with your measured rates as they become available.
-
----
 
 ## The Layered Control Model
 
@@ -79,8 +70,6 @@ This model assumes layers fail independently - a threat that bypasses guardrails
 
 If your Judge uses the same model as your task agent, or your human reviewers rubber-stamp AI outputs, the independence assumption breaks and your actual residual risk is higher than this model predicts.
 
----
-
 ## Worked Example: Customer Product Chatbot (HIGH Tier)
 
 ### System Description
@@ -110,8 +99,6 @@ A customer-facing AI chatbot that helps customers browse products, compare optio
 
 Five failure modes that matter for this system, with per-layer analysis across 1,000 transactions.
 
----
-
 ### Scenario 1: Prompt Injection - Price Manipulation
 
 **Threat:** Attacker crafts input that causes the chatbot to apply unauthorized discounts, override pricing, or bypass payment validation.
@@ -132,8 +119,6 @@ Five failure modes that matter for this system, with per-layer analysis across 1
 | Residual risk (all layers) | 0.002 per 1,000 |
 | Risk reduction factor | 10,000× |
 | Annualised (1M transactions/year) | ~2 incidents |
-
----
 
 ### Scenario 2: Hallucinated Product Information
 
@@ -156,8 +141,6 @@ Five failure modes that matter for this system, with per-layer analysis across 1
 | Risk reduction factor | 10,000× |
 | Annualised (1M transactions/year) | ~5 incidents |
 
----
-
 ### Scenario 3: PII Leakage
 
 **Threat:** Chatbot includes another customer's personal data, order history, or payment details in a response. Could occur through context window contamination, shared session state, or RAG retrieval pulling the wrong customer's data.
@@ -178,8 +161,6 @@ Five failure modes that matter for this system, with per-layer analysis across 1
 | Residual risk (all layers) | 0.001 per 1,000 |
 | Risk reduction factor | 10,000× |
 | Annualised (1M transactions/year) | ~1 incident |
-
----
 
 ### Scenario 4: Unauthorized or Incorrect Payment
 
@@ -202,8 +183,6 @@ Five failure modes that matter for this system, with per-layer analysis across 1
 | Risk reduction factor | 10,000× |
 | Annualised (1M transactions/year) | ~0.5 incidents |
 
----
-
 ### Scenario 5: Inappropriate or Harmful Response
 
 **Threat:** Chatbot generates offensive content, makes inappropriate recommendations, provides dangerous advice (e.g., regarding product use), or behaves in a way that damages brand reputation.
@@ -225,8 +204,6 @@ Five failure modes that matter for this system, with per-layer analysis across 1
 | Risk reduction factor | 10,000× |
 | Annualised (1M transactions/year) | ~1.5 incidents |
 
----
-
 ### Combined Risk Summary - Product Chatbot
 
 | Threat | Inherent (per 1K) | Residual (per 1K) | Annualised (1M txn) | Severity |
@@ -239,8 +216,6 @@ Five failure modes that matter for this system, with per-layer analysis across 1
 | **Total** | **100** | **0.0100** | **~10** | |
 
 **Interpretation:** Without controls, roughly 10% of transactions would have some form of issue. With all three layers active, the residual rate drops to approximately 0.001% - about 10 incidents per year at 1M transactions. Of those, the critical-severity incidents (PII, unauthorized payment) are expected at fewer than 2 per year.
-
----
 
 ## Compensating Controls
 
@@ -283,8 +258,6 @@ Taking the two highest-severity scenarios and applying compensating controls:
 
 > **The point:** Compensating controls don't excuse weak AI-specific controls. But when a risk committee asks "what's the realistic probability of a customer being charged incorrectly?" the answer includes the full control stack, not just the AI layers. Present both the AI-layer residual and the compensated residual.
 
----
-
 ## Risk Tier Scenarios
 
 The product chatbot is a HIGH-tier system. Here's how the same methodology applies across all four tiers, showing how control depth scales with risk.
@@ -306,8 +279,6 @@ The product chatbot is a HIGH-tier system. Here's how the same methodology appli
 **Why this is acceptable:** No financial impact, no data exposure, no irreversible actions. The FAQ bot gives wrong or awkward answers ~0.45% of the time. Users can verify against the website. The cost of these failures is low. Adding Judge and HITL would improve accuracy but the investment isn't proportionate to the risk.
 
 **PACE posture:** Primary only (fail-open with logging). If guardrails fail, the chatbot continues to operate but all outputs are logged for batch review.
-
----
 
 ### MEDIUM Tier: Internal Document Assistant
 
@@ -336,8 +307,6 @@ With 10% Judge sampling:   P(miss) = 0.10 × (0.90 + 0.10 × 0.05) = 0.10 × 0.9
 
 **PACE posture:** P + A configured. If guardrails degrade, scope narrows to read-only retrieval (no summarisation). If Judge is unavailable, guardrail-only mode with increased human spot-checking.
 
----
-
 ### HIGH Tier: Customer Product Chatbot
 
 See the [detailed worked example above](#worked-example-customer-product-chatbot-high-tier).
@@ -350,8 +319,6 @@ See the [detailed worked example above](#worked-example-customer-product-chatbot
 - **Alternate:** Judge down → guardrails remain active, all transactions flagged for human review queue, response latency accepted
 - **Contingency:** Guardrails degraded → chatbot enters "assisted browse" mode (read-only, no transactions), human reviews every interaction
 - **Emergency:** Multiple layers down → circuit breaker fires, chatbot replaced with static product pages + "contact us" fallback
-
----
 
 ### CRITICAL Tier: Credit Decisioning System
 
@@ -380,8 +347,6 @@ See the [detailed worked example above](#worked-example-customer-product-chatbot
 - **Contingency:** Multiple layers degraded → system enters "manual underwriting" mode - AI provides data retrieval only, all decisions made by human underwriters
 - **Emergency:** Circuit breaker → AI removed from decision path entirely, application queue held, existing commitments honoured through manual process
 
----
-
 ## Cross-Tier Summary
 
 | Tier | Example | Layers Active | Judge Coverage | Inherent Risk (per 1K) | Residual Risk (per 1K) | Reduction Factor |
@@ -392,8 +357,6 @@ See the [detailed worked example above](#worked-example-customer-product-chatbot
 | **CRITICAL** | Credit decisions | All three (full) | 100% | ~80 | ~0.008 | 10,000× |
 
 **Key insight:** The jump from 10× to 10,000× risk reduction happens when the Judge moves from sampling to substantial coverage and Human Oversight moves from exception-only to systematic review. This is why the framework requires full three-layer deployment for HIGH and CRITICAL tiers.
-
----
 
 ## What These Numbers Do Not Tell You
 
@@ -409,8 +372,6 @@ See the [detailed worked example above](#worked-example-customer-product-chatbot
 **4. The "unknown unknown" isn't modelled.** This analysis covers known threat categories. Novel failure modes - threats you haven't imagined - are not captured. The Judge layer's semantic evaluation and Human Oversight provide some coverage for novel threats, but the model cannot quantify what it cannot anticipate. This is the fundamental argument for defence in depth: you need layers precisely because you can't predict everything.
 
 **5. Compensating controls have their own failure rates.** The payment gateway, fraud detection system, and API validation layer can all fail too. A complete risk assessment would model these as additional independent layers with their own effectiveness rates, producing a full probability tree. The simplified analysis above is sufficient for directional decision-making.
-
----
 
 ## Using This in Practice
 
@@ -457,8 +418,6 @@ When an incident occurs, update the effectiveness rates:
 | Incident-driven recalculation | Per incident | Specific scenario rates |
 | Full risk assessment refresh | Annually | All rates, all scenarios, all tiers |
 
----
-
 ## Template: Applying This to Your System
 
 For each AI system, complete this assessment. NIST AI RMF function labels are included so you can slot each step into your existing risk management process.
@@ -491,6 +450,3 @@ For each AI system, complete this assessment. NIST AI RMF function labels are in
 - When will you re-measure effectiveness rates?
 - What triggers an unscheduled reassessment?
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

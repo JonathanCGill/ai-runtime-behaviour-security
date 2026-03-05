@@ -2,8 +2,6 @@
 
 A reference guide to production-ready guardrail, evaluation, and safety solutions implementing the three-layer pattern.
 
----
-
 ## Solutions At a Glance
 
 | Solution | Type | What It Does | Layer | Open Source | Key Limitation |
@@ -19,8 +17,6 @@ A reference guide to production-ready guardrail, evaluation, and safety solution
 | **Prompt Guard (Meta)** | Model | Prompt injection and jailbreak detection | Guardrails | Yes | Needs fine-tuning for best results |
 | **LlamaFirewall (Meta)** | Tool | Security guardrail for AI systems | Guardrails | Yes | Early stage |
 
----
-
 ## Solutions by Use Case
 
 | If You Need... | Primary Choice | Alternative |
@@ -34,8 +30,6 @@ A reference guide to production-ready guardrail, evaluation, and safety solution
 | Structured output validation | Guardrails AI | NeMo Guardrails |
 | Multimodal content safety | Azure AI Content Safety | Llama Guard 4 |
 | Hallucination detection | AWS Bedrock (Automated Reasoning) | DeepEval metrics |
-
----
 
 ## Solutions by Layer
 
@@ -58,15 +52,11 @@ A reference guide to production-ready guardrail, evaluation, and safety solution
 | Galileo | Multiple | ✓ | Built-in | ✓ |
 | Custom LLM prompts | Unlimited | ✓ | DIY | DIY |
 
----
-
 ## Industry Context
 
 The AI security industry has converged on a common pattern: **layered runtime controls** combining fast filtering (guardrails), deeper evaluation (LLM-as-judge), and human oversight. This guide catalogs the major solutions implementing this pattern, with honest assessments of capabilities, limitations, and appropriate use cases.
 
 > This page exists to give credit where it's due and help practitioners select appropriate tools. The Framework synthesizes and explains the pattern these solutions implement.
-
----
 
 ## Quick Reference: Solution Categories
 
@@ -77,8 +67,6 @@ The AI security industry has converged on a common pattern: **layered runtime co
 | **Safety Models** | LLM-based content moderation | Llama Guard, OpenAI Moderation API |
 | **Evaluation Frameworks** | LLM-as-Judge implementation | DeepEval, Galileo |
 | **Standards & Guidance** | Risk frameworks and taxonomies | OWASP LLM Top 10, NIST AI RMF |
-
----
 
 ## Platform Guardrails
 
@@ -117,8 +105,6 @@ The AI security industry has converged on a common pattern: **layered runtime co
 
 **Documentation:** [AWS Bedrock Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html)
 
----
-
 ### Azure AI Content Safety
 
 **Overview:** Microsoft's content moderation service providing text and image analysis with severity scoring across harm categories.
@@ -156,8 +142,6 @@ The AI security industry has converged on a common pattern: **layered runtime co
 **Pricing:** Per text record (1,000 characters) and per image. See [Azure Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/content-safety/).
 
 **Documentation:** [Azure AI Content Safety](https://learn.microsoft.com/azure/ai-services/content-safety/)
-
----
 
 ## Open-Source Frameworks
 
@@ -202,8 +186,6 @@ The AI security industry has converged on a common pattern: **layered runtime co
 
 **GitHub:** [github.com/NVIDIA/NeMo-Guardrails](https://github.com/NVIDIA/NeMo-Guardrails)
 
----
-
 ### Guardrails AI
 
 **Overview:** Open-source Python framework for adding structural and semantic validation to LLM outputs. Focus on output validation with a library of reusable validators.
@@ -232,8 +214,6 @@ The AI security industry has converged on a common pattern: **layered runtime co
 **Documentation:** [guardrailsai.com](https://www.guardrailsai.com/)
 
 **GitHub:** [github.com/guardrails-ai/guardrails](https://github.com/guardrails-ai/guardrails)
-
----
 
 ## Safety Models
 
@@ -284,8 +264,6 @@ The AI security industry has converged on a common pattern: **layered runtime co
 
 **Models:** [Llama Guard 3 on HuggingFace](https://huggingface.co/meta-llama/Llama-Guard-3-8B)
 
----
-
 ### OpenAI Moderation API
 
 **Overview:** OpenAI's content moderation endpoint for detecting harmful content in text.
@@ -309,8 +287,6 @@ The AI security industry has converged on a common pattern: **layered runtime co
 **Best For:** Quick content filtering for OpenAI-based applications.
 
 **Documentation:** [OpenAI Moderation](https://platform.openai.com/docs/guides/moderation)
-
----
 
 ## Evaluation Frameworks (LLM-as-Judge)
 
@@ -350,8 +326,6 @@ The AI security industry has converged on a common pattern: **layered runtime co
 
 **GitHub:** [github.com/confident-ai/deepeval](https://github.com/confident-ai/deepeval)
 
----
-
 ### Galileo
 
 **Overview:** LLM evaluation platform with "eval-to-guardrail" lifecycle - evaluations developed in testing become production guardrails.
@@ -374,8 +348,6 @@ The AI security industry has converged on a common pattern: **layered runtime co
 **Best For:** Teams wanting integrated eval-to-production workflow.
 
 **Documentation:** [rungalileo.io](https://www.rungalileo.io/)
-
----
 
 ## Standards and Guidance
 
@@ -401,8 +373,6 @@ The AI security industry has converged on a common pattern: **layered runtime co
 
 **Documentation:** [owasp.org/www-project-top-10-for-large-language-model-applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
 
----
-
 ### NIST AI Risk Management Framework
 
 **Overview:** US government framework for AI risk management with four core functions: Govern, Map, Measure, Manage.
@@ -411,8 +381,6 @@ The AI security industry has converged on a common pattern: **layered runtime co
 
 **Documentation:** [nist.gov/itl/ai-risk-management-framework](https://www.nist.gov/itl/ai-risk-management-framework)
 
----
-
 ### ISO 42001
 
 **Overview:** International standard for AI management systems. Certifiable.
@@ -420,8 +388,6 @@ The AI security industry has converged on a common pattern: **layered runtime co
 **Use For:** Formal AI governance certification, enterprise compliance.
 
 **Documentation:** [iso.org/standard/81230.html](https://www.iso.org/standard/81230.html)
-
----
 
 ## Emerging Solutions
 
@@ -441,8 +407,6 @@ Benchmarks for measuring LLM cybersecurity risks and defensive capabilities.
 
 Model-agnostic security gateway providing guardrails across any AI platform.
 
----
-
 ## Solution Selection Guide
 
 | If You Need... | Consider |
@@ -457,8 +421,6 @@ Model-agnostic security gateway providing guardrails across any AI platform.
 | Risk taxonomy | OWASP LLM Top 10 |
 | Governance framework | NIST AI RMF, ISO 42001 |
 
----
-
 ## Common Limitations Across Solutions
 
 | Limitation | Description | Mitigation |
@@ -469,8 +431,6 @@ Model-agnostic security gateway providing guardrails across any AI platform.
 | **Latency/cost** | LLM-based evaluation adds overhead | Tier your evaluation; sample at scale |
 | **Context sensitivity** | May misclassify domain-specific content | Custom fine-tuning; domain-specific rules |
 | **Adversarial vulnerability** | LLM-based guards can be attacked | Defense in depth; multiple layers |
-
----
 
 ## Implementation Recommendations
 
@@ -486,8 +446,6 @@ Model-agnostic security gateway providing guardrails across any AI platform.
 
 6. **Update continuously:** Attacks evolve. Guardrails need regular updates.
 
----
-
 ## Credits and Acknowledgments
 
 This guide synthesizes publicly available documentation, research, and community feedback. Credit to:
@@ -501,6 +459,3 @@ This guide synthesizes publicly available documentation, research, and community
 - **NIST** - AI Risk Management Framework
 - **The broader AI safety research community**
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

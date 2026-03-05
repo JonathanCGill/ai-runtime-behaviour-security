@@ -12,8 +12,6 @@ Every enterprise AI system depends on components you didn't build:
 
 You test your application. You monitor your outputs. But you have no visibility into whether the model you're calling today is the same model you evaluated last month.
 
----
-
 ## The Risks Are Not Hypothetical
 
 | Risk | Example |
@@ -26,8 +24,6 @@ You test your application. You monitor your outputs. But you have no visibility 
 
 Traditional software has SBOMs. AI systems need equivalent provenance documentation - what NDAA and EU AI Act drafters are calling "AI-BOMs."
 
----
-
 ## What the Framework Misses
 
 The three-layer pattern (Guardrails → Judge → Human) monitors runtime behaviour. It doesn't address:
@@ -37,8 +33,6 @@ The three-layer pattern (Guardrails → Judge → Human) monitors runtime behavi
 3. **Whether the model weights have integrity**
 
 Runtime monitoring detects symptoms. Supply chain controls prevent the disease.
-
----
 
 ## The Pattern
 
@@ -50,8 +44,6 @@ Runtime monitoring detects symptoms. Supply chain controls prevent the disease.
 | **Provider change monitoring** | Detect when API-accessed models change behaviour | Continuous |
 | **AI-BOM generation** | Document all AI components, versions, and sources | Release |
 | **Shadow AI discovery** | Identify unsanctioned model usage across the enterprise | Periodic |
-
----
 
 ## The Uncomfortable Truth
 
@@ -65,6 +57,3 @@ For self-hosted models, you have more control but more responsibility. You own t
 
 Neither is inherently safer. Both need explicit controls.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

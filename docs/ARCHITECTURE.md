@@ -19,8 +19,6 @@ The industry is converging on the same answer independently. NVIDIA NeMo, AWS Be
 
 Each layer catches what the others miss. Remove any layer and you have a gap. Together they form a **closed-loop control system**: containment boundaries define the desired state, the Judge continuously measures actual behaviour, drift detection computes the error, and human oversight applies corrective action. Unlike open-loop approaches that evaluate once and deploy, this architecture self-corrects continuously. See [Why Containment Beats Evaluation](insights/why-containment-beats-evaluation.md).
 
----
-
 ## Single-Agent Architecture
 
 ![Single-Agent Security Architecture](images/single-agent-architecture.svg)
@@ -35,8 +33,6 @@ Controls scale to risk tier - from minimal self-certification ([Fast Lane](FAST-
 
 **→ [Foundation Framework](foundations/)** - 80 controls, risk tiers, implementation checklists
 
----
-
 ## Multi-Agent Architecture
 
 When multiple LLMs collaborate, delegate, and take autonomous actions, single-agent controls are necessary but not sufficient. New failure modes emerge:
@@ -49,8 +45,6 @@ When multiple LLMs collaborate, delegate, and take autonomous actions, single-ag
 Multi-agent security requires per-agent identity, per-agent permissions, per-agent evaluation - plus controls for the interactions between them: message bus security, epistemic integrity, kill switch architecture.
 
 **→ [MASO Framework](maso/)** - 128 controls across 7 domains, 3 implementation tiers, full OWASP dual coverage
-
----
 
 ## PACE Resilience
 
@@ -65,6 +59,3 @@ Every control has a defined failure mode. The [PACE methodology](PACE-RESILIENCE
 
 Even at the lowest risk tier, there's a fallback plan. At the highest, there's a structured degradation path from full autonomy to full stop.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

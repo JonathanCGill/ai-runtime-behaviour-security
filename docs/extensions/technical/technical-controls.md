@@ -4,8 +4,6 @@ Network, infrastructure, and platform controls that enforce AI security at the t
 
 > **See also:** [Bypass Prevention](bypass-prevention.md) for the full taxonomy of bypass techniques and defence strategies.
 
----
-
 ## Why Technical Controls Matter
 
 Policy and process controls fail when:
@@ -23,13 +21,9 @@ Technical controls **enforce** security regardless of user behaviour. If the net
 
 **Principle:** Wherever possible, enforce security technically rather than relying on user behaviour.
 
----
-
 ## Control Architecture Overview
 
 ![Technical Controls Architecture](../../images/technical-controls-architecture.svg)
-
----
 
 ## 1. Network-Level Controls
 
@@ -115,8 +109,6 @@ Isolate AI systems from sensitive data unless explicitly connected.
 | Assume breach | AI zone isolated so compromise doesn't spread |
 | Verify explicitly | Every action validated, not just session start |
 
----
-
 ## 2. Proxy and Gateway Controls
 
 ### 2.1 Forward Proxy
@@ -197,8 +189,6 @@ If you have an existing API gateway (Kong, Apigee, AWS API Gateway, etc.), exten
 | AI response transformation | Output filtering, PII redaction |
 | AI cost tracking plugin | Attribute costs to users/projects |
 
----
-
 ## 3. Web Application Firewall (WAF)
 
 ### 3.1 WAF for AI Applications
@@ -274,8 +264,6 @@ Use AI-specific guardrails for:
 - Context-aware filtering
 - ML-based detection
 
----
-
 ## 4. Data Loss Prevention (DLP)
 
 ### 4.1 DLP for AI Traffic
@@ -330,8 +318,6 @@ Actions:
 | **Data returned by tools** | Inspect tool outputs in agent workflows |
 | **Sensitive output** | Scan model responses, not just inputs |
 | **Encoded data** | Decode before scanning |
-
----
 
 ## 5. Endpoint Controls
 
@@ -391,8 +377,6 @@ Control AI on mobile devices.
 | **Network restrictions** | VPN required for AI access |
 | **Copy/paste restrictions** | Limit data movement to AI apps |
 | **Managed browser** | Control web-based AI access |
-
----
 
 ## 6. Cloud Security Controls
 
@@ -482,8 +466,6 @@ Control SaaS AI usage.
 
 ![CASB AI App Classification](../../images/casb-ai-classification.svg)
 
----
-
 ## 7. Identity and Access Management
 
 ### 7.1 Authentication for AI
@@ -553,8 +535,6 @@ AI access decisions based on context, not just identity.
 | **Risk score** | Reduce AI access for users with elevated risk |
 | **Data sensitivity** | Higher auth requirements for sensitive data + AI |
 
----
-
 ## 8. Logging and Monitoring Infrastructure
 
 ### 8.1 AI-Specific Logging
@@ -607,8 +587,6 @@ index=ai_gateway status=403
 | **Auth failures** | Multiple failed AI auth | Potential attack |
 | **Guardrail bypass attempt** | Known injection pattern | Block, investigate |
 
----
-
 ## 9. Implementation Priorities
 
 ### Phase 1: Foundation (Weeks 1-4)
@@ -647,8 +625,6 @@ index=ai_gateway status=403
 | Automation | Reduce manual effort | Ongoing |
 | Metrics and reporting | Demonstrate value | Ongoing |
 
----
-
 ## 10. Control Mapping to Bypass Categories
 
 | Bypass Category | Technical Controls |
@@ -660,8 +636,6 @@ index=ai_gateway status=403
 | **Insider config change** | IAM, privileged access management, change logging |
 | **Credential theft** | API key vault, rotation, mTLS, no embedded keys |
 
----
-
 ## Summary
 
 1. **Block at the network** - Deny by default, allow approved AI only
@@ -671,6 +645,3 @@ index=ai_gateway status=403
 5. **Layer controls** - Network + gateway + WAF + DLP + endpoint
 6. **Automate enforcement** - Don't rely on user compliance
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

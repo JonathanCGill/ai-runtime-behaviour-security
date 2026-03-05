@@ -3,9 +3,6 @@
 **Low Autonomy · Human-in-the-Loop · Pilot Phase**
 
 > Part of the [MASO Framework](../README.md) · Implementation Guidance
-> Version 1.0 · February 2026
-
----
 
 ## When to Use Tier 1
 
@@ -21,8 +18,6 @@ Use Tier 1 when any of the following conditions apply:
 
 Tier 1 is not a permanent state. It is designed to build the operational evidence base - behavioural baselines, failure mode data, and trust calibration - that justifies progression to Tier 2.
 
----
-
 ## Architecture at Tier 1
 
 ![Tier 1 Architecture](../../images/tier-1-architecture.svg)
@@ -36,8 +31,6 @@ Key architectural constraints at Tier 1:
 **LLM-as-Judge (Layer 2)** is optional at Tier 1. Organisations that already have an evaluation model can deploy it, but it is not a gating requirement. The primary quality gate is human review.
 
 **Human Oversight (Layer 3)** is the dominant control. Every action that modifies external state - write operations, API calls, data mutations, file modifications, message sends - requires explicit human approval before execution.
-
----
 
 ## Control Implementation by MASO Domain
 
@@ -65,8 +58,6 @@ Key architectural constraints at Tier 1:
 - [ ] Orchestrator credentials are not passed to task agents.
 - [ ] Write-capable tool access is documented and justified per agent.
 
----
-
 ### 2. Data Protection - Tier 1 Requirements
 
 **Mandatory:**
@@ -90,8 +81,6 @@ Key architectural constraints at Tier 1:
 - [ ] All agent outputs are logged and available for review.
 - [ ] RAG data sources inventoried per agent.
 - [ ] Data flow diagram exists showing what data moves between which agents.
-
----
 
 ### 3. Execution Control - Tier 1 Requirements
 
@@ -118,8 +107,6 @@ Key architectural constraints at Tier 1:
 - [ ] Read operations do not require human approval (efficiency baseline).
 - [ ] Approval workflow is logged - who approved what, when, with what context.
 
----
-
 ### 4. Observability - Tier 1 Requirements
 
 **Mandatory:**
@@ -143,8 +130,6 @@ Key architectural constraints at Tier 1:
 - [ ] Weekly log review process defined, with assigned reviewer and documented findings.
 - [ ] Error and guardrail block logs captured.
 - [ ] Log retention policy defined (minimum 90 days recommended at Tier 1).
-
----
 
 ### 5. Supply Chain - Tier 1 Requirements
 
@@ -170,8 +155,6 @@ Key architectural constraints at Tier 1:
 - [ ] No dynamic tool composition - toolsets are fixed at deployment.
 - [ ] Third-party providers assessed against vendor risk framework.
 - [ ] Change management process exists for modifying the agent toolset.
-
----
 
 ## PACE Configuration at Tier 1
 
@@ -204,8 +187,6 @@ At Tier 1, having a backup agent ready is recommended but not required. If a sin
 
 Degraded mode orchestration is unnecessary at Tier 1 because the system is already operating with maximum human oversight. There is no further degradation path short of Emergency shutdown.
 
----
-
 ## OWASP Risk Coverage at Tier 1
 
 Not all OWASP risks require active technical controls at Tier 1. The human-in-the-loop for all write operations provides a compensating control for several risks that would otherwise require automated mitigation.
@@ -213,8 +194,6 @@ Not all OWASP risks require active technical controls at Tier 1. The human-in-th
 ![Tier 1 OWASP Coverage](../../images/tier-1-owasp-coverage.svg)
 
 **Critical note on ASI09:** At Tier 1, the human operator is the primary control for most risks. This means ASI09 (Human-Agent Trust Exploitation) is the most dangerous risk at this tier. Agents producing confident, well-reasoned explanations can lead the human operator to approve harmful actions through authority bias. Mitigations: ensure the human reviewer has domain expertise, rotate reviewers to prevent trust complacency, and establish a "challenge by default" review culture where the operator's role is to find reasons NOT to approve, not reasons to approve.
-
----
 
 ## Staffing Model
 
@@ -228,8 +207,6 @@ Tier 1 requires direct human involvement in operations. The staffing model refle
 
 **For a financial services context:** Add a compliance reviewer who periodically audits the action logs against regulatory requirements (e.g., DORA Art. 11, APRA CPS 234). This can be part of the existing operational risk function.
 
----
-
 ## Cost Indicators
 
 Tier 1 costs are dominated by human labour, not infrastructure.
@@ -237,8 +214,6 @@ Tier 1 costs are dominated by human labour, not infrastructure.
 ![Tier 1 Cost Indicators](../../images/tier-1-cost.svg)
 
 The dominant cost is the Agent Operator. This is the intentional trade-off at Tier 1: you are paying for human oversight in exchange for lower technical control complexity. As the system matures and moves to Tier 2, the operator role shifts from approving every action to managing exceptions.
-
----
 
 ## Testing and Validation
 
@@ -258,8 +233,6 @@ Before declaring Tier 1 operational, validate the following:
 7. **Log review test:** Conduct a log review following the defined process and confirm the reviewer can identify a deliberately injected anomalous action.
 8. **Incident response test:** Run a tabletop exercise where an agent produces harmful output. Walk through the Emergency procedure from detection to shutdown to post-incident review.
 
----
-
 ## Graduation Criteria - Moving to Tier 2
 
 Tier 1 is the foundation. An organisation should progress to Tier 2 when the following conditions are met:
@@ -275,8 +248,6 @@ Tier 1 is the foundation. An organisation should progress to Tier 2 when the fol
 5. **Organisational approval:** The risk owner (CISO, CTO, or equivalent) has formally approved the transition to Tier 2 based on the operational evidence from Tier 1.
 
 6. **Regulatory alignment confirmed:** For regulated industries, the compliance function has reviewed the Tier 2 control set and confirmed it meets applicable requirements.
-
----
 
 ## Worked Example - Financial Services Document Processing
 
@@ -300,6 +271,3 @@ Tier 1 is the foundation. An organisation should progress to Tier 2 when the fol
 
 **Graduation trigger:** After 90 days, the operator's rejection rate is 2%, no incidents have occurred, and behavioural baselines show consistent patterns. The bank's operational risk function approves progression to Tier 2, where the Analyst's read operations and the Summariser's writes to the staging area (for pre-approved document types) will proceed without per-action human approval.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

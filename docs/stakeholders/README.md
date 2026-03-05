@@ -6,17 +6,11 @@ description: Role-specific entry points into the AI runtime security reference f
 
 **Your role. Your risks. Your entry point.**
 
-> *Part of the [AI Runtime Behaviour Security](../)*
-
----
-
 This reference covers a lot of ground - risk tiers, three-layer controls, PACE resilience, MASO multi-agent security, infrastructure controls, regulatory mappings, strategy. Nobody needs all of it.
 
 These pages tell you **what matters for your role**, **why you should care**, and **where to start reading**. Each one is a window from your perspective - not a summary of everything, but a filter for what's relevant to your work.
 
 ![Stakeholder Map](../images/stakeholder-map.svg)
-
----
 
 ## Pick Your Role
 
@@ -30,8 +24,6 @@ These pages tell you **what matters for your role**, **why you should care**, an
 | **[Compliance & Legal](compliance-and-legal.md)** | Compliance Officers, Legal Counsel, DPOs, Audit Teams | *How do I demonstrate that AI deployments meet regulatory obligations - with evidence?* |
 | **[Insider Threat Teams](insider-threat-teams.md)** | Insider Risk Analysts, UEBA Engineers, Behavioral Analytics Teams | *Your programme already solves the problem AI agents create - how do you extend it?* |
 
----
-
 ## How These Pages Work
 
 Each stakeholder page follows the same structure:
@@ -44,6 +36,3 @@ Each stakeholder page follows the same structure:
 
 These are entry points, not destinations. Follow the links deeper when you need depth.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

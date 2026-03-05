@@ -20,8 +20,6 @@ This isn't hypothetical:
 
 The framework's [Cost & Latency](cost-and-latency.md) guide covers how to budget for security controls. This document covers a different problem: **how to govern AI economics at runtime** — monitoring spend, enforcing budgets, and preventing runaway costs before they become incidents.
 
----
-
 ## Why This Is a Security Problem
 
 Economic governance is not just a finance concern. Uncontrolled AI spending creates security-relevant risks:
@@ -36,8 +34,6 @@ Economic governance is not just a finance concern. Uncontrolled AI spending crea
 
 Financial denial-of-service is an emerging threat class. An attacker who can trigger expensive model calls — through prompt injection that causes verbose output, or inputs that trigger agent retry loops — can inflict economic harm without exfiltrating data or compromising systems.
 
----
-
 ## Governance Must Move Inside the System
 
 For most of the past decade, AI governance lived comfortably outside the systems it was meant to regulate. As long as AI behaved like a tool — producing predictions or recommendations on demand — that separation mostly worked.
@@ -47,8 +43,6 @@ That assumption is breaking down. As AI systems move from assistive components t
 The distinction matters: *output monitoring tells you what happened. Control plane telemetry tells you why it was allowed to happen.*
 
 Economic governance follows the same principle. Budget enforcement that operates outside the AI system — monthly cost reviews, manual spend approvals — cannot contain a cost spike that happens in minutes. The enforcement must be architectural: embedded in the request pipeline, aware of cost in real time, and capable of automated response.
-
----
 
 ## The Economic Governance Model
 
@@ -151,8 +145,6 @@ Cost optimisation is not cost reduction. The goal is maximum security and busine
 
 **Critical principle: never optimise security controls to meet budget.** If the budget doesn't support the required control intensity for the risk tier, the correct response is to reduce the system's scope or autonomy (lowering the risk tier), not to weaken controls. This is a governance decision, not an engineering one.
 
----
-
 ## Budget Governance by Risk Tier
 
 Economic governance intensity should match risk tier, just like security controls:
@@ -165,8 +157,6 @@ Economic governance intensity should match risk tier, just like security control
 | **Anomaly detection** | Manual review | Threshold-based alerts | Statistical anomaly detection | ML-based anomaly detection with automated response |
 | **Reporting** | Monthly cost report | Weekly cost report with variance analysis | Daily cost report with forecasting | Real-time dashboard with predictive alerts |
 | **Governance approval** | Annual budget | Quarterly review | Monthly review with variance justification | Weekly review; real-time escalation for overruns |
-
----
 
 ## FinOps for AI: What's Different
 
@@ -193,8 +183,6 @@ Mature AI economic governance tracks cost per business outcome, not cost per API
 | **Security cost ratio** | Control cost as percentage of total AI cost | Tracks whether security overhead is proportionate |
 | **Cost per risk tier** | Average interaction cost segmented by tier | Validates that higher-risk systems cost more (they should) |
 | **Cost variance coefficient** | Standard deviation of per-interaction cost | Measures predictability — high variance signals governance gaps |
-
----
 
 ## Provider-Native Controls: Know the Gaps
 
@@ -223,8 +211,6 @@ A centralised AI gateway or proxy — sitting between your applications and mode
 
 The gateway pattern provides a single enforcement point regardless of which models or providers are used downstream. It also enables model routing — automatically directing requests to cost-appropriate models based on task complexity.
 
----
-
 ## Runtime Enforcement Taxonomy
 
 Runtime budget enforcement operates across six layers. Mature organisations implement controls at multiple layers:
@@ -239,8 +225,6 @@ Runtime budget enforcement operates across six layers. Mature organisations impl
 | **6. Observability** | Detection and feedback | Real-time telemetry, cost anomaly detection, tiered alerting dashboards |
 
 Layer 2 (gateway) is the minimum viable enforcement point. Layers 1 and 4 provide defence in depth. Layer 3 is emerging but essential for agentic systems. Layers 5 and 6 provide the governance context that makes technical controls meaningful.
-
----
 
 ## The Financial Denial-of-Service Threat
 
@@ -267,8 +251,6 @@ Financial denial-of-service (FDoS) deserves specific attention as an emerging th
 | **Circuit breaker** | Automatic halt when cost rate exceeds threshold |
 | **Input complexity analysis** | Pre-screening inputs for characteristics associated with high-cost responses |
 
----
-
 ## Integration with Existing Controls
 
 Economic governance is not a standalone function. It integrates with existing framework controls:
@@ -282,8 +264,6 @@ Economic governance is not a standalone function. It integrates with existing fr
 | **Risk Tiers** | Economic governance intensity scales with risk tier |
 | **PACE Resilience** | Budget exhaustion is a failure mode requiring PACE-style resilience planning |
 | **Incident Response** | Cost overruns may require incident response procedures — especially if caused by adversarial action |
-
----
 
 ## Governance Operating Model
 
@@ -307,8 +287,6 @@ Economic governance requires clear roles and responsibilities:
 | Security control budget (non-negotiable by tier) | AI Governance Committee |
 | Budget exception requests | AI Governance Committee |
 | Emergency cost circuit breaker threshold | Security + AI Engineering |
-
----
 
 ## Implementation Checklist
 
@@ -344,8 +322,6 @@ Economic governance requires clear roles and responsibilities:
 - [ ] Review cost-per-outcome trends monthly
 - [ ] Conduct quarterly cost-vs-risk tier alignment reviews
 
----
-
 ## Key Metrics
 
 | Metric | Target | Alert Threshold |
@@ -358,16 +334,12 @@ Economic governance requires clear roles and responsibilities:
 | **FDoS incidents** | 0 | Any |
 | **Cost-driven control exceptions** | 0 | Any |
 
----
-
 ## What This Doesn't Cover
 
 - **Procurement and licensing costs.** This document covers runtime economics, not vendor selection or contract negotiation.
 - **Infrastructure capacity planning.** See platform-specific guidance in [Platform Patterns](../../infrastructure/reference/platform-patterns/aws-bedrock.md).
 - **Build-phase costs.** Development, training, and fine-tuning costs are project costs, not runtime governance. The framework's [Business Alignment](../../strategy/business-alignment.md) covers build-vs-run cost analysis.
 - **Cost modelling for the security control layers.** See [Cost & Latency](cost-and-latency.md) for detailed control cost analysis.
-
----
 
 ## References
 
@@ -402,6 +374,3 @@ Economic governance requires clear roles and responsibilities:
 - Langfuse — open-source LLM observability with cost tracking — [langfuse.com](https://langfuse.com/)
 - OpenCost — CNCF Kubernetes cost monitoring with AI plugin — [opencost.io](https://opencost.io/)
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

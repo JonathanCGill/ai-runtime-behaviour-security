@@ -8,8 +8,6 @@ The framework describes [Behavioral Anomaly Detection](../../insights/behavioral
 
 This document bridges the gap: how to turn collected metrics into anomaly detection that feeds your SOC.
 
----
-
 ## Step 1: Establish Baselines
 
 You can't detect anomalies without a definition of normal.
@@ -54,8 +52,6 @@ z = (observed_value - baseline_mean) / baseline_stddev
 
 **For count metrics** (requests per user): use Poisson or negative binomial models for low-count data.
 
----
-
 ## Step 2: Define Detection Rules
 
 ### User-Level Anomalies
@@ -86,8 +82,6 @@ z = (observed_value - baseline_mean) / baseline_stddev
 | Judge false positive spike | FP rate > UCL | Judge prompt degradation or input distribution shift |
 | Judge latency increase | P95 > 2x baseline | Provider issues affecting judge model |
 
----
-
 ## Step 3: Alert and Respond
 
 ### Alert Routing
@@ -113,8 +107,6 @@ Anomaly detection will generate false positives. Plan for this:
 | **Feedback loop** | Analysts mark alerts as TP/FP; use this to adjust thresholds quarterly |
 | **Alert fatigue monitoring** | Track time-to-acknowledge; if it degrades, you have too many alerts |
 
----
-
 ## Step 4: Tooling
 
 ### Build vs. Buy
@@ -133,6 +125,3 @@ Anomaly detection will generate false positives. Plan for this:
 4. **Week 5–8:** Tune thresholds based on false positive rate
 5. **Ongoing:** Add detection rules as new patterns emerge
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

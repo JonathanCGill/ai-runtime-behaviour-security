@@ -2,8 +2,6 @@
 
 How to select the right controls for your AI system based on risk tier and use case characteristics.
 
----
-
 ## Overview
 
 Not every AI system needs every control. This guide helps you select appropriate controls based on:
@@ -12,8 +10,6 @@ Not every AI system needs every control. This guide helps you select appropriate
 2. **Use case type** - Customer-facing, internal, agentic, batch
 3. **Data sensitivity** - PII, financial, regulated, public
 4. **Decision impact** - Consequential, advisory, informational
-
----
 
 ## Step 1: Determine Risk Tier
 
@@ -36,8 +32,6 @@ Not every AI system needs every control. This guide helps you select appropriate
 | Marketing copy generator | MEDIUM | External-facing content, but reviewed |
 | Sandbox experiments | LOW | No production data, no customer impact |
 | Internal POC | LOW | Limited scope, controlled access |
-
----
 
 ## Step 2: Identify Use Case Characteristics
 
@@ -63,8 +57,6 @@ Not every AI system needs every control. This guide helps you select appropriate
 | **Credit** | SR 11-7 / SS1/23 model risk, AI.6.2 validation |
 | **Authentication** | Never in AI context; AI.7.1 input filtering |
 | **Regulated** | AI.13 vendor due diligence, AI.3.2 documentation |
-
----
 
 ## Step 3: Select Controls by Tier
 
@@ -142,8 +134,6 @@ Not every AI system needs every control. This guide helps you select appropriate
 | AI.16.1 Model IP protection | ✅ Required | ✅ Required | ⚠️ Recommended | ○ Optional |
 | AI.16.2 Third-party IP | ✅ Required | ✅ Required | ✅ Required | ⚠️ Recommended |
 
----
-
 ## Step 4: Apply Use Case Modifiers
 
 ### Agentic AI Modifier
@@ -202,8 +192,6 @@ If your system operates in **batch mode** (not real-time):
 | HITL can review before results released | Batch allows pre-release review |
 | Rollback easier | Can reprocess batch |
 
----
-
 ## Step 5: Document Control Selection
 
 For each AI system, document:
@@ -220,8 +208,6 @@ For each AI system, document:
 | **Controls selected** | Full list with evidence requirements |
 | **Controls deferred** | Any controls not implemented and rationale |
 | **Review schedule** | When to reassess tier and controls |
-
----
 
 ## Common Patterns
 
@@ -317,8 +303,6 @@ For each AI system, document:
 | Logging | Basic metadata, 90-day retention |
 | Isolation | Separate from production |
 
----
-
 ## Review and Reassessment
 
 ### Triggers for Reassessment
@@ -342,8 +326,6 @@ For each AI system, document:
 | MEDIUM | Annually | Biannually |
 | LOW | Annually | Annually |
 
----
-
 ## Checklist: Control Selection Process
 
 | Step | Complete |
@@ -361,6 +343,3 @@ For each AI system, document:
 | 11. Review schedule established | ☐ |
 | 12. Sign-off obtained | ☐ |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

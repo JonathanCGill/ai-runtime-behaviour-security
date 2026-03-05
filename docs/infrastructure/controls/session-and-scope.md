@@ -4,15 +4,11 @@
 > **Purpose:** Isolate agent sessions, limit blast radius, and prevent scope creep in autonomous AI operations.  
 > **Extends:** IAM-06 (session-scoped credentials) and NET-01 (network zones) with agentic-specific depth.
 
----
-
 ## The Problem
 
 An agent operating within a session accumulates context, credentials, data access, and decision history. Over time, a long-running agent session becomes a high-value target: it holds data from multiple tool calls, has active credentials, and has built a context window containing potentially sensitive information from across the session.
 
 The longer a session runs, the greater the blast radius if compromised. Session isolation limits what an attacker can reach through any single compromised session.
-
----
 
 ## Control Objectives
 
@@ -23,8 +19,6 @@ The longer a session runs, the greater the blast radius if compromised. Session 
 | SESS-03 | Limit the scope of each session to a declared task | Tier 2+ (agentic) |
 | SESS-04 | Implement progressive trust within sessions | Tier 3+ (agentic) |
 | SESS-05 | Clean up session state on termination | Tier 2+ (agentic) |
-
----
 
 ## SESS-01: Session Boundaries
 
@@ -39,8 +33,6 @@ Every agent session must have defined boundaries:
 | **Credential expiry** | All session credentials expire with the session (IAM-06). No credential carry-over. |
 
 When any boundary is reached, the session terminates gracefully: pending actions are cancelled (not auto-approved), the user is notified, and all session state is cleaned up (SESS-05).
-
----
 
 ## SESS-02: Session Isolation
 
@@ -58,8 +50,6 @@ Sessions must be isolated from each other. No data, credentials, context, or sta
 - A compromised session cannot pivot to access data from other sessions.
 - An attacker who extracts context from one session cannot use it to authenticate in another.
 - Cross-session data correlation attacks (where an attacker uses multiple sessions to reconstruct information that no single session should reveal).
-
----
 
 ## SESS-03: Scope Constraints
 
@@ -84,8 +74,6 @@ The authorization gateway (IAM-04) enforces scope by:
 - Monitoring agent reasoning for scope drift (e.g., the agent starts discussing topics unrelated to the declared task).
 - Terminating sessions that persistently attempt out-of-scope actions.
 
----
-
 ## SESS-04: Progressive Trust
 
 For Tier 3+ systems, sessions should not start with full permissions. Instead, permissions increase as the session demonstrates expected behaviour.
@@ -104,8 +92,6 @@ For Tier 3+ systems, sessions should not start with full permissions. Instead, p
 - Forces attackers to maintain consistent benign behaviour before gaining access to destructive capabilities.
 - Provides natural checkpoints where human oversight can intervene.
 
----
-
 ## SESS-05: Session Cleanup
 
 When a session terminates (normally or abnormally), all session state must be cleaned up:
@@ -118,8 +104,6 @@ When a session terminates (normally or abnormally), all session state must be cl
 
 For abnormal termination (crash, timeout, forced kill), cleanup must still occur - design for crash-safe cleanup.
 
----
-
 ## Platform-Neutral Implementation Checklist
 
 - [ ] Session boundaries defined (time, token, action, scope, credential expiry)
@@ -130,8 +114,6 @@ For abnormal termination (crash, timeout, forced kill), cleanup must still occur
 - [ ] Session cleanup verified for normal and abnormal termination
 - [ ] Session metadata logged for forensics and drift detection
 - [ ] Cross-session data correlation attacks considered in threat model
-
----
 
 ## Customer-to-Agent Session Binding
 
@@ -191,6 +173,3 @@ This framework gives you the AI-specific session controls. For customer authenti
 
 **Your platform's role:** Implement the authentication, issue the scoped tokens, enforce row-level data access, and provide the revocation path.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

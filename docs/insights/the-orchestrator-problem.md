@@ -2,8 +2,6 @@
 
 *The most powerful agents in your system have the least security controls applied to them.*
 
----
-
 ## The Implicit Trust
 
 Multi-agent security frameworks - including this one, until now - share a structural assumption: the orchestrator is trusted. It routes tasks, manages lifecycle, sequences execution. The controls focus on task agents - the ones that read data, call tools, generate outputs. The orchestrator sits above them, assumed to be benign.
@@ -13,8 +11,6 @@ This assumption is wrong. And its consequences are significant.
 In production multi-agent systems - LangGraph, AutoGen, CrewAI, AWS Bedrock multi-agent - the orchestrator is not a simple router. It is an LLM. It decomposes goals into sub-tasks. It selects which agents to invoke. It interprets intermediate results. It decides what to do next.
 
 It is, by every meaningful definition, an agent. But it operates outside the control architecture designed for agents.
-
----
 
 ## Why the Orchestrator Is the Highest-Value Target
 
@@ -35,8 +31,6 @@ It controls:
 A compromised task agent can misuse one tool. A compromised orchestrator can **route sensitive data to a compromised agent**, **suppress evaluation steps**, **select the weakest agent for the hardest task**, or **decompose a harmful goal into individually benign sub-tasks** that no per-agent control catches.
 
 The orchestrator doesn't need tool access to cause harm. It causes harm through decisions.
-
----
 
 ## Three Privileged Roles, One Governance Gap
 
@@ -72,8 +66,6 @@ The problem extends beyond orchestrators. Multi-agent systems have three classes
 
 **The threat:** An observer that has drifted into over-sensitivity repeatedly triggers kill switches, degrading the system into permanent Contingency mode. Operators disable the observer to restore service. The system now runs without its safety net, and nobody has formally accepted that risk.
 
----
-
 ## The Recursion Problem
 
 Each of these privileged agents exists to provide assurance over the layer below it. The orchestrator plans for task agents. The Judge evaluates task agents. The observer monitors everyone.
@@ -90,8 +82,6 @@ The practical answer is: **you break the recursion with independence and measure
 
 You don't need a meta-judge. You need **calibration testing** - periodic verification that each privileged agent still does what you think it does.
 
----
-
 ## Nested Orchestration
 
 Production systems are already moving beyond flat topologies. A planning agent decomposes a complex task. A sub-orchestrator manages a cluster of specialist agents. Another sub-orchestrator handles a different cluster. Results flow up through aggregation agents before reaching the user.
@@ -103,8 +93,6 @@ This creates multi-level hierarchies where MASO's current controls - designed fo
 **Where does the Judge sit in a nested topology?** Per-agent evaluation at the leaf level catches individual failures. But who evaluates the sub-orchestrator's aggregation decisions? Who evaluates the top-level orchestrator's decomposition? A single Judge instance evaluating final output misses failures that occurred and were smoothed over at intermediate levels.
 
 **What is the blast radius of a compromised sub-orchestrator?** If Sub-orchestrator B is compromised, its entire agent cluster is potentially affected. EC-2.3 (blast radius caps) currently applies per-agent, not per-orchestration-subtree. A compromised sub-orchestrator can coordinate its agents within their individual caps but achieve aggregate harm that exceeds any single cap.
-
----
 
 ## What Needs to Change
 
@@ -122,8 +110,6 @@ The current MASO framework handles task agents well. The gap is privileged agent
 
 4. **Calibration as a first-class control.** Red team testing of privileged agents - injecting known-bad orchestrator plans, presenting the Judge with known policy violations, triggering known anomalies for the observer - is not optional. It's the mechanism that breaks the recursive "who watches the watchmen" problem.
 
----
-
 ## The Design Principle
 
 The three-layer control architecture says: no single control is sufficient. Layer your defences.
@@ -134,6 +120,3 @@ For privileged agents, the layers are: **role constraints** (what the agent can 
 
 The privileged agent is not exempt from the architecture. It is subject to a version of the architecture that matches its threat model.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

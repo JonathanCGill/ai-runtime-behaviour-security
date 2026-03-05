@@ -8,8 +8,6 @@ The architecture is simple: embed your documents, store embeddings in a vector d
 
 The security implications are not simple.
 
----
-
 ## The Problem
 
 RAG creates a new data access path that bypasses your existing access controls.
@@ -17,8 +15,6 @@ RAG creates a new data access path that bypasses your existing access controls.
 ![RAG Data Path Comparison](../images/rag-data-path-comparison.svg)
 
 The LLM sees the retrieved data. The LLM generates a response. If the retrieved data includes content the user shouldn't see, the LLM will happily summarise it for them.
-
----
 
 ## Five Risks You're Probably Not Controlling
 
@@ -62,8 +58,6 @@ They are.
 
 **Control required:** Encryption at rest and in transit, access control, audit logging, and network segmentation for vector databases - the same controls you apply to any data store containing sensitive information.
 
----
-
 ## What the Three-Layer Pattern Catches
 
 | Layer | RAG Risk Mitigated |
@@ -84,12 +78,7 @@ They are.
 
 The three-layer pattern monitors output quality. RAG security requires controlling the input pipeline as well.
 
----
-
 ## The Controls
 
 See [RAG Security Controls](../extensions/technical/rag-security.md) for implementation guidance.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

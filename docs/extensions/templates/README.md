@@ -16,6 +16,3 @@ Operational templates and reference documents.
 | [data-retention-guidance.md](data-retention-guidance.md) | Retention by data type and jurisdiction |
 | [model-card-template.md](model-card-template.md) | AI system documentation template |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

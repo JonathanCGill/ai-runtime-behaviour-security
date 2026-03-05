@@ -2,8 +2,6 @@
 
 **This framework builds on the work of researchers, practitioners, standards bodies, and organisations who are defining the field of AI security. This page credits their contributions and provides links to the primary sources.**
 
----
-
 ## Industry Frameworks & Standards
 
 These are the established frameworks that inform the architecture, control design, and risk classification used throughout this project. Where this framework extends or diverges from them, the relevant sections note this explicitly.
@@ -115,8 +113,6 @@ This framework's infrastructure controls and deployment guidance are consistent 
 - [NCSC Guidelines for Secure AI System Development](https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development)
 - [CISA Announcement](https://www.cisa.gov/news-events/news/dhs-cisa-and-uk-ncsc-release-joint-guidelines-secure-ai-system-development)
 
----
-
 ### UK AI Security Institute - Frontier AI Trends Report (December 2025)
 
 The strongest empirical backing for runtime security from a government body. The AISI (formerly UK AI Safety Institute) tested frontier AI systems and published findings with direct implications for runtime behavioural security:
@@ -147,8 +143,6 @@ Provides independent scientific validation for many of the risk categories addre
 - [International AI Safety Report 2026](https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026)
 - [International AI Safety Report 2026 (arXiv)](https://arxiv.org/abs/2602.21012)
 
----
-
 ## Regulatory Landscape
 
 ### EU AI Act
@@ -164,8 +158,6 @@ This framework's regulatory mapping covers Articles 9, 14, and 15 - risk managem
 Signed October 2023. The most comprehensive U.S. government AI governance action at the time. Directed NIST to develop guidelines, red-teaming standards, and the GenAI Profile. Led to creation of the U.S. AI Safety Institute. Rescinded by President Trump on January 20, 2025 - but the NIST deliverables it produced (AI 600-1, AI 800-1, adversarial testing software) remain available and continue to be referenced by industry and regulators.
 
 - [Executive Order 14110 (archived)](https://bidenwhitehouse.archives.gov/briefing-room/presidential-actions/2023/10/30/executive-order-on-the-safe-secure-and-trustworthy-development-and-use-of-artificial-intelligence/)
-
----
 
 ## Developer Safety Frameworks
 
@@ -194,8 +186,6 @@ Version 3.0 removes the prior categorical commitment not to train models unless 
 - [Responsible Scaling Policy v3.0](https://anthropic.com/responsible-scaling-policy/rsp-v3-0)
 - [RSP Overview](https://www.anthropic.com/responsible-scaling-policy)
 - [TIME: "Anthropic Drops Flagship Safety Pledge" (February 2026)](https://time.com/7380854/exclusive-anthropic-drops-flagship-safety-pledge/)
-
----
 
 ## Research - Multi-Agent Security
 
@@ -238,8 +228,6 @@ This paper has profound implications for model supply chain security: if you fin
 - [Sleeper Agents (arXiv)](https://arxiv.org/abs/2401.05566)
 - [Anthropic Research Page](https://www.anthropic.com/research/sleeper-agents-training-deceptive-llms-that-persist-through-safety-training)
 - [Simple probes can catch sleeper agents](https://www.anthropic.com/research/probes-catch-sleeper-agents)
-
----
 
 ## Research - Prompt Injection & Runtime Security
 
@@ -301,8 +289,6 @@ Demonstrates a production-grade approach to input/output monitoring - the same p
 
 - [Constitutional Classifiers (arXiv)](https://arxiv.org/pdf/2501.18837)
 
----
-
 ## AI Incident Databases
 
 These databases inform the [Incident Tracker](maso/threat-intelligence/incident-tracker.md) and provide the evidence base for control selection throughout the framework.
@@ -324,8 +310,6 @@ A living, systematic review and database of AI risk frameworks. Classifies incid
 Documented AI safety incidents surged from 149 in 2023 to 233 in 2024 - a 56.4% increase.
 
 - [Stanford HAI AI Index](https://aiindex.stanford.edu/)
-
----
 
 ## Real-World Incidents
 
@@ -404,8 +388,6 @@ Maps to: Data Protection (memory isolation), Prompt Integrity (injection detecti
 
 - [Embrace the Red](https://embracethered.com/)
 
----
-
 ## Thought Leaders
 
 These are researchers and practitioners whose work has directly shaped the thinking behind this framework. We cite them not to claim endorsement, but to credit influence and provide readers with the primary sources.
@@ -440,8 +422,6 @@ Frontier Red Team and Safeguards Research Team. Published Constitutional AI, Con
 
 - [Anthropic Alignment Research](https://alignment.anthropic.com/)
 
----
-
 ## Enterprise AI Security Solutions
 
 Commercial and open-source tools that implement patterns described in this framework. Listed for reference - inclusion is not endorsement. We encourage readers to evaluate these against their own requirements.
@@ -456,8 +436,6 @@ Commercial and open-source tools that implement patterns described in this frame
 | **Prompt Security** | Security layer for agentic AI and MCP. Risk scoring for 13,000+ MCP servers. | [prompt.security](https://www.prompt.security/) |
 | **Akamai Firewall for AI** | Input/output security for AI applications and LLMs. Prompt injection and data exfiltration protection. | [akamai.com](https://www.akamai.com/products/firewall-for-ai) |
 | **Zscaler AI Security** | AI guardrails integrated into zero-trust architecture. Real-time threat mitigation and content moderation. | [zscaler.com](https://www.zscaler.com/products-and-solutions/ai-guardrails) |
-
----
 
 ## Key Statistics
 
@@ -480,8 +458,6 @@ These numbers provide context for why this framework exists and help calibrate t
 | Scaffolding provides ~40% performance boost on SWE-bench | UK AISI Frontier AI Trends Report, December 2025 |
 | Open-to-closed source capability gap: 4-8 months | UK AISI Frontier AI Trends Report, December 2025 |
 
----
-
 ## Further Reading
 
 ### Georgetown CSET - AI Incidents Issue Brief (January 2025)
@@ -502,8 +478,6 @@ Practical guidance on RAG poisoning attack vectors and defence strategies.
 
 - [Promptfoo: RAG Poisoning Key Concepts](https://www.promptfoo.dev/blog/rag-poisoning/)
 
----
-
 ## A Note on How We Use These Sources
 
 This framework is not a repackaging of the sources above. It is an original synthesis - particularly the MASO layer, which addresses multi-agent epistemic failures (groupthink, correlated errors, synthetic corroboration, uncertainty stripping) that we haven't found treated as a formal control domain elsewhere, though others may be working on similar ideas.
@@ -518,6 +492,3 @@ What the sources provide is:
 
 We encourage readers to engage with the primary sources directly. If you find additional relevant work we should reference, please open an issue or pull request.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

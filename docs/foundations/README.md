@@ -23,8 +23,6 @@ AI systems are non-deterministic. Same prompt, same model, same parameters - dif
 - [Explore the technical architecture](#architecture) - three layers, what fails when
 - [Get working controls in 30 minutes](../QUICK_START.md) - from zero to deployed
 
----
-
 ## Architecture
 
 ![Single-Agent Security Architecture](../images/single-agent-architecture.svg)
@@ -43,8 +41,6 @@ Each layer is specifically designed to catch what the previous layer misses. Thi
 
 This pattern already exists in production at major platforms: NVIDIA NeMo, AWS Bedrock, Azure AI, LangChain, Guardrails AI, and others. This reference provides the vendor-neutral implementation: risk classification, controls, fail postures, and tested fallback paths.
 
----
-
 ## Get Started
 
 | If you want to... | Go here |
@@ -60,8 +56,6 @@ This pattern already exists in production at major platforms: NVIDIA NeMo, AWS B
 | Track your implementation | [Checklist](../core/checklist.md) |
 | **Secure a multi-agent system** | **[MASO Framework](../maso/)** |
 
----
-
 ## Before You Build Controls
 
 > **[The First Control: Choosing the Right Tool](../insights/the-first-control.md)**
@@ -69,8 +63,6 @@ This pattern already exists in production at major platforms: NVIDIA NeMo, AWS B
 > The most effective way to reduce AI risk is to not use AI where it doesn't belong. Before guardrails, judges, or human oversight - ask whether AI is the right tool for this problem.
 
 If your deployment is internal, read-only, handles no regulated data, and has a human reviewing output - start with the [Fast Lane](../FAST-LANE.md). You may not need the rest.
-
----
 
 ## Risk-Scaled Controls
 
@@ -85,8 +77,6 @@ Controls scale to risk so low-risk AI moves fast and high-risk AI stays safe.
 
 Classify your system: **[Risk Tiers](../core/risk-tiers.md)**
 
----
-
 ## PACE Resilience
 
 Every control has a defined failure mode. The [PACE methodology](../PACE-RESILIENCE.md) ensures that when a control layer degrades - and it will - the system fails safely rather than silently.
@@ -100,8 +90,6 @@ Every control has a defined failure mode. The [PACE methodology](../PACE-RESILIE
 **Emergency:** Confirmed compromise or cascading failure. Circuit breaker fires. AI traffic stopped. Non-AI fallback activated. Incident response engaged.
 
 Even at the lowest risk tier, there's a fallback plan. At the highest, there's a structured degradation path from full autonomy to full stop.
-
----
 
 ## Core Documents
 
@@ -118,8 +106,6 @@ Even at the lowest risk tier, there's a fallback plan. At the highest, there's a
 | [Checklist](../core/checklist.md) | Track implementation and PACE verification progress |
 | [Emerging Controls](../core/emerging-controls.md) | Multimodal, reasoning, and streaming considerations *(theoretical)* |
 
----
-
 ## Infrastructure Controls
 
 This section defines *what* to enforce. The [infrastructure](../infrastructure/) section defines *how* - 80 technical controls across 11 domains, with standards mappings and platform-specific patterns.
@@ -130,8 +116,6 @@ This section defines *what* to enforce. The [infrastructure](../infrastructure/)
 
 **Platform patterns:** AWS Bedrock, Azure AI, and Databricks reference architectures.
 
----
-
 ## Defence in Depth Beyond the AI Layer
 
 ![Defence in Depth Beyond the AI Layer](../images/defence-in-depth-beyond-ai.svg)
@@ -141,8 +125,6 @@ The three-layer model above - guardrails, judge, human oversight - addresses con
 Your existing DLP systems apply to data flowing into and out of AI systems - both preventing sensitive data from reaching models and catching leakage that AI-specific controls miss. API gateways validate requests and enforce schemas regardless of whether the caller is human or AI. Database access controls and parameterised queries prevent injection even if an agent constructs a malicious query. IAM governs who can invoke AI systems in the first place. SIEM correlates AI events with network, endpoint, and application events. Secure coding practices in the systems agents interact with still matter - arguably more, because the caller is now non-deterministic.
 
 These controls are outside the scope of this reference, but they are part of your defence. When you assess your AI security posture, include them. When you threat-model, include them. When one of these controls misses something, they are your safety net.
-
----
 
 ## When You Need Multi-Agent
 
@@ -167,8 +149,6 @@ When AI agents collaborate, delegate tasks, and take autonomous actions across t
 | [Integration Guide](../maso/integration/integration-guide.md) | LangGraph, AutoGen, CrewAI, AWS Bedrock implementation patterns |
 | [Worked Examples](../maso/examples/worked-examples.md) | Financial services, healthcare, critical infrastructure |
 
----
-
 ## Extensions
 
 | Folder | Contents |
@@ -178,8 +158,6 @@ When AI agents collaborate, delegate tasks, and take autonomous actions across t
 | [Industry Solutions](../extensions/technical/current-solutions.md) | Guardrails, evaluators, and safety model reference |
 | [Templates](../extensions/templates/) | Risk assessment templates, implementation plans |
 | [Worked Examples](../extensions/examples/) | Per-tier implementation walkthroughs |
-
----
 
 ## Insights
 
@@ -208,8 +186,6 @@ When AI agents collaborate, delegate tasks, and take autonomous actions across t
 | [Open-Weight Models Shift the Burden](../insights/open-weight-models-shift-the-burden.md) | Self-hosted models inherit the provider's control responsibilities |
 | [When the Judge Can Be Fooled](../core/when-the-judge-can-be-fooled.md) | The Judge layer needs its own threat model |
 
----
-
 ## Platforms Implementing This Pattern
 
 This isn't a theoretical proposal. These platforms already implement variants of this pattern:
@@ -224,8 +200,6 @@ This isn't a theoretical proposal. These platforms already implement variants of
 | AWS Bedrock Guardrails | Managed input/output filtering |
 | Azure AI Content Safety | Content filtering and moderation |
 
----
-
 ## Standards Alignment
 
 | Standard | Relevance | Mapping |
@@ -238,8 +212,6 @@ This isn't a theoretical proposal. These platforms already implement variants of
 | [MITRE ATLAS](https://atlas.mitre.org/) | Adversarial threat landscape for AI | [MASO threat intelligence](../maso/threat-intelligence/incident-tracker.md) |
 | [DORA](https://www.digital-operational-resilience-act.com/) | Digital operational resilience | [MASO regulatory alignment](../maso/) |
 
----
-
 ## Scope
 
 **In scope:** Custom LLM applications, AI decision support, document processing, single-agent systems - from deployment through incident response.
@@ -250,14 +222,9 @@ This isn't a theoretical proposal. These platforms already implement variants of
 
 **For multi-agent systems:** See [MASO](../maso/).
 
----
-
 ## Contributing
 
 Feedback, corrections, and extensions welcome. See [CONTRIBUTING.md](../CONTRIBUTING.md).
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -4,8 +4,6 @@
 
 > *Part of [Stakeholder Views](README.md) · [AI Runtime Behaviour Security](../)*
 
----
-
 ## The Problem You Have
 
 You want to ship AI features. Your security and risk teams want "controls" and "governance" that feel like they'll slow you down by months. Meanwhile, your competitors are shipping AI without all this overhead.
@@ -17,8 +15,6 @@ Here's what's actually happening:
 2. **Controls aren't equally expensive.** A LOW-tier system (internal FAQ bot) needs minimal controls and can deploy in days. A CRITICAL-tier system (credit decisioning) needs substantial controls and takes longer. The framework scales - not everything is maximum security.
 
 3. **Most delivery delays come from ambiguity, not controls.** Teams stall when they don't know what's required. A clear classification and a proportionate control list is faster than endless security reviews.
-
----
 
 ## What This Framework Gives You
 
@@ -63,8 +59,6 @@ The [Risk Assessment](../core/risk-assessment.md) has the full worked example: a
 
 The [Use Case Definition](../strategy/use-case-definition.md) provides ten questions that classify your AI system and determine exactly what controls are required. Complete it before your first security review. You'll arrive with answers instead of questions.
 
----
-
 ## Your Starting Path
 
 | # | Document | Why You Need It |
@@ -77,8 +71,6 @@ The [Use Case Definition](../strategy/use-case-definition.md) provides ten quest
 
 **If you're planning AI strategy:** [From Strategy to Production](../strategy/) covers business alignment, data reality, human factors, and progression planning.
 
----
-
 ## What You Can Do Monday Morning
 
 1. **Classify your AI system** using the [Cheat Sheet](../CHEATSHEET.md). Can it go through the Fast Lane? If so, do that. If not, know your tier.
@@ -90,8 +82,6 @@ The [Use Case Definition](../strategy/use-case-definition.md) provides ten quest
 4. **Frame controls as a feature, not overhead.** "Our chatbot has a 99.99% accuracy rate with three-layer verification" is a competitive advantage, not a burden. Customers trust AI systems that can demonstrate safety.
 
 5. **Plan your progression.** If you're starting with a MEDIUM-tier system and want to evolve to HIGH (e.g., adding autonomous actions), the [Progression](../strategy/progression.md) guide maps the path. This typically takes 6-12 months of operational maturity per tier jump.
-
----
 
 ## Common Objections - With Answers
 
@@ -107,6 +97,3 @@ The framework fixes the goalposts. Your tier determines your controls. If you're
 **"The AI team says we don't need a Judge layer."**
 Ask them what their hallucination rate is. Ask what happens when guardrails miss a prompt injection. The Judge isn't questioning the AI team's work - it's catching the failures that every AI system produces at some rate. It's the same principle as code review: not because the developer is bad, but because a second pair of eyes catches what the first misses.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

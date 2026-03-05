@@ -2,8 +2,6 @@
 
 *If you know what an agent is supposed to do, every layer of defence has a reference point.*
 
----
-
 ## The Theory
 
 An AI agent with no declared purpose is uncontrollable. You cannot write guardrails for it because you do not know what to constrain. You cannot judge its outputs because you do not know what "correct" looks like. You cannot monitor it for anomalies because you have no baseline for normal.
@@ -19,8 +17,6 @@ This is a **constrain-regardless** architecture. Permissions derive from declare
 Critically, containment operates on the **action space** (what the model may *do*) while leaving the **reasoning space** unconstrained (how the model may *think*). This is the key distinction. The entire value of deploying AI lies in its ability to handle ambiguity, generalise, and synthesise. None of that requires unrestricted action. A model summarising customer complaints needs full reasoning freedom. It does not need the ability to call external APIs or modify databases. Containment preserves the value of AI precisely because it does not attempt to control AI's reasoning - only its actions.
 
 Think of it as parental. A good parent does not script what a child says or thinks. They set boundaries - don't cross the road, don't touch the stove, come home before dark. Within those boundaries, the child has full autonomy. The boundaries are non-negotiable. The behaviour within them is free. And the parent watches - not to control every action, but to notice when something looks wrong. Containment is the boundary. The Judge is the parent watching. Human oversight is the parent stepping in when passive observation is insufficient.
-
----
 
 ## How Intent Flows Through the Defence Stack
 
@@ -79,8 +75,6 @@ Without intent, PACE is generic: try again, fall back, degrade, halt. With inten
 
 Each degradation path is coherent because it degrades *toward* a simpler version of the same intent, not toward arbitrary fallback behaviour.
 
----
-
 ## Downstream Intent Awareness
 
 This is where the theory becomes architecturally distinctive. It is not enough for each agent to know its own intent. **Downstream agents must understand the intent of the agents they interact with.**
@@ -97,8 +91,6 @@ The intent specification is the contract between agents. Agent A declares what i
 
 This is how you stop epistemic cascades. Not by hoping each agent checks its own work, but by having each agent verify that what it received is consistent with the upstream agent's declared purpose.
 
----
-
 ## The Confinement Model
 
 Put together, the defence stack creates a confinement model:
@@ -112,8 +104,6 @@ Put together, the defence stack creates a confinement model:
 **Lockdown Protocol (PACE):** When the confinement model detects a serious violation - or when external conditions prevent the agent from fulfilling its intent safely - structured degradation kicks in. Each phase is defined relative to the intent: what is the minimum viable version of this agent's purpose?
 
 **Architectural Plans (Intent Specification):** The declared intent itself. The document that defines what this agent is supposed to do, what data it needs, what tools it uses, what outputs it produces, and what boundaries it must respect. Every other layer references this.
-
----
 
 ## Why This Works (Most of the Time)
 
@@ -129,8 +119,6 @@ This means:
 
 No single layer is sufficient. No single layer needs to be. The combination, organised around a shared understanding of what the agent is supposed to do, creates a defence that is stronger than any individual control.
 
----
-
 ## Why This Does Not Work All of the Time
 
 Intellectual honesty matters more than confidence.
@@ -144,8 +132,6 @@ Intellectual honesty matters more than confidence.
 **Adaptive adversaries target the intent itself.** If an attacker can modify the intent specification - through prompt injection into the orchestration layer, through manipulation of the configuration store, through social engineering of the human who defines the intent - the entire confinement model defends the wrong thing. [Goal integrity controls](../maso/controls/prompt-goal-and-epistemic-integrity.md) (PG-1.3, PG-2.2, PG-3.2) exist precisely to protect the intent specification from tampering.
 
 **Emergent behaviour is intent-unaware.** When multiple agents interact, emergent behaviours can arise that no individual agent's intent specification anticipated. Each agent is operating within its intent. The system-level outcome is not what anyone intended. This is the [epistemic cascade problem](../maso/threat-intelligence/emerging-threats.md) and it is not fully solved by intent-based containment alone.
-
----
 
 ## The Defence Equation
 
@@ -166,8 +152,6 @@ This is not a guarantee of safety. It is a guarantee of *defensibility* - the ab
 
 That is what regulators ask for. That is what auditors examine. That is what incident post-mortems need. And it starts with declaring, clearly and specifically, what the agent was supposed to do.
 
----
-
 ## Relationship to Other Framework Pages
 
 | Page | Connection |
@@ -182,6 +166,3 @@ That is what regulators ask for. That is what auditors examine. That is what inc
 | [Observability](../maso/controls/observability.md) | Monitoring agent behaviour against intent-derived baselines |
 | [Why Containment Beats Evaluation](why-containment-beats-evaluation.md) | The position paper: why constrain-regardless architectures are structurally superior to evaluate-then-permit for regulated environments |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -4,13 +4,9 @@
 
 This guide explains how to operationalise a centralised AI governance function across multiple AI platforms.
 
----
-
 ## Integration Architecture
 
 ![Platform Integration](../../images/platform-integration.svg)
-
----
 
 ## The Challenge
 
@@ -30,8 +26,6 @@ A centralised governance function must:
 - Unify HITL workflows
 - Provide single pane of glass for oversight
 
----
-
 ## Integration Model
 
 ### AGO Control Plane
@@ -49,8 +43,6 @@ Each adapter translates AGO standards to platform-native controls:
 | Route HITL | SQS → Workflow | Review App | Ontology workflow |
 | Collect logs | CloudWatch/S3 | Inference Tables | Audit logs |
 | Report metrics | CloudWatch → Central | Unity Catalog → Central | Foundry → Central |
-
----
 
 ## Guardrails Integration
 
@@ -100,8 +92,6 @@ patterns:
 ### Deployment Workflow
 
 ![Guardrail Deployment Workflow](../../images/guardrail-deployment-workflow.svg)
-
----
 
 ## Judge Integration
 
@@ -217,8 +207,6 @@ eval_suite = Evals.create_suite(
 )
 ```
 
----
-
 ## HITL Integration
 
 ### Unified Queue Architecture
@@ -273,8 +261,6 @@ Different platforms produce different finding formats. AGO normalises:
 
 **Recommendation:** Build thin integration layer that routes to platform-native where available, custom queue for cross-platform consistency.
 
----
-
 ## Logging Aggregation
 
 ### Centralised Log Architecture
@@ -323,8 +309,6 @@ CREATE TABLE ai_governance.interactions (
 PARTITIONED BY (date DATE, platform)
 ```
 
----
-
 ## Governance Dashboard
 
 ### Key Views
@@ -357,8 +341,6 @@ PARTITIONED BY (date DATE, platform)
 - Escalation trends
 - Incident trends
 - Pattern emergence
-
----
 
 ## Implementation Checklist
 
@@ -406,8 +388,6 @@ PARTITIONED BY (date DATE, platform)
 - [ ] Verify log completeness
 - [ ] Validate dashboard accuracy
 
----
-
 ## Summary
 
 Centralised AI governance across multiple platforms requires:
@@ -420,6 +400,3 @@ Centralised AI governance across multiple platforms requires:
 
 **The goal:** Governance Committee sees ONE risk view, regardless of how many platforms are in use. 1st line teams operate within consistent standards. AGO ensures consistency across all.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

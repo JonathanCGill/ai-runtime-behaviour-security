@@ -4,8 +4,6 @@
 
 > Part of [From Strategy to Production](./)
 
----
-
 ## The Missing Variable
 
 AI strategies account for technology, data, and budget. They rarely account for people.
@@ -13,8 +11,6 @@ AI strategies account for technology, data, and budget. They rarely account for 
 Not "headcount" - that's a budget line. People: their skills, their capacity to learn new things, their available time, their willingness to change how they work, and their ability to operate AI systems safely day after day.
 
 The framework's [novel risk #12](../extensions/technical/novel-ai-risks.md) - Human-AI Interaction Risk - identifies automation bias, deskilling, and accountability gaps as risks that emerge from how humans work alongside AI. But these aren't just runtime risks. They're strategic risks. If your AI strategy assumes human capabilities that don't exist, it will fail before any security control is tested.
-
----
 
 ## The Five Human Constraints
 
@@ -169,8 +165,6 @@ The framework's PACE resilience model addresses technical degradation. But human
 
 **The framework doesn't have a human PACE model.** This is a gap. Technical systems have failover; human systems typically don't. When the one person who understands Judge calibration leaves, there's no automatic failover to a backup.
 
----
-
 ## Human Factors by Risk Tier
 
 The human requirements scale with risk tier, just as technical controls do:
@@ -182,8 +176,6 @@ The human requirements scale with risk tier, just as technical controls do:
 | **Operators** | Any engineer | Engineer with guardrail experience | Dedicated AI security engineer | Specialist team with 24/7 coverage |
 | **Training frequency** | Annual refresher | Quarterly | Monthly recalibration | Continuous (part of role) |
 | **Backup personnel** | Not required | Identified but not dedicated | Trained and available | Active rotation; no single point of failure |
-
----
 
 ## Real-World Scenarios
 
@@ -237,8 +229,6 @@ The human requirements scale with risk tier, just as technical controls do:
 - Monitor override rates - very high (seniors ignoring AI) and very low (juniors trusting blindly) are both warning signals
 - Structure HITL so senior and junior assessors review each other's AI-assisted decisions
 
----
-
 ## The Deskilling Problem
 
 The framework identifies deskilling as a [novel risk](../extensions/technical/novel-ai-risks.md). It's also a strategic risk.
@@ -261,8 +251,6 @@ When AI handles tasks that humans used to do, humans lose the ability to do thos
 - Rotate staff between AI-assisted and manual work
 - Document manual processes before they're automated - not after
 - Build deskilling risk into the PACE plan: if humans can't fall back, the Emergency phase is incomplete
-
----
 
 ## What to Do About This
 
@@ -295,8 +283,6 @@ When AI handles tasks that humans used to do, humans lose the ability to do thos
 | **Manual process exercise** | Verify the fallback still works | Bi-annually |
 | **Exit interview knowledge capture** | When operators leave, capture what they know | Every departure |
 
----
-
 ## The Framework Gap
 
 The framework treats human factors as an implementation detail. It specifies that HITL reviewers should exist, that they should have domain expertise, and that they should review within SLAs. But it doesn't address:
@@ -314,6 +300,3 @@ This is partly by design - the framework is a security controls framework, not a
 
 One approach to the scalability gap: [Humans in the Business Process](../extensions/technical/humans-in-the-business-process.md) - instead of adding dedicated HITL reviewers, use the existing human decision points in the business workflow as a detection and correction layer. The concept works because business process humans encounter AI outputs in full domain context (making their review more effective) and because it's their actual job (making their engagement sustainable).
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

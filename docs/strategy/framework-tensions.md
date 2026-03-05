@@ -4,8 +4,6 @@
 
 > Part of [From Strategy to Production](./)
 
----
-
 ## The Nature of the Tension
 
 A security controls framework and a business strategy want different things.
@@ -16,8 +14,6 @@ Strategy asks: **"What value can we create, and how do we capture it?"**
 These aren't opposed. Good security enables ambitious strategy by managing the risks that would otherwise kill projects or create crises. But they are in tension. Every control adds cost, time, and complexity. Every risk taken without controls adds exposure.
 
 This article maps the tension points - where the framework actively helps strategy, where it's silent on strategic questions, and where it constrains choices that strategists would rather make freely. It also identifies where strategies will legitimately test the framework's limits, and what to do about it.
-
----
 
 ## Where the Framework Supports Strategy
 
@@ -66,8 +62,6 @@ The framework's [regulatory crosswalks](../extensions/regulatory/) map controls 
 - Making compliance investment count for multiple regulations
 - Providing evidence for board and audit committee
 - Preparing for regulatory examinations before they happen
-
----
 
 ## Where the Framework Is Silent
 
@@ -118,8 +112,6 @@ This is correct - security requirements shouldn't be weakened by competitive pre
 - Deploy at a lower tier initially, then upgrade as controls mature (Tier 1 decision support → Tier 2 automated)
 - Parallelise control implementation with system development (don't build sequentially)
 - Accept that some competitive speed comes from accepting lower tiers - which means less capability, not less security
-
----
 
 ## Where the Framework Constrains Strategy
 
@@ -202,8 +194,6 @@ An organisation with mature Tier 2 single-agent deployments wants to introduce m
 
 **The gap:** There's no guidance on how single-agent maturity translates to multi-agent readiness. Organisations either start MASO from scratch (losing momentum) or assume single-agent maturity transfers (it doesn't - multi-agent risks are fundamentally different).
 
----
-
 ## When Strategies Break the Framework
 
 Some strategic decisions will exceed what the framework covers. This isn't failure - it's the framework meeting its limits.
@@ -255,8 +245,6 @@ Some strategic decisions will exceed what the framework covers. This isn't failu
 4. Document gaps between the framework's controls and the use case's needs
 5. Feed learnings back into the framework (contribute to the framework's evolution)
 
----
-
 ## Managing the Tensions
 
 ### The Governance Conversation
@@ -289,8 +277,6 @@ If multiple strategic initiatives hit the same framework limitation, the framewo
 
 The framework explicitly invites this. The [Maturity & Validation](../MATURITY.md) section acknowledges gaps and encourages feedback. Strategy that tests the framework's limits is exactly the kind of feedback that improves it.
 
----
-
 ## Summary
 
 | Aspect | Framework Position | Strategic Reality | Resolution |
@@ -305,6 +291,3 @@ The framework explicitly invites this. The [Maturity & Validation](../MATURITY.m
 
 The framework is a tool for managing risk. Strategy is the process of deciding which risks to take. The best outcomes come from using both - not from letting either dominate the other.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

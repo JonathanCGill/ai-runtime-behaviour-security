@@ -2,8 +2,6 @@
 
 Incident response procedures specific to AI systems. These playbooks supplement, not replace, existing incident response procedures.
 
----
-
 ## Playbook Index
 
 | # | Incident Type | Severity | Page |
@@ -19,8 +17,6 @@ Incident response procedures specific to AI systems. These playbooks supplement,
 | 9 | [Knowledge Base Poisoning](#9-knowledge-base-poisoning) | High-Critical | Below |
 | 10 | [Silent Quality Degradation](#10-silent-quality-degradation) | Medium | Below |
 
----
-
 ## Severity Classification
 
 | Severity | Definition | Response Time |
@@ -29,8 +25,6 @@ Incident response procedures specific to AI systems. These playbooks supplement,
 | **High** | Potential for significant harm, control bypass, or integrity compromise | < 4 hours |
 | **Medium** | Quality issues, limited scope impact, potential for escalation | < 24 hours |
 | **Low** | Minor issues, no customer impact, easily contained | < 72 hours |
-
----
 
 ## 1. Prompt Injection Attack
 
@@ -74,8 +68,6 @@ Incident response procedures specific to AI systems. These playbooks supplement,
 - Update adversarial testing suite
 - Consider architectural changes if fundamental weakness identified
 
----
-
 ## 2. Data Leakage via AI Output
 
 ### Indicators
@@ -118,8 +110,6 @@ Incident response procedures specific to AI systems. These playbooks supplement,
 3. Implement cross-reference checks (verify output doesn't contain data belonging to other users)
 4. Consider data isolation architecture
 
----
-
 ## 3. Hallucination with Business Impact
 
 ### Indicators
@@ -158,8 +148,6 @@ Incident response procedures specific to AI systems. These playbooks supplement,
 2. Update Judge criteria for hallucination detection
 3. Consider requiring source citation for this use case
 4. Review if use case risk tier is appropriate
-
----
 
 ## 4. AI System Producing Biased Outputs
 
@@ -204,8 +192,6 @@ Incident response procedures specific to AI systems. These playbooks supplement,
 - Engage legal counsel for discrimination-related bias
 - Monitor for similar issues across other AI systems
 
----
-
 ## 5. Model Provider Breach
 
 ### Indicators
@@ -239,8 +225,6 @@ Incident response procedures specific to AI systems. These playbooks supplement,
 - Notification obligations may apply
 - Document your data processing agreement and provider's obligations
 
----
-
 ## 6. Guardrail Bypass
 
 ### Indicators
@@ -269,8 +253,6 @@ Incident response procedures specific to AI systems. These playbooks supplement,
 3. Review for related bypass vectors
 4. Consider if Judge would have caught this (async defence)
 
----
-
 ## 7. Judge System Failure
 
 ### Indicators
@@ -297,8 +279,6 @@ Incident response procedures specific to AI systems. These playbooks supplement,
 2. Backfill evaluations for gap period (prioritise by tier)
 3. Review why failure occurred
 4. Implement redundancy if single point of failure
-
----
 
 ## 8. Agentic AI Taking Unintended Actions
 
@@ -342,8 +322,6 @@ Incident response procedures specific to AI systems. These playbooks supplement,
 3. Require approval checkpoint before this action
 4. Update Judge to detect this trajectory pattern
 
----
-
 ## 9. Knowledge Base Poisoning
 
 ### Indicators
@@ -368,8 +346,6 @@ Incident response procedures specific to AI systems. These playbooks supplement,
 2. Implement content integrity validation (checksums, signatures)
 3. Review access controls on knowledge base
 4. Add anomaly detection on content changes
-
----
 
 ## 10. Silent Quality Degradation
 
@@ -399,8 +375,6 @@ Incident response procedures specific to AI systems. These playbooks supplement,
 2. If data staleness, refresh and validate
 3. If guardrail issue, tune and test
 4. Implement more aggressive baseline monitoring
-
----
 
 ## Incident Report Template
 
@@ -443,6 +417,3 @@ FOLLOW-UP ACTIONS
 |--------|-------|----------|--------|
 | | | | |
 ```
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

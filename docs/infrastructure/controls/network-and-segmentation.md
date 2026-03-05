@@ -4,8 +4,6 @@
 > **Purpose:** Isolate AI system components into defined network zones, restrict lateral movement, and limit the blast radius when a component is compromised.  
 > **Relationship:** Supports the Guardrails layer (by ensuring guardrails cannot be bypassed via network-level access) and the Human Oversight layer (by ensuring control plane access is network-isolated from the data plane).
 
----
-
 ## Why AI Network Security Is Different
 
 Traditional application network security segments by tier: web, application, database. AI systems introduce components that don't fit neatly into these tiers and have communication patterns that traditional network controls weren't designed for:
@@ -21,8 +19,6 @@ Traditional application network security segments by tier: web, application, dat
 
 The core problem: **AI agents make runtime decisions about which network endpoints to call.** Traditional allow-lists based on known destinations break when the model decides where to send traffic. Network controls must constrain what the model *can* reach, regardless of what it *wants* to reach.
 
----
-
 ## Control Objectives
 
 | ID | Objective | Risk Tiers |
@@ -35,8 +31,6 @@ The core problem: **AI agents make runtime decisions about which network endpoin
 | NET-06 | Protect the control plane network path | Tier 2+ |
 | NET-07 | Implement API gateway as the single entry point | All |
 | NET-08 | Monitor and log all cross-zone traffic | Tier 2+ |
-
----
 
 ## NET-01: Network Zone Architecture
 
@@ -75,8 +69,6 @@ AI system components must be deployed into defined network zones with explicit t
 | All Zones → Zone 6 (Logging) | ✅ | Write-only, structured events |
 | Zone 2 → External (agent tools) | Constrained | Via egress proxy, allowlisted destinations only (NET-04) |
 
----
-
 ## NET-02: Guardrail Bypass Prevention
 
 Guardrails are only effective if every request and response passes through them. If a consumer or internal component can reach the model endpoint without traversing guardrails, the guardrails provide no security value.
@@ -96,8 +88,6 @@ Guardrails are only effective if every request and response passes through them.
 
 Periodically test that direct access to the model endpoint from outside Zone 2 is blocked. This should be an automated test in the deployment pipeline, not a manual check.
 
----
-
 ## NET-03: Judge Isolation
 
 The LLM-as-Judge must be independent of the primary model. If they share infrastructure, a compromise of the primary model (via prompt injection, jailbreak, or configuration tampering) could also compromise the Judge's evaluation.
@@ -116,8 +106,6 @@ The LLM-as-Judge must be independent of the primary model. If they share infrast
 - Prompt injection that modifies primary model behaviour does not modify Judge behaviour.
 - Infrastructure compromise of the runtime zone does not compromise evaluation integrity.
 - Judge evaluations cannot be retroactively modified by the runtime system.
-
----
 
 ## NET-04: Agent Egress Controls
 
@@ -142,8 +130,6 @@ All agent-initiated outbound traffic must pass through an egress proxy that enfo
 - An agent cannot establish persistent outbound connections (C2 channels).
 - Tool endpoint enumeration and probing is logged and rate-limited.
 
----
-
 ## NET-05: Ingestion / Runtime Separation
 
 The pipeline that ingests documents, generates embeddings, and writes to the vector store must be network-isolated from the pipeline that serves inference requests.
@@ -160,8 +146,6 @@ The pipeline that ingests documents, generates embeddings, and writes to the vec
 - Runtime inference runs in Zone 2 with read access to the vector store's query endpoint.
 - These are different network endpoints on the vector store, or different vector store instances (replicated from ingestion to runtime).
 - No direct network path between Zone 4 and Zone 2.
-
----
 
 ## NET-06: Control Plane Network Protection
 
@@ -181,8 +165,6 @@ The control plane (system prompts, guardrail rules, Judge criteria, model config
 - A compromised agent cannot modify its own permission set.
 - A compromised model endpoint cannot alter its system prompt.
 - Lateral movement from runtime to control plane requires a separate network compromise.
-
----
 
 ## NET-07: API Gateway as Single Entry Point
 
@@ -210,8 +192,6 @@ Exposing the model endpoint directly means:
 - Logging happens only if the model logs its own I/O (inconsistent).
 - No single enforcement point for policy changes.
 
----
-
 ## NET-08: Cross-Zone Traffic Monitoring
 
 All traffic crossing zone boundaries must be logged and monitored. This is distinct from application-level logging (LOG-01 through LOG-04) - this is network-level telemetry.
@@ -231,8 +211,6 @@ All traffic crossing zone boundaries must be logged and monitored. This is disti
 
 Cross-zone traffic logs feed into the enterprise SIEM alongside AI application logs (LOG-10), enabling detection of attacks that span the network and application layers.
 
----
-
 ## Three-Layer Mapping
 
 | Control | Guardrails | LLM-as-Judge | Human Oversight |
@@ -246,8 +224,6 @@ Cross-zone traffic logs feed into the enterprise SIEM alongside AI application l
 | NET-07 API gateway | Single enforcement point for guardrails | Gateway logs feed Judge evaluation | Gateway provides audit trail for oversight |
 | NET-08 Traffic monitoring | Guardrail bypass detectable at network level | Network anomalies correlated with Judge flags | Humans investigate cross-zone anomalies |
 
----
-
 ## OWASP LLM Top 10 Mapping
 
 | Control | OWASP LLM Risk |
@@ -259,8 +235,6 @@ Cross-zone traffic logs feed into the enterprise SIEM alongside AI application l
 | NET-06 | LLM01: Prompt Injection (control plane protection) |
 | NET-07 | LLM06: Excessive Agency (single entry point) |
 | NET-08 | LLM08: Excessive Permissions (network-level detection) |
-
----
 
 ## Platform-Neutral Implementation Checklist
 
@@ -275,6 +249,3 @@ Cross-zone traffic logs feed into the enterprise SIEM alongside AI application l
 - [ ] Automated tests verify guardrail bypass prevention in deployment pipeline
 - [ ] Network controls enforce IAM-04 agent tool constraints at layer 3/4
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -5,15 +5,11 @@
 > Part of the [MASO Framework](../README.md) · Threat Intelligence
 > Last updated: February 2026
 
----
-
 ## Purpose
 
 This document identifies threat patterns that are not yet widely observed in production but are demonstrated in research, theoretically sound, or emergent from current architectural trends. Each threat is assessed for likelihood, potential impact, and the MASO controls that would address it if it materialises.
 
 These are not speculative - they are extrapolations from demonstrated attack primitives and architectural patterns that are already being deployed.
-
----
 
 ## Threat Categories
 
@@ -31,8 +27,6 @@ These are not speculative - they are extrapolations from demonstrated attack pri
 
 **Assessment:** High likelihood within 12–18 months for organisations with multi-agent production systems. The research is public, the attack primitives are well-understood, and the defences are not yet standard.
 
----
-
 ### ET-02: Agent Collusion and Emergent Coordination
 
 **Status:** Theoretical with supporting research
@@ -47,8 +41,6 @@ These are not speculative - they are extrapolations from demonstrated attack pri
 
 **Assessment:** Medium likelihood, but high impact. The conditions for implicit collusion already exist in most multi-agent deployments (shared models, shared RAG corpora). Formal controls for detection are rare outside MASO.
 
----
-
 ### ET-03: Transitive Authority Exploitation
 
 **Status:** Demonstrated in isolated cases; systematic exploitation not yet reported
@@ -62,8 +54,6 @@ These are not speculative - they are extrapolations from demonstrated attack pri
 **MASO controls:** IA-2.1 (zero-trust agent credentials), IA-2.3 (no transitive permissions), EC-2.6 (decision commit protocol), PG-3.3 (constraint fidelity check for 3+ handoff chains), PG-3.4 (plan-execution conformance), OB-3.5 (decision traceability)
 
 **Assessment:** High likelihood. Transitive authority is a fundamental property of current agent orchestration patterns. Without explicit controls (like MASO's IA-2.3), every multi-agent system has this exposure.
-
----
 
 ### ET-04: Model Context Protocol (MCP) as Attack Surface
 
@@ -83,8 +73,6 @@ These are not speculative - they are extrapolations from demonstrated attack pri
 
 **Assessment:** High likelihood, already occurring. MCP supply chain security is the agent equivalent of dependency security - it needs the same rigour (signing, vetting, runtime verification) that took the software industry a decade to learn.
 
----
-
 ### ET-05: Epistemic Cascading Failure
 
 **Status:** Theoretical with strong supporting evidence from research on LLM hallucination propagation
@@ -101,8 +89,6 @@ These are not speculative - they are extrapolations from demonstrated attack pri
 
 **Assessment:** Near-certain in any multi-agent system without epistemic controls. This is the default failure mode - it happens automatically unless explicitly prevented. MASO's Prompt, Goal & Epistemic Integrity domain exists primarily to address this class of threat.
 
----
-
 ### ET-06: Agent Memory Poisoning at Scale
 
 **Status:** Research demonstrated; production exploitation emerging
@@ -116,8 +102,6 @@ These are not speculative - they are extrapolations from demonstrated attack pri
 **MASO controls:** DP-1.3 (memory isolation), DP-2.2 (RAG integrity with freshness), PG-2.5 (claim provenance enforcement), OB-2.2 (behavioural drift detection), OB-2.6 (log security)
 
 **Assessment:** High likelihood for stateful multi-agent systems. Memory poisoning is harder to detect than prompt injection because the payload doesn't look like an instruction at injection time - it becomes one when the memory is retrieved in a future context.
-
----
 
 ### ET-07: Agent-to-Agent (A2A) Protocol Exploitation
 
@@ -133,8 +117,6 @@ These are not speculative - they are extrapolations from demonstrated attack pri
 
 **Assessment:** Medium likelihood in the near term; increases as A2A protocols mature and adoption grows. Organisations should treat A2A protocol security with the same rigour as TLS configuration.
 
----
-
 ### ET-08: Adversarial Use of AI Against AI Defences
 
 **Status:** Active research; JudgeDeceiver is the first production-relevant example
@@ -148,8 +130,6 @@ These are not speculative - they are extrapolations from demonstrated attack pri
 **MASO controls:** PG-2.9 (model diversity policy - attacker can't optimise against unknown models), EC-3.1 (multi-judge consensus - attacker must bypass multiple independent judges), PG-3.5 (challenger agent - active adversarial testing of defences), OB-3.1 (independent observability agent - separate detection layer)
 
 **Assessment:** High likelihood. This is an arms race. The MASO controls that address it (model diversity, multi-judge, challenger agent) are defensive measures designed to increase the attacker's cost, not eliminate the threat entirely.
-
----
 
 ### ET-09: Self-Replication Capabilities
 
@@ -166,8 +146,6 @@ These are not speculative - they are extrapolations from demonstrated attack pri
 **Assessment:** Medium likelihood in the near term for constrained environments. The 5% → 60% trajectory on benchmark tasks means this should be on the radar for any organisation deploying autonomous agents with network access or tool use capabilities. Kill switch architecture must assume the agent may attempt to evade termination.
 
 > **Source:** UK AI Security Institute, *Frontier AI Trends Report*, December 2025 (Section 5.1).
-
----
 
 ### ET-10: Capability Acceleration and Control Surface Expansion
 
@@ -189,8 +167,6 @@ This means the control surface - the set of actions an agent can take and the co
 
 > **Source:** UK AI Security Institute, *Frontier AI Trends Report*, December 2025.
 
----
-
 ## Threat Landscape Summary
 
 | Threat | Likelihood | Impact | Earliest Effective Tier | Key MASO Domain |
@@ -208,6 +184,3 @@ This means the control surface - the set of actions an agent can take and the co
 
 **Key observation:** The majority of emerging threats target multi-agent interaction patterns - the spaces between agents, not the agents themselves. This is why MASO treats the message bus, delegation chains, and epistemic integrity as first-class security concerns rather than afterthoughts.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

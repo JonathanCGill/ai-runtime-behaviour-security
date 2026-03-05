@@ -2,8 +2,6 @@
 
 This document defines how a centralised AI governance function operates in alignment with ISO 42001:2023 (AI Management System) while leveraging the control framework (guardrails, Judge, HITL) and enterprise AI platforms.
 
----
-
 ## Executive Summary
 
 ISO 42001 establishes requirements for an **AI Management System (AIMS)**-a structured approach to governing AI across the organisation. This document maps:
@@ -14,8 +12,6 @@ ISO 42001 establishes requirements for an **AI Management System (AIMS)**-a stru
 4. **Operating rhythm** → Governance cadence and decision rights
 
 **Core principle:** Centralised policy, federated execution, unified assurance.
-
----
 
 ## ISO 42001 Structure Overview
 
@@ -34,8 +30,6 @@ ISO 42001 follows the Annex SL high-level structure common to all ISO management
 | 10 | Improvement | Nonconformity, corrective action, continual improvement |
 
 **Annex A** provides AI-specific controls (similar to ISO 27001 Annex A for information security).
-
----
 
 ## Governance Operating Model
 
@@ -63,8 +57,6 @@ ISO 42001 follows the Annex SL high-level structure common to all ISO management
 | Approval (CRITICAL) | ✅ Approves CRITICAL deployments | Requests approval |
 | Approval (HIGH) | Reviews | ✅ Approves with risk sign-off |
 | Approval (MEDIUM/LOW) | Spot checks | ✅ Self-service with standards |
-
----
 
 ## ISO 42001 Clause Mapping
 
@@ -102,8 +94,6 @@ The AIMS comprises:
 - The control framework (AI.1–AI.12)
 - Platform implementations (guardrails, Judge, HITL)
 - Supporting processes and documentation
-
----
 
 ### Clause 5: Leadership
 
@@ -145,8 +135,6 @@ The AI Policy should address:
 | **Business Unit AI Leads** | Implement AI governance in business units; own AI systems | LOCAL execution |
 | **AI Platform Team** | Operate AI platforms; implement technical controls | Platform standards |
 | **HITL Reviewers** | Review Judge findings; make decisions on flagged items | Review decisions |
-
----
 
 ### Clause 6: Planning
 
@@ -198,8 +186,6 @@ The AI Policy should address:
 | Compliance | 100% regulatory compliance | Audit findings |
 | Oversight | 100% HITL coverage for CRITICAL | HITL coverage |
 | Transparency | Documentation complete for all HIGH+ | Documentation audit |
-
----
 
 ### Clause 7: Support
 
@@ -261,8 +247,6 @@ All personnel involved with AI should be aware of:
 | HITL decisions | Per tier (1 – 7 years) | HITL team |
 | Audit reports | 7 years | Internal Audit |
 
----
-
 ### Clause 8: Operation
 
 **8.1 Operational planning and control**
@@ -301,8 +285,6 @@ For HIGH and CRITICAL systems, conduct:
 - Fundamental Rights Impact Assessment (FRIA) - required for EU AI Act high-risk
 - Data Protection Impact Assessment (DPIA) - if personal data involved
 - Bias and Fairness Assessment - especially for consequential decisions
-
----
 
 ### Clause 9: Performance Evaluation
 
@@ -350,8 +332,6 @@ For HIGH and CRITICAL systems, conduct:
 8. Emerging risks and opportunities
 9. Improvement actions
 
----
-
 ### Clause 10: Improvement
 
 **10.1 Continual improvement**
@@ -373,8 +353,6 @@ Improvement sources:
 | HITL failure | SLAs consistently missed | Root cause, capacity adjustment |
 | Incident | Customer harm from AI output | Incident response, customer remediation, process fix |
 
----
-
 ## Platform Integration
 
 ### How Platforms Support ISO 42001
@@ -391,8 +369,6 @@ Improvement sources:
 ### Recommended Architecture
 
 ![ISO 42001 Platform Architecture](../../images/iso-42001-platform-architecture.svg)
-
----
 
 ## Governance Operating Rhythm
 
@@ -439,8 +415,6 @@ Improvement sources:
 | External audit (if certified) | External Auditor | Full scope |
 | Training refresh | AI Governance | All AI practitioners |
 
----
-
 ## Certification Considerations
 
 ### Preparing for ISO 42001 Certification
@@ -466,8 +440,6 @@ Improvement sources:
 | Inadequate documentation | Document existing practices |
 | No Judge/quality assurance | Implement async evaluation |
 | Governance not formalised | Establish committee, define roles |
-
----
 
 ## Annex A Control Mapping
 
@@ -560,8 +532,6 @@ ISO 42001 does not explicitly address agentic AI. The framework extends coverage
 | Trajectory evaluation | A.8.3 Performance | AG.3.2 Trajectory Evaluation |
 | Multi-agent governance | A.3.2 Inventory | AG.4 Multi-Agent Controls |
 
----
-
 ## Cross-Reference: Framework to ISO 42001
 
 | Framework Control | ISO 42001 Clause | ISO 42001 Annex A |
@@ -583,8 +553,6 @@ ISO 42001 does not explicitly address agentic AI. The framework extends coverage
 | AI.15 Business Continuity | 8.1 | - |
 | AI.16 Intellectual Property | 7.5 | - |
 
----
-
 ## Summary
 
 ### Key Success Factors
@@ -600,6 +568,3 @@ ISO 42001 does not explicitly address agentic AI. The framework extends coverage
 
 ![AI Governance Operating Model Summary](../../images/iso-42001-operating-model-summary.svg)
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

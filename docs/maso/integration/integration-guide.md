@@ -3,17 +3,12 @@
 **Implementing MASO Controls in Agent Orchestration Frameworks**
 
 > Part of the [MASO Framework](../README.md) · Integration
-> Version 1.0 · February 2026
-
----
 
 ## Purpose
 
 This guide maps MASO control requirements to the specific implementation patterns available in four widely-adopted agent orchestration frameworks: LangGraph, AutoGen, CrewAI, and AWS Bedrock Agents. For each framework, it identifies where MASO controls can be enforced natively, where custom implementation is required, and where architectural gaps exist.
 
 The guide does not endorse any framework. It provides the security architect with a practical mapping: "I need to implement MASO control X - here's how to do it in framework Y."
-
----
 
 ## Framework Comparison Matrix
 
@@ -34,8 +29,6 @@ The guide does not endorse any framework. It provides the security architect wit
 | **SC-2.1** AIBOM | External tooling | External tooling | External tooling | External tooling |
 
 **Legend:** Native = framework provides built-in capability. Custom = requires implementation using framework extension points. N/A = no native support; requires external implementation.
-
----
 
 ## LangGraph
 
@@ -65,8 +58,6 @@ LangGraph's graph-based execution model maps well to MASO's control architecture
 
 **Audit logging (OB-1.1):** Use LangSmith for trace capture. Ensure all node inputs, outputs, and tool calls are logged. Extend with custom callbacks to capture MASO-specific metadata (source tags, confidence scores, goal hashes).
 
----
-
 ## AutoGen
 
 ### Architecture Fit
@@ -91,8 +82,6 @@ AutoGen's conversation-based multi-agent model provides flexible agent-to-agent 
 
 **Audit logging (OB-1.1):** Register a custom callback handler on the `GroupChat` that logs every message with metadata: sender, recipient, timestamp, message hash, and any tool calls. Store in an append-only log with integrity protection.
 
----
-
 ## CrewAI
 
 ### Architecture Fit
@@ -116,8 +105,6 @@ CrewAI's task-based model with explicit agent roles and delegation maps naturall
 **Goal integrity (PG-2.2):** Define expected outcomes in the task `expected_output` field. After task execution, compare the actual output against the expected outcome. Significant deviation triggers re-execution or escalation.
 
 **Audit logging (OB-1.1):** CrewAI provides `verbose=True` for detailed execution logging. Extend with a custom output handler that captures agent decisions, tool calls, delegation events, and task outcomes in a structured format.
-
----
 
 ## AWS Bedrock Agents
 
@@ -145,8 +132,6 @@ AWS Bedrock Agents provides a managed infrastructure for agent orchestration wit
 
 **Audit logging (OB-1.1):** CloudTrail captures all Bedrock API calls. CloudWatch captures agent execution traces. Configure CloudWatch alarms for anomaly detection (unusual API call patterns, high error rates, unexpected tool invocations).
 
----
-
 ## Cross-Framework Implementation Priorities
 
 Regardless of framework, implement these controls first:
@@ -169,8 +154,6 @@ Regardless of framework, implement these controls first:
 11. Cryptographic goal integrity verification
 12. Model diversity enforcement
 
----
-
 ## Framework Selection Guidance
 
 | Requirement | Recommended Framework |
@@ -184,6 +167,3 @@ Regardless of framework, implement these controls first:
 
 No framework provides complete MASO coverage out of the box. Every implementation will require custom security controls beyond what the framework provides natively. The framework's role is to provide extension points - the security architecture is your responsibility.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

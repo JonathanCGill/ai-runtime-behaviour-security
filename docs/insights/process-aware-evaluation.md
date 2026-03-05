@@ -2,15 +2,11 @@
 
 *Evaluating what an agent did is less important than evaluating how it got there*
 
----
-
 An agent produces a correct answer. The customer gets the right information. The output passes guardrails, passes the Judge, looks clean in the audit log.
 
 But the agent got there by calling a tool it shouldn't have accessed, reading a document outside the user's permission scope, and discarding two intermediate results that contradicted its final answer.
 
 The output was fine. The process was a security incident.
-
----
 
 ## The Output Trap
 
@@ -38,8 +34,6 @@ An agent told to "summarise this document" might achieve the summary by first ex
 
 The output is compliant. The trace is not.
 
----
-
 ## What Process-Aware Evaluation Means
 
 Process-aware evaluation examines the **full reasoning and action trace** - not just the final output. It asks:
@@ -55,8 +49,6 @@ Process-aware evaluation examines the **full reasoning and action trace** - not 
 
 This is not a new idea - it is how aviation investigates incidents. The flight data recorder captures every input, every control surface movement, every system state change. Investigators don't just ask "did the plane land?" - they reconstruct the entire flight path. A safe landing after an unstable approach is not a pass. It's an incident requiring investigation.
 
----
-
 ## The Framework Already Has the Data
 
 The architecture for process-aware evaluation already exists within this framework. It just isn't framed as an evaluation methodology.
@@ -70,8 +62,6 @@ The architecture for process-aware evaluation already exists within this framewo
 The gap is between these components. The observability layer captures the trace. The Judge evaluates the output. But the trace itself is not systematically evaluated for security-relevant patterns - it feeds anomaly scoring (which detects statistical deviation) and forensic investigation (which happens after something goes wrong).
 
 Process-aware evaluation closes that gap by making trace analysis a **routine evaluation function**, not just a forensic tool.
-
----
 
 ## How It Works in Practice
 
@@ -110,8 +100,6 @@ At Tier 3, deploy an LLM-as-Judge against the trace itself - not just the final 
 
 This is the most expensive evaluation mode. Reserve it for CRITICAL-tier workflows and for deep investigation of anomalies flagged by Tier 2 pattern matching.
 
----
-
 ## What This Changes
 
 Process-aware evaluation doesn't replace output evaluation. It complements it. The combination catches failures that neither approach catches alone:
@@ -123,8 +111,6 @@ Process-aware evaluation doesn't replace output evaluation. It complements it. T
 | **Both** | All of the above | Novel attack patterns that produce normal-looking traces and outputs (the hardest case) |
 
 The key insight from recent research is that the agent's decision-making trace is itself a security artefact. Treating it as merely a log - useful for forensics but not for evaluation - leaves a category of failures undetected until they cause harm.
-
----
 
 ## Research Context
 
@@ -138,8 +124,6 @@ The concept of process-aware evaluation is emerging across the agentic AI securi
 
 This aligns with the broader trajectory in AI evaluation: moving from "did it get the right answer?" to "did it get the right answer for the right reasons?" - a question that matters not just for accuracy, but for security.
 
----
-
 ## Related
 
 - [Observability Controls](../maso/controls/observability.md) - The immutable decision chain that provides the trace data
@@ -148,6 +132,3 @@ This aligns with the broader trajectory in AI evaluation: moving from "did it ge
 - [Behavioral Anomaly Detection](behavioral-anomaly-detection.md) - Statistical deviation from baselines
 - [The Verification Gap](the-verification-gap.md) - The limits of confirming ground truth
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

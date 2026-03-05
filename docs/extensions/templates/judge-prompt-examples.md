@@ -2,8 +2,6 @@
 
 Example prompts for implementing LLM-as-Judge evaluation. Adapt these to your specific use cases and policies.
 
----
-
 ## Overview
 
 The Judge evaluates AI interactions **after the fact**, looking for:
@@ -15,8 +13,6 @@ The Judge evaluates AI interactions **after the fact**, looking for:
 - Potential prompt injection
 
 **Remember:** The Judge surfaces findings for human review. It does not block transactions.
-
----
 
 ## General Evaluation Prompt
 
@@ -79,8 +75,6 @@ Provide your evaluation in the following JSON format:
   "recommendations": ["Any suggestions for improvement"]
 }
 ```
-
----
 
 ## Domain-Specific Prompts
 
@@ -236,8 +230,6 @@ You are evaluating an AI credit decision support interaction. This is a CRITICAL
 }
 ```
 
----
-
 ## Safety-Focused Prompts
 
 ### Prompt Injection Detection
@@ -333,8 +325,6 @@ For each PII instance found:
 }
 ```
 
----
-
 ## Hallucination Detection Prompt
 
 ```
@@ -389,8 +379,6 @@ You are evaluating an AI response for hallucination - content that appears factu
   "recommended_action": "ESCALATE" or "REVIEW" or "LOG_ONLY" or "NONE"
 }
 ```
-
----
 
 ## Agentic Evaluation Prompts
 
@@ -509,8 +497,6 @@ You are evaluating an AI agent's proposed plan before it executes.
 }
 ```
 
----
-
 ## Batch Evaluation Summary
 
 For batch processing, aggregate individual evaluations:
@@ -575,8 +561,6 @@ You are generating a summary of AI evaluation findings for a batch of interactio
 }
 ```
 
----
-
 ## Implementation Notes
 
 ### Prompt Variables
@@ -612,6 +596,3 @@ Judge outputs include confidence. Use this to route findings:
 | 0.7-0.9 | Trust finding, flag for spot-check |
 | <0.7 | Require human review of Judge finding |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

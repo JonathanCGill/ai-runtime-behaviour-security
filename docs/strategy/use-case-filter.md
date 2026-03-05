@@ -4,8 +4,6 @@
 
 > Part of [From Strategy to Production](./)
 
----
-
 ## Why This Exists
 
 Organisations reach for AI because it's available, not because it's appropriate. The framework's [first control](../insights/the-first-control.md) makes the point for security: the most effective way to reduce AI risk is to not use AI where it doesn't belong.
@@ -14,15 +12,11 @@ This filter makes that principle operational. Given a business problem, it walks
 
 The filter sits between [Business Alignment](business-alignment.md) (is this a real problem worth solving?) and [Use Case Definition](use-case-definition.md) (what exactly will the AI system do?). Use it after you've confirmed the problem is real and before you start defining the AI use case.
 
----
-
 ## The Filter
 
 ![Use Case Filter](../images/strategy-use-case-filter.svg)
 
 Seven questions, evaluated in order. Each question has a clear exit or a continuation. The first "yes" that leads to a non-AI exit is the answer - don't keep going just because you want to reach the AI options.
-
----
 
 ## The Seven Questions
 
@@ -53,8 +47,6 @@ If the logic can be expressed as "if X then Y" with bounded inputs and predictab
 
 **Common mistake:** Building an AI system to replicate logic that already exists in a rules engine - or could. If the business has a procedure manual that staff follow step by step, that's a rules engine, not an AI use case.
 
----
-
 ### Q2: Is this a structured, repeatable process operating on existing systems?
 
 If the work is repetitive, follows a fixed sequence, and involves interacting with existing application UIs or APIs, consider RPA or workflow automation before AI.
@@ -81,8 +73,6 @@ If the work is repetitive, follows a fixed sequence, and involves interacting wi
 
 **Common mistake:** Using AI to "read" structured forms that could be parsed with templates, or to "automate" a process that's really just moving data between systems.
 
----
-
 ### Q3: Can this be solved with search, retrieval, or database queries?
 
 If the user needs to find specific information from a known data source, the answer is often search - not AI. Retrieval-augmented generation (RAG) is AI; a well-configured search index is not.
@@ -108,8 +98,6 @@ If the user needs to find specific information from a known data source, the ans
 | Maintenance | Keep index current |
 
 **Common mistake:** Building a RAG chatbot when users would be better served by a good search interface. RAG adds hallucination risk, requires guardrails, and needs Judge evaluation. Search returns actual documents. If the documents contain the answer and users can find them, search wins.
-
----
 
 ### Q4: Does it require pattern recognition on structured data?
 
@@ -138,8 +126,6 @@ If the task involves classification, regression, anomaly detection, or predictio
 
 **Common mistake:** Using an LLM to classify structured data that a logistic regression or random forest could handle with better accuracy, lower cost, and full explainability. LLMs are not better at everything - they're better at language.
 
----
-
 ### Q5: Does it require understanding unstructured input?
 
 If the task involves natural language, images, audio, or video - and understanding, not just processing - then AI is appropriate. The question is what kind.
@@ -152,8 +138,6 @@ If the task involves natural language, images, audio, or video - and understandi
 | Document understanding (layout + content) | Yes | Document AI / multimodal |
 
 **Continue to Q6** - AI is appropriate, but the type matters.
-
----
 
 ### Q6: Does it need to generate novel content?
 
@@ -176,8 +160,6 @@ If the task requires creating text, images, code, or other content that doesn't 
 | Examples | Sentiment analysis, named entity recognition, image classification, transcription |
 
 **If Yes → Continue to Q7.**
-
----
 
 ### Q7: Does it require multi-step reasoning, tool use, or autonomous action?
 
@@ -212,8 +194,6 @@ This is the boundary between a generative AI application and an agentic AI syste
 | Typical cost | High build, high operate |
 | Maintenance | All of the above + agent coordination, sandbox management, action validation |
 
----
-
 ## The Five Exits - Summary
 
 | Exit | Technology | Risk Profile | Framework? | Key Advantage |
@@ -226,8 +206,6 @@ This is the boundary between a generative AI application and an agentic AI syste
 | **5b** | Multi-agent / agentic AI | High–Critical | Full + MASO | Autonomous multi-step reasoning and action |
 
 **The honest answer is often hybrid.** A single system might use rules for routing, search for retrieval, traditional ML for scoring, and an LLM for response generation. The filter applies per-component, not per-system. The framework applies to the AI components; the non-AI components follow standard SDLC.
-
----
 
 ## Applying the Filter - Worked Examples
 
@@ -277,8 +255,6 @@ This is the boundary between a generative AI application and an agentic AI syste
 
 **Recommendation:** Hybrid with agentic components. Rules engine for simple, deterministic claims. LLM + agentic controls for complex claims requiring document understanding, multi-system lookup, and decision-making. Full framework + MASO applies to the agentic components. This is HIGH or CRITICAL tier depending on autonomy - if the AI approves payments without human review, it's CRITICAL.
 
----
-
 ## When to Re-Run the Filter
 
 The filter isn't one-and-done. Re-evaluate when:
@@ -291,8 +267,6 @@ The filter isn't one-and-done. Re-evaluate when:
 | **Accuracy requirements change** | "Good enough" ML model might need LLM reasoning for edge cases |
 | **Regulations change** | New explainability requirements might push you from LLM back to traditional ML |
 
----
-
 ## Relationship to Other Articles
 
 - **[Business Alignment](business-alignment.md)** answers "is this problem worth solving?" - run this filter after that's confirmed
@@ -300,6 +274,3 @@ The filter isn't one-and-done. Re-evaluate when:
 - **[From Idea to Production](idea-to-production.md)** includes tool selection as Stage 3 - this filter is the detailed version of that stage
 - **[The First Control](../insights/the-first-control.md)** provides the principle; this filter provides the process
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

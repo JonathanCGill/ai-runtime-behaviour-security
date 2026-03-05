@@ -17,8 +17,6 @@ Multi-agent systems break this. When Agent A delegates to Agent B, which calls A
 
 These are not edge cases. Every framework that supports agent-to-agent communication (CrewAI, AutoGen, LangGraph, custom MCP chains) creates these scenarios by default.
 
----
-
 ## Trust Topologies
 
 Multi-agent systems fall into three patterns. Each has different control requirements.
@@ -28,8 +26,6 @@ Multi-agent systems fall into three patterns. Each has different control require
 | **Orchestrator** | One agent coordinates, others execute | Moderate - single point of control and failure |
 | **Peer-to-peer** | Agents communicate directly | High - no central authority, lateral movement risk |
 | **Hierarchical** | Agents delegate down a chain | High - privilege can accumulate or escalate across levels |
-
----
 
 ## Controls
 
@@ -126,8 +122,6 @@ This is not optional for regulated environments. If an AI system makes a credit 
 | **Contribution tagging** | Final output is annotated with which agent contributed which parts |
 | **Decision audit trail** | For consequential decisions, the full chain is reconstructable |
 
----
-
 ## Protocol-Level Risks
 
 ### MCP (Model Context Protocol)
@@ -150,8 +144,6 @@ Google's A2A protocol enables cross-vendor agent communication. Risks:
 
 **Controls:** Validate agent cards against an allowlist, enforce capability constraints at the receiving end, treat all A2A inputs as untrusted.
 
----
-
 ## Risk Tier Adjustment
 
 Multi-agent systems should be classified at least one risk tier higher than the equivalent single-agent system performing the same task.
@@ -164,6 +156,3 @@ Multi-agent systems should be classified at least one risk tier higher than the 
 
 The rationale: every additional agent in a chain is an additional point of failure, an additional attack surface, and an additional accountability gap.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

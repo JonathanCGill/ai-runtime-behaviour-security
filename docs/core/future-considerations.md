@@ -2,8 +2,6 @@
 
 **What this framework acknowledges but doesn't yet address - and why.**
 
----
-
 ## Context
 
 The 2026 International AI Safety Report, authored by over 100 experts across 30+ countries, provides the most comprehensive evidence base to date on general-purpose AI capabilities, risks, and risk management. Its core findings - defence-in-depth, the evaluation gap, the inadequacy of any single safeguard - validate the three-layer pattern this framework implements.
@@ -13,8 +11,6 @@ But the Bengio report is deliberately broad. It covers the full lifecycle of gen
 That scoping is intentional. This framework will not attempt to address every AI risk. Some problems require policy, not controls. Some require research, not checklists. Some are simply outside the scope of what an enterprise security framework can usefully influence.
 
 What follows are areas surfaced by the report and by operational experience that may inform future releases - or may remain permanently out of scope.
-
----
 
 ## Under Active Consideration
 
@@ -40,8 +36,6 @@ These models are proliferating - embedded in productivity tools, developer envir
 
 A future iteration of this framework will need to consider how to apply proportionate controls to systems where traditional infrastructure enforcement may not be available. The principles of the three-layer pattern still hold; the implementation mechanisms will be different.
 
----
-
 ## Acknowledged but Deferred
 
 These are important topics that fall outside the practical scope of an enterprise deployment security framework.
@@ -66,13 +60,9 @@ Labour market disruption, threats to human autonomy, concentration of power, and
 
 The report documents concerns about AI systems assisting in biological, chemical, radiological, and nuclear weapons development. For organisations in relevant sectors (pharmaceuticals, defence, research), these risks should inform risk-tier classification and may warrant domain-specific controls beyond what this framework provides. For general enterprise deployment, these risks are managed at the model provider level and through sector-specific regulation.
 
----
-
 ## The Architecture Extends
 
 While these topics may remain out of scope as domain-specific content, the framework's structural patterns - layered independence, risk tiering, PACE resilience, quantitative compounding - transfer directly to drift, fairness, explainability, and reliability as control domains. The architecture describes *how to control*, not *what to control*. See [Beyond Security](../insights/beyond-security.md) for how to read the framework's structure through a non-security lens.
-
----
 
 ## Principles That Won't Change
 
@@ -84,6 +74,3 @@ Regardless of which topics enter scope in future releases, the framework's core 
 - **Proportionality to risk.** Not every system needs every control. Risk tiers exist for a reason.
 - **Practical over theoretical.** If it can't be implemented by an engineering team with a deadline, it doesn't belong in this framework.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

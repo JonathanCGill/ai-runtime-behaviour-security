@@ -2,13 +2,9 @@
 
 *Images, audio, and video create attack surfaces your current controls can't see*
 
----
-
 Most AI security controls assume text. Pattern matching on prompts. Keyword filters on outputs. Classifiers trained on language.
 
 Multimodal AI - systems that process images, audio, video alongside text - renders these controls partially blind.
-
----
 
 ## The New Attack Surface
 
@@ -44,8 +40,6 @@ Multimodal models don't just consume images - they create them. The output risks
 - Imagery that bypasses text-based output filters
 
 You can filter the word "violence." You can't as easily filter an image that depicts it without saying it.
-
----
 
 ## What Still Works
 
@@ -86,8 +80,6 @@ Multimodal content is harder to review at scale - you can't skim an image the wa
 - Clear escalation for edge cases
 - Realistic throughput expectations
 
----
-
 ## What Doesn't Work
 
 ### Text-only logging
@@ -108,8 +100,6 @@ Text-based deny lists don't apply to images. Image hash-based blocking only catc
 
 The cat-and-mouse game that text security has played for years is starting over in every new modality.
 
----
-
 ## Framework Extension
 
 For multimodal AI systems, extend the standard controls:
@@ -125,8 +115,6 @@ For multimodal AI systems, extend the standard controls:
 
 The framework principles hold. The implementation is harder.
 
----
-
 ## The Uncomfortable Truth
 
 Multimodal security is immature. The attacks are ahead of the defences. Best practices are emerging, not established.
@@ -139,6 +127,3 @@ If you're deploying multimodal AI in production:
 
 The framework provides structure. Multimodal fills in that structure with uncertainty.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

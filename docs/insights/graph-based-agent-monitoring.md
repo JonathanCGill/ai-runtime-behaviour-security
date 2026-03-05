@@ -8,8 +8,6 @@ og_description: How graph databases transform multi-agent observability from log
 
 *Tabular logs answer "what did Agent X do?" Graph queries answer "how did the system behave?" For multi-agent systems, the second question is the one that matters.*
 
----
-
 ## The Problem With Logs
 
 The framework's [observability controls](../maso/controls/observability.md) specify comprehensive logging: action audit logs (OB-1.1), inter-agent message logs (OB-1.2), immutable decision chains (OB-2.1), and anomaly scoring (OB-2.2). These are well-designed. They are also, in their default form, tabular.
@@ -21,8 +19,6 @@ For a multi-agent system, the most important data is not in the rows. It is in t
 These are structural questions. Answering them from tabular logs requires multi-way joins across session IDs, chain IDs, agent IDs, and timestamps. The queries are expensive, brittle, and slow. And "slow" is a problem when the framework specifies near real-time anomaly scoring (OB-2.2) and cross-agent correlation (OB-3.4).
 
 A graph database does not answer these questions faster. It answers them *naturally*, because relationships are stored as first-class data, not reconstructed from foreign keys at query time.
-
----
 
 ## Why a Graph
 
@@ -40,8 +36,6 @@ Every observable event in a multi-agent system is a relationship:
 These are not just log entries. They are a live, queryable model of how the system is behaving right now. The graph *is* the system's interaction topology, updated in real time, and every graph algorithm in the literature becomes a monitoring tool.
 
 ![Agent Interaction Graph with Anomaly Detection](../images/insight-graph-agent-monitoring.svg)
-
----
 
 ## Near Real-Time: Is It Possible?
 
@@ -67,8 +61,6 @@ In-memory graph databases like [Memgraph](https://memgraph.com/) are designed fo
 | **Total** | **~80ms typical, &lt;200ms worst case** | |
 
 This is well within the framework's near real-time requirements. For comparison, the LLM-as-Judge layer adds 500ms to 5 seconds of latency per evaluation. The graph monitoring layer is an order of magnitude faster.
-
----
 
 ## Four Detection Patterns That Only Graphs Can See
 
@@ -143,8 +135,6 @@ This catches: workflow boundary violations, agents being recruited into unauthor
 
 **Maps to:** OB-3.1 (long-window behavioural analysis), OB-3.4 (cross-agent correlation).
 
----
-
 ## The Temporal Dimension
 
 Static graph analysis tells you what the interaction topology looks like right now. Temporal graph analysis tells you how it is changing. Both matter, but temporal analysis catches the attacks that static analysis cannot.
@@ -172,8 +162,6 @@ Frequency: never observed in baseline
 ```
 
 This is a temporal motif: a specific sequence of edges with temporal ordering constraints. Motif detection on a temporal graph is a single query. On tabular logs, it is a window function with self-joins across four tables, ordered by timestamp, filtered by session. The graph query runs in milliseconds. The SQL query might not finish before the next event arrives.
-
----
 
 ## Architecture: Fitting the Graph Into the Framework
 
@@ -212,8 +200,6 @@ The graph database is a hot-path analytics layer. It holds the recent interactio
 | Topology change detection | Not specified | New: graph diff between temporal snapshots detects structural shifts |
 | Temporal motif detection | Not specified | New: attack sequence patterns detected as temporal subgraph matches |
 
----
-
 ## The UEBA Parallel
 
 The framework already draws the parallel between [User and Entity Behaviour Analytics (UEBA)](../maso/controls/observability.md) for human insiders and agent behavioural monitoring. The graph database makes this parallel concrete.
@@ -239,8 +225,6 @@ For agents, the mapping is direct:
 | Lateral movement | Delegation chain hop | `[:DELEGATED]` |
 
 The graph algorithms that detect insider threats in UEBA (anomalous access patterns, unusual communication partners, privilege accumulation, lateral movement paths) transfer directly to agent monitoring. The threat model is the same. The detection patterns are the same. The technology is the same.
-
----
 
 ## Implementation Considerations
 
@@ -283,8 +267,6 @@ Memgraph is the strongest fit for this pattern because of its in-memory architec
 
 The choice depends on existing infrastructure, team expertise, and scale. For the near real-time requirement specified by the framework, an in-memory solution (Memgraph or equivalent) is the natural starting point.
 
----
-
 ## What This Enables for PACE
 
 The graph-based monitoring layer gives PACE transitions structural awareness, not just metric thresholds.
@@ -306,8 +288,6 @@ RETURN downstream.id, length(path) AS hops
 
 One query. Milliseconds. The entire blast radius is visible.
 
----
-
 ## Key Takeaways
 
 1. **Multi-agent observability is a graph problem.** The most important signals are structural: who talks to whom, through what paths, with what frequency, and how that topology changes over time. Graph databases model this natively. Tabular databases reconstruct it expensively.
@@ -322,8 +302,6 @@ One query. Milliseconds. The entire blast radius is visible.
 
 6. **Baseline calibration is the prerequisite.** The graph is only as good as the baseline it compares against. The framework's Tier 1 supervised phase (OB-1.3, OB-1.4) is where the baseline graph is built. Skipping supervised operation to go directly to automated alerting produces false positives and missed anomalies.
 
----
-
 ## Related
 
 - [Observability Controls](../maso/controls/observability.md) - the full OB-1.x through OB-3.x control set
@@ -333,6 +311,3 @@ One query. Milliseconds. The entire blast radius is visible.
 - [Prompt, Goal and Epistemic Integrity](../maso/controls/prompt-goal-and-epistemic-integrity.md) - the epistemic controls that generate the events the graph monitors
 - [Infrastructure Beats Instructions](infrastructure-beats-instructions.md) - why structural monitoring outperforms behavioural guidelines
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

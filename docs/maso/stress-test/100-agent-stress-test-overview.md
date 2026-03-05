@@ -3,9 +3,6 @@
 **A Tabletop Methodology for Finding Framework Breakpoints**
 
 > Part of the [MASO Framework](../README.md) · Stress Testing
-> Version 1.0 · February 2026
-
----
 
 ## What This Is (And What It Is Not)
 
@@ -14,8 +11,6 @@ This is a **tabletop stress test** - a structured thought exercise for identifyi
 It is not a report on a system we built and tested. No 100-agent system was deployed. The value here is in the reasoning: taking the framework's controls and asking, methodically, *does this still work when the numbers change by an order of magnitude?*
 
 The [worked examples](../examples/worked-examples.md) validate MASO against realistic 5-agent systems. This document asks what happens next - when organisations move from pilot to platform, and agent count grows from a handful to a fleet.
-
----
 
 ## Why Tabletop Stress Testing Matters
 
@@ -26,8 +21,6 @@ MASO's controls were designed with scalability in mind, but design intent and op
 - **Operational cost becomes a constraint.** A Judge evaluation on every inter-agent message is sound security architecture. Whether the organisation can afford the compute and latency at 10,000 messages per second is an operational question the framework should help teams answer before they discover it in production.
 
 The purpose of this exercise is to help architects and security teams anticipate these breakpoints *before* they scale - not after an incident teaches them where the limits were.
-
----
 
 ## AI Systems May Not Scale Economically
 
@@ -46,8 +39,6 @@ This matters because organisations often plan to fund AI investment from the ret
 **The implication for MASO stress testing:** every dimension in this document has a cost axis. When assessing whether a control "survives" at scale, the question is not only *does it still work?* but also *can you still afford it?* And when cost pressure arrives, the follow-on question is: *does the organisation have the governance discipline to fix root causes rather than strip controls?*
 
 The [E-Commerce 10K Stress Test](ecommerce-10k-stress-test.md) (Stress Dimension 9) examines this dynamic in detail through a four-phase cost escalation scenario. The [Economic Governance](../../extensions/technical/economic-governance.md) extension provides the enforcement model. But the principle applies to every stress dimension here: **a system that is technically sound but economically unviable under load has failed the stress test.**
-
----
 
 ## How to Run This Exercise
 
@@ -71,8 +62,6 @@ Work through each stress dimension below. For each one:
 5. **Document the adaptation.** What changes - additional infrastructure, modified control parameters, architectural segmentation - would you need?
 
 The stress dimensions are ordered from most likely to surface first (epistemic cascade) to most consequential if missed (kill switch at scale).
-
----
 
 ## Stress Dimension 1: Epistemic Cascade Depth
 
@@ -104,8 +93,6 @@ In a system with 50–100 agents organised into functional clusters, a data poin
 | PG-2.4 Consensus diversity gate | Detecting false consensus | May check model diversity but miss shared data lineage |
 | PG-2.6 Self-referential evidence prohibition | Preventing circular validation | Harder to detect when the circle spans 4 clusters |
 
----
-
 ## Stress Dimension 2: Delegation Graph Complexity
 
 ### The 5-Agent Reality
@@ -135,8 +122,6 @@ At 100 agents, the potential delegation graph has up to ~10,000 edges. Even if m
 | IA-2.1 Zero-trust credentials | Per-agent authentication | Credential management overhead at 100+ agents |
 | Tier 3 delegation contracts | Scoped, time-limited delegation | Signing and validation latency at high delegation frequency |
 | EC-2.6 Decision commit protocol | Validating action authority | Must trace authority chain through potentially deep delegation graph |
-
----
 
 ## Stress Dimension 3: Cross-Cluster PACE Cascades
 
@@ -176,8 +161,6 @@ MASO may need a **fourth PACE axis: inter-cluster coordination**. This would def
 - A system-level PACE state that aggregates cluster states
 - Recovery sequencing rules
 
----
-
 ## Stress Dimension 4: Observability at Volume
 
 ### The 5-Agent Reality
@@ -210,8 +193,6 @@ At 100 agents, the message volume changes the problem:
 | OB-2.3 Communication profiling | Inter-agent traffic analysis | Volume may require sampling rather than full inspection |
 | EC-2.5 LLM-as-Judge | Per-action evaluation | Cost scales linearly with message count |
 
----
-
 ## Stress Dimension 5: Provider Concentration
 
 ### The 5-Agent Reality
@@ -241,8 +222,6 @@ At 100 agents, provider allocation becomes a strategic decision with systemic im
 | PG-2.4 Consensus diversity gate | Detecting false consensus | May be overwhelmed when majority of agents share a provider |
 | PACE transition agents | Managing degradation | Must not share providers with task agents |
 
----
-
 ## Stress Dimension 6: Data Boundary Enforcement
 
 ### The 5-Agent Reality
@@ -271,8 +250,6 @@ In regulated environments with complex information barriers (financial services 
 | DP-1.1 Data classification | Labelling data by sensitivity | Classification rules scale with barriers x agent pairs |
 | DP-2.1 DLP on message bus | Preventing data leakage | Scanning latency at high message volume with many rules |
 | DP-1.3 Memory isolation | Preventing cross-boundary data persistence | Memory management complexity grows with agent count |
-
----
 
 ## Stress Dimension 7: Kill Switch at Scale
 
@@ -310,8 +287,6 @@ MASO may need a **graduated shutdown protocol** for large-scale deployments:
 3. **Force terminate** - kill remaining agents after the drain window
 4. **Reconcile** - automated check of external system state against expected state
 
----
-
 ## Stress Dimension 8: Compound Attack Surface
 
 ### The 5-Agent Reality
@@ -341,8 +316,6 @@ At 100 agents, the attack surface is not 20x larger - it is combinatorially larg
 | OB-2.1 Anomaly scoring | Per-agent anomaly detection | Does not natively correlate anomalies across agents |
 | OB-3.5 Decision traceability | Post-incident chain reconstruction | Useful for forensics, but does not prevent compound attacks in real-time |
 
----
-
 ## Using This Exercise to Plan Your Deployment
 
 After working through the 8 dimensions, you should have:
@@ -353,8 +326,6 @@ After working through the 8 dimensions, you should have:
 4. **Cost projections** - the operational cost of full MASO compliance at your target scale, so you can make informed trade-offs.
 
 These findings should feed directly into your MASO implementation planning and your risk owner's sign-off process. The framework's controls are the *what*. This exercise helps you plan the *how much* and *at what cost* for your specific scale.
-
----
 
 ## Relationship to Other MASO Documents
 
@@ -367,6 +338,3 @@ These findings should feed directly into your MASO implementation planning and y
 | [Cost & Latency](../../extensions/technical/cost-and-latency.md) | Provides single-model cost analysis. Stress Dimension 4 extends that to multi-agent observability cost |
 | [PACE Resilience](../../PACE-RESILIENCE.md) | Defines the three-axis PACE model. Stress Dimension 3 identifies the need for a potential fourth axis |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

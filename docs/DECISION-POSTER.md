@@ -4,11 +4,7 @@
 
 *Open this file on GitHub to view full-size. Right-click the image to save or print.*
 
----
-
 [![AI Runtime Behaviour Security - Decision Poster](images/decision-poster.svg)](images/decision-poster.svg)
-
----
 
 ## Print It
 
@@ -23,6 +19,3 @@ To print at full size: click the image above to open the SVG directly, then use 
 | [PACE Resilience](PACE-RESILIENCE.md) | Full resilience methodology |
 | [README](README.md) | Full framework overview |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

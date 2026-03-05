@@ -8,8 +8,6 @@ description: Pre-approved AI security controls for low-risk deployments. If your
 
 > *This document uses the simplified three-tier system (Tier 1/2/3). See [Risk Tiers - Simplified Tier Mapping](core/risk-tiers.md#simplified-tier-mapping) for the mapping to LOW/MEDIUM/HIGH/CRITICAL.*
 
----
-
 ## The Problem This Solves
 
 Most AI security frameworks optimise for high-risk scenarios. The controls are thorough, the documentation requirements are heavy, and the testing cadences are frequent. That's appropriate for autonomous agents making regulated decisions. It's not appropriate for an internal team using a chatbot to draft meeting notes.
@@ -17,8 +15,6 @@ Most AI security frameworks optimise for high-risk scenarios. The controls are t
 When every AI deployment goes through the same approval process regardless of risk, two things happen: low-risk experiments get delayed by weeks waiting for security review, and security teams drown in assessments for systems that don't need them. Both outcomes slow AI adoption.
 
 The Fast Lane is the framework's answer. It defines a set of **qualification criteria** and a **minimal control set** that allow low-risk AI deployments to go live without a bespoke security assessment. If the deployment meets all four criteria, the controls below are sufficient. No negotiation, no waiting.
-
----
 
 ## Qualification Criteria
 
@@ -41,8 +37,6 @@ Some deployments will be close to the boundary. The intent is to be practical, n
 - **"Read-only" but saves to a shared drive:** Fast Lane, if the shared drive is internal and the save is initiated by the human, not the AI.
 - **"No regulated data" but employees paste in customer names:** Depends on jurisdiction. If customer names are PII in your regulatory context, not Fast Lane. If they're not, proceed - but add PII detection to the guardrails.
 - **"Human in the loop" but nobody actually reads the output:** This is an operational problem, not a control problem. The criterion is that the process *requires* review, not that every individual user performs it diligently. Address compliance through training, not control architecture.
-
----
 
 ## Fast Lane Control Set
 
@@ -84,8 +78,6 @@ These are the **only** controls required for a qualified Fast Lane deployment.
 
 **What this looks like:** "If [AI feature] is unavailable, [team/users] will [manual process]. Contact [name] to restore."
 
----
-
 ## What You Don't Need
 
 Being explicit about what's not required is as important as what is. For a qualified Fast Lane deployment:
@@ -100,8 +92,6 @@ Being explicit about what's not required is as important as what is. For a quali
 | Incident response playbook | No | Standard IT incident process applies. No AI-specific playbook needed. |
 | Risk function sign-off | No | The Fast Lane criteria *are* the risk assessment. If all four are met, the risk is pre-accepted. |
 
----
-
 ## PACE for the Fast Lane
 
 Even Fast Lane deployments get a PACE plan. It's just simple.
@@ -114,8 +104,6 @@ Even Fast Lane deployments get a PACE plan. It's just simple.
 | **E - Emergency** | Same as C. There's no scenario where "turn it off" isn't sufficient for a Fast Lane system. |
 
 Testing: Annually, confirm the feature flag works and the manual process is still known.
-
----
 
 ## Governance
 
@@ -135,8 +123,6 @@ The usage logs from the Fast Lane period are available to support the re-assessm
 
 Fast Lane deployments should be reviewed annually to confirm they still meet all four criteria. This isn't a security assessment - it's a five-minute check: "Is it still internal? Still read-only? Still no regulated data? Still human-reviewed?" If yes, carry on. If no, re-assess.
 
----
-
 ## Examples
 
 **Qualifies for Fast Lane:**
@@ -153,8 +139,6 @@ Fast Lane deployments should be reviewed annually to confirm they still meet all
 - Internal tool that summarises patient notes (health data - Tier 2+)
 - **Any multi-agent system** (multiple agents communicating, delegating, or acting autonomously - see [MASO Framework](maso/))
 
----
-
 ## Relationship to Risk Tiers
 
 The Fast Lane sits below Tier 1. It's not a separate classification - it's a **pre-qualification** that exempts a deployment from the full Tier 1 assessment process.
@@ -162,8 +146,6 @@ The Fast Lane sits below Tier 1. It's not a separate classification - it's a **p
 ![Fast Lane to Tier 3 Progression](images/fast-lane-tier-progression.svg)
 
 If a Fast Lane deployment is re-assessed and found to need Tier 1 controls, the gap is small: add a Judge (even sampling at 10-20%), define a proper PACE plan with transition triggers, and schedule quarterly testing. The usage logs from the Fast Lane period provide the baseline data to calibrate the Judge.
-
----
 
 ## For Security Teams
 
@@ -178,6 +160,3 @@ This trust is justified because:
 
 What the Fast Lane does *not* do is remove security's authority. If a deployment doesn't clearly meet all four criteria, it goes through you. The Fast Lane handles the easy calls so you can focus on the hard ones.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

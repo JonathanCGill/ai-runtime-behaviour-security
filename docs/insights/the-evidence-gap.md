@@ -2,15 +2,11 @@
 
 *Where the science supports the controls - and where it doesn't yet*
 
----
-
 Every framework makes a promise. This one promises that three-layer runtime behavioral security - guardrails, LLM-as-Judge, human oversight - is the answer to AI's non-determinism problem. The argument is intuitive, the architecture is clean, and the control domains map neatly to emerging standards.
 
 But what does the research actually say?
 
 This article examines the peer-reviewed evidence, industry data, and honest limitations behind each pillar of runtime AI security. The goal isn't to validate or undermine the framework. It's to ground it - to distinguish what's proven from what's promising, and what's promising from what's still hope.
-
----
 
 ## The Case for Runtime: Strong and Getting Stronger
 
@@ -19,8 +15,6 @@ The foundational claim - that design-time testing is insufficient for non-determ
 The challenge runs deeper than stochastic outputs. Even setting temperature to zero and using fixed random seeds cannot guarantee identical outputs across runs, due to hardware-level floating-point effects and token probability ties. The SIGPLAN research community [frames the shift directly](https://blog.sigplan.org/2025/03/20/testing-ai-software-isnt-like-testing-plain-old-software/): testing AI software isn't like testing traditional software because multiple outputs may be "correct," creating a flexible correctness paradigm that conventional test oracles cannot handle.
 
 This makes the case for runtime monitoring real. If you cannot fully validate behaviour before deployment, you must observe it during deployment. The question is whether our monitoring tools are up to the job.
-
----
 
 ## Guardrails: Necessary, Brittle, Evolving
 
@@ -41,8 +35,6 @@ The [ADL's 2025 safety research](https://www.adl.org/resources/report/safety-div
 **What the evidence supports:** Guardrails are essential as a fast, first-pass filter. They catch known-bad patterns with low latency. But they are demonstrably insufficient for unknown-bad, semantic violations, or adversarial inputs.
 
 **What it doesn't support:** Any claim that guardrails provide comprehensive protection, even for known attack categories. The attack surface evolves faster than deny lists.
-
----
 
 ## LLM-as-Judge: Promising, Biased, Domain-Limited
 
@@ -67,8 +59,6 @@ Mitigation strategies exist - randomised response ordering, majority voting acro
 
 **What it doesn't support:** Treating Judge findings as authoritative without human review. The measured bias and domain gap mean the Judge is a signal source, not a decision-maker - which is precisely how this framework positions it, and the research validates that design choice.
 
----
-
 ## Human Oversight: The Accountability Anchor That Doesn't Scale
 
 The third layer - human oversight - is where the framework meets its hardest constraint: human attention is finite, expensive, and cognitively unreliable at scale.
@@ -87,8 +77,6 @@ Worse, the quality of human oversight is compromised by well-documented cognitiv
 
 **What it doesn't support:** The implicit assumption that human oversight scales linearly with system deployment. At enterprise volume, the bottleneck isn't whether humans can review - it's whether the review is meaningful or performative. Risk-tiered sampling rates help, but the gap between "human is accountable" and "human meaningfully reviewed" widens with scale.
 
----
-
 ## Prompt Injection: The Unsolved Foundation
 
 Beneath the three-layer model lies an uncomfortable reality: prompt injection - ranked #1 in the [OWASP Top 10 for LLM Applications 2025](https://owasp.org/www-project-top-10-for-large-language-model-applications/) - remains a fundamentally unsolved problem.
@@ -101,8 +89,6 @@ This doesn't invalidate layered defence. It contextualises it. The three-layer m
 
 Meta's ["Rule of Two"](https://simonwillison.net/2025/Nov/2/new-prompt-injection-papers/) offers a pragmatic design principle: never allow an LLM that processes untrusted input to also have direct access to sensitive actions. This infrastructure-level separation - which aligns with the framework's "infrastructure beats instructions" principle - is currently the most robust available mitigation.
 
----
-
 ## Multi-Agent Systems: Where Theory Outpaces Practice
 
 The framework's MASO (Multi-Agent Security Operations) extension addresses a real and growing threat. The [Cooperative AI Foundation's 2025 report on multi-agent risks](https://arxiv.org/abs/2502.14143) identified three failure modes - miscoordination, conflict, and collusion - along with seven risk factors including emergent agency, network effects, and commitment problems.
@@ -113,8 +99,6 @@ The research on [open challenges in multi-agent security](https://arxiv.org/html
 
 The framework's 128 MASO controls across seven domains are directionally aligned with these identified threats. But honesty demands acknowledging that the empirical validation base for multi-agent security controls is thin. Most controls are derived from threat modelling and architectural reasoning, not from measured effectiveness in production deployments. The field is building the aeroplane in flight.
 
----
-
 ## RAG Security: The Evidence Backs the Alarm
 
 One area where the framework's warnings are strongly validated by research is RAG (Retrieval-Augmented Generation) security. The attack surface is broad and empirically demonstrated.
@@ -124,8 +108,6 @@ One area where the framework's warnings are strongly validated by research is RA
 The [formal threat model for RAG systems](https://arxiv.org/html/2509.20324v1) catalogues the full attack surface: corpus poisoning, indirect prompt injection, retrieval jamming, privacy leakage, membership inference, and access control bypass. Cutting-edge [2026 research on hybrid RAG](https://arxiv.org/html/2602.08668v2) introduces an entirely new class: retrieval pivot attacks that exploit vector-to-graph boundaries to leak data that neither vector search nor graph traversal would expose independently.
 
 With [30–60% of enterprise AI use cases now relying on RAG architectures](https://arxiv.org/html/2505.08728v2), the framework's classification of RAG as the biggest attack surface is not alarmist - it's empirically grounded.
-
----
 
 ## The Adoption Reality: A Field in the Gap
 
@@ -142,8 +124,6 @@ The research paints a consistent picture of an industry caught between ambition 
 
 This gap is the strongest argument for a framework like this one. Not because every control is proven effective - some are, some aren't yet - but because the alternative (deploying with no structured controls) is demonstrably worse. The [SANS Institute's 2025 guidance](https://www.sans.org/blog/securing-ai-in-2025-a-risk-based-approach-to-ai-controls-and-governance) advocates a risk-based, incremental approach: deploy in less critical environments first, validate controls, then expand. This maps directly to the framework's risk-tiered model.
 
----
-
 ## The Regulatory Landscape: Demanding More Than Tools Can Deliver
 
 Regulation is simultaneously validating the need for controls and outpacing the tooling available to implement them.
@@ -155,8 +135,6 @@ The [European Commission's November 2025 proposal](https://www.crowell.com/en/in
 The AI supply chain adds another dimension. Traditional SBOMs don't capture AI-specific risks. [AIBOM standards are emerging](https://noma.security/blog/securing-ai-systems-through-transparency-the-critical-role-of-ai-bills-of-materials/) - CycloneDX 1.6 added ML-BOM support in April 2024, SPDX 3.0 included AI profiles - but [adoption remains low](https://sdtimes.com/ai/from-sbom-to-ai-bom-rethinking-supply-chain-security-for-ai-native-software/), with 48% of security professionals admitting their organisations are falling behind even on basic SBOM requirements. [IBM's 2025 data](https://venturebeat.com/security/seven-steps-to-ai-supply-chain-visibility) showed that 97% of breached AI systems lacked proper access controls.
 
 Frameworks like this one provide a bridge between regulatory requirements and implementation reality. The mappings to NIST, OWASP, ISO 42001, and the EU AI Act are valuable not because they guarantee compliance, but because they translate abstract obligations into operational controls that teams can actually deploy.
-
----
 
 ## What This Means: An Honest Assessment
 
@@ -180,8 +158,6 @@ The evidence supports this framework's core architecture more than it undermines
 
 **The honest position is this:** runtime behavioral security is the best available approach to a problem that doesn't yet have a complete solution. The framework provides structured risk management for AI systems in a period where most organisations have no structured approach at all. That's not the same as claiming the controls are proven effective. It's claiming they're the most defensible bet given current evidence - and that's a claim the research supports.
 
----
-
 ## Key Takeaways
 
 1. **The case for runtime monitoring over design-time-only testing is empirically strong.** Non-determinism, flexible correctness, and emergent behaviour make pre-deployment validation insufficient. This is well-established in the literature.
@@ -196,8 +172,6 @@ The evidence supports this framework's core architecture more than it undermines
 
 6. **Regulation validates the direction but outpaces the tooling.** NIST, the EU AI Act, and ISO 42001 all point toward the controls this framework implements. The gap between regulatory demand and implementation readiness is the industry's central challenge for 2025–2027.
 
----
-
 ## Related
 
 - [Why Your AI Guardrails Aren't Enough](why-guardrails-arent-enough.md) - The three-layer model in detail
@@ -209,6 +183,3 @@ The evidence supports this framework's core architecture more than it undermines
 - [Humans Remain Accountable](humans-remain-accountable.md) - The human oversight principle
 - [Risk Tiers](../core/risk-tiers.md) - Risk-proportionate control allocation
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -2,11 +2,6 @@
 
 **A PACE-Driven Approach to Securing Multi-Model Agent Orchestration**
 
-> *Part of the [AI Runtime Behaviour Security](../)*
-> Version 1.0 · February 2026 · Jonathan Gill
-
----
-
 ## Architecture
 
 ![MASO Architecture](../images/maso-architecture.svg)
@@ -21,15 +16,11 @@ MASO operates on a **three-layer defence model** adapted for multi-agent dynamic
 
 The critical addition for multi-agent systems is the **Secure Inter-Agent Message Bus** - a validated, signed, rate-limited communication channel through which all agent-to-agent interaction must pass. No direct agent-to-agent communication is permitted outside this bus.
 
----
-
 ## Visual Navigation
 
 ![MASO Tube Map](../images/maso-tube-map.svg)
 
 Seven coloured lines represent seven control domains. Stations are key controls. Zones are implementation tiers. Interchanges mark where domains share control points (Judge Gate, PACE Bridge, Agent Registry). River PACE flows through the centre, mapping resilience phases to tier progression.
-
----
 
 ## Control Domains
 
@@ -77,8 +68,6 @@ Orchestrators, planners, and meta-agents hold disproportionate authority - they 
 
 *Covers: ASI03, ASI07, LLM06 (elevated controls for high-authority agents)*
 
----
-
 ## OWASP Risk Coverage
 
 ![OWASP Dual Mapping](../images/owasp-dual-mapping.svg)
@@ -119,8 +108,6 @@ These risks are specific to autonomous agent behaviour - the primary threat surf
 | **ASI09: Human-Agent Trust Exploitation** | Agents produce confident, authoritative explanations that manipulate operators into approving harmful actions. Multi-agent consensus amplifies this. | Confidence calibration · Independent human verification · Decision audit trails · No agent can claim consensus authority |
 | **ASI10: Rogue Agents** | Behavioural drift, misalignment, concealment, or self-directed action. Rogue behaviour in one agent may be concealed by collaborating agents. | Continuous drift detection · Kill switch · Anomaly scoring against baselines · Regular red-team testing |
 
----
-
 ## PACE Resilience for Multi-Agent Operations
 
 ![PACE Multi-Agent Cycle](../images/pace-multi-agent-cycle.svg)
@@ -136,8 +123,6 @@ The [PACE methodology](../) (Primary, Alternate, Contingency, Emergency) from th
 **Emergency - Full Shutdown.** Triggered by cascading failures, confirmed exfiltration, coordinated manipulation, or rogue behaviour. All agents terminated. Tool access revoked. Memory and context snapshots preserved in immutable storage. Full rollback initiated. Transition authority: CISO or incident commander.
 
 **Recovery (E→P):** Requires post-incident review confirming root cause identification, control remediation, and updated baselines before returning to Primary.
-
----
 
 ## Implementation Tiers
 
@@ -159,8 +144,6 @@ Agents operate with minimal human intervention for pre-approved task categories.
 
 **Required controls:** Everything in Tier 2, plus kill switch tested and auditable, drift detection with baseline comparison, blast radius caps enforced, circuit breakers active, full OWASP coverage validated, regular adversarial testing.
 
----
-
 ## Threat Intelligence
 
 | Document | Purpose |
@@ -176,15 +159,11 @@ Every control in MASO is grounded in observed or demonstrated attack patterns:
 
 **Emerging Patterns:** Multi-agent consensus manipulation via shared knowledge base poisoning (ASI09), transitive delegation attacks creating implicit privilege escalation, agent-to-agent prompt injection through inter-agent output, credential harvesting via poisoned MCP tool descriptors, behavioural slow drift evading threshold-based detection.
 
----
-
 ## Red Team Operations
 
 | Document | Purpose |
 |----------|---------|
 | [Red Team Playbook](red-team/red-team-playbook.md) | 13 structured test scenarios across three tiers - from inter-agent injection propagation to PACE transition under attack. Includes test results template and reporting metrics |
-
----
 
 ## Integration & Examples
 
@@ -193,15 +172,11 @@ Every control in MASO is grounded in observed or demonstrated attack patterns:
 | [Integration Guide](integration/integration-guide.md) | MASO control implementation patterns for LangGraph, AutoGen, CrewAI, and AWS Bedrock Agents. Framework comparison matrix, per-control mapping, and architecture-specific guidance |
 | [Worked Examples](examples/worked-examples.md) | End-to-end MASO implementation for investment research (financial services), clinical decision support (healthcare), and grid operations (critical infrastructure). Includes PACE failure scenarios |
 
----
-
 ## Stress Testing at Scale
 
 | Document | Purpose |
 |----------|---------|
 | [Stress Testing MASO at Scale](stress-test/100-agent-stress-test-overview.md) | Tabletop methodology for identifying framework breakpoints as agent count grows from single digits to 100+. Eight stress dimensions covering epistemic cascade depth, delegation graph complexity, cross-cluster PACE cascades, observability volume, provider concentration, data boundary enforcement, kill switch practicality, and compound attack surfaces |
-
----
 
 ## Regulatory Alignment
 
@@ -216,8 +191,6 @@ MASO inherits the parent framework's regulatory mappings and extends them to mul
 | **DORA** | Art. 11 | Digital operational resilience for AI agents in financial services. PACE provides the resilience model. |
 | **APRA CPS 234** | Information Security | Australian prudential requirements for AI agent deployments in financial services. |
 
----
-
 ## Operational Concerns
 
 These questions come up in every MASO deployment. The answers sit across the framework - collected here so you don't have to hunt.
@@ -231,15 +204,11 @@ These questions come up in every MASO deployment. The answers sit across the fra
 | What emergent risks have no OWASP equivalent? | [Emergent Risk Register](controls/risk-register.md) - 34 risks across 9 categories including epistemic, coordination, and inference-side attacks |
 | What about DLP, API validation, database controls, and existing IAM? | [Defence in Depth Beyond the AI Layer](../foundations/README.md#defence-in-depth-beyond-the-ai-layer) - MASO controls are a layer within your wider security architecture, not a replacement for it. External DLP (inbound and outbound), API gateways, database access controls, SIEM, and secure coding practices all apply |
 
----
-
 ## Relationship to Parent Framework
 
 MASO is the multi-agent extension of [AI Runtime Behaviour Security](../). It inherits the three-layer defence model, PACE resilience methodology, risk classification matrix, and regulatory mapping framework.
 
 It extends into multi-agent territory by addressing multi-model orchestration security, inter-agent communication integrity, the OWASP Agentic Top 10 (2026), compound risk dynamics, Non-Human Identity management, and kill switch architecture.
-
----
 
 ## File Structure
 
@@ -270,8 +239,6 @@ stress-test/
 └── 100-agent-stress-test-overview.md
 ```
 
----
-
 ## What's Next
 
 The framework core, implementation tiers, control domain specifications, threat intelligence, red team playbook, integration guide, and worked examples are complete. Planned extensions:
@@ -280,6 +247,3 @@ The framework core, implementation tiers, control domain specifications, threat 
 2. **Compliance evidence packs** - pre-built documentation sets for ISO 42001, NIST AI RMF, and EU AI Act audits.
 3. **Agent orchestration security benchmark** - quantitative scoring methodology for multi-agent system security posture.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

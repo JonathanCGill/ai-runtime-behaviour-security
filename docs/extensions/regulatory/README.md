@@ -16,6 +16,3 @@ Standards alignment and sector-specific guidance.
 | [Platform Integration Guide](platform-integration-guide.md) | GRC platform integration |
 | [High-Risk Financial Services](high-risk-financial-services.md) | Financial services AI risk guidance |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

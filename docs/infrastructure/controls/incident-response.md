@@ -4,8 +4,6 @@
 > **Purpose:** Define AI-specific incident detection, classification, response, and recovery procedures that extend the organisation's existing IR capability.  
 > **Relationship:** Relies on the Logging controls (LOG-01 through LOG-10) for detection data, the IAM controls for containment actions, and the three-layer model for escalation pathways.
 
----
-
 ## Why AI Incident Response Is Different
 
 Traditional incident response follows a pattern: detect, contain, eradicate, recover. AI incidents introduce complications that break conventional IR assumptions:
@@ -20,8 +18,6 @@ Traditional incident response follows a pattern: detect, contain, eradicate, rec
 
 The core problem: **AI incidents often involve behavioural failures rather than system compromises.** The model isn't "hacked" in the traditional sense - it's manipulated into behaving in ways that violate policy. This requires IR procedures that address behaviour, not just infrastructure.
 
----
-
 ## Control Objectives
 
 | ID | Objective | Risk Tiers |
@@ -34,8 +30,6 @@ The core problem: **AI incidents often involve behavioural failures rather than 
 | IR-06 | Establish communication protocols for AI incidents | Tier 2+ |
 | IR-07 | Conduct post-incident review with AI-specific root cause analysis | All |
 | IR-08 | Integrate AI IR with enterprise IR processes | All |
-
----
 
 ## IR-01: AI Incident Categories
 
@@ -67,8 +61,6 @@ Standard incident categories (malware, unauthorised access, data breach) don't a
 | **Medium** | Novel injection technique detected (even if blocked), guardrail/Judge disagreement exceeding threshold, model drift beyond baseline |
 | **Low** | Known injection technique blocked, single-instance guardrail false negative, minor drift within recovery parameters |
 
----
-
 ## IR-02: Detection Triggers
 
 AI incidents are detected through the logging and monitoring infrastructure (LOG-01 through LOG-10). Define specific triggers:
@@ -94,8 +86,6 @@ AI incidents are detected through the logging and monitoring infrastructure (LOG
 - Vendor notifies of model vulnerability or incident.
 - Regulatory or legal inquiry triggers review.
 
----
-
 ## IR-03: Containment Procedures
 
 AI containment differs from traditional containment. You can't "quarantine" a stateless model - but you can restrict what reaches it and what it can do.
@@ -116,8 +106,6 @@ AI containment differs from traditional containment. You can't "quarantine" a st
 - **Contain the session, not the system:** If a single user session is compromised (injection, exfiltration), terminate that session without disabling the entire system (unless the attack vector is systemic).
 - **Credential rotation is containment:** Any credential exposure triggers immediate rotation as a containment action, not a later remediation step.
 
----
-
 ## IR-04: Rollback and Emergency Updates
 
 The ability to rapidly roll back model deployments and update guardrails is critical for AI incident response.
@@ -137,8 +125,6 @@ The ability to rapidly roll back model deployments and update guardrails is crit
 - Blue/green or canary deployment for model updates, enabling rapid rollback.
 - Agent permission sets managed as configuration, not code - enabling runtime updates.
 
----
-
 ## IR-05: Investigation Procedures
 
 AI incident investigation must account for non-determinism. The same input may not reproduce the same output, making traditional reproduction-based debugging insufficient.
@@ -154,8 +140,6 @@ AI incident investigation must account for non-determinism. The same input may n
 7. **Identify the control gap:** Which control failed? Was it a guardrail rule gap, a Judge criteria gap, a network bypass, or a permission misconfiguration?
 8. **Attempt reproduction:** Try to reproduce the behaviour in a sandboxed environment. Accept that non-determinism may prevent exact reproduction - focus on reproducing the *category* of failure.
 
----
-
 ## IR-06: Communication Protocols
 
 AI incidents may require communication with stakeholders who don't exist in traditional IR:
@@ -168,8 +152,6 @@ AI incidents may require communication with stakeholders who don't exist in trad
 | **AI ethics/governance board** | Bias incident, harmful output to vulnerable user, autonomy violation | Full incident report, proposed controls |
 | **Affected users** | User received harmful, incorrect, or manipulated AI output | What happened, corrective actions, how to verify |
 | **Executive leadership** | Critical or high severity, reputational risk, regulatory exposure | Business impact summary, containment status, timeline |
-
----
 
 ## IR-07: Post-Incident Review
 
@@ -186,8 +168,6 @@ AI post-incident reviews must go beyond traditional root cause analysis to addre
 - **Baseline update:** If model drift was involved, update behavioural baselines (LOG-05).
 - **Non-determinism acknowledgement:** Accept that some AI failures may not have a single root cause. Focus on strengthening detection and response capability rather than expecting prevention of all possible failures.
 
----
-
 ## IR-08: Enterprise IR Integration
 
 AI incident response must integrate with the existing enterprise IR process, not replace it.
@@ -200,8 +180,6 @@ AI incident response must integrate with the existing enterprise IR process, not
 - AI incidents that involve data breach, unauthorised access, or compliance violations trigger the enterprise IR playbook in parallel.
 - AI-specific forensic data (model I/O logs, agent chains, guardrail decisions) is available to the enterprise IR team.
 - AI incidents contribute to the enterprise risk register and inform control investment decisions.
-
----
 
 ## Three-Layer Mapping
 
@@ -216,8 +194,6 @@ AI incident response must integrate with the existing enterprise IR process, not
 | IR-07 Post-incident | Guardrail rules updated | Judge criteria refined | Humans lead review process |
 | IR-08 Integration | Guardrail data feeds enterprise SIEM | Judge data feeds enterprise SIEM | Humans bridge AI and enterprise IR teams |
 
----
-
 ## Platform-Neutral Implementation Checklist
 
 - [ ] AI-specific incident categories defined and integrated with enterprise taxonomy
@@ -231,6 +207,3 @@ AI incident response must integrate with the existing enterprise IR process, not
 - [ ] AI incidents tracked in enterprise incident management system
 - [ ] Injection technique catalogue maintained and updated from incidents
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

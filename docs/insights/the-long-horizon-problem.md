@@ -2,8 +2,6 @@
 
 *Securing an agent for one task is solved. Securing it over weeks and months is not.*
 
----
-
 Most security evaluations test a single session. A prompt goes in. An output comes out. The guardrails fire or they don't. The Judge scores. The human reviews.
 
 This models a world where agents are stateless. That world is disappearing.
@@ -11,8 +9,6 @@ This models a world where agents are stateless. That world is disappearing.
 Production agents run for days, weeks, months. They accumulate memory. They adapt to user patterns. They build context that spans hundreds of sessions. They interact with other agents whose behaviour evolves independently.
 
 The security properties you validated on day one may not hold on day thirty.
-
----
 
 ## What Changes Over Time
 
@@ -40,8 +36,6 @@ A single-session agent has a bounded attack surface: the current prompt, the cur
 
 Time itself is an attack vector. The longer the agent runs, the more opportunities for poisoning, drift manipulation, and slow-burn exploitation.
 
----
-
 ## Why Short-Window Detection Misses This
 
 The framework's anomaly detection ([OB-2.3](../maso/controls/observability.md)) uses a 7-day rolling baseline. This catches sudden changes - an agent that starts behaving differently this week compared to last week will trigger an alert.
@@ -51,8 +45,6 @@ But consider an adversary who shifts agent behaviour by 0.5% per week. In any 7-
 This is why [OB-3.1](../maso/controls/observability.md) (Long-window behavioural analysis) exists at Tier 3: 30-day and 90-day trend analysis in addition to the 7-day rolling window. The "behavioural slow drift" attack pattern is the specific threat it addresses.
 
 But even long-window detection has limits. If the baseline itself is recalculated from drifted data, the long window inherits the drift. The detection requires an anchored reference point - a snapshot of the agent's behaviour at a known-good state - that is preserved independently of the rolling baseline.
-
----
 
 ## The Named Threat Patterns
 
@@ -66,8 +58,6 @@ Long-horizon security risks are not a single threat. They are a category that co
 | **Dormant payload activation** | Instruction injected early, activated by a specific trigger condition that may not occur for weeks | Very high - payload is invisible until activation |
 | **Trust escalation over time** | Agent accumulates trust signals (successful interactions, positive feedback) that reduce oversight scrutiny, then exploits the reduced scrutiny | Medium - detectable if trust-level is monitored |
 | **Cross-agent temporal coordination** | Multiple agents independently shift behaviour over time, converging on a coordinated malicious action | Very high - requires cross-agent temporal correlation |
-
----
 
 ## What the Framework Provides - and What's Missing
 
@@ -93,8 +83,6 @@ Long-horizon security requires:
 
 **Memory state auditing.** Beyond monitoring memory writes, periodically audit the *accumulated* memory state. Does the current memory contain instructions, beliefs, or patterns that weren't present at deployment? Is the memory internally consistent? Does it contain content that, if injected as a prompt, would trigger guardrails?
 
----
-
 ## Research Context
 
 Long-horizon security is identified as a distinct challenge across recent agentic AI security research.
@@ -104,8 +92,6 @@ Long-horizon security is identified as a distinct challenge across recent agenti
 [Arora and Hastings (2025)](https://arxiv.org/abs/2512.18043) address the lifecycle dimension through their MAAIS framework, which structures security across development, deployment, operations, and governance phases. Their lifecycle-aware approach implicitly acknowledges that security properties established at deployment must be maintained through operations - though their framework focuses more on the structural layers than on temporal degradation patterns.
 
 [Dal Cin, Kendzior, Seedat, and Marinho (2025)](https://www.proquest.com/openview/d82e8ca1463253c1aeaf55c6dde38841/1?pq-origsite=gscholar&cbl=6831990) document runtime protections as one of their three essentials, noting that continuous monitoring and anomaly detection are necessary complements to pre-deployment testing. Their healthcare case study - where AI agents operate across OCR, LLMs, cloud APIs, and billing systems - illustrates the kind of long-running, multi-system workflow where temporal security degradation is most likely to occur.
-
----
 
 ## The Uncomfortable Implication
 
@@ -117,8 +103,6 @@ For AI agents, the maintenance model is less mature. We test before deployment. 
 
 It should be.
 
----
-
 ## Related
 
 - [The Memory Problem](the-memory-problem.md) - Long context and persistent memory as attack surfaces
@@ -127,6 +111,3 @@ It should be.
 - [Memory and Context Controls](../core/memory-and-context.md) - Session isolation, context hygiene, memory governance
 - [Process-Aware Evaluation](process-aware-evaluation.md) - Evaluating the trace, not just the output
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

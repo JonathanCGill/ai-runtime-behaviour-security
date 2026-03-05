@@ -3,9 +3,6 @@
 **High Autonomy · Exception-Based Human Oversight · Adversarial-Tested Operations**
 
 > Part of the [MASO Framework](../README.md) · Implementation Guidance
-> Version 1.0 · February 2026
-
----
 
 ## When to Use Tier 3
 
@@ -26,8 +23,6 @@ Tier 3 is appropriate only when:
 
 Examples of Tier 3 candidates: high-frequency trading support agents, 24/7 security operations agents, real-time fraud detection agents, autonomous infrastructure management agents, continuous compliance monitoring agents.
 
----
-
 ## Architecture at Tier 3
 
 ![Tier 3 Architecture](../../images/tier-3-architecture.svg)
@@ -43,8 +38,6 @@ Key architectural changes from Tier 2:
 **Full blast radius enforcement.** Every agent and every orchestration has hard caps on impact scope that are enforced at the infrastructure level, not by the agent itself. An agent cannot override its own blast radius cap through any mechanism.
 
 **Adversarial testing programme.** Regular red team exercises are not a one-off Tier 2 graduation requirement - they are an ongoing operational discipline at Tier 3. The system is continuously tested against evolving attack techniques.
-
----
 
 ## Control Implementation by MASO Domain
 
@@ -67,8 +60,6 @@ Key architectural changes from Tier 2:
 - [ ] Delegation contract enforcement tested (exceed scope → block + alert).
 - [ ] Automated credential revocation tested (anomaly → revoke within 30 seconds).
 
----
-
 ### 2. Data Protection - Tier 3 Requirements
 
 **All Tier 2 controls remain active, plus:**
@@ -85,8 +76,6 @@ Key architectural changes from Tier 2:
 - [ ] Memory decay enforcement automated and verified.
 - [ ] Cross-session memory analysis agent operational on separate infrastructure.
 - [ ] Data provenance chain implemented and verifiable end-to-end.
-
----
 
 ### 3. Execution Control - Tier 3 Requirements
 
@@ -107,8 +96,6 @@ Key architectural changes from Tier 2:
 - [ ] Time-boxing configured for all autonomous task categories.
 - [ ] Time-box expiry handling tested (expiry → pause + capture + escalate).
 
----
-
 ### 4. Observability - Tier 3 Requirements
 
 **All Tier 2 controls remain active, plus:**
@@ -128,8 +115,6 @@ Key architectural changes from Tier 2:
 - [ ] Automated compliance evidence generation operational for applicable regulations.
 - [ ] Evidence packages validated by compliance/legal function.
 
----
-
 ### 5. Supply Chain - Tier 3 Requirements
 
 **All Tier 2 controls remain active, plus:**
@@ -148,8 +133,6 @@ Key architectural changes from Tier 2:
 - [ ] Automated model rollback tested.
 - [ ] A2A trust chain validation implemented for any external agent interactions.
 - [ ] Supply chain incident response procedure documented and tabletop tested.
-
----
 
 ## PACE Configuration at Tier 3
 
@@ -194,8 +177,6 @@ All agents active and operating autonomously within pre-approved task categories
 
 **Recovery (E→P):** Same as Tier 2, with the additional requirement that the adversarial testing programme includes the incident scenario in its next test cycle.
 
----
-
 ## OWASP Risk Coverage at Tier 3
 
 Tier 3 provides comprehensive coverage across all 20 OWASP risks. The few gaps remaining at Tier 2 are addressed.
@@ -205,8 +186,6 @@ Tier 3 provides comprehensive coverage across all 20 OWASP risks. The few gaps r
 **ASI09 at Tier 3:** The combination of multi-model cross-validation (disagreement triggers human review), independent observability agent (provides an untainted perspective), and automated compliance evidence (creates a paper trail that can be audited independently of the operator's judgment) closes the ASI09 gap. The human is no longer the sole target for trust exploitation because multiple automated systems cross-check each other.
 
 **ASI10 at Tier 3:** Long-window behavioural analysis addresses the "slow drift" variant of rogue agents that evades short-term anomaly detection. The independent observability agent provides a detection layer that cannot be influenced by the potentially rogue agent. The physically isolated kill switch ensures that even a highly sophisticated rogue agent cannot prevent its own shutdown.
-
----
 
 ## Adversarial Testing Programme
 
@@ -237,8 +216,6 @@ Between formal exercises, automated adversarial probes run continuously in a sha
 
 Each exercise produces a report documenting: scenarios tested, detection rate, response time, PACE phase transitions triggered, any controls that failed, and remediation actions. Reports are provided to the risk owner and, for regulated industries, available for regulatory review.
 
----
-
 ## Staffing Model
 
 Tier 3 paradoxically requires the most skilled staff despite having the least per-action human involvement. The human role shifts from operational supervision to security engineering, adversarial testing, and governance.
@@ -253,15 +230,11 @@ Tier 3 paradoxically requires the most skilled staff despite having the least pe
 
 **Note on the Agent Operator/Supervisor role:** At Tier 3, there is no dedicated per-system operator or supervisor during normal operations. The AI Security Engineer and on-call rotation handle the rare escalations that reach human attention. This is the labour cost saving that justifies the Tier 3 investment - but it only works if the automated controls are trustworthy, which is why the adversarial testing programme is non-negotiable.
 
----
-
 ## Cost Indicators
 
 Tier 3 costs are heavily weighted toward skilled labour and infrastructure sophistication.
 
 ![Tier 3 Cost Indicators](../../images/tier-3-cost.svg)
-
----
 
 ## Testing and Validation
 
@@ -289,8 +262,6 @@ All Tier 1 and Tier 2 tests remain valid and should be re-executed. Additional T
 9. **Multi-model disagreement test:** Submit an action that one validator approves and the other rejects. Confirm human escalation is triggered.
 10. **Both validators compromised test:** Simulate a scenario where both the LLM-as-Judge and the cross-validation model agree on a harmful output (e.g., by poisoning the evaluation criteria). Confirm the independent observability agent detects the anomaly.
 
----
-
 ## Regression Prevention
 
 Tier 3 systems can regress to lower tiers under certain conditions. This is by design - regression is a safety mechanism, not a failure.
@@ -311,8 +282,6 @@ Tier 3 systems can regress to lower tiers under certain conditions. This is by d
 **Re-progression requirements:**
 
 After any regression, the system must re-meet the graduation criteria for the target tier. The timeline for re-progression is typically compressed (30 days instead of 90/180 for first-time graduation) provided the root cause is fully resolved and the regression was not caused by a fundamental control failure.
-
----
 
 ## Worked Example - 24/7 Fraud Detection
 
@@ -335,8 +304,6 @@ At 3:17 AM, the drift detection system notices the Decision Agent's "fraudulent"
 
 The red team introduces a slowly poisoned RAG document into the Investigation Agent's enrichment data source. Over 3 weeks, the poisoned data gradually shifts the Investigation Agent's enrichment outputs to downplay certain fraud indicators. The Decision Agent begins misclassifying 2% of fraudulent transactions as legitimate. The long-window (30-day) analysis detects the classification drift at week 3, triggering investigation. The cross-session memory analysis agent independently flags inconsistencies in the Investigation Agent's enrichment outputs. Root cause analysis traces the issue to the RAG document. The document is removed, the Investigation Agent's memory is purged, and both the real-time RAG integrity check and the memory analysis intervals are tightened based on the finding.
 
----
-
 ## Regulatory Considerations at Tier 3
 
 Tier 3 autonomous operations face the most intense regulatory scrutiny. Specific considerations:
@@ -347,6 +314,3 @@ Tier 3 autonomous operations face the most intense regulatory scrutiny. Specific
 
 **APRA CPS 234 (for Australian financial services):** Requires that information assets (including AI systems) are managed commensurate with their sensitivity and criticality. Tier 3 systems handling customer financial data must demonstrate that the autonomous controls (drift detection, blast radius caps, kill switch) provide protection equivalent to or better than human supervision. The adversarial testing programme provides the evidence base for this claim.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -4,8 +4,6 @@
 
 > Part of [From Strategy to Production](./)
 
----
-
 ## Why This Matters
 
 The [Use Case Filter](use-case-filter.md) answers "what kind of solution?" This article answers "how does it run?"
@@ -17,8 +15,6 @@ Standardisation is not about restricting innovation. It's about making governanc
 ![Platform and Patterns](../images/strategy-platform-patterns.svg)
 
 The principle is straightforward: **approved platforms, trusted models, proven patterns, standardised data access, consistent operations.** Teams get freedom to solve novel business problems. They don't get freedom to invent novel infrastructure.
-
----
 
 ## The Five Layers of Standardisation
 
@@ -52,8 +48,6 @@ Each platform has a [platform adapter](../extensions/regulatory/platform-integra
 **What happens when a team wants a new platform:**
 
 The platform must be evaluated against the criteria above before any AI system ships on it. This isn't a blocker - it's an investment. Once the platform is approved, every subsequent system gets the benefit of the work already done. The question is: does this platform offer something the approved set genuinely can't deliver? If yes, invest in the evaluation. If the answer is "we just prefer it" or "we used it at my last company," that's not sufficient.
-
----
 
 ### Layer 2: Trusted Models
 
@@ -97,8 +91,6 @@ Models change. Providers deprecate versions, release new ones, and change terms.
 | Review licensing and data handling terms | Annually + on change | Legal |
 | Retire deprecated models with migration path | On deprecation | Platform team |
 
----
-
 ### Layer 3: Proven Patterns
 
 A proven pattern is a reference architecture for a common AI use case type. It defines how the components fit together: model, data sources, guardrails, Judge, HITL, logging, and PACE resilience. The pattern is security-reviewed, operationally tested, and documented.
@@ -135,8 +127,6 @@ Real systems often compose multiple patterns. A customer service system might co
 
 Composition is expected and supported. The principle is that each component follows its standard pattern. The composition layer - how patterns connect - is where novel architecture happens, and that's where the security review focuses.
 
----
-
 ### Layer 4: Standardised Data Access
 
 AI systems need data. How they access it should be predictable, auditable, and consistent across every system.
@@ -168,8 +158,6 @@ RAG is the most common AI data access pattern, and the one most likely to introd
 | External data (web, third-party) | Vetted ingestion with content validation | Batch ingestion with adversarial content scanning | Treated as untrusted - additional guardrails |
 | Internal documents (policy, procedures) | Standard document ingestion | RAG - chunked, embedded | Classification inherited from source |
 
----
-
 ### Layer 5: Consistent Operations
 
 This is where standardisation delivers its highest return. When every AI system runs on an approved platform, uses a trusted model, follows a proven pattern, and accesses data through standard connectors, the operational picture becomes manageable.
@@ -194,8 +182,6 @@ Consider an organisation running fifteen AI systems. Without standardisation, th
 With standardisation - say, two platforms, three patterns - the team needs to understand two platforms and three patterns deeply. A RAG system on Bedrock looks like every other RAG system on Bedrock. The monitoring is the same. The failure modes are the same. The runbook is the same. The team develops deep expertise in a few patterns rather than shallow familiarity with many.
 
 This is the resource argument: standardisation lets limited operations and security teams cover more AI systems effectively. It's not about restricting teams. It's about making the finite resources - security reviewers, Judge calibrators, HITL operators, incident responders - go further.
-
----
 
 ## How the Layers Compose
 
@@ -231,8 +217,6 @@ OPERATIONS ───────────────── Familiar logs, kn
 
 The key insight: control design becomes **pattern-specific tuning** rather than design from scratch. A new RAG system at tier HIGH doesn't need a bespoke control specification. It needs the standard RAG-at-HIGH template with tuning for the specific use case - specific topic guardrails, specific Judge evaluation criteria, specific HITL reviewer qualifications. The architecture, logging, monitoring, and PACE configuration are inherited from the pattern.
 
----
-
 ## The Catalogue Governance Model
 
 The approved catalogue - platforms, models, patterns, connectors - needs governance of its own.
@@ -267,8 +251,6 @@ The approved catalogue - platforms, models, patterns, connectors - needs governa
 | Better alternative available | Gradual transition; old item marked deprecated with sunset date |
 | Operations team can no longer support | Retirement with migration path |
 
----
-
 ## Exceptions and Escape Hatches
 
 Standardisation without escape hatches becomes rigidity. Some legitimate scenarios require deviation:
@@ -281,8 +263,6 @@ Standardisation without escape hatches becomes rigidity. Some legitimate scenari
 | **Performance requirement** | Use case may need a model or architecture not in the catalogue | Benchmark against catalogue options first; if genuinely not met, follow "How Items Enter" process |
 
 The principle: **exceptions are allowed, but each exception carries its own governance cost.** An exception means a custom security review, custom operational playbook, custom monitoring, and custom incident response. That cost is explicit and visible. If the business value justifies it, proceed. If not, use the catalogue.
-
----
 
 ## Measuring Standardisation
 
@@ -299,8 +279,6 @@ How to know if standardisation is working:
 | **Number of active exceptions** | Trending down or stable | Exceptions should be temporary |
 | **Operations team coverage ratio** | Systems per ops team member increasing | Standardisation should improve leverage |
 
----
-
 ## Relationship to Other Articles
 
 - **[Use Case Filter](use-case-filter.md)** determines what kind of solution - this article constrains how it's built
@@ -312,6 +290,3 @@ How to know if standardisation is working:
 - **[Judge Model Selection](../extensions/technical/judge-model-selection.md)** defines the principles for the Judge entries in the model catalogue
 - **[Logging & Observability](../infrastructure/controls/logging-and-observability.md)** defines the logging standard that consistent operations relies on
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -2,8 +2,6 @@
 
 How do you know if the framework is working? This document defines the metrics to track.
 
----
-
 ## Metrics Framework
 
 ### The Three Questions
@@ -13,8 +11,6 @@ Every metric should help answer one of these questions:
 1. **Is the AI system working correctly?** (Quality metrics)
 2. **Is the AI system secure?** (Security metrics)
 3. **Is the control framework effective?** (Assurance metrics)
-
----
 
 ## Quality Metrics
 
@@ -44,8 +40,6 @@ Every metric should help answer one of these questions:
 | **Response latency (p99)** | 99th percentile response time | <10s | >30s |
 | **Error rate** | % of requests returning errors | <1% | >3% |
 
----
-
 ## Security Metrics
 
 ### S1. Guardrail Effectiveness
@@ -73,8 +67,6 @@ Every metric should help answer one of these questions:
 | **PII leakage incidents** | Count of PII in outputs not caught by guardrails | 0 | Any |
 | **Cross-user leakage incidents** | Count of data appearing in wrong user's context | 0 | Any |
 | **Context isolation verification** | % of sessions verified for isolation | 100% (CRITICAL) | <100% |
-
----
 
 ## Assurance Metrics
 
@@ -107,8 +99,6 @@ Every metric should help answer one of these questions:
 | **Control testing coverage** | % of controls tested in last quarter | 100% | <80% |
 | **Audit findings open** | Count of open audit findings | 0 critical/high | Any critical |
 
----
-
 ## Operational Metrics
 
 ### O1. Cost
@@ -139,8 +129,6 @@ Every metric should help answer one of these questions:
 | **Guardrail changes per week** | Count of guardrail updates | Track | Unexpected spike |
 | **Model version changes** | Count of model version updates | Track | Unplanned change |
 | **Rollback rate** | % of changes that required rollback | <10% | >20% |
-
----
 
 ## Metric Dashboards
 
@@ -180,8 +168,6 @@ For security team:
 | Incidents | Open incidents, MTTD, MTTR | Real-time |
 | Compliance | Control coverage, audit status | Weekly |
 
----
-
 ## Alerting Thresholds
 
 ### Critical Alerts (Immediate Response)
@@ -209,8 +195,6 @@ For security team:
 | Baseline drift >20% | Create ticket for investigation |
 | Judge accuracy <85% | Create ticket for recalibration |
 | User satisfaction <3.5 | Create ticket for review |
-
----
 
 ## Metric Collection
 
@@ -241,8 +225,6 @@ For security team:
 | Weekly reports | Weekly | 5 years |
 | Monthly reports | Monthly | 7 years |
 
----
-
 ## Reporting Cadence
 
 | Report | Audience | Frequency | Key Content |
@@ -252,8 +234,6 @@ For security team:
 | Executive summary | Leadership | Monthly | KPIs, trends, risks |
 | Audit report | Compliance | Quarterly | Control coverage, findings |
 | Annual review | Board | Annually | Strategy, maturity, roadmap |
-
----
 
 ## Maturity Progression
 
@@ -287,6 +267,3 @@ For security team:
 - Automated remediation
 - Continuous improvement feedback loops
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

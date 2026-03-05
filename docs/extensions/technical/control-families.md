@@ -2,8 +2,6 @@
 
 This document defines the control families for AI systems, organised by function and timing.
 
----
-
 ## Control Model Overview
 
 ![Control Layers](../../images/control-layers.svg)
@@ -17,8 +15,6 @@ AI security controls operate across three layers:
 | **Human Oversight** | Review, decide, act | As needed | Yes |
 
 **Key principle:** Guardrails prevent. Judge detects. Humans decide.
-
----
 
 ## Control Family Index
 
@@ -43,8 +39,6 @@ AI security controls operate across three layers:
 
 > **ISO 27001 Alignment:** See [ISO 27001 Alignment](../regulatory/iso-27001-alignment.md) for detailed mapping.
 
----
-
 ## AI.1 Governance
 
 ### AI.1.1 AI Policy Framework
@@ -59,8 +53,6 @@ AI security controls operate across three layers:
 
 **Evidence:** Policy documents, approval records
 
----
-
 ### AI.1.2 Governance Structure
 
 **Requirement:** Define governance bodies and decision rights for AI.
@@ -73,8 +65,6 @@ AI security controls operate across three layers:
 
 **Evidence:** Committee charters, meeting minutes, approval records
 
----
-
 ### AI.1.3 Accountability
 
 **Requirement:** Assign clear accountability for AI system outcomes.
@@ -86,8 +76,6 @@ AI security controls operate across three layers:
 - Documented responsibility matrix
 
 **Evidence:** RACI matrices, system ownership records
-
----
 
 ## AI.2 Risk Management
 
@@ -106,8 +94,6 @@ AI security controls operate across three layers:
 
 **Evidence:** Classification assessments, approval records
 
----
-
 ### AI.2.2 Risk Assessment
 
 **Requirement:** Assess risks before deployment and periodically thereafter.
@@ -122,8 +108,6 @@ AI security controls operate across three layers:
 
 **Evidence:** Risk assessment documents, review records
 
----
-
 ### AI.2.3 Ongoing Risk Monitoring
 
 **Requirement:** Continuously monitor AI systems for emerging risks.
@@ -135,8 +119,6 @@ AI security controls operate across three layers:
 - Threat landscape monitoring
 
 **Evidence:** Monitoring dashboards, trend reports
-
----
 
 ## AI.3 Inventory & Documentation
 
@@ -155,8 +137,6 @@ AI security controls operate across three layers:
 
 **Evidence:** Inventory records
 
----
-
 ### AI.3.2 System Documentation
 
 **Requirement:** Document AI systems proportionate to risk tier.
@@ -170,8 +150,6 @@ AI security controls operate across three layers:
 
 **Evidence:** Documentation packages
 
----
-
 ### AI.3.3 Data Lineage
 
 **Requirement:** Document data sources, flows, and transformations.
@@ -183,8 +161,6 @@ AI security controls operate across three layers:
 - Retention and deletion
 
 **Evidence:** Data flow documentation
-
----
 
 ### AI.3.4 Explainability Requirements
 
@@ -215,8 +191,6 @@ AI models are inherently opaque - billions of parameters with no traceable decis
 
 **Evidence:** Explainability assessments per system, methodology documentation
 
----
-
 ## AI.4 Development Security
 
 ### AI.4.1 Secure Development
@@ -230,8 +204,6 @@ AI models are inherently opaque - billions of parameters with no traceable decis
 - Secret management
 
 **Evidence:** Code review records, security scan results
-
----
 
 ### AI.4.2 Testing
 
@@ -260,8 +232,6 @@ AI models are inherently opaque - billions of parameters with no traceable decis
 
 **Evidence:** Test results, coverage reports, statistical analysis, adversarial test outcomes
 
----
-
 ### AI.4.3 Pre-Deployment Review
 
 **Requirement:** Security review before production deployment.
@@ -274,8 +244,6 @@ AI models are inherently opaque - billions of parameters with no traceable decis
 | LOW | Self-assessment |
 
 **Evidence:** Review reports, approval records
-
----
 
 ## AI.5 Data Governance
 
@@ -291,8 +259,6 @@ AI models are inherently opaque - billions of parameters with no traceable decis
 
 **Evidence:** Data classification records
 
----
-
 ### AI.5.2 Data Quality
 
 **Requirement:** Ensure data quality for AI systems.
@@ -305,8 +271,6 @@ AI models are inherently opaque - billions of parameters with no traceable decis
 
 **Evidence:** Quality metrics, validation records
 
----
-
 ### AI.5.3 Privacy Protection
 
 **Requirement:** Protect personal data in AI systems.
@@ -318,8 +282,6 @@ AI models are inherently opaque - billions of parameters with no traceable decis
 - Privacy impact assessments
 
 **Evidence:** PIAs, data handling records
-
----
 
 ### AI.5.4 RAG Content Integrity
 
@@ -362,8 +324,6 @@ Retrieved content (RAG) is a primary attack vector. Poisoned knowledge base cont
 
 **Evidence:** Access logs, integrity checks
 
----
-
 ### AI.6.2 Model Validation
 
 **Requirement:** Validate model behaviour before and during deployment.
@@ -388,8 +348,6 @@ Retrieved content (RAG) is a primary attack vector. Poisoned knowledge base cont
 
 **Evidence:** Validation reports, bias test results, continuous validation metrics
 
----
-
 ### AI.6.3 Model Monitoring
 
 **Requirement:** Monitor model performance and behaviour in production.
@@ -412,8 +370,6 @@ Retrieved content (RAG) is a primary attack vector. Poisoned knowledge base cont
 | Distribution monitoring | Shift in output patterns |
 
 **Evidence:** Monitoring dashboards, alerts, trend reports
-
----
 
 ### AI.6.4 Model Capability Assessment
 
@@ -441,8 +397,6 @@ AI models can develop emergent capabilities that weren't explicitly programmed. 
 
 **Evidence:** Capability assessment reports, risk reclassification records
 
----
-
 ### AI.6.5 Baseline Comparison
 
 **Requirement:** Maintain and periodically test against a baseline set of known-good inputs and outputs.
@@ -468,8 +422,6 @@ Invisible degradation - where AI quality drops with no error signal - is a novel
 | LOW | Monthly |
 
 **Evidence:** Baseline datasets, comparison results, drift alerts
-
----
 
 ## AI.7 Runtime Controls - Guardrails
 
@@ -501,8 +453,6 @@ Guardrails are **inline controls** that operate in real-time on inputs and outpu
 
 **Evidence:** Guardrail configuration, block logs, false positive rates, semantic classifier metrics
 
----
-
 ### AI.7.2 Output Guardrails
 
 **Requirement:** Filter outputs before delivery to users or downstream systems.
@@ -526,8 +476,6 @@ Guardrails are **inline controls** that operate in real-time on inputs and outpu
 
 **Evidence:** Guardrail configuration, block logs, false positive rates, grounding check results
 
----
-
 ### AI.7.3 Guardrail Maintenance
 
 **Requirement:** Maintain and improve guardrails over time.
@@ -549,8 +497,6 @@ Guardrails are **inline controls** that operate in real-time on inputs and outpu
 | LOW | Annually |
 
 **Evidence:** Update logs, tuning records, test results, effectiveness test reports
-
----
 
 ### AI.7.4 Context Isolation
 
@@ -579,8 +525,6 @@ In multi-user AI systems, information from one user's session must not leak into
 | LOW | Standard session management |
 
 **Evidence:** Isolation architecture documentation, session management configuration, penetration test results
-
----
 
 ## AI.8 Runtime Controls - LLM-as-Judge
 
@@ -611,8 +555,6 @@ The Judge is an **async assurance mechanism** that evaluates AI interactions aft
 
 **Evidence:** Judge evaluation logs, finding summaries, hallucination detection rates, override detection rates
 
----
-
 ### AI.8.2 Sampling Strategy
 
 **Requirement:** Sample interactions for Judge evaluation based on risk tier.
@@ -636,8 +578,6 @@ The Judge is an **async assurance mechanism** that evaluates AI interactions aft
 
 **Evidence:** Sampling configuration, coverage metrics, baseline comparison results
 
----
-
 ### AI.8.3 Finding Management
 
 **Requirement:** Route Judge findings appropriately for human review.
@@ -655,8 +595,6 @@ The Judge is an **async assurance mechanism** that evaluates AI interactions aft
 
 > **Note:** These are Judge finding management SLAs - the time to triage and route findings from automated evaluation. They are distinct from incident response SLAs in the [AI Incident Playbook](../../extensions/templates/ai-incident-playbook.md), which govern response to confirmed security incidents.
 
----
-
 ### AI.8.4 Judge Governance
 
 **Requirement:** Govern the Judge as an AI system subject to controls.
@@ -668,8 +606,6 @@ The Judge is an **async assurance mechanism** that evaluates AI interactions aft
 - Human oversight of Judge findings
 
 **Evidence:** Judge validation records, accuracy metrics
-
----
 
 ### AI.8.5 Confidence Calibration
 
@@ -695,8 +631,6 @@ AI presents every output with equal confidence - correct or incorrect. Users can
 
 **Evidence:** Confidence calibration records, uncertainty injection logs, cross-check results
 
----
-
 ## AI.9 Human Oversight
 
 ### AI.9.1 Human-in-the-Loop
@@ -720,8 +654,6 @@ AI presents every output with equal confidence - correct or incorrect. Users can
 
 **Evidence:** Review records, decision logs, reviewer training records
 
----
-
 ### AI.9.2 Escalation Procedures
 
 **Requirement:** Define clear escalation paths for AI issues.
@@ -735,8 +667,6 @@ AI presents every output with equal confidence - correct or incorrect. Users can
 
 **Evidence:** Escalation procedures, escalation logs
 
----
-
 ### AI.9.3 Human Override
 
 **Requirement:** Humans can override AI recommendations.
@@ -748,8 +678,6 @@ AI presents every output with equal confidence - correct or incorrect. Users can
 - No penalty for appropriate overrides
 
 **Evidence:** Override logs, pattern analysis
-
----
 
 ### AI.9.4 Accountability
 
@@ -763,8 +691,6 @@ AI presents every output with equal confidence - correct or incorrect. Users can
 - AI recommendation does not transfer accountability to the system
 
 **Evidence:** Decision logs with human attribution
-
----
 
 ### AI.9.5 HITL Effectiveness Measurement
 
@@ -792,8 +718,6 @@ Human oversight is a known failure mode in every industry that uses it (aviation
 | LOW | Biannually | 80% |
 
 **Evidence:** HITL effectiveness metrics, canary detection results, reviewer performance data
-
----
 
 ## AI.10 Agentic Controls
 
@@ -857,8 +781,6 @@ Agentic AI requires controls at three phases:
 
 **Evidence:** Scope definitions, boundary violation logs
 
----
-
 ### AI.10.2 Approval Workflows
 
 **Requirement:** Require human approval for high-impact agent actions.
@@ -870,8 +792,6 @@ Agentic AI requires controls at three phases:
 - Audit trail of approvals
 
 **Evidence:** Approval workflow configuration, approval logs
-
----
 
 ### AI.10.3 Action Logging
 
@@ -887,8 +807,6 @@ Agentic AI requires controls at three phases:
 
 **Evidence:** Action logs
 
----
-
 ### AI.10.4 Checkpoints
 
 **Requirement:** Validate intermediate results in multi-step agent workflows.
@@ -901,8 +819,6 @@ Agentic AI requires controls at three phases:
 
 **Evidence:** Checkpoint configuration, validation logs
 
----
-
 ### AI.10.5 Rollback Capability
 
 **Requirement:** Ability to undo agent actions where possible.
@@ -914,8 +830,6 @@ Agentic AI requires controls at three phases:
 - Rollback testing
 
 **Evidence:** Rollback capability documentation, test records
-
----
 
 ### AI.10.6 Outcome Validation
 
@@ -943,8 +857,6 @@ Agentic AI pursues goals across multiple steps, choosing its own actions. Valida
 | LOW | Automated validation |
 
 **Evidence:** Outcome validation logs, exception reports, human verification records
-
----
 
 ## AI.11 Logging & Monitoring
 
@@ -978,8 +890,6 @@ Without full context capture, incident investigation is impossible - you cannot 
 
 **Evidence:** Log samples, retention compliance, context capture verification
 
----
-
 ### AI.11.2 Real-Time Monitoring
 
 **Requirement:** Monitor AI systems for operational and security issues.
@@ -995,8 +905,6 @@ Without full context capture, incident investigation is impossible - you cannot 
 
 **Evidence:** Monitoring dashboards
 
----
-
 ### AI.11.3 Alerting
 
 **Requirement:** Alert on significant events and threshold breaches.
@@ -1011,8 +919,6 @@ Without full context capture, incident investigation is impossible - you cannot 
 | Cost | Budget threshold breach | Same day |
 
 **Evidence:** Alert configuration, alert logs
-
----
 
 ## AI.12 Incident Response
 
@@ -1030,8 +936,6 @@ Without full context capture, incident investigation is impossible - you cannot 
 
 **Evidence:** Playbooks, tabletop exercise records
 
----
-
 ### AI.12.2 Investigation Capability
 
 **Requirement:** Ability to investigate AI incidents effectively.
@@ -1043,8 +947,6 @@ Without full context capture, incident investigation is impossible - you cannot 
 - Forensic preservation procedures
 
 **Evidence:** Investigation reports
-
----
 
 ### AI.12.3 Remediation
 
@@ -1059,8 +961,6 @@ Without full context capture, incident investigation is impossible - you cannot 
 
 **Evidence:** Remediation records
 
----
-
 ### AI.12.4 Notification
 
 **Requirement:** Notify stakeholders and regulators as required.
@@ -1072,8 +972,6 @@ Without full context capture, incident investigation is impossible - you cannot 
 - Communication templates
 
 **Evidence:** Notification records
-
----
 
 ## AI.13 AI Supplier Management
 
@@ -1094,8 +992,6 @@ Without full context capture, incident investigation is impossible - you cannot 
 
 **Evidence:** Vendor assessment records, training data practice assessments
 
----
-
 ### AI.13.2 AI Vendor Agreements
 
 **Requirement:** Include AI-specific terms in vendor agreements.
@@ -1112,8 +1008,6 @@ Without full context capture, incident investigation is impossible - you cannot 
 
 **Evidence:** Contract terms
 
----
-
 ### AI.13.3 Model Provenance
 
 **Requirement:** Document provenance of AI models used.
@@ -1126,8 +1020,6 @@ Without full context capture, incident investigation is impossible - you cannot 
 - Training data lineage where available; documented gap and compensating controls where unavailable
 
 **Evidence:** Model documentation, provenance gap analysis
-
----
 
 ### AI.13.4 Training Data Risk Assessment
 
@@ -1155,8 +1047,6 @@ The behaviour of AI systems is shaped by training data you don't control and lik
 
 **Evidence:** Training data risk assessments per model per use case
 
----
-
 ## AI.14 AI Security Awareness
 
 ### AI.14.1 AI Security Training
@@ -1178,8 +1068,6 @@ The behaviour of AI systems is shaped by training data you don't control and lik
 
 **Evidence:** Training records, cognitive bias assessment results
 
----
-
 ## AI.15 AI System Continuity
 
 ### AI.15.1 AI Continuity Planning
@@ -1194,8 +1082,6 @@ The behaviour of AI systems is shaped by training data you don't control and lik
 
 **Evidence:** BCP documentation
 
----
-
 ### AI.15.2 AI System Resilience
 
 **Requirement:** Design AI systems for resilience.
@@ -1207,8 +1093,6 @@ The behaviour of AI systems is shaped by training data you don't control and lik
 - Timeout handling
 
 **Evidence:** Architecture documentation
-
----
 
 ## AI.16 AI Intellectual Property
 
@@ -1224,8 +1108,6 @@ The behaviour of AI systems is shaped by training data you don't control and lik
 
 **Evidence:** IP inventory
 
----
-
 ### AI.16.2 Third-Party IP Compliance
 
 **Requirement:** Ensure AI use complies with third-party IP rights.
@@ -1236,8 +1118,6 @@ The behaviour of AI systems is shaped by training data you don't control and lik
 - Guardrails for copyright compliance
 
 **Evidence:** License compliance records
-
----
 
 ## Control Selection by Risk Tier
 
@@ -1258,8 +1138,6 @@ The behaviour of AI systems is shaped by training data you don't control and lik
 | AI.11 Logging & Monitoring | Full | Full | Standard | Basic |
 | AI.12 Incident Response | Full | Full | Standard IT process | Standard IT process |
 
----
-
 ## Standards Mapping
 
 | Control Family | ISO 42001 | NIST AI RMF | EU AI Act |
@@ -1273,6 +1151,3 @@ The behaviour of AI systems is shaped by training data you don't control and lik
 | AI.11 Logging | 9.1 | MEASURE | Art. 12 |
 | AI.12 Incident Response | 10.1 | MANAGE | Art. 9 |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

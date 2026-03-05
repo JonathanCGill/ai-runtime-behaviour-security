@@ -5,8 +5,6 @@
 > **Relationship:** Enables the Guardrails layer (by ensuring only authorised requests reach the model) and the Human Oversight layer (by enforcing approval workflows for high-risk actions).
 > **Governance:** See [IAM Governance for AI Systems](../../core/iam-governance.md) for the governance principles, lifecycle model, delegation rules, and threat landscape that these controls implement.
 
----
-
 ## Why AI IAM Is Different
 
 Traditional IAM governs humans accessing applications. AI systems introduce four additional identity classes that most IAM frameworks don't account for:
@@ -20,8 +18,6 @@ Traditional IAM governs humans accessing applications. AI systems introduce four
 
 The core problem: **an AI agent that can call tools is an identity that can take actions, but it doesn't authenticate the way a human or service account does.** IAM must extend to cover what an agent is *permitted to do*, not just who launched it.
 
----
-
 ## Control Objectives
 
 | ID | Objective | Risk Tiers |
@@ -34,8 +30,6 @@ The core problem: **an AI agent that can call tools is an identity that can take
 | IAM-06 | Implement session-scoped credentials with automatic expiry | Tier 2+ |
 | IAM-07 | Prevent credential exposure in model context windows | All |
 | IAM-08 | Audit all privilege escalation and access changes | Tier 2+ |
-
----
 
 ## IAM-01: Authentication of All Entities
 
@@ -59,8 +53,6 @@ Every request to an AI system component - model endpoint, vector store, tool API
 - Using a single shared service account for all AI system components.
 - Passing user identity only in the prompt text (trivially spoofable via injection).
 
----
-
 ## IAM-02: Least-Privilege Access
 
 AI systems are over-provisioned by default. A model endpoint that can reach any tool, any data source, and any downstream API has the blast radius of a domain admin.
@@ -82,8 +74,6 @@ Define explicit permissions per identity class:
 
 **Control plane access** (model configuration, guardrail rules, system prompts, evaluation criteria) must be restricted to authorised platform engineers via a separate privilege path, never accessible from the data plane.
 
----
-
 ## IAM-03: Control Plane / Data Plane Separation
 
 This is the most commonly missing control in AI deployments.
@@ -100,8 +90,6 @@ If these share the same access path, a prompt injection that reaches the control
 - Control plane changes require approval workflow (at minimum dual approval for Tier 3 systems).
 - Control plane access is logged to a separate, append-only audit trail.
 - No runtime path (user prompt → model → response) should have write access to control plane resources.
-
----
 
 ## IAM-04: Agent Tool Invocation Constraints
 
@@ -123,8 +111,6 @@ Tool invocation must be mediated by an **authorization gateway** that sits betwe
 ![Authorization Gateway Flow](../diagrams/iam-auth-gateway-flow.svg)
 
 The gateway is infrastructure, not a prompt instruction. You cannot secure tool access by telling the agent "don't use tools you shouldn't." The agent doesn't enforce its own permissions - the gateway does.
-
----
 
 ## IAM-05: Human Approval for High-Impact Actions
 
@@ -149,8 +135,6 @@ Define these per deployment, but common examples:
 
 If a human reviewer doesn't respond within a defined window, the action is **not** auto-approved. It fails safe. The timeout and escalation path must be defined at deployment.
 
----
-
 ## IAM-06: Session-Scoped Credentials
 
 AI system credentials should be:
@@ -168,8 +152,6 @@ This limits the blast radius of credential compromise to a single session rather
 - Bind tokens to source IP, session ID, and/or request context.
 - Monitor for token reuse across sessions as a compromise indicator.
 
----
-
 ## IAM-07: Credential Exposure Prevention
 
 Model context windows are a credential leak vector. If an API key, database connection string, or access token appears in a prompt, it may be:
@@ -186,8 +168,6 @@ Model context windows are a credential leak vector. If an API key, database conn
 - **Redact credentials from logs.** If they somehow appear in model I/O, the logging pipeline must redact before storage.
 - **Rotate immediately** if a credential appears in model output - treat it as compromised.
 
----
-
 ## IAM-08: Access Change Auditing
 
 All changes to AI system access controls must be logged with:
@@ -199,8 +179,6 @@ All changes to AI system access controls must be logged with:
 - **Impact** (which systems, agents, or users are affected).
 
 This audit trail must be append-only and stored separately from the systems it monitors. See [Logging & Observability](logging-and-observability.md) for the full logging architecture.
-
----
 
 ## Three-Layer Mapping
 
@@ -215,8 +193,6 @@ This audit trail must be append-only and stored separately from the systems it m
 | IAM-07 Credential exposure | Guardrails scan for credential patterns | Judge context doesn't contain credentials | Humans review credential exposure incidents |
 | IAM-08 Audit trail | Guardrail config changes tracked | Judge criteria changes tracked | Full audit trail for accountability |
 
----
-
 ## OWASP LLM Top 10 Mapping
 
 | Control | OWASP LLM Risk |
@@ -227,8 +203,6 @@ This audit trail must be append-only and stored separately from the systems it m
 | IAM-06 | LLM06: Excessive Agency (blast radius containment) |
 | IAM-07 | LLM02: Insecure Output Handling, LLM07: Insecure Plugin Design |
 | IAM-08 | LLM09: Overreliance (supports detection) |
-
----
 
 ## Platform-Neutral Implementation Checklist
 
@@ -243,6 +217,3 @@ This audit trail must be append-only and stored separately from the systems it m
 - [ ] Session credentials are short-lived and auto-expiring
 - [ ] All access changes logged to append-only audit trail
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

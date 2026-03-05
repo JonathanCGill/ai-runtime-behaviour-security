@@ -230,8 +230,6 @@ The uncomfortable truth: if your security model assumes the human reviewer is tr
 
 The framing of humans as attack vectors - not just fallible reviewers - is identified across recent agentic AI security research. [Datta, Nahin, Chhabra, and Mohapatra (2025)](https://arxiv.org/abs/2510.23883) classify "securing the human-agent interface" as a critical and often overlooked open challenge, noting that phishing, social engineering, and user error are all vectors for compromising an agent through its human oversight layer. Their survey also documents weaknesses in human-in-the-loop interfaces, escalation policies, and audit mechanisms that permit system-wide compromise - including agent workflows that skip human approval on high-risk actions.
 
----
-
 ## Implementation Priorities
 
 For organisations building or operating AI systems with human oversight requirements, the recommended implementation sequence is:
@@ -254,8 +252,6 @@ The core principle is simple: **if your system is only safe when the human perfo
 
 The ironies of automation guarantee that the moment you most need human judgement is the moment it is least likely to be available. Design accordingly.
 
----
-
 ## Related
 
 | Topic | Document |
@@ -264,6 +260,3 @@ The ironies of automation guarantee that the moment you most need human judgemen
 | The human constraints behind oversight failure | [Human Factors](../strategy/human-factors.md) - skills, time, capacity, willingness, sustainability |
 | The principle behind human oversight | [Humans Remain Accountable](../insights/humans-remain-accountable.md) - AI assists, humans own outcomes |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -1,7 +1,5 @@
 # Controls: Guardrails, Judge, and Human Oversight
 
----
-
 ## 1. Guardrails
 
 Real-time controls that block known-bad inputs and outputs.
@@ -41,8 +39,6 @@ Guardrails catch **known patterns**. They miss:
 This is why the Judge provides the second layer.
 
 > For practical implementation guidance - international PII detection, RAG ingestion filtering, secrets scanning, alerting design, and guardrail exception governance - see **[Practical Guardrails](../insights/practical-guardrails.md)**.
-
----
 
 ## 2. LLM-as-Judge
 
@@ -103,8 +99,6 @@ The Judge will make mistakes.
 
 **Target:** >90% agreement with human reviewers.
 
----
-
 ## 3. Human Oversight (HITL)
 
 Humans review findings, make decisions, remain accountable.
@@ -149,8 +143,6 @@ Humans review findings, make decisions, remain accountable.
 | Volume limits | Prevent fatigue |
 | Inter-rater checks | Measure consistency |
 
----
-
 ## Going Deeper
 
 | Topic | Document |
@@ -161,8 +153,6 @@ Humans review findings, make decisions, remain accountable.
 | When HITL doesn't scale | [Humans in the Business Process](../extensions/technical/humans-in-the-business-process.md) - using existing business process checkpoints as a detection layer |
 | Controls for multi-agent systems | [MASO Framework](../maso/) - 128 controls across 7 domains for agent orchestration |
 | Controls for reasoning models (o1, etc.) | [Reasoning Model Controls](reasoning-model-controls.md) - trace scanning, instruction adherence, consistency checks |
-
----
 
 ## Implementation Order
 
@@ -175,6 +165,3 @@ Humans review findings, make decisions, remain accountable.
 7. **Judge operational** - Drive workflows
 8. **Continuous tuning** - Improve from findings
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

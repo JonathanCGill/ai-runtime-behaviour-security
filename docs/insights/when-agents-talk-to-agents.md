@@ -2,13 +2,9 @@
 
 *Multi-agent systems create accountability gaps that require careful governance*
 
----
-
 One agent is hard enough to secure. Multiple agents - collaborating, delegating, negotiating - compound the problem in ways that single-agent frameworks don't address.
 
 Multi-agent architectures are arriving in production. The security model hasn't caught up.
-
----
 
 ## The Coordination Problem
 
@@ -27,8 +23,6 @@ Multi-agent systems break this:
 Where did the failure occur? Who's accountable? What control should have caught it?
 
 The answer is unclear because the architecture diffuses responsibility.
-
----
 
 ## New Attack Surfaces
 
@@ -58,8 +52,6 @@ When something goes wrong, each agent can point at another. "I just followed the
 
 No single agent did anything wrong. The system produced harm anyway.
 
----
-
 ## What the Framework Covers (Partially)
 
 The existing framework addresses single agents:
@@ -73,8 +65,6 @@ The existing framework addresses single agents:
 | Human approval | Human approves high-impact actions | Approval for each agent? For the orchestrator? For the final action only? |
 
 The principles apply. The implementation is unclear.
-
----
 
 ## Framework Extensions Needed
 
@@ -123,8 +113,6 @@ A Judge evaluating individual agent interactions misses system-level issues. You
 
 This is harder than single-agent evaluation. The Judge needs to understand agent roles, expected interactions, and acceptable deviations.
 
----
-
 ## Practical Guidance
 
 **If you're deploying multi-agent systems:**
@@ -144,8 +132,6 @@ This is harder than single-agent evaluation. The Judge needs to understand agent
 4. Build Judge capability for multi-turn, multi-agent evaluation
 5. Plan for emergent behaviour - monitoring, anomaly detection, kill switches
 
----
-
 ## The Trajectory
 
 Multi-agent architectures will become common. They solve problems single agents can't - complex tasks, specialised knowledge, parallel execution.
@@ -154,6 +140,3 @@ The security and governance models will lag. We're building single-agent control
 
 Expect failures. Design for them. Learn from them.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

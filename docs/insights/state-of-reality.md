@@ -5,8 +5,6 @@
 
 This document grounds the AI Runtime Behaviour Security in observed data rather than projected fear. The threat is real. It is also specific, measurable, and disproportionately concentrated in predictable failure modes.
 
----
-
 ## The Incident Landscape
 
 AI-related security incidents are growing fast, but the data demands precision about *what kind* of incidents and *where* they occur.
@@ -48,8 +46,6 @@ Proportionality matters. Some threats are real but their observed frequency in p
 
 This does not mean these threats can be ignored. It means control investment should be proportionate to observed frequency and impact, not hypothetical severity alone.
 
----
-
 ## The Governance Gap
 
 The gap between AI adoption and AI security is the single most important data point in this space:
@@ -61,8 +57,6 @@ The gap between AI adoption and AI security is the single most important data po
 - **Over 50%** of enterprise AI app adoption is estimated to be shadow AI - tools employees adopted without security review.
 
 The primary risk is not sophisticated attack. It is **the absence of basic controls on systems already in production**.
-
----
 
 ## What This Means for Control Selection
 
@@ -86,8 +80,6 @@ The data supports a clear prioritization:
 
 This prioritization is not permanent. As the threat landscape matures and agentic AI adoption accelerates, the ordering will shift. Review annually against current incident data.
 
----
-
 ## Sources
 
 | Source | What It Provides | Link |
@@ -101,6 +93,3 @@ This prioritization is not permanent. As the threat landscape matures and agenti
 | AIAAIC Repository | Independent incident and controversy tracking | [aiaaic.org](https://www.aiaaic.org/aiaaic-repository) |
 | Reco AI & Cloud Security: 2025 Year in Review | Enterprise breach case studies, SaaS/AI intersection | [reco.ai](https://www.reco.ai/blog/ai-and-cloud-security-breaches-2025) |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

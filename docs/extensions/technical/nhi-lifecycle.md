@@ -8,8 +8,6 @@ AI agents act autonomously. They call APIs, access data, invoke tools, and commu
 
 Most enterprises don't treat them this way. Agents run under shared service accounts, use long-lived API keys, and have permissions that were set at deployment and never reviewed.
 
----
-
 ## Lifecycle Phases
 
 ### 1. Provisioning
@@ -110,8 +108,6 @@ agent_policy:
 | **Security incident** | Immediate credential revocation, isolate agent, preserve logs for investigation |
 | **Risk tier change** | Re-evaluate permissions against new risk tier requirements |
 
----
-
 ## Mapping to Existing IAM Frameworks
 
 | Enterprise IAM Concept | AI Agent Equivalent |
@@ -124,8 +120,6 @@ agent_policy:
 | Joiner/mover/leaver | Provisioning/re-scoping/deprovisioning |
 | Privileged access management | Tier 3 agent controls - JIT access, session recording, approval workflows |
 
----
-
 ## Platform-Specific Guidance
 
 | Platform | NHI Approach |
@@ -135,6 +129,3 @@ agent_policy:
 | **Google Cloud** | Workload Identity Federation; service accounts with IAM conditions |
 | **Kubernetes** | Service accounts + RBAC; SPIFFE/SPIRE for workload identity |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

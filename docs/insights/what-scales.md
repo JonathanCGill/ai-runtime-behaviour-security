@@ -2,8 +2,6 @@
 
 > The previous document ([When the Pattern Breaks](when-the-pattern-breaks.md)) identified where the guardrail → judge → human pattern fails in complex multi-agent systems. This document asks the harder question: what *does* scale, and what fundamental constraints mean some things never will?
 
----
-
 ## The Scaling Test
 
 A security pattern "scales" if its cost (latency, compute, human effort, operational complexity) grows **slower than the system it protects**. Specifically:
@@ -17,8 +15,6 @@ A security pattern "scales" if its cost (latency, compute, human effort, operati
 | O(human) - requires human throughput | **Does not scale** | Manual edge-case review |
 
 Most of the three-layer pattern's components are O(N²) or O(human). That's why it breaks.
-
----
 
 ## What Scales
 
@@ -118,8 +114,6 @@ Most of the three-layer pattern's components are O(N²) or O(human). That's why 
 
 **The honest limit:** Logs only help after the fact. They are essential for accountability but they don't prevent harm in real-time. And log volume at scale (potentially millions of agent messages per day) requires investment in log management, search, and analysis infrastructure.
 
----
-
 ## What Definitively Does Not Scale
 
 For completeness and honesty:
@@ -132,8 +126,6 @@ For completeness and honesty:
 
 **Static RBAC for agent permissions** - designed for hundreds of known roles, not thousands of ephemeral, dynamically-created agents with varying scopes. Breaks at scale both operationally (role explosion) and conceptually (agents don't have stable roles).
 
----
-
 ## The Emerging Architecture
 
 The patterns that scale point toward a recognisable architecture. It's not the guardrail → judge → human pattern. It's closer to **how we already secure distributed systems at scale**:
@@ -143,8 +135,6 @@ The patterns that scale point toward a recognisable architecture. It's not the g
 This is not radically new. It's **zero-trust network architecture applied to AI agents**. The CSA, OWASP, and AWS are converging on this independently. Enterprise security teams already have the conceptual vocabulary: trust zones are VLANs, the PDP is a next-gen firewall, cryptographic identity is PKI, circuit breakers are IDS/IPS, audit logs are SIEM.
 
 The difference is that the *entities* being governed are probabilistic, natural-language-driven, and capable of independent reasoning - which means the boundary enforcement must be richer than IP/port rules. But the *architecture* is familiar.
-
----
 
 ## What Remains Unsolved
 
@@ -162,8 +152,6 @@ When your agents interact with agents from other organisations (via MCP, A2A pro
 
 OWASP's ASI01 (Agent Goal Hijack) is the agentic equivalent of prompt injection - but harder, because the attack surface is every message from every other agent, and the hijack can be subtle and multi-step. Palo Alto's "Agent Session Smuggling" demonstration showed that a malicious agent can adapt its strategy and build false trust over multiple interactions. No guardrail or invariant catches a gradually shifting goal.
 
----
-
 ## Practical Implications for the Framework
 
 For **systems this framework already covers** (single-agent, Stage 1-2): the three-layer pattern works. Keep using it.
@@ -179,8 +167,6 @@ For **autonomous multi-agent systems** (Stage 4+): the three-layer pattern is fo
 5. Adopt progressive trust (reduces steady-state monitoring cost).
 6. Accept that emergent behavior detection and cross-org federation are unsolved. Design for *containment* of failures you cannot *prevent*.
 
----
-
 ## The Uncomfortable Truth
 
 No security architecture for complex multi-agent AI systems is proven at production scale yet. The patterns described here have strong theoretical foundations and are backed by converging industry consensus (OWASP, AWS, CSA, Microsoft, HashiCorp). But "converging consensus" is not "battle-tested." The gap between what we think will work and what actually works in production will only close through deployment experience and, inevitably, through failures that expose what we missed.
@@ -188,8 +174,6 @@ No security architecture for complex multi-agent AI systems is proven at product
 The honest position: we know enough to start building. We don't know enough to promise it works.
 
 > "It is not possible to manage what you do not understand. But understanding is not the same as control." 
-
----
 
 ## Sources
 
@@ -205,6 +189,3 @@ The honest position: we know enough to start building. We don't know enough to p
 | [KPMG AI Pulse Q4 2025](https://kpmg.com/us/en/media/news/q4-ai-pulse.html) | 80% cite cybersecurity as top barrier; 65% cite system complexity |
 | [Obsidian Security: AI Agent Landscape (Jan 2026)](https://www.obsidiansecurity.com/blog/ai-agent-market-landscape) | 90% agents over-permissioned; 16x data movement vs humans |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

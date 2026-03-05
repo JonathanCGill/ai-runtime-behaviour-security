@@ -3,9 +3,6 @@
 **Medium Autonomy · Selective Human Oversight · Production Operations**
 
 > Part of the [MASO Framework](../README.md) · Implementation Guidance
-> Version 1.0 · February 2026
-
----
 
 ## When to Use Tier 2
 
@@ -22,8 +19,6 @@ Tier 2 is appropriate when:
 - The cost of per-action human approval is becoming a bottleneck to operational value.
 
 Most regulated enterprises will operate at Tier 2 for their production multi-agent systems indefinitely. Tier 3 (full autonomy) requires a level of demonstrated trust and technical maturity that relatively few use cases will justify.
-
----
 
 ## Architecture at Tier 2
 
@@ -43,8 +38,6 @@ Key architectural changes from Tier 1:
 - **Auto-approve:** Read operations, low-consequence writes within pre-approved categories. Proceeds without human intervention. LLM-as-Judge reviews but does not block unless policy violation is detected.
 - **Escalate:** High-consequence writes, actions involving external parties, irreversible operations, actions flagged by the LLM-as-Judge. Routed to human supervisor for approval.
 - **Block:** Actions outside the agent's scope, guardrail violations, actions on the deny-list. Blocked automatically, logged, and flagged for review.
-
----
 
 ## Control Implementation by MASO Domain
 
@@ -67,8 +60,6 @@ Key architectural changes from Tier 1:
 - [ ] Orchestrator permissions audited - no direct tool access.
 - [ ] NHI revocation procedure tested (can revoke a specific agent's identity within 5 minutes).
 
----
-
 ### 2. Data Protection - Tier 2 Requirements
 
 **All Tier 1 controls remain active, plus:**
@@ -85,8 +76,6 @@ Key architectural changes from Tier 1:
 - [ ] Cross-agent data fencing enforced at infrastructure level (tested by attempting cross-boundary access).
 - [ ] Per-agent memory isolation enforced (tested by attempting cross-agent memory read).
 - [ ] DLP block events logged and reviewed (minimum weekly).
-
----
 
 ### 3. Execution Control - Tier 2 Requirements
 
@@ -108,8 +97,6 @@ Key architectural changes from Tier 1:
 - [ ] LLM-as-Judge operational with evaluation criteria documented.
 - [ ] Judge model is from a different provider than the task agents (recommended, not mandatory).
 
----
-
 ### 4. Observability - Tier 2 Requirements
 
 **All Tier 1 controls remain active, plus:**
@@ -130,8 +117,6 @@ Key architectural changes from Tier 1:
 - [ ] SOAR playbooks defined for high-severity agent events.
 - [ ] Per-agent dashboards operational and accessible to the supervisor, security lead, and platform engineer.
 
----
-
 ### 5. Supply Chain - Tier 2 Requirements
 
 **All Tier 1 controls remain active, plus:**
@@ -149,8 +134,6 @@ Key architectural changes from Tier 1:
 - [ ] MCP server allow-list defined and enforced.
 - [ ] MCP server security review process documented and followed.
 - [ ] Runtime integrity monitoring active with alerting on unauthorised changes.
-
----
 
 ## PACE Configuration at Tier 2
 
@@ -219,8 +202,6 @@ Requires a formal post-incident review confirming:
 
 **Transition authority:** CISO or incident commander.
 
----
-
 ## OWASP Risk Coverage at Tier 2
 
 Tier 2 provides technical controls for the majority of OWASP risks. The combination of NHI, signed message bus, LLM-as-Judge, and continuous monitoring closes most of the gaps left open at Tier 1.
@@ -231,8 +212,6 @@ Tier 2 provides technical controls for the majority of OWASP risks. The combinat
 
 - **ASI09** remains a risk because human supervisors are still part of the control chain. The mitigation moves from "human reviews everything" (where fatigue increases ASI09 risk) to "human reviews exceptions" (where higher-quality attention reduces but does not eliminate the risk). Regular rotation of human supervisors and "red team the human" exercises (presenting deliberately misleading agent outputs to test the supervisor's challenge reflex) are recommended.
 - **ASI10** is mitigated by drift detection and anomaly scoring, but subtle rogue behaviour that stays within normal statistical variance may not be detected. This is the primary motivation for Tier 3's adversarial testing programme.
-
----
 
 ## Staffing Model
 
@@ -247,8 +226,6 @@ Tier 2 shifts the human role from gatekeeper to supervisor, reducing per-action 
 
 **For a financial services context:** Add a dedicated compliance reviewer (0.25 FTE) who audits the immutable decision chain logs against regulatory requirements on a defined schedule. The SIEM/SOAR integration should generate automated compliance evidence reports.
 
----
-
 ## Cost Indicators
 
 Tier 2 costs shift from predominantly labour (Tier 1) to a mix of labour and technical infrastructure.
@@ -256,8 +233,6 @@ Tier 2 costs shift from predominantly labour (Tier 1) to a mix of labour and tec
 ![Tier 2 Cost Indicators](../../images/tier-2-cost.svg)
 
 The cost increase from Tier 1 is substantial but is typically justified by the operational throughput gain - agents can now process work without per-action human gating, which in many use cases represents a 5–20x throughput increase.
-
----
 
 ## Testing and Validation
 
@@ -287,8 +262,6 @@ All Tier 1 tests remain valid and should be re-executed. Additional Tier 2 tests
 11. **A→C manual transition test:** Trigger Contingency from Alternate and confirm all multi-agent orchestration stops and only the single supervised agent remains.
 12. **Full PACE cycle test:** Walk through P→A→C→E→P as a planned exercise, confirming every transition action executes correctly.
 
----
-
 ## Graduation Criteria - Moving to Tier 3
 
 Tier 3 (Autonomous Multi-Agent) requires a high bar of demonstrated maturity. Most organisations will not need Tier 3 for most use cases. Progression is justified only when:
@@ -306,8 +279,6 @@ Tier 3 (Autonomous Multi-Agent) requires a high bar of demonstrated maturity. Mo
 6. **Organisational maturity:** The organisation's AI security maturity is at CMMI Level 3+ for AI-specific controls, with defined processes, trained staff, and executive sponsorship.
 
 7. **Risk owner approval:** The CISO or equivalent has formally approved the transition to Tier 3 based on quantitative evidence from Tier 2 operations.
-
----
 
 ## Worked Example - Insurance Claims Processing
 
@@ -327,6 +298,3 @@ Tier 3 (Autonomous Multi-Agent) requires a high bar of demonstrated maturity. Mo
 
 The drift detection system notices the Analysis Agent's preliminary amounts are trending 15% higher than baseline over the past 72 hours. The drift score reaches 65, triggering automatic P→A transition. The Analysis Agent is isolated. A backup Analysis Agent (using a different model provider) is activated with read-only access. All amount calculations now require human approval. The security team investigates and discovers the RAG knowledge base was updated with a new policy addendum that the agent is interpreting more broadly than intended. The RAG content is corrected, the original agent is re-tested, baselines are updated, and the system returns to Primary.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

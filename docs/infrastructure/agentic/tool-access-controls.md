@@ -3,15 +3,11 @@
 > Part of the [AI Security Infrastructure Controls](../README.md) framework - Agentic AI Controls.
 > Companion to [AI Runtime Behaviour Security](https://github.com/JonathanCGill/ai-runtime-behaviour-security).
 
----
-
 ## Overview
 
 When AI agents invoke external tools - APIs, databases, file systems, code interpreters, or third-party services - the tool invocation boundary is one of the highest-risk points in the system. The agent decides *what* to call and *why*, but it must never decide *whether* it is allowed to call it or *how* to authenticate. That enforcement belongs to deterministic infrastructure: the authorisation gateway.
 
 These six controls establish the principle that tool access is declared, mediated, constrained, classified, rate-limited, and fully logged.
-
----
 
 ## TOOL-01 - Declare Tool Permissions Explicitly Before Deployment
 
@@ -39,8 +35,6 @@ Every tool available to an agent must be declared in a machine-readable manifest
 | **Judge** | Judge can evaluate whether the agent's tool invocation patterns align with the manifest's intended scope, detecting misuse within technically permitted bounds. |
 | **Human Oversight** | The manifest is a human-readable, auditable declaration of agent capability. Reviewers can assess whether declared permissions are appropriate for the task. |
 
----
-
 ## TOOL-02 - Enforce Permissions at the Gateway, Not at the Agent
 
 **Risk Tiers:** Tier 2+ (agentic)
@@ -66,8 +60,6 @@ Tool invocation permissions are enforced by a gateway that sits between the agen
 | **Guardrails** | The gateway is the enforcement point for tool-level guardrails. It is the infrastructure that makes manifest-based access control real, not aspirational. |
 | **Judge** | Gateway logs provide the Judge with a ground-truth record of what the agent actually did (attempted and succeeded), independent of the agent's self-reported reasoning. |
 | **Human Oversight** | Gateway enforcement means humans can trust that the permissions they approved are actually being enforced, not merely suggested to the agent. |
-
----
 
 ## TOOL-03 - Constrain Tool Parameters to Declared Bounds
 
@@ -95,8 +87,6 @@ Even when a tool invocation is permitted, the parameters passed to the tool must
 | **Judge** | Judge can evaluate whether parameter values, while technically within bounds, represent unusual or suspicious patterns (e.g., reading an unusually large number of files from a permitted directory). |
 | **Human Oversight** | Parameter schemas give human reviewers visibility into the granular scope of agent actions, not just which tools are available but exactly how they can be used. |
 
----
-
 ## TOOL-04 - Classify Tool Actions by Reversibility and Impact
 
 **Risk Tiers:** Tier 2+ (agentic)
@@ -122,8 +112,6 @@ Not all tool actions carry the same risk. Reading a file is different from delet
 | **Guardrails** | Action classification is the basis for the guardrail's decision about whether an invocation can proceed automatically or requires escalation. |
 | **Judge** | Judge evaluation can be calibrated by action class - irreversible-write and privileged actions warrant more thorough post-hoc evaluation than read-only actions. |
 | **Human Oversight** | Classification directly drives when humans are brought into the loop. It ensures human attention is directed at the highest-impact decisions. |
-
----
 
 ## TOOL-05 - Rate-Limit Tool Invocations per Agent and per Tool
 
@@ -152,8 +140,6 @@ Prevent runaway agent behaviour, resource exhaustion, and data exfiltration by e
 | **Judge** | Rate limit proximity and burst patterns feed Judge evaluation as signals of potential anomalous behaviour. |
 | **Human Oversight** | Rate limit alerts surface agent sessions that may require human review, directing attention to potentially problematic behaviour. |
 
----
-
 ## TOOL-06 - Log Every Tool Invocation with Full Context
 
 **Risk Tiers:** Tier 2+ (agentic)
@@ -181,6 +167,3 @@ Every tool invocation - whether permitted or denied - must be logged with suffic
 | **Judge** | Complete invocation logs are a primary input for Judge evaluation of agent behaviour - the Judge can assess whether the sequence and pattern of tool use was appropriate. |
 | **Human Oversight** | Full invocation logs give human reviewers the ability to understand exactly what an agent did, why it was allowed, and what it received in response. |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

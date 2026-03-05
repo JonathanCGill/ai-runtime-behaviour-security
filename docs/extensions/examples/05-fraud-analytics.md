@@ -4,8 +4,6 @@
 
 This example follows Sentinel Bank (fictional) as they deploy AI to assist fraud analysts. The critical insight: the AI is an **analyst amplifier** sitting inside an existing fraud control chain - not a replacement for it.
 
----
-
 ## Why This Example Matters
 
 Fraud triage is where **timing**, **alert aggregation**, and **defence-in-depth** matter most. Unlike customer communications where AI generates content, here AI interprets signals that feed into existing enforcement systems.
@@ -13,8 +11,6 @@ Fraud triage is where **timing**, **alert aggregation**, and **defence-in-depth*
 The goal is not "AI decides fraud."
 
 The goal is: **AI helps interpret signals, while fraud systems remain the enforcement authority.**
-
----
 
 ## The Use Case
 
@@ -44,8 +40,6 @@ The goal is: **AI helps interpret signals, while fraud systems remain the enforc
 - Integration with 6 fraud detection systems
 - Real-time case management platform
 
----
-
 ## The Three-Authority Model
 
 Fraud triage has three independent decision authorities. AI is one voice, not the final word.
@@ -59,8 +53,6 @@ Fraud triage has three independent decision authorities. AI is one voice, not th
 | **Human Analyst** | Final arbitration for edge cases | Minutes to hours |
 
 Every stage emits telemetry. You correlate by `transaction_id` and `case_id`.
-
----
 
 ## Step 1: Risk Classification
 
@@ -81,8 +73,6 @@ Every stage emits telemetry. You correlate by `transaction_id` and `case_id`.
 **Risk Tier: HIGH (Tier 3)**
 
 Rationale: AI doesn't execute, but bad recommendations at scale could enable fraud losses or damage customer experience. Human remains in the loop for all consequential decisions.
-
----
 
 ## Step 2: The Seven-Stage Event Chain
 
@@ -216,8 +206,6 @@ LLM-as-Judge + ML analyse completed cases:
 - Systematic bias identified
 - Failure cascade pattern
 
----
-
 ## Step 3: Timing Model
 
 Fraud systems operate in risk bands. AI must fit within them, not slow them down.
@@ -262,8 +250,6 @@ Fraud systems operate in risk bands. AI must fit within them, not slow them down
 | Cluster analysis | Daily | Emerging fraud patterns |
 | Typology evolution | Weekly | Update RAG knowledge base |
 | Model quality scoring | Continuous | Judge evaluation |
-
----
 
 ## Step 4: Alert Aggregation Architecture
 
@@ -327,8 +313,6 @@ Aggregation enables pattern detection across cases:
 | Emerging fraud typologies | Unsupervised clustering | Update knowledge base |
 | Analyst fatigue signals | Performance metrics | Workload balancing |
 
----
-
 ## Step 5: Circuit Breakers
 
 Circuit breakers protect against AI misbehaviour at scale.
@@ -350,8 +334,6 @@ Circuit breakers protect against AI misbehaviour at scale.
 | **CLOSED** | Normal operation | - |
 | **OPEN** | AI bypassed, all cases to human | Manual review + threshold clear |
 | **HALF-OPEN** | AI enabled for sample (10%) | Auto-promote if sample passes |
-
----
 
 ## Step 6: AI-Fraud Disagreement Detection
 
@@ -390,8 +372,6 @@ rules:
       - flag_for_training_review()
 ```
 
----
-
 ## Step 7: Metrics Dashboard
 
 ### Real-Time Panel
@@ -423,8 +403,6 @@ rules:
 | SLA compliance | >95% | <90% |
 | Escalation rate | <5% | >10% |
 
----
-
 ## Key Takeaways
 
 1. **AI recommends, fraud engines enforce.** The AI never bypasses deterministic safety controls.
@@ -439,12 +417,7 @@ rules:
 
 6. **Full audit trail.** Every event, every decision, every override is logged and correlated.
 
----
-
 ## Architecture Diagram
 
 ![Fraud Analytics Architecture](../../images/example-fraud-architecture.svg)
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

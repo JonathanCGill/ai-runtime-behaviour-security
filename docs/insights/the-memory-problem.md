@@ -2,15 +2,11 @@
 
 *Long context and persistent memory create attack surfaces that accumulate over time*
 
----
-
 Early LLMs were stateless. Each request started fresh. Attacks had to succeed in a single turn.
 
 That's changing. Context windows now hold millions of tokens. Agents maintain memory across sessions. Systems accumulate state over days, weeks, months.
 
 This changes the threat model fundamentally.
-
----
 
 ## Three Forms of Memory
 
@@ -33,8 +29,6 @@ Retrieval-augmented generation pulls content from external sources - documents, 
 The external content becomes part of the effective state, even though it's stored elsewhere.
 
 All three create the same fundamental problem: state that accumulates, persists, and can be manipulated.
-
----
 
 ## Slow Attacks
 
@@ -74,8 +68,6 @@ Even without attackers, long-running context accumulates noise, inconsistencies,
 
 A system that started with clear guidelines develops "local rules" embedded in its context. Reviewers see current behaviour; they don't see the accumulated state that produced it.
 
----
-
 ## What Breaks
 
 ### Per-turn guardrails
@@ -109,8 +101,6 @@ Traditional security assumes sessions. User authenticates, does work, session en
 Persistent memory blurs sessions. State from one session influences another. A compromise in Tuesday's session affects Friday's behaviour.
 
 Where do you draw accountability boundaries when state doesn't respect them?
-
----
 
 ## Framework Adaptations
 
@@ -153,8 +143,6 @@ Retrieved content is an injection vector:
 - Track what content influenced what responses
 - Implement source verification for critical content
 
----
-
 ## The Uncomfortable Reality
 
 Long context and persistent memory enable capabilities we want: personalisation, learning, continuity. They also enable attacks we can't fully prevent.
@@ -171,8 +159,6 @@ For CRITICAL systems, consider:
 
 Sometimes the right answer is less memory, not more controls.
 
----
-
 ## The Trajectory
 
 Context windows will keep growing. Memory capabilities will become standard. The pressure is toward more state, not less.
@@ -181,6 +167,3 @@ Frameworks designed for stateless systems will struggle. The security model need
 
 We're early in that evolution.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

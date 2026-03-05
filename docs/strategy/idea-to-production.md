@@ -4,8 +4,6 @@
 
 > Part of [From Strategy to Production](./)
 
----
-
 ## Why This Matters
 
 The framework has excellent depth in each domain - risk tiers, controls, PACE resilience, governance. But there's no single document that connects the entire lifecycle from "someone has an idea" to "the system is running safely in production and being continuously governed."
@@ -19,8 +17,6 @@ Without that connected flow, organisations experience gaps:
 - Tools get selected before anyone asks whether AI is the right approach
 
 This article defines the complete process. Every stage has a clear output that feeds the next stage. Every handoff has a named owner. Every decision point has criteria.
-
----
 
 ## The End-to-End Flow
 
@@ -38,8 +34,6 @@ Eight stages. Each produces a defined output. Each has guardrails that prevent m
 | **6. Build & Test** | Implement the system and controls | Working system with controls | Detect: pre-deployment checks surface gaps |
 | **7. Deploy & Operate** | Launch and run | Operating system with monitoring | Absorb: gradual rollout contains blast radius |
 | **8. Ongoing Governance** | Monitor, review, evolve | Continuous assurance | Detect: continuous monitoring surfaces drift |
-
----
 
 ## Stage 1: Strategic Alignment
 
@@ -75,8 +69,6 @@ Eight stages. Each produces a defined output. Each has guardrails that prevent m
 - Vague problem statement → impossible to measure success later
 - No alternatives considered → commitment to AI before evaluating options
 
----
-
 ## Stage 2: Use Case Definition
 
 **Owner:** Business owner + AI engineer (collaborative)
@@ -105,8 +97,6 @@ The full template from [Use Case Definition](use-case-definition.md). All ten qu
 - Negative scope missing → guardrails can't enforce boundaries
 - Understated decision authority → system classified too low
 - "TBD" in regulatory context → compliance surprise at launch
-
----
 
 ## Stage 3: Tool Selection
 
@@ -169,8 +159,6 @@ The framework applies to the AI components. The risk tier is determined by what 
 
 **Guardrail:** The Use Case Filter is the preventive control - it steers teams to the right tool before investment begins. If a team skips it and builds AI where rules would suffice, the overhead becomes visible in operation: unnecessary guardrail tuning, Judge findings on deterministic tasks, governance cost that simpler tools wouldn't generate. If the decision is "not AI," the initiative exits to standard SDLC.
 
----
-
 ## Stage 4: Risk Classification
 
 **Owner:** Risk analyst (2nd line)
@@ -209,8 +197,6 @@ The framework applies to the AI components. The risk tier is determined by what 
 - Dimension ambiguity not investigated → hidden risk
 - Fast Lane self-certification when criteria aren't clearly met → under-governed system
 
----
-
 ## Stage 5: Control Design
 
 **Owner:** Security architect + AI governance
@@ -247,8 +233,6 @@ The framework applies to the AI components. The risk tier is determined by what 
 | **Incident response** | Playbook reference, severity mapping, notification requirements |
 
 **Guardrail:** Teams building on approved platforms inherit baseline controls automatically - logging, monitoring, and standard guardrails come with the platform. The control specification adds use-case-specific configuration on top. Review by security architect, governance, and business owner strengthens the design, but the platform defaults mean even a rushed deployment starts with basic protection.
-
----
 
 ## Stage 6: Build and Test
 
@@ -297,8 +281,6 @@ The framework applies to the AI components. The risk tier is determined by what 
 - PACE plan documented but transitions never tested → plan doesn't work under pressure
 - Scope changed during build, risk tier not reassessed → running at wrong tier
 
----
-
 ## Stage 7: Deploy and Operate
 
 **Owner:** Technical operations + business owner
@@ -340,8 +322,6 @@ The framework applies to the AI components. The risk tier is determined by what 
 | First PACE transition test | Day 30 | Engineering |
 
 **Guardrail:** Gradual rollout is the absorb control - it contains the blast radius of unexpected behaviour. The first 30 days of monitoring generate the baseline that ongoing governance uses. If calibration reveals problems, the deployment can be paused or rolled back without affecting the full user population. Operational handover to the steady-state team happens when monitoring confirms stability, not on a fixed schedule.
-
----
 
 ## Stage 8: Ongoing Governance
 
@@ -422,8 +402,6 @@ Systems should be retired when:
 6. Use case moved to "Retired" in registry
 7. Post-retirement review documented (lessons learned)
 
----
-
 ## The Complete Lifecycle - Summary
 
 ```
@@ -471,8 +449,6 @@ STAGE 8: ONGOING GOVERNANCE
   Exit:      Retirement when appropriate
 ```
 
----
-
 ## How the Framework Maps to This Flow
 
 | Stage | Primary Framework Documents |
@@ -486,8 +462,6 @@ STAGE 8: ONGOING GOVERNANCE
 | 7. Deploy & Operate | [Governance Operating Model](../extensions/regulatory/ai-governance-operating-model.md), [SOC Integration](../extensions/technical/soc-integration.md) |
 | 8. Ongoing Governance | [Governance Operating Model](../extensions/regulatory/ai-governance-operating-model.md), [Anomaly Detection](../extensions/technical/anomaly-detection-ops.md) |
 
----
-
 ## Where the Process Shortens
 
 Not every initiative needs all eight stages at full depth.
@@ -498,8 +472,6 @@ Not every initiative needs all eight stages at full depth.
 | **Vendor SaaS product** | Stages 1–4 as normal → Stage 5 (map vendor controls to framework; identify gaps) → Stage 6 (configure, don't build) → Stages 7–8 as normal |
 | **Upgrading existing system** | Skip Stage 1 (already justified) → Stage 2 (update definition with changes) → Stage 3 (already decided) → Stage 4 (reclassify) → Stages 5–7 (implement new controls) → Stage 8 (continue) |
 | **POC / Experiment** | Stage 1 (brief) → Stage 2 (minimal) → Stage 3 (confirm AI) → Stage 4 (classify as LOW + time-bound) → Stage 6 (basic controls) → Stage 7 (limited deployment) → Fixed end date (no Stage 8 - either promote to full process or retire) |
-
----
 
 ## Where the Framework Doesn't Cover This Flow
 
@@ -513,6 +485,3 @@ Not every initiative needs all eight stages at full depth.
 
 This article and [Use Case Definition](use-case-definition.md) fill these gaps. The flow defined here can be used as the operational process that connects the framework's components into a coherent lifecycle.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -2,8 +2,6 @@
 
 This guide points you to resources for implementing AI security controls. We don't provide code-the APIs change frequently and untested code causes more problems than it solves.
 
----
-
 ## The Pattern
 
 ![AI Security Control Pattern](images/control-pattern.svg)
@@ -14,8 +12,6 @@ This guide points you to resources for implementing AI security controls. We don
 | **Output Guardrails** | Validate and sanitize responses before delivery |
 | **Judge Queue** | Async LLM evaluation of sampled interactions |
 | **Human Review** | Final decision on edge cases and flagged content |
-
----
 
 ## Open Source Implementations
 
@@ -28,8 +24,6 @@ These projects have tested, maintained code:
 | **LangChain** | Includes moderation chains and safety tools | https://github.com/langchain-ai/langchain |
 | **LlamaGuard** | Meta's safety classifier | https://github.com/meta-llama/PurpleLlama |
 | **Rebuff** | Prompt injection detection | https://github.com/protectai/rebuff |
-
----
 
 ## Cloud Provider Documentation
 
@@ -71,8 +65,6 @@ These projects have tested, maintained code:
 | Messages API | https://docs.anthropic.com/en/api/messages |
 | Prompt Engineering | https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering |
 
----
-
 ## Standards and Frameworks
 
 | Resource | Link |
@@ -81,8 +73,6 @@ These projects have tested, maintained code:
 | NIST AI RMF | https://www.nist.gov/itl/ai-risk-management-framework |
 | MITRE ATLAS | https://atlas.mitre.org/ |
 | EU AI Act | https://artificialintelligenceact.eu/ |
-
----
 
 ## What to Build
 
@@ -95,8 +85,6 @@ These projects have tested, maintained code:
 4. **Human review queue**: Priority-based queue with SLA tracking. Standard engineering-use your existing tooling.
 
 5. **Logging and metrics**: Log all interactions (inputs, outputs, blocks, latency). Essential for debugging and compliance.
-
----
 
 ## Multi-Agent Systems
 
@@ -112,8 +100,6 @@ The pattern above applies to single-model deployments. For systems where **multi
 
 **Framework-specific patterns** for LangGraph, AutoGen, CrewAI, and AWS Bedrock Agents are in the [Integration Guide](maso/integration/integration-guide.md).
 
----
-
 ## Recommendations
 
 - **Start with managed services** (Bedrock Guardrails, Azure Content Filtering) before building custom.
@@ -122,6 +108,3 @@ The pattern above applies to single-model deployments. For systems where **multi
 - **Plan for false positives**-overly aggressive filters frustrate users.
 - **Keep humans in the loop**-automated systems miss edge cases.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

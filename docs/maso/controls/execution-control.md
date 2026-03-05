@@ -4,15 +4,11 @@
 > Covers: ASI02 (Tool Misuse) · ASI05 (Unexpected Code Execution) · ASI08 (Cascading Failures) · LLM05 (Improper Output Handling) · ASI07 (Insecure Inter-Agent Comms — structural validation)
 > Also covers: CR-01 (Deadlock/Livelock) · CR-02 (Oscillation) · SM-01 (Cumulative Harm) · GV-02 (Metric Gaming) · OP-02 (Latency) · OP-03 (Partial Failure) · OP-04 (Agent Unavailability) · OP-05 (Irreversible Action Chains)
 
----
-
 ## Principle
 
 Every agent action is bounded: bounded by permission, bounded by impact, bounded by time. No single agent can cause unlimited damage. When an agent fails, the failure is contained to that agent. When errors cascade, automated circuit breakers engage before human response is required.
 
 Execution control is where the PACE resilience methodology meets real-time operations. The controls in this domain define the triggers that move the system from Primary to Alternate and beyond.
-
----
 
 ## Why This Matters in Multi-Agent Systems
 
@@ -29,8 +25,6 @@ Execution control is where the PACE resilience methodology meets real-time opera
 **Irreversible actions compound across agent chains (OP-05).** Agent A sends an email. Agent B deletes a record. Agent C makes an API call to a third party. Each action was individually approved, but the chain is collectively irreversible. When Agent D detects that Agent A's email was based on hallucinated data, the downstream actions cannot be undone. Reversibility must be assessed for the chain, not just per-action, and compensating controls must exist for actions that cannot be recalled.
 
 **Data integrity failures are silent and cumulative.** Security guardrails catch injections. Content filters catch harmful output. But when Agent A returns a JSON object with a missing field and Agent B silently treats that field as `null`, the resulting action is wrong - not malicious, just wrong. In production multi-agent systems, the majority of runtime failures come not from security violations but from structural data integrity failures between components: malformed tool outputs, unexpected types, truncated responses, hallucinated field names, and partial results presented as complete. These failures are harder to detect than security violations because they don't trigger guardrails - the output is syntactically valid but semantically broken.
-
----
 
 ## Controls by Tier
 
@@ -84,8 +78,6 @@ All Tier 2 controls remain active, plus:
 | **EC-3.5** Automated rollback scope | When integrity compromise is detected, automated rollback covers the compromised agent and all downstream actions that depended on its output | Rollback scope is determined by the decision chain (OB-2.1). Downstream agents are notified. Actions that cannot be rolled back trigger compensating actions automatically. Human is notified of the rollback scope and any irreversible residual. |
 | **EC-3.6** Transformation integrity chain | Data validated after each processing step in a multi-agent pipeline; cumulative integrity tracked end-to-end | Each agent in a pipeline attests to the structural validity of its output. The attestation chain travels with the data (analogous to DP-3.4 data provenance but for structural integrity). If any agent in the chain produces output that fails schema validation, downstream processing halts immediately - not after the malformed data has been transformed two more times. Integrity violations are correlated with the specific pipeline step that introduced the corruption. |
 
----
-
 ## Action Classification Rules (Tier 2+)
 
 The action classification engine is the core mechanism that replaces per-action human approval with risk-proportionate automation. Rules should be defined collaboratively between the AI security team and the business function that owns the agent system.
@@ -112,8 +104,6 @@ The action classification engine is the core mechanism that replaces per-action 
 - Actions that violate the guardrails layer
 - Actions targeting systems not in the agent's scope
 - Actions during a PACE Alternate or Contingency phase that exceed the phase-specific restrictions
-
----
 
 ## Testing Criteria
 
@@ -165,8 +155,6 @@ The action classification engine is the core mechanism that replaces per-action 
 | EC-T3.6 | Automated rollback scope | Inject a hallucination at Agent A that propagates to Agents B and C. Trigger integrity detection. Verify automated rollback covers Agent A's action and all downstream work from B and C. Verify irreversible residual is reported to the human. |
 | EC-T3.7 | Transformation integrity chain | In a three-agent pipeline (A → B → C), Agent B produces output with a schema violation. Verify: (a) Agent C does not receive the malformed data, (b) the violation is attributed to Agent B's processing step specifically, (c) the integrity chain log identifies the exact point of corruption. |
 
----
-
 ## Maturity Indicators
 
 | Level | Indicator |
@@ -176,8 +164,6 @@ The action classification engine is the core mechanism that replaces per-action 
 | **Defined** | Action classification engine operational. Sandboxed execution. Blast radius caps. Circuit breakers. LLM-as-Judge gate. |
 | **Quantitatively Managed** | Classification accuracy measured. Judge false positive/negative rates tracked and reported. Circuit breaker engagement frequency monitored. Blast radius cap utilisation tracked per agent. |
 | **Optimising** | Infrastructure-enforced blast radius. Self-healing P↔A cycles. Multi-model cross-validation. Time-boxing. Action classification rules tuned based on operational data. |
-
----
 
 ## Common Pitfalls
 
@@ -205,6 +191,3 @@ The action classification engine is the core mechanism that replaces per-action 
 
 **Treating serialisation as a solved problem.** When an agent returns structured output (JSON, XML, function call arguments), the output is a string that must be parsed. Strict-mode parsing should be the default. Lenient parsers that silently coerce types, accept trailing commas, or ignore extra fields mask data integrity failures and can introduce injection vectors when untrusted content is deserialised into executable structures.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

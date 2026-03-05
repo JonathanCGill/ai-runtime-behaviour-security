@@ -8,8 +8,6 @@ Implementing behavioral controls for AI systems in production.
 
 > *This is the implementation companion to the [Foundation overview](../foundations/). The Foundation explains the architecture and principles. This section contains the risk classification criteria, control definitions, checklists, and specialised controls you need to implement them.*
 
----
-
 ## Reading Order
 
 Start with the essentials, then branch into specialised topics based on your deployment:
@@ -39,8 +37,6 @@ Start with the essentials, then branch into specialised topics based on your dep
 - [PACE for Agentic AI](pace-agentic-section.md) - PACE for agentic deployments
 - [PACE Checklist](pace-checklist-section.md) - verify your fail postures
 
----
-
 ## The Fundamental Shift
 
 Traditional software can be tested before deployment. AI cannot - not fully.
@@ -52,8 +48,6 @@ Traditional software can be tested before deployment. AI cannot - not fully.
 | Known failure modes | Adversarial discovery |
 
 **The shift:** From design-time assurance to runtime behavioral monitoring.
-
----
 
 ## The Pattern
 
@@ -85,14 +79,10 @@ This isn't theoretical. Production implementations include:
 
 What's been missing: clear guidance on *why* this pattern is necessary and *how* to implement it proportionate to risk.
 
----
-
 ## Scope
 
 **In:** Custom LLM apps, AI decision support, document processing, agentic systems  
 **Out:** Vendor AI products, model training, data preparation
-
----
 
 ## Quick Start
 
@@ -121,8 +111,6 @@ What's been missing: clear guidance on *why* this pattern is necessary and *how*
 3. **Judge in shadow mode** - Evaluate without action
 4. **HITL queues** - Somewhere for findings to go
 5. **Operationalise** - Act on findings, tune continuously
-
----
 
 ## Core Documents
 
@@ -168,8 +156,6 @@ What's been missing: clear guidance on *why* this pattern is necessary and *how*
 
 ![Architecture Overview](../images/architecture-overview.svg)
 
----
-
 ## Extensions
 
 | Folder | Contents |
@@ -178,8 +164,6 @@ What's been missing: clear guidance on *why* this pattern is necessary and *how*
 | [technical/](../extensions/technical/) | Bypass prevention, infrastructure, metrics |
 | [templates/](../extensions/templates/) | Playbooks, threat models |
 | [examples/](../extensions/examples/) | Worked examples |
-
----
 
 ## Key Principles
 
@@ -190,6 +174,3 @@ What's been missing: clear guidance on *why* this pattern is necessary and *how*
 5. **Assume bypasses happen** - Design for detection, not just prevention
 6. **Humans remain accountable** - AI assists; humans own outcomes
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

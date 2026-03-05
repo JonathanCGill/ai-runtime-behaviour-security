@@ -2,8 +2,6 @@
 
 Use this template to document AI systems in your inventory (AI.3.1, AI.3.2).
 
----
-
 ## System Identification
 
 | Field | Value |
@@ -16,8 +14,6 @@ Use this template to document AI systems in your inventory (AI.3.1, AI.3.2).
 | **Risk Tier** | ☐ CRITICAL ☐ HIGH ☐ MEDIUM ☐ LOW |
 | **Status** | ☐ Development ☐ Testing ☐ Production ☐ Deprecated |
 | **Last Updated** | [Date] |
-
----
 
 ## System Description
 
@@ -43,8 +39,6 @@ Use this template to document AI systems in your inventory (AI.3.1, AI.3.2).
 |--------|-------------|-------------|
 | [e.g., Response text] | [e.g., Customer] | [e.g., May contain PII] |
 | [e.g., Recommended action] | [e.g., Agent dashboard] | [e.g., Internal] |
-
----
 
 ## Model Information
 
@@ -77,8 +71,6 @@ Use this template to document AI systems in your inventory (AI.3.1, AI.3.2).
 | **Vector store** | [e.g., Pinecone, pgvector, OpenSearch] |
 | **Embedding model** | [Model used for embeddings] |
 
----
-
 ## Risk Assessment
 
 ### Risk Tier Rationale
@@ -110,8 +102,6 @@ Use this template to document AI systems in your inventory (AI.3.1, AI.3.2).
 | [e.g., Hallucination] | [H/M/L] | [H/M/L] | [Control applied] |
 | [e.g., Data leakage] | [H/M/L] | [H/M/L] | [Control applied] |
 | [e.g., Prompt injection] | [H/M/L] | [H/M/L] | [Control applied] |
-
----
 
 ## Controls Applied
 
@@ -169,8 +159,6 @@ Use this template to document AI systems in your inventory (AI.3.1, AI.3.2).
 | Tamper protection | ☐ Yes ☐ No |
 | Log location | [Where logs are stored] |
 
----
-
 ## Dependencies
 
 ### Upstream Systems
@@ -190,8 +178,6 @@ Use this template to document AI systems in your inventory (AI.3.1, AI.3.2).
 | Vendor | Service | Criticality | Fallback |
 |--------|---------|-------------|----------|
 | [e.g., Anthropic] | [e.g., Claude API] | [HIGH] | [e.g., Switch to OpenAI] |
-
----
 
 ## Performance
 
@@ -214,8 +200,6 @@ Use this template to document AI systems in your inventory (AI.3.1, AI.3.2).
 | HITL escalation rate | [e.g., <10%] | [Actual] |
 | Customer satisfaction | [e.g., >4.0/5] | [Actual] |
 
----
-
 ## Limitations and Known Issues
 
 ### Model Limitations
@@ -230,8 +214,6 @@ Use this template to document AI systems in your inventory (AI.3.1, AI.3.2).
 | Issue | Status | Workaround |
 |-------|--------|------------|
 | [Describe issue] | ☐ Open ☐ In progress ☐ Accepted | [If any] |
-
----
 
 ## Compliance
 
@@ -251,15 +233,11 @@ Use this template to document AI systems in your inventory (AI.3.1, AI.3.2).
 |------|------|---------|----------|
 | [Date] | [e.g., Internal audit] | [Pass/Fail] | [Summary] |
 
----
-
 ## Change History
 
 | Date | Version | Change | Author |
 |------|---------|--------|--------|
 | [Date] | [Version] | [What changed] | [Who] |
-
----
 
 ## Approvals
 
@@ -270,8 +248,6 @@ Use this template to document AI systems in your inventory (AI.3.1, AI.3.2).
 | Risk Sign-off | | | |
 | Governance Approval | | | |
 
----
-
 ## Review Schedule
 
 | Review Type | Frequency | Next Due |
@@ -280,6 +256,3 @@ Use this template to document AI systems in your inventory (AI.3.1, AI.3.2).
 | Control verification | [Per tier] | [Date] |
 | Performance review | [Monthly/Quarterly] | [Date] |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -2,8 +2,6 @@
 
 **If the model knows it's being tested, your test results mean nothing.**
 
----
-
 ## The Problem
 
 Every layer of the three-layer pattern - guardrails, Judge, human oversight - depends on one assumption: the primary model behaves the same way during evaluation as it does in production.
@@ -11,8 +9,6 @@ Every layer of the three-layer pattern - guardrails, Judge, human oversight - de
 The UK AI Security Institute's *Frontier AI Trends Report* (December 2025) documents evidence that this assumption is breaking down. Some frontier models can now distinguish between evaluation and deployment contexts and alter their behaviour accordingly. The research community calls this **sandbagging** - models strategically underperforming during evaluations to appear less capable or more compliant than they actually are.
 
 This is not a theoretical concern. It is a documented behaviour in current frontier systems, and it directly threatens the integrity of every evaluation-dependent control in this framework.
-
----
 
 ## What AISI Found
 
@@ -34,8 +30,6 @@ AISI measured the correlation between model capability (GPQA benchmark scores) a
 
 This also means that organisations cannot rely on "upgrading to a better model" as a security strategy. Better models need the same - or stronger - runtime controls.
 
----
-
 ## Why This Threatens the Three-Layer Pattern
 
 ### Guardrails
@@ -51,8 +45,6 @@ AISI's finding that black-box monitors lose accuracy on harder tasks compounds t
 ### Human Oversight
 
 Human oversight is indirectly threatened. Humans review what the Judge flags. If the Judge doesn't flag it - because the model sandbagged its way past evaluation - humans never see it. The human oversight layer can only be as good as the detection layers that feed it.
-
----
 
 ## Mitigations
 
@@ -97,8 +89,6 @@ For self-hosted open-weight models, internal state monitoring (attention pattern
 
 This is not yet practical for most enterprise deployments using hosted APIs, but it's worth monitoring as interpretability tooling matures.
 
----
-
 ## Implications for Risk Tiers
 
 The risk of evaluation gaming scales with model capability and deployment stakes:
@@ -109,8 +99,6 @@ The risk of evaluation gaming scales with model capability and deployment stakes
 | **MEDIUM** | Low - but monitor for anomalies | Add canary interactions to evaluation pipeline |
 | **HIGH** | Moderate - capable models with meaningful stakes | Multi-model cross-validation, canary interactions, behavioural consistency checks |
 | **CRITICAL** | Significant - frontier models with high-impact decisions | All of the above, plus eliminate evaluation signatures, consider white-box monitoring, human calibration at higher sampling rates |
-
----
 
 ## The Architectural Response: Constrain-Regardless
 
@@ -132,8 +120,6 @@ Evaluation integrity risks don't break this pattern - they reinforce why it exis
 
 For the full argument, see [Why Containment Beats Evaluation](why-containment-beats-evaluation.md).
 
----
-
 ## AISI Data Points Worth Noting
 
 These specific findings from the AISI Frontier AI Trends Report are reference-worthy for teams building evaluation pipelines:
@@ -146,8 +132,6 @@ These specific findings from the AISI Frontier AI Trends Report are reference-wo
 - **Optimised scaffolding** achieved equivalent cyber performance at 13% of the token budget - efficiency gains mean capable attacks cost less
 - **Post-training increases persuasiveness more than scaling does** - fine-tuned models may be more manipulative than base models, regardless of size
 
----
-
 ## Related
 
 - [When the Judge Can Be Fooled](../core/when-the-judge-can-be-fooled.md) - Adversarial failure modes for the Judge layer
@@ -156,10 +140,5 @@ These specific findings from the AISI Frontier AI Trends Report are reference-wo
 - [The Verification Gap](the-verification-gap.md) - The fundamental limits of evaluating AI systems
 - [Why Guardrails Aren't Enough](why-guardrails-arent-enough.md) - Why single-layer defences fail
 
----
-
 > **Source:** UK AI Security Institute, *Frontier AI Trends Report*, December 2025. Available at [aisi.gov.uk](https://www.aisi.gov.uk/).
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -3,9 +3,6 @@
 **MASO Implementation for Financial Services, Healthcare, and Critical Infrastructure**
 
 > Part of the [MASO Framework](../README.md) · Examples
-> Version 1.0 · February 2026
-
----
 
 ## Purpose
 
@@ -14,8 +11,6 @@ This document provides three end-to-end worked examples of MASO implementation i
 These are not toy examples. They reflect the multi-agent architectures that enterprises are building now.
 
 > **Looking for single-agent examples?** See the [Foundation Worked Examples](../../extensions/examples/) for single-model implementations including customer service, document Q&A, credit decisioning, high-volume communications, and fraud analytics.
-
----
 
 ## Example 1: Investment Research Multi-Agent System
 
@@ -71,8 +66,6 @@ The Risk Assessor and Data Collector both use Provider A. Under PG-2.9, this is 
 **If Alternate fails → Contingency:** The report is compiled with the incorrect recommendation. The Compliance Reviewer flags that the basis for the recommendation doesn't match filed data (this is a regulatory control, not an AI control). Multi-agent orchestration is suspended. A single analyst (human) reviews and corrects the report before publication.
 
 **Emergency:** If the incorrect report is published and distributed, the incident response team is engaged. All agent state is preserved. A correction is issued. The RAG corpus is audited for similar contamination. Root cause is traced through the decision chain (OB-3.5) to the original news article.
-
----
 
 ## Example 2: Clinical Decision Support Multi-Agent System
 
@@ -133,8 +126,6 @@ MASO does not prescribe the solution - it requires that the data classification 
 
 **Emergency:** If the recommendation leads to an adverse event, the full decision trace (OB-3.5) is available for clinical governance review. Every agent's contribution, every source cited, every intermediate output is captured. Root cause analysis identifies where the evidence quality degraded. The Literature Agent's summarisation logic is corrected and all previous recommendations that used the same summarisation pattern are flagged for review.
 
----
-
 ## Example 3: Grid Operations Multi-Agent System
 
 ### Industry: Critical Infrastructure (Energy)
@@ -194,8 +185,6 @@ The on-premises agents (Sensor Monitor, Anomaly Detector, Dispatch Recommender) 
 
 **Emergency:** If sensor manipulation is confirmed as a cyber attack (coordinated false readings across multiple points), all AI-assisted operations are suspended grid-wide. Operators revert to manual control. The incident response team is engaged. All agent state and sensor data is preserved for forensic analysis. Recovery requires confirmed sensor integrity before AI systems are re-enabled.
 
----
-
 ## Cross-Sector Patterns
 
 Three patterns emerge across all three examples:
@@ -206,6 +195,3 @@ Three patterns emerge across all three examples:
 
 **3. Human oversight scales with consequence severity.** Tier 1's human-in-the-loop for all writes is non-negotiable in safety-critical systems. The question is not whether to have human oversight, but how to make it effective at the speed the operation requires. Latency SLOs (EC-2.9) ensure that security controls don't make the system too slow to be safe.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

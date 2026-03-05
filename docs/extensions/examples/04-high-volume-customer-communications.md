@@ -4,15 +4,11 @@
 
 This example follows Sentinel Bank (fictional) as they deploy AI-generated customer communications at scale. The critical difference from interactive chat: messages are sent, not displayed. Once delivered, harm is done.
 
----
-
 ## Why This Example Matters
 
 In high-throughput communications (fraud alerts, collections, service notifications), **latency determines whether you have governance or post-mortem reporting**.
 
 The question isn't "should we monitor?" but "when must we act, and how fast?"
-
----
 
 ## The Use Case
 
@@ -38,8 +34,6 @@ The question isn't "should we monitor?" but "when must we act, and how fast?"
 
 **The critical constraint:** Messages are delivered to customers. Unlike chatbots where output is displayed and the customer responds, these communications go out. A bad message reaches the customer before you know it was bad.
 
----
-
 ## Step 1: Risk Classification
 
 ### Assessment
@@ -60,8 +54,6 @@ The question isn't "should we monitor?" but "when must we act, and how fast?"
 
 Rationale: High autonomy (auto-send) + irreversibility (can't unsend) + scale (millions of messages) + regulatory exposure = maximum control requirements.
 
----
-
 ## Step 2: The Latency Problem
 
 ### Traditional Thinking (Broken)
@@ -73,8 +65,6 @@ The typical pattern - generate, send, log, then evaluate hours later - doesn't w
 Controls must match the **reversibility window**. For communications:
 - Once sent, irreversible
 - Therefore, high-risk checks must complete before send
-
----
 
 ## Step 3: Three Time Bands
 
@@ -110,8 +100,6 @@ See the inline flow in the architecture diagram below - requests pass through ra
 - Hallucinated product details
 - Drift from training baseline
 
----
-
 ### Band B: Near-Real-Time (Seconds)
 
 **What belongs here:** Signals that may not block, but must trigger action quickly.
@@ -142,8 +130,6 @@ Events flow through EventBridge to Kinesis, then to an aggregator that feeds ale
 
 **Messages affected: ~50** (vs 5,000 if detected hourly)
 
----
-
 ### Band C: Nearline/Offline (Minutes to Hours)
 
 **What belongs here:** Heavy analysis and learning loops.
@@ -160,8 +146,6 @@ Events flow through EventBridge to Kinesis, then to an aggregator that feeds ale
 Message logs are sampled, evaluated by LLM-as-Judge, and stored in a findings database. QA dashboards and anomaly jobs drive policy updates - guardrail rules, prompt improvements, and training data refinements.
 
 **Why delays don't break safety:** These controls don't stop individual messages. They improve the system over time.
-
----
 
 ## Step 4: The Auto-Send Decision
 
@@ -195,8 +179,6 @@ AUTO-SEND = (
 ```
 
 If any condition fails → draft-only, human approval required.
-
----
 
 ## Step 5: Circuit Breakers
 
@@ -248,8 +230,6 @@ class CircuitBreaker:
 | Judge flags | 3 | 15 min | OPEN |
 | Escalation rate | 3x baseline | 30 min | Alert + review |
 | Any hard block | 1 | immediate | Alert |
-
----
 
 ## Step 6: Alert Aggregation
 
@@ -330,8 +310,6 @@ rules:
       - consider_rollback(model_version)
 ```
 
----
-
 ## Step 7: Latency Matrix
 
 ### Control Latency by Risk Tier
@@ -366,8 +344,6 @@ If draft-only: +5ms to queue (~1,125ms total)
 
 Human review SLA: 15 minutes for standard, 5 minutes for urgent
 
----
-
 ## Step 8: Response Timing
 
 ### Two Different "Responses"
@@ -397,8 +373,6 @@ This is what your alerting pipeline drives.
 | Ops team | Minutes | Investigate, escalate, manual intervention |
 | Compliance | Hours | Full review, regulatory assessment |
 
----
-
 ## Step 9: AWS Implementation
 
 ![AWS Implementation Architecture](../../images/example-comms-aws-implementation.svg)
@@ -414,8 +388,6 @@ All Lambdas emit events to EventBridge, which feeds Kinesis. A Lambda aggregator
 ### Nearline (Minutes+)
 
 S3 stores message logs. Step Functions selects samples for Bedrock judge evaluation. Results flow to OpenSearch for findings storage, then QuickSight for dashboards.
-
----
 
 ## Step 10: Metrics Dashboard
 
@@ -447,8 +419,6 @@ S3 stores message logs. Step Functions selects samples for Bedrock judge evaluat
 | Failure clustering | known patterns | new clusters |
 | Model confidence | stable | >0.1 drop |
 
----
-
 ## Key Takeaways
 
 1. **Time-to-detect = time-to-harm** for irreversible actions. Design controls accordingly.
@@ -466,12 +436,7 @@ S3 stores message logs. Step Functions selects samples for Bedrock judge evaluat
 
 6. **The safest delay is the one the customer never notices.** A holding message buys time without sending bad content.
 
----
-
 ## Architecture Diagram
 
 ![High-Volume Communications Architecture](../../images/example-comms-architecture.svg)
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

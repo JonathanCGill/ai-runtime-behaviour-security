@@ -10,8 +10,6 @@ Where do these go?
 
 In most enterprises: nowhere useful. AI security telemetry sits in application logs, disconnected from the SOC that handles every other security event. The SOC team doesn't know what an LLM judge alert means. The AI team doesn't know how to write a SOC-compatible runbook.
 
----
-
 ## Alert Taxonomy
 
 AI systems produce security-relevant events that don't map cleanly to existing SOC categories. Define them explicitly.
@@ -38,8 +36,6 @@ Map AI alert severity to your existing SOC severity framework:
 | **Critical** (confirmed breach, agent compromise) | Incident | Immediate response |
 
 Adjust SLAs to match your existing SOC tiers. Don't create a parallel severity system.
-
----
 
 ## Identity Correlation
 
@@ -90,8 +86,6 @@ SIEM                   →  Correlated event: user_id + evaluation_result + mode
 - Correlation key: `x-ms-client-request-id` header
 - Identity: Entra ID from API Management authentication
 
----
-
 ## Escalation Triggers
 
 Define explicit triggers that move AI events from monitoring to investigation.
@@ -113,8 +107,6 @@ Define explicit triggers that move AI events from monitoring to investigation.
 | Anomalous output volume | Is this a batch job or data exfiltration? | → SOC L2 for investigation |
 | Model drift detected | Did the provider update the model, or is this adversarial? | → AI team + vendor liaison |
 | New prompt injection technique | Is this a known pattern or novel? | → SOC L2 + threat intel |
-
----
 
 ## Triage Procedures for AI Alerts
 
@@ -166,8 +158,6 @@ SOC analysts need clear guidance for AI-specific alerts. They are not AI experts
 4. Do NOT attempt to reproduce the attack in production.
 ```
 
----
-
 ## SIEM Integration
 
 ### Log Format
@@ -213,8 +203,6 @@ AISecurity_CL
 | where count_ > 5
 ```
 
----
-
 ## Runbook Integration
 
 For each alert category, create a runbook in your existing ITSM (ServiceNow, PagerDuty, Jira).
@@ -227,6 +215,3 @@ For each alert category, create a runbook in your existing ITSM (ServiceNow, Pag
 | Agent Boundary Violation | AI Platform Team + SOC L2 | Incident auto-created |
 | Model Drift | AI Platform Team | Alert to AI team, no SOC ticket |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

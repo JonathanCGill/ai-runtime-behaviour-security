@@ -9,8 +9,6 @@ comments: false
 
 Downloadable resources for offline reading, training, and distribution. These materials complement the online reference and can be used independently.
 
----
-
 ## Position Papers
 
 ### Why Containment Beats Evaluation
@@ -23,8 +21,6 @@ Covers the limitations of pre-deployment evaluation, the case for runtime enforc
 
 > See also: [Why Containment Beats Evaluation](insights/why-containment-beats-evaluation.md) (online version)
 
----
-
 ## Training Materials
 
 ### MASO Practitioner Training v.1
@@ -34,7 +30,5 @@ Comprehensive training material for practitioners implementing Multi-Agent Secur
 [Download PDF](Downloads/MASO-Practitioner-Training v.1.pdf){ .md-button }
 
 > See also: [Multi-Agent Security Operations (MASO)](maso/README.md) (online reference)
-
----
 
 *All materials are provided under the [MIT License](../LICENSE).*

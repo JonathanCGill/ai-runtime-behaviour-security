@@ -16,15 +16,11 @@ The three-layer pattern assumes you can evaluate a complete response:
 
 By the time evaluation is possible, the content is already on screen.
 
----
-
 ## Why This Matters
 
 For Tier 1 (low risk) - internal chatbots, content drafting - this is acceptable. Users understand they're interacting with a draft.
 
 For Tier 2–3 - customer-facing, regulated, consequential - delivering unevaluated content to users is a control gap.
-
----
 
 ## Control Patterns
 
@@ -76,8 +72,6 @@ Don't stream. Generate the complete response, evaluate it, then deliver.
 
 **When to use:** Tier 3 and any Tier 2 use case where content reaches customers, regulators, or triggers consequential actions.
 
----
-
 ## Choosing the Right Pattern
 
 | Risk Tier | Recommended Pattern | Rationale |
@@ -86,8 +80,6 @@ Don't stream. Generate the complete response, evaluate it, then deliver.
 | **Tier 2** (Business impact) | Buffer and release | Balance between safety and responsiveness |
 | **Tier 2** (Customer-facing) | Non-streaming OR buffer-and-release | Customer exposure requires pre-delivery evaluation |
 | **Tier 3** (Regulated, consequential) | Non-streaming | Full evaluation before any content is delivered |
-
----
 
 ## Implementation Notes
 
@@ -127,8 +119,6 @@ The client must support retraction. This means:
 3. **UI handling** - Client replaces or flags retracted content
 4. **Audit logging** - Both the original content and retraction are logged
 
----
-
 ## What You Lose with Streaming
 
 | Capability | Impact on Streaming |
@@ -140,6 +130,3 @@ The client must support retraction. This means:
 
 This is an inherent trade-off. If you need deterministic safety, don't stream.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -2,8 +2,6 @@
 
 What's genuinely new about AI risk - and what it means for the framework.
 
----
-
 ## The Distinction That Matters
 
 Not every risk associated with AI is a novel risk. Many are traditional cyber or operational risks applied to a new technology. This document focuses on risks that **did not exist before AI** - risks that require fundamentally different controls, not just existing controls applied to AI systems.
@@ -18,8 +16,6 @@ Not every risk associated with AI is a novel risk. Many are traditional cyber or
 | Bad input → application error | Adversarial input → AI makes confidently wrong decision on crafted data |
 
 **The traditional risks still apply.** They're covered in [High-Risk Financial Services](../regulatory/high-risk-financial-services.md) and [Support Systems Risk](support-systems-risk.md). This document is about what's different.
-
----
 
 ## The 12 Novel Risks
 
@@ -46,8 +42,6 @@ Not every risk associated with AI is a novel risk. Many are traditional cyber or
 | AI.11.1 Logging | Logs interactions | **Add: log model version, temperature, parameters alongside every output. Reproducibility requires full context capture.** |
 | AI.6.2 Model Validation | Validates model performance | **Add: ongoing validation using statistical methods. Validation is never "done" - it's continuous.** |
 
----
-
 ### 2. Prompt Injection
 
 **What's new:** In traditional systems, instructions (code) and data (user input) are in separate channels. SQL injection was a similar concept but was solved with parameterised queries. In AI, instructions and data share the same channel - the context window. There is no reliable way to fully separate them. This is an unsolved problem in computer science.
@@ -73,8 +67,6 @@ Not every risk associated with AI is a novel risk. Many are traditional cyber or
 | AG.2.5 Tool Protocol Security | Secures tool calls | **Add: sanitise all tool responses before including in context. Tool outputs are an injection vector.** |
 | **NEW CONTROL NEEDED** | - | **AI context isolation: prevent cross-user context contamination. Stateless sessions. No shared memory between users.** |
 
----
-
 ### 3. Hallucination
 
 **What's new:** Traditional systems return data from a database or compute from a formula. If the data doesn't exist, you get a null or error. AI generates plausible content that may have no basis in fact - with the same confidence as correct content. The system doesn't "know" it's wrong.
@@ -99,8 +91,6 @@ Not every risk associated with AI is a novel risk. Many are traditional cyber or
 | AI.9.1 HITL | Human review | **Strengthen: HITL must verify factual claims, not just assess tone/quality. Reviewers need access to source data.** |
 | **NEW CONTROL NEEDED** | - | **Grounding verification: for high-risk outputs, require automated cross-reference against source data before delivery. AI must cite its sources.** |
 
----
-
 ### 4. Emergent Behaviour
 
 **What's new:** Traditional systems do exactly what they're programmed to do. AI models develop capabilities that weren't explicitly programmed - abilities that emerge from the complexity of training. These capabilities can be beneficial or dangerous, and they're hard to predict or test for.
@@ -123,8 +113,6 @@ Not every risk associated with AI is a novel risk. Many are traditional cyber or
 | AI.2.1 Risk Classification | Classifies by use case | **Strengthen: re-classify risk when model is upgraded. A new model may change the risk profile of an existing use case.** |
 | AG.2.3 Scope Enforcement | Restricts agent scope | **Critical for agentic: enforce scope at infrastructure level, not model level. Don't rely on the model to stay within bounds.** |
 | **NEW CONTROL NEEDED** | - | **Model capability assessment: before deploying a new model version, assess its capabilities vs. the previous version. Don't assume same model = same risk.** |
-
----
 
 ### 5. Opacity
 
@@ -150,8 +138,6 @@ Not every risk associated with AI is a novel risk. Many are traditional cyber or
 | AI.1.3 Accountability | Assigns ownership | **Critical: someone must be accountable for outputs they can't fully explain. This is a governance challenge, not a technical one.** |
 | **NEW CONTROL NEEDED** | - | **Explainability tiers: define what level of explainability is required per risk tier. CRITICAL systems need the highest - which may mean not using opaque models for certain decisions.** |
 
----
-
 ### 6. Training Data Influence
 
 **What's new:** Traditional systems behave according to their code. AI systems behave according to their training data, which you likely didn't curate, may not have seen, and can't fully audit. The training data of foundation models is typically proprietary and undisclosed. Your system's behaviour is shaped by data you don't control.
@@ -176,8 +162,6 @@ Not every risk associated with AI is a novel risk. Many are traditional cyber or
 | AI.13.3 Model Provenance | Tracks model origin | **Strengthen: provenance must include training data lineage where available. If unavailable, document the gap and compensating controls.** |
 | **NEW CONTROL NEEDED** | - | **Training data risk assessment: for each foundation model used, assess training data risks. Accept, mitigate, or avoid based on use case risk tier.** |
 
----
-
 ### 7. Semantic Attack Surface
 
 **What's new:** Traditional attacks exploit syntax - malformed inputs, buffer overflows, injection through special characters. AI attacks exploit meaning. An attacker doesn't need special characters or malformed data - they need persuasive language. Security controls based on pattern matching don't work against semantic attacks.
@@ -201,8 +185,6 @@ Not every risk associated with AI is a novel risk. Many are traditional cyber or
 | AI.8.1 Judge Evaluation | Evaluates outputs | **Judge is better positioned for semantic analysis than real-time guardrails. Strengthen Judge's role in detecting semantic attacks after the fact.** |
 | AI.12.1 Incident Playbooks | AI-specific playbooks | **Add: playbook for semantic attack detection and response. How to identify pattern vs. semantic evasion in logs.** |
 
----
-
 ### 8. Context Window Poisoning
 
 **What's new:** When AI retrieves information via RAG, it incorporates that content into its reasoning. If retrieved content contains malicious instructions, the AI may follow them. The AI cannot reliably distinguish between "information I should process" and "instructions I should follow" within retrieved content. This is a specific form of indirect prompt injection, but it deserves separate treatment because it attacks the knowledge layer.
@@ -224,8 +206,6 @@ Not every risk associated with AI is a novel risk. Many are traditional cyber or
 | AI.7.1 Input Guardrails | Filters user input | **Extend: guardrails must also filter retrieved context, not just user input. This is a different scanning target.** |
 | AG.2.5 Tool Protocol Security | Secures tool responses | **Applicable: treat RAG retrieval as a tool call. Apply output sanitisation to retrieved content.** |
 | **NEW CONTROL NEEDED** | - | **RAG content integrity: validate and sanitise all retrieved content before inclusion in model context. Monitor knowledge base for unauthorised modifications.** |
-
----
 
 ### 9. Autonomous Goal Pursuit
 
@@ -251,8 +231,6 @@ Not every risk associated with AI is a novel risk. Many are traditional cyber or
 | AG.2.3 Scope Enforcement | Enforces boundaries | **Strengthen: scope must include outcome boundaries, not just action boundaries. "You can query the database" isn't enough - "you can query this table for read-only customer service purposes" is closer.** |
 | **NEW CONTROL NEEDED** | - | **Outcome validation: after agent completes task, independently validate that the outcome matches the intended goal and doesn't have unintended side effects.** |
 
----
-
 ### 10. Confidence Without Competence
 
 **What's new:** Traditional systems either return correct data or throw errors. AI presents every output with equal confidence - correct or incorrect. Users cannot distinguish between a confident correct answer and a confident wrong answer from the AI's output alone. This is related to hallucination but broader: it applies to reasoning, recommendations, and judgements, not just factual claims.
@@ -276,8 +254,6 @@ Not every risk associated with AI is a novel risk. Many are traditional cyber or
 | AI.8.1 Judge Evaluation | Evaluates quality | **Add: confidence calibration. Judge should flag cases where AI expresses high confidence on topics where it's likely unreliable.** |
 | AI.7.2 Output Guardrails | Filters outputs | **Add: for high-risk use cases, inject uncertainty markers. "Based on available data..." rather than presenting as absolute fact.** |
 | **NEW CONTROL NEEDED** | - | **Confidence calibration: require AI systems to express uncertainty appropriately. Flag low-confidence outputs for additional review.** |
-
----
 
 ### 11. Invisible Degradation
 
@@ -303,8 +279,6 @@ Not every risk associated with AI is a novel risk. Many are traditional cyber or
 | AI.11.2 Real-Time Monitoring | Monitors operations | **Add: quality metrics alongside operational metrics. Uptime is meaningless if quality has degraded.** |
 | **NEW CONTROL NEEDED** | - | **Baseline comparison: periodically test AI system against a baseline set of queries. Compare current outputs to known-good outputs from when system was last validated.** |
 
----
-
 ### 12. Human-AI Interaction Risk
 
 **What's new:** Traditional systems have defined interfaces. AI systems have conversational interfaces where the boundary between "using the system" and "being influenced by the system" is blurred. The AI can shape human decisions, introduce bias, and create dependency in ways that traditional software cannot.
@@ -329,8 +303,6 @@ Not every risk associated with AI is a novel risk. Many are traditional cyber or
 | AI.9.2 Escalation | Defines escalation | **Add: escalation triggers for when HITL reviewers consistently agree with AI (may indicate rubber-stamping, not genuine review).** |
 | **NEW CONTROL NEEDED** | - | **HITL effectiveness measurement: track HITL override rates, decision times, and accuracy. Low override rates may indicate automation bias, not AI perfection.** |
 
----
-
 ## Summary: Novel Risks and Framework Gaps
 
 | # | Novel Risk | Traditional Equivalent | Why It's Different | Framework Gap |
@@ -347,8 +319,6 @@ Not every risk associated with AI is a novel risk. Many are traditional cyber or
 | 10 | Confidence without competence | None | Wrong answers sound identical to right answers | Confidence calibration, user training |
 | 11 | Invisible degradation | Silent errors (partially) | Quality degrades with no failure signal | Continuous baseline comparison |
 | 12 | Human-AI interaction | User interface design (partially) | AI shapes human decisions through conversation | HITL effectiveness measurement, bias training |
-
----
 
 ## New Controls Required
 
@@ -367,8 +337,6 @@ The existing framework covers most of these risks partially, but **8 new control
 | **Outcome validation** | #9 Autonomous goals | High - validates agent results |
 | **HITL effectiveness measurement** | #12 Human-AI interaction | Medium - catches rubber-stamping |
 
----
-
 ## Existing Controls That Need Strengthening
 
 | Control | Current Focus | Required Addition |
@@ -386,8 +354,6 @@ The existing framework covers most of these risks partially, but **8 new control
 | AI.14.1 Training | Security awareness | Confidence-competence gap, cognitive bias for HITL reviewers |
 | AG.2.3 Scope Enforcement | Action boundaries | Outcome boundaries, not just action lists |
 | AG.2.5 Tool Protocol Security | Tool security | RAG content sanitisation as tool output |
-
----
 
 ## The Uncomfortable Conclusion
 
@@ -413,6 +379,3 @@ The correct response is not to avoid AI. It's to:
 
 Several of these risks - drift (#11), opacity (#5), bias (#6), confidence calibration (#10) - are not purely security problems. They are broader AI risk domains that the framework's control architecture addresses structurally. See [Beyond Security](../../insights/beyond-security.md) for how the three-layer pattern, PACE resilience, and risk tiering apply to AI risks beyond security.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -4,15 +4,11 @@
 > Covers: LLM02 (Sensitive Info Disclosure) · LLM04 (Data/Model Poisoning) · ASI06 (Memory & Context Poisoning) · LLM08 (Vector/Embedding Weaknesses)
 > Also covers: DR-02 (RAG Poisoning/Corpus Drift) · DR-03 (Derived Data Elevation)
 
----
-
 ## Principle
 
 Data flows between agents must be classified, controlled, and monitored. An agent's access to data is determined by its own classification level, not by the classification of the agent that sent the data. Shared knowledge bases are integrity-checked. Persistent memory is isolated per agent and has a finite lifespan.
 
 In a multi-agent system, every inter-agent message is a data transfer across a trust boundary. The message bus is not just a communication channel - it is the primary data loss prevention enforcement point.
-
----
 
 ## Why This Matters in Multi-Agent Systems
 
@@ -25,8 +21,6 @@ In a multi-agent system, every inter-agent message is a data transfer across a t
 **Cross-classification data mixing.** Different agents may legitimately operate at different data classification levels - one processes public data, another processes confidential customer records. Without explicit fencing, the message bus becomes a channel for data to flow from high-classification agents to low-classification agents.
 
 **Derived data elevation (DR-03).** An agent combines two individually non-sensitive data fields - customer ID and purchase history - and the result is PII. An analyst agent aggregates anonymised records and the output is re-identifiable. In multi-agent systems, data passes through multiple processing stages, and each stage can increase the effective classification of the output without any agent recognising the transition. The output is treated at the classification of the inputs, when it should be treated higher. Classification must be reassessed after processing, not just inherited from source data.
-
----
 
 ## Controls by Tier
 
@@ -64,8 +58,6 @@ All Tier 2 controls remain active, plus:
 | **DP-3.3** Cross-session memory analysis | Independent analysis agent reviews stored memory entries for poisoning indicators | Operates on separate infrastructure; cannot be influenced by task agents. |
 | **DP-3.4** Data provenance chain | Every data item carries provenance metadata: origin, timestamp, agent, transformations | Enables root cause tracing when data integrity issues are detected. |
 
----
-
 ## Testing Criteria
 
 ### Tier 1 Tests
@@ -98,8 +90,6 @@ All Tier 2 controls remain active, plus:
 | DP-T3.3 | Memory poisoning detection | Inject a deliberately inconsistent memory entry. Verify the cross-session analysis agent flags it within the configured analysis interval. |
 | DP-T3.4 | Provenance chain verification | Trace a data item end-to-end from ingestion through agent processing to final output. All provenance metadata is present and consistent. |
 
----
-
 ## Maturity Indicators
 
 | Level | Indicator |
@@ -109,8 +99,6 @@ All Tier 2 controls remain active, plus:
 | **Defined** | DLP active on message bus. RAG integrity validated on schedule. Cross-agent data fencing enforced at infrastructure level. Per-agent memory isolation. |
 | **Quantitatively Managed** | DLP detection rate measured and reported. RAG integrity check frequency and results tracked. Memory isolation tested regularly with documented results. |
 | **Optimising** | Real-time RAG integrity at query time. Memory decay policies with documented rationale. Independent memory analysis agent. Full data provenance chain. |
-
----
 
 ## DLP Beyond the Message Bus
 
@@ -123,8 +111,6 @@ MASO's DLP controls (DP-2.1) scan inter-agent messages within the orchestration.
 **Reporting.** External DLP systems that detect AI-originated data incidents provide a feedback loop. If network DLP catches sensitive data that the message bus DLP missed, that is a signal to tighten DP-2.1 rules. DLP is not a single control - it is a layered strategy, and the AI-specific layer is one part of it.
 
 These external controls are outside the scope of this framework, but they should be included in your threat model, your data flow diagrams (DP-1.5), and your design reviews.
-
----
 
 ## Common Pitfalls
 
@@ -140,6 +126,3 @@ These external controls are outside the scope of this framework, but they should
 
 **Dropping classification metadata between agents.** If classification tags don't travel with data through the message bus, downstream agents and DLP controls have no basis for enforcement. A message arriving without a classification tag should be treated as an error, not as unclassified.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

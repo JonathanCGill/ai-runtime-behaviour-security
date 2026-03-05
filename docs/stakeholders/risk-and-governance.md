@@ -4,8 +4,6 @@
 
 > *Part of [Stakeholder Views](README.md) · [AI Runtime Behaviour Security](../)*
 
----
-
 ## Executive Summary
 
 Your organisation is deploying AI systems that behave differently every time they run. Traditional risk frameworks assume deterministic systems - test it, prove it works, assign a rating, move on. AI breaks that assumption. The same system can pass every test today and hallucinate a medical dosage, leak customer data, or approve an unauthorised transaction tomorrow.
@@ -19,8 +17,6 @@ Your organisation is deploying AI systems that behave differently every time the
 **The ask:** Classify your AI systems by risk tier, set quantified appetite per tier, and require measured control evidence - not assertions. This page shows you how.
 
 **Time to read:** 5 minutes. **Time to act:** Start Monday.
-
----
 
 ## Five Runtime Control Principles
 
@@ -58,8 +54,6 @@ You already have NIST AI RMF, ISO 42001, and the EU AI Act. This framework isn't
 
 This framework is the **implementation layer** that sits between what standards require and what engineering teams build. It turns "implement risk management measures" (EU AI Act Art. 9) into "here are the three control layers, here's how to measure each one, and here's what happens when they fail."
 
----
-
 ## Why AI Risk Is Different
 
 AI introduces a risk category your frameworks weren't designed for: **non-deterministic system behaviour.**
@@ -73,8 +67,6 @@ Three questions your board is already asking:
 | **How much AI risk do we have?** | Inventory and classification | [Risk Tiers](../core/risk-tiers.md) - six dimensions, four tiers |
 | **Are our controls actually working?** | Measurement, not assertion | [Risk Assessment](../core/risk-assessment.md) - quantified per layer |
 | **What happens when controls fail?** | Defined resilience posture | [PACE Resilience](../PACE-RESILIENCE.md) - predetermined degradation |
-
----
 
 ## The Cost of Doing Nothing
 
@@ -98,8 +90,6 @@ Every one of these was preventable with controls this framework describes. Every
 | **ISO 42001** | AI management system certification | Market access, contractual requirements |
 
 The question isn't whether to manage AI risk. It's whether you have a defensible methodology when the regulator asks how.
-
----
 
 ## What This Framework Gives You
 
@@ -169,8 +159,6 @@ Pre-built crosswalks to the standards your GRC team already tracks:
 | OWASP LLM Top 10 | [Full control mapping](../infrastructure/mappings/owasp-llm-top10.md) |
 | NIST CSF 2.0 | [Function mapping](../infrastructure/mappings/csf-2.0.md) |
 
----
-
 ## Your Starting Path
 
 | # | Document | Why You Need It | Time |
@@ -183,8 +171,6 @@ Pre-built crosswalks to the standards your GRC team already tracks:
 
 **For regulated industries:** Add [High-Risk Financial Services](../extensions/regulatory/high-risk-financial-services.md) and [EU AI Act Crosswalk](../extensions/regulatory/eu-ai-act-crosswalk.md).
 
----
-
 ## What You Can Do Monday Morning
 
 1. **Inventory and classify** every AI system using the [Risk Tiers](../core/risk-tiers.md) six-dimension scoring. Most organisations don't know how many AI systems they're running or at what tier.
@@ -196,8 +182,6 @@ Pre-built crosswalks to the standards your GRC team already tracks:
 4. **Add resilience posture to your risk register.** For each AI system, record which state it's in (Primary / Alternate / Contingency / Emergency) and what triggers transitions between states. This is your operational resilience evidence.
 
 5. **Schedule quarterly recalibration.** Control effectiveness rates change. Require red team results, evaluation accuracy measurements, and human reviewer agreement studies to update residual risk calculations. The recalibration schedule is in the [Risk Assessment](../core/risk-assessment.md) document.
-
----
 
 ## Anticipating Pushback
 
@@ -213,6 +197,3 @@ You can. Guardrail effectiveness is measured through red team exercises. Evaluat
 **"This is too complex for our current maturity."**
 Start with the [Cheat Sheet](../CHEATSHEET.md) and apply tier classification only. Even classifying your AI systems into four tiers, without implementing any new controls, gives you a risk inventory you didn't have before. That alone is a board-reportable improvement.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

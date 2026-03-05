@@ -5,8 +5,6 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
----
-
 ## [Unreleased]
 
 ### Planned
@@ -15,8 +13,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Case studies from production deployments
 - Judge accuracy benchmarks from real deployments
 - Epistemic risk detection algorithm specifications
-
----
 
 ## [0.8.4] - 2026-03-01
 
@@ -29,14 +25,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Evaluation Integrity Risks** - Reframed from "mitigate sandbagging" to "sandbagging is operationally irrelevant as a breakout vector" under the constrain-regardless architecture.
 - **Containment Through Declared Intent** - Added constrain-regardless framing, action-space vs reasoning-space distinction, parental analogy, and closed-loop control system language.
 
----
-
 ## [0.8.3] - 2026-03-01
 
 ### Added
 - **Containment Through Declared Intent** - New insights page articulating the framework's unified defence thesis. Declared intent is the organising principle that gives every layer (guardrails, Judge, monitoring, human oversight, PACE) its reference point. Covers how intent flows through the defence stack, downstream intent awareness between agents, the confinement model, and honest assessment of where the theory breaks down.
-
----
 
 ## [0.8.2] - 2026-03-01
 
@@ -45,8 +37,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Producer/Implementer/Principal Accountability** - Added supply chain accountability model to the AI Governance Operating Model. Complements the three-lines governance model with a supply chain lens for distributing responsibility across technology producers, service implementers, and human principals. Credit to CoSAI.
 - **SLSA-Style Supply Chain Provenance** - Added to ET-04 (MCP as Attack Surface). Recommends adapting SLSA for verifiable provenance of agent and model artifacts: signed build provenance, content hashes for tool definitions, and verifiable chain from source to deployment.
 
----
-
 ## [0.8.1] - 2026-03-01
 
 ### Added
@@ -54,8 +44,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - **100-Agent Stress Test** - Added cross-reference to the new e-commerce stress test in the relationship table.
-
----
 
 ## [0.8.0] - 2026-03-01
 
@@ -76,8 +64,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Rationale
 The UK AI Security Institute's Frontier AI Trends Report (December 2025) is the strongest empirical backing for runtime behavioural security from a government body. Its findings directly validate the framework's core thesis (runtime controls matter more than deployment-time security alone) and provide concrete data points that strengthen multiple framework sections. Credit given throughout via source attribution.
-
----
 
 ## [0.7.0] - 2026-02-15
 
@@ -103,8 +89,6 @@ The UK AI Security Institute's Frontier AI Trends Report (December 2025) is the 
 ### Rationale
 The framework is comprehensive but has no production deployments. Rather than ignoring this gap, these additions address it directly: honest status assessment, retroactive alignment against real incidents, and a living record of how the framework evolves in response to real-world events. Credibility comes from transparency, not claims.
 
----
-
 ## [0.6.0] - 2026-02-08
 
 ### Changed
@@ -129,8 +113,6 @@ Reality check revealed the framework was thought leadership, not a buildable blu
 - **Implementors**: Start with IMPLEMENTATION_GUIDE.md (code)
 - **Architects/Governance**: Use the full Framework (strategy)
 
----
-
 ## [0.5.0] - 2026-02-07
 
 ### Changed
@@ -151,8 +133,6 @@ Reality check revealed the framework was thought leadership, not a buildable blu
 
 ### Rationale
 Framework had grown to 48 files. Core + Extensions model provides clear "start here" path (5 docs) while preserving depth for those who need it.
-
----
 
 ## [0.4.1] - 2026-02-06
 
@@ -179,8 +159,6 @@ Framework had grown to 48 files. Core + Extensions model provides clear "start h
 - Updated bypass-prevention.md and technical-controls.md to reference SVG diagrams instead of ASCII art
 - Clarified lifecycle scope in README - framework is operationally focused (deployment → operation → incident response), not full AI/ML lifecycle
 
----
-
 ## [0.4.0] - 2026-02-05
 
 ### Added
@@ -194,8 +172,6 @@ Framework had grown to 48 files. Core + Extensions model provides clear "start h
 ### Changed
 - Updated README with Templates section and new document links
 - Moved "Threats" section to "Threats and Risks" with expanded content
-
----
 
 ## [0.3.0] - 2026-02-05
 
@@ -230,8 +206,6 @@ Framework had grown to 48 files. Core + Extensions model provides clear "start h
 ### Fixed
 - XML entity escaping in SVG files (ampersand encoding)
 
----
-
 ## [0.2.0] - 2026-01-15
 
 ### Added
@@ -249,8 +223,6 @@ Framework had grown to 48 files. Core + Extensions model provides clear "start h
 - Enhanced HITL model documentation
 - Improved Judge model selection guidance
 
----
-
 ## [0.1.0] - 2025-12-01
 
 ### Added
@@ -266,8 +238,6 @@ Framework had grown to 48 files. Core + Extensions model provides clear "start h
 - Maturity model
 - Example implementations (customer service, document assistant, credit decision)
 
----
-
 ## Categories
 
 - `Added` for new features
@@ -277,6 +247,3 @@ Framework had grown to 48 files. Core + Extensions model provides clear "start h
 - `Fixed` for any bug fixes
 - `Security` for vulnerability fixes
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

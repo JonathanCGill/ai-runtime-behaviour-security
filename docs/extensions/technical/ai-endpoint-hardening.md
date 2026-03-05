@@ -4,8 +4,6 @@
 
 This guide consolidates endpoint-specific security controls that are distributed across the framework's [network](../../infrastructure/controls/network-and-segmentation.md), [IAM](../../infrastructure/controls/identity-and-access.md), [secrets](../../infrastructure/controls/secrets-and-credentials.md), and [data protection](../../infrastructure/controls/data-protection.md) domains into a single implementation reference. If you're the engineer deploying model endpoints, start here.
 
----
-
 ## Why AI Endpoints Are Different
 
 Traditional API hardening focuses on authentication, rate limiting, and input validation. AI inference endpoints introduce additional concerns:
@@ -21,8 +19,6 @@ Traditional API hardening focuses on authentication, rate limiting, and input va
 
 The core difference: **a traditional API processes structured data deterministically. An AI endpoint processes unstructured natural language non-deterministically.** Every input is potentially adversarial, and every output is potentially wrong.
 
----
-
 ## Endpoint Architecture
 
 AI endpoints must be deployed behind the framework's [zone architecture](../../infrastructure/controls/network-and-segmentation.md#net-01-network-zone-architecture):
@@ -35,8 +31,6 @@ Consumer → Zone 1 (API Gateway + WAF)
 ```
 
 **The model endpoint is never directly addressable.** All access routes through the API gateway (NET-07) and guardrails (NET-02). This is the non-negotiable foundation.
-
----
 
 ## Gateway Hardening
 
@@ -65,8 +59,6 @@ The API gateway is the single entry point and first line of defence. Harden it a
 | **Consumer identification** | Log the authenticated identity, source IP, user agent, and session ID for every request. Required for [identity correlation](soc-integration.md#identity-correlation). |
 | **Endpoint routing** | Route to specific model versions via gateway config, not consumer choice. Consumers don't get to select which model version serves their request. |
 
----
-
 ## Token-Based Rate Limiting
 
 Traditional request-per-second rate limiting is insufficient for AI endpoints because:
@@ -88,8 +80,6 @@ Traditional request-per-second rate limiting is insufficient for AI endpoints be
 ### Burst Protection
 
 Allow short bursts above the per-minute limit, but enforce a sliding window. This prevents legitimate batch operations from being blocked while still catching sustained abuse.
-
----
 
 ## Model Endpoint Hardening
 
@@ -123,8 +113,6 @@ The model inference endpoint itself - whether self-hosted, managed, or third-par
 | **Customer-managed keys** | For Tier 3+, use customer-managed encryption keys for data at rest on the managed service. |
 | **Quota management** | Set provider-level quotas per deployment to prevent cost runaway. Alert at 80% quota consumption. |
 
----
-
 ## Tool Server Hardening (MCP and Native)
 
 When AI agents invoke tools - via MCP servers, native function calls, or API integrations - the tool endpoints require their own hardening.
@@ -141,8 +129,6 @@ When AI agents invoke tools - via MCP servers, native function calls, or API int
 | **MCP server signing** | MCP servers must be signed with verified manifests (SC-2.2). Unsigned or modified MCP servers are blocked. |
 | **Timeout enforcement** | Set max execution time per tool call. An agent waiting indefinitely for a tool response is a denial-of-service vector. |
 | **Sandboxing** | Code execution tools must run in sandboxed environments with no network access, no filesystem persistence, and hard resource limits (SAND-01 through SAND-06). |
-
----
 
 ## Deployment Security
 
@@ -178,8 +164,6 @@ When deploying model updates or configuration changes:
 
 Model updates are not code updates. A new model version can change behaviour in ways that bypass existing guardrails. Treat model deployment with the same caution as infrastructure changes.
 
----
-
 ## PACE Resilience for Endpoints
 
 Apply the [PACE resilience model](../../PACE-RESILIENCE.md) to endpoint availability:
@@ -192,8 +176,6 @@ Apply the [PACE resilience model](../../PACE-RESILIENCE.md) to endpoint availabi
 | **Emergency** | Confirmed compromise | Kill switch. All traffic rejected with maintenance response. Incident response activated. |
 
 The kill switch must be infrastructure-level (gateway config or DNS), not dependent on the model endpoint itself being responsive.
-
----
 
 ## Monitoring and Alerting
 
@@ -210,8 +192,6 @@ Endpoint-specific signals to feed into the [SOC Content Pack](soc-content-pack.m
 | Request from unknown consumer | Any | Medium |
 | Quota approaching limit | >80% of allocated quota | Low |
 
----
-
 ## Three-Layer Mapping
 
 | Hardening Area | Guardrails | LLM-as-Judge | Human Oversight |
@@ -222,8 +202,6 @@ Endpoint-specific signals to feed into the [SOC Content Pack](soc-content-pack.m
 | **Tool servers** | Parameter validation on tool inputs | Judge evaluates tool invocation patterns | Humans define tool allowlists |
 | **Deployment** | Canary deployment monitors guardrail effectiveness | Judge metrics compared between old and new versions | Humans approve production rollout |
 | **PACE** | Guardrail degradation triggers Alternate mode | Judge degradation triggers Contingency escalation | Human-activated Emergency kill switch |
-
----
 
 ## OWASP Mapping
 
@@ -238,8 +216,6 @@ Endpoint-specific signals to feed into the [SOC Content Pack](soc-content-pack.m
 | Private endpoints | LLM06: Excessive Agency | AGT-09: Inadequate Sandboxing |
 | Kill switch | - | AGT-08: Autonomous Action Without Oversight |
 
----
-
 ## Related
 
 - [Network & Segmentation](../../infrastructure/controls/network-and-segmentation.md) - Zone architecture and traffic rules
@@ -250,6 +226,3 @@ Endpoint-specific signals to feed into the [SOC Content Pack](soc-content-pack.m
 - [SOC Integration](soc-integration.md) - SOC architecture and triage procedures
 - [Bypass Prevention](bypass-prevention.md) - Guardrail bypass taxonomy and defences
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

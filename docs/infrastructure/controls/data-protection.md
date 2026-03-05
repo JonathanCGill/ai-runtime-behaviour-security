@@ -4,8 +4,6 @@
 > **Purpose:** Protect sensitive data as it flows through AI system components - in prompts, responses, context windows, vector stores, and logs.  
 > **Relationship:** Supports the Guardrails layer (by detecting and redacting sensitive data in model I/O) and the Human Oversight layer (by ensuring humans can review AI interactions without unnecessary data exposure).
 
----
-
 ## Why AI Data Protection Is Different
 
 Traditional data protection focuses on data at rest and in transit between known endpoints. AI systems introduce data flows that don't exist in conventional applications:
@@ -22,8 +20,6 @@ Traditional data protection focuses on data at rest and in transit between known
 
 The core problem: **AI context windows mix data from multiple trust levels into a single processing unit.** A prompt containing public instructions and private customer data is processed identically by the model, with no internal boundary between them.
 
----
-
 ## Control Objectives
 
 | ID | Objective | Risk Tiers |
@@ -36,8 +32,6 @@ The core problem: **AI context windows mix data from multiple trust levels into 
 | DAT-06 | Prevent sensitive data leakage via model responses | Tier 2+ |
 | DAT-07 | Manage conversation history retention and purging | All |
 | DAT-08 | Protect evaluation data sent to the Judge | Tier 2+ |
-
----
 
 ## DAT-01: Data Classification at AI Boundaries
 
@@ -65,8 +59,6 @@ Define categories aligned with your data governance framework. Common AI-relevan
 | **Confidential** | Customer PII, financial data, HR records | Redact from logs, access-controlled retrieval |
 | **Restricted** | Credentials, health records, legal privilege | Block from context windows, never log in plain text |
 
----
-
 ## DAT-02: Data Minimisation
 
 Only the data necessary for the AI task should enter the context window. This is the principle of least privilege applied to data, not just access.
@@ -78,8 +70,6 @@ Only the data necessary for the AI task should enter the context window. This is
 - **Selective tool results:** When agents retrieve data from backend systems, filter the response to include only the fields relevant to the task. Don't inject full database records when only two fields are needed.
 - **Context window pruning:** For long conversations, implement summarisation to reduce accumulated sensitive data in context. Don't carry forward full conversation history indefinitely.
 - **Prompt sanitisation:** Strip metadata, headers, and formatting artefacts that may contain sensitive data unrelated to the user's actual question.
-
----
 
 ## DAT-03: PII Detection and Redaction
 
@@ -110,8 +100,6 @@ Tokenisation is preferred when referential integrity matters (the model needs to
 - **Log pipeline:** Redact PII before writing to log storage (see LOG-09).
 - **Evaluation pipeline:** Redact or tokenise PII before sending I/O to the Judge (see DAT-08).
 
----
-
 ## DAT-04: Access-Controlled RAG Retrieval
 
 When a model retrieves documents from a vector store to augment its response (RAG), the retrieval must enforce the requesting user's access permissions. Semantic similarity alone is not an access control.
@@ -131,8 +119,6 @@ Vector stores index documents by embedding similarity. A query about "Q3 revenue
 - User A asks a question and receives documents only accessible to User B's department.
 - An attacker crafts a prompt that triggers retrieval of privileged documents via semantic similarity.
 - Prompt injection in an ingested document causes it to be retrieved for unrelated queries.
-
----
 
 ## DAT-05: Encryption Standards
 
@@ -166,8 +152,6 @@ For regulated deployments, enforce data residency constraints:
 
 Data residency is enforced at the network layer (egress proxy, API gateway routing) rather than by agent configuration. Agents cannot choose non-compliant endpoints because non-compliant endpoints are unreachable.
 
----
-
 ## DAT-06: Response Leakage Prevention
 
 Models can leak sensitive data in responses through several mechanisms:
@@ -184,8 +168,6 @@ Models can leak sensitive data in responses through several mechanisms:
 - For multi-tenant deployments, conversation contexts are strictly isolated - no shared state between users at the model layer.
 - For Tier 3+ systems, output classification compares the sensitivity level of the response against the user's access level.
 
----
-
 ## DAT-07: Conversation History Management
 
 Persistent conversation history accumulates sensitive data over time. A conversation that starts with a benign question may, ten messages later, contain PII, financial data, and internal documents.
@@ -198,8 +180,6 @@ Persistent conversation history accumulates sensitive data over time. A conversa
 - For Tier 3+ systems, implement rolling summarisation that replaces detailed history with a summary, discarding the sensitive raw content.
 - Conversation exports (if supported) must apply the same PII redaction rules as the log pipeline.
 
----
-
 ## DAT-08: Evaluation Data Protection
 
 Model I/O sent to the LLM-as-Judge for evaluation contains all the sensitive data from the original interaction. The evaluation pipeline must protect this data with the same rigour as the primary pipeline.
@@ -211,8 +191,6 @@ Model I/O sent to the LLM-as-Judge for evaluation contains all the sensitive dat
 - Judge does not persist evaluation inputs beyond the evaluation session.
 - Judge logs store tokenised versions, not original content.
 - If using a third-party evaluation service, the same data protection standards apply - sensitive data doesn't leave the security boundary without classification-appropriate controls.
-
----
 
 ## Three-Layer Mapping
 
@@ -227,8 +205,6 @@ Model I/O sent to the LLM-as-Judge for evaluation contains all the sensitive dat
 | DAT-07 History management | Guardrails on history length and content | Judge evaluates history summarisation quality | Humans define retention policies |
 | DAT-08 Eval data protection | Guardrails on data before Judge evaluation | Judge operates on tokenised data | Humans audit evaluation data handling |
 
----
-
 ## Platform-Neutral Implementation Checklist
 
 - [ ] Automated data classification at all AI system boundaries
@@ -242,6 +218,3 @@ Model I/O sent to the LLM-as-Judge for evaluation contains all the sensitive dat
 - [ ] Multi-tenant context isolation verified and tested
 - [ ] Data classification metadata required for all vector store documents
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -2,8 +2,6 @@
 
 *The same model can be low-risk or critical - classification is about deployment, not capability*
 
----
-
 "We're using GPT-4. What controls do we need?"
 
 Wrong question.
@@ -11,8 +9,6 @@ Wrong question.
 GPT-4 in a sandbox where developers experiment with prompts needs minimal controls. GPT-4 making credit decisions needs maximum controls. Same model. Completely different risk.
 
 Risk classification is about what the AI system does, not what it can do.
-
----
 
 ## The Technology Trap
 
@@ -23,8 +19,6 @@ It's tempting to classify AI systems by their underlying technology:
 - "Small models are low-risk"
 
 This is backwards. A small model that denies loans is higher risk than a massive model that suggests meeting times. Capability doesn't determine impact. Deployment does.
-
----
 
 ## What Actually Determines Risk
 
@@ -78,8 +72,6 @@ Credit decisions, medical advice, employment screening, and financial recommenda
 
 Regulation elevates risk tier.
 
----
-
 ## The Risk Matrix
 
 | Factor | Lower Risk | Higher Risk |
@@ -92,8 +84,6 @@ Regulation elevates risk tier.
 | Regulation | Unregulated | Regulated |
 
 A system that's high on multiple factors is high-tier. A system that's low across the board is low-tier. Most systems fall somewhere in the middle.
-
----
 
 ## Tier Definitions
 
@@ -113,8 +103,6 @@ A system that's high on multiple factors is high-tier. A system that's low acros
 
 *Public FAQ bot. Content suggestions. Brainstorming tools.*
 
----
-
 ## Controls Follow Tier
 
 Once you've classified, controls become clear:
@@ -128,8 +116,6 @@ Once you've classified, controls become clear:
 | Logging retention | 90 days | 1 year | 3 years | 7 years |
 
 Don't over-engineer LOW tier systems. Don't under-invest in CRITICAL ones.
-
----
 
 ## Classification Changes
 
@@ -149,8 +135,6 @@ Risk tier isn't permanent. Systems move.
 
 Review classifications at least annually. The system you deployed last year may have evolved.
 
----
-
 ## The Practical Test
 
 When assessing a new AI system, ask:
@@ -161,8 +145,6 @@ When assessing a new AI system, ask:
 
 The answers tell you more about risk tier than any technical specification.
 
----
-
 ## The Bottom Line
 
 Stop asking "what model is this?" Start asking "what does it do, to whom, with what data?"
@@ -171,6 +153,3 @@ Risk lives in deployment, not technology.
 
 Classify accordingly.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -2,8 +2,6 @@
 
 **How the framework's 80 infrastructure controls map to NIST CSF 2.0 Functions, Categories, and Subcategories.**
 
----
-
 ## Relationship
 
 This framework provides AI-specific infrastructure controls that implement CSF 2.0 outcomes at the deployment layer. CSF 2.0 defines *what* cybersecurity outcomes to achieve. This framework defines *how* to achieve them for AI systems in production.
@@ -19,8 +17,6 @@ The mapping below covers the CSF 2.0 "Secure" focus area as described in NIST IR
 | **Human Oversight** | GOVERN (GV) | Decision authority - humans accountable for high-risk outcomes |
 
 The infrastructure controls that enforce these layers map across all six CSF Functions.
-
----
 
 ## Mapping by CSF Function
 
@@ -161,8 +157,6 @@ The RECOVER Function covers recovery plan execution and communication. This fram
 | **RC.CO-03** | Recovery activities and progress in restoring operational capabilities are communicated to designated internal and external stakeholders | Incident Response (IR) | Stakeholder communication includes: model provider notification, regulatory reporting where required, user notification if AI decisions affected |
 | **RC.CO-04** | Public updates on incident recovery are shared using approved methods and messaging | Incident Response (IR) | Organisational communication practice. Framework provides the forensic evidence; communications are an operational concern |
 
----
-
 ## Coverage Summary
 
 ### By CSF Function
@@ -200,8 +194,6 @@ The RECOVER Function covers recovery plan execution and communication. This fram
 | **LLM-as-Judge** | DETECT | DE.CM-09 (runtime monitoring), DE.AE-02 (event analysis), DE.AE-03 (correlation) |
 | **Human Oversight** | GOVERN, RESPOND | GV.RR-01 (accountability), GV.RR-02 (roles/authorities), RS.MA-04 (escalation) |
 
----
-
 ## Subcategories Not Mapped
 
 The following CSF 2.0 subcategory areas have no direct mapping to this framework's infrastructure controls. This is expected - the framework addresses AI deployment security, not full enterprise cybersecurity.
@@ -215,8 +207,6 @@ The following CSF 2.0 subcategory areas have no direct mapping to this framework
 | Positive risk / opportunity (GV.RM-07) | Framework addresses risk mitigation only |
 | Threat intelligence integration (DE.AE-07) | Organisational practice; framework assumes it informs control decisions |
 
----
-
 ## Using This Mapping
 
 **For organisations already running CSF 2.0:** Use this mapping to identify which CSF outcomes are addressed by this framework's AI-specific controls. Overlay the framework onto your existing CSF programme rather than replacing it.
@@ -225,6 +215,3 @@ The following CSF 2.0 subcategory areas have no direct mapping to this framework
 
 **For audit and compliance:** The mapping provides traceability from this framework's 80 infrastructure controls to CSF 2.0 outcomes, supporting compliance evidence for organisations that report against CSF.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

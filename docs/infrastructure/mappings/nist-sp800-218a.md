@@ -2,8 +2,6 @@
 
 **How this framework relates to NIST SP 800-218A: Secure Software Development Practices for Generative AI and Dual-Use Foundation Models.**
 
----
-
 ## Relationship
 
 NIST SP 800-218A and this framework address different lifecycle phases of AI systems. SP 800-218A covers secure development - from data sourcing through model release. This framework covers secure deployment - from production through incident response.
@@ -18,8 +16,6 @@ SP 800-218A explicitly states that deployment and operation are out of its scope
 | **Risk approach** | Priority levels (High/Medium/Low) | Risk tiers with proportionate controls |
 
 Organisations that fine-tune models operate in both phases and should apply both frameworks.
-
----
 
 ## Mapping: SP 800-218A Practices to Framework Controls
 
@@ -71,8 +67,6 @@ This mapping shows where SP 800-218A practices connect to controls in this frame
 | **RV.2.2** Assess and update response options | Medium | Deployment-time response options include guardrail updates, Judge criteria changes, model rollback, and circuit breakers. | IR controls, TA-01 through TA-06 (Tool Access - for restricting capabilities), SS-01 through SS-05 (Session & Scope) |
 | **RV.3.3** Review and update the vulnerability response process | Low | Post-incident review should improve both development and deployment controls. Feedback loop between the two frameworks. | IR-07 (Post-incident review), IR-08 (Lessons learned) |
 
----
-
 ## Key Handoff Points
 
 These are the areas where SP 800-218A practices hand off to this framework's controls. Gaps at these handoff points create blind spots.
@@ -84,8 +78,6 @@ These are the areas where SP 800-218A practices hand off to this framework's con
 | **Threat model** | Identify AI-specific threats during development | Implement controls proportionate to identified threats at deployment |
 | **Vulnerability response** | Fix vulnerabilities in model code and training | Mitigate at runtime through guardrail updates, Judge criteria, circuit breakers |
 | **Environment security** | Protect development environments | Protect deployment environments (network, sandbox, access controls) |
-
----
 
 ## Control ID Reference
 
@@ -105,6 +97,3 @@ The control IDs referenced above use the domain prefix scheme from this framewor
 | DC | Delegation Chains |
 | SB | Sandbox Patterns |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

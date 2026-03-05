@@ -3,8 +3,6 @@
 > **Purpose:** Platform-specific guidance for implementing the infrastructure controls on AWS using Amazon Bedrock as the model hosting platform.  
 > **Status:** Reference patterns - adapt to your specific architecture and AWS account structure.
 
----
-
 ## Architecture Mapping
 
 | Framework Zone | AWS Implementation |
@@ -15,8 +13,6 @@
 | **Zone 4 - Ingestion** | AWS Lambda / AWS Step Functions + Amazon Bedrock Knowledge Bases (ingestion), OpenSearch Serverless (vector write) |
 | **Zone 5 - Control Plane** | AWS Systems Manager Parameter Store / Secrets Manager, AWS Config, IAM Identity Center |
 | **Zone 6 - Logging** | Amazon CloudWatch Logs, Amazon S3 (log archive), Amazon Security Lake, SIEM integration |
-
----
 
 ## Identity & Access (IAM Controls)
 
@@ -46,8 +42,6 @@
 - Use **AWS STS AssumeRole** with `DurationSeconds` set to minimum needed (15 min to 1 hour).
 - Set **session tags** on STS tokens to bind to agent session ID.
 - **IAM condition keys** (`aws:PrincipalTag/SessionId`) restrict token use to originating session.
-
----
 
 ## Logging & Observability (LOG Controls)
 
@@ -83,8 +77,6 @@
 - Export to enterprise SIEM via Security Lake subscriber or S3 export.
 - **CloudWatch Logs subscription filters** for real-time streaming to SIEM.
 
----
-
 ## Network & Segmentation (NET Controls)
 
 ### NET-01: Network Zones
@@ -113,8 +105,6 @@
 - Use **AWS Network Firewall** for domain-based egress filtering on external tool calls.
 - **VPC Flow Logs** capture all network traffic for NET-08 monitoring.
 
----
-
 ## Data Protection (DAT Controls)
 
 ### DAT-03: PII Detection
@@ -137,8 +127,6 @@
 - S3 log buckets encrypted with separate KMS key.
 - All Bedrock API calls over TLS 1.2 via PrivateLink endpoints.
 
----
-
 ## Secrets & Credentials (SEC Controls)
 
 ### SEC-01/03: Vault and Context Isolation
@@ -153,8 +141,6 @@
 - **CodeGuru Security** for scanning AI application code.
 - Custom guardrail rules in Bedrock for credential pattern detection in I/O.
 
----
-
 ## Incident Response (IR Controls)
 
 ### IR-04: Rollback
@@ -163,8 +149,6 @@
 - Bedrock Guardrail versions - create new version, point to previous known-good version.
 - Knowledge Base rollback: re-sync from known-good S3 source data.
 - **AWS CodePipeline** with manual approval gates for all AI component deployments.
-
----
 
 ## AWS-Specific Considerations
 
@@ -176,6 +160,3 @@
 | **Model access** | Bedrock requires explicit model access grants per account. Use this as an additional control point (SUP-01). |
 | **CloudTrail** | Enable CloudTrail for all Bedrock management API calls. This covers control plane auditing (IAM-08). |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -4,15 +4,11 @@
 > Covers: ASI09 (Human-Agent Trust Exploitation) · ASI10 (Rogue Agents) · LLM09 (Misinformation) · LLM10 (Unbounded Consumption)
 > Also covers: GV-01 (Non-determinism/Irreproducibility) · SR-06 (Logging as Breach Vector) · HF-02 (Accountability Blur)
 
----
-
 ## Principle
 
 You cannot secure what you cannot see. Every agent decision, every inter-agent message, every tool invocation, and every output is captured in an immutable audit trail. Monitoring is not retrospective - it is continuous, automated, and feeds directly into the PACE escalation logic. At Tier 3, the observability system is itself an independent agent with its own infrastructure and kill switch authority.
 
 Observability is the domain that makes all other domains verifiable. Without it, identity controls are unauditable, data fencing is uncheckable, and execution caps are unenforceable.
-
----
 
 ## Why This Matters in Multi-Agent Systems
 
@@ -23,8 +19,6 @@ Observability is the domain that makes all other domains verifiable. Without it,
 **Trust exploitation scales with agent confidence.** ASI09 - Human-Agent Trust Exploitation - is particularly dangerous in multi-agent systems because agents can present consensus. "All three agents agree this is the right action" is more persuasive than a single agent's recommendation, even when the consensus is based on shared poisoned data or correlated errors.
 
 **Rogue behaviour can be concealed by collaboration.** ASI10 - Rogue Agents - is harder to detect when the rogue agent's outputs are processed by other agents before reaching human review. The observability layer must monitor intermediate states, not just final outputs.
-
----
 
 ## Controls by Tier
 
@@ -64,8 +58,6 @@ All Tier 2 controls remain active, plus:
 | **OB-3.4** Cross-agent correlation | Automated detection of correlated anomalies across multiple agents | Catches coordinated failures, shared poisoned data, and consensus manipulation. |
 | **OB-3.5** Decision traceability | For regulated decisions, full trace captured in sufficient detail for regulatory explanation | Standard is explainability (the decision can be explained after the fact), not reproducibility (the same input produces the same output). Satisfies non-determinism governance requirement (GV-01). |
 
----
-
 ## Anomaly Scoring Model (Tier 2+)
 
 The anomaly score is a composite metric that drives PACE escalation decisions. It is not a single number - it is a vector of signals, each weighted by the agent's risk profile.
@@ -94,8 +86,6 @@ The anomaly score is a composite metric that drives PACE escalation decisions. I
 | 80–100 | Critical. PACE P→C or P→E depending on scope. Incident response engaged. |
 
 Weights and thresholds should be calibrated during Tier 1 operations using the manual review data (OB-1.3, OB-1.4) and adjusted as operational baselines mature.
-
----
 
 ## Testing Criteria
 
@@ -130,8 +120,6 @@ Weights and thresholds should be calibrated during Tier 1 operations using the m
 | OB-T3.4 | Observability agent kill switch | Simulate a scenario where the observability agent detects a critical anomaly and no human responds within 5 minutes. Confirm the observability agent triggers Emergency shutdown. |
 | OB-T3.5 | Decision traceability | Select a regulated decision from the audit trail. Reconstruct a complete regulatory explanation from the trace data alone. Explanation must be producible within 4 hours. |
 
----
-
 ## Decision Chain Log Format
 
 Every entry in the decision chain should include:
@@ -161,8 +149,6 @@ Every entry in the decision chain should include:
 
 This format enables: full chain reconstruction, per-agent performance trending, PACE phase tracking, and forensic investigation. At Tier 2+, the `previous_entry_hash` creates a hash chain that makes tampering detectable.
 
----
-
 ## Maturity Indicators
 
 | Level | Indicator |
@@ -172,8 +158,6 @@ This format enables: full chain reconstruction, per-agent performance trending, 
 | **Defined** | Immutable decision chains. Continuous anomaly scoring. Drift detection. SIEM integration. Cost monitoring with alerts. |
 | **Quantitatively Managed** | Anomaly detection accuracy measured (true positive rate, false positive rate). Drift detection latency tracked. Decision chain reconstruction time measured against SLA. |
 | **Optimising** | Long-window behavioural analysis. Independent observability agent. Cross-agent correlation. Causal chain reconstruction automated. Anomaly scoring weights tuned from operational data. |
-
----
 
 ## Common Pitfalls
 
@@ -189,6 +173,3 @@ This format enables: full chain reconstruction, per-agent performance trending, 
 
 **No named human on the decision chain.** "The agents decided" is not accountability. Every workflow must have a designated human owner. The decision chain log must record who that person is. Judge approval is a tool, not a transfer of responsibility.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -111,6 +111,3 @@ This repo defines:
 
 The parent framework answers *what*. This repo answers *how*.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

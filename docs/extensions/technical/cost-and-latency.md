@@ -15,8 +15,6 @@ Each layer adds cost and latency:
 
 For a Tier 3 system running the full pattern on every request, the Judge alone can cost more than the generator.
 
----
-
 ## Sampling Strategies
 
 You don't have to judge every request. Match evaluation density to risk.
@@ -53,8 +51,6 @@ Not all requests carry equal risk. Sample by category:
 | Decision support | 100% | Consequential output |
 | Actions / tool use | 100% | Real-world impact |
 
----
-
 ## Latency Budgets
 
 Design your latency budget before adding controls.
@@ -87,8 +83,6 @@ Design your latency budget before adding controls.
 | Guardrail latency spikes | ML classifier cold start | Pre-warm classifiers, use rule-based for latency-critical path |
 | Multiple judge calls per request | Evaluating multiple dimensions separately | Batch evaluations into a single prompt |
 | Human review blocks delivery | Synchronous human review on all flags | Async review for medium flags; synchronous only for high/critical |
-
----
 
 ## Cost Optimisation
 
@@ -127,8 +121,6 @@ Judge evaluations on identical or near-identical inputs can be cached:
 
 **Only cache for Tier 1.** For Tier 2–3, the risk of cache-based bypass outweighs the cost saving.
 
----
-
 ## Budgeting Template
 
 | Line Item | Monthly Estimate |
@@ -144,6 +136,3 @@ Judge evaluations on identical or near-identical inputs can be cached:
 
 **Rule of thumb:** Security overhead is typically 15–40% of generator cost for Tier 2, and 40–100% for Tier 3.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

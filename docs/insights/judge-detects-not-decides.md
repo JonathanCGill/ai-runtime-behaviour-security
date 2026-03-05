@@ -2,13 +2,9 @@
 
 *Why using LLMs to block transactions is a mistake*
 
----
-
 When teams discover that guardrails miss things, the instinct is to add another AI layer that can catch what rules-based systems can't. An LLM that evaluates every transaction. If it spots a problem, block it.
 
 This is a mistake. A well-intentioned, logical mistake - but a mistake.
-
----
 
 ## The Appeal of Active Blocking
 
@@ -21,8 +17,6 @@ The reasoning makes sense on the surface:
 It's the same logic that drives spam filters, fraud detection, and content moderation. Add intelligence. Catch more. Block faster.
 
 But AI-evaluating-AI is different. Here's why.
-
----
 
 ## Three Reasons the Judge Shouldn't Block
 
@@ -54,8 +48,6 @@ An AI that flags a transaction for human review is providing information. A huma
 
 This isn't a technicality. It's the difference between defensible governance and regulatory exposure.
 
----
-
 ## The Right Pattern
 
 The Judge operates **after the fact**, reviewing what has already happened:
@@ -63,8 +55,6 @@ The Judge operates **after the fact**, reviewing what has already happened:
 ![Judge Async Flow](../images/judge-async-flow.svg)
 
 The transaction completes before the Judge evaluates. The Judge informs future action; it doesn't gate current action.
-
----
 
 ## What the Judge Does Well
 
@@ -78,8 +68,6 @@ Freed from real-time blocking, the Judge can:
 
 - **Learn from feedback.** When humans disagree with findings, use that to improve. The feedback loop only works if there's a human in it.
 
----
-
 ## Making Human Oversight Scalable
 
 The Judge doesn't replace human oversight. It makes human oversight possible at scale.
@@ -89,8 +77,6 @@ Without the Judge, human review means sampling. Maybe 1% of transactions. Maybe 
 With the Judge, human review is targeted. 100% of transactions evaluated; only anomalies surfaced for human attention. Humans focus on what matters.
 
 **The Judge is a force multiplier, not a replacement.**
-
----
 
 ## The Bottom Line
 
@@ -106,6 +92,3 @@ Then let humans decide.
 
 The Judge detects. Humans decide. Keep it that way.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

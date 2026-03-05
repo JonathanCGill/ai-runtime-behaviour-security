@@ -4,15 +4,11 @@
 > Covers: ASI03 (Identity & Privilege Abuse) · ASI07 (Insecure Inter-Agent Comms) · LLM06 (Excessive Agency)
 > Also covers: SR-05 (Secrets Leakage) · CR-03 (Role Drift)
 
----
-
 ## Principle
 
 Every agent is a non-human actor with its own identity, credentials, and permission scope. No agent inherits permissions from the orchestrator. No agent shares credentials with another agent. Trust is verified on every interaction, not assumed from membership in the same orchestration.
 
 This domain is the foundation for all other MASO controls. Without reliable agent identity, you cannot enforce data fencing, attribute actions in the audit trail, or isolate a compromised agent. Get this wrong and every other control domain is undermined.
-
----
 
 ## Why This Matters in Multi-Agent Systems
 
@@ -25,8 +21,6 @@ In single-model deployments, identity is straightforward - there's one model, on
 **Credential sharing at scale.** When agents are spun up dynamically, developers often reuse a single service account across all agent instances. This means compromising one agent compromises the credential used by all agents.
 
 **Message bus trust.** If inter-agent messages are not authenticated, any component that can reach the message bus can impersonate an agent. The bus becomes an attack surface rather than a control point.
-
----
 
 ## Controls by Tier
 
@@ -69,8 +63,6 @@ All Tier 2 controls remain active, plus:
 
 **What you're building at Tier 3:** Behavioural identity - the NHI is not just a certificate, it's a contract that includes expected behaviour patterns. The identity system becomes a detection layer.
 
----
-
 ## Testing Criteria
 
 ### Tier 1 Tests
@@ -103,8 +95,6 @@ All Tier 2 controls remain active, plus:
 | IA-T3.3 | Delegation contract breach | Agent B attempts an action outside the delegation contract scope. Action is blocked and event is logged. |
 | IA-T3.4 | Automated revocation latency | Inject anomalous behaviour. Measure time from detection to credential revocation. Must be under 30 seconds. |
 
----
-
 ## Maturity Indicators
 
 | Level | Indicator |
@@ -114,8 +104,6 @@ All Tier 2 controls remain active, plus:
 | **Defined** | NHI per agent. Short-lived credentials with automated rotation. Mutual authentication on the message bus. Transitive permissions explicitly blocked. |
 | **Quantitatively Managed** | Credential rotation compliance measured and reported. Authentication failure rates tracked. NHI revocation SLA measured and met. |
 | **Optimising** | Behavioural binding on NHI. Delegation contracts enforced. Automated revocation on anomaly. Credential lifecycle fully automated with no manual intervention. |
-
----
 
 ## Common Pitfalls
 
@@ -127,6 +115,3 @@ All Tier 2 controls remain active, plus:
 
 **Assuming the message bus is internal and therefore trusted.** Any component that can reach the bus can send messages. Without mutual authentication, the bus is an open injection point for inter-agent prompt injection (ASI01) and message spoofing (ASI07).
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

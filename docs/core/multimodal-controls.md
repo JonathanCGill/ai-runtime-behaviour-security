@@ -13,8 +13,6 @@ The three-layer pattern was designed for text-in, text-out systems. Most enterpr
 
 Text-based guardrails cannot inspect an image. A regex that catches "ignore previous instructions" in text won't catch the same phrase rendered as text in a PNG.
 
----
-
 ## Attack Surfaces by Modality
 
 | Modality | Attack Vector | Example |
@@ -27,8 +25,6 @@ Text-based guardrails cannot inspect an image. A regex that catches "ignore prev
 | **Document** | Embedded instruction in PDF metadata | Adversarial content in document properties or invisible layers |
 | **Document** | OCR manipulation | Characters that OCR reads differently from how humans read them |
 | **Video** | Frame injection | Single adversarial frames inserted into video streams |
-
----
 
 ## Controls by Layer
 
@@ -73,8 +69,6 @@ The Judge needs to evaluate outputs in context of the input modality.
 | **Document processing (regulated)** | Verify extraction accuracy against source document |
 | **Video** | Spot-check at defined intervals - full review is impractical |
 
----
-
 ## Cross-Modal Attacks
 
 The most dangerous attacks combine modalities. A benign text prompt + a malicious image can bypass guardrails that only check each input independently.
@@ -86,8 +80,6 @@ The most dangerous attacks combine modalities. A benign text prompt + a maliciou
 | **Format escalation** | Text query triggers image generation that bypasses text output guardrails | Apply content classification to all output modalities |
 
 **Architectural principle:** Evaluate the full multimodal context as a unit, not each modality in isolation.
-
----
 
 ## What's Still Theoretical
 
@@ -102,8 +94,6 @@ Being honest about limitations:
 
 For these, the control is: **risk-accept with monitoring, or don't deploy that modality in high-risk tiers.**
 
----
-
 ## Implementation Priority
 
 | If Your System Handles... | Implement First |
@@ -114,8 +104,6 @@ For these, the control is: **risk-accept with monitoring, or don't deploy that m
 | Image generation | Output content classification, increased human review |
 | Audio (transcription/voice) | Transcription + text guardrails, audio quality validation |
 | Video | Treat as research/Tier 3 - high human oversight |
-
----
 
 ## Customer-Uploaded Documents in AI Pipelines
 
@@ -209,6 +197,3 @@ Steps 1–5 are application security. Steps 6–11 are this framework. Step 12 i
 
 **Your application platform's role:** Validate file types, scan for malware, enforce size limits, sanitise filenames, and store uploads in isolated, access-controlled storage. These are prerequisites - not AI-specific controls.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

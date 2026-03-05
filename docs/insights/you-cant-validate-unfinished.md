@@ -2,15 +2,11 @@
 
 *Real-time AI breaks the inspect-then-deliver model*
 
----
-
 The standard AI security model: input arrives, guardrails inspect, model processes, guardrails inspect output, response delivered.
 
 This assumes the output is complete before delivery.
 
 Real-time and streaming AI doesn't work that way.
-
----
 
 ## The Streaming Challenge
 
@@ -19,8 +15,6 @@ Voice assistants, live translation, real-time transcription, interactive agents 
 Token by token. Word by word. Sentence by sentence.
 
 By the time you could evaluate the complete output, the user has already heard most of it.
-
----
 
 ## What Breaks
 
@@ -71,8 +65,6 @@ A response can start appropriately and go wrong:
 
 Chunk-by-chunk validation can't see where the response is heading. By the time the trajectory is clear, significant content has streamed.
 
----
-
 ## Real-Time Interactions Compound This
 
 Voice and video add constraints:
@@ -82,8 +74,6 @@ Voice and video add constraints:
 **No take-backs**: Once audio is spoken or video is shown, it can't be unspoken or unshown. Text streaming can at least be edited on screen. Voice is gone.
 
 **Continuous generation**: A voice agent might speak for 30 seconds continuously. That's not chunks - that's a constant stream of potentially reviewable content with no natural pause points.
-
----
 
 ## Adaptation Strategies
 
@@ -133,8 +123,6 @@ Sensitive topics, high-risk decisions, regulated advice - these might require th
 
 Streaming for low-risk content. Buffered for high-risk content. The system adapts based on topic.
 
----
-
 ## Framework Implications
 
 ### Risk tiering includes modality
@@ -171,8 +159,6 @@ The framework should:
 - Emphasise detection and response over pure prevention
 - Define acceptable residual risk for streaming use cases
 
----
-
 ## The Trajectory
 
 Real-time AI is becoming the default. Voice interfaces, live assistance, instant translation - users expect immediate response.
@@ -183,6 +169,3 @@ Security approaches will adapt: more prevention, probabilistic intervention, fas
 
 Build for imperfect control. Design for fast recovery.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

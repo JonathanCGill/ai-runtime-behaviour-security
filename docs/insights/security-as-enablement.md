@@ -2,8 +2,6 @@
 
 *If your security function's primary output is a narrative about another team, you are not reducing risk. You are generating a backlog item competing for priority against revenue, customer experience, and regulatory change.*
 
----
-
 ## The Heckling Problem
 
 There is a pattern that every delivery team recognises: corporate functions that drift from enablement into commentary. They attend steering forums, publish decks, rate maturity, explain what good looks like, and diagnose other teams from a safe distance - without ever carrying the burden of delivering anything meaningful themselves.
@@ -20,8 +18,6 @@ This framework exists because we believe that AI systems need runtime behavioura
 
 The framework must be delivered as infrastructure, not as commentary. This article maps the specific design decisions that prevent the framework from becoming the problem it was built to solve.
 
----
-
 ## How Security Frameworks Become Heckling Tools
 
 A security framework drifts into heckling through a predictable sequence:
@@ -37,8 +33,6 @@ A security framework drifts into heckling through a predictable sequence:
 **5. Alignment sessions are convened.** Both sides present. Both sides moderate. Both sides leave with a shared document that looks like consensus but mostly reflects exhaustion. Nothing changes. The delivery team continues largely as it was. The governance function moves to the next assessment.
 
 The framework produced no code, no platform capability, no reusable component, no reduction in friction. It produced narrative. And narrative, no matter how correct, is not security.
-
----
 
 ## The Anti-Patterns This Framework Must Avoid
 
@@ -75,8 +69,6 @@ The most insidious form of heckling is the seductive counter-narrative. Because 
 A security framework is, inherently, a counter-narrative. It describes a world in which every deployment is classified, every control is implemented, every resilience plan is tested, and every human reviewer meets their SLA. Delivery teams have already considered most of these concerns. They have already debated alternatives. They have made deliberate choices under constraints the framework's authors never encountered.
 
 If the framework is used to argue "your architecture is wrong because it doesn't match our reference pattern," the person making that argument must also be accountable for helping fix it. Counter-narratives produced without delivery accountability are not strategy. They are expensive theatre dressed as governance.
-
----
 
 ## How the Framework Should Function
 
@@ -148,8 +140,6 @@ What the framework must never become is a tool for assessing delivery team matur
 
 If you want to know whether a team's AI system is secure, look at the controls running in production. Are guardrails deployed? Is the Judge evaluating outputs? Are findings being triaged? Is the kill switch tested? These are observable facts, not maturity scores. They are built in infrastructure, not declared in decks.
 
----
-
 ## The Bar Raiser Distinction
 
 There is a distinction between the heckler and the bar raiser. The heckler arrives with a pre-formed narrative. The bar raiser arrives with pattern recognition earned from having delivered.
@@ -173,8 +163,6 @@ A security function operating this framework as a heckler looks like this:
 - They appear only to say no, redraw diagrams, and demand alignment to abstract models
 
 The difference is not the framework. It is whether the people operating it carry outcomes or carry narratives.
-
----
 
 ## Implementation Guidance
 
@@ -206,8 +194,6 @@ The alternative - where security teams own the decision about which controls are
 
 Make the controls default. Make removal a product decision. Make the consequences visible. Then get out of the way.
 
----
-
 ## The Bottom Line
 
 This framework describes what must be true about AI systems in production. How those truths are delivered determines whether the framework creates value or creates noise.
@@ -221,9 +207,5 @@ The framework's value is not in the document. It is in the infrastructure that i
 Build the controls. Ship them as platforms. Embed your people in delivery teams. Carry outcomes, not narratives.
 
 Everything else is heckling.
-
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*
 
 *This article represents the personal views and opinions of the author alone. It is not affiliated with, endorsed by, or representative of any employer, organisation, or other entity. Nothing in this article should be construed as reflecting the position or policy of any company or institution with which the author is or has been associated.*

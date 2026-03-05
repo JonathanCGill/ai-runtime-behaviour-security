@@ -4,8 +4,6 @@ Navigate the framework by role or goal. Pick a reading path, follow it, branch w
 
 > **New: [Stakeholder Views](stakeholders/)** - dedicated entry points for Security Leaders, Risk & Governance, Enterprise Architects, Product Owners, AI Engineers, and Compliance & Legal. Each page answers "what's in this for me?" with a targeted reading path and Monday-morning actions.
 
----
-
 ## Two Architectures, One Framework
 
 This framework has two halves. The **Foundation** covers single-model AI deployments. **MASO** extends it to multi-agent orchestration. Both share the same three-layer pattern (Guardrails → Judge → Human Oversight) and PACE resilience methodology - MASO adds the controls needed when agents communicate, delegate, and act across trust boundaries.
@@ -17,8 +15,6 @@ This framework has two halves. The **Foundation** covers single-model AI deploym
 [![MASO Tube Map](images/maso-tube-map.svg)](images/maso-tube-map.svg)
 
 **MASO** - Seven control domains, 128 controls, three implementation tiers, dual OWASP coverage. For systems where multiple agents collaborate autonomously. **→ [Start here](maso/)**
-
----
 
 ## Reading Paths
 
@@ -104,8 +100,6 @@ For multi-agent monitoring, the [MASO Observability domain](maso/controls/observ
 **Single-agent:** [Threat Model Template](extensions/templates/threat-model-template.md) → [Testing Guidance](extensions/templates/testing-guidance.md). Design adversarial tests targeting guardrails, Judge, and human oversight. Results feed back into control tuning - testing is continuous, not a pre-deployment gate.
 
 **Multi-agent:** [Red Team Playbook](maso/red-team/red-team-playbook.md) - 13 structured scenarios across three tiers, from basic inter-agent prompt injection (RT-01) to PACE transition under active attack (RT-12). Includes success criteria, detection latency targets, and escalation guidance.
-
----
 
 ## Document Index
 
@@ -197,6 +191,3 @@ For multi-agent monitoring, the [MASO Observability domain](maso/controls/observ
 | [Templates](extensions/templates/) | Threat models, testing guidance, playbooks |
 | [Worked Examples](extensions/examples/) | Per-tier implementation walkthroughs |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

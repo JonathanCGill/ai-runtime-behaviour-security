@@ -4,15 +4,11 @@
 > Covers: LLM01 (Prompt Injection) · LLM07 (System Prompt Leakage) · ASI01 (Agent Goal Hijack)
 > Also covers: Epistemic Risks EP-01 through EP-09 (no OWASP equivalent)
 
----
-
 ## Principle
 
 The instructions an agent follows, the objectives it pursues, and the information it treats as true must be trustworthy, verifiable, and protected from manipulation - whether that manipulation comes from an external attacker, a compromised peer agent, or the emergent dynamics of multi-agent interaction. This domain addresses both adversarial threats to agent instructions and the non-adversarial information-processing failures that arise when agents collaborate.
 
 In a multi-agent system, the instruction surface is not just the system prompt. It includes inter-agent messages, delegated task specifications, shared memory, RAG content, and tool outputs - all of which can carry injected instructions, leak system prompts, hijack goals, or degrade information quality through successive agent handoffs. Securing the instruction and information chain is the prerequisite for every other control domain functioning correctly.
-
----
 
 ## Why This Matters in Multi-Agent Systems
 
@@ -45,8 +41,6 @@ These risks arise from how agents process and pass information - no external att
 **Hidden assumptions becoming global (EP-08).** Agent makes a local assumption ("assume the client is in the US for tax purposes"). The assumption propagates through the bus to other agents and is treated as established fact.
 
 **Task ambiguity as silent failure (EP-09).** Agent receives an ambiguous instruction - "review the account" could mean audit, summarise, or close. Rather than flagging the ambiguity, the agent selects the most probable interpretation and executes with full confidence. The output looks correct for the interpretation chosen, but the interpretation was wrong. No guardrail catches this because the output is valid - for a task nobody requested.
-
----
 
 ## Controls by Tier
 
@@ -97,8 +91,6 @@ All Tier 2 controls remain active, plus:
 
 **What you're building at Tier 3:** Active defence through canary agents and challengers, cryptographic goal integrity, and automated red-teaming of prompt boundaries. The system doesn't just detect problems - it actively probes for vulnerabilities.
 
----
-
 ## Message Bus Schema Extensions (Tier 2+)
 
 The controls in this domain require extensions to the inter-agent message schema beyond the base fields defined in the Identity & Access domain.
@@ -135,8 +127,6 @@ The controls in this domain require extensions to the inter-agent message schema
 ```
 
 This schema enables the judge to enforce provenance checks, uncertainty preservation, assumption isolation, and goal integrity - all through structured data rather than natural language parsing.
-
----
 
 ## Testing Criteria
 
@@ -178,8 +168,6 @@ This schema enables the judge to enforce provenance checks, uncertainty preserva
 | PG-T3.5 | Challenger effectiveness | Submit a flawed recommendation to the challenger agent. Challenger identifies at least one valid counterargument in > 80% of cases. |
 | PG-T3.6 | Prompt leakage red team | Automated red team agent runs extraction techniques against all agents. No system prompt content is extracted. Report generated with findings. |
 
----
-
 ## Maturity Indicators
 
 | Level | Indicator |
@@ -189,8 +177,6 @@ This schema enables the judge to enforce provenance checks, uncertainty preserva
 | **Defined** | Judge evaluates inter-agent messages for injection. Goal integrity monitored continuously. Prompt boundary enforcement at infrastructure level. Epistemic controls active: provenance, uncertainty, assumptions tracked in message schema. Consensus diversity gate operational. |
 | **Quantitatively Managed** | Injection detection rate measured (target ≥ 90%). Goal drift detection latency tracked. Prompt leakage test results documented. Epistemic control effectiveness measured: false consensus rate, uncertainty preservation rate, assumption propagation rate. |
 | **Optimising** | Multi-layer injection defence with canary agents. Cryptographic goal integrity. Challenger agent for high-consequence decisions. Plan-execution conformance automated. Regular automated prompt leakage red teaming. Constraint fidelity checks on long chains. |
-
----
 
 ## Common Pitfalls
 
@@ -206,6 +192,3 @@ This schema enables the judge to enforce provenance checks, uncertainty preserva
 
 **Treating agent confidence as task clarity.** An agent that executes confidently is not an agent that understood the task correctly. Ambiguous instructions produce high-confidence outputs for the wrong interpretation. The absence of an error is not evidence of correct understanding - agents must be required to flag ambiguity explicitly rather than defaulting to the most probable interpretation.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -4,8 +4,6 @@
 
 > Part of [From Strategy to Production](./)
 
----
-
 ## Why Use Case Definition Matters
 
 Every AI system starts as a use case. "We want AI to help with customer queries." "We want AI to analyse contracts." "We want AI to detect fraud."
@@ -15,8 +13,6 @@ These are not use cases. They're aspirations. A use case - one that security, go
 The difference matters because the framework's entire control model flows from the use case. The [risk tier](../core/risk-tiers.md) determines which controls apply. The risk tier is determined by the use case. A vague use case produces an uncertain risk tier, which produces either too many controls (killing the business case) or too few (creating unmanaged risk).
 
 **A well-defined use case is the single most valuable input to the entire framework.**
-
----
 
 ## What Makes a Good Use Case Definition
 
@@ -111,8 +107,6 @@ Not just what data it *needs* - what data it *can access*. If the system has a d
 
 **Q10: Accountability** is the governance anchor. Someone - named, not "TBD" - owns the outcomes of this AI system. This person is responsible for HITL decisions, incident response, and regulatory engagement. Without named accountability, the governance model has no force.
 
----
-
 ## Translating Use Cases to Risk Profiles
 
 ### The Six-Dimension Scoring Model
@@ -204,8 +198,6 @@ Then:
 
 The Judge layer should evaluate the quality of AI-generated classifications just as it evaluates any other AI output. Use the same sampling rates - 100% review for the first 50 classifications, then reduce as accuracy data accumulates.
 
----
-
 ## What Security and Governance Can Extract From a Use Case
 
 A well-defined use case produces specific, actionable outputs for every governance function:
@@ -242,8 +234,6 @@ A well-defined use case produces specific, actionable outputs for every governan
 | Risk tier | Review SLA | LOW: best effort; MEDIUM: 24hr; HIGH: 4hr; CRITICAL: 1hr |
 | Scope boundaries (Q1) | Monitoring baselines | Expected behaviour → anomaly detection thresholds |
 
----
-
 ## Who Needs to See Use Case Definitions
 
 ### The RACI Model
@@ -270,8 +260,6 @@ Different stakeholders need different views of the same use case:
 | **Security / engineering** | Technical specification | Data flows, integration points, control configuration | 3–5 pages + diagrams |
 | **Operating team** | Operating playbook | What to monitor, when to escalate, PACE procedures | 2–3 pages |
 | **Audit** | Control evidence pack | Use case definition + control implementation + testing evidence | Full documentation set |
-
----
 
 ## Who Should Manage Use Cases
 
@@ -318,8 +306,6 @@ Use cases don't stay static. Review is triggered by:
 | **Regulatory change** | New regulation affects this domain | Reassess regulatory dimension |
 | **Model change** | Underlying model swapped or upgraded | Reassess; model change doesn't change tier but may affect control configuration |
 | **Volume change** | Significant increase in usage | Reassess operational sizing; may need more HITL staff |
-
----
 
 ## Automating Use Case Discovery and Definition
 
@@ -408,8 +394,6 @@ Use Case Submitted → AI Drafts Definition → AI Scores Dimensions
 - Classification where dimension scores are borderline. Human judgement is needed for edge cases.
 - Any classification that would result in reduced controls. Reducing controls should always require human approval.
 
----
-
 ## Use Case Anti-Patterns
 
 | Anti-Pattern | What Goes Wrong | How to Fix |
@@ -424,8 +408,6 @@ Use Case Submitted → AI Drafts Definition → AI Scores Dimensions
 | **Scope that grows silently** | Started as FAQ bot, now handles account changes | Change detection via monitoring + periodic review |
 | **Volume unknown** | "We're not sure how many interactions" | Require estimation before classification; measure after launch |
 | **Regulatory context ignored** | "That's legal's problem" | Require legal/compliance input before classification |
-
----
 
 ## Use Case Definition Template
 
@@ -553,8 +535,6 @@ For practical use. Complete each section before submitting for risk classificati
 | **Classification date** | |
 | **Next scheduled review** | |
 
----
-
 ## The Framework Gap
 
 The framework defines risk tiers and controls but doesn't provide a structured use case definition methodology. The [control selection guide](../extensions/technical/control-selection-guide.md) has a decision tree, and the [model card template](../extensions/templates/model-card-template.md) captures system metadata, but neither bridges the gap between "we have an idea for AI" and "here's the risk profile and required controls."
@@ -567,6 +547,3 @@ This article fills that gap. The ten-question template, the six-dimension scorin
 - AI-assisted classification guidance should be incorporated into the [control selection guide](../extensions/technical/control-selection-guide.md)
 - The [model card template](../extensions/templates/model-card-template.md) should be extended to include use case definition fields
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -4,8 +4,6 @@
 
 > *This document uses the simplified three-tier system (Tier 1/2/3). See [Risk Tiers - Simplified Tier Mapping](risk-tiers.md#simplified-tier-mapping) for the mapping to LOW/MEDIUM/HIGH/CRITICAL.*
 
----
-
 ## All Tiers - Pre-Deployment
 
 These items apply to every AI system, regardless of risk tier.
@@ -28,8 +26,6 @@ These items apply to every AI system, regardless of risk tier.
 - [ ] Recovery criteria defined for each control layer (what must be true before returning to normal)
 - [ ] Recovery procedure documented in runbook
 
----
-
 ## Tier 1 - Low Risk
 
 *Internal tools, content generation, employee productivity.*
@@ -46,8 +42,6 @@ These items apply to every AI system, regardless of risk tier.
 - [ ] Feature disable mechanism works (feature flag, deployment rollback, or equivalent)
 - [ ] At least one team member knows how to activate fallback
 - [ ] Runbook entry reviewed and still accurate
-
----
 
 ## Tier 2 - Medium Risk
 
@@ -90,8 +84,6 @@ These items apply to every AI system, regardless of risk tier.
 
 - [ ] Full degradation walkthrough: P → A → C → E and recovery for at least one control layer
 - [ ] Exercise involves same personnel and tools as real incident
-
----
 
 ## Tier 3 - High Risk
 
@@ -154,8 +146,6 @@ These items apply to every AI system, regardless of risk tier.
 - [ ] Fallback staffing model reviewed against current team composition
 - [ ] PACE plan alignment reviewed against regulatory changes
 
----
-
 ## Ongoing Maintenance - All Tiers
 
 These items prevent PACE plan decay over time:
@@ -167,6 +157,3 @@ These items prevent PACE plan decay over time:
 - [ ] Departing team members' PACE responsibilities reassigned
 - [ ] Lessons from any real degradation events incorporated into PACE plan
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

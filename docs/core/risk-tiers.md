@@ -1,7 +1,5 @@
 # Risk Tiers and Control Selection
 
----
-
 ## Tier Definitions
 
 ### CRITICAL
@@ -47,8 +45,6 @@ Minimal impact, non-sensitive context.
 - Easy to verify or ignore
 
 **Examples:** Public FAQ bot, content suggestions, general lookup
-
----
 
 ## Control Matrix
 
@@ -98,8 +94,6 @@ Minimal impact, non-sensitive context.
 | Retention | 90 days | 1 year | 3 years | 7 years |
 | Protection | Standard | Standard | Enhanced | Immutable |
 
----
-
 ## Domain-Specific Guardrail Tuning
 
 The UK AI Security Institute's *Frontier AI Trends Report* (December 2025) found significant **uneven safeguard coverage** across request categories in frontier AI systems. Biological misuse was well-defended across models tested, while other risk categories - including financial advice, legal guidance, and social engineering - were far less robustly safeguarded.
@@ -120,8 +114,6 @@ This finding reinforces a critical principle: **one-size-fits-all guardrails are
 - Schedule domain-specific red-team testing at least quarterly for HIGH tier and monthly for CRITICAL tier systems.
 
 > **Source:** UK AI Security Institute, *Frontier AI Trends Report*, December 2025.
-
----
 
 ## Classification Process
 
@@ -155,8 +147,6 @@ If any dimension suggests higher tier, use it.
 - Mitigating controls
 - Review date (annual minimum)
 
----
-
 ## Simplified Tier Mapping
 
 Some framework documents - particularly [PACE](pace-controls-section.md), [CHEATSHEET](../CHEATSHEET.md), and specialized controls - use a simplified **three-tier numbered system** (Tier 1/2/3). This is intentional: the three-tier system is a practical shorthand for operational contexts where the full four-tier classification adds complexity without proportionate benefit.
@@ -171,8 +161,6 @@ Some framework documents - particularly [PACE](pace-controls-section.md), [CHEAT
 
 The [MASO Framework](../maso/) also uses Tier 1/2/3 for multi-agent **autonomy levels** (Supervised → Managed → Autonomous), which is a separate dimension from risk classification.
 
----
-
 ## Related
 
 | If you need... | Go to |
@@ -181,8 +169,6 @@ The [MASO Framework](../maso/) also uses Tier 1/2/3 for multi-agent **autonomy l
 | Cost implications of each tier | [Cost & Latency](../extensions/technical/cost-and-latency.md) - security overhead is 15–40% at Tier 2, 40–100% at Tier 3 |
 | Quantitative risk scoring | [Risk Assessment](risk-assessment.md) - six-dimension scoring for board reporting |
 | Multi-agent tier progression | [MASO Implementation Tiers](../maso/) - Supervised → Managed → Autonomous |
-
----
 
 ## Tier Changes
 
@@ -198,6 +184,3 @@ The [MASO Framework](../maso/) also uses Tier 1/2/3 for multi-agent **autonomy l
 - Reduced scope documented
 - Product owner decision (documented with risk acceptance)
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

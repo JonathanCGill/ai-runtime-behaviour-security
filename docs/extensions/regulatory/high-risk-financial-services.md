@@ -2,8 +2,6 @@
 
 The top 10 risks of deploying AI in financial services - and how AI runtime behavioural security addresses each one.
 
----
-
 ## Why Financial Services Is the Stress Test
 
 Financial services is where AI runtime security matters most. High regulatory burden, real-time transaction processing, zero tolerance for unexplainable decisions, and critical functions - payments, credit, trading - where AI errors have immediate financial and regulatory consequences. If a control pattern works here, it works anywhere.
@@ -20,8 +18,6 @@ This document examines the risks that emerge when financial institutions deploy 
 The three-layer runtime pattern (Guardrails prevent, Judge detects, Humans decide) is designed for **AI behavioural security** - controlling what AI systems say and do at runtime. The risks in this document are the risks that arise *from deploying AI itself* in financial services: AI making payments without validation, AI hallucinating financial data, AI producing unexplainable credit decisions, AI leaking customer data in responses.
 
 These are not general cybersecurity risks like ransomware or DDoS - those exist whether or not you deploy AI and require traditional infrastructure controls. This document focuses on the risks that are unique to, or significantly amplified by, putting AI in the critical path of financial operations.
-
----
 
 ## Risk 1: AI in Payments and Transactions Without Controls
 
@@ -52,8 +48,6 @@ These are not general cybersecurity risks like ransomware or DDoS - those exist 
 - **Contingency:** Multiple layers degraded → AI enters read-only mode (can answer questions, cannot process payments)
 - **Emergency:** Circuit breaker → AI removed from payment path; fallback to traditional payment interface
 
----
-
 ## Risk 2: Hallucinated Financial Information
 
 **The risk:** AI systems fabricate financial data - account balances, interest rates, product terms, regulatory obligations, transaction histories - and present it with full confidence. In financial services, a hallucinated number isn't an inconvenience; it's a potential mis-selling event, a regulatory breach, or a basis for a customer's financial decision.
@@ -76,8 +70,6 @@ These are not general cybersecurity risks like ransomware or DDoS - those exist 
 | **Judge** (primary) | Semantic grounding evaluation - "are all financial claims in this response supported by retrieved data?"; detects when the model generates rather than retrieves; flags confident assertions without source backing |
 | Human Oversight | Reviews flagged hallucination alerts; spot-checks random interactions; investigates patterns of hallucination in specific product areas |
 | Infrastructure | RAG architecture with source attribution; system-of-record APIs; data freshness monitoring |
-
----
 
 ## Risk 3: Data Leakage Through AI Responses
 
@@ -104,8 +96,6 @@ AI creates entirely new data exfiltration vectors that traditional DLP doesn't c
 | Human Oversight | Reviews flagged data exposure incidents; approves exceptions to data controls |
 | Infrastructure | Encryption, access control, data classification, tokenisation, session isolation |
 
----
-
 ## Risk 4: Unexplainable AI Decisions
 
 **The risk:** AI systems make or influence decisions - credit approvals, fraud flags, risk ratings, pricing - that cannot be explained to the customer, the regulator, or the internal audit function. In financial services, explainability isn't optional. Regulators require it (EU AI Act Art. 13, GDPR Art. 22, ECOA adverse action notices). Customers have a right to understand decisions that affect them.
@@ -129,8 +119,6 @@ AI creates entirely new data exfiltration vectors that traditional DLP doesn't c
 | **Human Oversight** (primary) | Reviews all adverse decisions; validates reasoning quality; provides the human accountability regulators require (GDPR Art. 22, EU AI Act Art. 14); documented review trails |
 | Infrastructure | Tamper-proof decision logging; reasoning chain capture; audit trail retention (7+ years for regulated decisions) |
 
----
-
 ## Risk 5: AI Bias and Discrimination in Financial Decisions
 
 **The risk:** AI systems produce discriminatory outcomes - approving or denying credit, pricing products, assessing risk, or flagging fraud based on protected characteristics. Bias can be embedded in training data, amplified by model architecture, or introduced through proxy variables. In financial services, discriminatory AI decisions trigger fair lending violations, equal treatment breaches, and regulatory enforcement.
@@ -153,8 +141,6 @@ AI creates entirely new data exfiltration vectors that traditional DLP doesn't c
 | **Judge** (primary) | Fairness evaluation per decision - statistical analysis of decision patterns; detects proxy discrimination; flags when decision distributions shift across demographic groups; compares individual decisions against fairness benchmarks |
 | **Human Oversight** (primary) | Reviews all adverse decisions for bias indicators; portfolio-level fairness reviews; responds to discrimination complaints with full decision audit trail |
 | Infrastructure | Bias testing in model development; representative training data; independent model validation (OCC/Fed SR 11-7 guidance) |
-
----
 
 ## Risk 6: Insider Manipulation of AI Systems
 
@@ -181,8 +167,6 @@ AI systems amplify insider risk because a single prompt change can fundamentally
 | **Human Oversight** (primary) | Approves all configuration changes to AI systems; reviews HITL reviewer decisions for collusion; mandatory sign-off for Judge criteria changes |
 | Infrastructure | PAM, session recording, immutable audit logs, Git-based config management |
 
----
-
 ## Risk 7: AI Operating Beyond Authorised Scope
 
 **The risk:** AI systems take actions or access data beyond what they were designed and authorised to do. An AI assistant designed to answer product questions starts modifying account settings. An AI fraud analyst accesses customer data outside its investigation scope. Scope creep in AI systems is particularly dangerous because it's often invisible - the AI doesn't error, it simply does more than intended.
@@ -205,8 +189,6 @@ AI systems amplify insider risk because a single prompt change can fundamentally
 | **Judge** (primary) | Evaluates whether the AI's actions are within authorised scope - "is this action consistent with this system's mandate?"; detects privilege escalation through agent chains; flags data access outside the user's permissions |
 | Human Oversight | Reviews scope violations; approves exceptions; periodic audit of AI system capabilities vs. authorised scope |
 | Infrastructure | Per-system service accounts with scoped permissions; context-aware access control; network segmentation |
-
----
 
 ## Risk 8: Adversarial Manipulation of AI Behaviour
 
@@ -233,8 +215,6 @@ This is where adversarial intent meets AI deployment risk. The attack surface ex
 | Human Oversight | Red team exercises; reviews novel attack patterns; updates guardrail and Judge criteria based on findings |
 | Infrastructure | Adversarial robustness testing pipelines; model update and patch management |
 
----
-
 ## Risk 9: Regulatory Non-Compliance
 
 **The risk:** AI systems operate in ways that breach regulatory requirements - automated decisions without human involvement (GDPR Art. 22), unexplainable outcomes (EU AI Act), unfair treatment (ECOA), inadequate record-keeping (MiFID II), or cross-border data processing without legal basis. Every jurisdiction is developing AI-specific regulation at different speeds, creating a patchwork of requirements that financial institutions must navigate.
@@ -258,8 +238,6 @@ This is where adversarial intent meets AI deployment risk. The attack surface ex
 | **Human Oversight** (primary) | Provides the human accountability regulators require (GDPR Art. 22, EU AI Act Art. 14); documented review trails; responds to regulator inquiries with full decision history |
 | Infrastructure | Tamper-proof audit logging; evidence retention; regulatory reporting pipelines |
 
----
-
 ## Risk 10: AI-Enabled Fraud
 
 **The risk:** AI systems are deployed for fraud detection, transaction monitoring, and customer verification - but those same systems can be manipulated, evaded, or exploited. Simultaneously, fraudsters use AI to generate synthetic identities, forge documents, and optimise money laundering networks. The deployment of AI in fraud-critical functions creates both defensive capability and new attack surface.
@@ -282,8 +260,6 @@ This is where adversarial intent meets AI deployment risk. The attack surface ex
 | **Judge** (primary) | Evaluates transaction patterns against behavioural baselines; detects mule network patterns; flags AI-generated document forgeries; identifies adversarial evasion of fraud rules |
 | **Human Oversight** (primary) | Reviews flagged transactions; makes final fraud/not-fraud determination; escalates novel patterns; provides feedback to improve Judge accuracy |
 | Infrastructure | Transaction monitoring infrastructure; network analysis; behavioural biometrics |
-
----
 
 ## Summary: Risk to Three-Layer Mapping
 
@@ -311,8 +287,6 @@ This is where adversarial intent meets AI deployment risk. The attack surface ex
 **3 risks are primarily a Judge + Human Oversight problem** (Explainability, Insider manipulation, Regulatory compliance). These require continuous evaluation and human accountability rather than real-time blocking.
 
 General cybersecurity risks - ransomware, DDoS, cloud misconfiguration - exist whether or not you deploy AI. They require traditional infrastructure controls and are addressed by the framework's [infrastructure controls](../../infrastructure/README.md), not the three-layer runtime pattern. This document focuses on the risks that the three-layer pattern was designed to address.
-
----
 
 ## Feeder Systems: What Feeds the AI
 
@@ -404,8 +378,6 @@ A single feeder system compromise can cascade through multiple AI systems:
 | Incident response covers feeder system compromise? | ☐ |
 | Data lineage tracked from feeder to AI output? | ☐ |
 
----
-
 ## Access Controls: Who Can Touch What
 
 AI systems create an access control problem that traditional banking IAM wasn't designed for. The model needs broad data access to be useful. Security demands least privilege. These two requirements are in direct tension.
@@ -495,8 +467,6 @@ This is the most overlooked layer. Whoever can modify the AI's configuration eff
 | Shared API keys across environments | Dev key leaked → production exposed | Per-environment keys, rotated on schedule |
 | No logging of who asked what | Can't investigate or audit | Log user identity, query, response, data accessed |
 | AI can read and write to source systems | Compromised AI can modify banking data | Read-only by default; write access only through approved, audited paths |
-
----
 
 ## Data Security: Protecting Data Through the AI Pipeline
 
@@ -620,8 +590,6 @@ AI introduces data residency complications that traditional banking systems don'
 | Configuration changes audited? | ☐ |
 | Privileged access managed (PAM)? | ☐ |
 
----
-
 ## Implications for Financial Services AI
 
 ### Build With These Risks In Mind
@@ -656,8 +624,6 @@ When financial institutions build AI-powered SaaS solutions for internal use or 
 | **Audit trail** | Comprehensive logging for compliance (Risk #9) |
 | **Incident response** | Defined processes when things go wrong (All risks) |
 
----
-
 ## Recommended Actions
 
 ### Immediate
@@ -680,6 +646,3 @@ When financial institutions build AI-powered SaaS solutions for internal use or 
 10. Deploy PACE resilience across all CRITICAL-tier AI systems - define fail postures for every payment-path and decision-making AI
 11. Develop AI-specific incident response playbooks covering all 10 deployment risks
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -2,15 +2,11 @@
 
 This document maps the AI Runtime Behaviour Security controls to EU AI Act requirements.
 
----
-
 ## Overview
 
 The EU AI Act establishes requirements for AI systems based on risk classification. This crosswalk focuses on **high-risk AI systems** (Annex III), which face the most stringent requirements.
 
 **Key principle:** The framework's control model-guardrails prevent, Judge detects, humans decide-aligns well with the EU AI Act's emphasis on human oversight and risk management.
-
----
 
 ## EU AI Act Risk Categories
 
@@ -20,8 +16,6 @@ The EU AI Act establishes requirements for AI systems based on risk classificati
 | High Risk | Annex III systems (credit, employment, etc.) | CRITICAL tier |
 | Limited Risk | Transparency obligations | HIGH/MEDIUM tier |
 | Minimal Risk | No specific requirements | LOW tier |
-
----
 
 ## High-Risk AI System Requirements
 
@@ -45,8 +39,6 @@ The EU AI Act establishes requirements for AI systems based on risk classificati
 3. **Testing:** Golden set testing, adversarial testing, bias testing
 4. **Ongoing management:** Async Judge monitoring, HITL feedback loops
 
----
-
 ### Article 10: Data and Data Governance
 
 **Requirement:** High-risk AI systems using training data shall be developed on the basis of training, validation, and testing datasets that meet quality criteria.
@@ -63,8 +55,6 @@ The EU AI Act establishes requirements for AI systems based on risk classificati
 1. **Data governance:** AI.5 Data Governance control family
 2. **Quality assurance:** Judge can evaluate for quality issues
 3. **Bias detection:** Bias monitoring as part of Judge evaluation (CRITICAL tier)
-
----
 
 ### Article 11: Technical Documentation
 
@@ -84,8 +74,6 @@ The EU AI Act establishes requirements for AI systems based on risk classificati
 2. **Inventory and documentation:** AI.3 control family
 3. **Change management:** Part of AI.4 Development Security
 
----
-
 ### Article 12: Record-Keeping
 
 **Requirement:** High-risk AI systems shall technically allow for automatic recording of events (logs).
@@ -102,8 +90,6 @@ The EU AI Act establishes requirements for AI systems based on risk classificati
 2. **Traceability:** Correlation IDs, timestamps, full context
 3. **Judge evaluation logs:** Additional assurance documentation
 
----
-
 ### Article 13: Transparency and Provision of Information to Deployers
 
 **Requirement:** High-risk AI systems shall be designed to ensure their operation is sufficiently transparent.
@@ -119,8 +105,6 @@ The EU AI Act establishes requirements for AI systems based on risk classificati
 
 1. **Transparency to users:** System prompts, UI design, documentation
 2. **Transparency to oversight:** Judge reasoning, HITL context
-
----
 
 ### Article 14: Human Oversight
 
@@ -150,8 +134,6 @@ This is where the framework's control model is specifically designed to comply:
 
 **This avoids GDPR Article 22 concerns** about solely automated decision-making by ensuring meaningful human involvement.
 
----
-
 ### Article 15: Accuracy, Robustness, and Cybersecurity
 
 **Requirement:** High-risk AI systems shall be designed to achieve appropriate levels of accuracy, robustness, and cybersecurity.
@@ -169,8 +151,6 @@ This is where the framework's control model is specifically designed to comply:
 2. **Robustness:** Guardrails protect against malformed input
 3. **Security:** Full control framework including injection prevention
 
----
-
 ## Control Mapping Summary
 
 | EU AI Act Article | Primary Framework Controls |
@@ -182,8 +162,6 @@ This is where the framework's control model is specifically designed to comply:
 | Art. 13 Transparency | AI.3, AI.9 |
 | Art. 14 Human Oversight | AI.9 Human Oversight |
 | Art. 15 Accuracy/Security | AI.6, AI.7 |
-
----
 
 ## Key Alignment Points
 
@@ -198,8 +176,6 @@ The framework's three-layer model directly supports Article 14:
 The framework provides comprehensive risk management:
 
 ![EU AI Act Article 9 - Risk Management System](../../images/eu-ai-act-article9.svg)
-
----
 
 ## Evidence Package for Regulators
 
@@ -257,8 +233,6 @@ This is the table your auditor needs. One row per control obligation, with the s
 | Retention compliance | Retention policy, verification |
 | Tamper-evidence | Log integrity verification |
 
----
-
 ## GDPR Article 22 Alignment
 
 **GDPR Article 22** gives data subjects the right not to be subject to solely automated decisions with legal or significant effects.
@@ -277,8 +251,6 @@ This is the table your auditor needs. One row per control obligation, with the s
 - Judge surfaces findings for humans
 - Humans make the decision
 - Therefore, decision is not "solely automated"
-
----
 
 ## Implementation Checklist
 
@@ -299,8 +271,6 @@ This is the table your auditor needs. One row per control obligation, with the s
 - [ ] HITL processes operational
 - [ ] Feedback loops active
 
----
-
 ## Limitations
 
 This crosswalk provides guidance, not legal advice. Key limitations:
@@ -310,6 +280,3 @@ This crosswalk provides guidance, not legal advice. Key limitations:
 3. **Context matters:** Specific implementation depends on your use case
 4. **Legal advice required:** Consult legal counsel for your situation
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

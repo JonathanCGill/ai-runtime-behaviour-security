@@ -4,8 +4,6 @@
 > **Purpose:** Contain the execution environment for agents that generate and run code, interact with file systems, or manipulate infrastructure.  
 > **Extends:** NET-01 (network zones) and SESS-02 (session isolation) with execution-specific depth.
 
----
-
 ## The Problem
 
 Code-generating agents (coding assistants, data analysis agents, automation agents) don't just produce text - they produce executable code and then run it. This means a prompt injection or model error can result in:
@@ -18,8 +16,6 @@ Code-generating agents (coding assistants, data analysis agents, automation agen
 
 The standard controls (guardrails, tool permissions) are necessary but insufficient for code execution. Code is inherently unconstrained - a single line of Python can do anything the runtime environment permits. The sandbox is what limits what "anything" means.
 
----
-
 ## Control Objectives
 
 | ID | Objective | Risk Tiers |
@@ -30,8 +26,6 @@ The standard controls (guardrails, tool permissions) are necessary but insuffici
 | SAND-04 | Enforce resource limits on sandbox execution | All (code-gen agents) |
 | SAND-05 | Prevent persistent state from sandbox escaping the session | Tier 2+ (code-gen agents) |
 | SAND-06 | Scan generated code before execution | Tier 2+ (code-gen agents) |
-
----
 
 ## SAND-01: Isolated Execution Environments
 
@@ -57,8 +51,6 @@ Agent-generated code must never execute in the same environment as the AI system
 | Code runs user-provided input | | ✓ |
 | Tier 3+ system | | ✓ |
 
----
-
 ## SAND-02: File System Restrictions
 
 The sandbox must restrict file system access to explicitly declared paths.
@@ -80,8 +72,6 @@ The sandbox must restrict file system access to explicitly declared paths.
 - Code writing persistent backdoors to the file system.
 - Code modifying system configuration or installing persistent software.
 - Cross-session data leakage via shared file system paths.
-
----
 
 ## SAND-03: Network Restrictions
 
@@ -108,8 +98,6 @@ If the code genuinely needs network access (e.g., fetching a dataset from an app
 - The sandbox being used as a network pivot to attack internal systems.
 - Cryptocurrency mining or other resource abuse via network access.
 
----
-
 ## SAND-04: Resource Limits
 
 Without resource limits, agent-generated code can cause denial of service through resource exhaustion.
@@ -129,8 +117,6 @@ Without resource limits, agent-generated code can cause denial of service throug
 
 Use OS-level resource controls (cgroups, ulimits) rather than application-level checks. The code being executed is untrusted - application-level limits can be circumvented.
 
----
-
 ## SAND-05: No Persistent State Escaping Sessions
 
 Code execution within a sandbox must not create persistent state that survives the session.
@@ -148,8 +134,6 @@ Code execution within a sandbox must not create persistent state that survives t
 - An attacker using prompt injection to install a persistent backdoor in the execution environment.
 - Cross-execution contamination (poisoned output from execution N affecting execution N+1).
 - Accumulated state creating a growing attack surface over time.
-
----
 
 ## SAND-06: Pre-Execution Code Scanning
 
@@ -171,8 +155,6 @@ Before agent-generated code is executed, scan it for dangerous patterns.
 
 Code scanning catches known dangerous patterns but is inherently incomplete - the sandbox resource limits and isolation are the primary controls. Code scanning is defence in depth, not a replacement for sandboxing.
 
----
-
 ## Platform-Neutral Implementation Checklist
 
 - [ ] All agent-generated code executes in isolated sandbox environments
@@ -186,6 +168,3 @@ Code scanning catches known dangerous patterns but is inherently incomplete - th
 - [ ] Sandbox execution logged with code, output, resource usage, and duration
 - [ ] Sandbox escape attempts detected and classified as security incidents
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

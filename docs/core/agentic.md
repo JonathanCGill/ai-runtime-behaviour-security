@@ -6,8 +6,6 @@ description: Security controls for autonomous AI agents - plan approval, action 
 
 Additional controls for AI systems that take autonomous actions.
 
----
-
 ## What Makes Agents Different
 
 | Characteristic | Chatbot | Agent |
@@ -18,8 +16,6 @@ Additional controls for AI systems that take autonomous actions.
 | Failure mode | Bad answer | Bad action with consequences |
 
 **Key risk:** Agents can cause harm at machine speed without human review.
-
----
 
 ## The Two Core Problems
 
@@ -70,8 +66,6 @@ The action the agent takes should match what the user actually wanted.
 
 Both problems must be solved. Solving one doesn't help if the other fails.
 
----
-
 ## Core Principle
 
 **Infrastructure beats instructions.**
@@ -84,8 +78,6 @@ Give it credentials that can only access customer service data.
 | "Only access CS data" | Database view exposes only CS data |
 | "Don't send emails without approval" | Email API requires approval token |
 | "Stay within budget" | Hard spending cap at API gateway |
-
----
 
 ## Control Categories
 
@@ -147,8 +139,6 @@ Hard stops that trigger regardless of agent "reasoning."
 | Any scope violation | Terminate |
 | Any irreversible action | Require approval |
 
----
-
 ## Agent Risk Tiers
 
 Agents are typically HIGH or CRITICAL tier. LOW/MEDIUM agents are rare.
@@ -159,8 +149,6 @@ Agents are typically HIGH or CRITICAL tier. LOW/MEDIUM agents are rare.
 | Internal automation | HIGH | Action allowlist, circuit breakers |
 | Customer-facing | CRITICAL | Full approval workflow |
 | Financial actions | CRITICAL | All controls, human approval |
-
----
 
 ## Judge for Agents
 
@@ -174,8 +162,6 @@ Agent interactions need deeper evaluation.
 | Reasoning quality | Was the reasoning sound? |
 | Efficiency | Did agent take unnecessary steps? |
 
----
-
 ## Monitoring
 
 | Signal | Concern |
@@ -185,8 +171,6 @@ Agent interactions need deeper evaluation.
 | Novel action patterns | Unexpected behaviour |
 | Scope boundary probes | Attempted breakout |
 | Cost anomalies | Resource abuse |
-
----
 
 ## Recovery and Rollback
 
@@ -201,8 +185,6 @@ When integrity is compromised, you need to undo the damage.
 
 Not all actions are reversible. For those that aren't, require human approval.
 
----
-
 ## Key Takeaways
 
 1. **Solve both problems** - Access control AND integrity preservation
@@ -214,6 +196,3 @@ Not all actions are reversible. For those that aren't, require human approval.
 7. **Enable rollback** - Assume integrity will sometimes fail
 8. **Monitor aggressively** - Agents can cause harm fast
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

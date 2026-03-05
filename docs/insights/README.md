@@ -6,8 +6,6 @@ description: Research insights on why runtime behavioural monitoring solves AI s
 
 The *why* before the *how*. Each article identifies a specific problem that the [core controls](../core) and [extensions](../extensions) then solve.
 
----
-
 ## Start Here
 
 These establish the foundational argument: AI systems are non-deterministic, so you can't fully test them before deployment. Runtime behavioral monitoring is the answer.
@@ -22,8 +20,6 @@ These establish the foundational argument: AI systems are non-deterministic, so 
 | 4 | [Infrastructure Beats Instructions](infrastructure-beats-instructions.md) | You can't secure systems with prompts alone |
 | 5 | [Risk Tier Is Use Case, Not Technology](risk-tier-is-use-case.md) | Classification is about deployment context, not model capability |
 | 6 | [Humans Remain Accountable](humans-remain-accountable.md) | AI assists decisions; humans own outcomes |
-
----
 
 ## Emerging Challenges
 
@@ -43,8 +39,6 @@ Where the three-layer pattern meets its limits - and what to do about it.
 | 16 | [The Long-Horizon Problem](the-long-horizon-problem.md) | The security properties you validated on day one may not hold on day thirty - time itself is an attack vector | [Observability Controls](../maso/controls/observability.md) |
 | 17 | [Process-Aware Evaluation](process-aware-evaluation.md) | Evaluating what an agent produced is less important than evaluating how it got there | [Judge Assurance](../core/judge-assurance.md) |
 
----
-
 ## Operational Gaps
 
 Blind spots in most enterprise AI security programmes.
@@ -55,8 +49,6 @@ Blind spots in most enterprise AI security programmes.
 | 15 | [RAG Is Your Biggest Attack Surface](rag-is-your-biggest-attack-surface.md) | Retrieval pipelines bypass your existing access controls | [RAG Security](../extensions/technical/rag-security.md) |
 | 16 | [The Visibility Problem](the-visibility-problem.md) | You can't govern AI you don't know is running - shadow AI, inventories, and governance KPIs | [Operational Metrics](../extensions/technical/operational-metrics.md) |
 
----
-
 ## Research & Evidence
 
 What the peer-reviewed literature says about runtime AI security controls.
@@ -65,8 +57,6 @@ What the peer-reviewed literature says about runtime AI security controls.
 |---|---------|-----------------|
 | 17 | [The Evidence Gap](the-evidence-gap.md) | What research actually supports - and where the science hasn't caught up to the architecture |
 
----
-
 ## The Case for Runtime Security
 
 The argument for why AI systems require a fundamentally different security model.
@@ -74,8 +64,6 @@ The argument for why AI systems require a fundamentally different security model
 | Article | One-Line Summary |
 |---------|-----------------|
 | [Why AI Security Is a Runtime Problem](why-ai-security-is-a-runtime-problem.md) | Non-deterministic systems cannot be fully tested before deployment - security must be continuous |
-
----
 
 ## Analysis
 
@@ -99,6 +87,3 @@ Deeper examinations of where the framework meets production reality - what works
 | [Graph-Based Agent Monitoring](graph-based-agent-monitoring.md) | Using an in-memory graph database to model agent interactions as a live graph, detect anomalous behaviour through temporal graph analysis, and feed results into PACE escalation in near real-time |
 | [Beyond Security](beyond-security.md) | The framework's architecture - layered independence, tiering, PACE, quantitative compounding - transfers to drift, fairness, explainability, and reliability |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -12,8 +12,6 @@ Think of it as an auditor, not a gatekeeper.
 
 ![Assurance Model](../../images/assurance-model-diagram.svg)
 
----
-
 ## What the Judge Is Not
 
 | The Judge Is Not | Why |
@@ -23,8 +21,6 @@ Think of it as an auditor, not a gatekeeper.
 | A replacement for guardrails | Guardrails handle fast, deterministic, inline checks |
 | A replacement for human oversight | It supports human oversight, doesn't replace it |
 | Infallible | It's an AI evaluating AI-it can be wrong, gamed, or fail silently |
-
----
 
 ## The Assurance Model
 
@@ -49,8 +45,6 @@ For high-volume systems, use a two-tier approach:
 
 ![Two-Tier Judge Architecture](../../images/two-tier-judge.svg)
 
----
-
 ## What the Judge Evaluates
 
 | Evaluation Type | Question Answered | Example |
@@ -61,8 +55,6 @@ For high-volume systems, use a two-tier approach:
 | **Anomaly detection** | Is this interaction unusual compared to baseline? | "This conversation pattern doesn't match normal usage" |
 | **Bias indicators** | Are there patterns suggesting unfair treatment? | "Denial rates differ across demographic proxies" |
 | **Adversarial signals** | Does this look like an attack or manipulation? | "This input resembles known prompt injection patterns" |
-
----
 
 ## What Happens With Findings
 
@@ -76,8 +68,6 @@ The Judge produces findings. Humans decide what to do with them.
 | Model drift | Trigger model review, potential retraining |
 | Emerging attack vector | Update threat model, brief security team |
 | Quality degradation | Review primary AI, consider tuning |
-
----
 
 ## Sampling Strategy
 
@@ -96,8 +86,6 @@ Sampling can also be triggered by:
 - Unusual session patterns
 - Random selection for quality assurance
 
----
-
 ## Legal Alignment
 
 This assurance model avoids key legal risks:
@@ -109,8 +97,6 @@ This assurance model avoids key legal risks:
 | Blocking legitimate activity | Nothing blocked; red flags investigated |
 | Accountability gap | Human is accountable for any action taken |
 | Right to explanation | Judge reasoning available for human to interpret |
-
----
 
 ## Integration With Controls
 
@@ -124,8 +110,6 @@ The Judge is one component of a layered control stack:
 | **Human oversight** | Decision-making, accountability | As needed based on findings |
 | **Governance** | Policy, risk appetite, escalation paths | Ongoing |
 
----
-
 ## Operational Requirements
 
 To function as an assurance tool, the Judge needs:
@@ -138,8 +122,6 @@ To function as an assurance tool, the Judge needs:
 | Feedback loops | Human decisions inform Judge calibration |
 | Performance monitoring | Judge itself needs assurance |
 
----
-
 ## Judge Governance
 
 The Judge is itself an AI system. It requires:
@@ -150,8 +132,6 @@ The Judge is itself an AI system. It requires:
 4. **Model risk governance** - Treat as a model under SR 11-7 / SS1/23
 5. **Human oversight of the Judge** - Sample Judge findings, verify accuracy
 
----
-
 ## When NOT to Use a Judge
 
 | Scenario | Why Not |
@@ -161,8 +141,6 @@ The Judge is itself an AI system. It requires:
 | No human capacity to review findings | Findings without action are waste |
 | Cost prohibitive | Judge calls cost money; sampling may not be enough |
 | Primary AI is low-risk, low-volume | Overhead not justified |
-
----
 
 ## Comparison: Guardrails vs Judge vs HITL
 
@@ -179,8 +157,6 @@ The Judge is itself an AI system. It requires:
 ### Choosing a Judge Approach
 
 ![Judge Model Decision Tree](../../images/judge-model-decision-tree.svg)
-
----
 
 ## Summary
 
@@ -200,6 +176,3 @@ The LLM-as-Judge is a powerful assurance mechanism when used correctly:
 
 **The Judge makes human oversight scalable. It doesn't replace it.**
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

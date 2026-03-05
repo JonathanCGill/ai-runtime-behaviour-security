@@ -2,8 +2,6 @@
 
 How attackers, users, and agents circumvent controls - and what you can do about it.
 
----
-
 ## The Uncomfortable Truth
 
 **You cannot fully prevent bypasses.**
@@ -23,8 +21,6 @@ This isn't defeatism - it's the foundation of a realistic security posture. AI s
 2. Detect bypasses when they happen (reduce dwell time)
 3. Limit damage when bypasses succeed (reduce blast radius)
 4. Learn from bypasses (improve over time)
-
----
 
 ## Bypass Taxonomy
 
@@ -91,8 +87,6 @@ Circumvent human oversight and governance.
 | **Emergency override abuse** | Invoke emergency process inappropriately | "Production is down" when it isn't |
 | **Privilege escalation** | Gain elevated access through legitimate means | Promotion, role change, social engineering |
 
----
-
 ## Defence-in-Depth Architecture
 
 No single control stops all bypasses. Layer controls so bypassing one doesn't grant full access.
@@ -100,8 +94,6 @@ No single control stops all bypasses. Layer controls so bypassing one doesn't gr
 ![Defence in Depth Architecture](../../images/defence-in-depth.svg)
 
 **Principle:** An attacker must bypass ALL layers, not just one.
-
----
 
 ## Guardrail Bypass Prevention
 
@@ -143,8 +135,6 @@ Retrieved content is an injection vector. Treat it as untrusted input.
 | **Privilege separation** | Retrieved content marked differently from system instructions |
 | **Anomaly detection** | Alert on unusual content in knowledge base |
 | **Access control** | Restrict who can modify knowledge base |
-
----
 
 ## Intent Declaration Controls
 
@@ -197,8 +187,6 @@ Don't grant full access upfront. Expand access as legitimate use is demonstrated
 | Initial | Limited data, basic capabilities | High scrutiny |
 | Established | Broader access | Standard monitoring |
 | Trusted | Full authorised scope | Periodic audit |
-
----
 
 ## Agentic Bypass Prevention
 
@@ -257,8 +245,6 @@ Hard stops that trigger regardless of agent "reasoning":
 | **Scope violations** | Any attempt to exceed scope → terminate |
 | **Sensitive actions** | Any irreversible action → require approval |
 
----
-
 ## Architectural Bypass Prevention
 
 ### Shadow AI
@@ -299,8 +285,6 @@ Authorised users misuse their access or modify controls.
 | **Privileged access management** | Admin access time-limited, monitored |
 | **Canary testing** | Regularly test that controls still work |
 
----
-
 ## Process Bypass Prevention
 
 ### HITL Integrity
@@ -333,8 +317,6 @@ Controls are only as good as their configuration.
 | **Drift detection** | Alert if production differs from source |
 | **Rollback capability** | Quick revert if issues detected |
 | **Audit logging** | Who changed what when |
-
----
 
 ## Detection When Bypasses Succeed
 
@@ -376,8 +358,6 @@ When a bypass is detected, you need to investigate. Log:
 | **Retrieved context** | What data was in scope |
 | **Actions taken** | What the system did |
 
----
-
 ## Response When Bypasses Are Detected
 
 ### Immediate Response
@@ -395,8 +375,6 @@ Every bypass is an opportunity to improve:
 
 ![Bypass Learning Loop](../../images/bypass-learning-loop.svg)
 
----
-
 ## Control Effectiveness by Bypass Type
 
 | Bypass Type | Most Effective Control | Why |
@@ -411,8 +389,6 @@ Every bypass is an opportunity to improve:
 | Insider threats | Separation of duties + audit | No single person can both change and use |
 | HITL bypass | Canary testing + reviewer metrics | Verify humans are actually reviewing |
 
----
-
 ## What We Cannot Control
 
 Be honest about what's impossible:
@@ -425,8 +401,6 @@ Be honest about what's impossible:
 | Model emergent behaviour | Constrain at infrastructure level |
 | Zero-day in model | Layered defences, quick response capability |
 
----
-
 ## Summary
 
 1. **Accept that bypasses will happen** - design for detection and response, not just prevention
@@ -436,8 +410,6 @@ Be honest about what's impossible:
 5. **Make misuse costly** - audit trails, consequences, attribution
 6. **Learn from every bypass** - improve controls, update tests, share knowledge
 7. **Provide good alternatives** - shadow AI happens when official AI is too restrictive
-
----
 
 ## Control Checklist
 
@@ -479,6 +451,3 @@ Be honest about what's impossible:
 - [ ] Separation of duties for config
 - [ ] Configuration drift detection
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

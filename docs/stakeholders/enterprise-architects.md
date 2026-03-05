@@ -4,8 +4,6 @@
 
 > *Part of [Stakeholder Views](README.md) · [AI Runtime Behaviour Security](../)*
 
----
-
 ## The Problem You Have
 
 You're designing AI systems or integrating AI into existing architectures. Your security and risk teams are asking for "guardrails" and "oversight," but nobody's told you:
@@ -17,8 +15,6 @@ You're designing AI systems or integrating AI into existing architectures. Your 
 - **What can your existing infrastructure** (API gateway, IAM, DLP) already handle?
 
 You don't need governance theory. You need an architecture reference.
-
----
 
 ## What This Framework Gives You
 
@@ -84,8 +80,6 @@ Each control layer needs a defined failure mode. These aren't operational proced
 
 Wire these as **health checks and circuit breakers** in your service mesh or orchestration layer. Not as runbooks. See [PACE Resilience](../PACE-RESILIENCE.md).
 
----
-
 ## Your Starting Path
 
 | # | Document | Why You Need It |
@@ -102,8 +96,6 @@ Wire these as **health checks and circuit breakers** in your service mesh or orc
 
 **If you want to see one transaction end-to-end:** [Runtime Telemetry Reference](../extensions/technical/runtime-telemetry-reference.md) - every JSON event, every threshold, every evidence artefact for a single request through the full control stack.
 
----
-
 ## What You Can Do Monday Morning
 
 1. **Map your existing infrastructure** against the [Infrastructure Controls](../infrastructure/) to identify what you already cover and where the AI-specific gaps are.
@@ -115,8 +107,6 @@ Wire these as **health checks and circuit breakers** in your service mesh or orc
 4. **Scope your agent's permissions.** If you have an agentic system, classify every tool by action type (read / write / irreversible) and add confirmation gates for write and irreversible actions. See [Agentic Controls](../core/agentic.md).
 
 5. **Budget the evaluation layer.** Use the [Cost & Latency](../extensions/technical/cost-and-latency.md) analysis to present the cost of the Judge layer vs. the cost of the incidents it prevents. The [Risk Assessment](../core/risk-assessment.md) gives you the incident frequency numbers.
-
----
 
 ## Common Objections - With Answers
 
@@ -132,6 +122,3 @@ RAG reduces but doesn't eliminate hallucination. More importantly, RAG creates a
 **"The infrastructure team handles security, not us."**
 Infrastructure handles network, identity, and data-at-rest. Nobody handles the AI-specific controls (semantic evaluation, injection detection, decision chain audit, agent credential scoping) unless you design them into the pipeline. That's your job.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -2,8 +2,6 @@
 
 Principles for choosing the right model to evaluate your AI system.
 
----
-
 ## The Core Principles
 
 ![Judge Model Selection](../../images/judge-model-selection.svg)
@@ -13,8 +11,6 @@ Three principles, in order of priority:
 1. **Different** - Not the same model as your primary AI
 2. **Conservative** - Biased toward flagging, not passing
 3. **Fast** - Throughput matches or exceeds transaction volume
-
----
 
 ## Principle 1: Use a Different Model
 
@@ -47,8 +43,6 @@ Research has shown that although GPT-4 and Claude-v1 favor themselves with a 10%
 - Judge: Provider B (e.g., OpenAI GPT-4, Google Gemini)
 
 This ensures different training data, different architectures, and different failure modes.
-
----
 
 ## Principle 2: Configure for Conservative Evaluation
 
@@ -99,8 +93,6 @@ Use this golden dataset to verify your Judge:
 - Errs toward flagging when humans would be uncertain
 - Doesn't pass things humans would flag
 
----
-
 ## Principle 3: Ensure Adequate Speed
 
 **Judge throughput must keep pace with transaction volume, or backlogs accumulate.**
@@ -141,8 +133,6 @@ This gives you speed where volume is high and nuance where it matters.
 | Medium (30-70B) | Moderate | Good | Moderate | General evaluation |
 | Large (>100B) | Slow | Excellent | High | Tier 2, complex judgment |
 
----
-
 ## Known Biases to Mitigate
 
 Research has identified several biases in LLM-as-Judge that affect reliability:
@@ -171,8 +161,6 @@ LLMs might favor aesthetically pleasing text, potentially overlooking the accura
 
 **Mitigation:** Separate style evaluation from accuracy evaluation. Don't let pretty writing mask factual problems.
 
----
-
 ## Ensemble Approach for High-Stakes Evaluation
 
 For HIGH and CRITICAL tier systems, consider using multiple Judges:
@@ -200,8 +188,6 @@ Transaction → Judge A (Claude) ─┐
 
 Use for CRITICAL tier where cost is justified by risk reduction.
 
----
-
 ## Model Selection by Risk Tier
 
 | Tier | Judge Approach | Rationale |
@@ -210,8 +196,6 @@ Use for CRITICAL tier where cost is justified by risk reduction.
 | **MEDIUM** | Single capable model, higher sampling | Balance of speed and nuance |
 | **HIGH** | Capable model, 100% evaluation | Full coverage required |
 | **CRITICAL** | Ensemble (jury), 100% evaluation | Maximum coverage, blind spot reduction |
-
----
 
 ## Practical Recommendations
 
@@ -239,8 +223,6 @@ Watch for:
 - Rising complaint rates despite "passing" Judge scores
 - Patterns in what the Judge misses
 
----
-
 ## Summary
 
 **Different:** Use a model from a different provider/family than your primary AI to avoid shared blind spots and self-preference bias.
@@ -251,8 +233,6 @@ Watch for:
 
 The Judge is an assurance mechanism, not a gatekeeper. Its job is to surface concerns for human review, not to make final decisions. Optimise for catching issues, not for throughput alone.
 
----
-
 ## References
 
 Key research informing these recommendations:
@@ -262,6 +242,3 @@ Key research informing these recommendations:
 - Multiple practitioner sources on self-enhancement and position bias
 - Industry guidance from Arize, Evidently, Patronus AI, and others
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

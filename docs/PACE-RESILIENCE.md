@@ -6,15 +6,11 @@
 
 > *This document uses the simplified three-tier system (Tier 1/2/3). See [Risk Tiers - Simplified Tier Mapping](core/risk-tiers.md#simplified-tier-mapping) for the mapping to LOW/MEDIUM/HIGH/CRITICAL.*
 
----
-
 ## What PACE Is
 
 PACE (Primary, Alternate, Contingency, Emergency) is a resilience planning methodology from military communications planning. It ensures mission-critical functions continue even when the preferred method fails, by pre-defining four layers of redundancy - each on a different failure domain so a single event can't cascade through all of them.
 
 This framework adopts PACE as a **core design principle**, not an optional overlay. Every control, at every tier, must have a defined fail posture and fallback path before the system enters production.
-
----
 
 ## The Two-Axis PACE Model
 
@@ -28,8 +24,6 @@ PACE applies to AI security controls on two axes simultaneously:
 
 Both axes must be defined before deployment. The risk tier determines how formally each is documented, tested, and maintained.
 
----
-
 ## The PACE Principle: Independent Failure Domains
 
 The critical rule that makes PACE effective: **each layer must depend on a different mechanism**, so a single failure mode can't take everything down simultaneously.
@@ -42,8 +36,6 @@ The critical rule that makes PACE effective: **each layer must depend on a diffe
 | Circuit Breaker | Infrastructure control | Network routing, feature flags | Operates at infrastructure layer, independent of AI stack |
 
 A prompt injection that bypasses guardrails won't automatically fool the Judge. A Judge model failure doesn't impair guardrails or human review. A staffing gap in human oversight doesn't affect automated controls. This independence is the foundation of resilience.
-
----
 
 ## The Core Architect Decision: Fail Posture
 
@@ -61,8 +53,6 @@ This decision is the single most important resilience choice an architect makes 
 - Tier 2 (customer-facing, human-reviewed): Fail-closed by default. Automated switchover to fallback.
 - Tier 3 (regulated, autonomous): Fail-closed always. No AI traffic passes a degraded control. Immediate escalation.
 
----
-
 ## Where PACE Requirements Live in This Framework
 
 PACE is integrated throughout the framework, not isolated in a single document:
@@ -76,8 +66,6 @@ PACE is integrated throughout the framework, not isolated in a single document:
 
 This document is the methodology reference. The requirements are in the documents above.
 
----
-
 ## Why PACE, Not Just "Defence in Depth"
 
 Defence in depth tells you to have multiple layers. It doesn't tell you:
@@ -89,8 +77,6 @@ Defence in depth tells you to have multiple layers. It doesn't tell you:
 5. How to test whether your fallback actually works
 
 PACE answers all five. That's why it's a design principle, not an afterthought.
-
----
 
 ## PACE for Multi-Agent Systems
 
@@ -117,8 +103,6 @@ The **[MASO Framework](maso/)** integrates PACE at the orchestration level:
 
 **→ [MASO PACE Implementation](maso/)** · [Tier 1](maso/implementation/tier-1-supervised.md) · [Tier 2](maso/implementation/tier-2-managed.md) · [Tier 3](maso/implementation/tier-3-autonomous.md)
 
----
-
 ## Testing Your PACE Plan
 
 A PACE plan that hasn't been tested is a plan that won't work.
@@ -135,8 +119,6 @@ A PACE plan that hasn't been tested is a plan that won't work.
 
 For Tier 3 systems, testing should involve the same personnel who would handle a real incident, using the same tools and communication channels.
 
----
-
 ## Related Framework Documents
 
 | Document | Relevance |
@@ -148,6 +130,3 @@ For Tier 3 systems, testing should involve the same personnel who would handle a
 | [Incident Playbook](extensions/templates) | Templates for Emergency layer activation |
 | [Infrastructure Beats Instructions](insights/infrastructure-beats-instructions.md) | Why the Emergency layer must be infrastructure, not prompts |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

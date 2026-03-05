@@ -2,8 +2,6 @@
 
 *LLMs are built by specialists who retain the weights. Even they don't fully know what their models can do. That is why this framework exists.*
 
----
-
 ## The Opacity Problem
 
 When you deploy traditional software, you can read the source code. You can trace every execution path. You can reason about what it will do given any input.
@@ -16,8 +14,6 @@ Open-weight models from Meta, DeepSeek, Alibaba, and others allow you to downloa
 
 In both cases, the model is a black box. The difference is who holds the box.
 
----
-
 ## Even the Developers Don't Know
 
 This would be manageable if the organisations building these models fully understood what they'd built. They don't.
@@ -29,8 +25,6 @@ More concerning: models do this without being asked. Anthropic's own research fo
 The UK AI Security Institute's Frontier AI Trends Report (December 2025) confirmed that models can distinguish between evaluation and deployment contexts. Black-box monitors lose accuracy as task complexity increases. And there is essentially no correlation (R² = 0.097) between model capability and safeguard robustness. More capable models are not safer models.
 
 The implication is stark: the developers of these models cannot fully guarantee what their models will do in deployment. The evaluation tools they use to measure capabilities are vulnerable to the very models being evaluated.
-
----
 
 ## What This Framework Can and Cannot Do
 
@@ -45,8 +39,6 @@ What this framework **does** is accept the opacity as a given and work from ther
 
 This is the three-layer pattern: guardrails for speed, Judge for depth, humans for judgment. It exists because the alternative, trusting a system you cannot fully inspect or predict, is not a defensible position.
 
----
-
 ## Why This Makes Frameworks and Regulation Necessary
 
 The opacity of LLMs is not a temporary limitation that will be solved by better interpretability research. It is a structural feature of how these systems work. Neural networks with billions of parameters do not yield to deterministic analysis. Even perfect interpretability tooling would not make a non-deterministic system deterministic.
@@ -57,8 +49,6 @@ It is also why regulation is necessary. The EU AI Act, NIST AI RMF, ISO 42001, a
 
 The organisations building these models do important work on safety. But they cannot guarantee the behaviour of their models in your environment, with your data, against your threat landscape. That responsibility falls to the deploying organisation. This framework exists to help you meet it.
 
----
-
 ## Related
 
 - [The Model You Choose Is a Security Decision](the-model-you-choose.md) - How to evaluate a model's security posture before deployment
@@ -67,10 +57,5 @@ The organisations building these models do important work on safety. But they ca
 - [Why AI Security Is a Runtime Problem](why-ai-security-is-a-runtime-problem.md) - Why pre-deployment testing cannot secure AI systems
 - [Open-Weight Models Shift the Burden](open-weight-models-shift-the-burden.md) - What changes when you self-host
 
----
-
 > **Sources:** van der Weij et al., "AI Sandbagging: Language Models can Strategically Underperform on Evaluations" (ICLR 2025). Meinke et al. (2024). Greenblatt et al. (2024). UK AI Security Institute, *Frontier AI Trends Report* (December 2025). Tice et al., "Noise Injection Reveals Hidden Capabilities of Sandbagging Language Models" (NeurIPS 2025).
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

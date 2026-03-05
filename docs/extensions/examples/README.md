@@ -20,6 +20,3 @@ Control implementations for specific use cases.
 
 For worked examples involving multi-agent orchestration (financial services, healthcare, critical infrastructure), see the **[MASO Worked Examples](../../maso/examples/worked-examples.md)**.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

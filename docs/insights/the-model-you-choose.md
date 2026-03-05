@@ -2,8 +2,6 @@
 
 *Choosing a flawed model makes every control downstream harder. The first security question isn't "how do we monitor it?" It's "should we trust it?"*
 
----
-
 ## The Question Nobody Asks Early Enough
 
 Teams evaluate models on capability. Can it code? Can it reason? Can it follow instructions? Can it handle our domain?
@@ -15,8 +13,6 @@ The security question is different: **does this model behave predictably enough,
 A model that hallucinates confidently defeats your grounding checks. A model with poor instruction-following defeats your system prompt guardrails. A model trained on undisclosed data exposes you to risks you can't enumerate. A model from a provider with no security disclosure process means vulnerabilities found by researchers may never reach you.
 
 Capability evaluation and security evaluation are different activities. Most organisations do the first. Few do the second.
-
----
 
 ## What "Reputable" Actually Means
 
@@ -76,8 +72,6 @@ Every model will produce outputs you didn't anticipate. The question is whether 
 - **Rollback capability.** If a new version introduces a security regression, can you revert to the previous version? How quickly?
 - **Shared responsibility model.** Does the provider clearly define what they are responsible for vs. what you are responsible for? Or is the boundary ambiguous?
 
----
-
 ## The Asymmetry You Cannot Eliminate
 
 With traditional software, you can audit the source code. With models, you cannot.
@@ -93,8 +87,6 @@ This is why the framework's three-layer pattern exists. You cannot eliminate the
 The layers don't trust the model. They verify its outputs. But the layers work *better* when the model is better. A model with strong instruction-following produces fewer guardrail triggers. A model with good safety training produces fewer Judge flags. A model with consistent behaviour produces fewer surprises for human reviewers.
 
 Choosing a trustworthy model doesn't replace controls. It makes controls more effective and less costly to operate.
-
----
 
 ## A Practical Evaluation
 
@@ -114,8 +106,6 @@ No model will score perfectly. The point is not to find a perfect model. It is t
 
 A model that scores poorly on transparency needs stronger runtime controls. A model that scores well on instruction-following may need less aggressive guardrail coverage. The model choice and the control investment are connected decisions.
 
----
-
 ## What This Does Not Replace
 
 This is not a model evaluation framework. It does not tell you how to benchmark accuracy, measure latency, or compare reasoning capability. Those are capability assessments with mature tooling and methodology.
@@ -130,8 +120,6 @@ The sequence is:
 
 Skip step one and you're verifying the integrity of a model you never assessed, then monitoring outputs from a system whose baseline risk you don't understand.
 
----
-
 ## The Bottom Line
 
 The model is the foundation. Every control in this framework - guardrails, Judge, human review, PACE resilience - operates on the model's outputs. If the model is fundamentally untrustworthy, the controls work harder, cost more, and catch less.
@@ -140,6 +128,3 @@ Choosing a model is not just a capability decision. It is the first security dec
 
 Make it deliberately.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

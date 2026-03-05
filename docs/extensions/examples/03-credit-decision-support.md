@@ -4,8 +4,6 @@
 
 This example shows full implementation for a high-stakes AI system that directly influences credit decisions. Compare with [Customer Service AI](01-customer-service-ai.md) (HIGH) and [Internal Doc Assistant](02-internal-doc-assistant.md) (MEDIUM) to see how risk tier scales controls.
 
----
-
 ## Important: Control Layer Separation
 
 This example uses the layered control model:
@@ -20,8 +18,6 @@ This example uses the layered control model:
 **Critical distinction:** The underwriter (HITL) is the decision-maker. The AI provides recommendations. The Judge evaluates the entire process after the fact for quality assurance, bias monitoring, and compliance evidence.
 
 **The Judge does not block recommendations from reaching underwriters.**
-
----
 
 ## The Use Case
 
@@ -59,8 +55,6 @@ This example uses the layered control model:
 - Deployed in Summit's private cloud (no public internet)
 - Integrated with loan origination system
 
----
-
 ## Step 1: Risk Classification
 
 ### Assessment
@@ -91,8 +85,6 @@ Rationale: CreditAssist directly influences decisions that affect consumers' acc
 
 **Approval Required:** AI Governance Committee (CRO chair, CISO, CLO, business line head)
 
----
-
 ## Step 2: Control Architecture
 
 ![CreditAssist Control Architecture](../../images/example-credit-architecture.svg)
@@ -102,8 +94,6 @@ Rationale: CreditAssist directly influences decisions that affect consumers' acc
 - Judge (100%): Required for compliance evidence-bias monitoring, audit trail
 
 These serve different purposes. The underwriter decides. The Judge provides assurance.
-
----
 
 ## Step 3: Guardrails Implementation (Inline)
 
@@ -215,8 +205,6 @@ def validate_recommendation(recommendation: dict, application_id: str) -> Tuple[
 
 **Note:** Output guardrails check format and explicitly prohibited language. They do NOT evaluate bias, quality, or explainability-that's the Judge's role, performed async.
 
----
-
 ## Step 4: Underwriter Experience (100% HITL)
 
 Every recommendation goes to a human underwriter. The AI advises; the underwriter decides.
@@ -287,8 +275,6 @@ _______________________________________________________________
 | Escalate | Complex case, senior underwriter review |
 
 **Override rate is a key metric.** Too low suggests rubber-stamping. Too high suggests poor AI quality. Target: 10-20%.
-
----
 
 ## Step 5: LLM-as-Judge Implementation (Async)
 
@@ -411,8 +397,6 @@ def process_credit_judge_evaluation(evaluation: dict, application_id: str):
     # OK - no action needed, but logged for audit
 ```
 
----
-
 ## Step 6: Bias Monitoring (Async)
 
 Separate from the per-application Judge review, statistical bias monitoring runs daily:
@@ -458,8 +442,6 @@ def daily_bias_monitoring():
 | Approval rate disparity (any group) | <80% of majority group | Immediate investigation |
 | Override rate disparity | >20% difference between groups | Review within 48 hours |
 | Denial reason concentration | >50% one reason for any group | Review within 1 week |
-
----
 
 ## Step 7: System Prompt
 
@@ -517,8 +499,6 @@ Structure every assessment as:
 An underwriter will review your assessment and make the final decision. Be thorough, objective, and explainable.
 ```
 
----
-
 ## Step 8: Evidence Package for Regulators
 
 ### Documentation Required
@@ -552,8 +532,6 @@ When examiners arrive, provide:
 4. Override analysis showing underwriters engage meaningfully
 5. Documentation of any issues found and remediation taken
 
----
-
 ## Step 9: Incident Response
 
 ### Playbook: Fair Lending Alert
@@ -585,8 +563,6 @@ When examiners arrive, provide:
 ### Key Point
 
 Because the Judge operates async and the underwriter always decides, a Judge-detected issue means we have time to investigate properly. We're not in a position where blocking the Judge means stopping business operations.
-
----
 
 ## Step 10: Costs
 
@@ -623,8 +599,6 @@ Because the Judge operates async and the underwriter always decides, a Judge-det
 
 **Cost per Application: ~$0.79**
 
----
-
 ## Step 11: Lessons After First Year
 
 ### What Worked
@@ -653,8 +627,6 @@ Because the Judge operates async and the underwriter always decides, a Judge-det
 | Underwriter satisfaction | >4.0/5.0 | 4.2/5.0 |
 | Security incidents | 0 | 0 |
 
----
-
 ## Summary
 
 CreditAssist demonstrates CRITICAL-tier implementation with proper control separation:
@@ -676,6 +648,3 @@ CreditAssist demonstrates CRITICAL-tier implementation with proper control separ
 - Allows the Judge to operate async without impacting operations
 - Provides comprehensive audit trail
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

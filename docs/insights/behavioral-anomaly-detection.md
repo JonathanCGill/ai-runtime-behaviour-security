@@ -2,8 +2,6 @@
 
 **Aggregating safety signals to detect when agent behavior drifts from normal.**
 
----
-
 ## The Opportunity
 
 Every safety layer generates signals:
@@ -19,8 +17,6 @@ Every safety layer generates signals:
 | Human Review | Escalation outcomes | Edge cases, false positives |
 
 Individually, each signal catches specific problems. **Aggregated, they reveal behavioral patterns invisible to any single layer.**
-
----
 
 ## What Aggregation Enables
 
@@ -82,8 +78,6 @@ Last 30 days:
 Insight: 28% of issues pass guardrails - judge layer is load-bearing
 ```
 
----
-
 ## Architecture
 
 ![Behavioral Anomaly Detection](../images/behavioral-anomaly-detection.svg)
@@ -139,8 +133,6 @@ Every safety layer emits structured events:
 | User outlier | One user generating 40% of flags | Adversarial probing |
 | Temporal | 4am spike in high-risk requests | Bot activity, different timezone attackers |
 
----
-
 ## Implementation Levels
 
 ### Level 1: Centralized Logging
@@ -167,8 +159,6 @@ Every safety layer emits structured events:
 - Cross-layer correlation analysis
 - Emerging attack signature detection
 - **Effort**: High | **Value**: Unknown-unknown discovery
-
----
 
 ## What to Track
 
@@ -198,8 +188,6 @@ Every safety layer emits structured events:
 - Coverage gaps (what passes all checks but fails human review)
 - Alert-to-incident conversion rate
 
----
-
 ## Integration with Existing Observability
 
 This isn't a separate system - it's an extension of standard observability:
@@ -222,8 +210,6 @@ This isn't a separate system - it's an extension of standard observability:
 
 The difference is framing: not just "is the model performing well?" but "is the model behaving safely?"
 
----
-
 ## Privacy and Compliance Considerations
 
 Aggregating safety signals creates a detailed behavioral record. Consider:
@@ -236,8 +222,6 @@ Aggregating safety signals creates a detailed behavioral record. Consider:
 
 The same data that enables security enables surveillance. Design constraints upfront.
 
----
-
 ## Connection to Risk Tiers
 
 Monitoring depth should match risk:
@@ -248,8 +232,6 @@ Monitoring depth should match risk:
 | **Tier 2** (Moderate) | Aggregated dashboards | Statistical baselines |
 | **Tier 3** (Significant) | Real-time monitoring | ML anomaly detection |
 | **Tier 4** (Critical) | Full behavioral analysis | Continuous ML + human review |
-
----
 
 ## The Insider Risk Parallel
 
@@ -308,8 +290,6 @@ The practical implication: organisations that already run insider risk programs 
 
 This is not a new capability to build. It is an existing capability to extend.
 
----
-
 ## Key Takeaways
 
 1. **Individual safety layers are necessary but not sufficient** - aggregation reveals patterns invisible to any single layer
@@ -324,8 +304,6 @@ This is not a new capability to build. It is an existing capability to extend.
 
 The question isn't just "did we catch the bad request?" It's "is the agent behaving the way we expect, across all the requests we can see?"
 
----
-
 ## Related
 
 - [The Verification Gap](./the-verification-gap.md) - Why independent verification matters
@@ -333,6 +311,3 @@ The question isn't just "did we catch the bad request?" It's "is the agent behav
 - [Current Solutions Reference](../extensions/technical/current-solutions.md) - Platforms implementing this
 - [Beyond Security](./beyond-security.md) - How the framework's architecture applies to drift, fairness, and other AI risks beyond security
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

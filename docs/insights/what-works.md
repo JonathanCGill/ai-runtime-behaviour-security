@@ -5,8 +5,6 @@
 
 A framework focused exclusively on failure modes trains readers to expect failure. This document provides calibration: where runtime behavioral monitoring and proportionate controls are measurably reducing AI risk.
 
----
-
 ## Defensive AI Is Delivering Measurable Results
 
 The IBM 2025 Cost of a Data Breach Report provides the clearest evidence that AI security controls work when deployed:
@@ -17,8 +15,6 @@ The IBM 2025 Cost of a Data Breach Report provides the clearest evidence that AI
 - Per-record breach costs drop from **$234 to $128** - a 45% reduction - when AI-powered detection is in place.
 
 These numbers are not specific to AI *system* security. They measure AI used for *defensive* security across all breach types. But the principle transfers directly: runtime monitoring catches what design-time testing misses.
-
----
 
 ## The Pattern in Practice
 
@@ -44,8 +40,6 @@ These are guardrails doing what guardrails do: blocking known patterns at speed.
 - Multiple South African court filings with AI-generated non-existent case law were detected and flagged. The pattern is consistent: where human review exists in the pipeline for high-stakes outputs, hallucination-driven harm is caught.
 - Organizations with formal incident response plans for AI-specific events contain breaches faster and at lower cost.
 
----
-
 ## What Proportionate Controls Look Like
 
 Not every AI system needs every control. The evidence supports tiered implementation:
@@ -55,8 +49,6 @@ Not every AI system needs every control. The evidence supports tiered implementa
 **Medium-risk systems** (customer-facing chatbots, document analysis, code generation) - guardrails plus async evaluation plus logging. The Anysphere/Cursor incident (April 2025), where an AI support bot invented a login policy that triggered subscription cancellations, would have been caught by a judge layer monitoring for policy hallucination.
 
 **High-risk systems** (financial decisions, healthcare recommendations, legal analysis, autonomous agents) - full three-layer pattern with mandatory human oversight for consequential outputs. The evidence is clear that hallucination rates, while declining, are not yet low enough for unsupervised high-stakes operation.
-
----
 
 ## The Adoption Maturity Curve
 
@@ -68,8 +60,6 @@ This is not cause for despair. It is a **normal technology adoption pattern**. T
 
 The organizations avoiding major incidents are not the ones with the largest budgets. They are the ones with **visibility into what AI systems they actually have** and **basic controls on the ones that matter most**.
 
----
-
 ## The Honest Assessment
 
 Controls reduce risk. They do not eliminate it.
@@ -80,6 +70,3 @@ Controls reduce risk. They do not eliminate it.
 
 The framework's value is not in promising zero risk. It is in making the residual risk **visible, measurable, and manageable**. That is worth doing, and the data shows it works.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

@@ -2,8 +2,6 @@
 
 ![Implementation Architecture](../images/implementation-architecture.svg)
 
----
-
 ## Phase 1: Foundation
 
 ### Classification
@@ -19,8 +17,6 @@
 - [ ] Escalation path documented
 - [ ] Success metrics defined
 
----
-
 ## Phase 2: Logging
 
 ### Interaction Capture
@@ -34,8 +30,6 @@
 - [ ] Access controls applied
 - [ ] Tamper protection enabled (HIGH/CRITICAL)
 - [ ] Backup/recovery tested
-
----
 
 ## Phase 3: Guardrails
 
@@ -58,8 +52,6 @@
 - [ ] False positive rate acceptable
 - [ ] Latency acceptable
 
----
-
 ## Phase 4: Judge
 
 ### Setup
@@ -79,8 +71,6 @@
 - [ ] False negative rate estimated
 - [ ] Judge prompt tuned based on findings
 - [ ] Re-validated after tuning
-
----
 
 ## Phase 5: Human Oversight
 
@@ -102,8 +92,6 @@
 - [ ] Volume limits set
 - [ ] Inter-rater reliability measured
 
----
-
 ## Phase 6: Operationalise
 
 ### Judge to Advisory
@@ -117,8 +105,6 @@
 - [ ] Workflows triggered by findings
 - [ ] Metrics dashboard live
 - [ ] Alerting configured
-
----
 
 ## Phase 7: Continuous Improvement
 
@@ -140,8 +126,6 @@
 - [ ] Incident lessons incorporated
 - [ ] Regulatory changes assessed
 
----
-
 ## Agent-Specific (if applicable)
 
 ### Scope Enforcement
@@ -162,8 +146,6 @@
 - [ ] Cost anomaly alerts set
 - [ ] Scope violation alerts set
 
----
-
 ## Verification
 
 This checklist is most effective when automated - integrated into CI/CD pipelines and platform deployment workflows so that items are verified as part of the build, not signed off in a meeting. Where automation isn't feasible, the team that built the system verifies their own readiness.
@@ -180,6 +162,3 @@ Organisations may choose to add formal sign-off gates for higher-risk tiers. Tha
 | Operational | ☐ | | |
 | Agent Controls | ☐ | | |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

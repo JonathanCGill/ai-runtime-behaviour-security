@@ -5,13 +5,9 @@
 > Part of the [AI Security Infrastructure Controls](../README.md) framework.
 > Companion to [AI Runtime Behaviour Security](https://github.com/JonathanCGill/ai-runtime-behaviour-security).
 
----
-
 ## Scope and Limitations
 
 This mapping covers 51 subcategories across the four NIST AI RMF functions. The mapping focuses on **technical infrastructure** contributions. Many NIST AI RMF subcategories require organisational processes, policies, and governance structures that are beyond the scope of infrastructure controls. Where a subcategory is primarily organisational, the mapping identifies supporting infrastructure controls and notes the organisational gap.
-
----
 
 ## GOVERN Function (14 subcategories)
 
@@ -34,8 +30,6 @@ The Govern function establishes the organisational context for AI risk managemen
 | **GOVERN 4.1** | Organisational practices for AI design | NET-01, IAM-04, SEC-01, DAT-02 | Zone architecture, tool constraints, credential isolation, and data minimisation are design practices enforced at infrastructure. |
 | **GOVERN 4.2** | Measurable activities for risk management | LOG-01 through LOG-10 | Full logging suite provides measurable telemetry for all AI risk activities. |
 
----
-
 ## MAP Function (12 subcategories)
 
 The Map function identifies AI system context, capabilities, and risks. Infrastructure controls support the technical aspects of context identification and risk characterisation.
@@ -54,8 +48,6 @@ The Map function identifies AI system context, capabilities, and risks. Infrastr
 | **MAP 3.2** | AI system risks along lifecycle | SUP-04, SUP-08, LOG-05, IR-07 | Pipeline security, vulnerability monitoring, drift detection, and post-incident review cover lifecycle risks. |
 | **MAP 3.3** | AI risk management integrated with enterprise | IR-08, LOG-10 | Enterprise IR integration and SIEM correlation connect AI risk to enterprise risk management. |
 | **MAP 3.5** | AI risks documented | IR-01, SUP-02, SUP-07 | Incident categories, risk assessments, and AI-BOM provide risk documentation infrastructure. |
-
----
 
 ## MEASURE Function (13 subcategories)
 
@@ -77,8 +69,6 @@ The Measure function quantifies AI risks and evaluates AI systems against requir
 | **MEASURE 3.1** | Monitoring approaches deployed | LOG-01 through LOG-10, IR-02 | Full logging suite and detection triggers provide monitoring deployment. |
 | **MEASURE 3.2** | Risk tracking processes in place | SUP-08, LOG-05, IR-07, SUP-07 | Vulnerability monitoring, drift detection, post-incident review, and AI-BOM support risk tracking. |
 
----
-
 ## MANAGE Function (12 subcategories)
 
 The Manage function addresses risk treatment and response. Infrastructure controls provide the technical response and mitigation capabilities.
@@ -98,8 +88,6 @@ The Manage function addresses risk treatment and response. Infrastructure contro
 | **MANAGE 4.1** | Post-deployment monitoring in place | LOG-01 through LOG-10, NET-08, IR-02 | Full logging suite, cross-zone monitoring, and detection triggers provide post-deployment monitoring. |
 | **MANAGE 4.2** | Mechanisms for decommissioning | SESS-05, SAND-05, IR-04, DAT-07 | Session cleanup, ephemeral environments, rollback capability, and retention management support decommissioning. |
 
----
-
 ## Coverage Summary
 
 | Function | Subcategories Mapped | Primary Infrastructure Coverage |
@@ -112,6 +100,3 @@ The Manage function addresses risk treatment and response. Infrastructure contro
 
 **Note:** Many NIST AI RMF subcategories are primarily organisational in nature (governance structures, policy creation, stakeholder engagement, training programmes). This mapping identifies the infrastructure controls that support these subcategories technically, but organisational implementation is required for full framework alignment.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

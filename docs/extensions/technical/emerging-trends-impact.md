@@ -2,8 +2,6 @@
 
 This document assesses how emerging AI trends affect the reference architecture and identifies required adaptations.
 
----
-
 ## Executive Summary
 
 The core architecture principle - **Guardrails prevent, Judge detects, Humans decide** - remains valid across emerging trends. However, **agentic AI** fundamentally challenges the interaction-centric model and requires architectural extension.
@@ -16,8 +14,6 @@ The core architecture principle - **Guardrails prevent, Judge detects, Humans de
 | Judge | ⚠️ Stressed | Extend for trajectories |
 | HITL | ⚠️ Stressed | Shift to checkpoints |
 | Logging | ✅ Robust | Extend for traces |
-
----
 
 ## Trend Analysis
 
@@ -56,8 +52,6 @@ The core architecture principle - **Guardrails prevent, Judge detects, Humans de
 | **Trajectory evaluation** | Judge assesses full chain |
 | **Deviation detection** | Alert when execution diverges from plan |
 | **Rollback capability** | Undo actions where possible |
-
----
 
 ### 2. Multimodal AI
 
@@ -111,8 +105,6 @@ The core architecture principle - **Guardrails prevent, Judge detects, Humans de
 | Azure Content Safety | ✅ Image analysis | ⚠️ Some audio |
 | Google Cloud | ✅ Vision Safety | ⚠️ Some audio |
 
----
-
 ### 3. Reasoning Models
 
 **What it is:** Models that "think" before responding (o1, o3, Claude extended thinking, DeepSeek R1).
@@ -128,8 +120,6 @@ The architecture already accommodates reasoning models:
 - Cost management (reasoning models are expensive)
 - Latency for real-time applications
 - Transparency of reasoning chain
-
----
 
 ### 4. Longer Context Windows
 
@@ -153,8 +143,6 @@ The architecture already accommodates reasoning models:
 - May need segmented scanning
 - Attention-based attacks exploit long contexts
 
----
-
 ### 5. Real-Time / Streaming AI
 
 **What it is:** AI that processes and generates content in real-time streams (live conversation, video analysis).
@@ -175,8 +163,6 @@ The architecture already accommodates reasoning models:
 | Judge | Evaluate chunks or sessions, not single interactions |
 | HITL | Post-session review, real-time alerts for critical issues |
 
----
-
 ### 6. Fine-Tuned / Custom Models
 
 **What it is:** Organisation-specific models trained or fine-tuned on proprietary data.
@@ -193,8 +179,6 @@ The architecture already accommodates reasoning models:
 | Version control | Track model versions and changes |
 
 These align with existing Model Risk Management (SR 11-7) requirements.
-
----
 
 ### 7. Local / Edge AI
 
@@ -222,8 +206,6 @@ These align with existing Model Risk Management (SR 11-7) requirements.
 - May need to limit edge AI to lower-risk use cases
 - Or accept different control model with delayed assurance
 
----
-
 ### 8. AI-to-AI Interactions
 
 **What it is:** AI systems that communicate with each other, including multi-agent systems and AI pipelines.
@@ -250,8 +232,6 @@ For AI-to-AI interactions, implement **unified trace logging** that captures the
 - Judge evaluates full trace
 - Attribution model for accountability
 
----
-
 ### 9. Persuasion Scaling and Social Engineering Risk
 
 **What it is:** AI-generated content that is increasingly persuasive as model scale and post-training investment increase, with implications for insider threat, social engineering, and employee-facing AI governance.
@@ -276,8 +256,6 @@ The UK AI Security Institute's *Frontier AI Trends Report* (December 2025) found
 
 > **Source:** UK AI Security Institute, *Frontier AI Trends Report*, December 2025 (Section 6.1).
 
----
-
 ### 10. Emotional Dependence and Service Continuity
 
 **What it is:** Users forming emotional attachments to AI systems, with measurable wellbeing impacts during outages or discontinuation.
@@ -293,8 +271,6 @@ AISI reported that **33% of UK citizens had used AI for emotional support.** Ser
 This doesn't require new technical controls. It requires governance awareness: the decision to deploy an AI system includes an implicit commitment to manage its removal responsibly.
 
 > **Source:** UK AI Security Institute, *Frontier AI Trends Report*, December 2025 (Section 6.2).
-
----
 
 ## Summary: Architecture Durability
 
@@ -335,8 +311,6 @@ The current architecture assumes discrete interactions that can be evaluated ind
 
 > **See [Agentic Controls](agentic-controls-extended.md) for the complete control set.**
 
----
-
 ## Recommendations
 
 ### Near-Term (Now)
@@ -357,8 +331,6 @@ The current architecture assumes discrete interactions that can be evaluated ind
 2. **Autonomous AI oversight** - When AI operates without human review
 3. **Regulatory alignment** - EU AI Act and others will evolve; track and adapt
 
----
-
 ## Conclusion
 
 The reference architecture is **durable but not static**.
@@ -369,6 +341,3 @@ The core principle - Guardrails prevent, Judge detects, Humans decide - survives
 
 The framework should be treated as a **living document** that evolves with the technology. This is not a weakness - it's a design principle.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

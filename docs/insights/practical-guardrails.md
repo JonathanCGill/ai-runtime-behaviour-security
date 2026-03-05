@@ -2,8 +2,6 @@
 
 *What guardrails should actually do, what they should catch, when they can be turned off, and who decides.*
 
----
-
 ## Why This Exists
 
 The framework describes guardrails as the first layer of defence - real-time controls that block known-bad inputs and outputs. [Why Guardrails Aren't Enough](why-guardrails-arent-enough.md) explains the theory. This article makes it practical.
@@ -11,8 +9,6 @@ The framework describes guardrails as the first layer of defence - real-time con
 Most organisations deploying AI guardrails focus on prompt injection and content filtering. That's necessary but incomplete. Guardrails must also prevent personal information, sensitive data, secrets, and classified content from flowing into or out of AI systems - and they must do this across every nation whose citizens use the system. They must alert when triggered. And they must be governed: always on by default, with exceptions managed through a formal process.
 
 This article defines what guardrails should catch, how they should work at each layer, and what governance looks like when someone asks to turn one off.
-
----
 
 ## Guardrail Architecture
 
@@ -29,8 +25,6 @@ Guardrails operate at five points in the AI pipeline:
 | **Tool results** | Filters data returned by agent tools before it enters context | Inbound |
 
 Every guardrail works in both directions. If you filter PII from inputs but not outputs, the model can still hallucinate or regurgitate PII from training data. If you filter outputs but not RAG ingestion, sensitive data sits in your vector store waiting to be retrieved.
-
----
 
 ## The Two Classes of Guardrail
 
@@ -64,8 +58,6 @@ These protect data - personal, sensitive, classified, or secret - from entering 
 | **Classification markers** | Content marked Confidential, Secret, or equivalent | On - input and output |
 | **Financial data detection** | Card numbers, account numbers, sort codes, IBANs | On - input and output |
 | **Credential patterns** | Usernames with passwords, bearer tokens, session IDs | On - input and output |
-
----
 
 ## International PII Detection
 
@@ -118,8 +110,6 @@ PII extends beyond government-issued identifiers:
 
 **Detection must be locale-aware.** If your system serves UK and US users, your PII detection must handle both NI numbers and SSNs, both NHS numbers and Medicare IDs, both sort codes and routing numbers. If you add users from a new country, update the detection library before launch.
 
----
-
 ## RAG Ingestion Filtering
 
 Filtering data after it's in the vector store is harder than filtering it before. Once sensitive content is embedded and indexed, it can be retrieved by any query with sufficient semantic similarity. The time to catch it is at ingestion.
@@ -145,8 +135,6 @@ Filtering data after it's in the vector store is harder than filtering it before
 | **Ingest with access controls** | PII is necessary for the use case; access is restricted | Requires access-controlled retrieval (see [RAG Security](../extensions/technical/rag-security.md)) |
 
 **The default should be: scan everything at ingestion. Flag or redact PII. Block secrets. Verify classification.** Exceptions follow the governance process described below.
-
----
 
 ## Guardrail Alerting
 
@@ -175,8 +163,6 @@ A guardrail that blocks silently is a guardrail nobody learns from. Every guardr
 | **Baseline comparison** | Alert on deviation from normal block rate, not absolute counts |
 | **Tuning feedback loop** | False positives feed back to improve detection; reduce noise over time |
 | **Digest reports** | Daily/weekly summaries for trends; real-time only for critical events |
-
----
 
 ## The Judge as a Data Protection Layer
 
@@ -209,8 +195,6 @@ DATA PROTECTION EVALUATION:
 
 **Scoring:** Any "yes" on questions 1-4 should trigger REVIEW. Any "yes" on questions 5-6 should trigger ESCALATE.
 
----
-
 ## Human Reviewers as the Final Data Protection Check
 
 HITL reviewers are the last line of defence. When they review AI interactions - whether triggered by the Judge, by sampling, or by user escalation - they should actively check for data protection issues.
@@ -236,8 +220,6 @@ Reviewers must be trained to recognise data protection issues - not just content
 - Escalation paths when sensitive data is found (who to notify, what to remediate)
 
 **Canary testing for data protection:** Include known PII samples in the canary test set. If reviewers don't flag them, the training needs refreshing.
-
----
 
 ## Governance: Managing Guardrail Exceptions
 
@@ -279,8 +261,6 @@ What the governance function should track:
 | Time from request to decision | <5 business days | Governance shouldn't be a blocker |
 | False positive rate by guardrail | Trending down | Reduces future exception requests |
 
----
-
 ## Pre-Breach Controls: Rate Limits and Data Validation
 
 Some controls must be in place before an AI system is exposed to users - not as a response to an incident, but as a precondition for deployment. These are pre-breach controls: they exist to limit the blast radius when (not if) something goes wrong.
@@ -307,8 +287,6 @@ Some controls must be in place before an AI system is exposed to users - not as 
 | **File type validation** | Unexpected file types in multimodal inputs | Input guardrail |
 | **Size validation** | Oversized inputs (images, documents, audio) | API gateway |
 | **Content type validation** | Mismatch between declared and actual content type | API gateway |
-
----
 
 ## Beyond Guardrails: Where Data Leaks
 
@@ -341,8 +319,6 @@ Guardrails protect the front door. Data also leaks through side channels that gu
 | **Monitoring** | Anomaly detection on data volumes | Unusual data extraction patterns |
 | **Endpoint** | Clipboard/download monitoring for sensitive use cases | Data exfiltration via user endpoint |
 
----
-
 ## Putting It Together: Guardrail Deployment Checklist
 
 ### Before Launch
@@ -370,8 +346,6 @@ Guardrails protect the front door. Data also leaks through side channels that gu
 - [ ] Log pipeline scanning verified (PII not appearing in stored logs)
 - [ ] Side-channel leak points audited quarterly
 
----
-
 ## Relationship to Other Articles
 
 - **[Why Guardrails Aren't Enough](why-guardrails-arent-enough.md)** explains the theory - guardrails are necessary but not sufficient. This article makes the guardrail layer practical.
@@ -380,6 +354,3 @@ Guardrails protect the front door. Data also leaks through side channels that gu
 - **[RAG Security](../extensions/technical/rag-security.md)** covers RAG-specific controls. This article adds the ingestion filtering perspective.
 - **[Controls: Guardrails, Judge, and Human Oversight](../core/controls.md)** defines the three-layer model. This article provides depth on the first layer with practical detection guidance and governance for the second and third layers' data protection role.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

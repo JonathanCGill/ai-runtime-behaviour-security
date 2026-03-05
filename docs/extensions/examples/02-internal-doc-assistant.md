@@ -4,8 +4,6 @@
 
 This example shows how controls scale down for lower-risk internal tools. Compare with the [Customer Service AI example](01-customer-service-ai.md) to see how risk tier affects implementation.
 
----
-
 ## Note: Control Approach for MEDIUM Tier
 
 For MEDIUM-risk internal tools, the control model simplifies:
@@ -21,8 +19,6 @@ This example uses **guardrails only** for inline protection, with optional Judge
 - No sensitive data access
 - Informational only (no decisions made)
 - Lower blast radius if something goes wrong
-
----
 
 ## The Use Case
 
@@ -58,8 +54,6 @@ This example uses **guardrails only** for inline protection, with optional Judge
 - Deployed in company's AWS environment
 - Slack bot interface
 
----
-
 ## Step 1: Risk Classification
 
 ### Quick Assessment
@@ -84,8 +78,6 @@ Rationale: Internal-only tool with no access to sensitive data. Primary risks ar
 
 **Approval Required:** Security review (streamlined, not full assessment)
 
----
-
 ## Step 2: Simplified Controls
 
 ### Required for MEDIUM Tier
@@ -106,8 +98,6 @@ Rationale: Internal-only tool with no access to sensitive data. Primary risks ar
 - LLM-as-Judge (rules sufficient for internal tool)
 - Real-time SIEM integration
 - Dedicated HITL queue
-
----
 
 ## Step 3: Input Guardrails (Rules-Based)
 
@@ -148,8 +138,6 @@ def validate_input(query: str) -> tuple[bool, str]:
 - 90% cost reduction vs. full Judge
 - Can upgrade to Judge later if patterns emerge
 
----
-
 ## Step 4: Output Guardrails (Basic)
 
 ```python
@@ -177,8 +165,6 @@ def check_output(response: str, employee_id: str) -> tuple[bool, str]:
     
     return True, response
 ```
-
----
 
 ## Step 5: Optional Judge for Quality Sampling
 
@@ -219,8 +205,6 @@ EVALUATE FOR:
 This is quality assurance, not security. The conversation has already been delivered.
 ```
 
----
-
 ## Step 6: System Prompt
 
 Simpler than customer-facing systems:
@@ -251,8 +235,6 @@ Employee: {employee_name}
 Department: {department}
 ```
 
----
-
 ## Step 7: Monitoring (Weekly, Not Real-Time)
 
 ### Weekly Dashboard
@@ -278,8 +260,6 @@ Department: {department}
 - No dedicated security monitoring
 - No 24/7 coverage
 
----
-
 ## Step 8: Logging (Lightweight)
 
 ```json
@@ -298,8 +278,6 @@ Department: {department}
 **What we log:** Query, response metadata, who, when  
 **What we don't log:** Full response text (storage cost, privacy)  
 **Retention:** 1 year
-
----
 
 ## Step 9: HITL (Batch Review)
 
@@ -326,8 +304,6 @@ Simple escalation-no dedicated AI incident process:
 3. If systemic: Flag for weekly review
 4. If security concern: Standard IT security escalation
 
----
-
 ## Step 10: Costs
 
 ### Implementation (One-Time)
@@ -353,8 +329,6 @@ Simple escalation-no dedicated AI incident process:
 
 **Cost per Query: ~$0.06**
 
----
-
 ## Comparison: MEDIUM vs. HIGH
 
 | Aspect | MEDIUM (DocBot) | HIGH (Aria) |
@@ -370,8 +344,6 @@ Simple escalation-no dedicated AI incident process:
 
 **Key Insight:** Controls scale with risk. An internal documentation tool doesn't need the same investment as a customer-facing banking chatbot.
 
----
-
 ## When to Upgrade to HIGH
 
 Consider upgrading if:
@@ -386,8 +358,6 @@ Consider upgrading if:
 1. Add Judge sampling (+$20K implementation, +$25K/year)
 2. Add real-time monitoring (+$15K implementation, +$30K/year)
 3. Expand HITL (headcount as needed)
-
----
 
 ## Summary
 
@@ -409,6 +379,3 @@ This is appropriate because:
 
 **Don't over-engineer.** Match controls to actual risk.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

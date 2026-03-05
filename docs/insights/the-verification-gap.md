@@ -2,8 +2,6 @@
 
 **Why current AI safety approaches can't confirm ground truth - and what's emerging to fill the gap.**
 
----
-
 ## The Problem
 
 Every mainstream approach to AI safety relies on one of three methods:
@@ -19,8 +17,6 @@ None of these independently verify whether an output is *actually true*.
 They check compliance, not correctness. They detect known-bad patterns, not unknown-bad content. They evaluate style and safety, not factual accuracy.
 
 This is the verification gap.
-
----
 
 ## Why This Matters
 
@@ -41,8 +37,6 @@ A confident hallucination passes every check:
 - ✅ Follows system prompt instructions  
 - ✅ Judge rates it as helpful and appropriate
 - ❌ Contains fabricated facts
-
----
 
 ## The Verification Spectrum
 
@@ -67,8 +61,6 @@ Not all verification is equal. Approaches vary in their independence from the LL
 - **Token-level uncertainty**: Model's internal confidence signals
 - *Risk: Limited coverage; not all claims are verifiable*
 
----
-
 ## Current Solutions and Their Limits
 
 ### Formal Verification (AWS Automated Reasoning)
@@ -88,8 +80,6 @@ Not all verification is equal. Approaches vary in their independence from the LL
 
 **Risk rating**: ⬤⬤⬤⬤○ (High effectiveness for scoped domains)
 
----
-
 ### Knowledge Graph Grounding
 
 **What it does**: Maps claims to structured knowledge, verifies relationships exist in graph.
@@ -107,8 +97,6 @@ Not all verification is equal. Approaches vary in their independence from the LL
 
 **Risk rating**: ⬤⬤⬤○○ (Good for covered domains, poor for general knowledge)
 
----
-
 ### Token-Level Detection (HaluGate, etc.)
 
 **What it does**: Analyzes model internals (attention patterns, hidden states, token probabilities) to detect uncertainty.
@@ -125,8 +113,6 @@ Not all verification is equal. Approaches vary in their independence from the LL
 
 **Risk rating**: ⬤⬤⬤○○ (Fast and cheap, but context-dependent)
 
----
-
 ### Self-Consistency Checking
 
 **What it does**: Generate multiple responses, check if they agree.
@@ -142,8 +128,6 @@ Not all verification is equal. Approaches vary in their independence from the LL
 **Best for**: Catching uncertain responses, not verifying facts.
 
 **Risk rating**: ⬤⬤○○○ (Catches some errors, misses confident ones)
-
----
 
 ### LLM-as-Judge
 
@@ -162,8 +146,6 @@ Not all verification is equal. Approaches vary in their independence from the LL
 
 **Risk rating**: ⬤⬤○○○ (Useful layer, but not independent verification)
 
----
-
 ## Effectiveness Matrix
 
 | Approach | Independence | Accuracy | Latency | Cost | Coverage |
@@ -176,8 +158,6 @@ Not all verification is equal. Approaches vary in their independence from the LL
 | Pattern Guardrails | ⬤⬤⬤○○ | ~85% | +10-50ms | $ | Known patterns |
 
 **Legend**: Independence = how much verification relies on LLM reasoning (5 = fully independent)
-
----
 
 ## Implications for System Design
 
@@ -223,8 +203,6 @@ Better: Guardrails → LLM → Formal Verify → KG Check → Human Sample
 - Standard guardrails sufficient
 - LLM-as-judge for quality monitoring
 
----
-
 ## The Path Forward
 
 The industry is converging on a realization: **verification requires multiple independent signals**.
@@ -241,8 +219,6 @@ Emerging patterns include:
 
 The verification gap won't be closed by a single solution. It will be narrowed by thoughtful combination of independent verification methods, matched to the types of claims your application makes.
 
----
-
 ## Key Takeaways
 
 1. **Current safety layers don't verify truth** - they verify compliance, safety, and style
@@ -253,8 +229,6 @@ The verification gap won't be closed by a single solution. It will be narrowed b
 
 The question isn't "which verification method should we use?" It's "which verification methods cover the claims our application makes?"
 
----
-
 ## Related
 
 - [Behavioral Anomaly Detection](./behavioral-anomaly-detection.md) - Aggregating signals to detect drift
@@ -262,6 +236,3 @@ The question isn't "which verification method should we use?" It's "which verifi
 - [Judge Detects, Not Decides](./judge-detects-not-decides.md)
 - [Current Solutions Reference](../extensions/technical/current-solutions.md)
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

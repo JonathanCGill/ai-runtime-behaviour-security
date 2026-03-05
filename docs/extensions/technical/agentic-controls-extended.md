@@ -2,8 +2,6 @@
 
 This document extends the control framework for **agentic AI systems** - AI that takes autonomous multi-step actions, uses tools, and interacts with external systems.
 
----
-
 ## Why Agentic AI Requires Additional Controls
 
 Standard AI controls assume discrete request/response interactions. Agentic AI breaks this assumption:
@@ -18,8 +16,6 @@ Standard AI controls assume discrete request/response interactions. Agentic AI b
 
 **Without additional controls, the standard architecture fails to provide coverage.**
 
----
-
 ## Agentic Control Model
 
 ![Agentic Control Model](../../images/agentic-control-model.svg)
@@ -31,8 +27,6 @@ Standard AI controls assume discrete request/response interactions. Agentic AI b
 | **Planning** | Review before execution | Plan guardrails, plan approval |
 | **Execution** | Constrain during execution | Action guardrails, circuit breakers |
 | **Assurance** | Evaluate after execution | Trajectory Judge, HITL review |
-
----
 
 ## Control Reference
 
@@ -59,8 +53,6 @@ Standard AI controls assume discrete request/response interactions. Agentic AI b
 
 **Evidence:** Plan logs, plan templates
 
----
-
 #### AG.1.2 Plan Guardrails
 
 **Requirement:** Validate plans against policy before execution.
@@ -82,8 +74,6 @@ Standard AI controls assume discrete request/response interactions. Agentic AI b
 | External access | Plan doesn't contact prohibited systems |
 
 **Evidence:** Plan validation logs, policy configuration
-
----
 
 #### AG.1.3 Plan Approval
 
@@ -107,8 +97,6 @@ Standard AI controls assume discrete request/response interactions. Agentic AI b
 - Approval logged with approver identity and timestamp
 
 **Evidence:** Approval workflow configuration, approval logs
-
----
 
 ### AG.2 Execution-Level Controls
 
@@ -138,8 +126,6 @@ Standard AI controls assume discrete request/response interactions. Agentic AI b
 | Resource limit | Action won't exceed limits |
 
 **Evidence:** Action validation logs, guardrail configuration
-
----
 
 #### AG.2.2 Circuit Breakers
 
@@ -173,8 +159,6 @@ Standard AI controls assume discrete request/response interactions. Agentic AI b
 
 **Evidence:** Circuit breaker configuration, trigger logs
 
----
-
 #### AG.2.3 Scope Enforcement
 
 **Requirement:** Enforce boundaries on what agents can access, modify, and achieve.
@@ -200,8 +184,6 @@ Standard AI controls assume discrete request/response interactions. Agentic AI b
 
 **Evidence:** Scope definitions, access control configuration, violation logs, outcome boundary definitions
 
----
-
 #### AG.2.4 Tool Controls
 
 **Requirement:** Govern which tools agents can use and how.
@@ -225,8 +207,6 @@ Standard AI controls assume discrete request/response interactions. Agentic AI b
 | Low | Text generation, formatting | Standard logging |
 
 **Evidence:** Tool inventory, tool risk classifications, tool usage logs
-
----
 
 #### AG.2.5 Tool Protocol Security
 
@@ -263,8 +243,6 @@ Tool protocols standardise how agents invoke external capabilities. The security
 5. **Audit everything** - Full logging for investigation and compliance
 
 **Evidence:** Tool endpoint configuration, authentication records, tool call logs
-
----
 
 ### AG.3 Assurance-Level Controls
 
@@ -327,8 +305,6 @@ Tool protocols standardise how agents invoke external capabilities. The security
 
 **Evidence:** Trajectory logs
 
----
-
 #### AG.3.2 Trajectory Evaluation (Judge)
 
 **Requirement:** Evaluate complete trajectories, not just single interactions.
@@ -384,8 +360,6 @@ Provide:
 
 **Evidence:** Trajectory evaluation logs, Judge findings
 
----
-
 #### AG.3.3 HITL for Agentic Systems
 
 **Requirement:** Human oversight adapted for agentic execution.
@@ -415,8 +389,6 @@ Provide:
 
 **Evidence:** HITL queue configuration, review logs, SLA metrics
 
----
-
 ### AG.4 Multi-Agent Controls
 
 #### AG.4.1 Agent Inventory
@@ -436,8 +408,6 @@ Provide:
 | Risk tier | Classification |
 
 **Evidence:** Agent inventory
-
----
 
 #### AG.4.2 Orchestration Controls
 
@@ -460,8 +430,6 @@ Provide:
 
 **Evidence:** Orchestration rules, delegation logs, aggregated traces
 
----
-
 #### AG.4.3 Trace Correlation
 
 **Requirement:** Maintain end-to-end trace across multi-agent execution.
@@ -473,8 +441,6 @@ Provide:
 - Full trace reconstructable for investigation
 
 **Evidence:** Correlated trace logs
-
----
 
 ## Control Selection by Risk Tier
 
@@ -494,8 +460,6 @@ Provide:
 | **AG.4.1** Agent inventory | ✅ Required | ✅ Required | ✅ Required | ⚠️ Recommended |
 | **AG.4.2** Orchestration | ✅ Required | ✅ Required | ⚠️ If applicable | ⚠️ If applicable |
 | **AG.4.3** Trace correlation | ✅ Required | ✅ Required | ✅ Required | ⚠️ Recommended |
-
----
 
 ## Regulatory Alignment
 
@@ -523,8 +487,6 @@ Agentic systems that make decisions affecting individuals must ensure:
 | Ongoing monitoring | Circuit breakers, trajectory Judge |
 | Documentation | Trajectory logging, agent inventory |
 
----
-
 ## Implementation Checklist
 
 ### Before Deploying Agentic AI
@@ -551,8 +513,6 @@ Agentic systems that make decisions affecting individuals must ensure:
 - [ ] Limits tuned based on findings
 - [ ] Agent inventory maintained
 
----
-
 ## Summary
 
 Agentic AI requires controls at three phases:
@@ -570,6 +530,3 @@ Agentic AI requires controls at three phases:
 
 **Key principle remains:** Humans decide. Agents act within approved boundaries. Execution is constrained by circuit breakers. Trajectories are evaluated. Findings are reviewed.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

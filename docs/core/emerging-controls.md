@@ -4,8 +4,6 @@
 
 Proposed extensions for multimodal, reasoning, streaming, and multi-agent AI. These are design directions, not proven patterns.
 
----
-
 ## The Gap
 
 The core framework assumes text-based, single-model, stateless, complete-before-deliver AI. Emerging capabilities break these assumptions:
@@ -20,21 +18,15 @@ The core framework assumes text-based, single-model, stateless, complete-before-
 
 The core principles hold. Implementation must evolve.
 
----
-
 ## Overview Map
 
 ![Emerging Controls Tube Map](../images/emerging-tube-map.svg)
 
 The map shows how emerging controls connect. Solid lines indicate established or emerging patterns; dashed lines indicate conceptual/research-stage controls. Interchanges mark integration points between control domains.
 
----
-
 ## Proposed Architecture
 
 ![Emerging Controls Architecture](../images/emerging-architecture.svg)
-
----
 
 ## 1. Modality-Specific Guardrails
 
@@ -65,8 +57,6 @@ The map shows how emerging controls connect. Solid lines indicate established or
 - Cross-modal attack patterns at scale?
 - Should HIGH/CRITICAL avoid generative output?
 
----
-
 ## 2. Unified Multimodal Judge
 
 ![Multi-Mode Judge Architecture](../images/multi-mode-judge.svg)
@@ -88,8 +78,6 @@ A Judge seeing only text when the interaction included images evaluates incomple
 | Cross-modal consistency | Does image match text claims? |
 | Generated content policy | Is synthetic media appropriate? |
 | Manipulation indicators | Adversarial patterns across modalities? |
-
----
 
 ## 3. Reasoning Evaluation
 
@@ -121,8 +109,6 @@ Requires model to expose reasoning. If hidden, this control is unavailable.
 - Does surface reasoning reflect actual computation?
 - What capability does the Judge need?
 
----
-
 ## 4. State Governance
 
 ![State Governance](../images/state-governance.svg)
@@ -153,8 +139,6 @@ Long context and memory create attack surfaces that accumulate over time.
 - How to establish "normal" baselines?
 - Right balance between capability and state restriction?
 
----
-
 ## 5. Streaming Controls
 
 ![Streaming Controls](../images/streaming-controls.svg)
@@ -177,8 +161,6 @@ See the [Streaming Controls diagram](../images/streaming-controls.svg) for the f
 ### Acceptance
 
 Streaming means accepting imperfect prevention. Design for fast detection and response.
-
----
 
 ## 6. Multi-Agent Controls
 
@@ -217,8 +199,6 @@ Treat inter-agent messages as untrusted: **Agent A → Guardrails → Agent B**
 - How to detect emergent behaviour we haven't imagined?
 - Accountability in peer-to-peer systems?
 
----
-
 ## Maturity Summary
 
 | Extension | Status |
@@ -230,8 +210,6 @@ Treat inter-agent messages as untrusted: **Agent A → Guardrails → Agent B**
 | State governance | Conceptual |
 | Streaming controls | Conceptual |
 | Multi-agent controls | Conceptual |
-
----
 
 ## Guidance
 
@@ -254,6 +232,3 @@ Treat inter-agent messages as untrusted: **Agent A → Guardrails → Agent B**
 
 **When controls fail:** Fall back to tighter constraints, narrower scope, more human oversight.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

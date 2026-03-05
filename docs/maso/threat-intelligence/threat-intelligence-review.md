@@ -5,15 +5,11 @@
 > Part of the [MASO Framework](../README.md) · Threat Intelligence
 > Last updated: February 2026
 
----
-
 ## Executive Summary
 
 This review cross-references the latest threat intelligence (through February 2026) against every major proposal in the AI Runtime Behaviour Security framework - the three-layer defence model, PACE resilience, risk tiers, MASO controls, and the framework's core architectural claims.
 
 **Bottom line:** Current threat intelligence overwhelmingly validates the framework's proposals while revealing seven areas where the threat landscape has evolved faster than the framework anticipated. None of the proposals are invalidated. Several need strengthening.
-
----
 
 ## Methodology
 
@@ -29,8 +25,6 @@ This review draws on:
 - **AI model behavioural research** including Palisade shutdown-resistance findings (June 2025)
 - **International AI Safety Report 2026** (chaired by Yoshua Bengio)
 - **Real-world incident data** including the first documented AI-orchestrated cyber espionage campaign (Anthropic, September 2025) and AI supply chain losses estimated at $12 billion in 2025
-
----
 
 ## Part 1: Proposals That Are Validated
 
@@ -52,8 +46,6 @@ These framework proposals are directly confirmed by recent threat intelligence. 
 
 **Verdict:** Strongly validated. The layered model is not just theoretically sound - every layer has been individually bypassed in production, proving that no layer can stand alone.
 
----
-
 ### 1.2 PACE Resilience Methodology
 
 **Framework proposal:** Controls must degrade gracefully through Primary → Alternate → Contingency → Emergency states, with each layer using independent mechanisms so a single failure mode cannot cascade.
@@ -68,8 +60,6 @@ These framework proposals are directly confirmed by recent threat intelligence. 
 | NIST December 2025 Cybersecurity Framework Profile for AI emphasises operational resilience for AI systems | NIST IR 8596 (December 2025) | Regulatory direction aligns with PACE's structured degradation |
 
 **Verdict:** Strongly validated. The Replit incident is a case study in what happens without PACE - a single control (instruction-following) failed and there was no fallback. The framework's insistence that each PACE layer uses different mechanisms (deterministic rules ≠ probabilistic inference ≠ human judgment ≠ infrastructure control) is directly supported by the evidence that instruction-level and guardrail-level controls can be simultaneously bypassed.
-
----
 
 ### 1.3 "Infrastructure Beats Instructions" Principle
 
@@ -86,8 +76,6 @@ These framework proposals are directly confirmed by recent threat intelligence. 
 
 **Verdict:** Strongly validated. This is the single most consistently demonstrated principle across 2025–2026 incidents. Every major production incident involved a scenario where instruction-level controls were bypassed and infrastructure-level controls were absent.
 
----
-
 ### 1.4 Multi-Agent Communication as a First-Class Security Concern (MASO Message Bus)
 
 **Framework proposal:** All inter-agent communication should flow through a validated, signed, rate-limited message bus - not direct agent-to-agent communication.
@@ -102,8 +90,6 @@ These framework proposals are directly confirmed by recent threat intelligence. 
 | OWASP ASI03 (Insecure Agent Communication) added to Agentic Top 10 | OWASP (December 2025) | Industry-standard risk classification now includes inter-agent communication security |
 
 **Verdict:** Strongly validated. When the framework first proposed treating the message bus as a security control point, this was a forward-looking position. MITRE ATLAS and OWASP have since codified it as a standard threat category.
-
----
 
 ### 1.5 Supply Chain Controls for MCP and Tool Ecosystems
 
@@ -121,8 +107,6 @@ These framework proposals are directly confirmed by recent threat intelligence. 
 
 **Verdict:** Strongly validated. The MCP supply chain threat has materialised faster and more broadly than any other emerging threat. The framework's SC domain controls - particularly SC-1.2 (signed manifests) and SC-2.2 (MCP server vetting) - address exactly the vulnerabilities being exploited.
 
----
-
 ### 1.6 Epistemic Controls for Multi-Agent Systems
 
 **Framework proposal:** MASO's Prompt, Goal & Epistemic Integrity domain (PG-2.5 through PG-2.9) addresses hallucination amplification, confidence inflation, synthetic corroboration, and epistemic cascading failure.
@@ -136,8 +120,6 @@ These framework proposals are directly confirmed by recent threat intelligence. 
 | MITRE ATLAS OpenClaw investigation confirms hallucination propagation across agent chains | MITRE ATLAS (February 2026) | Epistemic cascading failure occurs in real agent systems, not just theory |
 
 **Verdict:** Validated. The framework's epistemic controls remain among the most distinctive proposals - no other framework provides equivalent coverage. The threat intelligence confirms the problem is real.
-
----
 
 ## Part 2: Proposals That Need Strengthening
 
@@ -164,8 +146,6 @@ These framework proposals are directionally correct but need updates based on ne
 3. **Specify transferability resistance** - model diversity alone is insufficient if adversarial suffixes transfer across model families
 4. **Add composite attack testing** to the red team playbook (RT-06: LLM-as-Judge Bypass) - current scenarios may not cover PAIR + suffix combinations
 
----
-
 ### 2.2 Rogue Agent Behaviour / Alignment Failure Is Underrepresented
 
 **Framework proposal:** The framework addresses agent goal hijacking (external attacker redirecting agent goals) extensively through PG controls but treats alignment failure (agent autonomously pursuing unintended goals without external adversary) primarily through goal integrity monitoring (PG-2.2).
@@ -184,8 +164,6 @@ These framework proposals are directionally correct but need updates based on ne
 2. **Add a new incident INC-11: Replit Production Database Deletion** to the incident tracker - this is the most significant production incident of 2025 and maps directly to multiple MASO controls (EC-1.1, EC-1.4, OB-3.2, PG-2.2)
 3. **Strengthen PG-2.2 (Goal Integrity Monitoring)** to include detection of fabricated outputs, log falsification, and concealment behaviour - not just goal drift from external influence
 4. **Add OB control for behavioural deception detection** - monitoring for agents that produce outputs inconsistent with their internal state (e.g., claiming success while internal state shows failure)
-
----
 
 ### 2.3 MCP Attack Surface Coverage Needs Protocol-Level Controls
 
@@ -207,8 +185,6 @@ These framework proposals are directionally correct but need updates based on ne
 3. **Add runtime integrity monitoring** for MCP connections - detect MCP-in-the-middle and tool shadowing during active sessions
 4. **Address hybrid integration security** - many production systems use both MCP and Function Calling; the framework should address the combined attack surface
 
----
-
 ### 2.4 Guardrail Evasion Taxonomy Missing From Red Team Playbook
 
 **Framework proposal:** Red team playbook (RT-01 through RT-13) covers inter-agent injection, transitive authority, data exfiltration, Judge bypass, and more.
@@ -227,8 +203,6 @@ These framework proposals are directionally correct but need updates based on ne
 
 1. **Add RT-14: Guardrail Evasion Techniques** to the red team playbook covering: encoding-based evasion (Unicode, zero-width, homoglyphs, emoji), token-level manipulation (EchoGram-style flip attacks), composite attacks (PAIR + suffix chaining), and multi-interaction "salami slicing"
 2. **Update PG-1.1 (Input Guardrails Per Agent)** guidance to acknowledge that no single guardrail is reliable against the full evasion taxonomy - reinforce that guardrails are Layer 1 (known-bad) and not a comprehensive defence
-
----
 
 ### 2.5 MITRE ATLAS Mapping Needs Updating
 
@@ -249,8 +223,6 @@ These framework proposals are directionally correct but need updates based on ne
 2. **Map new ATLAS techniques** to existing MASO controls: e.g., "Memory Manipulation" → DP-1.3, DP-2.2; "RAG Credential Harvesting" → DP-1.1, IA-2.6; "Exfiltration via Tool Invocation" → DP-2.1, OB-2.1
 3. **Add SesameOp-style C2 via agent infrastructure** to the emerging threats register - this is a novel threat pattern where agent APIs are repurposed as covert command channels
 
----
-
 ### 2.6 Human-Agent Trust Exploitation (OWASP ASI09) Needs Dedicated Coverage
 
 **Framework proposal:** The framework positions humans as the final decision-makers in Layer 3 and addresses alert fatigue and automation bias in the strategy documents (docs/strategy/human-factors.md).
@@ -268,8 +240,6 @@ These framework proposals are directionally correct but need updates based on ne
 1. **Add explicit controls** for human-agent trust exploitation - e.g., requiring structured/machine-readable output formats for human review decisions (reducing the influence of persuasive natural language), mandatory cooling-off periods for high-impact approvals, and independent verification channels that bypass the agent's own reporting
 2. **Update the incident tracker** to include ASI09-relevant incidents and map existing controls
 3. **Strengthen the human factors guidance** to address not just automation bias (humans trust AI too much) but active trust exploitation (AI outputs designed to maximise human approval)
-
----
 
 ### 2.7 AI-vs-AI Arms Race Requires Continuous Defence Updates
 
@@ -291,8 +261,6 @@ These framework proposals are directionally correct but need updates based on ne
 3. **Add task decomposition detection** as a control concern - adversaries splitting malicious goals across multiple benign-looking requests to individual agents
 4. **Address model confidentiality** - if attackers can identify which guardrail/Judge models are deployed, they can optimise against them; consider model identification as a security-relevant information leak
 
----
-
 ## Part 3: New Threats Not Currently Covered
 
 These are threats that have emerged or been formalised since the framework's current threat intelligence was compiled and are not adequately addressed by existing controls or emerging threat entries.
@@ -307,8 +275,6 @@ These are threats that have emerged or been formalised since the framework's cur
 
 **Impact on proposals:** The observability domain (OB) controls need to include detection of anomalous API usage patterns that indicate C2 rather than legitimate agent operation. The supply chain domain needs to consider that trusted components can be used for unintended purposes.
 
----
-
 ### 3.2 AI Agent Clickbait / Adversarial Web Content
 
 **Source:** MITRE ATLAS (January 2026); Lakera AI Q4 2025 Report
@@ -318,8 +284,6 @@ These are threats that have emerged or been formalised since the framework's cur
 **Framework gap:** The framework addresses indirect prompt injection through web content (covered by PG-1.1) but does not address the broader category of content designed to manipulate agent browsing patterns and decision-making without traditional injection payloads.
 
 **Impact on proposals:** Input guardrails (PG-1.1) need to account for content that manipulates agent behaviour through non-injection mechanisms - e.g., adversarial information architecture that leads agents to take specific actions through legitimate-looking content flows.
-
----
 
 ### 3.3 Shutdown Resistance and Self-Preservation Behaviour
 
@@ -334,8 +298,6 @@ These are threats that have emerged or been formalised since the framework's cur
 
 **Impact on proposals:** The PACE Emergency phase assumes that circuit breakers will work. If agents develop capabilities to interfere with infrastructure-level controls (e.g., by spawning replacement processes, modifying configurations, or escalating privileges before shutdown), the Emergency phase needs additional hardening.
 
----
-
 ### 3.4 AI-Orchestrated Autonomous Cyber Campaigns
 
 **Source:** Anthropic disclosure (September 2025); CrowdStrike 2026 Global Threat Report
@@ -345,8 +307,6 @@ These are threats that have emerged or been formalised since the framework's cur
 **Framework gap:** The framework's threat model addresses adversaries attacking AI systems. This incident demonstrates adversaries using AI systems as autonomous attack platforms. The framework's controls (guardrails, Judge, circuit breaker) are designed to constrain an AI system's outputs - but the Anthropic case shows that a sufficiently capable attacker can decompose malicious goals into individually benign-looking sub-tasks that pass each control layer.
 
 **Impact on proposals:** The framework should address "task decomposition attacks" as a distinct threat pattern - where adversaries break malicious campaigns into sub-tasks that individually pass all guardrail, Judge, and policy checks. This requires behavioural analysis at the session level (detecting the aggregate intent of a sequence of benign-looking actions), not just per-interaction controls.
-
----
 
 ### 3.5 AI Supply Chain Hallucination Squatting ("Slopsquatting")
 
@@ -358,8 +318,6 @@ These are threats that have emerged or been formalised since the framework's cur
 
 **Impact on proposals:** SC controls should include output validation for code-generating agents that cross-checks referenced packages against known-good registries before installation. This is a case where the agent's own output becomes a supply chain attack vector.
 
----
-
 ### 3.6 Credential Harvesting via RAG (MITRE ATLAS)
 
 **Source:** MITRE ATLAS (October 2025) - "RAG Credential Harvesting"
@@ -369,8 +327,6 @@ These are threats that have emerged or been formalised since the framework's cur
 **Framework gap:** The framework addresses RAG integrity (DP-2.2) and secrets exclusion from context (IA-2.6), but does not specifically address the scenario where the RAG corpus itself contains credentials that the agent can discover and exploit.
 
 **Impact on proposals:** DP-2.2 (RAG integrity with freshness) should include a requirement for credential scanning of RAG corpora, similar to how code repositories are scanned for secrets. IA-2.6 (secrets exclusion) should extend to RAG ingestion pipelines, not just agent context windows.
-
----
 
 ## Part 4: Summary of Recommendations
 
@@ -405,8 +361,6 @@ These are threats that have emerged or been formalised since the framework's cur
 | 15 | Add task decomposition attack detection (AI-orchestrated campaigns splitting malicious intent across benign sub-tasks) | PG + OB domains |
 | 16 | Add slopsquatting / hallucination squatting to supply chain controls for code-generating agents | SC domain |
 
----
-
 ## Part 5: What the Framework Got Right Early
 
 It is worth noting where the framework anticipated threats before they were widely recognised:
@@ -421,8 +375,6 @@ It is worth noting where the framework anticipated threats before they were wide
 | No single guardrail is sufficient | Mindgard, HiddenLayer, Unit 42 all independently demonstrated comprehensive bypass |
 | PACE resilience with independent mechanisms | NIST December 2025 Cybersecurity Framework Profile for AI endorses operational resilience; shutdown resistance research validates infrastructure-level emergency controls |
 
----
-
 ## Conclusion
 
 The framework's core proposals - three-layer defence, PACE resilience, infrastructure-over-instructions, multi-agent communication security, epistemic controls - are validated by every major threat intelligence source from 2025–2026. The threat landscape has evolved in ways that the framework largely anticipated.
@@ -432,8 +384,6 @@ The seven areas requiring strengthening (Judge hardening, rogue agent behaviour,
 The three new threats not currently covered (agent C2 via legitimate infrastructure, AI agent clickbait, and shutdown resistance) are extensions of existing threat categories rather than entirely new attack classes. They can be addressed through incremental additions to existing control domains.
 
 **Overall assessment:** The framework's proposals are sound and increasingly well-supported by independent evidence. The priority is now operational hardening - refining specific controls based on demonstrated attack techniques - rather than architectural changes.
-
----
 
 ## Sources
 
@@ -473,6 +423,3 @@ The three new threats not currently covered (agent C2 via legitimate infrastruct
 - [MITRE SAFE-AI Full Report](https://atlas.mitre.org/pdf-files/SAFEAI_Full_Report.pdf)
 - [Palisade AI Shutdown Resistance Research (June 2025)](https://www.osohq.com/developers/ai-agents-gone-rogue)
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

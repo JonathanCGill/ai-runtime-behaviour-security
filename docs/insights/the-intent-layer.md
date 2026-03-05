@@ -4,8 +4,6 @@
 
 [![Multi-Agent Security Architecture](../images/multi-agent-security-architecture.svg)](../images/multi-agent-security-architecture.svg)
 
----
-
 ## The Gap
 
 Consider a multi-agent financial analysis workflow:
@@ -22,8 +20,6 @@ But Agent B hallucinated a sentiment trend. Agent C didn't notice because the ha
 Every technical control passed. The outcome is wrong. No invariant was written to catch "the reasoning chain is incoherent" because that's not a mechanical property - it's a semantic one.
 
 **This is the gap a post-execution LLM judge is designed to fill.**
-
----
 
 ## The Pattern: Declare → Execute → Evaluate
 
@@ -81,8 +77,6 @@ After the workflow completes (or after a defined phase), an LLM judge receives:
 
 **Scaling property:** O(W) - one evaluation per workflow completion, not per agent or per message. The judge sees the *outcome and the path*, not every individual step.
 
----
-
 ## Why This Works Where Inline Judging Doesn't
 
 The per-agent LLM-as-Judge in the original three-layer pattern fails at multi-agent scale because:
@@ -94,8 +88,6 @@ The per-agent LLM-as-Judge in the original three-layer pattern fails at multi-ag
 | **Cost** | One judge evaluation per agent output. Scales O(N). | One judge evaluation per workflow. Scales O(W). |
 | **Combinatorial interactions** | Would need to evaluate every agent-pair interaction. O(N²). | Evaluates the aggregate result. O(1) per workflow. |
 | **Emergent behavior** | Cannot detect system-level patterns from individual outputs. | Can detect patterns that only become visible when the full workflow is examined. |
-
----
 
 ## The Practical Architecture
 
@@ -144,8 +136,6 @@ The judge's greatest value is not the pass/fail decision on a single workflow. I
 
 This feedback loop converts post-execution evaluation from a detective control into a **continuous improvement mechanism**. The patterns the judge detects become new invariant rules, updated guardrail configurations, or revised agent prompts. The system gets measurably better over time.
 
----
-
 ## What This Does Not Solve
 
 Intellectual honesty requires mapping the limits:
@@ -180,8 +170,6 @@ If the judge produces incorrect verdicts (false positives or false negatives), t
 
 **Mitigation:** Sampled human review of judge verdicts. Not every verdict - that defeats the scaling purpose - but a statistically significant sample. If the human reviewers disagree with the judge more than X% of the time, the judge's configuration (model, prompt, evaluation criteria) needs revision. This is exactly how audit functions work in financial services: not every transaction is reviewed, but a sample is, and the sample rate increases when anomalies are detected.
 
----
-
 ## Where This Sits in the Framework
 
 The post-execution judge is not a replacement for the three-layer pattern. It is a **fourth layer** that operates at a different level of abstraction:
@@ -197,8 +185,6 @@ The guardrails catch what's obviously wrong. The technical controls prevent what
 
 This is a layered assurance model. Each layer catches what the layers below miss. The total system coverage is greater than any layer alone.
 
----
-
 ## Scaling Assessment
 
 | Property | Growth Rate | Assessment |
@@ -213,8 +199,6 @@ This is a layered assurance model. Each layer catches what the layers below miss
 
 Everything is proportional to workflows (W) or phases (P), not to agent count (N) or agent interactions (N²). **This is the pattern's core scaling advantage.**
 
----
-
 ## Real-World Analogues
 
 This pattern is not novel. It maps directly to established control frameworks:
@@ -228,8 +212,6 @@ This pattern is not novel. It maps directly to established control frameworks:
 | **Clinical trials** | Data Safety Monitoring Board. The trial runs, then an independent board evaluates whether the aggregate results indicate harm, benefit, or futility. |
 
 In every case, the pattern is the same: **declare intent → execute with controls → evaluate outcomes independently → feed findings back into the system**.
-
----
 
 ## Implementation Path
 
@@ -247,8 +229,6 @@ For organisations adopting this pattern:
 
 **6. Instrument and measure.** Track: judge agreement with human reviewers, false positive/negative rates, mean time from execution to verdict, percentage of workflows flagged, and - critically - whether the feedback loop is reducing the flag rate over time. If the flag rate isn't declining, either the system isn't improving or the workflows are getting harder.
 
----
-
 ## Sources
 
 | Source | Relevance |
@@ -259,8 +239,6 @@ For organisations adopting this pattern:
 | Xia et al. (2025). Evaluation-Driven Development of LLM Agents | Reference architecture for embedding evaluation into agent lifecycle |
 | Multi-Agent Models of Organizational Intelligence (2025) | Critic-based architecture with veto authority, 92.1% success rate, ~8% irreducible human floor |
 | [OWASP Top 10 for Agentic Applications (Dec 2025)](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/) | ASI01 (Goal Hijack), ASI08 (Cascading Failures) - the threat categories this pattern addresses |
-
----
 
 ## The Honest Position
 
@@ -274,6 +252,3 @@ But combined with the technical controls that handle mechanics, it provides a **
 
 That is as close to a scalable multi-agent security architecture as the current state of the art supports.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

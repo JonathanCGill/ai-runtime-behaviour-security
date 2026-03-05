@@ -8,8 +8,6 @@ og_description: Analysis of when LLM hallucinations cross from tolerable to cata
 
 *A confident hallucination passes every safety check. No harmful content detected. Follows system prompt instructions. Judge rates it as helpful and appropriate. Contains fabricated facts. The question is not whether hallucinations happen. It is when they matter.*
 
----
-
 ## The Same Hallucination, Different Consequences
 
 An LLM fabricates a fact. In an internal chatbot drafting meeting notes, someone catches it during review and corrects it. Minor inconvenience. No lasting harm.
@@ -19,8 +17,6 @@ The same fabrication in a clinical decision support system excludes a viable tre
 The hallucination is identical. The consequence is not. What changed is not the model or the output. What changed is the **decision authority** the system holds and the **blast radius** of a wrong answer.
 
 ![The Hallucination Risk Curve](../images/insight-hallucination-risk.svg)
-
----
 
 ## Three Variables That Determine Hallucination Tolerance
 
@@ -67,8 +63,6 @@ Some hallucination consequences can be undone. Others cannot.
 
 When the output is irreversible, the tolerance for hallucination approaches zero. This is why the framework requires [grounding checks and citation validation](../core/risk-tiers.md) at CRITICAL tier. It is not caution. It is the mathematical consequence of irreversibility.
 
----
-
 ## The Multi-Agent Amplification Problem
 
 Single-agent hallucinations are bad. Multi-agent hallucinations are worse, and they are worse in a specific, structural way.
@@ -86,8 +80,6 @@ The [MASO risk register](../maso/controls/risk-register.md) identifies these as 
 > *"The most dangerous failure modes produce outputs that look correct, are well-formatted, and have multi-agent 'agreement' - but are wrong."*
 
 These failures require no attacker. They arise from normal agent interaction dynamics. And they produce the most convincing hallucinations of all, because the output has been processed, refined, and agreed upon by multiple independent-looking agents.
-
----
 
 ## When Is a Hallucination Acceptable?
 
@@ -110,8 +102,6 @@ This maps directly to the framework's [risk tiers](../core/risk-tiers.md):
 | **HIGH** | Low - significant decision influence | Grounding check required, 20-50% judge evaluation |
 | **CRITICAL** | Near zero - autonomous or regulated decisions | Grounding + citation validation, 100% judge evaluation |
 
----
-
 ## The Verification Problem
 
 The [verification gap](the-verification-gap.md) analysis identifies a structural challenge: the tools available to detect hallucinations have different accuracy profiles, and none of them are complete.
@@ -128,8 +118,6 @@ The critical finding: **LLM-as-Judge evaluation, which is the second layer of th
 
 This means hallucination detection for HIGH and CRITICAL tier systems cannot rely on the judge layer alone. It requires independent verification against authoritative sources: knowledge graphs, database lookups, document retrieval with citation matching, or human domain expertise.
 
----
-
 ## Controls That Actually Work
 
 The framework's [epistemic integrity controls](../maso/controls/prompt-goal-and-epistemic-integrity.md) address the structural causes of hallucination amplification. The four most important for production systems:
@@ -141,8 +129,6 @@ The framework's [epistemic integrity controls](../maso/controls/prompt-goal-and-
 **Uncertainty preservation (PG-2.7).** The message schema includes `{confidence: float, assumptions: [], unknowns: []}`. Downstream agents must carry forward the confidence level. A claim that enters the chain at 70% confidence cannot exit at 100%. This prevents uncertainty stripping.
 
 **Consensus diversity gate (PG-2.4).** Unanimous agreement from agents that share data sources triggers escalation, not approval. Independent agreement requires independent evidence. If three agents agree but all drew from the same source, that is one data point counted three times, not corroboration.
-
----
 
 ## The PACE Response to Hallucination Failure
 
@@ -156,8 +142,6 @@ When hallucination detection itself fails, the [PACE resilience model](../PACE-R
 | **Emergency** | Confirmed hallucination caused downstream harm. Disable generative capability entirely. Activate incident response |
 
 The progression is deliberate. Each phase removes a degree of freedom from the model. The final phase removes generation entirely. If you cannot verify what the model produces, stop the model from producing.
-
----
 
 ## Key Takeaways
 
@@ -173,8 +157,6 @@ The progression is deliberate. Each phase removes a degree of freedom from the m
 
 6. **Epistemic controls are structural, not behavioural.** Telling a model "do not hallucinate" is an instruction. Requiring claim provenance, prohibiting self-referential evidence, and preserving uncertainty metadata through the message schema is infrastructure. [Infrastructure beats instructions](infrastructure-beats-instructions.md).
 
----
-
 ## Related
 
 - [The Verification Gap](the-verification-gap.md) - why current safety approaches cannot confirm ground truth
@@ -185,6 +167,3 @@ The progression is deliberate. Each phase removes a degree of freedom from the m
 - [PACE Resilience](../PACE-RESILIENCE.md) - structured degradation when controls fail
 - [The First Control](the-first-control.md) - when AI is not the right tool for the problem
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

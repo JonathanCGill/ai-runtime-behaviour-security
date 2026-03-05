@@ -2,8 +2,6 @@
 
 How to validate that your AI controls actually work.
 
----
-
 ## The Critical Context
 
 **AI does not exist in isolation.** Your AI system is part of a data flow supply chain:
@@ -13,8 +11,6 @@ How to validate that your AI controls actually work.
 - **Downstream:** Databases, workflows, APIs, notifications, human processes
 
 A failure anywhere in this chain affects the whole system. Your testing must cover the full chain, not just the AI component.
-
----
 
 ## Honest Expectations
 
@@ -27,8 +23,6 @@ What we can offer:
 - References to more comprehensive frameworks
 
 **Your responsibility:** Adapt this guidance to your context. Test continuously. Learn from failures.
-
----
 
 ## The Testing Challenge
 
@@ -46,8 +40,6 @@ This means:
 - Passing tests doesn't guarantee safety
 - Controls that work today may fail tomorrow
 - Human judgment remains essential
-
----
 
 ## What to Test
 
@@ -76,8 +68,6 @@ This means:
 - Consistent behaviour across runs
 
 **Limitations:** Novel attacks won't be in your test set. Guardrails will miss things.
-
----
 
 ### 2. Adversarial Testing
 
@@ -112,8 +102,6 @@ This means:
 
 **Limitations:** You won't find everything. Adversarial testing is ongoing, not a one-time event.
 
----
-
 ### 3. Alert Pipeline Validation
 
 **Goal:** Verify that alerts actually reach their destination and trigger response.
@@ -143,8 +131,6 @@ This means:
 - End-to-end latency meets SLAs
 
 **Limitations:** Test events may behave differently than real events. Production validation is also needed.
-
----
 
 ### 4. Judge Accuracy
 
@@ -180,8 +166,6 @@ This means:
 
 **Limitations:** Judge accuracy depends on criteria quality. Criteria that work for one domain may fail in another.
 
----
-
 ### 5. Human Review Process
 
 **Goal:** Verify humans can effectively review flagged interactions and take action.
@@ -210,8 +194,6 @@ This means:
 - Decisions are defensible
 
 **Limitations:** Testing can't fully replicate production pressure. Monitor real performance.
-
----
 
 ### 6. Incident Response Playbook
 
@@ -242,8 +224,6 @@ This means:
 
 **Limitations:** Tabletops don't fully test execution under pressure. Consider chaos engineering for critical systems.
 
----
-
 ### 7. Downstream System Validation
 
 **Goal:** Verify that AI outputs don't cause problems in connected systems.
@@ -273,8 +253,6 @@ AI doesn't exist in isolation. It connects to databases, APIs, workflows, and hu
 - Humans can work with AI outputs
 - Full audit trail maintained
 
----
-
 ### 8. Upstream System Validation
 
 **Goal:** Verify that data feeding into the AI is trustworthy and handled correctly.
@@ -294,8 +272,6 @@ AI doesn't exist in isolation. It connects to databases, APIs, workflows, and hu
 2. Inject malicious/malformed data at each source
 3. Verify AI system handles it safely
 4. Check that upstream compromises don't cascade
-
----
 
 ### 9. Human Feedback Validation
 
@@ -328,8 +304,6 @@ AI issues often surface through human feedback before technical monitoring catch
 
 **Critical insight:** Technical monitoring shows what the AI did. Human feedback shows what impact it had. Both are needed.
 
----
-
 ## Testing by Risk Tier
 
 | Tier | Testing Requirements |
@@ -338,8 +312,6 @@ AI issues often surface through human feedback before technical monitoring catch
 | **MEDIUM** | Above + adversarial testing, Judge calibration, quarterly playbook exercise |
 | **HIGH** | Above + continuous adversarial testing, regular Judge recalibration, downstream validation |
 | **CRITICAL** | Above + red team exercises, full chain validation, chaos engineering, frequent tabletops |
-
----
 
 ## External Testing Frameworks
 
@@ -353,8 +325,6 @@ For more comprehensive guidance:
 | Microsoft RAI Toolbox | Responsible AI testing | github.com/microsoft/responsible-ai-toolbox |
 | Garak | LLM vulnerability scanning | github.com/leondz/garak |
 | AI Verify | Governance testing toolkit | aiverify.sg |
-
----
 
 ## Continuous Validation
 
@@ -370,8 +340,6 @@ Testing isn't a phase - it's a practice.
 | Quarterly | Adversarial testing refresh |
 | Annually | Full control effectiveness review |
 
----
-
 ## Key Takeaways
 
 1. **Test the full chain** - upstream, AI, downstream, humans
@@ -380,8 +348,6 @@ Testing isn't a phase - it's a practice.
 4. **Playbooks need practice** - untested playbooks fail under pressure
 5. **Testing is continuous** - one-time validation is insufficient
 6. **Accept imperfection** - testing reduces risk, it doesn't eliminate it
-
----
 
 ## Adapting This Guidance
 
@@ -409,6 +375,3 @@ This testing guidance is a starting point, not a prescription. You'll need to ad
 
 How you implement these tests will vary. The need to test them will not.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

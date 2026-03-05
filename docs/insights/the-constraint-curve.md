@@ -8,8 +8,6 @@ og_description: Analysis of when LLM constraints become counterproductive, with 
 
 *LLMs are valuable because they make contextual, non-deterministic choices across ambiguous inputs. Constrain that property completely and you have built an expensive rules engine. Leave it unconstrained and you have built an attack surface. The question is where the line falls.*
 
----
-
 ## The Shape of the Problem
 
 Every constraint applied to an LLM reduces both risk and capability simultaneously. The relationship is not linear. Early constraints deliver outsized security gains at minimal capability cost. Late constraints deliver marginal safety improvements while destroying the versatility that justified using an LLM in the first place.
@@ -23,8 +21,6 @@ The graph shows three curves that tell the story:
 - **Net value** peaks in the proportionate zone and then falls. Past the peak, every additional constraint costs more than the risk it mitigates.
 
 The peak is not fixed. It shifts depending on the use case, the data involved, the decision authority, and the blast radius of failure. That is why [risk tier classification](../core/risk-tiers.md) exists - not as bureaucracy, but as a mechanism for finding the peak for each deployment.
-
----
 
 ## Three Thresholds Where Constraints Cross the Line
 
@@ -69,8 +65,6 @@ As the [first control](the-first-control.md) analysis identifies, these costs ra
 
 When the humans maintaining the control apparatus are doing more work than if they had performed the original task without the LLM, the constraints have not reduced total effort. They have redistributed it into a more complex, harder-to-manage form.
 
----
-
 ## The Security Risk Threshold
 
 Constraints are not just about productivity. There is a real boundary where under-constrained LLMs become genuine security risks. The framework identifies four conditions where this threshold is crossed:
@@ -84,8 +78,6 @@ Constraints are not just about productivity. There is a real boundary where unde
 **Operations beyond observability.** If the system cannot record what the LLM did, why it did it, and what data it accessed, the risk is unbounded. You cannot detect anomalies in behaviour you cannot see. The [visibility problem](the-visibility-problem.md) explores this gap.
 
 These are not problems solved by adding more constraints. They are problems solved by structural controls: sandboxing, identity, logging, and blast-radius containment. The distinction matters. Piling guardrail rules onto a system with no execution isolation is security theatre. Building proper infrastructure and then applying proportionate behavioural controls is security engineering.
-
----
 
 ## The Human Factor Inversion
 
@@ -106,8 +98,6 @@ The [human factors](../strategy/human-factors.md) analysis documents how this ha
 
 Alert fatigue, deskilling, and reviewer burnout are not edge cases. They are the predictable consequence of controls that demand human attention without delivering human value. Every mandatory review that does not genuinely require human judgement degrades the quality of the reviews that do.
 
----
-
 ## Proportionality in Practice
 
 The framework resolves this through the [risk tier](../core/risk-tiers.md) system and the [Fast Lane](../FAST-LANE.md) for low-risk deployments. The principle is simple: match controls to actual risk, not to technology or to fear.
@@ -122,8 +112,6 @@ The framework resolves this through the [risk tier](../core/risk-tiers.md) syste
 
 The Fast Lane concept is the most direct expression of this principle. Systems that meet four criteria - internal users only, read-only operations, no regulated data, and human always in the loop - qualify for minimal controls: basic guardrails, logging, a feature flag, and fallback documentation. That is four controls, not eighty. The remaining controls exist for systems that need them.
 
----
-
 ## When the Framework Itself Becomes a Constraint
 
 The [framework tensions](../strategy/framework-tensions.md) document acknowledges this risk explicitly. Constraints on paper that do not translate into constraints in practice are not neutral. They consume governance attention, create compliance overhead, and breed resentment in delivery teams.
@@ -135,8 +123,6 @@ The [security as enablement](security-as-enablement.md) analysis draws the line 
 A security framework that makes the controlled path harder than the uncontrolled path will be bypassed. Not because teams are reckless, but because delivery pressure is real and frameworks that add friction without visible value do not survive contact with production schedules.
 
 The secure path must be the easiest path. Controls embedded in platform infrastructure - default guardrails, automatic logging, built-in circuit breakers - are adopted because they cost nothing to use. Controls that require manual processes, separate approval workflows, or additional headcount are adopted only when the risk visibly justifies the cost.
-
----
 
 ## Key Takeaways
 
@@ -152,8 +138,6 @@ The secure path must be the easiest path. Controls embedded in platform infrastr
 
 6. **If the LLM is fully deterministic, it should not be an LLM.** The value of the technology is contextual reasoning. If constraints have eliminated that, use a cheaper, more auditable tool.
 
----
-
 ## Related
 
 - [The First Control: Choosing the Right Tool](the-first-control.md) - when AI is not the answer
@@ -164,6 +148,3 @@ The secure path must be the easiest path. Controls embedded in platform infrastr
 - [Fast Lane](../FAST-LANE.md) - minimal controls for low-risk systems
 - [Risk Tiers](../core/risk-tiers.md) - classifying systems by use case, not technology
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

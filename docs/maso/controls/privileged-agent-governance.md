@@ -4,15 +4,11 @@
 > Extends: [Execution Control](execution-control.md) · [Observability](observability.md) · [Identity & Access](identity-and-access.md)
 > Covers: Orchestrator security · Judge governance · Observer assurance · Nested orchestration
 
----
-
 ## Principle
 
 Any agent with authority over other agents - to plan, evaluate, monitor, or terminate - requires controls proportionate to that authority. Orchestrators, evaluators, and observers are not exempt from the control architecture. They are subject to a version of it that matches their specific threat model.
 
 The controls in other MASO domains secure task agents against each other and against external threats. This domain secures the system against failures in the agents that govern it.
-
----
 
 ## Why This Matters
 
@@ -23,8 +19,6 @@ The controls in other MASO domains secure task agents against each other and aga
 **Observers with kill switch authority can be weaponised.** An over-sensitive observer repeatedly triggers emergency shutdowns, degrading the system into permanent contingency. Operators disable it to restore service. The system now runs without its safety net - and nobody formally accepted that risk.
 
 **Nested orchestration multiplies these risks.** In hierarchical topologies, a compromised sub-orchestrator affects its entire agent cluster. Per-agent blast radius caps don't contain aggregate harm from a coordinated sub-tree.
-
----
 
 ## Agent Role Classification
 
@@ -38,8 +32,6 @@ Before applying controls, classify each agent in the orchestration by its govern
 | **Observer** | Monitors, scores anomalies, triggers escalation or kill switch | Monitoring agent, anomaly detector, safety agent | Miscalibration, over/under-sensitivity, weaponised shutdown |
 
 An agent may hold multiple roles. An orchestrator that also evaluates intermediate outputs is both orchestrator and evaluator - and requires controls from both categories.
-
----
 
 ## Controls by Tier
 
@@ -87,8 +79,6 @@ All Tier 2 controls remain active, plus:
 
 **What you're building at Tier 3:** Assured autonomy. Privileged agents are continuously verified, not just initially configured and assumed correct.
 
----
-
 ## Testing Criteria
 
 ### Tier 1 Tests
@@ -123,8 +113,6 @@ All Tier 2 controls remain active, plus:
 | PA-T3.5 | Observer self-test | Observer's self-diagnostic injects a synthetic anomaly. Observer detects it. Then: disable detection for the synthetic type. Self-test fails and alerts a human. |
 | PA-T3.6 | Cross-level evaluation | In a nested topology, introduce a failure at the sub-orchestrator aggregation level. Cross-level evaluation catches it before it reaches the top-level orchestrator. |
 
----
-
 ## Maturity Indicators
 
 | Level | Indicator |
@@ -134,8 +122,6 @@ All Tier 2 controls remain active, plus:
 | **Defined** | Independent intent verification for orchestrator. Version-controlled Judge criteria. Observer precision tracked. Kill switch dual authorisation. Red team testing of privileged agents. |
 | **Quantitatively Managed** | Orchestrator drift measured. Judge calibration trended monthly. Observer false positive/negative rates published. Nested topology controls specified per orchestration level. |
 | **Optimising** | Continuous calibration. Judge model rotation. Observer self-test. Cross-level evaluation in nested topologies. Privileged agent controls tuned based on operational data. |
-
----
 
 ## Common Pitfalls
 
@@ -151,8 +137,6 @@ All Tier 2 controls remain active, plus:
 
 **Building a meta-judge to watch the Judge.** The recursion problem is real but the solution is not more layers. It's calibration - periodic injection of known test cases to verify that each privileged agent is still performing as expected. Red team testing breaks the "who watches the watchmen" loop.
 
----
-
 ## Relationship to Other Domains
 
 | Domain | Relationship |
@@ -162,6 +146,3 @@ All Tier 2 controls remain active, plus:
 | [Observability](observability.md) | PA extends OB-3.3 (independent observability agent) with observer self-test, precision monitoring, and kill switch dual authorisation. |
 | [Prompt, Goal & Epistemic Integrity](prompt-goal-and-epistemic-integrity.md) | PA-2.1 (orchestrator intent verification) complements PG-2.2 (goal integrity monitoring) by applying intent verification to the orchestrator's own decisions, not just task agents. |
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*

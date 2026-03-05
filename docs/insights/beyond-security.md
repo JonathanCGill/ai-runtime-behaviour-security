@@ -2,8 +2,6 @@
 
 *This framework solves AI runtime security. Its architecture isn't limited to security.*
 
----
-
 ## The Observation
 
 This framework was built to answer a security question: how do you control AI systems that are non-deterministic, operate at scale, and can fail in ways no test suite anticipated?
@@ -19,8 +17,6 @@ The answer it arrived at was structural:
 
 None of these principles mention security. They describe how to build reliable, layered, proportional controls for any risk domain where the thing you're controlling is uncertain and the consequences of failure vary.
 
----
-
 ## What Changes, What Doesn't
 
 The architecture has two parts: the structural patterns and the domain content. Only the content is security-specific.
@@ -35,8 +31,6 @@ The architecture has two parts: the structural patterns and the domain content. 
 | Phased implementation | Classify → guardrails → judge → human → PACE → test | Foundation → controls → resilience → verification |
 
 Swap the content. Keep the architecture. The framework still works.
-
----
 
 ## How It Reads for Other AI Risks
 
@@ -124,8 +118,6 @@ The problem: a model produces outputs that are inconsistent, contradictory, or c
 - **Contingency:** Switch to retrieval-only mode (return source documents, don't generate).
 - **Emergency:** Disable generative capability entirely.
 
----
-
 ## The Quantitative Model Transfers Directly
 
 The [risk assessment methodology](../core/risk-assessment.md) calculates residual risk as the product of independent miss rates across layers. This calculation doesn't care what you're detecting.
@@ -137,8 +129,6 @@ For drift: *What is the probability that an accuracy degradation exceeds the thr
 For fairness: *What is the probability that a disparate impact emerges, is missed by the disparity monitor, is not caught by the bias measurement pipeline, and is not identified by the equity review board?*
 
 Same math. Different inputs. The residual risk calculation, the severity weighting, the recalibration cycle - all of it transfers without modification.
-
----
 
 ## What This Framework Does Not Do
 
@@ -156,14 +146,9 @@ If you are building controls for AI risks beyond security, the framework offers 
 
 The security content in this framework is one instantiation of the architecture. Drift, fairness, explainability, and reliability are others. The architecture holds.
 
----
-
 ## The Bottom Line
 
 This framework was built for AI security. Its architecture - layered independence, proportional tiering, quantitative compounding, defined fail posture - was not built for any single risk domain. It was built for the structural problem of controlling systems that are uncertain, non-deterministic, and consequential.
 
 Security is where we started. It is not where the architecture ends.
 
----
-
-*AI Runtime Behaviour Security, 2026 (Jonathan Gill).*
