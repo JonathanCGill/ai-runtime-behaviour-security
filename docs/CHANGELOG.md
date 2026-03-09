@@ -14,6 +14,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Judge accuracy benchmarks from real deployments
 - Epistemic risk detection algorithm specifications
 
+## [0.9.0] - 2026-03-09
+
+### Added
+
+- **Output Evaluator** (`extensions/technical/output-evaluator.md`) — New solution architecture document addressing three structural blind spots identified through 2025–2026 threat intelligence analysis. Provides a three-layer evaluation model operating at real-time (per-action), session (per-task), and campaign (cross-session) timescales. Includes action classification, pre-action Judge prompt structure, intent coherence scoring, session state tracking, cross-session correlation, cost/latency impact analysis, and tiered implementation guide (Tier 1–3).
+
+- **Session-Level Intent Analysis** (`core/agentic.md` §6) — **Major addition.** New core control addressing task decomposition attacks — where adversaries break malicious goals into individually benign sub-tasks that pass all per-interaction controls. Adds session-level action sequence analysis, intent coherence tracking, cumulative scope monitoring, and session-level circuit breakers with aggregate thresholds. Driven by: Anthropic September 2025 espionage disclosure (80–90% autonomous campaign via task decomposition), CrowdStrike documentation of adversary frameworks designed for sub-task decomposition.
+
+- **Synchronous Pre-Action Evaluation** (`core/agentic.md` §7) — **Major addition.** New core control extending the Judge with a synchronous pre-action evaluation mode for agentic systems. Risk-based action routing: low-risk actions proceed with async evaluation; elevated-risk actions require synchronous Judge approval before execution. Includes action classification taxonomy, architecture diagram, and cost/latency tradeoff analysis. Driven by: CrowdStrike fastest eCrime breakout time (27 seconds) vs. async Judge evaluation cycle (500ms–5s + queue), creating a structural prevention gap for agentic systems.
+
+- **Tool and Integration Supply Chain** (`core/agentic.md` §8) — **Major addition.** Elevated supply chain and integration layer controls from MASO extensions to core agentic controls. Includes minimum controls (provenance verification, tool output sanitisation, network isolation, permission scoping, behavior monitoring, dependency scanning) and MCP-specific controls (server allowlisting, schema validation, capability restriction, update verification). Driven by: Cisco 2025 finding that attackers target integration components over models; 43% MCP server vulnerability rate; CVE-2025-6514 (CVSS 10.0 RCE via MCP); fake npm MCP package and GitHub issue injection attacks.
+
+- **Threat Intelligence Review** (`maso/threat-intelligence/threat-intelligence-review.md`) — Comprehensive analysis of 2025–2026 threat landscape covering CrowdStrike, Microsoft, Anthropic, Cisco, Kiteworks, and academic research. 18 priority recommendations across framework domains. Identifies three structural gaps: task decomposition defeating per-interaction controls, speed asymmetry making async Judge a liability for agentic contexts, and integration layer as primary attack surface.
+
+### Changed
+
+- **Agentic Controls** (`core/agentic.md`) — Extended Judge for Agents criteria with session coherence and trace integrity. Updated Key Takeaways from 8 to 11 items, adding aggregate intent detection, pre-action evaluation, and integration layer security.
+
+### Rationale
+
+Threat intelligence analysis (CrowdStrike 2025 Global Threat Report, Microsoft Digital Defense Report 2025, Anthropic September 2025 disclosure, Cisco AI Defense Report 2025, Kiteworks 2025 Data Exposure Report, AISI Frontier AI Trends December 2025) revealed three architectural gaps in the framework's control model:
+
+1. **Task decomposition defeats per-interaction controls.** The three-layer pattern evaluates at the interaction level. Adversaries — including AI-orchestrated campaigns — decompose malicious goals into sub-tasks that individually pass every layer. This is an architectural gap, not a tuning problem.
+
+2. **Speed asymmetry makes async Judge evaluation a liability for agentic systems.** The 27-second breakout window is shorter than async Judge evaluation cycles. For agents with tool access, post-action detection is forensic, not preventive.
+
+3. **Integration layer is the primary attack surface but was positioned as an extension.** MCP vulnerability rates (43%), critical CVEs (CVSS 10.0), and supply chain attacks through tool packages demonstrate that tool supply chain security is a prerequisite for agentic deployments, not an optional add-on.
+
+These are the first **major** additions to core controls since v0.5.0. The framework's core architecture (Guardrails → Judge → Human) remains sound for per-interaction threats. These additions extend it to handle campaign-level, speed-critical, and supply-chain threats that the 2025–2026 landscape has made operationally relevant.
+
 ## [0.8.4] - 2026-03-01
 
 ### Added

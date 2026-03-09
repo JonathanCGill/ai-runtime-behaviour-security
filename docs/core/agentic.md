@@ -150,6 +150,121 @@ Agents are typically HIGH or CRITICAL tier. LOW/MEDIUM agents are rare.
 | Customer-facing | CRITICAL | Full approval workflow |
 | Financial actions | CRITICAL | All controls, human approval |
 
+## 6. Session-Level Intent Analysis
+
+Per-interaction controls have a structural blind spot: **task decomposition attacks**. Adversaries — including AI-orchestrated campaigns — break malicious goals into sub-tasks that individually pass every control layer. Each input clears guardrails. Each output passes Judge. No single action triggers a circuit breaker. The malicious intent only exists in the aggregate.
+
+> In September 2025, Anthropic disclosed that a state-sponsored group used Claude Code to execute 80–90% of a cyber espionage campaign autonomously by decomposing the campaign into individually benign sub-tasks. CrowdStrike documented adversaries building custom frameworks that decompose malicious tasks into innocent-looking components. Per-interaction controls catch none of this.
+
+Session-level intent analysis detects what per-interaction controls cannot: **aggregate intent across a sequence of benign-looking actions.**
+
+### What to Analyze
+
+| Signal | What It Reveals |
+|--------|----------------|
+| **Action sequence patterns** | Individually benign actions that form a malicious workflow when combined (read → copy → exfiltrate) |
+| **Goal drift across steps** | Agent's effective goal shifting away from declared intent over multiple interactions |
+| **Cumulative scope expansion** | Each action slightly extends scope; aggregate exceeds authorization |
+| **Resource accumulation** | Agent gathering information or access incrementally toward a prohibited objective |
+| **Cross-session correlation** | Patterns that span multiple sessions from the same user or agent identity |
+
+### Implementation
+
+| Level | Approach | Cost |
+|-------|----------|------|
+| **Basic** | Track action sequences per session; alert on known-bad combinations (e.g., read sensitive data + call external API) | Low |
+| **Intermediate** | Build session-level behavioral baselines; flag sessions whose action-type distribution deviates from cohort | Medium |
+| **Advanced** | LLM-as-Judge evaluates the full session trajectory against declared intent at session close or at periodic checkpoints | High |
+
+### Session-Level Circuit Breakers
+
+Standard circuit breakers use per-action thresholds that decomposition attacks deliberately stay under. Add aggregate thresholds:
+
+| Threshold | Example |
+|-----------|---------|
+| **Cumulative data access** | Session has accessed >N distinct data sources → pause |
+| **Action-type diversity** | Session has used >N distinct tool types → flag for review |
+| **Scope surface area** | Session's aggregate data access footprint exceeds role baseline → pause |
+| **Intent coherence** | Session actions don't form a coherent path toward declared goal → flag |
+
+> For the full behavioral anomaly detection architecture — signal collection, aggregation pipeline, ML detection, and UEBA parallels — see [Behavioral Anomaly Detection](../insights/behavioral-anomaly-detection.md). For trace-level evaluation methodology, see [Process-Aware Evaluation](../insights/process-aware-evaluation.md).
+
+## 7. Synchronous Pre-Action Evaluation
+
+The standard Judge operates **asynchronously** — evaluating actions after they have been taken. For chatbot use cases this is sufficient. For agentic systems with tool access operating at machine speed, async evaluation means damage is done before detection fires.
+
+> CrowdStrike documented the fastest eCrime breakout time at 27 seconds. The standard async Judge evaluation cycle (500ms–5s per evaluation, plus queue time) cannot intercept actions within this window. When agents can execute irreversible actions at machine speed, post-action evaluation is a forensic tool, not a prevention layer.
+
+### When to Evaluate Synchronously
+
+Not every action warrants synchronous evaluation — that would be cost-prohibitive. Use risk-based routing:
+
+| Action Category | Evaluation Mode | Rationale |
+|----------------|-----------------|-----------|
+| Read-only queries | Async (post-action) | Low blast radius, reversible |
+| Data writes to internal systems | Sync (pre-action) for first occurrence; async for established patterns | Medium blast radius |
+| External API calls | Sync (pre-action) | Data leaves controlled environment |
+| Financial transactions | Sync (pre-action) + human approval | Irreversible, high impact |
+| Destructive operations | Sync (pre-action) + human approval | Irreversible by definition |
+| Actions matching decomposition patterns | Sync (pre-action) | Session-level flag triggered |
+
+### Architecture
+
+```
+Agent proposes action
+    ↓
+Action classifier (rule-based, <5ms)
+    ↓ [low-risk]          ↓ [elevated-risk]
+Execute immediately    Pre-action Judge evaluation (500ms–2s)
+    ↓                      ↓ [pass]        ↓ [flag]
+Async Judge eval       Execute          Human approval queue
+```
+
+### Cost Implications
+
+Synchronous evaluation adds latency to the agent's action loop. Budget for it:
+
+| Metric | Async-Only | Sync for Elevated-Risk |
+|--------|-----------|----------------------|
+| Median action latency | +0ms (eval is background) | +800ms on ~20% of actions |
+| P99 action latency | +0ms | +3s on flagged actions |
+| Judge API cost | Same | +15–30% (more actions evaluated inline) |
+| Actions completed before detection | All of them | Only low-risk actions |
+
+The tradeoff is explicit: latency for prevention. For systems where a 27-second breakout window exists, the latency cost is justified.
+
+> For detailed latency budgets and cost optimisation strategies, see [Cost & Latency](../extensions/technical/cost-and-latency.md).
+
+## 8. Tool and Integration Supply Chain
+
+The integration layer — MCP servers, tool endpoints, agent frameworks, RAG data sources — is the **primary attack surface** for agentic systems. Cisco's 2025 threat research found that attackers increasingly target the surrounding components that feed information into models rather than the models themselves.
+
+> As of 2025–2026: 43% of MCP servers tested had command injection vulnerabilities. CVE-2025-6514 achieved CVSS 10.0 (RCE via MCP). A fake npm MCP package silently copied emails. GitHub issue injection via MCP enabled full repository takeover.
+
+**This is not an optional extension. For agentic systems, supply chain security is a prerequisite.**
+
+### Minimum Controls
+
+| Control | Implementation |
+|---------|----------------|
+| **Tool provenance verification** | Only load MCP servers and tools from verified, signed sources. Validate content hashes before execution. |
+| **Tool output sanitisation** | All tool responses are untrusted input. Scan for instruction injection, truncate, mark as data. (See §3 above.) |
+| **Network-level tool isolation** | Tools execute in sandboxed environments with no access to agent memory, credentials, or other tools' state. |
+| **Permission scoping per tool** | Each tool gets minimum necessary permissions. A file-reading tool cannot write. A search tool cannot execute. |
+| **Tool behavior monitoring** | Baseline tool response patterns. Alert on response size anomalies, new data types, or instruction-like content. |
+| **Dependency scanning** | Automated vulnerability scanning for all tool dependencies, including transitive dependencies. |
+
+### MCP-Specific Controls
+
+| Control | Purpose |
+|---------|---------|
+| **Server allowlisting** | Only approved MCP servers can connect. No dynamic discovery. |
+| **Schema validation** | Validate all MCP tool definitions against expected schemas before registration. |
+| **Capability restriction** | Restrict MCP server capabilities to declared scope. A calendar MCP server cannot access the filesystem. |
+| **Update verification** | MCP server updates require the same review as application code changes. |
+
+> For the full treatment of MCP as an attack surface — including the AISI 5-level autonomy classification and SLSA-style provenance — see [The MCP Problem](../insights/the-mcp-problem.md) and [Supply Chain Controls](../maso/controls/supply-chain.md).
+
 ## Judge for Agents
 
 Agent interactions need deeper evaluation.
@@ -161,6 +276,8 @@ Agent interactions need deeper evaluation.
 | Scope adherence | Did agent stay in bounds? |
 | Reasoning quality | Was the reasoning sound? |
 | Efficiency | Did agent take unnecessary steps? |
+| Session coherence | Does the action sequence form a coherent path toward the declared goal? |
+| Trace integrity | Does the reasoning chain support the conclusion without discarded contradictions? |
 
 ## Monitoring
 
@@ -191,8 +308,11 @@ Not all actions are reversible. For those that aren't, require human approval.
 2. **Enforce via infrastructure** - Agents can ignore instructions
 3. **Validate every action** - Independent of agent reasoning
 4. **Sanitise tool outputs** - They're injection vectors
-5. **Use circuit breakers** - Hard stops that can't be reasoned around
+5. **Use circuit breakers** - Hard stops that can't be reasoned around, including session-level aggregate thresholds
 6. **Require approval for impact** - Irreversible actions need humans
 7. **Enable rollback** - Assume integrity will sometimes fail
 8. **Monitor aggressively** - Agents can cause harm fast
+9. **Detect aggregate intent** - Per-interaction controls miss task decomposition attacks; analyze session-level action sequences
+10. **Evaluate before acting** - For elevated-risk actions, synchronous pre-action Judge evaluation prevents damage that async detection can only report
+11. **Secure the integration layer** - Tool supply chain is the primary attack surface; treat it as a prerequisite, not an extension
 

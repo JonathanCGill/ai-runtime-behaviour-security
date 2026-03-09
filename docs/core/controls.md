@@ -157,6 +157,7 @@ Humans review findings, make decisions, remain accountable.
 | When HITL doesn't scale | [Humans in the Business Process](../extensions/technical/humans-in-the-business-process.md) - using existing business process checkpoints as a detection layer |
 | Controls for multi-agent systems | [MASO Framework](../maso/) - 128 controls across 7 domains for agent orchestration |
 | Controls for reasoning models (o1, etc.) | [Reasoning Model Controls](reasoning-model-controls.md) - trace scanning, instruction adherence, consistency checks |
+| Session-level and pre-action evaluation | [Output Evaluator](../extensions/technical/output-evaluator.md) - session-aware, pre-action evaluation architecture for agentic systems |
 
 ## Implementation Order
 
