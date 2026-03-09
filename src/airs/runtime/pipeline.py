@@ -133,7 +133,7 @@ class SecurityPipeline:
 
         # Circuit breaker check
         if not self.circuit_breaker.allow_request():
-            return PipelineResult(
+            result = PipelineResult(
                 request_id=request.request_id,
                 allowed=False,
                 pace_state=self.pace.state,
@@ -148,6 +148,8 @@ class SecurityPipeline:
                 ],
                 total_latency_ms=(time.monotonic() - start) * 1000,
             )
+            self._emit(EventType.PIPELINE_INPUT, request, result)
+            return result
 
         # Layer 1: Input guardrails
         if self.config.input_guardrails:

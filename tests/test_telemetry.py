@@ -234,3 +234,22 @@ class TestPipelineTelemetry:
         assert event.agent_chain == ["orch", "ret"]
         assert event.delegation_depth == 1
         assert event.correlation_id == child_ctx.correlation_id
+
+    @pytest.mark.asyncio
+    async def test_circuit_breaker_rejection_emits_event(self, sink):
+        """Regression: circuit-breaker early return must still emit telemetry."""
+        from airs.core.models import AIRequest
+        from airs.runtime import SecurityPipeline, CircuitBreaker
+
+        cb = CircuitBreaker()
+        cb.trip("test")  # force open
+        pipeline = SecurityPipeline(circuit_breaker=cb)
+
+        request = AIRequest(input_text="Hello")
+        result = await pipeline.evaluate_input(request)
+
+        assert not result.allowed
+        assert len(sink.events) == 1
+        assert sink.events[0].event_type == EventType.PIPELINE_INPUT
+        assert sink.events[0].allowed is False
+        assert sink.events[0].verdict == "circuit_breaker"
