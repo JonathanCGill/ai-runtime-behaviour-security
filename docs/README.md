@@ -1,6 +1,6 @@
 ---
 title: AI Runtime Security (AI-RS)
-description: "AI Runtime Security (AI-RS) — the discipline of monitoring, controlling, and constraining AI system behaviour in production environments. The AI-RS Framework provides reference architecture and controls for implementing runtime AI security."
+description: "AI Runtime Security (AI-RS) — the framework for monitoring, controlling, and constraining AI system behaviour in production environments. The AI-RS Framework provides reference architecture and controls for implementing runtime AI security."
 template: home.html
 hide:
   - toc
@@ -20,7 +20,7 @@ AI system behaviour during live operation.
 
 </div>
 
-## The Discipline
+## The Framework
 
 [AI Runtime Security](what-is-ai-runtime-security.md) is the practice of monitoring, constraining, and governing AI system behaviour in production environments. It applies defence-in-depth principles at the point of execution, treating deployment as the beginning of the risk lifecycle rather than the end of it.
 
