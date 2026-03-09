@@ -80,8 +80,7 @@ PACE_TABLE = {
 }
 
 
-@app.command()
-def assess(
+def assess_cmd(
     output_json: bool = typer.Option(False, "--json", help="Output as JSON"),
     non_interactive: bool = typer.Option(False, "--non-interactive", help="Use defaults"),
 ) -> None:
