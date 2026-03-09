@@ -161,6 +161,15 @@ nav:
       - Enterprise Day in the Life: strategy/enterprise-day-in-the-life.md
       - Framework Tensions: strategy/framework-tensions.md
 
+  - SDK:
+    - sdk/README.md
+    - Guardrails: sdk/guardrails.md
+    - LLM-as-Judge: sdk/judge.md
+    - Circuit Breaker & PACE: sdk/resilience.md
+    - Pipeline: sdk/pipeline.md
+    - FastAPI Integration: sdk/fastapi.md
+    - Examples: sdk/examples.md
+
   - Resources:
     - Insights:
       - insights/README.md

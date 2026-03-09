@@ -54,6 +54,7 @@ Each layer catches what the others miss. Remove any layer and you have a gap. Th
 | **Secure a single-model AI system** | **[Foundation Framework](docs/foundations/)** — 80 controls, risk tiers, PACE resilience |
 | **Secure a multi-agent system** | **[MASO Framework](docs/maso/)** — 128 controls, 7 domains, 3 tiers |
 | **Deploy low-risk AI fast** | **[Fast Lane](docs/FAST-LANE.md)** — self-certification for internal, read-only, no regulated data |
+| **Install the SDK and start coding** | **[Python SDK](docs/sdk/)** — `pip install .` → guardrails, judge, circuit breaker, PACE |
 
 <details>
 <summary><strong>Common questions</strong> — cost, Judge reliability, supply chain, human factors, compliance</summary>
@@ -96,6 +97,41 @@ Each layer catches what the others miss. Remove any layer and you have a gap. Th
 | See all references and further reading | [References & Sources](docs/REFERENCES.md) |
 
 </details>
+
+## Python SDK — Implement the Framework in Code
+
+The AIRS Python SDK turns this framework from documentation into running code. Install it, run the assessment CLI, and drop the three-layer pipeline into your application.
+
+```bash
+git clone https://github.com/JonathanCGill/ai-runtime-behavior-security.git
+cd ai-runtime-behavior-security
+pip install .
+```
+
+**Assess your deployment** — interactive risk classification with prioritized control recommendations:
+
+```bash
+airs assess
+```
+
+**Protect your AI endpoints** — three-layer pipeline in 10 lines:
+
+```python
+from airs.runtime import SecurityPipeline, GuardrailChain, RegexGuardrail
+from airs.core.models import AIRequest, AIResponse
+
+pipeline = SecurityPipeline(guardrails=GuardrailChain([RegexGuardrail()]))
+
+request = AIRequest(input_text=user_input)
+input_result = await pipeline.evaluate_input(request)           # guardrails on input
+# ... call your AI model ...
+response = AIResponse(request_id=request.request_id, output_text=ai_output)
+output_result = await pipeline.evaluate_output(request, response)  # guardrails + judge on output
+```
+
+The SDK includes: guardrails (prompt injection, PII, content policy), LLM-as-Judge (rule-based or OpenAI-compatible), circuit breaker, PACE resilience state machine, FastAPI middleware, and 52 passing tests.
+
+**→ [SDK Documentation](docs/sdk/)** | **→ [Quick Start Example](examples/quickstart.py)** | **→ [FastAPI Example](examples/fastapi_app.py)**
 
 ## When Agents Talk to Agents
 
@@ -191,6 +227,14 @@ Three constraints strategies routinely underestimate: **[Data Reality](docs/stra
 │   ├── insights/                      # Analysis articles and emerging challenges
 │   ├── strategy/                      # AI strategy — alignment, data, human factors
 │   └── images/                        # All SVGs and diagrams
+├── src/airs/                          # Python SDK
+│   ├── cli/                           # CLI assessment tool (airs assess)
+│   ├── core/                          # Models, controls registry, risk classifier
+│   ├── runtime/                       # Three-layer pipeline, PACE, circuit breaker
+│   └── integrations/                  # FastAPI middleware
+├── tests/                             # 52 tests
+├── examples/                          # Quick start + FastAPI example app
+├── pyproject.toml                     # Python package configuration
 ├── overrides/                         # MkDocs Material theme overrides
 └── mkdocs.yml                         # Site configuration
 ```
