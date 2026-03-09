@@ -336,6 +336,18 @@ Continuous monitoring, regular [red-teaming](maso/red-team/red-team-playbook.md)
 
 ---
 
+> **Beware Silent Failures** - *"The most dangerous AI failures look like normal responses."*
+>
+> The AI system looks like it is running fine. Outputs flow. Dashboards are green. No alerts fire. But the system is not actually functioning correctly. A grounding source has gone stale and the model is answering from outdated data. A guardrail rule was updated and now silently passes traffic it should block. The Judge is evaluating against the wrong policy version. An agent loop is completing successfully but producing meaningless results because an upstream dependency changed.
+>
+> These are not crashes or outages. They are the operational equivalent of carbon monoxide - everything appears normal until the damage is done. Silent failures evade traditional monitoring because they produce no error signals. Latency is fine. Throughput is fine. Status codes are fine. The system is confidently wrong.
+>
+> Detecting silent failures requires behavioral baselines that track output quality over time ([Domain 4](maso/controls/domain-4-observability.md)), semantic evaluation that goes beyond surface-level health checks ([Judge layer](ARCHITECTURE.md)), and structured human review that samples outputs for correctness, not just availability.
+>
+> If your monitoring only tells you the system is up, it is not telling you enough.
+
+---
+
 > **Schneier's Law** - *"Anyone can invent a security system so clever that they themselves cannot think of how to break it."*
 >
 > - Bruce Schneier (1998)
@@ -440,6 +452,7 @@ Continuous monitoring, regular [red-teaming](maso/red-team/red-team-playbook.md)
 | Unity of Command | Orchestrator governance, accountability chains (Domain 6) |
 | Economy of Force | Fast Lane, sampling strategies, tiered human review |
 | Perseverance | Continuous monitoring, ongoing red-teaming, threat intelligence |
+| Beware Silent Failures | Judge layer, behavioral baselines (Domain 4), human oversight |
 
 ---
 
