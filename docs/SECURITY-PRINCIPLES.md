@@ -336,6 +336,16 @@ Continuous monitoring, regular [red-teaming](maso/red-team/red-team-playbook.md)
 
 ---
 
+> **Beware Silent Failures** - *"The most dangerous AI failures look like normal responses."*
+>
+> The failures that cause the most damage are not the ones that crash systems or trigger alerts. They are the outputs that look plausible, pass guardrails, and reach users or downstream systems unchallenged. A hallucinated regulatory disclosure delivered with confidence. A subtly wrong calculation embedded in a financial summary. A tool call that technically succeeds but operates on the wrong data.
+>
+> Silent failures are invisible to pattern-matching defenses because there is no anomalous pattern to match. They require semantic evaluation - which is why the [Judge layer](ARCHITECTURE.md) exists. They require behavioral baselines - which is why [Domain 4](maso/controls/domain-4-observability.md) tracks output distributions over time. And they require humans in the loop for high-stakes decisions - because neither guardrails nor judges can catch every failure that looks like success.
+>
+> If your monitoring only detects loud failures, you are missing the ones that matter most.
+
+---
+
 > **Schneier's Law** - *"Anyone can invent a security system so clever that they themselves cannot think of how to break it."*
 >
 > - Bruce Schneier (1998)
@@ -440,6 +450,7 @@ Continuous monitoring, regular [red-teaming](maso/red-team/red-team-playbook.md)
 | Unity of Command | Orchestrator governance, accountability chains (Domain 6) |
 | Economy of Force | Fast Lane, sampling strategies, tiered human review |
 | Perseverance | Continuous monitoring, ongoing red-teaming, threat intelligence |
+| Beware Silent Failures | Judge layer, behavioral baselines (Domain 4), human oversight |
 
 ---
 
