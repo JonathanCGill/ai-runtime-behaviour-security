@@ -50,6 +50,14 @@ Blind spots in most enterprise AI security programmes.
 | 16 | [The Visibility Problem](the-visibility-problem.md) | You can't govern AI you don't know is running - shadow AI, inventories, and governance KPIs | [Operational Metrics](../extensions/technical/operational-metrics.md) |
 | 17 | [Seeing Through the Fog](seeing-through-the-fog.md) | In multi-product, multi-agent environments, the hardest problem isn't controlling agents - it's knowing where they are and what they're doing | [Observability Controls](../maso/controls/observability.md) |
 
+## Framework Review
+
+How the framework maps to the broader AI ecosystem and where it fits within the full AI lifecycle.
+
+| # | Article | One-Line Summary |
+|---|---------|-----------------|
+| 18 | [Review: The Framework Against the AI Lifecycle](ai-lifecycle-review.md) | Systematic assessment of framework coverage across all seven standard AI lifecycle phases — where it leads, where it defers, and where adopters must supplement |
+
 ## Research & Evidence
 
 What the peer-reviewed literature says about runtime AI security controls.
