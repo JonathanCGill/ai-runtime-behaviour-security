@@ -86,4 +86,4 @@ AI Runtime Security maps to established regulatory and standards frameworks:
 
 ---
 
-*[Jonathan C. Gill](https://www.linkedin.com/in/jonathancgill/) is a contributor to the AI Runtime Security discipline through the AI-RS Framework at [airuntimesecurity.co.za](https://airuntimesecurity.co.za).*
+*[Jonathan C. Gill](https://www.linkedin.com/in/jonathancgill/) is a contributor to the AI Runtime Security discipline through the AI-RS Framework at [airuntimesecurity.io](https://airuntimesecurity.io).*

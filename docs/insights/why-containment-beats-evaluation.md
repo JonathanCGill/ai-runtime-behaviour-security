@@ -6,7 +6,7 @@ description: "A constrain-regardless architecture for sandbagging-resistant AI g
 
 *A constrain-regardless architecture for sandbagging-resistant AI governance.*
 
-> **Position paper:** [Why Containment Beats Evaluation - A Runtime Security Architecture for Sandbagging-Resistant AI Governance in Regulated Environments](https://airuntimesecurity.co.za/insights/why-containment-beats-evaluation/) (Jonathan Gill, March 2026)
+> **Position paper:** [Why Containment Beats Evaluation - A Runtime Security Architecture for Sandbagging-Resistant AI Governance in Regulated Environments](https://airuntimesecurity.io/insights/why-containment-beats-evaluation/) (Jonathan Gill, March 2026)
 
 ## The Core Argument
 

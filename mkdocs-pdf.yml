@@ -3,7 +3,7 @@
 ### Output: site-pdf/pdf/MASO-Framework.pdf
 
 site_name: "MASO Framework — AI Runtime Security"
-site_url: https://airuntimesecurity.co.za/
+site_url: https://airuntimesecurity.io/
 site_description: >-
   Multi-Agent Security Operations (MASO) — A PACE-driven framework
   for securing multi-model agent orchestration at runtime.

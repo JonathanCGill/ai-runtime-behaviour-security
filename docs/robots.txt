@@ -13,4 +13,4 @@ Disallow: /LinkedIn_Sharing_Strategy.docx
 Disallow: /edfsafdsfasd
 Disallow: /insights/kdfdfd
 
-Sitemap: https://airuntimesecurity.co.za/sitemap.xml
+Sitemap: https://airuntimesecurity.io/sitemap.xml
