@@ -8,13 +8,13 @@ description: "MASO emergent risk register — 34 risks across nine categories ma
 
 ## Review Findings
 
-The source risk table identifies 34 emergent risks across nine categories. Comparison against the seven MASO control domains and the OWASP dual mapping reveals three classes of coverage:
+The source risk table identifies 35 emergent risks across nine categories. Comparison against the seven MASO control domains and the OWASP dual mapping reveals three classes of coverage:
 
 **MASO already strong (no new controls needed):** Cross-agent prompt injection, confused deputy, privilege escalation by delegation, tool-chain injection, role drift, goal drift, memory poisoning, provenance loss, cost blowouts. These map directly to existing MASO controls that are equal to or stronger than the source table's mitigations.
 
 **MASO partially covers but needs amendment (9 amendments):** Secrets leakage, logging as breach vector, RAG poisoning, latency compounding, automation bias, accountability blur, role drift testing, goal drift judge criteria. The MASO controls address the attack vector but miss a specific dimension the source table identifies.
 
-**Genuine gaps requiring new controls (18 new controls):** The entire epistemic category (9 risks), two coordination risks (deadlock/livelock, oscillation), both safety/misuse risks, both governance risks, one operational risk (partial failure), and two inference-side risks (membership inference, timing side-channel). These are emergent multi-agent failure modes with no direct OWASP equivalent. The source table's mitigations are sound starting points; MASO needs to formalise them.
+**Genuine gaps requiring new controls (22 new controls):** The entire epistemic category (9 risks), two coordination risks (deadlock/livelock, oscillation), both safety/misuse risks, both governance risks, two operational risks (partial failure, token exhaustion), and two inference-side risks (membership inference, timing side-channel). These are emergent multi-agent failure modes with no direct OWASP equivalent. The source table's mitigations are sound starting points; MASO needs to formalise them.
 
 The most significant finding: **the epistemic risks are the highest-priority gap.** A multi-agent system can fail catastrophically on groupthink, hallucination amplification, or uncertainty stripping with no external attacker present. Current MASO controls are oriented toward adversarial threats (OWASP) and operational resilience (PACE). They do not address information-processing failures between agents.
 
@@ -86,6 +86,7 @@ These overlap significantly with the OWASP Agentic Top 10. MASO controls are gen
 | OP-01 | **Cost blowouts** | Runaway tool calls, retries, exponential token spend from agent loops. | Hard budgets per task. Circuit breakers (EC-2.4). Bounded retries. Per-agent rate limits (EC-1.3). Blast radius caps (EC-2.3). | Cost monitoring with alerting (OB-2.5). Auto-stop on budget threshold. | Judge doesn't solve this. Orchestration constraints do. | **Covered.** EC-2.3, EC-2.4, EC-1.3, OB-2.5. | None required. |
 | OP-02 | **Latency compounding** | Multi-step agent chains accumulate latency. 5-agent chain × 3s/step = 15s minimum. Adding judge evaluation adds 2–5s per step. | Parallelise independent steps. Reduce unnecessary handoffs. Cache retrieval results. Degrade gracefully: for low-risk flows, judge evaluates asynchronously (after commit) rather than synchronously (before commit). | SLO monitoring per orchestration. Alert when end-to-end latency exceeds threshold. | Judge can be optional (async post-commit audit) for low-risk flows, reducing latency for the common case. | **Gap.** EC-3.4 (time-boxing) sets max duration but doesn't address latency optimisation or SLOs. | **AMEND:** Add per-orchestration latency SLOs. Document which control layers operate synchronously (blocking) vs asynchronously (post-commit). Judge async for auto-approved actions at Tier 2+. |
 | OP-03 | **Partial failure masquerading as success** | Tool fails silently, returns incomplete data, or times out - but agent continues with plausible output. System reports success. Human reviewer sees confident, well-formatted result and approves. | Fail closed on critical tools: if a required tool fails, agent reports failure explicitly rather than continuing with partial data. Step attestation: each agent attests to input completeness before producing output. | Detect missing step attestations in decision chain. Flag outputs where required tool calls are absent or returned errors. | Judge blocks outputs lacking required evidence. If plan says "retrieve financial data" and no financial tool call appears in the trace, output rejected. | **Partial.** OB-2.1 captures trace. EC-2.5 could catch this if criteria include completeness. No explicit "fail closed" requirement. | **NEW: OP-C01** Tool completion attestation. Required tool calls defined per task. Tool failure or skip → explicit incomplete status. Judge verifies all required tools completed before approving. Tier 2+. |
+| OP-04 | **Token exhaustion as dual failure path** | As agent context windows fill, multiple failures compound simultaneously: (1) **Attention dilution** — system prompt instructions including safety constraints compete with accumulated content, weakening guardrails without adversarial action; (2) **Lost-in-the-middle effect** — critical constraints in the middle of long contexts are functionally forgotten; (3) **Increased hallucination rate** — noisy, conflicting context produces plausible but unsupported claims that downstream agents treat as inputs; (4) **Instruction-following degradation** — agents drift from roles, skip plan steps, violate output schemas. The critical insight: this is a **correlated failure**. The agent degrades AND the Judge monitoring it degrades at the same time. A degraded Judge reviewing a degraded agent's output is a compounding failure that bypasses two layers simultaneously. In multi-agent systems: each agent burns tokens independently (invisible from orchestrator), delegation chains multiply semantic drift through summarisation loss, retry loops accelerate exhaustion (each retry consumes more context while the agent gets worse), and PACE transitions may not trigger because degradation is gradual — the agent doesn't crash, it gets subtly worse. Prompt injection becomes easier as system prompt influence weakens. Blast radius caps may be ignored if the agent stops following structured constraints. | **OP-C04a: Token budget monitoring.** Track context consumption per agent as a first-class operational metric (like CPU or memory). Tiered alerting: 70% capacity → info, 85% → warning (Tier 2+: automatic PACE P→A transition), 95% → critical (fail-closed). **OP-C04b: Context rotation with structured state preservation.** Periodically checkpoint essential structured state (goal, constraints, accumulated decisions) as typed fields — not free-text summaries (summarisation introduces semantic drift per EP-05). Flush context and resume with clean window. Agent doesn't lose work but gets fresh attention budget. **OP-C04c: Input limiting.** Cap the volume of data flowing into any single agent context. Force decomposition into smaller scoped tasks rather than letting one agent accumulate everything. **OP-C04d: Retry budget caps.** Maximum retry count per task (recommended: 3). Each retry consumes context and degrades performance. After cap, fail explicitly rather than spiral. | **Quality regression detection:** Monitor for symptoms — increased hallucination rate, format compliance drops, constraint violations, instruction-following degradation. Track Judge quality scores over the life of a context window; declining scores correlate with exhaustion. **Context utilisation alerting:** Threshold alerts as agents approach limits (70%, 85%, 95%). | Judge needs its own budget protection. If Judge exhausts alongside agents it monitors, two layers fail simultaneously — that's a straight shot to Contingency or Emergency depending on tier. Judge must manage its own context independently; correlated exhaustion is itself a PACE trigger. | **Gap.** OB-2.5 tracks cost but not context utilisation as a security-relevant metric. EC-3.4 (time-boxing) bounds duration but not context consumption. EP-C05 (constraint fidelity) catches the symptom but not the cause. No control treats token budget as an operational security boundary. | **NEW: OP-C04** Token exhaustion management. Four sub-controls: **OP-C04a** Token budget monitoring with tiered alerting (Tier 1+). **OP-C04b** Context rotation with structured state preservation (Tier 2+). **OP-C04c** Judge context isolation — Judge must manage its own budget independently; correlated exhaustion is a PACE trigger (Tier 2+). **OP-C04d** Retry budget caps to prevent degradation spiral (Tier 1+). |
 
 ### Human Factors Risks
 
@@ -106,7 +107,7 @@ These target the model's inference endpoint rather than its behavior. They sit a
 
 ## Consolidated Amendment Summary
 
-### New Controls (18)
+### New Controls (22)
 
 | ID | Name | Domain | Tier | Source Risk |
 |----|------|--------|------|-------------|
@@ -128,6 +129,10 @@ These target the model's inference endpoint rather than its behavior. They sit a
 | OP-C01 | Tool completion attestation | Execution Control | 2+ | OP-03 Partial failure |
 | IS-C01 | Confidence signal minimisation | Data Protection | 2+ | IS-02 Membership inference |
 | IS-C02 | Response normalisation | Execution Control | 3 | IS-03 Timing side-channel |
+| OP-C04a | Token budget monitoring | Observability | 1+ | OP-04 Token exhaustion |
+| OP-C04b | Context rotation with state preservation | Execution Control | 2+ | OP-04 Token exhaustion |
+| OP-C04c | Judge context isolation | Execution Control | 2+ | OP-04 Token exhaustion |
+| OP-C04d | Retry budget caps | Execution Control | 1+ | OP-04 Token exhaustion |
 
 ### Amendments to Existing Controls (9)
 
@@ -153,10 +158,10 @@ These target the model's inference endpoint rather than its behavior. They sit a
 | Safety/Misuse | 2 | 0 | 0 | 2 |
 | Data | 3 | 2 | 1 | 0 |
 | Governance | 2 | 0 | 0 | 2 |
-| Operational | 3 | 1 | 1 | 1 |
+| Operational | 4 | 1 | 1 | 2 |
 | Human Factors | 2 | 0 | 2 | 0 |
 | Inference-Side | 3 | 0 | 1 | 2 |
-| **Total** | **34** | **9** | **9** | **18** |
+| **Total** | **35** | **9** | **9** | **22** |
 
 ### Key Observation
 

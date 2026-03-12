@@ -33,7 +33,7 @@ description: One-page AI security reference. Classify systems, select controls, 
 | **Circuit Breaker** | Feature flag | Feature flag | Automated health-check | Automated + staffed fallback |
 | **Usage Logging** | Yes | Yes | Yes | Yes |
 
-**Agentic add-ons** (if agent has write access): tool permission matrix, transaction resolution plan, multi-agent cascade prevention, 5-phase degradation path (Tier 2+).
+**Agentic add-ons** (if agent has write access): tool permission matrix, transaction resolution plan, multi-agent cascade prevention, 5-phase degradation path (Tier 2+), token budget monitoring with context rotation (all tiers).
 
 ## 3. Fail Posture
 
@@ -109,6 +109,7 @@ Every AI deployment must answer these before production:
 4. **What's the fallback path?**
 5. **Has it been tested?**
 6. **Is this multi-agent?** If yes → apply [MASO controls](maso/) on top of the foundation.
+7. **What happens when context fills up?** Token exhaustion degrades guardrails, increases hallucinations, and weakens instruction-following — and degrades the Judge monitoring it at the same time. Define context rotation strategy, alerting thresholds (70/85/95%), and fail-closed behavior. See [MASO OP-04](maso/controls/risk-register.md).
 
-If you can answer all six, you're ready. If you can't, you're not.
+If you can answer all seven, you're ready. If you can't, you're not.
 

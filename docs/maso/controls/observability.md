@@ -46,6 +46,7 @@ All Tier 1 controls remain active, plus:
 | **OB-2.3** Drift detection | Statistical comparison of agent output distributions against rolling baseline | Detects gradual quality degradation, topic drift, and style changes. Window: 7-day rolling baseline, alert on >2σ deviation. |
 | **OB-2.4** SIEM/SOAR integration | Agent observability events forwarded to enterprise security operations | Correlation with non-AI security events. Agent anomalies visible alongside network/endpoint alerts. |
 | **OB-2.5** Cost and consumption monitoring | Per-agent token usage, API costs, and execution time tracked with alerting thresholds | Detects runaway loops and unbounded consumption (LLM10) before budget limits are reached. |
+| **OB-2.5a** Context utilisation monitoring | Per-agent context window consumption tracked as a security-relevant metric with tiered alerting | Context utilisation is distinct from cost — it measures how much of the agent's attention budget has been consumed, which directly correlates with guardrail effectiveness and instruction-following reliability. Tiered alerts: 70% (info), 85% (warning → PACE P→A at Tier 2+), 95% (critical → fail-closed). Monitor Judge context utilisation independently; correlated exhaustion (agent AND Judge both above 85%) triggers accelerated PACE escalation (OP-04). |
 | **OB-2.6** Log security | Logs classified, encrypted at rest and in transit, access-restricted to security operations, retention-limited | Full context capture stored in a separate higher-classification log tier from operational monitoring. Prevents logging from becoming a breach vector (SR-06). |
 | **OB-2.7** Accountable human | Every workflow has a designated human owner recorded in the decision chain and AIBOM | `accountable_human` field mandatory in decision chain log. Judge approval does not transfer responsibility from the human owner. Prevents accountability blur (HF-02). |
 | **OB-2.8** Emergent failure accountability | For failures that arise from agent-to-agent interaction (hallucination amplification, consensus failures, transitive delegation errors), the workflow owner is accountable, not individual agent owners | Prevents accountability gaps where no single agent "failed" but the system produced a harmful outcome. Workflow owner is responsible for the orchestration design that permitted the emergent failure. |
@@ -79,6 +80,7 @@ The anomaly score is a composite metric that drives PACE escalation decisions. I
 | Cost trajectory | 0.05 | Token usage trend vs. baseline |
 | Temporal profile | 0.10 | Activity timing vs. established schedule - flags weekend, off-hours, or out-of-cycle invocations that deviate from the agent's historical activation pattern. Borrowed from [insider risk UEBA](../../insights/behavioral-anomaly-detection.md#the-insider-risk-parallel): unusual working hours are one of the strongest early signals of compromised credentials. |
 | Peer group deviation | 0.10 | Behavioral divergence from other agents with the same role and configuration. If one agent in a fleet of five starts behaving differently while its peers remain stable, the individual agent is flagged. Filters out environmental changes that affect all agents equally. |
+| Context utilisation | 0.10 | Current context window consumption relative to capacity. High utilisation correlates with attention dilution, weakened guardrail adherence, and increased hallucination rate. Context above 85% is itself an anomaly signal regardless of other metrics. When combined with declining output quality scores, indicates active degradation (OP-04). |
 
 **Thresholds (configurable per agent):**
 
@@ -143,6 +145,7 @@ Every entry in the decision chain should include:
   "llm_judge_score": 0.92,
   "llm_judge_flags": [],
   "anomaly_score": 23,
+  "context_utilisation": 0.62,
   "approval": "auto | human | escalated | blocked",
   "approver": "system | operator-id",
   "pace_phase": "primary",
@@ -176,4 +179,6 @@ This format enables: full chain reconstruction, per-agent performance trending, 
 **Comprehensive logging without log security.** Agent logs contain reasoning chains, tool parameters, context fragments, and potentially sensitive data. Without classification, encryption, and access controls, the observability layer becomes a high-value target for data exfiltration - the very attack it's supposed to detect (SR-06).
 
 **No named human on the decision chain.** "The agents decided" is not accountability. Every workflow must have a designated human owner. The decision chain log must record who that person is. Judge approval is a tool, not a transfer of responsibility.
+
+**Monitoring cost but not context utilisation.** OB-2.5 tracks token spend — how much you're paying. But context utilisation — how full the agent's attention window is — is the security-relevant metric. An agent at 90% context capacity with a small bill is more dangerous than an agent at 30% capacity with a large bill. The former has weakened guardrails; the latter is just expensive. Monitor both, but treat context utilisation as a security signal, not just an operational one (OP-04).
 
