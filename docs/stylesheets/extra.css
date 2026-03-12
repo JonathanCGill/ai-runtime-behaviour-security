@@ -116,26 +116,24 @@ img[src$=".svg"] {
   margin: 0;
 }
 
-/* Three clickable paths at bottom of homepage */
+/* Stacked clickable paths at bottom of homepage */
 .home-paths {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  align-items: start;
-  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   margin: 2rem 0 1rem;
 }
 
 .home-path {
   border: 1px solid var(--md-default-fg-color--lightest);
   border-radius: 0.5rem;
-  padding: 1.5rem;
+  padding: 1.25rem 1.5rem;
   background: var(--md-code-bg-color);
-  display: flex;
-  flex-direction: column;
 }
 
 .home-path h4 {
   margin-top: 0 !important;
+  margin-bottom: 0.25rem;
   font-size: 1.05rem;
   color: var(--md-accent-fg-color);
 }
@@ -145,15 +143,8 @@ img[src$=".svg"] {
 }
 
 .home-path .md-button {
-  margin-top: auto;
   align-self: flex-start;
   white-space: nowrap;
-}
-
-@media (max-width: 768px) {
-  .home-paths {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* ── Learning site callout ── */
