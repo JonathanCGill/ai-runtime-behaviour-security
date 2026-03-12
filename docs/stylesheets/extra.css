@@ -241,7 +241,7 @@ img[src$=".svg"] {
   }
 }
 
-/* ── AI-RS red dot logo ── */
+/* ── AI-RS purple dot logo ── */
 .airs-dot {
   display: flex;
   align-items: center;
@@ -250,7 +250,7 @@ img[src$=".svg"] {
   height: 32px;
   min-width: 32px;
   border-radius: 50%;
-  background-color: #d32f2f;
+  background-color: #7B1FA2;
   color: #fff !important;
   font-family: var(--md-text-font);
   font-size: 0.5rem;
@@ -263,7 +263,7 @@ img[src$=".svg"] {
 }
 
 .airs-dot:hover {
-  background-color: #b71c1c;
+  background-color: #6A1B9A;
   text-decoration: none;
 }
 
