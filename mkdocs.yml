@@ -123,6 +123,16 @@ nav:
     - Red Team Playbook: maso/red-team/red-team-playbook.md
     - Integration Guide: maso/integration/integration-guide.md
     - Worked Examples: maso/examples/worked-examples.md
+    - Learning:
+      - maso/learning/README.md
+      - Foundations: maso/learning/01-foundations.md
+      - Three-Layer Defence: maso/learning/02-three-layer-defence.md
+      - PACE Resilience: maso/learning/03-pace-resilience.md
+      - Seven Control Domains: maso/learning/04-seven-control-domains.md
+      - Emergent Risks: maso/learning/05-emergent-risks.md
+      - Applying MASO: maso/learning/06-applying-maso.md
+      - Quick Reference: maso/learning/07-quick-reference.md
+    - Candidate Control - Token Exhaustion: maso/controls/candidate-token-exhaustion-risk.md
 
   - Implementation:
     - Stakeholders:

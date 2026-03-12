@@ -104,6 +104,16 @@ Securing autonomous agent coordination in multi-agent systems.
 
 </div>
 
+<div class="home-path" markdown>
+
+#### Learn MASO
+
+A structured learning module covering MASO principles, the three-layer defence, PACE resilience, emergent risks, and practical application guidance.
+
+[Start Learning](maso/learning/){ .md-button }
+
+</div>
+
 </div>
 
 ---
