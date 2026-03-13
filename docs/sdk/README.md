@@ -129,158 +129,19 @@ async def main():
 asyncio.run(main())
 ```
 
-## Model Integration Examples
+## Model Integration
 
-The quick start above uses a hardcoded string in place of a real model call. Here's how to wire AIRS into real model providers.
-
-### Anthropic (Claude)
+The SDK is model-agnostic — it wraps security controls around your existing model calls. The quick start above uses a hardcoded string in place of a real model. To test against a live model, use the CLI:
 
 ```bash
-pip install anthropic
+# Test against OpenAI
+airs assess --provider openai --model gpt-4o --non-interactive
+
+# Test against Anthropic
+airs assess --provider anthropic --model claude-sonnet-4-20250514 --non-interactive
 ```
 
-```python
-import asyncio
-import anthropic
-from airs.core.models import AIRequest, AIResponse
-from airs.runtime import (
-    SecurityPipeline, GuardrailChain, RegexGuardrail,
-    CircuitBreaker, PACEController,
-)
-
-client = anthropic.AsyncAnthropic()  # uses ANTHROPIC_API_KEY env var
-
-async def ask_claude(user_input: str) -> str:
-    # Build the security pipeline
-    pipeline = SecurityPipeline(
-        guardrails=GuardrailChain([RegexGuardrail()]),
-        circuit_breaker=CircuitBreaker(),
-        pace=PACEController(),
-    )
-
-    # --- Step 1: AIRS checks the input ---
-    request = AIRequest(input_text=user_input, model="claude-sonnet-4-6")
-    input_result = await pipeline.evaluate_input(request)
-
-    if not input_result.allowed:
-        return f"Blocked: {input_result.blocked_by}"
-
-    # --- Step 2: Call Claude ---
-    message = await client.messages.create(
-        model="claude-sonnet-4-6",
-        max_tokens=1024,
-        messages=[{"role": "user", "content": user_input}],
-    )
-    ai_output = message.content[0].text
-
-    # --- Step 3: AIRS checks the output ---
-    response = AIResponse(request_id=request.request_id, output_text=ai_output)
-    output_result = await pipeline.evaluate_output(request, response)
-
-    if not output_result.allowed:
-        return f"Response blocked: {output_result.blocked_by}"
-
-    return ai_output
-
-asyncio.run(ask_claude("What is the capital of France?"))
-```
-
-### OpenAI (GPT)
-
-```bash
-pip install openai
-```
-
-```python
-import asyncio
-from openai import AsyncOpenAI
-from airs.core.models import AIRequest, AIResponse
-from airs.runtime import (
-    SecurityPipeline, GuardrailChain, RegexGuardrail,
-    CircuitBreaker, PACEController,
-)
-
-client = AsyncOpenAI()  # uses OPENAI_API_KEY env var
-
-async def ask_gpt(user_input: str) -> str:
-    pipeline = SecurityPipeline(
-        guardrails=GuardrailChain([RegexGuardrail()]),
-        circuit_breaker=CircuitBreaker(),
-        pace=PACEController(),
-    )
-
-    # --- Step 1: AIRS checks the input ---
-    request = AIRequest(input_text=user_input, model="gpt-4o")
-    input_result = await pipeline.evaluate_input(request)
-
-    if not input_result.allowed:
-        return f"Blocked: {input_result.blocked_by}"
-
-    # --- Step 2: Call OpenAI ---
-    completion = await client.chat.completions.create(
-        model="gpt-4o",
-        messages=[{"role": "user", "content": user_input}],
-    )
-    ai_output = completion.choices[0].message.content
-
-    # --- Step 3: AIRS checks the output ---
-    response = AIResponse(request_id=request.request_id, output_text=ai_output)
-    output_result = await pipeline.evaluate_output(request, response)
-
-    if not output_result.allowed:
-        return f"Response blocked: {output_result.blocked_by}"
-
-    return ai_output
-
-asyncio.run(ask_gpt("What is the capital of France?"))
-```
-
-### Pattern: Reusable Helper
-
-In practice, you'd build the pipeline once and reuse it. Here's a minimal helper that works with any async model function:
-
-```python
-from typing import Callable, Awaitable
-
-async def secured_call(
-    pipeline: SecurityPipeline,
-    user_input: str,
-    model_fn: Callable[[str], Awaitable[str]],
-    model_name: str = "",
-) -> str:
-    """Wrap any async model call with AIRS security checks."""
-    request = AIRequest(input_text=user_input, model=model_name)
-    input_result = await pipeline.evaluate_input(request)
-    if not input_result.allowed:
-        raise ValueError(f"Input blocked: {input_result.blocked_by}")
-
-    ai_output = await model_fn(user_input)
-
-    response = AIResponse(request_id=request.request_id, output_text=ai_output)
-    output_result = await pipeline.evaluate_output(request, response)
-    if not output_result.allowed:
-        raise ValueError(f"Output blocked: {output_result.blocked_by}")
-
-    return ai_output
-```
-
-Usage:
-
-```python
-# With Anthropic
-result = await secured_call(
-    pipeline, "Hello",
-    model_fn=lambda text: call_claude(text),
-    model_name="claude-sonnet-4-6",
-)
-
-# With OpenAI
-result = await secured_call(
-    pipeline, "Hello",
-    model_fn=lambda text: call_gpt(text),
-    model_name="gpt-4o",
-)
-```
+This sends test prompts through the full AIRS pipeline against a live model and shows what gets blocked. See [Live model testing](#live-model-testing-optional) below for details on API keys and costs.
 
 ## CLI Assessment
 
