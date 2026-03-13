@@ -293,6 +293,47 @@ airs assess --json
 | [Telemetry & Audit](telemetry.md) | Structured security events, audit sinks, SOC integration |
 | [FastAPI Integration](fastapi.md) | Drop-in middleware for FastAPI apps |
 | [Examples](examples.md) | Complete working examples |
+| [What the Tests Prove](tests.md) | 160 tests that demonstrate every claim — and document every known gap |
+
+## Get the Code
+
+The SDK is part of the [AI Runtime Security repository](https://github.com/JonathanCGill/airuntimesecurity.io). Clone it and install:
+
+```bash
+git clone https://github.com/JonathanCGill/airuntimesecurity.io.git
+cd airuntimesecurity.io
+
+# Core (guardrails, circuit breaker, PACE, CLI) — no API keys needed
+pip install .
+
+# With FastAPI middleware
+pip install ".[fastapi]"
+
+# With LLM-as-Judge (requires OpenAI-compatible API)
+pip install ".[judge]"
+
+# Everything including dev tools (pytest, ruff)
+pip install ".[all,dev]"
+```
+
+## Run the Tests
+
+```bash
+python -m pytest tests/ -v
+```
+
+All 160 tests pass in under a second with no network access. See [What the Tests Prove](tests.md) for what each test demonstrates and why the adversarial test suite documents both what the guardrails catch *and* what they miss.
+
+## Run the Examples
+
+```bash
+# Quickstart: all layers in 60 lines
+python examples/quickstart.py
+
+# FastAPI app with AIRS middleware
+pip install ".[fastapi]"
+uvicorn examples.fastapi_app:app --reload
+```
 
 ## Architecture
 
@@ -325,15 +366,8 @@ src/airs/
 └── integrations/
     └── fastapi.py           # Drop-in middleware
 
-tests/                       # 100 tests
+tests/                       # 160 tests (run them: python -m pytest tests/ -v)
 examples/
 ├── quickstart.py            # Minimal working example
 └── fastapi_app.py           # Complete FastAPI app
-```
-
-## Running Tests
-
-```bash
-pip install ".[dev]"
-pytest tests/ -v
 ```

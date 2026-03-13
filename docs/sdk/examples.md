@@ -242,13 +242,19 @@ pipeline = SecurityPipeline(
 ```bash
 pip install ".[dev]"
 
-# Run all 52 tests
-pytest tests/ -v
+# Run all 160 tests
+python -m pytest tests/ -v
 
 # Run specific test modules
-pytest tests/test_guardrails.py -v    # Layer 1
-pytest tests/test_pipeline.py -v      # Full pipeline
-pytest tests/test_pace.py -v          # PACE state machine
-pytest tests/test_circuit_breaker.py  # Circuit breaker
-pytest tests/test_risk.py             # Risk classification
+python -m pytest tests/test_guardrails.py -v      # Layer 1: guardrails
+python -m pytest tests/test_adversarial.py -v      # Adversarial: caught + bypassed
+python -m pytest tests/test_pipeline.py -v         # Full pipeline
+python -m pytest tests/test_pace.py -v             # PACE state machine
+python -m pytest tests/test_circuit_breaker.py -v  # Circuit breaker
+python -m pytest tests/test_agents.py -v           # Agent identity & delegation
+python -m pytest tests/test_tool_policy.py -v      # Tool access control
+python -m pytest tests/test_telemetry.py -v        # Telemetry & audit
+python -m pytest tests/test_risk.py -v             # Risk classification
 ```
+
+See [What the Tests Prove](tests.md) for a detailed explanation of what each test demonstrates and why the adversarial tests document both what the guardrails catch and what they miss.
