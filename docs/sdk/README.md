@@ -69,15 +69,13 @@ To run `airs assess` with `--provider`, you need the provider's Python package i
 
 ```bash
 # For OpenAI models (gpt-4o, gpt-4-turbo, etc.)
-pip install "airs[openai]"
-# — or directly: pip install openai
+pip install openai
 
 # For Anthropic models (Claude Sonnet, Opus, Haiku, etc.)
-pip install "airs[anthropic]"
-# — or directly: pip install anthropic
+pip install anthropic
 
 # Both providers
-pip install "airs[openai,anthropic]"
+pip install openai anthropic
 ```
 
 You also need an API key from your provider:
@@ -236,11 +234,11 @@ airs assess --provider openai --non-interactive
 
     ```bash
     # OpenAI
-    pip install "airs[openai]"
+    pip install openai
     export OPENAI_API_KEY=sk-your-key-here
 
     # Anthropic
-    pip install "airs[anthropic]"
+    pip install anthropic
     export ANTHROPIC_API_KEY=sk-ant-your-key-here
     ```
 
