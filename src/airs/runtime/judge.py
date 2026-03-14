@@ -169,6 +169,77 @@ Evaluate the AI output against the policy. Respond with EXACTLY this JSON:
             )
 
 
+class AnthropicLLMJudge(Judge):
+    """LLM-as-Judge using the Anthropic API.
+
+    Requires `anthropic` package. Uses the same evaluation prompt
+    as LLMJudge but calls Claude models via the Anthropic SDK.
+    """
+
+    def __init__(
+        self,
+        model: str = "claude-sonnet-4-20250514",
+        api_key: str | None = None,
+        prompt_template: str | None = None,
+    ) -> None:
+        self._model = model
+        self._api_key = api_key
+        self._prompt_template = prompt_template or LLMJudge.DEFAULT_PROMPT
+
+    async def evaluate(
+        self,
+        input_text: str,
+        output_text: str,
+        policy: str = "",
+        **kwargs: Any,
+    ) -> JudgeEvaluation:
+        import json
+
+        try:
+            import anthropic
+        except ImportError:
+            raise ImportError(
+                "AnthropicLLMJudge requires the 'anthropic' package. "
+                "Install with: pip install anthropic"
+            )
+
+        client = anthropic.AsyncAnthropic(api_key=self._api_key)
+
+        prompt = self._prompt_template.format(
+            policy=policy or LLMJudge.DEFAULT_POLICY,
+            input_text=input_text,
+            output_text=output_text,
+        )
+
+        message = await client.messages.create(
+            model=self._model,
+            max_tokens=256,
+            messages=[{"role": "user", "content": prompt}],
+        )
+
+        raw = message.content[0].text
+
+        try:
+            data = json.loads(raw)
+            verdict_str = data.get("verdict", "review").lower()
+            verdict_map = {
+                "pass": JudgeVerdict.PASS,
+                "review": JudgeVerdict.REVIEW,
+                "escalate": JudgeVerdict.ESCALATE,
+            }
+            return JudgeEvaluation(
+                verdict=verdict_map.get(verdict_str, JudgeVerdict.REVIEW),
+                reason=data.get("reason", ""),
+                confidence=float(data.get("confidence", 0.5)),
+            )
+        except (json.JSONDecodeError, KeyError, ValueError):
+            return JudgeEvaluation(
+                verdict=JudgeVerdict.REVIEW,
+                reason=f"Could not parse judge response: {raw[:200]}",
+                confidence=0.0,
+            )
+
+
 class RuleBasedJudge(Judge):
     """Simple rule-based judge for testing and low-risk deployments.
 
