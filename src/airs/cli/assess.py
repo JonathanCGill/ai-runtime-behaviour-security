@@ -582,16 +582,26 @@ async def _run_live_test(
         profile_count += sum(1 for s in judge_scenarios if s.category != "Judge Baseline")
         console.print(Panel(
             f"[bold]Live Model Test[/bold]\n\n"
-            f"{subtitle}\n"
-            f"Running {total_prompts} test prompts through the AIRS pipeline.\n"
-            f"({profile_count} tailored to your deployment profile)",
-            title="Live Assessment",
+            f"{subtitle}\n\n"
+            f"This test sends {total_prompts} realistic attack and misuse scenarios\n"
+            f"through your AI model, with the AIRS security pipeline in front of it.\n"
+            f"It demonstrates what would be caught — and what would slip through —\n"
+            f"if these controls were deployed in production.\n\n"
+            f"{profile_count} scenarios are tailored to risks specific to your\n"
+            f"deployment (based on your assessment answers above).",
+            title="Live Security Assessment",
             border_style="cyan",
         ))
 
     if not output_json:
         console.print()
-        console.print("[bold]Guardrail Tests[/bold] — input filtering + output evaluation")
+        console.print(
+            "[bold]Layer 1: Guardrail Tests[/bold]\n"
+            "  [dim]Guardrails are fast, deterministic filters that inspect every input\n"
+            "  and output in real time. They catch known attack patterns (prompt injection,\n"
+            "  jailbreaks) and prevent sensitive data (SSNs, credit cards) from leaking.\n"
+            "  BLOCKED = the guardrail caught it.  ALLOWED = it passed through.[/dim]"
+        )
 
     guardrail_results = []
     current_category = ""
@@ -770,8 +780,11 @@ async def _run_live_test(
         if not output_json:
             console.print()
             console.print(
-                f"[bold]Judge Tests[/bold] — LLM-as-Judge ({judge_model}) "
-                f"evaluates model outputs"
+                f"[bold]Layer 2: LLM-as-Judge Tests[/bold]  (judge model: {judge_model})\n"
+                f"  [dim]The Judge is a separate AI model that reviews your model's outputs\n"
+                f"  for problems guardrails cannot catch: hallucinated facts, inappropriate\n"
+                f"  advice, policy violations in otherwise fluent text, or fabricated data.\n"
+                f"  PASS = output is safe.  REVIEW = needs human review.  ESCALATE = dangerous.[/dim]"
             )
 
         current_category = ""
@@ -880,38 +893,152 @@ async def _run_live_test(
                     console.print(f"         Response: [dim]{preview}...[/dim]")
 
     # ── Summary ───────────────────────────────────────────────────────
-    guardrail_passed = sum(1 for r in guardrail_results if r["correct"])
-    guardrail_total = len(guardrail_results)
-
     if not output_json:
-        console.print()
-        color = "green" if guardrail_passed == guardrail_total else "yellow"
-        parts = [f"Guardrails: {guardrail_passed}/{guardrail_total}"]
-        if judge_results:
-            parts.append(f"Judge: {len(judge_results)} evaluated")
-        # Show category breakdown
-        categories = {}
-        for r in guardrail_results:
-            cat = r["category"]
-            if cat not in categories:
-                categories[cat] = {"passed": 0, "total": 0}
-            categories[cat]["total"] += 1
-            if r["correct"]:
-                categories[cat]["passed"] += 1
-
-        breakdown = "\n".join(
-            f"  {cat}: {v['passed']}/{v['total']}"
-            for cat, v in categories.items()
-        )
-        console.print(Panel(
-            f"[{color}]{guardrail_passed}/{guardrail_total} guardrail tests matched expected behavior[/{color}]\n"
-            + ("  |  ".join(parts)) + "\n\n"
-            + breakdown,
-            title="Live Test Summary",
-            border_style=color,
-        ))
+        _print_live_summary(guardrail_results, judge_results, profile)
 
     return {"guardrail_tests": guardrail_results, "judge_tests": judge_results}
+
+
+def _print_live_summary(
+    guardrail_results: list[dict],
+    judge_results: list[dict],
+    profile: DeploymentProfile,
+) -> None:
+    """Print a business-meaningful summary of what the live test proved."""
+    console.print()
+
+    # ── Guardrail breakdown by category ──
+    categories: dict[str, dict] = {}
+    for r in guardrail_results:
+        cat = r["category"]
+        if cat not in categories:
+            categories[cat] = {"passed": 0, "total": 0, "blocked_correctly": 0, "allowed_correctly": 0, "missed": []}
+        categories[cat]["total"] += 1
+        if r["correct"]:
+            categories[cat]["passed"] += 1
+            if r["expected_blocked"]:
+                categories[cat]["blocked_correctly"] += 1
+            else:
+                categories[cat]["allowed_correctly"] += 1
+        else:
+            categories[cat]["missed"].append(r["test"])
+
+    total_passed = sum(c["passed"] for c in categories.values())
+    total_tests = sum(c["total"] for c in categories.values())
+    attacks_blocked = sum(c["blocked_correctly"] for c in categories.values())
+    clean_allowed = sum(c["allowed_correctly"] for c in categories.values())
+    all_passed = total_passed == total_tests
+
+    # ── What the guardrails proved ──
+    lines = []
+    lines.append("[bold]What this means:[/bold]\n")
+
+    if attacks_blocked > 0:
+        lines.append(
+            f"  [green]{attacks_blocked} attack(s) were caught and blocked[/green] before reaching\n"
+            f"  your users. These include prompt injections, jailbreaks, and data\n"
+            f"  exfiltration attempts that could cause real harm in production.\n"
+        )
+
+    if clean_allowed > 0:
+        lines.append(
+            f"  [green]{clean_allowed} legitimate request(s) passed through cleanly[/green] — the\n"
+            f"  security controls did not interfere with normal usage.\n"
+        )
+
+    # Surface what was missed
+    missed_tests = []
+    for cat_data in categories.values():
+        missed_tests.extend(cat_data["missed"])
+    if missed_tests:
+        lines.append(
+            f"  [yellow]{len(missed_tests)} scenario(s) did not behave as expected:[/yellow]\n"
+        )
+        for name in missed_tests:
+            lines.append(f"    [yellow]•[/yellow] {name}\n")
+        lines.append(
+            "  These represent gaps where additional controls or tuning would\n"
+            "  improve protection.\n"
+        )
+
+    # ── Category breakdown with context ──
+    lines.append("\n[bold]Breakdown by risk area:[/bold]\n")
+    for cat, data in categories.items():
+        score = f"{data['passed']}/{data['total']}"
+        color = "green" if data["passed"] == data["total"] else "yellow"
+        lines.append(f"  [{color}]{score}[/{color}]  {cat}")
+        if data["passed"] == data["total"]:
+            lines.append("       [dim]Fully covered by current guardrails[/dim]")
+        else:
+            lines.append("       [yellow]Gaps detected — review recommended[/yellow]")
+        lines.append("")
+
+    # ── Judge summary ──
+    if judge_results:
+        lines.append("[bold]LLM-as-Judge evaluation:[/bold]\n")
+        review_count = sum(1 for r in judge_results if r["judge_verdict"] == "review")
+        escalate_count = sum(1 for r in judge_results if r["judge_verdict"] == "escalate")
+        pass_count = sum(1 for r in judge_results if r["judge_verdict"] == "pass")
+        lines.append(
+            f"  The judge reviewed {len(judge_results)} model output(s) that passed\n"
+            f"  guardrails — looking for subtle problems like hallucinated facts,\n"
+            f"  inappropriate advice, or fabricated data.\n"
+        )
+        if pass_count:
+            lines.append(f"  [green]{pass_count} output(s) were judged safe[/green]")
+        if review_count:
+            lines.append(f"  [yellow]{review_count} output(s) were flagged for human review[/yellow]")
+        if escalate_count:
+            lines.append(f"  [red]{escalate_count} output(s) were escalated as dangerous[/red]")
+        lines.append("")
+
+    # ── Business value summary ──
+    lines.append("[bold]What this proves for your organisation:[/bold]\n")
+
+    if all_passed:
+        lines.append(
+            "  The AIRS three-layer pipeline (guardrails → judge → human oversight)\n"
+            "  correctly handled every scenario tested against your deployment profile.\n"
+        )
+    else:
+        lines.append(
+            "  The AIRS pipeline caught most threats, but gaps were identified.\n"
+            "  These gaps are exactly what the recommended controls above address.\n"
+        )
+
+    # Tailor the value statement to what the profile actually has at stake
+    stakes = []
+    if profile.handles_pii:
+        stakes.append("customer PII from leaking (regulatory fines, breach liability)")
+    if profile.handles_financial_data:
+        stakes.append("fabricated financial data from reaching decisions")
+    if profile.handles_regulated_data:
+        stakes.append("regulated data from unauthorised disclosure")
+    if profile.can_take_actions and not profile.actions_are_reversible:
+        stakes.append("irreversible actions from executing without approval")
+    if profile.external_facing:
+        stakes.append("brand reputation from AI-generated misinformation")
+    if profile.multi_agent:
+        stakes.append("agent-to-agent attacks from propagating across your system")
+
+    if stakes:
+        lines.append("  Implementing these controls would protect against:\n")
+        for s in stakes:
+            lines.append(f"    • {s}")
+        lines.append("")
+
+    lines.append(
+        "  [dim]Without runtime security, these threats go directly to your users.\n"
+        "  With AIRS, they are caught, logged, and escalated — giving your team\n"
+        "  visibility and control over AI behaviour in production.[/dim]"
+    )
+
+    color = "green" if all_passed else "yellow"
+    console.print(Panel(
+        "\n".join(lines),
+        title=f"Live Test Results — {total_passed}/{total_tests} scenarios handled correctly",
+        border_style=color,
+    ))
 
 
 def _default_model(provider: str) -> str:
@@ -1013,7 +1140,10 @@ def _output_rich(
     color = TIER_COLORS[tier]
     console.print(Panel(
         f"[{color}]Risk Tier: {tier.value.upper()}[/{color}]\n\n"
-        f"{TIER_DESCRIPTIONS[tier]}",
+        f"{TIER_DESCRIPTIONS[tier]}\n\n"
+        f"[dim]Your risk tier determines which security controls are recommended\n"
+        f"and how much oversight your AI deployment needs. Higher tiers require\n"
+        f"more layers of protection before AI outputs reach your users.[/dim]",
         title="Assessment Result",
         border_style=color,
     ))
@@ -1021,13 +1151,17 @@ def _output_rich(
     # Risk factors
     if risk_factors:
         console.print()
-        console.print("[bold]Risk Factors:[/bold]")
+        console.print(
+            "[bold]Risk Factors[/bold]  [dim](these characteristics increase your risk tier)[/dim]"
+        )
         for f in risk_factors:
             console.print(f"  [red]![/red] {f}")
 
     if mitigations:
         console.print()
-        console.print("[bold]Mitigating Factors:[/bold]")
+        console.print(
+            "[bold]Mitigating Factors[/bold]  [dim](these reduce your risk tier)[/dim]"
+        )
         for m in mitigations:
             console.print(f"  [green]+[/green] {m}")
 
@@ -1035,8 +1169,19 @@ def _output_rich(
     if maso_tier:
         console.print()
         console.print(f"[bold]Multi-Agent Tier:[/bold] {maso_tier.value.title()}")
+        console.print(
+            "  [dim]Multi-agent systems need additional controls to prevent agents\n"
+            "  from delegating tasks that bypass security boundaries.[/dim]"
+        )
 
     # PACE posture
+    console.print()
+    console.print(
+        "[bold]Degradation Plan (PACE)[/bold]\n"
+        "  [dim]If your AI system starts misbehaving, what happens? PACE defines four\n"
+        "  operational states — from normal operation to full shutdown. This ensures\n"
+        "  your team has a pre-planned response, not a scramble.[/dim]"
+    )
     console.print()
     pace_table = Table(title="PACE Resilience Posture", show_header=True)
     pace_table.add_column("State", style="bold", width=14)
@@ -1050,7 +1195,15 @@ def _output_rich(
 
     # Recommended controls
     console.print()
-    ctrl_table = Table(title=f"Recommended Controls ({len(controls)} total)", show_header=True)
+    console.print(
+        "[bold]Recommended Controls[/bold]\n"
+        "  [dim]Based on your risk tier, these are the security controls you should\n"
+        "  implement. They are ordered by priority — start with the top 3, then\n"
+        "  work through the rest. Each control addresses a specific threat vector\n"
+        "  relevant to your deployment.[/dim]"
+    )
+    console.print()
+    ctrl_table = Table(title=f"Implementation Roadmap ({len(controls)} controls)", show_header=True)
     ctrl_table.add_column("#", width=4)
     ctrl_table.add_column("ID", width=10)
     ctrl_table.add_column("Control", width=35)
@@ -1071,7 +1224,12 @@ def _output_rich(
 
     # Implementation hints for top 3
     console.print()
-    console.print(Panel("[bold]Quick Start — Top 3 Controls[/bold]", border_style="green"))
+    console.print(Panel(
+        "[bold]Quick Start — Top 3 Controls[/bold]\n\n"
+        "[dim]These are the highest-impact controls for your risk profile.\n"
+        "Implementing just these three provides immediate protection.[/dim]",
+        border_style="green",
+    ))
     for c in controls[:3]:
         console.print(f"\n  [bold]{c.id}: {c.name}[/bold]")
         console.print(f"  {c.description}")
