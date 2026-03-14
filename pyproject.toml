@@ -41,7 +41,7 @@ airs = "airs.cli:app"
 packages = ["src/airs"]
 
 [tool.ruff]
-target-version = "0.1.2"
+target-version = "py310"
 line-length = 100
 
 [tool.pytest.ini_options]
