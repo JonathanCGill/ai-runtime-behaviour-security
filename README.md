@@ -4,9 +4,11 @@
 
 [![Controls: 200+](https://img.shields.io/badge/Controls-200%2B-blue?style=flat-square)](docs/foundations/) [![Tests: 99](https://img.shields.io/badge/Tests-99-blue?style=flat-square)](docs/maso/red-team/red-team-playbook.md) [![OWASP: Full Coverage](https://img.shields.io/badge/OWASP-Full_Coverage-brightgreen?style=flat-square)](docs/maso/controls/risk-register.md) [![PACE Resilience](https://img.shields.io/badge/PACE-Resilience-orange?style=flat-square)](docs/PACE-RESILIENCE.md) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
-**A practical, open-source framework for securing AI systems at runtime — where prompt injection, model manipulation, and agent drift actually happen.**
+**A practical, open-source framework for securing AI systems at runtime, where prompt injection, model manipulation, and agent drift actually happen.**
 
 Most AI security guidance stops at the model layer. This framework addresses what happens after deployment: how AI systems behave in production, how that behavior is monitored, and how it's contained when things go wrong. Built from 20+ years of enterprise cybersecurity experience in regulated financial services.
+
+The full control architecture is designed for **AI systems your organisation develops and operates** (custom models, RAG pipelines, agents, multi-agent systems). For AI you consume from vendors (copilots, SaaS, cloud AI platforms), the framework provides the mental model; the security questions and implementation details differ. See [Maturity Levels](docs/strategy/maturity-levels.md) for how the framework addresses both tracks.
 
 ## The Problem You're Solving
 
@@ -89,6 +91,7 @@ airs assess
 | Classify a system by risk | [Risk Tiers](docs/core/risk-tiers.md) |
 | Quantify AI risk for board reporting | [Risk Assessment](docs/core/risk-assessment.md) |
 | Align AI with business strategy | [From Strategy to Production](docs/strategy/) |
+| Understand organisational maturity for AI security | [Maturity Levels](docs/strategy/maturity-levels.md) |
 | See the entire framework on one map | [Tube Map](docs/TUBE-MAP.md) |
 | Understand PACE resilience | [PACE Methodology](docs/PACE-RESILIENCE.md) |
 | Run adversarial tests on agents | [Red Team Playbook](docs/maso/red-team/red-team-playbook.md) |
@@ -132,7 +135,7 @@ The **[From Strategy to Production](docs/strategy/)** section bridges this gap:
 | [Risk Classification](docs/core/risk-tiers.md) | What tier? What controls? | Six-dimension scored profile with governance approval |
 | [From Idea to Production](docs/strategy/idea-to-production.md) | How do we get from idea to safe operation? | Eight-stage lifecycle with gates and owners |
 
-Three constraints strategies routinely underestimate: **[Data Reality](docs/strategy/data-reality.md)** — your data determines your strategy more than your ambition does. **[Human Factors](docs/strategy/human-factors.md)** — controls don't work if the people operating them aren't ready. **[Progression](docs/strategy/progression.md)** — moving from low to high risk takes 2–3 years; skipping steps is the most common strategic failure.
+Three constraints strategies routinely underestimate: **[Data Reality](docs/strategy/data-reality.md)** — your data determines your strategy more than your ambition does. **[Human Factors](docs/strategy/human-factors.md)** — controls don't work if the people operating them aren't ready. **[Progression](docs/strategy/progression.md)** — moving from low to high risk takes 2-3 years; skipping steps is the most common strategic failure. **[Maturity Levels](docs/strategy/maturity-levels.md)** — what Level 1 and Level 5 organisations look like, and why the real gap is operational discipline, not capability.
 
 ## Standards Alignment
 
